@@ -30,7 +30,7 @@
 | T4 | Cost research (insurance, water, electricity/solar, maintenance) + client-supplied input inventory | done | `arena-91a4a9f9` | `research/costs.md`, `data/inputs.json` |
 | T5 | Financial model, year-by-year projections, decision analysis, step-by-step inheritance process | done | `arena-91a4a9f9` | `model/model.py`, `data/projections.json` |
 | T6 | Executive summary | done | `arena-91a4a9f9` | `research/executive-summary.md` |
-| T7 | Site build: landing + subpages + navigation + tables (all rows carry official source links) | done | `arena-91a4a9f9` | `scripts/build_site.py`, `docs/**`, `assets/**` |
+| T7 | Site build: landing + subpages + navigation + tables (all rows carry official source links) | done | `arena-91a4a9f9` | `scripts/build_dashboard.py`, `docs/**`, `assets/**` |
 | T8 | Flagged for Review page (unverified / irregular items) | done | `arena-91a4a9f9` | `data/flags.json`, `docs/flagged.html` |
 | T9 | Line-by-line verification + broken-link / build check | done | `arena-91a4a9f9` | `scripts/verify.py`, `research/verification-log.md` |
 | T10 | Integration: PR → merge → GitHub Pages deploy confirmation → log PR link/result | in progress | `arena-91a4a9f9` | `COORDINATION.md`, `.github/workflows/**` (if needed) |
@@ -75,7 +75,7 @@
 ### Verification command
 
 ```bash
-python3 model/build_data.py && python3 scripts/build_site.py && python3 scripts/verify.py
+python3 model/build_data.py && python3 scripts/build_dashboard.py && python3 scripts/verify.py
 # ALL VERIFICATION CHECKS PASSED — checks run: 3,623; tables: 21; rows: 326; sources: 54; pages: 13
 ```
 

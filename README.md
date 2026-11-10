@@ -47,7 +47,7 @@ All dollar figures are rounded to the nearest $10.
 
 ```bash
 python3 model/build_data.py      # -> data/site_data.json (source of truth)
-python3 scripts/build_site.py    # -> docs/*.html
+python3 scripts/build_dashboard.py    # -> docs/*.html
 python3 scripts/verify.py        # verification + research/verification-log.md
 python3 scripts/write_research.py
 cd docs && python3 -m http.server 8000
@@ -62,7 +62,7 @@ external CDN dependencies, so it works offline and behind the GitHub Pages proxy
 COORDINATION.md          shared task board / session log
 data/site_data.json      single source of truth (sources, tables, flags, summary)
 model/build_data.py      official source registry, assumptions, projections, decision model
-scripts/build_site.py    static HTML renderer
+scripts/build_dashboard.py    static HTML renderer
 scripts/verify.py        line-by-line verification + HTTP smoke test
 scripts/write_research.py
 research/                human-readable notes with official links + verification log
