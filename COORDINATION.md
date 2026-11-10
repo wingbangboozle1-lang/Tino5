@@ -34,7 +34,7 @@ and never start a task already claimed by another live session.
 | T7 | Law-change watch (pending legislation, ballot measures, proposals) | done | arena-8a82cdf2 | `data/law-watch.json`, `pages/law-watch.html` |
 | T8 | Site shell: layout, nav, CSS, JS table renderer | done | arena-8a82cdf2 | `index.html`, `assets/**`, `src/pages/**`, `scripts/build_site.py` |
 | T9 | Verification pass: row-by-row source check, link check | done | arena-8a82cdf2 | `scripts/verify.mjs`, `verification-report.json`, `pages/flagged.html`, `data/flagged.json`, `pages/methodology.html` |
-| T10 | Integration: merge, build check, PR, merge PR, confirm Pages deploy | in progress | arena-8a82cdf2 | `COORDINATION.md` |
+| T10 | Integration: merge, build check, PR, merge PR, confirm Pages deploy | done | arena-8a82cdf2 | `COORDINATION.md` |
 | T11 | Archive prior sessions' published site under `/archive/` (no deletion) | done | arena-8a82cdf2 | `archive/**` |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
@@ -131,3 +131,18 @@ assessment history and flags reconcile with this one.
 **Verification after the merge.** `node scripts/verify.mjs` → 209 data rows, 76 verified, 440 internal links,
 0 broken, 0 errors, 15 warnings (all of them archived pages citing sources outside this registry — reported, not
 failed, because rewriting those pages would alter the earlier record).
+
+## PR / merge / deploy record (this session)
+
+- **PR #5** — https://github.com/wingbangboozle1-lang/Tino5/pull/5 (`arena/8a82cdf2-tino5` → `main`) — **MERGED**
+  as merge commit `75a8304` at 2026-11-10T10:12:49Z, without waiting for review, as instructed.
+- **GitHub Pages** — build triggered on `75a8304`, status **built** (2026-11-10T10:13:14Z, no error).
+  Live pages confirmed by fetching the deployed HTML, not just the build status:
+  `pages/scenarios.html` renders the scenario cards, comparison table, 27-row sensitivity grid, Prop 19 table and
+  cash-flow table from `data/model.json`.
+- **Post-merge follow-up PR #6** — records this deploy result, fixes one stale caption on the cash-flow table and
+  removes a superseded scratch note (`research/verified-notes.md`).
+
+### Final verification state
+`node scripts/verify.mjs` → 209 data rows (76 verified), 440 internal links, 0 broken, 0 errors.
+Flagged items F-01…F-18 published on `pages/flagged.html`; none block the merge, as instructed.

@@ -237,8 +237,9 @@
         '</td><td class="numv">' + (r.sale_proceeds ? money(r.sale_proceeds) : "—") + "</td></tr>");
     });
     out.push("</tbody></table></div>");
-    out.push('<p class="small">Sell-at-inheritance case, every fifth year plus the transfer year. Negative net cash in the ' +
-      "transfer year reflects the one-off costs of the sale.</p>");
+    out.push('<p class="small">Sell-at-inheritance case, every fifth year plus the transfer year. At the transfer the ' +
+      "property is sold: its running costs stop, the property tax stops, and the net proceeds land in the portfolio. " +
+      "Earlier years show Property B's two rented units only, which is the present position.</p>");
     return out.join("");
   }
 
