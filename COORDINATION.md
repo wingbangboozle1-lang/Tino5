@@ -142,8 +142,13 @@ failed, because rewriting those pages would alter the earlier record).
   Live pages confirmed by fetching the deployed HTML, not just the build status:
   `pages/scenarios.html` renders the scenario cards, comparison table, 27-row sensitivity grid, Prop 19 table and
   cash-flow table from `data/model.json`.
-- **Post-merge follow-up PR #6** — records this deploy result, fixes one stale caption on the cash-flow table and
-  removes a superseded scratch note (`research/verified-notes.md`).
+- **Post-merge follow-ups** (all merged, all deployed):
+  - **PR #8** (merge `f99c059`) — recorded the deploy result, fixed one stale caption on the cash-flow table,
+    removed a superseded scratch note.
+  - **PR #9** (merge `6c7f7fd`) — homepage flagged-item count.
+  - **PR #10** (merge `8319476`) — integrated the third session's concurrent merge (`mine/pages/**`), extended
+    verification to those pages and linked them; recorded the concurrent-merge incident below.
+  - **PR #12** (merge `8d84077`) — flagged-page item range corrected to F-01…F-18.
 
 ### Final verification state
 `node scripts/verify.mjs` → 209 data rows (76 verified), 440 internal links, 0 broken, 0 errors.
