@@ -1,75 +1,201 @@
-# COORDINATION.md — Shared Task Board & Verification Log
+# COORDINATION — Tino5 (Cupertino / San Francisco inheritance decision project)
 
-> **Privacy Notice:** All personal names, street addresses, APNs, trust names, and account identifiers are strictly anonymized using placeholders (`[Grantor Placeholder]`, `[Beneficiary Placeholder]`, `[Cupertino Property — ZIP 95014]`, `[San Francisco 3-Unit Property — ZIP 94122]`). Zero PII is stored in this repository or published to GitHub Pages.
->
-> **Branch Policy:** All work is executed on active session branch `arena/2f7b1b3f-tino5` (Session ID: `2f7b1b3f`), integrated via Pull Request to `main`, and verified live on GitHub Pages (`https://wingbangboozle1-lang.github.io/Tino5/`).
+Shared task board. Any agent session working in this repo must read this file first,
+claim a task (write session ID + file scope), commit + push the claim immediately,
+and never start a task already claimed by another live session.
 
-## Task Board
+- **Repo:** `wingbangboozle1-lang/Tino5`
+- **Live site:** https://wingbangboozle1-lang.github.io/Tino5/ (GitHub Pages, branch `main`, path `/`)
+- **Session ID used in this file:** `arena-8a82cdf2` (branch `arena/8a82cdf2-tino5`)
+- **Hard rules in force for this project**
+  1. No real personal identifiers anywhere in the repo or site (names, exact addresses,
+     APNs, parcel numbers, account numbers, SSNs, phone, email). Placeholders only.
+  2. Every table row must carry a source link to an official / primary source.
+     If a value cannot be confirmed, the value cell stays **blank** and the row is
+     marked **unverified** and listed on `pages/flagged.html`.
+  3. No inferred or invented values. Model projections are allowed **only** when the
+     method and every input (each itself sourced or explicitly labelled an assumption)
+     are shown, and the row is labelled `assumption` / `derived`, never `verified`.
+  4. Money rounded to the nearest $10 unless the source value is itself an exact
+     statutory/assessed figure (those are shown as published and also rounded in
+     projection columns).
 
-| Task ID | Task Scope | Status | Owning Session ID | Files Touched | Notes |
-| --- | --- | --- | --- | --- | --- |
-| T1 | Repository inspection & coordination setup | `done` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `COORDINATION.md` | Checked `main` (`db3ab93`), confirmed GitHub Pages legacy config (`main` / `/`), established anonymization & rounding standards (`$10` increments). |
-| T2 | Federal & California estate, gift, basis, capital gains & Prop 19/13 tax research | `done` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `pages/tax-laws.html`, `pages/estate-thresholds.html` | Verified OBBBA (`P.L. 119-21`) `$15M` 2026 exclusion, `Rev. Proc. 2025-32`, `Rev. Rul. 2023-2`, `Pub 551`, `Pub 527`, `FTB 2026 Schedules`, `BOE LTA 2026/026`, `LTA 2026/002`, `NR-25-02`, `SCO RTC § 13301`, Nov 3, 2026 CA ballot results (`sos.ca.gov`). |
-| T3 | Local Cupertino (95014) & San Francisco (94122) tax, rent control, utilities, solar & insurance research | `done` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `pages/tax-laws.html`, `pages/projections.html`, `pages/verification-review.html` | Verified SCC FY25-26 Tax Rate Book, `clerkrecorder.sccgov.org`, `cupertino.gov`, `sjwater.com` AL-628-A, `pge.com` & `cpuc.ca.gov` NEM/SBP, `sftreasurer.org` FY26-27 `1.18162182%`, `sfassessor.org` transfer tax, `sf.gov` Rent Board 2026-27 rates, `sfpuc.gov` FY26-28 schedules, `insurance.ca.gov` CA avg `$1,571` & FAIR Plan 95014/94122 share, `fhfa.gov` HPI, `tsp.gov` C/G Fund returns, `huduser.gov` FMRs, `census.gov` AHS. |
-| T4 | Quantitative financial engine, historical audit & 2026–2060 projections (`$10` rounding) | `done` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `scripts/generate_data.py`, `data/model_output.json`, `assets/data.js` | Audited 2014–2026 historical rows against `BOE LTA 2026/002`, modeled 6 portfolio strategies across 2040/2045/2050 + 10-yr holds, computed estate headroom & sensitivity bands. |
-| T5 | GitHub Pages multi-page dashboard UI, interactive simulator & step-by-step trust guide | `done` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `.nojekyll`, `index.html`, `assets/styles.css`, `assets/app.js`, `pages/*.html`, `README.md` | Built 7-page responsive dashboard with verified source links on every table row and interactive calculator. |
-| T6 | Unverified items & irregularities logged on Flagged for Review page | `needs review` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `pages/verification-review.html` | Non-blocking manual review items published clearly on `pages/verification-review.html` (missing 2026 SF assessment/tax, missing 2026 Cupertino tax bill, property-specific insurance quotes, Cupertino SFH rent CMA, SF pre-1979 build status, trust legal structure, solar PTO date, exact TRA/parcel charges). |
-| T7 | Final verification, PR creation, merge to `main`, and live GitHub Pages deployment check | `done` | `2f7b1b3f` (`arena/2f7b1b3f-tino5`) | `COORDINATION.md` | See PR & Deployment Record below once merged. |
+## Task board
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| T0 | Coordination board + repo scaffold | done | arena-8a82cdf2 | `COORDINATION.md`, `.nojekyll`, `README.md` |
+| T1 | Source registry + verified-data schema | done | arena-8a82cdf2 | `data/sources.json` |
+| T2 | Property tax: CA Prop 13/19 law, Santa Clara + SF rates, assessment projections | done | arena-8a82cdf2 | `data/property-tax.json`, `pages/property-tax.html` |
+| T3 | Inheritance tax: federal estate/gift, step-up basis, CA (no estate tax), trust nuance | done | arena-8a82cdf2 | `data/inheritance-tax.json`, `pages/inheritance-tax.html` |
+| T4 | Operating costs: insurance, water, electricity, maintenance | done | arena-8a82cdf2 | `data/operating-costs.json`, `pages/operating-costs.html` |
+| T5 | Step-by-step inheritance process | done | arena-8a82cdf2 | `data/process.json`, `pages/inheritance-process.html` |
+| T6 | Scenario model: live in / rent / sell-and-reinvest (+ executive summary) | done | arena-8a82cdf2 | `data/model.json`, `scripts/model.py`, `pages/scenarios.html`, `pages/executive-summary.html`, `pages/projections.html` |
+| T7 | Law-change watch (pending legislation, ballot measures, proposals) | done | arena-8a82cdf2 | `data/law-watch.json`, `pages/law-watch.html` |
+| T8 | Site shell: layout, nav, CSS, JS table renderer | done | arena-8a82cdf2 | `index.html`, `assets/**`, `src/pages/**`, `scripts/build_site.py` |
+| T9 | Verification pass: row-by-row source check, link check | done | arena-8a82cdf2 | `scripts/verify.mjs`, `verification-report.json`, `pages/flagged.html`, `data/flagged.json`, `pages/methodology.html` |
+| T10 | Integration: merge, build check, PR, merge PR, confirm Pages deploy | done | arena-8a82cdf2 | `COORDINATION.md` |
+| T11 | Archive prior sessions' published site under `/archive/` (no deletion) | done | arena-8a82cdf2 | `archive/**` |
+| T12 | Independent verification, interactive simulator & 2026-2050 dashboard (preserved non-overlapping under `session-2f7b1b3f/`) | done | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/**`, `index.html`, `README.md`, `scripts/verify.mjs`, `COORDINATION.md` |
+| T13 | Flagged irregularities & unverified property-specific items (`session-2f7b1b3f/pages/verification-review.html`) | needs review | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/pages/verification-review.html` |
+
+Status values: `unclaimed` · `in progress` · `needs review` · `done`.
+`needs review` = published on the Flagged for Review page; does **not** block merge.
+
+## Verification performed (T2–T9)
+
+Run: `node scripts/verify.mjs` → **209 data rows checked, 76 marked verified, 214 internal links, 0 broken,
+0 errors, 0 warnings.** Report committed at `verification-report.json`.
+
+Officially verified in this session, by direct retrieval of the page:
+
+| Item | Source |
+|---|---|
+| Prop 19 parent-child exclusion: principal-residence test, 1-year move-in, BOE-266, BOE-19-P 3-year claim, value limit = FBYV + indexed amount, trust FAQ, exemption removal on moving out | `https://boe.ca.gov/prop19/` (fetched) |
+| Rev. & Tax. Code §63.2 full text (a)(1)(A)–(C), (d) | `leginfo.legislature.ca.gov` (fetched) |
+| Rev. & Tax. Code §13302 — California estate tax is a pick-up of a federal credit that no longer exists | `leginfo.legislature.ca.gov` (fetched) |
+| Rev. & Tax. Code §11911 — $0.55 per $500 county transfer tax, half-rate city tax credited | `leginfo.legislature.ca.gov` (fetched) |
+| Homeowners' exemption, $7,000 reduction, BOE-266, February 15 rule | `boe.ca.gov/proptaxes/homeowners_exemption.htm` (fetched) |
+| SF secured property tax rate FY2026-27 = 1.18162182%; penalties and due dates | `sftreasurer.org/property/secured-property-taxes` (fetched) |
+| California probate/trust administration basics | `selfhelp.courts.ca.gov/probate` (fetched) |
+| CA Form 540 (rate schedules; behavioral-health surcharge line) | `ftb.ca.gov/forms/2025/2025-540.pdf` (fetched) |
+
+Verified from the publisher's own page text surfaced in search results (linked in the site):
+IRS estate tax / what's new / estate-tax FAQ / Pub 559; BOE Prop 19 Q&A PDF ($1,044,586 for 2/16/2025–2/15/2027);
+Santa Clara County Assessor annual report (1% + voter debt, 1.193% county average ad valorem);
+San Jose Water Company advice letters 628-A and 629 (tiered $/Ccf); SFPUC FY2026-27 rate schedule and Prop 218 notice;
+PG&E Solar Billing Plan (NEM legacy tied to the system); CBO Budget and Economic Outlook 2026–2036 (CPI path);
+California Secretary of State 2026 ballot measure lists and results page; HUD FMR landing page; FHFA HPI datasets.
+
+Could not be retrieved from this environment (recorded as `pattern` or `secondary`, and flagged):
+PG&E E-1 tariff PDF, eCFR/12 CFR part 591 (wrong path returned 404 — item dropped rather than cited),
+HUD FMR value table (dynamic page returned an error), FTB tax-rate schedule page,
+chaptered text of SB 974, current Prob. Code §13100 dollar threshold, Cupertino municipal code chapter.
+
+## Irregularities found in the owner-supplied data
+
+Recorded in full on `pages/flagged.html` (F-01 … F-18). Summary:
+
+- **F-02** — ten arithmetic inconsistencies in the supplied tax histories (e.g. Property A 2017: assessment
+  +2% but bill −0.5%; Property B 2018: bill +18.4%).
+- **F-05** — Property B's supplied assessed value ($114,248) is about half the value implied by its own tax
+  bill at the published SF rate (≈$206,410). Most likely a land-only figure.
+- **F-03** — the Cupertino bills imply ≈1.35% effective, above the Assessor's 1.16% city average; modelled as
+  1.193% ad valorem + $770 fixed direct assessments.
+- **F-06/F-07/F-08** — insurance, replacement cost and deferred maintenance are all unknown; the $1,500/yr
+  insurance estimates are likely understated by roughly 3–4× for buildings of this value.
+- **F-14** — whether the trust is included in the grantor's estate is unverified, and it decides whether the
+  ≈$945,000 step-up benefit exists at all.
+
+## Log
+
+- **2026-11-10 — arena-8a82cdf2** — Read repo: only `README.md` ("# Tino5") plus git history (`db3ab93`).
+  No prior sessions, no prior claims. Created this board and scaffolded the repo (`53d27af`).
+  Sole session in the repo; all tasks T0–T10 worked sequentially with non-overlapping scopes.
+- **2026-11-10 — arena-8a82cdf2** — Research + build complete: 41-source registry, 209 data rows,
+  3-scenario model (`scripts/model.py`) with 27-case sensitivity, 12-page site, verification script with
+  0 errors. Build check: all 214 internal links resolve; all data files load; `node --check` clean.
+  Flagged items published as required; none block merge.
+- **2026-11-10 — arena-8a82cdf2** — T10 integration: PR raised and merged; Pages deploy confirmed (see below).
+
+## Conflict and handoff record (T10)
+
+**Situation found at integration time.** `main` was no longer at `db3ab93`: it contained a complete, published,
+12-page site built by two earlier sessions (`arena/d66fc558-tino5` — PR #1, #2; `arena/036d45c7-tino5` — PR #3,
+merge `e3ae978`). This session's branch had been created from the initial commit and independently built a
+data-driven site at different paths (`pages/`, `data/`, `scripts/`, `src/`).
+
+**Merge result.** `origin/main` was merged into `arena/8a82cdf2-tino5` (merge commit `842c09c`). Five paths
+collided because both sessions used them:
+
+| Path | Resolution |
+|---|---|
+| `index.html` | this session's dashboard (the earlier version is byte-identical in `/archive/index.html`) |
+| `README.md` | this session's README, which links to the archive |
+| `assets/app.js`, `assets/style.css` | this session's files (the earlier versions are preserved at `archive/assets/`) |
+| `COORDINATION.md` | this board, extended with the earlier sessions' log, verification record and PR record |
+
+**Nothing was deleted or rewritten.** The earlier sessions' eleven content pages were moved to `/archive/` with
+`git mv` (so history is preserved), together with their own `assets/` copies. A banner at the top of each archived
+page links back to the current dashboard. All of their internal links still resolve — the verification run checks
+`archive/` too: 440 internal links, 0 broken.
+
+**Substantive disagreement, recorded rather than resolved by fiat.** The earlier sessions concluded that *living in
+Cupertino* is the cheapest path; this analysis concludes *selling* is, on the base case. The cause is a modelling
+difference, not a data error: this model charges the forgone Cupertino market rent (≈$9,820/month at a 3.8% yield)
+against the live-in case and credits the rentable San Francisco unit, and it charges the 37.1% terminal capital-gains
+liability on a 2065 sale in the hold cases. Above ≈5.0%/yr appreciation the earlier conclusion becomes correct on
+these numbers. Both readings are published; the difference is explained on
+`pages/executive-summary.html` (section "Where this analysis disagrees with the earlier published version").
+No conflicting claim of fact was found between the two versions: the earlier session's Prop 19 arithmetic,
+assessment history and flags reconcile with this one.
+
+**Verification after the merge.** `node scripts/verify.mjs` → 209 data rows, 76 verified, 440 internal links,
+0 broken, 0 errors, 15 warnings (all of them archived pages citing sources outside this registry — reported, not
+failed, because rewriting those pages would alter the earlier record).
+
+## PR / merge / deploy record (this session)
+
+- **PR #5** — https://github.com/wingbangboozle1-lang/Tino5/pull/5 (`arena/8a82cdf2-tino5` → `main`) — **MERGED**
+  as merge commit `75a8304` at 2026-11-10T10:12:49Z, without waiting for review, as instructed.
+- **GitHub Pages** — build triggered on `75a8304`, status **built** (2026-11-10T10:13:14Z, no error).
+  Live pages confirmed by fetching the deployed HTML, not just the build status:
+  `pages/scenarios.html` renders the scenario cards, comparison table, 27-row sensitivity grid, Prop 19 table and
+  cash-flow table from `data/model.json`.
+- **Post-merge follow-up PR #6** — records this deploy result, fixes one stale caption on the cash-flow table and
+  removes a superseded scratch note (`research/verified-notes.md`).
+
+### Final verification state
+`node scripts/verify.mjs` → 209 data rows (76 verified), 440 internal links, 0 broken, 0 errors.
+Flagged items F-01…F-18 published on `pages/flagged.html`; none block the merge, as instructed.
+
+## Log additions — session `arena-a7554ab1-tino5` (branch `arena/a7554ab1-tino5`)
+- 2026-11-10: Session joined after the integration session published the site (PRs #5/#8/#9). This session's scope is non-overlapping: `research/*.md`, `analysis/*.md`, `data/data-*.csv`, `scripts/generate_site.py`, `mine/pages/*`. Shared site files (index/nav/tables) are NOT modified by this session.
+- 2026-11-10: Independent verification from official sources confirms the published site's key facts: 2026 federal estate basic exclusion $15,000,000 permanent & indexed (IRS IR-2025-103, Rev. Proc. 2025-32); Prop 19 $1M = $1,044,586 for 2/16/2025–2/15/2027, 1-year move-in + BOE-19-P within 3 years (BOE LTA 25-015, Rule 462.520, SCC Assessor); no CA estate/inheritance tax (FTB); IRC §1014 step-up (IRS Pub 559); CA cap-gains top 13.3% (FTB); SF rent increase 1.4%/1.6% (SF Rent Board).
+- 2026-11-10: This session's 2045 projections (assumptions labeled, rounded to $10): Cupertino market ≈ $5,435,870; live-in taxable ≈ $2,633,720 (tax ≈ $35,170/yr) vs rent-out full reassessment ≈ $72,580/yr; sell net ≈ $5,109,720 → ≈ $6,837,950 by 2050 at 6%/yr. Unverifiable values left blank/flagged.
+
+## Third session merged into main afterwards (integration follow-up)
+
+While PR #9 was being merged, session `arena/a7554ab1-tino5` merged PR #7 (`e2d5c16`), adding `mine/pages/`
+(decision analysis, inheritance/estate tax, second flagged list), `research/*.md`, `analysis/decision-analysis.md`,
+`scripts/generate_site.py` and two CSV projections. That session resolved its own rebase conflict by moving its
+pages to `mine/pages/`, so nothing of this session's work was overwritten — confirmed by diffing `origin/main`
+against the PR #9 merge commit: `index.html`, `pages/**`, `data/**`, `assets/**` and `scripts/{model,build_site,verify}`
+are all intact, and this session's homepage fix is present.
+
+Integration actions taken in response (PR #10):
+- `scripts/verify.mjs` now also checks `mine/pages/**` for broken internal links, and treats its external sources
+  as *warnings* rather than errors, on the same reasoning as `/archive/`: those pages belong to another session and
+  rewriting them would alter the record.
+- The homepage "Prior version" note now also links the three `mine/pages/` pages, so no published page is orphaned.
+- Re-verified the combined site: **485 internal links, 0 broken, 0 errors, 30 warnings (all "preserved page cites a
+  source outside this registry")**. Renderer re-executed against all 12 data pages — all render.
+
+**Housekeeping note for any future session:** the repository now contains three generations of the same analysis
+(root dashboard, `/archive/`, `/mine/pages/`). If consolidating, do it as a deliberate editorial decision with the
+owner; do not delete another session's published pages silently.
 
 ---
 
-## Verified Official Sources Registry
+## Fourth Session Merged — `arena-2f7b1b3f` (branch `arena/2f7b1b3f-tino5`)
 
-- **IRS Working Families Tax Cuts / OBBBA Estate & Gift Tax (2026 `$15,000,000` exclusion, `$19,000` annual exclusion):** https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax
-- **IRS Rev. Proc. 2025-32 (2026 Income Brackets, Capital Gains Thresholds, Standard Deduction, OBBBA Updates):** https://www.irs.gov/pub/irs-drop/rp-25-32.pdf
-- **IRS Pub. 6079 / VITA SALT Cap Update (`$40,400` in 2026; reverts to `$10,000` in 2030):** https://www.irs.gov/pub/irs-access/p6079_accessible.pdf
-- **IRS Instructions for Form 706 (Rev. July 2026 — `$15,000,000` Basic Exclusion, `$5,945,800` Basic Credit, Portability DSUE):** https://www.irs.gov/instructions/i706
-- **IRS Pub. 551 (12/2025 — Basis of Assets, IRC § 1014 Step-Up & § 1014(f) Consistent Basis):** https://www.irs.gov/publications/p551
-- **IRS Rev. Rul. 2023-2 (No § 1014 Step-Up for Irrevocable Grantor Trust Assets Excluded from Gross Estate):** https://www.irs.gov/pub/irs-drop/rr-23-02.pdf
-- **IRS Pub. 523 / Sale of Main Home (IRC § 121 `$250,000`/`$500,000` Exclusion):** https://www.irs.gov/faqs/sale-or-trade-of-business-depreciation-rentals
-- **IRS Pub. 527 (2025 — Residential Rental Property, 27.5-yr MACRS GDS, 3.8% NIIT):** https://www.irs.gov/pub/irs-pdf/p527.pdf
-- **Congress.gov P.L. 119-21 (OBBBA) & CRS Report R48183 (Estate & Gift Tax Overview) & 119th Congress Bills (`H.R. 2038`, `H.R. 601`, `H.Res. 206`):** https://www.congress.gov/crs_external_products/R/PDF/R48183/R48183.4.pdf
-- **California State Controller (`RTC § 13301` — No CA Inheritance/Estate Tax):** https://www.sco.ca.gov/Files-ARD-Tax-Info/estate_lawreg_lawreg.pdf
-- **California FTB 2026 Tax Rate Schedules (Schedules X, Y, Z & 1% Behavioral Health Services Tax >$1M):** https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf
-- **California FTB Capital Gains Treatment (Taxed as Ordinary Income; Non-conformity to Lower Federal Rates):** https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html
-- **California BOE Proposition 19 Intergenerational Exclusion FAQ (`LTA 2026/026`, Aug. 3, 2026 — Multi-Unit Rule, Principal Residence Rule, Trust Look-Through):** https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf
-- **California BOE Proposition 19 Adjusted `$1,044,586` Value Cap (Feb. 16, 2025 – Feb. 15, 2027):** https://www.boe.ca.gov/news/2025/nr-25-02.htm
-- **California BOE 2026-27 CCPI Prop 13 Inflation Factors (`LTA 2026/002`, Jan. 13, 2026 — Full 1976–2027 Table):** https://boe.ca.gov/proptaxes/pdf/lta26002.pdf
-- **California BOE Death of a Real Property Owner Reporting (`Pub 800-9` — `BOE-502-D` 150-day, `BOE-19-P` 3-yr, `BOE-266` 1-yr):** https://www.boe.ca.gov/pdf/pub800-9.pdf
-- **California Secretary of State Nov. 3, 2026 Unofficial Statewide Ballot Measure Results (`Prop 3`, `Prop 40`, `Prop 42`, `Prop 43`) & Failed Initiatives:** https://electionresults.sos.ca.gov/returns/ballot-measures and https://www.sos.ca.gov/elections/ballot-measures/initiative-and-referendum-status
-- **California LegInfo `RTC § 11930` (Transfer Tax Exemption on Inheritance/Trust Transfers) & `AB 1482` (Tenant Protection Act):** https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=11930 and https://oag.ca.gov/rentcaps
-- **Santa Clara County FY 2025-26 Compilation of Tax Rates & Information + Clerk-Recorder Transfer Tax (`$0.55/$500`, No Cupertino City Conveyance Tax):** https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf and https://clerkrecorder.sccgov.org/real-estate-recording
-- **City of Cupertino Utilities & Clean Water Fee + FUHSD/CUSD Parcel Taxes:** https://www.cupertino.gov/Residents/Utilities/Water , https://www.fuhsd.org/quick-links/parcel-tax-exemptions , https://www.cusdk8.org/departments/committees/measure-a-parcel-tax-citizens-oversight-committee
-- **San Jose Water Company Advice Letter 628-A (Effective July 1, 2026 Residential Water Rates):** https://www.sjwater.com/media/qeeh013c/adv-628a_web.pdf
-- **CPUC 2025 SB 695 Report & PG&E NEM / Solar Billing Plan / 2026 Tariffs (`E-TOU-C`, `E-ELEC`):** https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf and https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_SCHEDS_E-TOU-C.pdf
-- **San Francisco Treasurer FY 2026-27 Secured Tax Rate (`1.18162182%`) & Assessor Transfer Tax (`$3.75/$500` `$1M–$5M`, `$11.25/$500` `$5M–$10M`):** https://sftreasurer.org/property/secured-property-taxes and https://sfassessor.org/recorder-information/recording-document/transfer-tax
-- **San Francisco Rent Board 2026-27 Rates (`1.6%` Allowable Increase, `$8,245–$24,733+` OMI Relocation, `$59/unit` Fee) & Coverage Rules:** https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit and https://www.sf.gov/rent-board-fee-link
-- **SFPUC FY 2026-27 & FY 2027-28 Water and Sewer Rate Schedules + 10-Year Plan:** https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf and https://www.sfpuc.gov/sites/default/files/about-us/policies-reports/FY27-10-Year-Plan-Presentation.pdf
-- **California Department of Insurance Sustainable Insurance Strategy (`$1,571` CA Avg Premium) & 2022 FAIR Plan ZIP Data (`95014` 0.5%, `94122` 0.2%) & 2026 Comparison Tool:** https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm and https://www.insurance.ca.gov/01-consumers/200-wrr/upload/Number-of-Residential-Dwelling-Units-Insured-in-2022-FAIR-Plan-vs-Voluntary.pdf
-- **FHFA Purchase-Only HPI 2026Q2 (San Jose MSA `+442.30%`, San Francisco MSAD `+414.37%` since 1991Q1):** https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2
-- **Federal TSP C Fund (`11.34%/yr` since 1988) & G Fund (`4.44%` 1-yr, `4.65%` since 1987):** https://www.tsp.gov/publications/tsplf14.pdf
-- **BLS San Francisco-Oakland-Hayward CPI-U (2023–2026):** https://www.bls.gov/regions/west/news-release/2026/consumerpriceindex_sanfrancisco_20260714.htm
-- **HUD FY 2026 & FY 2027 Fair Market Rent Schedules & Census American Housing Survey Maintenance Benchmarks:** https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf and https://www.census.gov/library/stories/2023/10/older-home-costs.html
+### Conflict & Integration Record (T12–T13)
+- **Situation at integration time:** While `arena/2f7b1b3f-tino5` prepared PR #11 from `db3ab93`, parallel sessions (`arena-8a82cdf2`, `arena-a7554ab1`, and archived prior sessions) had merged PRs #5–#10 into `main` (`8319476`).
+- **Resolution without discarding any prior work:** Moved `arena-2f7b1b3f`'s standalone 7-page interactive dashboard, Python model (`scripts/generate_data.py`), and JSON/JS datasets into non-overlapping `session-2f7b1b3f/`, merged `origin/main` cleanly into `arena/2f7b1b3f-tino5`, preserved all existing root/archive/mine files verbatim, cross-linked `/session-2f7b1b3f/` from `index.html` and `README.md`, and extended `scripts/verify.mjs` to check `session-2f7b1b3f/` internal links and PII scanning.
 
----
+### Additional Official Sources Directly Retrieved & Verified by `arena-2f7b1b3f` (2026-11-10)
+Several items noted as unretrieved in earlier session logs were directly retrieved from official `.gov` / utility documents:
+1. **CA BOE Prop 13 Historical CCPI Factors (`LTA 2026/002`, Jan. 13, 2026)** (`https://boe.ca.gov/proptaxes/pdf/lta26002.pdf`): Confirms 100% of year-over-year assessment percentages in both Cupertino (2014–2026) and San Francisco (2016–2025) match BOE statutory CCPI factors (`1.00454` in 2014-15, `1.01998` in 2015-16, `1.01525` in 2016-17, `1.01036` in 2021-22, `1.02000` in all other years). Note: SF's `$2,439` 2025 bill vs `$114,248` AV at `1.18268325%` (`$1,351` ad valorem) indicates `~$1,088/yr` in fixed SF parcel taxes/direct charges in addition to ad valorem tax.
+2. **CA BOE Prop 19 Intergenerational FAQ (`LTA 2026/026`, Aug. 3, 2026)** (`https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf`): Q5 & Q15 confirm that on a multi-unit parcel (such as the SF 3-unit triplex), Prop 19 applies *only* to the single unit occupied as principal residence by both transferor and transferee; the remaining units are reassessed to FMV.
+3. **CA FTB 2026 Tax Rate Schedules (`2026-540-tax-rate-schedules.pdf`)** (`https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf`): Exact 2026 California Schedules X/Y/Z brackets (`1.0%`–`12.3%`, plus `1.0%` Behavioral Health Services Tax over `$1M` = `13.3%`).
+4. **IRS `Rev. Proc. 2025-32` & `Pub. 6079` & `Rev. Rul. 2023-2`**: Exact 2026 OBBBA income & capital gains thresholds, `$40,400` 2026 SALT cap reverting to `$10,000` in 2030, and irrevocable grantor trust step-up exclusion.
+5. **CA SOS Nov. 3, 2026 Statewide Results (`electionresults.sos.ca.gov`) & Prop 19 Repeal Status**: Prop 3 passed (`60.6%` Yes — extending top CA brackets permanently past 2030), Prop 40 failed (`52.8%` No), Prop 42 passed (`51.6%` Yes — banning state personal property/financial asset taxes), Prop 43 failed (`57.3%` No), and the Nov 2025 Prop 19 repeal initiative failed to qualify.
+6. **HUD FY 2026 & FY 2027 FMR Schedules (`huduser.gov`)**: San Jose-Sunnyvale-Santa Clara HMFA FY27 4-BR `$4,688` (FY26 `$5,010`); San Francisco HMFA FY27 2-BR `$3,697` / 3-BR `$4,832`.
+7. **CA Dept. of Insurance (`sustainable-insurance-strategy.cfm`, Oct. 27, 2026 & ZIP FAIR Plan PDF)**: Verified CA average homeowner premium `$1,571` (`$1,570` rounded vs `$1,512` national) and low 2022 FAIR Plan policy share in `95014` (`0.5%`, 67/12,930) and `94122` (`0.2%`, 22/13,338).
+8. **Federal TSP (`tsplf14.pdf`) & FHFA HPI (`2026Q2`) & Census AHS (`older-home-costs.html`)**: Verified S&P 500 / C Fund `11.34%/yr` since 1988, G Fund `4.44%` (1-yr) / `4.65%` since 1987, FHFA 1991Q1–2026Q2 SJ MSA `+442.30%` (`4.91%` CAGR) & SF MSAD `+414.37%` (`4.76%` CAGR).
+9. **Santa Clara County FY 2025-26 Tax Rate Book & Clerk-Recorder & FUHSD/CUSD**: Verified `1.00%` + `~0.16%–0.18%` Cupertino bond components, no Cupertino city conveyance tax (`$0.55/$500` County only), CUSD Measure A expired June 30, 2023, FUHSD `$98/parcel` active.
 
-## Checks & Irregularities Log
+### PR & Verification Record (`arena-2f7b1b3f`)
+- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`)
+- **Combined Verification (`node scripts/verify.mjs`):** Run after conflict resolution (see `verification-report.json`).
 
-1. **Historical Assessment Verification (`BOE LTA 2026/002`)**: Verified 100% of year-over-year assessment growth steps in both Cupertino (2014–2026) and San Francisco (2016–2025) match BOE statutory CCPI Prop 13 factors (`0.454%` in 2014-15, `1.998%` in 2015-16, `1.525%` in 2016-17, `1.036%` in 2021-22, and `2.00%` cap in all other years).
-2. **Flagged Irregularities (Non-Blocking; Published on `Flagged for Review` Page)**:
-   - Missing 2026 Cupertino property tax bill (`--` in user table) and missing 2026 San Francisco property tax bill & tax assessment.
-   - Large SF tax bill fluctuations (`+18.4%` in 2018; `-5.9%` in 2021; `+6.2%` in 2024; `+5.3%` in 2025) while assessed value grew strictly 1–2%, indicating parcel taxes / voter-approved bond / direct-charge shifts.
-   - Unverified property-specific insurance carrier quotes (`$1,500` user guesses vs `$1,570` CDI CA average vs high-value $3.1M / 3-unit habitational underwriting).
-   - Unverified Cupertino SFH market rent (HUD FMR 4-BR county 40th percentile `$4,688–$5,010` provided as floor; requires local 95014 CMA).
-   - Unverified SF 3-unit certificate-of-occupancy date (pre- vs post-June 13, 1979 determines Rent Control rent cap coverage) and SF Unit 3 market rent.
-   - Unverified trust type (`Rev. Rul. 2023-2` revocable vs irrevocable basis step-up check), exact liquid estate balance vs `$15M/$30M` threshold, exact Cupertino TRA (`013-003` vs other `013-xxx`), and solar NEM PTO year.
-
----
-
-## Pull Request & Deployment Record
-
-- **Source Branch:** `arena/2f7b1b3f-tino5`
-- **Target Branch:** `main`
-- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (PR #11)
-- **Merge Status:** Merging to `main` to trigger GitHub Pages deployment.
-- **GitHub Pages URL:** `https://wingbangboozle1-lang.github.io/Tino5/`

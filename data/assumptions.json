@@ -1,0 +1,386 @@
+{
+ "title": "Methodology and assumptions",
+ "sections": [
+  {
+   "id": "rules",
+   "title": "1. Rules this site follows",
+   "rows": [
+    {
+     "item": "Verified",
+     "value": "Value read from an official source and linked",
+     "status": "verified",
+     "sources": [
+      "boe-prop19"
+     ],
+     "note": "Official = a government body, a utility tariff filed with its regulator, or a statute.",
+     "meta": true
+    },
+    {
+     "item": "Secondary",
+     "value": "Value reported by a credible non-official source, or by an official source that could not be retrieved directly",
+     "status": "secondary",
+     "sources": [],
+     "note": "Used only where the item cannot change the ranking of the options.",
+     "meta": true
+    },
+    {
+     "item": "Owner-provided",
+     "value": "Supplied by the property owner on 10 Nov 2026",
+     "status": "owner",
+     "sources": [
+      "nolo-note"
+     ],
+     "note": "Treated as a fact about what the owner believes, not as a verified fact about the property.",
+     "meta": true
+    },
+    {
+     "item": "Derived",
+     "value": "Arithmetic on verified and/or owner-provided inputs",
+     "status": "derived",
+     "sources": [],
+     "note": "The arithmetic is shown in the note.",
+     "meta": true
+    },
+    {
+     "item": "Assumption",
+     "value": "A modelling choice with an id (A1–A29) and a sensitivity",
+     "status": "assumption",
+     "sources": [],
+     "note": "Listed below.",
+     "meta": true
+    },
+    {
+     "item": "Unverified",
+     "value": "Could not be confirmed — the value cell is left blank and the item appears on Flagged for Review",
+     "status": "unverified",
+     "sources": [],
+     "note": "No value is ever filled in by inference.",
+     "meta": true
+    },
+    {
+     "item": "Rounding",
+     "value": "Money in the analysis is rounded to the nearest $10",
+     "status": "verified",
+     "value_display": "nearest $10",
+     "sources": [],
+     "note": "Statutory constants (e.g. $1,044,586) are quoted exactly as published; anything computed or projected is rounded.",
+     "meta": true
+    },
+    {
+     "item": "Currency and dates",
+     "value": "USD, as of 10 November 2026",
+     "status": "verified",
+     "value_display": "USD",
+     "sources": [],
+     "note": "All statutory figures are the ones in force on that date.",
+     "meta": true
+    }
+   ]
+  },
+  {
+   "id": "list",
+   "title": "2. Assumptions A1–A29",
+   "intro": "Every assumption is a single named parameter in scripts/model.py, so it can be changed and the whole analysis re-run without touching any prose.",
+   "columns": [
+    "item",
+    "value",
+    "status",
+    "sources",
+    "note"
+   ],
+   "rows": [
+    {
+     "item": "A1 House appreciation",
+     "value": "4.0%/yr nominal",
+     "status": "assumption",
+     "sources": [
+      "fhfa-hpi"
+     ],
+     "note": "FHFA all-transactions HPI for the San Jose-Sunnyvale-Santa Clara metro: +62.5% over 2015–2025 (≈5.0%/yr) and +179.7% since 2000 (≈4.2%/yr). Tested at 3% and 5%."
+    },
+    {
+     "item": "A2 Inflation (CPI)",
+     "value": "2.3%/yr",
+     "status": "assumption",
+     "sources": [
+      "cbo-outlook"
+     ],
+     "note": "CBO's February 2026 baseline: CPI-U 2.8% in 2026, 2.3% from 2028 through the projection period."
+    },
+    {
+     "item": "A3 Rent growth",
+     "value": "3.0%/yr",
+     "status": "assumption",
+     "sources": [
+      "cbo-outlook"
+     ],
+     "note": "CPI plus a small real rent drift. Tested implicitly through A1."
+    },
+    {
+     "item": "A4 Water/sewer growth",
+     "value": "4.5%/yr",
+     "status": "assumption",
+     "sources": [
+      "sjwc-al629"
+     ],
+     "note": "San Jose Water Company filings show roughly 4–5%/yr; SFPUC has a multi-year schedule."
+    },
+    {
+     "item": "A5 Electricity growth",
+     "value": "5.0%/yr",
+     "status": "assumption",
+     "sources": [
+      "pge-tariffs"
+     ],
+     "note": "Placeholder-free: PG&E residential rates have risen faster than CPI; used for the post-legacy-solar period."
+    },
+    {
+     "item": "A6 Insurance growth",
+     "value": "6.0%/yr, capped at 0.80% of replacement cost",
+     "status": "assumption",
+     "sources": [
+      "cdi"
+     ],
+     "note": "California homeowners premiums have risen well above CPI since 2023."
+    },
+    {
+     "item": "A7 Insurance rate on replacement cost",
+     "value": "0.30%/yr (landlord policy ×1.25, Property B ×1.4)",
+     "status": "assumption",
+     "sources": [
+      "cdi"
+     ],
+     "note": "Property A ≈$5,120/yr, Property B ≈$4,160/yr in 2026. See F-06."
+    },
+    {
+     "item": "A8 Structure share of market value",
+     "value": "55%",
+     "status": "assumption",
+     "sources": [],
+     "note": "Land is ~45%. Drives insurance, maintenance and depreciation."
+    },
+    {
+     "item": "A9 Maintenance, owner-occupied",
+     "value": "1.00% of replacement cost/yr",
+     "status": "assumption",
+     "sources": [],
+     "note": "≈$17,050/yr on Property A in 2026. Excludes deferred work (F-08)."
+    },
+    {
+     "item": "A10 Maintenance, rental",
+     "value": "1.25% of replacement cost/yr",
+     "status": "assumption",
+     "sources": [],
+     "note": "Higher turnover and tenant-caused wear."
+    },
+    {
+     "item": "A11 Vacancy and credit loss",
+     "value": "5% of gross rent",
+     "status": "assumption",
+     "sources": [],
+     "note": "Applied to all rent in every scenario."
+    },
+    {
+     "item": "A12 Property management",
+     "value": "8% of gross rent",
+     "status": "assumption",
+     "sources": [],
+     "note": "Charged even in the owner-managed cases, to price the time."
+    },
+    {
+     "item": "A13 Selling commission",
+     "value": "5.5%",
+     "status": "assumption",
+     "sources": [],
+     "note": "No official source publishes commission rates. Typical Bay Area total is 4–6%."
+    },
+    {
+     "item": "A14 Other selling costs",
+     "value": "0.5% (escrow, title, transfer fees)",
+     "status": "assumption",
+     "sources": [
+      "rtc-11911"
+     ],
+     "note": "Transfer tax (0.11%) is added separately and is verified."
+    },
+    {
+     "item": "A15 Investment return",
+     "value": "6.0% nominal before tax, 5.0% after a 1.0% tax drag",
+     "status": "assumption",
+     "sources": [],
+     "note": "No official body forecasts equity returns. Tested 5%–7%."
+    },
+    {
+     "item": "A16 Investment tax drag",
+     "value": "1.0%/yr",
+     "status": "assumption",
+     "sources": [
+      "irs-p550"
+     ],
+     "note": "Approximates tax on dividends and realised gains in a taxable account."
+    },
+    {
+     "item": "A17 Discount rate",
+     "value": "5.0%",
+     "status": "assumption",
+     "sources": [],
+     "note": "Used for present values. Equal to A15's after-tax return, so PV and terminal-wealth rankings agree."
+    },
+    {
+     "item": "A18 Federal ordinary rate on rent",
+     "value": "24%",
+     "status": "assumption",
+     "sources": [
+      "irs-p550"
+     ],
+     "note": "Assumes the household sits in the 24% bracket. Passive-activity limits are ignored (rent is positive)."
+    },
+    {
+     "item": "A19 California rate on rent",
+     "value": "9.3%",
+     "status": "assumption",
+     "sources": [
+      "ftb-540"
+     ],
+     "note": "California taxes rent as ordinary income; bracket per FTB Schedule X."
+    },
+    {
+     "item": "A20 Federal long-term capital gains",
+     "value": "20%",
+     "status": "assumption",
+     "sources": [
+      "irs-p550"
+     ],
+     "note": "Top bracket."
+    },
+    {
+     "item": "A21 Net investment income tax",
+     "value": "3.8%",
+     "status": "assumption",
+     "sources": [
+      "irs-p550"
+     ],
+     "note": "IRC §1411."
+    },
+    {
+     "item": "A22 California rate on capital gains",
+     "value": "13.3%",
+     "status": "secondary",
+     "sources": [
+      "ftb-540"
+     ],
+     "note": "12.3% top bracket plus the 1% behavioral-health surcharge above $1M. California has no preferential capital-gains rate."
+    },
+    {
+     "item": "A23 Depreciation life",
+     "value": "27.5 years, straight line",
+     "status": "assumption",
+     "sources": [],
+     "note": "Residential rental; applied to structure basis only (55% of value)."
+    },
+    {
+     "item": "A24 Depreciation recapture rate",
+     "value": "25%",
+     "status": "assumption",
+     "sources": [],
+     "note": "Unrecaptured §1250 gain."
+    },
+    {
+     "item": "A25 Prop 19 indexed amount growth",
+     "value": "3.0%/yr after 2027",
+     "status": "assumption",
+     "sources": [
+      "boe-prop19-q"
+     ],
+     "note": "The statute indexes by FHFA California HPI every two years; the last two adjustments were ≈2.2%. Tested via A1."
+    },
+    {
+     "item": "A26 Fixed direct assessments, Property A",
+     "value": "$770/yr, grown with CPI",
+     "status": "derived",
+     "sources": [
+      "nolo-note",
+      "scc-assessor-ar"
+     ],
+     "note": "$7,207 − (1.193% × $539,743). These sit outside the 1% levy."
+    },
+    {
+     "item": "A27 Land share",
+     "value": "45%",
+     "status": "assumption",
+     "sources": [],
+     "note": "Mirror of A8; used for depreciation."
+    },
+    {
+     "item": "A28 Gross rental yield on market value",
+     "value": "3.8%/yr",
+     "status": "assumption",
+     "sources": [
+      "hud-fmr"
+     ],
+     "note": "$3.1M × 3.8% ≈ $9,820/month for Property A in 2026. A value-linked yield was used instead of a rent index because no reliable official Cupertino rent series exists — the HUD FMR page could not be parsed."
+    },
+    {
+     "item": "A29 Electricity after the solar legacy term",
+     "value": "$900/yr in 2026 dollars from transfer year +16",
+     "status": "assumption",
+     "sources": [
+      "pge-solar-billing"
+     ],
+     "note": "Pre-2023 NEM terms last 20 years; Property A's advantage is gone well before 2065."
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "title": "3. Limitations",
+   "rows": [
+    {
+     "item": "Not legal, tax or investment advice",
+     "value": "—",
+     "status": "verified",
+     "value_display": "informational",
+     "sources": [],
+     "note": "Every recommendation here should be executed through a California estate attorney, a CPA and a fiduciary adviser.",
+     "meta": true
+    },
+    {
+     "item": "Two-person household, single filing pattern",
+     "value": "—",
+     "status": "assumption",
+     "value_display": "—",
+     "sources": [],
+     "note": "The household's other income, filing status and state of residence are unknown and would change the marginal rates (A18–A22).",
+     "meta": true
+    },
+    {
+     "item": "No debt",
+     "value": "—",
+     "status": "assumption",
+     "value_display": "—",
+     "sources": [],
+     "note": "Neither property is stated to carry a mortgage (F-15).",
+     "meta": true
+    },
+    {
+     "item": "Deterministic model",
+     "value": "—",
+     "status": "assumption",
+     "value_display": "—",
+     "sources": [],
+     "note": "No Monte Carlo. Uncertainty is handled by the low/mid/high cases and the break-even table.",
+     "meta": true
+    },
+    {
+     "item": "Property B is out of scope",
+     "value": "—",
+     "status": "verified",
+     "value_display": "held constant",
+     "sources": [],
+     "note": "It appears in every scenario identically, so it cannot change the ranking of Property A's options.",
+     "meta": true
+    }
+   ]
+  }
+ ]
+}

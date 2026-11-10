@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projections · Inheritance decision dashboard</title>
+<meta name="description" content="Year-by-year market value, assessed value and property tax for both properties, 2026-2050.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="projections" data-root="../">
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span> Inheritance decision dashboard</div>
+    <nav class="main">
+      <a href="../index.html">Overview</a>
+      <a href="../pages/executive-summary.html">Executive summary</a>
+      <a href="../pages/scenarios.html">Options</a>
+      <a href="../pages/projections.html" aria-current="page">Projections</a>
+      <a href="../pages/property-tax.html">Property tax</a>
+      <a href="../pages/inheritance-tax.html">Inheritance tax</a>
+      <a href="../pages/inheritance-process.html">Process</a>
+      <a href="../pages/operating-costs.html">Costs</a>
+      <a href="../pages/law-watch.html">Law watch</a>
+      <a href="../pages/sources.html">Sources</a>
+      <a href="../pages/flagged.html">Flagged</a>
+      <a href="../pages/methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+<h1 style="margin:0 0 6px;font-size:27px;letter-spacing:-.02em">Year-by-year projections</h1>
+<p class="lead">Market value grows at the modelled appreciation rate; assessed value grows at the Proposition 13 cap of 2%
+until a change of ownership, then resets. Three assessed-value tracks are shown for Property A: what happens if the transfer
+never occurs, what happens if the child moves in and keeps the exclusion, and what happens if the property is rented and
+fully reassessed.</p>
+
+<div class="callout">
+  <h4>The mechanism, in one line</h4>
+  <p>Because assessed value grows at 2% while market value is assumed to grow at 4%, the gap between the two doubles roughly
+     every generation. That gap is the entire prize in Proposition 13 — and Proposition 19 decides how much of it survives a
+     death.</p>
+</div>
+
+<h2>Property values, assessments and tax, 2026–2050</h2>
+<div id="projection"></div>
+
+<h2>Assessed value at the moment of transfer (2045)</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Treatment</th><th style="text-align:right">Assessed value</th><th>How it is set</th></tr></thead>
+<tbody>
+<tr><td class="item">No transfer (reference)</td><td class="numv">$802,030</td><td class="note">Parent's original base year value grown at 2% for 19 years.</td></tr>
+<tr><td class="item">Child moves in — Prop 19 exclusion</td><td class="numv">$4,745,890</td><td class="note">Market value $6,531,230 less the indexed exclusion (≈$1,778,340), then 2% growth and the $7,000 homeowners' exemption.</td></tr>
+<tr><td class="item">Property is rented — no exclusion</td><td class="numv">$6,531,230</td><td class="note">Full reassessment to market value on the date of death.</td></tr>
+</tbody></table></div>
+<p class="small">Model output, nearest $10. The exclusion figures depend on assumption A25 (3%/yr indexation of the Prop 19
+amount after 2027); the published amount for transfers to 15 February 2027 is $1,044,586 and no later figure has been
+published, so nothing later is asserted as fact.</p>
+  <footer>
+    Reviewed 10 November 2026. Statutory figures are quoted as published; anything computed or projected is rounded to
+    the nearest $10. Not legal, tax or investment advice. <a href="../pages/methodology.html">Methodology</a> ·
+    <a href="../pages/sources.html">Sources</a> · <a href="../pages/flagged.html">Flagged for review</a>
+  </footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

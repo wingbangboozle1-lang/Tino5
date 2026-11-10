@@ -1,0 +1,27 @@
+<!--title: Methodology-->
+<!--page: methodology-->
+<!--json: data/assumptions.json-->
+<!--blurb: Verification rules, all 29 model assumptions, and the limits of the analysis.-->
+<h1 style="margin:0 0 6px;font-size:27px;letter-spacing:-.02em">Methodology and assumptions</h1>
+<p class="lead">Every number on this site is one of six things: verified against an official source, secondary, supplied by
+the owner, derived by arithmetic, a named assumption, or unverified and left blank. The model itself is a single Python file
+(<span class="tag">scripts/model.py</span>) with every parameter named A1–A29, so any assumption can be changed and the whole
+analysis regenerated.</p>
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Filter assumptions (e.g. A1, insurance)">
+  <button class="btn on" data-filter="all">All</button>
+  <button class="btn" data-filter="assumption">Assumptions</button>
+  <button class="btn" data-filter="verified">Rules</button>
+</div>
+<div id="content"></div>
+<h2>Reproducing the numbers</h2>
+<div class="card">
+  <p class="small">From the repository root:</p>
+  <p><span class="tag">python3 scripts/model.py</span> regenerates <span class="tag">data/model.json</span>.
+     <span class="tag">python3 scripts/build_site.py</span> rebuilds <span class="tag">pages/</span>.
+     <span class="tag">node scripts/verify.mjs</span> checks every table row for a source, checks statuses and internal links,
+     and writes <span class="tag">verification-report.json</span>.</p>
+  <p class="small">No personal data is used anywhere in this repository: the two properties are referred to only as
+     Property A (95014) and Property B (94122), and no names, street addresses, parcel numbers, account numbers or
+     contact details are stored.</p>
+</div>
