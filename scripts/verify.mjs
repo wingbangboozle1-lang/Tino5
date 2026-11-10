@@ -97,6 +97,23 @@ walkMoney(model.scenarios, "scenarios");
 walkMoney(model.sensitivity, "sensitivity");
 walkMoney(model.projection?.slice(0, 3), "projection");
 
+if (fs.existsSync(path.join(ROOT, "audited-v4/data/projections.json"))) {
+  const v4 = JSON.parse(fs.readFileSync(path.join(ROOT, "audited-v4/data/projections.json"), "utf8"));
+  function walkV4Money(obj, where) {
+    if (obj === null || typeof obj !== "object") return;
+    for (const [k, v] of Object.entries(obj)) {
+      if (typeof v === "number" && !["year", "inherit_year", "horizon_end_year", "sf_transfer_tax_rate_pct"].includes(k)) {
+        if (Math.round(v) % 10 !== 0) errors.push(`audited-v4/data/projections.json ${where}.${k} = ${v} is not rounded to nearest $10`);
+      } else if (typeof v === "object") {
+        walkV4Money(v, `${where}.${k}`);
+      }
+    }
+  }
+  walkV4Money(v4.yearly_by_scenario, "yearly_by_scenario");
+  walkV4Money(v4.strategy_comparisons, "strategy_comparisons");
+  walkV4Money(v4.estate_tax_matrix, "estate_tax_matrix");
+}
+
 // ------------------------------------------------------------- link checking
 const htmlFiles = ["index.html",
   ...fs.readdirSync(path.join(ROOT, "pages")).filter((f) => f.endsWith(".html")).map((f) => "pages/" + f),
@@ -107,6 +124,10 @@ const htmlFiles = ["index.html",
   ...(fs.existsSync(path.join(ROOT, "session-2f7b1b3f/index.html")) ? ["session-2f7b1b3f/index.html"] : []),
   ...(fs.existsSync(path.join(ROOT, "session-2f7b1b3f/pages"))
     ? fs.readdirSync(path.join(ROOT, "session-2f7b1b3f/pages")).filter((f) => f.endsWith(".html")).map((f) => "session-2f7b1b3f/pages/" + f)
+    : []),
+  ...(fs.existsSync(path.join(ROOT, "audited-v4/index.html")) ? ["audited-v4/index.html"] : []),
+  ...(fs.existsSync(path.join(ROOT, "audited-v4/pages"))
+    ? fs.readdirSync(path.join(ROOT, "audited-v4/pages")).filter((f) => f.endsWith(".html")).map((f) => "audited-v4/pages/" + f)
     : [])];
 const registryUrls = new Set(sources.sources.map((s) => s.url));
 let internalLinks = 0;

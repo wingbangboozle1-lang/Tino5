@@ -182,25 +182,43 @@ owner; do not delete another session's published pages silently.
 
 ---
 
-## Fourth Session Merged — `arena-2f7b1b3f` (branch `arena/2f7b1b3f-tino5`)
+## Log additions — session `arena/f9da2018-tino5` (branch `arena/f9da2018-tino5`)
+
+- **2026-11-10 — `arena/f9da2018-tino5`:** Initialized independent official-source verification & modeling (`T0`–`T6`), observed merged `main` state (`#1`–`#10`), and integrated cleanly without deleting any earlier session's published pages by placing our audited 5-page interactive dashboard under `audited-v4/` (`audited-v4/index.html`, `audited-v4/pages/{trust-and-taxes,cupertino,san-francisco,flagged-for-review}.html`), registering 40 newly retrieved official `.gov`/agency sources into `data/sources.json` (total 80), extending `scripts/verify.mjs`, and linking `audited-v4/` directly from root `index.html` and `README.md`.
+- **Additional Official Verifications Added by `arena/f9da2018-tino5`:**
+  - **IRS Rev. Proc. 2026-35 (Nov 2026):** 2027 federal estate/gift/GST exclusion **`$15,480,000`** (`$30.96M` married, `+3.20%` YoY) and 2027 annual gift exclusion **`$20,000`** (up from `$19,000` in 2026), plus 2027 LTCG/trust tax brackets (`37%` over `$16,500`).
+  - **CA BOE LTA 2026/026 (Aug 3, 2026) & LTA 2026/002:** Prop 19 Q5 multi-unit limit (*only the single occupied unit qualifies; rental units reassess 100%*), Q32–Q35 LLC disqualification, and full 1976–2027 Prop 13 CCPI history matching user's 2014–2026 assessment rates (`+0.45%`, `+1.53%`, `+1.04%`, `+2%`).
+  - **CA SoS Nov 3, 2026 Unofficial Returns (Nov 9, 2026):** Prop 3 (`60.6%` Yes — makes 13.3% top CA rate permanent past 2031), Prop 42 (`51.6%` Yes — prohibits state personal property/wealth taxes), Prop 40 (`47.2%` Yes / trailing), and confirmed Prop 19 repeal `#1994 (25-0017)` & 60+ exemption `#2012 (25-0035)` failed to qualify.
+  - **CA Dept. of Insurance `EQEXP2025Summary.pdf` & March 2026 State Farm Settlement:** 2025 Homeowners `$2,339.99` (`$3.38/$1k`) and Dwelling Fire `$1,701.60` (`$2.94/$1k`; `$3.50/$1k` FAIR Plan) plus `+17%` Homeowners / `+32.8%` Rental Dwelling hikes.
+  - **Local Utilities & Taxes:** SVCE 2026 NSC cut (`2x -> 1x`), CPUC `D.24-05-028` `$24.15/mo` PG&E Base Services Charge, CPUC SB 695 20-year NEM legacy sunset, SF Article 12-C `$5.0M` `2.25%` transfer-tax cliff, SFPUC 10-Year Plan (`+6.4%` water / `+10.1%` sewer), Santa Clara FY 2025-26 Tax Rate Book (`~1.1612%` Cupertino district bonds), and zero Cupertino city transfer tax.
+- **Model Key Findings (`audited-v4/scripts/model.py`, rounded to nearest `$10`):**
+  - Across `2040`, `2045`, and `2050` inheritance horizons, **Strategy C** (Live in SF Unit 3 + Sell Cupertino tax-free via `&sect;1014` & reinvest) and **Strategy E** (Sell Both via `&sect;1014` & reinvest) lead after-tax net wealth (`~$16.30M–$16.32M` in 2055 from 2045 inheritance), while **Strategy D** (Live in Cupertino with Prop 19 + Sell SF via `&sect;1014` & reinvest) dominates if living in Cupertino (`+$130,010/yr` Yr-1 CF vs `-$65,240/yr` deficit in `Strategy A1` keeping SF Unit 3 empty).
+  - **Liquid Assets Estate Matrix:** Combined real estate (`$10.95M` in 2045) stays below single exclusion (`$23.31M`), but `$6M+` of 2026 liquid investments (`~$18.15M` by 2045) creates `$2.32M+` in 40% estate tax without Form 706 DSUE portability.
+- **Verification Status (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `543 internal links`, `171 external links`, `0 errors` (`25 warnings` all confined to preserved earlier-session `archive/` and `mine/` files).
+
+### PR & Deployment Record (`arena/f9da2018-tino5`)
+- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — merged to `main` (`a9d3f2c`).
+
+---
+
+## Fifth Session Merged — `arena-2f7b1b3f` (branch `arena/2f7b1b3f-tino5`)
 
 ### Conflict & Integration Record (T12–T13)
-- **Situation at integration time:** While `arena/2f7b1b3f-tino5` prepared PR #11 from `db3ab93`, parallel sessions (`arena-8a82cdf2`, `arena-a7554ab1`, and archived prior sessions) had merged PRs #5–#10 into `main` (`8319476`).
-- **Resolution without discarding any prior work:** Moved `arena-2f7b1b3f`'s standalone 7-page interactive dashboard, Python model (`scripts/generate_data.py`), and JSON/JS datasets into non-overlapping `session-2f7b1b3f/`, merged `origin/main` cleanly into `arena/2f7b1b3f-tino5`, preserved all existing root/archive/mine files verbatim, cross-linked `/session-2f7b1b3f/` from `index.html` and `README.md`, and extended `scripts/verify.mjs` to check `session-2f7b1b3f/` internal links and PII scanning.
+- **Situation at integration time:** While `arena/2f7b1b3f-tino5` prepared PR #11 from `db3ab93`, parallel sessions (`arena-8a82cdf2`, `arena-a7554ab1`, `arena-f9da2018`, and archived prior sessions) had merged PRs #5–#10 and #12–#14 into `main` (`a9d3f2c`).
+- **Resolution without discarding any prior work:** Moved `arena-2f7b1b3f`'s standalone 7-page interactive dashboard, Python model (`session-2f7b1b3f/scripts/generate_data.py`), and JSON/JS datasets into non-overlapping `session-2f7b1b3f/`, merged `origin/main` cleanly into `arena/2f7b1b3f-tino5`, preserved all existing root/archive/mine/audited-v4 files verbatim, cross-linked `/session-2f7b1b3f/` from `index.html` and `README.md`, and extended `scripts/verify.mjs` to check `session-2f7b1b3f/` internal links and PII scanning.
 
 ### Additional Official Sources Directly Retrieved & Verified by `arena-2f7b1b3f` (2026-11-10)
-Several items noted as unretrieved in earlier session logs were directly retrieved from official `.gov` / utility documents:
 1. **CA BOE Prop 13 Historical CCPI Factors (`LTA 2026/002`, Jan. 13, 2026)** (`https://boe.ca.gov/proptaxes/pdf/lta26002.pdf`): Confirms 100% of year-over-year assessment percentages in both Cupertino (2014–2026) and San Francisco (2016–2025) match BOE statutory CCPI factors (`1.00454` in 2014-15, `1.01998` in 2015-16, `1.01525` in 2016-17, `1.01036` in 2021-22, `1.02000` in all other years). Note: SF's `$2,439` 2025 bill vs `$114,248` AV at `1.18268325%` (`$1,351` ad valorem) indicates `~$1,088/yr` in fixed SF parcel taxes/direct charges in addition to ad valorem tax.
-2. **CA BOE Prop 19 Intergenerational FAQ (`LTA 2026/026`, Aug. 3, 2026)** (`https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf`): Q5 & Q15 confirm that on a multi-unit parcel (such as the SF 3-unit triplex), Prop 19 applies *only* to the single unit occupied as principal residence by both transferor and transferee; the remaining units are reassessed to FMV.
+2. **CA BOE Prop 19 Intergenerational FAQ (`LTA 2026/026`, Aug. 3, 2026)** (`https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf`): Q5 & Q15 confirm multi-unit triplex limit (*only 1 unit occupied as principal residence by both transferor and transferee qualifies; remaining 2 units reassess to FMV*).
 3. **CA FTB 2026 Tax Rate Schedules (`2026-540-tax-rate-schedules.pdf`)** (`https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf`): Exact 2026 California Schedules X/Y/Z brackets (`1.0%`–`12.3%`, plus `1.0%` Behavioral Health Services Tax over `$1M` = `13.3%`).
-4. **IRS `Rev. Proc. 2025-32` & `Pub. 6079` & `Rev. Rul. 2023-2`**: Exact 2026 OBBBA income & capital gains thresholds, `$40,400` 2026 SALT cap reverting to `$10,000` in 2030, and irrevocable grantor trust step-up exclusion.
-5. **CA SOS Nov. 3, 2026 Statewide Results (`electionresults.sos.ca.gov`) & Prop 19 Repeal Status**: Prop 3 passed (`60.6%` Yes — extending top CA brackets permanently past 2030), Prop 40 failed (`52.8%` No), Prop 42 passed (`51.6%` Yes — banning state personal property/financial asset taxes), Prop 43 failed (`57.3%` No), and the Nov 2025 Prop 19 repeal initiative failed to qualify.
+4. **IRS `Rev. Proc. 2025-32`, `Pub. 6079`, `Pub. 527` & `Rev. Rul. 2023-2`**: Exact 2026 OBBBA thresholds, `$40,400` 2026 SALT cap reverting to `$10,000` in 2030, and irrevocable grantor trust step-up exclusion.
+5. **CA SOS Nov. 3, 2026 Statewide Results (`electionresults.sos.ca.gov`) & Prop 19 Repeal Status**: Prop 3 passed (`60.6%` Yes), Prop 40 failed (`52.8%` No), Prop 42 passed (`51.6%` Yes), Prop 43 failed (`57.3%` No), and Nov 2025 Prop 19 repeal initiative failed to qualify.
 6. **HUD FY 2026 & FY 2027 FMR Schedules (`huduser.gov`)**: San Jose-Sunnyvale-Santa Clara HMFA FY27 4-BR `$4,688` (FY26 `$5,010`); San Francisco HMFA FY27 2-BR `$3,697` / 3-BR `$4,832`.
 7. **CA Dept. of Insurance (`sustainable-insurance-strategy.cfm`, Oct. 27, 2026 & ZIP FAIR Plan PDF)**: Verified CA average homeowner premium `$1,571` (`$1,570` rounded vs `$1,512` national) and low 2022 FAIR Plan policy share in `95014` (`0.5%`, 67/12,930) and `94122` (`0.2%`, 22/13,338).
-8. **Federal TSP (`tsplf14.pdf`) & FHFA HPI (`2026Q2`) & Census AHS (`older-home-costs.html`)**: Verified S&P 500 / C Fund `11.34%/yr` since 1988, G Fund `4.44%` (1-yr) / `4.65%` since 1987, FHFA 1991Q1–2026Q2 SJ MSA `+442.30%` (`4.91%` CAGR) & SF MSAD `+414.37%` (`4.76%` CAGR).
+8. **Federal TSP (`tsplf14.pdf`), FHFA HPI (`2026Q2`), BLS SF CPI-U (`2026-06`), & Census AHS (`older-home-costs.html`)**: Verified S&P 500 / C Fund `11.34%/yr` since 1988, G Fund `4.44%` (1-yr) / `4.65%` since 1987, FHFA 1991Q1–2026Q2 SJ MSA `+442.30%` (`4.91%` CAGR) & SF MSAD `+414.37%` (`4.76%` CAGR).
 9. **Santa Clara County FY 2025-26 Tax Rate Book & Clerk-Recorder & FUHSD/CUSD**: Verified `1.00%` + `~0.16%–0.18%` Cupertino bond components, no Cupertino city conveyance tax (`$0.55/$500` County only), CUSD Measure A expired June 30, 2023, FUHSD `$98/parcel` active.
 
 ### PR & Verification Record (`arena-2f7b1b3f`)
 - **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`)
-- **Combined Verification (`node scripts/verify.mjs`):** Run after conflict resolution (see `verification-report.json`).
+- **Combined Verification (`node scripts/verify.mjs`):** Synced cleanly with `origin/main` (`a9d3f2c`), `0 errors` across all combined pages and datasets.
 

@@ -19,6 +19,7 @@ already-owned, part-rented San Francisco building that stays in place either way
 | What is changing in the law? | `pages/law-watch.html` |
 | What is unverified or inconsistent? | `pages/flagged.html` |
 | How were the numbers produced? | `pages/methodology.html` |
+| Audited Interactive Briefing (Charts, 2027 IRS / LTA 26-026, Liquid Estate Matrix) | `audited-v4/index.html` |
 
 ## Privacy
 
