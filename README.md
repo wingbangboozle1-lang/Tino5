@@ -4,26 +4,22 @@ A privacy-safe, source-linked static guide to California trust inheritance, fede
 
 ## Public-site privacy boundary
 
-The site intentionally excludes all household-specific property values and histories, exact addresses or parcel identifiers, rent and lease information, utility bills, insurance quotes, family details, and inheritance balances supplied in the project brief. No values are sent to a server or stored by the site. The published content consists of general official-law references, formulas, and clearly flagged unknowns. No third-party fonts or analytics are loaded.
-
-## Browse locally
-
-Open `index.html` in a browser, or run any static file server from the repository root. Navigation is provided by `pages/`.
+The public website deliberately excludes all household-specific property estimates and tax histories, exact ZIP/address or parcel identifiers, rental/lease information, utility bills and solar credits, insurance quotes, family details, and inheritance balances. Prior case-specific pages were removed from the Pages root during privacy remediation. No user data is collected or transmitted by the static site. It uses no analytics or third-party fonts.
 
 ## Pages
 
 - `index.html` — executive summary and navigation dashboard.
 - `pages/rules.html` — current federal, California, and county property-tax rules.
-- `pages/projections.html` — projection formulas; unverified future values intentionally remain blank.
+- `pages/projections.html` — projection formulas; unsupported future values intentionally remain blank.
 - `pages/decision.html` — live/rent/hold/sell/reinvest comparison framework.
 - `pages/process.html` — successor-trustee and inherited-property checklist.
-- `pages/review.html` — flagged unknowns, sources, and proposal-status notes.
+- `pages/review.html` — flagged unknowns, official links, and legislative status.
 - `COORDINATION.md` — task ownership, source log, and verification record.
 
 ## Publishing
 
-`.github/workflows/pages.yml` validates HTML/local links and deploys the static public-site files to GitHub Pages on pushes to `main` or manual workflow dispatch. Enable GitHub Pages with **GitHub Actions** as the deployment source in repository settings if it is not already enabled.
+GitHub Pages is configured for the `main` branch repository root. The site consists of static HTML and CSS; merge the reviewed privacy-remediation PR to publish via the existing Pages setup.
 
 ## Limitations
 
-This is general information, not legal, tax, investment, insurance, appraisal, or property-management advice. Laws, tax thresholds, county determinations, insurer availability, and utility tariffs can change. Every displayed money amount is rounded to the nearest $10. Future amounts are not projected unless supported by a sourced assumption; unverified or private inputs are omitted/blank and listed on the Flagged for Review page.
+This is general information, not legal, tax, investment, insurance, appraisal, or property-management advice. Laws, tax thresholds, county determinations, insurer availability, and utility tariffs can change. Displayed money amounts are rounded to the nearest $10. Future amounts are not projected unless supported by sourced assumptions; unverified/private inputs are omitted or blank and listed on Flagged for Review.

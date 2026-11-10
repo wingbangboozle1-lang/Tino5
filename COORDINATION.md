@@ -1,32 +1,50 @@
-# Coordination board
+# Coordination — Tino5 Inheritance Decision Site
 
-No other session claims were present when this board was initialized. This Arena session owns the end-to-end integration on the fixed branch `arena/9a1b9ff8-tino5`; the execution environment fixes the branch, so no alternate `session-*/...` branch was created.
+Integration history: `arena/d66fc558-tino5` (research/build), `arena/036d45c7-tino5` (original final integration), and current privacy audit `arena/9a1b9ff8-tino5`. Date: 2026-11-10.
 
-| Task | Status | Owner session | Files in scope |
-|---|---|---|---|
-| End-to-end research, privacy-safe dashboard, verification, and Pages setup | done | `arena/9a1b9ff8-tino5` | `COORDINATION.md`, `README.md`, `index.html`, `styles.css`, `pages/`, `.github/workflows/pages.yml` |
+## Task board
 
-## Verification and handoff log
+| ID | Task | Status | Owner session | Files touched |
+|---|---|---|---|---|
+| T1 | Research official federal, California, county, court, insurance, and utility sources | done | `arena/d66fc558-tino5` | source and tax reference pages (now replaced by privacy-safe reference pages) |
+| T2 | Build GitHub Pages site and decision-analysis pages | done | `arena/d66fc558-tino5` | prior public pages (removed in T5 because they included private case data) |
+| T3 | Original source/rounding verification | done | `arena/d66fc558-tino5`, `arena/036d45c7-tino5` | original page set |
+| T4 | Original final integration and Pages deployment | done | `arena/036d45c7-tino5` | PR #3 and original site |
+| T5 | Privacy remediation: remove case-specific details from public site; retain general official-law guidance; validate new deploy | in progress | `arena/9a1b9ff8-tino5` | `index.html`, `pages/`, `styles.css`, `README.md`, `COORDINATION.md`, former case-specific pages/assets |
 
-- Initial inspection: repository contained only a 7-byte `README.md`; no `COORDINATION.md`, site, data, workflow, or other active claims existed.
-- Branch constraint: work remains on `arena/9a1b9ff8-tino5`; no separate integration/task branch was used. The initial claim was committed as `0a4c115` and pushed after fetching/rebasing on `origin/main` because the remote feature branch did not yet exist.
-- Privacy constraint: public-site materials contain no family-specific property values or histories, exact address/parcel, rental income, utilities, insurance quotes, inheritance balance, or names. The county-level law references and generic formulas are public law context only. No analytics or third-party fonts are loaded. Public page upload is explicitly limited to `index.html`, `styles.css`, and `pages/`.
-- Verification performed: reviewed the source rows and their linked official publications; checked current-year amounts and legal qualifications against official IRS/BOE/FTB/State Controller/court/assessor/insurance/utility/regulator/Congress sources listed below; fetched official pages for Prop 19, IRS Rev. Proc. 2025-32, CDI insurance guidance, county assessor resources, the SFPUC rate landing page, solar consumer guide, and Congress.gov bill status. The originally considered links to an outdated San Jose Water rates page, Santa Clara property search page, and CPUC NEM page returned 404 and were replaced with current tariff/search/guide links.
-- Local validation: HTML parser verified all local paths/anchors and every data row in the site’s HTML tables has an HTTPS source link. The CI check additionally requires at least one recognized government or official utility/assessor source per data row. Privacy grep found no supplied property estimate/history, rental number, or ZIP code in public pages/styles. `git diff --check` passed.
-- Projection boundary: no official source can confirm an individual market value, date-of-death appraisal, 2040–2050 market appreciation, local property-tax bill, homeowner/landlord quote, utility bill, maintenance reserve, future federal thresholds, or future Prop 19 allowance. These values are intentionally blank and listed on “Flagged for review.” No unsupported insurance premium or market forecast was inserted.
-- Current proposal review: Congress.gov identifies H.Res.206 (a nonbinding resolution, introduced and referred) and H.R.137 (introduced/referred, not enacted) in the 119th Congress. They are identified as proposals/status only, not current law or a forecast; future status must be checked again.
+Status key: `unclaimed` / `in progress` / `done` / `needs review` (published on Flagged for Review; does not block).
 
-## Official sources checked
+## Handoff / coordination log
 
-- Federal estate/gift thresholds, 2026 gift annual exclusion, 706 due date/portability: [IRS estate-tax FAQs](https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes), [Rev. Proc. 2025-32](https://www.irs.gov/pub/irs-drop/rp-25-32.pdf), [Form 706 instructions](https://www.irs.gov/instructions/i706), [IRS enacted-law update](https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers).
-- Inherited basis, rental income/expenses, survivor and home-sale treatment: [IRS Pub. 551](https://www.irs.gov/publications/p551), [Pub. 527](https://www.irs.gov/publications/p527), [Pub. 559](https://www.irs.gov/publications/p559), [Pub. 523](https://www.irs.gov/publications/p523).
-- California inheritance/estate tax and inherited income: [State Controller estate-tax page](https://www.sco.ca.gov/ardtax_estate_tax.html), [FTB gifts and inheritance](https://www.ftb.ca.gov/file/personal/income-types/gifts-and-inheritance.html).
-- California assessed values, Prop 13 and Prop 19: [BOE Pub. 800-10](https://boe.ca.gov/pdf/pub800-10.pdf), [BOE Prop 19 FAQs](https://boe.ca.gov/prop19/), [BOE 2025 allowance notice](https://www.boe.ca.gov/news/2025/nr-25-02.htm), [BOE owner-death guidance](https://www.boe.ca.gov/proptaxes/pdf/lta24052.pdf), [Santa Clara Assessor Prop 19](https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2), [SF Assessor family-transfer sheet](https://www.sfassessor.org/forms-notices/notices/property-tax-savings-transfers-family).
-- California trust administration and property transfer: [Santa Clara Superior Court probate trusts](https://santaclara.courts.ca.gov/divisions/probate-division/probate-trusts), [California county-assessor directory](https://www.boe.ca.gov/proptaxes/assessors.htm).
-- Insurance, utilities, solar, contractors: [California DOI insurance shopping](https://www.insurance.ca.gov/01-consumers/105-type/5-residential/Top10Tips_FindingResidentialIns.cfm), [Cal Water tariff portal](https://www.calwater.com/rates/rates-and-tariffs/), [Cal Water Los Altos Suburban service area](https://www.calwater.com/district/los-altos-suburban/), [San Jose Water approved 2026 tariff](https://www.sjwater.com/media/dm3lribs/san-jose-water-company-al-628-a-approved.pdf), [SFPUC rates](https://www.sfpuc.gov/accounts-services/water-power-sewer-rates), [CPUC solar consumer guide](https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation/california-solar-consumer-protection-guide), [California CSLB contractor lookup](https://www.cslb.ca.gov/Consumers/FindMyLicensedContractor/).
-- Legislative status / investor education: [Congress.gov H.Res.206](https://www.congress.gov/bill/119th-congress/house-resolution/206/all-info), [Congress.gov H.R.137](https://www.congress.gov/bill/119th-congress/house-bill/137/all-info), [SEC Investor.gov](https://www.investor.gov/introduction-investing/investing-basics/investment-products).
+- 2026-11-10 — Session `arena/d66fc558-tino5` created the initial project pages and opened PR #1 (merged as `01448a3`).
+- 2026-11-10 — Session `arena/036d45c7-tino5` completed integration in PR #3, merged as `e3ae978`; GitHub Pages was live from `main`.
+- 2026-11-10 — Session `arena/9a1b9ff8-tino5` initially found only the starting commit on its checkout and no coordination file, created a claim, and pushed it on the fixed Arena branch. Main subsequently advanced through PR #3. The duplicate initial PR #4 was closed after discovering the merged integration and public pages.
+- 2026-11-10 — Privacy audit found that the already-published prior pages included user-supplied, property-specific financial details and ZIP-level labels. Although some were marked “user-provided/unverified,” publishing them conflicted with the privacy requirement. T5 removes those pages/assets from the GitHub Pages root, replaces the landing site with a general, non-identifying dashboard, and retains only law/source guidance and blank/flagged case-specific unknowns.
+- 2026-11-10 — Merging current `origin/main` into the fixed session branch produced conflicts in `COORDINATION.md`, `README.md`, and `index.html`. Resolved by retaining the prior integration/PR history, rebuilding this board without case details, updating the README, and using the privacy-safe index; prior private-data pages were removed from the public site rather than preserved. No other session’s source or legal research was silently represented as verified case information.
+- The original GitHub Pages deployment uses the repository’s existing legacy `main` branch/root source. No separate GitHub Actions deploy workflow is retained; the new site will publish through the existing Pages configuration after PR merge.
 
-## Publish / PR record
+## Verification / source record
 
-- Pull request: pending creation after integration verification.
-- Merge and Pages deployment: pending; record the explicit PR URL, merge result, and deployment/check result here after those steps complete.
+Official current-law references checked for the replacement site:
+
+- Federal estate/gift rules and current 2026 amounts: [IRS estate-tax FAQs](https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes), [Rev. Proc. 2025-32](https://www.irs.gov/pub/irs-drop/rp-25-32.pdf), [Form 706 instructions](https://www.irs.gov/instructions/i706), [IRS enacted-law update](https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers).
+- Inherited basis, rental income/expenses and sale rules: [IRS Pub. 551](https://www.irs.gov/publications/p551), [Pub. 527](https://www.irs.gov/publications/p527), [Pub. 559](https://www.irs.gov/publications/p559), [Pub. 523](https://www.irs.gov/publications/p523).
+- California estate/inheritance and income treatment: [State Controller](https://www.sco.ca.gov/ardtax_estate_tax.html), [FTB](https://www.ftb.ca.gov/file/personal/income-types/gifts-and-inheritance.html).
+- Prop 13 / Prop 19 / death-transfer reporting: [BOE Pub. 800-10](https://boe.ca.gov/pdf/pub800-10.pdf), [BOE Prop 19](https://boe.ca.gov/prop19/), [BOE 2025 allowance notice](https://www.boe.ca.gov/news/2025/nr-25-02.htm), [BOE death-transfer guidance](https://www.boe.ca.gov/proptaxes/pdf/lta24052.pdf), [Santa Clara Assessor Prop 19 guidance](https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2), [SF Assessor family-transfer guide](https://www.sfassessor.org/forms-notices/notices/property-tax-savings-transfers-family).
+- Trust administration: [Santa Clara Superior Court probate-trust guidance](https://santaclara.courts.ca.gov/divisions/probate-division/probate-trusts), [California county assessor directory](https://www.boe.ca.gov/proptaxes/assessors.htm).
+- Insurance, utilities, solar and repairs: [California DOI](https://www.insurance.ca.gov/01-consumers/105-type/5-residential/Top10Tips_FindingResidentialIns.cfm), [Cal Water tariff portal](https://www.calwater.com/rates/rates-and-tariffs/), [Cal Water service area](https://www.calwater.com/district/los-altos-suburban/), [San Jose Water approved tariff](https://www.sjwater.com/media/dm3lribs/san-jose-water-company-al-628-a-approved.pdf), [SFPUC rates](https://www.sfpuc.gov/accounts-services/water-power-sewer-rates), [CPUC solar consumer guide](https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation/california-solar-consumer-protection-guide), [California CSLB](https://www.cslb.ca.gov/Consumers/FindMyLicensedContractor/).
+- Legislative status: [Congress.gov H.Res.206](https://www.congress.gov/bill/119th-congress/house-resolution/206/all-info), [H.R.137](https://www.congress.gov/bill/119th-congress/house-bill/137/all-info). These are proposal/status references only, not enacted future law.
+
+## Current verification
+
+- New public site is general and intentionally omits property-specific financial history, estimates, ZIP codes, lease/rent information, utility usage, insurance/maintenance figures, names, addresses, APNs, and inheritance balance.
+- New tables retain official HTTPS links for each data row. Locally validated page count, internal page/anchor links, table citations, privacy scan, and `git diff --check` before final publication; repeat after integration.
+- No exact household insurance premium, utility bill, assessed/tax value, maintenance reserve, rental net income, 2040–2050 property-value forecast, or future tax threshold is verified; these stay blank on the Flagged for Review page.
+
+## PR / deployment history
+
+- PR #1: https://github.com/wingbangboozle1-lang/Tino5/pull/1 — merged.
+- PR #2: https://github.com/wingbangboozle1-lang/Tino5/pull/2 — merged.
+- PR #3: https://github.com/wingbangboozle1-lang/Tino5/pull/3 — merged; original Pages deployment confirmed live.
+- PR #4: https://github.com/wingbangboozle1-lang/Tino5/pull/4 — closed as duplicate before merge after discovering PR #3 had already integrated the original site.
+- Privacy-remediation PR and final Pages deployment status: pending.
