@@ -1,0 +1,4772 @@
+{
+  "meta": {
+    "title": "Property Inheritance Decision Support",
+    "subtitle": "Cupertino (ZIP 95014) and San Francisco (ZIP 94122) · anonymized",
+    "generated": "2026-11-10",
+    "privacy": "No personal information appears on this site. All identities, street addresses, trust names and account numbers are replaced with placeholders; only city and ZIP-code-level geography is used.",
+    "rounding": "All dollar amounts are rounded to the nearest $10.",
+    "verification": "Every data-table row carries a link to an official government source. Values that cannot be confirmed are left blank and flagged. Official values, client inputs and model outputs are three separate, labelled categories."
+  },
+  "sources": {
+    "IRS_ESTATE": {
+      "title": "Estate tax (filing thresholds by year of death)",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax",
+      "note": "Gross-estate definition; 2026 Form 706 filing threshold $15,000,000; portability election."
+    },
+    "IRS_ESTATE_FAQ": {
+      "title": "Frequently asked questions on estate taxes",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes",
+      "note": "Public Law 119-21 raised the basic exclusion to $15,000,000 for 2026; Form 706 due 9 months after death; 6-month extension via Form 4768; DSUE portability."
+    },
+    "CONGRESS_HR1": {
+      "title": "H.R.1, Public Law 119-21, text (Sec. 70106)",
+      "agency": "United States Congress",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1/text",
+      "note": "Sec. 70106 replaces $5,000,000 with $15,000,000; inflation indexing for years beginning after 2026."
+    },
+    "CONGRESS_HR1_SUM": {
+      "title": "H.R.1 summary, Public Law 119-21 (07/04/2025)",
+      "agency": "United States Congress",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1",
+      "note": "Increases the base estate, gift and GST exemption after 2025 to $15 million, adjusted for inflation."
+    },
+    "IRS_RP2532": {
+      "title": "Revenue Procedure 2025-32 (2026 inflation adjustments)",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "note": "2026 long-term capital gain 0%/15% thresholds (MFJ $98,900 / $613,700); 2026 annual gift exclusion $19,000; estates/trusts 20% rate above $16,250."
+    },
+    "IRS_I706": {
+      "title": "Instructions for Form 706 (07/2026)",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/instructions/i706",
+      "note": "Estate tax is levied on the entire taxable estate, not on a beneficiary's share; top unified rate 40%; estate/GST tax due within 9 months."
+    },
+    "IRS_P551": {
+      "title": "Publication 551, Basis of Assets",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/publications/p551",
+      "note": "Basis of inherited property is generally FMV at date of death (or alternate valuation date); §1014(f) consistency rule."
+    },
+    "IRS_INHERIT_FAQ": {
+      "title": "Gifts & inheritances (IRS FAQ)",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances",
+      "note": "Inherited-property basis is FMV at death whether or not Form 706 is filed; gain on later sale is taxable."
+    },
+    "IRS_P525": {
+      "title": "Publication 525, Taxable and Nontaxable Income",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/publications/p525",
+      "note": "Generally, property received as a gift, bequest or inheritance is not included in income; later interest, dividends or rents are taxable."
+    },
+    "IRS_TC701": {
+      "title": "Topic no. 701, Sale of your home",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/taxtopics/tc701",
+      "note": "§121 exclusion up to $250,000 ($500,000 joint); ownership and use 2 of the 5 years before sale; no exclusion if another home was excluded in prior 2 years."
+    },
+    "IRS_P523": {
+      "title": "Publication 523, Selling Your Home",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/publications/p523",
+      "note": "Rules for home inherited from a decedent; business or rental use, nonqualified use after 2008, and basis adjustments."
+    },
+    "IRS_TC409": {
+      "title": "Topic no. 409, Capital gains and losses",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/taxtopics/tc409",
+      "note": "0% / 15% / 20% rates; 25% maximum on unrecaptured §1250 gain; short-term gains at ordinary rates."
+    },
+    "IRS_TC559": {
+      "title": "Topic no. 559, Net investment income tax",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/taxtopics/tc559",
+      "note": "3.8% NIIT; $250,000 MFJ / $200,000 single MAGI thresholds; rents and gains from real estate generally included; §121-excluded gain is not."
+    },
+    "IRS_P527": {
+      "title": "Publication 527, Residential Rental Property",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/publications/p527",
+      "note": "Rental income, deductible expenses, depreciation, repairs vs. improvements, and sale of a main home used as rental property."
+    },
+    "IRS_FS1031": {
+      "title": "Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/pub/irs-news/fs-08-18.pdf",
+      "note": "§1031 applies only to business/investment real property; primary residences, stocks, bonds, notes and securities do not qualify."
+    },
+    "IRS_P544": {
+      "title": "Publication 544, Sales and Other Dispositions of Assets",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/publications/p544",
+      "note": "Like-kind exchange nonrecognition rules apply only to real property held for investment or business use."
+    },
+    "IRS_TC503": {
+      "title": "Topic no. 503, Deductible taxes",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/taxtopics/tc503",
+      "note": "SALT deduction limited to $40,000 ($20,000 MFS), subject to MAGI limitation, floor $10,000."
+    },
+    "IRS_SALT2026": {
+      "title": "Correction to 2026 Form 1040-ES SALT amount",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/forms-pubs/correction-to-state-and-local-income-tax-deduction-amount-in-the-2026-form-1040-es",
+      "note": "2026 SALT limit $40,400 ($20,200 MFS); reduced above MAGI $505,000 ($252,500 MFS); floor $10,000."
+    },
+    "IRS_F1041ES": {
+      "title": "Form 1041-ES 2026, Estimated Income Tax for Estates and Trusts",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/pub/irs-pdf/f1041es.pdf",
+      "note": "2026 estates/trusts: 20% capital-gain rate above $16,250; NIIT 3.8% on undistributed net investment income."
+    },
+    "IRS_P559": {
+      "title": "Publication 559, Survivors, Executors and Administrators",
+      "agency": "Internal Revenue Service",
+      "url": "https://www.irs.gov/publications/p559",
+      "note": "Duties of the personal representative, final Form 1040, Form 56, and estate/trust income tax reporting."
+    },
+    "FED_FOMC": {
+      "title": "Statement on Longer-Run Goals and Monetary Policy Strategy (reaffirmed 2026)",
+      "agency": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals.pdf",
+      "note": "FOMC longer-run inflation goal is 2 percent (PCE). This is a policy goal, not a forecast through 2050."
+    },
+    "FHFA_HPI": {
+      "title": "FHFA House Price Index datasets",
+      "agency": "Federal Housing Finance Agency",
+      "url": "https://www.fhfa.gov/data/hpi/datasets",
+      "note": "Official repeat-sales house price indexes at metro-area, county and ZIP-code level; used as the official anchor for appreciation scenarios."
+    },
+    "HUD_FMR": {
+      "title": "FY 2026 Schedule of Fair Market Rents",
+      "agency": "U.S. Department of Housing and Urban Development",
+      "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY2026_FMR_Schedule.pdf",
+      "note": "CA metropolitan FMRs: San Jose-Sunnyvale-Santa Clara HMFA 4-BR $5,010/mo; San Francisco HMFA 4-BR $4,770/mo (official figure, rounded to the nearest $10). Program benchmark, not a property appraisal."
+    },
+    "COURTS_TRUST": {
+      "title": "Probate Trusts — trustee duties when the settlor dies",
+      "agency": "California Courts (Santa Clara County Superior Court)",
+      "url": "https://santaclara.courts.ca.gov/self-help/self-help-topics/self-help-probate/self-help-probate-property-transfers/probate-trusts",
+      "note": "Successor trustee acceptance; written notice to beneficiaries/heirs within 60 days; inventory and appraisal; estate tax returns and payment within 9 months; new trust TIN; trust income tax returns."
+    },
+    "COURTS_LIVING": {
+      "title": "Living Trusts (self-help)",
+      "agency": "California Courts (Santa Clara County Superior Court)",
+      "url": "https://santaclara.courts.ca.gov/self-help/self-help-probate/self-help-probate-medicalfinancialend-life-issues/living-trusts",
+      "note": "A funded living trust avoids probate; successor trustee distributes without court supervision; pour-over will used for unfunded assets."
+    },
+    "BOE_PROP19": {
+      "title": "Proposition 19 (official BOE page and comparison charts)",
+      "agency": "California State Board of Equalization",
+      "url": "https://www.boe.ca.gov/prop19/",
+      "note": "Current law: principal residence of transferor AND transferee; value limit of current taxable value + $1,000,000 (biennially adjusted); homeowners' exemption within 1 year; claim within 3 years; R&T Code §63.2."
+    },
+    "BOE_P801": {
+      "title": "Proposition 19 Fact Sheet (Publication 801)",
+      "agency": "California State Board of Equalization",
+      "url": "https://www.boe.ca.gov/pdf/pub801.pdf",
+      "note": "Date of death is the date of transfer; transferee must occupy as principal residence within 1 year; adjusted value limit $1,044,590 for 2/16/2025-2/15/2027; forms BOE-19-P, BOE-19-G, BOE-266, BOE-261-G."
+    },
+    "BOE_P800_9": {
+      "title": "Death of a Real Property Owner — Reporting Requirements (Publication 800-9)",
+      "agency": "California State Board of Equalization",
+      "url": "https://www.boe.ca.gov/pdf/pub800-9.pdf",
+      "note": "Death is a change in ownership as of date of death even when property is held in a trust; BOE-502-D filed within 150 days; BOE-19-P / BOE-19-G / BOE-58-H claims; reassessment to market value unless an exclusion applies."
+    },
+    "BOE_P800_10": {
+      "title": "How Property Is Assessed for Property Tax Purposes (Publication 800-10)",
+      "agency": "California State Board of Equalization",
+      "url": "https://boe.ca.gov/pdf/pub800-10.pdf",
+      "note": "Assessed value less exemptions multiplied by the tax rate; homeowners' exemption reduces assessed value by $7,000."
+    },
+    "BOE_502D": {
+      "title": "Sample BOE-502-D, Change in Ownership Statement — Death of a Real Property Owner",
+      "agency": "California State Board of Equalization",
+      "url": "https://www.boe.ca.gov/proptaxes/pdf/sample-boe502d.pdf",
+      "note": "Trustee/transferee files within 150 days of death; 18 CCR 462.260(c) sets date of change in ownership at date of death."
+    },
+    "SCC_PROP13": {
+      "title": "Understanding Proposition 13",
+      "agency": "Santa Clara County Assessor",
+      "url": "https://asr.santaclaracounty.gov/faq/understanding-proposition-13",
+      "note": "1% rate limit, assessed-value growth no greater than 2% annually, reassessment at market value on change of ownership; additional voter-approved taxes may raise the rate."
+    },
+    "SCC_RATEBOOK": {
+      "title": "Property Tax Rate Book (archive, incl. FY2025-26)",
+      "agency": "Santa Clara County Controller-Treasurer",
+      "url": "https://controller.santaclaracounty.gov/property-tax-distribution/property-tax-rate-book",
+      "note": "Official TRA-specific rates; 816 tax rate areas in FY2025-26; 1.00000% maximum levy plus voter-approved bond rates; supplemental bills after change in ownership."
+    },
+    "SCC_RATEPDF": {
+      "title": "County of Santa Clara Compilation of Tax Rates & Information, FY2025-2026",
+      "agency": "Santa Clara County Controller-Treasurer",
+      "url": "https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf",
+      "note": "1.00000% maximum levy plus bond rates; assessed value increases by CCPI or 2%, whichever is less; direct/special assessments are separate."
+    },
+    "SCC_ANNUAL": {
+      "title": "Santa Clara County Assessor Annual Report 2025-2026",
+      "agency": "Santa Clara County Assessor",
+      "url": "https://www.sccassessor.org/edocman/AnnualReport2025-2026.pdf",
+      "note": "2025-26 CCPI 2.514% produced the maximum 2% assessed-value increase; death of an owner is a reassessable change in ownership; trust-held property reassessed at date of death."
+    },
+    "SF_ASSESSOR": {
+      "title": "Learn about real property assessments",
+      "agency": "San Francisco Assessor-Recorder",
+      "url": "https://www.sfassessor.org/property-information/homeowners/real-property-assessments",
+      "note": "1% rate plus voter-approved bond indebtedness and direct assessments; assessment growth capped at inflation or 2%, whichever is lower."
+    },
+    "SF_TREASURER": {
+      "title": "Secured Property Taxes",
+      "agency": "San Francisco Treasurer & Tax Collector",
+      "url": "https://sftreasurer.org/property/secured-property-taxes",
+      "note": "FY2026-27 secured property tax rate 1.18162182%; supplemental and escape assessments after a change in ownership; total due includes direct charges/special assessments."
+    },
+    "SCO_ESTATE": {
+      "title": "California Estate Tax",
+      "agency": "California State Controller's Office",
+      "url": "https://www.sco.ca.gov/ardtax_estate_tax.html",
+      "note": "For decedents dying on or after January 1, 2005, no California Estate Tax Return is required."
+    },
+    "SCO_RTC13301": {
+      "title": "Estate Tax and GST Tax Laws (R&T Code §13301)",
+      "agency": "California State Controller's Office",
+      "url": "https://www.sco.ca.gov/Files-ARD-Tax-Info/estate_lawreg_lawreg.pdf",
+      "note": "§13301: neither the state nor any political subdivision may impose any gift, inheritance, succession, legacy, income or estate tax on a transfer occurring by reason of death."
+    },
+    "FTB_FEDCHANGES": {
+      "title": "Summary of Federal Income Tax Changes",
+      "agency": "California Franchise Tax Board",
+      "url": "https://www.ftb.ca.gov/about-ftb/data-reports-plans/summary-of-federal-income-tax-changes/index.html",
+      "note": "California does not provide special rates for net capital gain; gains are taxed at ordinary income rates of 1% to 12.3%."
+    },
+    "FTB_RATES": {
+      "title": "2025 California Tax Rate Schedules",
+      "agency": "California Franchise Tax Board",
+      "url": "https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf",
+      "note": "Top California personal income tax rate 12.30% on the highest bracket."
+    },
+    "FTB_540ES": {
+      "title": "2025 Instructions for Form 540-ES",
+      "agency": "California Franchise Tax Board",
+      "url": "https://www.ftb.ca.gov/forms/2025/2025-540-es-instructions.html",
+      "note": "Additional 1% tax on California taxable income over $1,000,000 (Behavioral Health Services Tax), making the top marginal rate 13.3%."
+    },
+    "SOS_BALLOT": {
+      "title": "Qualified Statewide Ballot Measures — November 3, 2026",
+      "agency": "California Secretary of State",
+      "url": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures",
+      "note": "14 measures qualified, including Prop. 3 (extends high-income tax), Prop. 40 (one-time tax on certain taxpayers), Prop. 42 (prohibits new state personal property taxes), Prop. 43 (limits local revenue measures)."
+    },
+    "SOS_CERTIFIES": {
+      "title": "Secretary of State certifies measures for Nov. 3, 2026 ballot",
+      "agency": "California Secretary of State",
+      "url": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/california-secretary-state-shirley-n-weber-phd-certifies-measures-november-3-2026-general-election-ballot",
+      "note": "Prop. 3 would make permanent the 2012 high-income tax rates otherwise expiring in 2031; estimated $5B-$15B annual state income tax maintained."
+    },
+    "SOS_PROP40": {
+      "title": "Official Voter Information Guide — Proposition 40",
+      "agency": "California Secretary of State",
+      "url": "https://voterguide.sos.ca.gov/propositions/40/",
+      "note": "One-time tax measure; SOS news release describes up to 5% on covered assets over $1 billion, excluding real property."
+    },
+    "SOS_RESULTS_FAQ": {
+      "title": "Election results FAQ — November 3, 2026",
+      "agency": "California Secretary of State",
+      "url": "https://electionresults.sos.ca.gov/frequently-asked-questions",
+      "note": "County results due December 4, 2026; Secretary of State compiles and certifies results by December 11, 2026."
+    },
+    "SF_RENT": {
+      "title": "Learn about rent increases in San Francisco",
+      "agency": "City and County of San Francisco (Rent Board)",
+      "url": "https://www.sf.gov/learn-about-rent-increases-san-francisco/",
+      "note": "For covered units the allowable annual rent increase effective March 1, 2026 through February 28, 2027 is 1.6%."
+    },
+    "CDI_AVG": {
+      "title": "Sustainable Insurance Strategy — California market snapshot",
+      "agency": "California Department of Insurance",
+      "url": "https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.Cfm",
+      "note": "California average homeowner premium $1,570 (national $1,510); page updated October 27, 2026. Statewide average, not ZIP-specific."
+    },
+    "CDI_REPORT": {
+      "title": "Residential Property Insurance Report",
+      "agency": "California Department of Insurance",
+      "url": "https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/",
+      "note": "CDI collects ZIP-code-level earned premiums, coverage amounts and losses by policy form; reports cover dwelling-fire, homeowners multi-peril, renters and condo policies."
+    },
+    "CDI_TOOL": {
+      "title": "2026 Homeowners Insurance premium comparison tool",
+      "agency": "California Department of Insurance",
+      "url": "https://interactive.web.insurance.ca.gov/apex_extprd/f?p=111:21:::NO:::",
+      "note": "Annual premiums effective May 1, 2026; lists 'SANTA CLARA CUPERTINO' and 'SAN FRANCISCO SAN FRANCISCO-Sunset District'; explicitly not a quote."
+    },
+    "CPUC_SB695": {
+      "title": "2025 Senate Bill 695 Report (net energy metering)",
+      "agency": "California Public Utilities Commission",
+      "url": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf",
+      "note": "New solar customers from April 2023 receive the Net Billing Tariff; NEM 1.0/2.0 legacy 20-year periods remain in effect when a property with a NEM system changes hands."
+    },
+    "CPUC_VNEM": {
+      "title": "Virtual Net Energy Metering / Net Billing Tariff",
+      "agency": "California Public Utilities Commission",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation/virtual-net-metering",
+      "note": "Decision D.22-12-056 adopted the net billing tariff; NEM 2.0 sunset April 14, 2023; legacy period rules."
+    },
+    "CPUC_WATER": {
+      "title": "San Jose Water Company tariff (Cupertino service territory)",
+      "agency": "California Public Utilities Commission",
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Efile/G000/M359/K001/359001611.PDF",
+      "note": "CPUC tariff schedules list 'portions of Cupertino' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."
+    },
+    "SFPUC_RATES": {
+      "title": "Rates Schedules and Fees (2026-27 water, sewer, power)",
+      "agency": "San Francisco Public Utilities Commission",
+      "url": "https://sfpuc.org/accounts-services/water-power-and-sewer-rates",
+      "note": "Official rate schedules for water/sewer and Hetch Hetchy Power / CleanPowerSF."
+    },
+    "SFPUC_218": {
+      "title": "Proposition 218 notice for proposed water and sewer rates",
+      "agency": "San Francisco Public Utilities Commission",
+      "url": "https://sfpuc.org/accounts-services/water-power-sewer-rates/proposition-218-notice-proposed-water-and-sewer-rates",
+      "note": "Approved average single-family water/sewer bill increase of about 8.3% per year; rates are set by tariff, not by a fixed monthly bill."
+    }
+  },
+  "tables": {
+    "inputs": {
+      "id": "inputs",
+      "title": "Anonymous client-supplied inputs (all unverified)",
+      "columns": [
+        "Subject",
+        "Area",
+        "ZIP",
+        "Item",
+        "Official value",
+        "Client-supplied figure",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Estimated market value, Nov 2026",
+            "—",
+            "$3,100,000 (client estimate)"
+          ],
+          "source": "CDI_TOOL",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "No official valuation was retrieved; an address-specific lookup would require personal information."
+        },
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Taxable assessed value, 2026",
+            "—",
+            "$550,540 (client)"
+          ],
+          "source": "SCC_PROP13",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "Official roll lookup would identify a parcel."
+        },
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Property tax bill, 2025",
+            "—",
+            "$7,210 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "2026 bill supplied as '--'."
+        },
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Water, monthly range",
+            "—",
+            "$100-$150 (client)"
+          ],
+          "source": "CPUC_WATER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "Tariff based on metered usage."
+        },
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Electricity / solar net result, monthly",
+            "—",
+            "+$10-$20 credit (client)"
+          ],
+          "source": "CPUC_SB695",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "Legacy NEM status and interconnection date unknown."
+        },
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Primary-residence home insurance, annual",
+            "—",
+            "~$1,500 (client guess)"
+          ],
+          "source": "CDI_TOOL",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "CDI tool is the official quote-comparison source."
+        },
+        {
+          "cells": [
+            "Property A",
+            "Cupertino",
+            "95014",
+            "Regular maintenance and repairs",
+            "—",
+            "Qualitative only ('less than Property B')"
+          ],
+          "source": "IRS_P527",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "No figure supplied."
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Estimated market value, Nov 2026",
+            "—",
+            "$1,800,000 (client)"
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Taxable assessed value, 2025",
+            "—",
+            "$114,250 (client)"
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Property tax bill, 2025",
+            "—",
+            "$2,440 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Rental income, 2 of 3 units, monthly",
+            "—",
+            "$7,150 (client)"
+          ],
+          "source": "SF_RENT",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "Rent-control coverage of the units is not confirmed."
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Water, all 3 units, monthly range",
+            "—",
+            "$330-$400 (client)"
+          ],
+          "source": "SFPUC_RATES",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Electricity, monthly range",
+            "—",
+            "$30-$70 (client)"
+          ],
+          "source": "SFPUC_RATES",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B",
+            "San Francisco",
+            "94122",
+            "Rental-property insurance, annual",
+            "—",
+            "~$1,500 (client guess)"
+          ],
+          "source": "CDI_REPORT",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "Landlord/dwelling-fire policy, not a homeowner policy."
+        },
+        {
+          "cells": [
+            "Estate",
+            "—",
+            "—",
+            "Cash / liquid assets in the estate",
+            "—",
+            "'considerable amount' (unquantified)"
+          ],
+          "source": "IRS_ESTATE",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": "No amount supplied; see Estate Tax Threshold page."
+        },
+        {
+          "cells": [
+            "Estate",
+            "—",
+            "—",
+            "Planned transfer window",
+            "—",
+            "2040-2050 (client)"
+          ],
+          "source": "COURTS_TRUST",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "The 'Official value' column is deliberately blank. No client-supplied number is presented as a verified fact. Official links point to the agency that would hold the confirming record."
+    },
+    "history": {
+      "id": "history",
+      "title": "Client-supplied tax and assessment history (unverified)",
+      "columns": [
+        "Property",
+        "Year",
+        "Official tax / assessment record",
+        "Client property tax",
+        "Client tax assessment",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Property A · 95014",
+            "2026",
+            "—",
+            "— (client)",
+            "$550,540 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2025",
+            "—",
+            "$7,210 (client)",
+            "$539,740 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2024",
+            "—",
+            "$7,000 (client)",
+            "$529,160 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2023",
+            "—",
+            "$6,920 (client)",
+            "$518,790 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2022",
+            "—",
+            "$6,760 (client)",
+            "$508,610 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2021",
+            "—",
+            "$6,660 (client)",
+            "$498,640 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2020",
+            "—",
+            "$6,570 (client)",
+            "$493,530 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2019",
+            "—",
+            "$6,570 (client)",
+            "$483,850 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2018",
+            "—",
+            "$6,380 (client)",
+            "$474,370 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2017",
+            "—",
+            "$6,380 (client)",
+            "$465,070 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2016",
+            "—",
+            "$6,410 (client)",
+            "$455,950 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2015",
+            "—",
+            "$6,130 (client)",
+            "$449,100 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property A · 95014",
+            "2014",
+            "—",
+            "$5,970 (client)",
+            "$440,310 (client)"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2025",
+            "—",
+            "$2,440 (client)",
+            "$114,250 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2024",
+            "—",
+            "$2,320 (client)",
+            "$112,010 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2023",
+            "—",
+            "$2,180 (client)",
+            "$109,810 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2022",
+            "—",
+            "$2,110 (client)",
+            "$107,660 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2021",
+            "—",
+            "$2,070 (client)",
+            "$105,600 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2020",
+            "—",
+            "$2,200 (client)",
+            "$104,510 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2019",
+            "—",
+            "$2,130 (client)",
+            "$102,470 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2018",
+            "—",
+            "$2,060 (client)",
+            "$100,460 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2017",
+            "—",
+            "$1,740 (client)",
+            "$98,490 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Property B · 94122",
+            "2016",
+            "—",
+            "$1,680 (client)",
+            "$96,560 (client)"
+          ],
+          "source": "SF_TREASURER",
+          "status": "CLIENT INPUT — UNVERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "The official record column is blank because no parcel-level record was retrieved. Implied effective rates are ~1.34% for Property A and ~2.13% for Property B; both exceed the official 1% + voter-approved ad valorem rate, which is consistent with separate direct charges / special assessments but requires reconciliation. See Flagged for Review, FLAG-003."
+    },
+    "federal_law": {
+      "id": "federal_law",
+      "title": "Federal law and official figures (verified)",
+      "columns": [
+        "Item",
+        "Official value",
+        "Basis / detail",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Federal estate-tax filing threshold, 2026",
+            "$15,000,000",
+            "Form 706 required when gross estate plus adjusted taxable gifts exceeds this amount."
+          ],
+          "source": "IRS_ESTATE",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Basic exclusion amount made permanent",
+            "$15,000,000 per person",
+            "Public Law 119-21 §70106; inflation indexed for years beginning after 2026."
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Married couple with portability",
+            "$30,000,000",
+            "DSUE election requires a timely filed Form 706."
+          ],
+          "source": "IRS_ESTATE_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Top federal estate / GST tax rate",
+            "40%",
+            "Unified rate schedule, Form 706 instructions."
+          ],
+          "source": "IRS_I706",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Estate tax is on the estate, not the beneficiary",
+            "Entire taxable estate",
+            "Not just the share received by a particular beneficiary."
+          ],
+          "source": "IRS_I706",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Form 706 filing deadline",
+            "9 months after death",
+            "Automatic 6-month extension via Form 4768."
+          ],
+          "source": "IRS_ESTATE_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Annual gift-tax exclusion, 2026",
+            "$19,000",
+            "Per recipient; excess reduces the lifetime basic exclusion."
+          ],
+          "source": "IRS_RP2532",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Inherited property basis",
+            "FMV at date of death",
+            "Alternate valuation only if Form 706 filed and election made."
+          ],
+          "source": "IRS_P551",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Inheritance as beneficiary gross income",
+            "Generally not included",
+            "Later interest, dividends or rents from inherited property ARE taxable."
+          ],
+          "source": "IRS_P525",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "§121 home-sale gain exclusion",
+            "$250,000 / $500,000 joint",
+            "Ownership and use 2 of the 5 years before sale."
+          ],
+          "source": "IRS_TC701",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Long-term capital gain rates",
+            "0% / 15% / 20%",
+            "2026 20% rate begins above $613,700 MFJ taxable income."
+          ],
+          "source": "IRS_RP2532",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Unrecaptured §1250 gain maximum rate",
+            "25%",
+            "Applies to depreciated real property."
+          ],
+          "source": "IRS_TC409",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Net investment income tax",
+            "3.8%",
+            "MAGI thresholds $250,000 MFJ / $200,000 single; rents and real-estate gains included."
+          ],
+          "source": "IRS_TC559",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Estates and trusts 2026 top capital-gain threshold",
+            "$16,250",
+            "20% rate above that amount; NIIT 3.8% on undistributed NII."
+          ],
+          "source": "IRS_F1041ES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Rental income and expenses",
+            "Schedule E / Form 1040",
+            "Deductible expenses include insurance, repairs, taxes; depreciation required."
+          ],
+          "source": "IRS_P527",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "§1031 like-kind exchange",
+            "Real property only",
+            "Stocks, bonds, notes and securities do NOT qualify; a primary residence does not qualify."
+          ],
+          "source": "IRS_FS1031",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SALT deduction cap, 2026",
+            "$40,400",
+            "Reduced above MAGI $505,000; floor $10,000; temporary through 2029."
+          ],
+          "source": "IRS_SALT2026",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Longer-run inflation goal",
+            "2%",
+            "FOMC policy goal (PCE), not a projection to 2050."
+          ],
+          "source": "FED_FOMC",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FY2026 4-BR Fair Market Rent, San Jose HMFA",
+            "$5,010 / month",
+            "Official HUD program benchmark; includes Santa Clara County."
+          ],
+          "source": "HUD_FMR",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FY2026 4-BR Fair Market Rent, San Francisco HMFA",
+            "$4,770 / month",
+            "Official HUD program benchmark."
+          ],
+          "source": "HUD_FMR",
+          "status": "VERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "Every figure in the 'Official value' column was read directly from the linked government page."
+    },
+    "state_law": {
+      "id": "state_law",
+      "title": "California, county and city law and official figures (verified)",
+      "columns": [
+        "Item",
+        "Official value",
+        "Basis / detail",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "California estate tax return",
+            "Not required",
+            "For decedents dying on/after January 1, 2005."
+          ],
+          "source": "SCO_ESTATE",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "State and local inheritance / gift / estate tax",
+            "Prohibited",
+            "R&T Code §13301: neither the state nor any political subdivision may impose such a tax on a death transfer."
+          ],
+          "source": "SCO_RTC13301",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California capital-gain treatment",
+            "Ordinary income rates",
+            "CA does not provide special long-term capital-gain rates."
+          ],
+          "source": "FTB_FEDCHANGES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Top CA personal income tax rate",
+            "12.30%",
+            "2025 Form 540 rate schedules."
+          ],
+          "source": "FTB_RATES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Additional 1% tax over $1,000,000 taxable income",
+            "Top rate 13.30%",
+            "Behavioral Health Services Tax, Form 540-ES instructions."
+          ],
+          "source": "FTB_540ES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Proposition 13 base property-tax rate",
+            "1.00%",
+            "Plus voter-approved bond indebtedness and direct/special assessments."
+          ],
+          "source": "SCC_PROP13",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Proposition 13 assessment growth cap",
+            "≤ 2% per year",
+            "Inflation (CCPI) or 2%, whichever is lower."
+          ],
+          "source": "SCC_PROP13",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2025-26 CCPI factor, Santa Clara County",
+            "2.514%",
+            "Produced the maximum 2% assessed-value increase."
+          ],
+          "source": "SCC_ANNUAL",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Santa Clara County FY2025-26 tax rate areas",
+            "816",
+            "Each TRA has a distinct combined rate; 1.00000% maximum levy."
+          ],
+          "source": "SCC_RATEPDF",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Homeowners' exemption",
+            "$7,000 of assessed value",
+            "Principal residence only; must be claimed."
+          ],
+          "source": "BOE_P800_10",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Death of owner = change in ownership",
+            "Date of death",
+            "Applies even when title is held in a revocable trust; reassessment at market value unless excluded."
+          ],
+          "source": "BOE_P800_9",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "BOE-502-D filing deadline",
+            "150 days after death",
+            "Trustee or transferee files with each county assessor; penalties may apply."
+          ],
+          "source": "BOE_P800_9",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Prop 19 intergenerational exclusion",
+            "Taxable value + allowance",
+            "Requires transferor principal residence AND transferee principal residence within 1 year."
+          ],
+          "source": "BOE_PROP19",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Prop 19 homeowners' / disabled veterans' exemption filing",
+            "Within 1 year",
+            "BOE-266 or BOE-261-G; late filing gives prospective relief only."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Prop 19 exclusion claim deadline",
+            "Within 3 years",
+            "Form BOE-19-P (or BOE-19-G); before transfer to a third party."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Prop 19 inflation-adjusted value limit",
+            "$1,044,590",
+            "Valid for transfer dates 2/16/2025 through 2/15/2027; LTA 2025/009."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Prop 19 excess-value rule",
+            "Difference added to taxable value",
+            "If market value exceeds FBYV + allowance, the excess is added to the new base year value."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FY2026-27 San Francisco secured property-tax rate",
+            "1.18162182%",
+            "Total bill also includes direct charges and special assessments; supplemental/escape bills after change in ownership."
+          ],
+          "source": "SF_TREASURER",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "San Francisco allowable rent increase 3/1/26-2/28/27",
+            "1.6%",
+            "For covered units under the Rent Ordinance."
+          ],
+          "source": "SF_RENT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California average homeowner premium",
+            "$1,570 / year",
+            "CDI market snapshot updated Oct 27, 2026; statewide, not ZIP-specific."
+          ],
+          "source": "CDI_AVG",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CDI ZIP-level premium data",
+            "Available by policy form",
+            "Dwelling-fire, homeowners multi-peril, renters, condo; covers 2018-2023."
+          ],
+          "source": "CDI_REPORT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "NEM legacy period on transfer of a solar property",
+            "Remains in effect",
+            "NEM 1.0/2.0 20-year legacy periods survive a change of ownership; new systems since April 2023 use the Net Billing Tariff."
+          ],
+          "source": "CPUC_SB695",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Trustee notice to beneficiaries/heirs",
+            "60 days",
+            "After death / becoming trustee; inventory and appraisal; estate returns and tax paid within 9 months."
+          ],
+          "source": "COURTS_TRUST",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Living trust avoids probate",
+            "No court supervision",
+            "If assets are properly funded into the trust."
+          ],
+          "source": "COURTS_LIVING",
+          "status": "VERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "State, county and city rows are all linked to the issuing government agency."
+    },
+    "assumption_values": {
+      "id": "assumption_values",
+      "title": "Model parameter values (labelled model outputs, not official figures)",
+      "columns": [
+        "Parameter",
+        "Model parameter (not an official value)",
+        "Official anchor / rule",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "General inflation",
+            "2.00% / year",
+            "FOMC 2% longer-run inflation goal"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "A policy goal is not an official 25-year forecast."
+        },
+        {
+          "cells": [
+            "Property A market appreciation — low",
+            "2.00% / year",
+            "FHFA HPI official metro series is the anchor; scenario is a model choice"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Not an official forecast."
+        },
+        {
+          "cells": [
+            "Property A market appreciation — base",
+            "4.00% / year",
+            "FHFA HPI official metro series is the anchor; scenario is a model choice"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Not an official forecast."
+        },
+        {
+          "cells": [
+            "Property A market appreciation — high",
+            "6.00% / year",
+            "FHFA HPI official metro series is the anchor; scenario is a model choice"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Not an official forecast."
+        },
+        {
+          "cells": [
+            "Portfolio return — low / base / high",
+            "3% / 5% / 7% nominal",
+            "No official forward return exists; scenario band only"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Not an official forecast; excludes dividend/interest tax detail."
+        },
+        {
+          "cells": [
+            "Assessed-value growth before transfer",
+            "2.00% / year",
+            "Prop 13 cap (official)"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rule is official; applying it to this parcel is a model projection."
+        },
+        {
+          "cells": [
+            "Effective property-tax rate, Property A",
+            "1.34%",
+            "Derived from client 2025 tax ÷ assessment"
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Client-derived, unverified; official rate is TRA-specific."
+        },
+        {
+          "cells": [
+            "Effective property-tax rate, Property B",
+            "2.13%",
+            "Derived from client 2025 tax ÷ assessment"
+          ],
+          "source": "SF_TREASURER",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Client-derived, unverified; official rate is 1.18162182%."
+        },
+        {
+          "cells": [
+            "Prop 19 allowance growth",
+            "2% / year from 2025",
+            "BOE publishes biennial inflation adjustments"
+          ],
+          "source": "BOE_P801",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Only the 2025-2027 amount ($1,044,590) is official."
+        },
+        {
+          "cells": [
+            "Maintenance and repairs",
+            "0.20% of market value / year",
+            "IRS treats repairs as deductible rental expense; no official benchmark"
+          ],
+          "source": "IRS_P527",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "No client figure supplied."
+        },
+        {
+          "cells": [
+            "Transaction cost on sale",
+            "6.00% of price",
+            "No official source"
+          ],
+          "source": "IRS_P523",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Model assumption only."
+        },
+        {
+          "cells": [
+            "Combined gain tax rate on sale",
+            "37.10%",
+            "20% federal + 3.8% NIIT + 13.3% CA"
+          ],
+          "source": "IRS_TC559",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Applies only to gain above the stepped-up basis and any §121 exclusion; filing status unknown."
+        },
+        {
+          "cells": [
+            "§121 exclusion applied",
+            "$250,000 (single)",
+            "Official single-filer amount; joint is $500,000"
+          ],
+          "source": "IRS_TC701",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Filing status not supplied."
+        },
+        {
+          "cells": [
+            "Water — Property A (model midpoint)",
+            "$120 / month",
+            "Client range $100-$150"
+          ],
+          "source": "CPUC_WATER",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Client input, not an official tariff bill."
+        },
+        {
+          "cells": [
+            "Electricity — Property A (model midpoint)",
+            "-$20 / month (credit)",
+            "Client range +$10-$20 credit; CPUC NEM/NBT rules"
+          ],
+          "source": "CPUC_SB695",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Legacy NEM interconnection date unknown."
+        },
+        {
+          "cells": [
+            "Water — Property B (model midpoint)",
+            "$370 / month",
+            "Client range $330-$400 for 3 units"
+          ],
+          "source": "SFPUC_RATES",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Client input, not an official tariff bill."
+        },
+        {
+          "cells": [
+            "Electricity — Property B (model midpoint)",
+            "$50 / month",
+            "Client range $30-$70"
+          ],
+          "source": "SFPUC_RATES",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Client input."
+        },
+        {
+          "cells": [
+            "Insurance both properties",
+            "$1,570 / year (2026)",
+            "CDI statewide average homeowner premium"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Not ZIP-specific; landlord policy may differ."
+        },
+        {
+          "cells": [
+            "Benchmark rent for Property A",
+            "$5,010 / month (2026)",
+            "HUD FY2026 4-BR FMR, San Jose HMFA"
+          ],
+          "source": "HUD_FMR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Program benchmark, not a property-specific appraisal."
+        },
+        {
+          "cells": [
+            "Rental-income growth, Property B",
+            "1.60% / year",
+            "SF Rent Board allowable increase for covered units"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Coverage of the two units is unconfirmed."
+        },
+        {
+          "cells": [
+            "Comparison horizon",
+            "10 years after transfer",
+            "Model design"
+          ],
+          "source": "IRS_TC701",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Chosen to exceed the 2-year §121 use test."
+        }
+      ],
+      "caption": "These are the parameters fed into the projections. None is an official published value for these properties."
+    },
+    "proj_value": {
+      "id": "proj_value",
+      "title": "Property A — projected market value and taxable assessed value, 2026-2050",
+      "columns": [
+        "Year",
+        "Market value · 2%",
+        "Market value · 4% (base)",
+        "Market value · 6%",
+        "Taxable assessed value · no transfer (2% cap)",
+        "Gap: market − assessed (4%)",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2026",
+            "$3,100,000",
+            "$3,100,000",
+            "$3,100,000",
+            "$550,540",
+            "$2,549,460"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2027",
+            "$3,162,000",
+            "$3,224,000",
+            "$3,286,000",
+            "$561,550",
+            "$2,662,450"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2028",
+            "$3,225,240",
+            "$3,352,960",
+            "$3,483,160",
+            "$572,780",
+            "$2,780,180"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2029",
+            "$3,289,740",
+            "$3,487,080",
+            "$3,692,150",
+            "$584,230",
+            "$2,902,840"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2030",
+            "$3,355,540",
+            "$3,626,560",
+            "$3,913,680",
+            "$595,920",
+            "$3,030,640"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2031",
+            "$3,422,650",
+            "$3,771,620",
+            "$4,148,500",
+            "$607,840",
+            "$3,163,790"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2032",
+            "$3,491,100",
+            "$3,922,490",
+            "$4,397,410",
+            "$619,990",
+            "$3,302,490"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2033",
+            "$3,560,930",
+            "$4,079,390",
+            "$4,661,250",
+            "$632,390",
+            "$3,446,990"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2034",
+            "$3,632,140",
+            "$4,242,560",
+            "$4,940,930",
+            "$645,040",
+            "$3,597,520"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2035",
+            "$3,704,790",
+            "$4,412,270",
+            "$5,237,380",
+            "$657,940",
+            "$3,754,320"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2036",
+            "$3,778,880",
+            "$4,588,760",
+            "$5,551,630",
+            "$671,100",
+            "$3,917,660"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2037",
+            "$3,854,460",
+            "$4,772,310",
+            "$5,884,730",
+            "$684,520",
+            "$4,087,780"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2038",
+            "$3,931,550",
+            "$4,963,200",
+            "$6,237,810",
+            "$698,210",
+            "$4,264,990"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2039",
+            "$4,010,180",
+            "$5,161,730",
+            "$6,612,080",
+            "$712,180",
+            "$4,449,550"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2040",
+            "$4,090,380",
+            "$5,368,200",
+            "$7,008,800",
+            "$726,420",
+            "$4,641,780"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2041",
+            "$4,172,190",
+            "$5,582,920",
+            "$7,429,330",
+            "$740,950",
+            "$4,841,970"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2042",
+            "$4,255,640",
+            "$5,806,240",
+            "$7,875,090",
+            "$755,770",
+            "$5,050,470"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2043",
+            "$4,340,750",
+            "$6,038,490",
+            "$8,347,600",
+            "$770,880",
+            "$5,267,610"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2044",
+            "$4,427,560",
+            "$6,280,030",
+            "$8,848,450",
+            "$786,300",
+            "$5,493,730"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2045",
+            "$4,516,110",
+            "$6,531,230",
+            "$9,379,360",
+            "$802,030",
+            "$5,729,200"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2046",
+            "$4,606,440",
+            "$6,792,480",
+            "$9,942,120",
+            "$818,070",
+            "$5,974,410"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2047",
+            "$4,698,570",
+            "$7,064,180",
+            "$10,538,650",
+            "$834,430",
+            "$6,229,750"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2048",
+            "$4,792,540",
+            "$7,346,750",
+            "$11,170,970",
+            "$851,120",
+            "$6,495,630"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2049",
+            "$4,888,390",
+            "$7,640,620",
+            "$11,841,220",
+            "$868,140",
+            "$6,772,480"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        },
+        {
+          "cells": [
+            "2050",
+            "$4,986,160",
+            "$7,946,240",
+            "$12,551,700",
+            "$885,500",
+            "$7,060,740"
+          ],
+          "source": "SCC_PROP13",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Market values use 2%/4%/6% scenarios; assessed value uses the official 2% Prop 13 cap applied to the client 2026 assessment."
+        }
+      ],
+      "caption": "Model outputs. The 2% assessment cap is the official Prop 13 rule; the market-value paths are model scenarios, not official forecasts. Source link is to the Santa Clara County Assessor."
+    },
+    "proj_tax": {
+      "id": "proj_tax",
+      "title": "Property A — projected annual property tax under three assessment outcomes",
+      "columns": [
+        "Year",
+        "Tax if base is preserved",
+        "Tax after full reassessment at death",
+        "Tax if Prop 19 exclusion applies",
+        "Extra annual tax from full reassessment",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2026",
+            "$7,350",
+            "$41,390",
+            "—",
+            "$34,040"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2027",
+            "$7,500",
+            "$43,050",
+            "—",
+            "$35,550"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2028",
+            "$7,650",
+            "$44,770",
+            "—",
+            "$37,120"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2029",
+            "$7,800",
+            "$46,560",
+            "—",
+            "$38,760"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2030",
+            "$7,960",
+            "$48,420",
+            "—",
+            "$40,470"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2031",
+            "$8,120",
+            "$50,360",
+            "—",
+            "$42,240"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2032",
+            "$8,280",
+            "$52,380",
+            "—",
+            "$44,100"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2033",
+            "$8,440",
+            "$54,470",
+            "—",
+            "$46,030"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2034",
+            "$8,610",
+            "$56,650",
+            "—",
+            "$48,040"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2035",
+            "$8,790",
+            "$58,920",
+            "—",
+            "$50,130"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2036",
+            "$8,960",
+            "$61,270",
+            "—",
+            "$52,310"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2037",
+            "$9,140",
+            "$63,720",
+            "—",
+            "$54,580"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2038",
+            "$9,320",
+            "$66,270",
+            "—",
+            "$56,950"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2039",
+            "$9,510",
+            "$68,920",
+            "—",
+            "$59,410"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2040",
+            "$9,700",
+            "$71,680",
+            "$52,910",
+            "$61,980"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2041",
+            "$9,890",
+            "$74,550",
+            "$55,400",
+            "$64,650"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2042",
+            "$10,090",
+            "$77,530",
+            "$58,000",
+            "$67,440"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2043",
+            "$10,290",
+            "$80,630",
+            "$60,710",
+            "$70,340"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2044",
+            "$10,500",
+            "$83,860",
+            "$63,540",
+            "$73,360"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2045",
+            "$10,710",
+            "$87,210",
+            "$66,480",
+            "$76,500"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2046",
+            "$10,920",
+            "$90,700",
+            "$69,560",
+            "$79,770"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2047",
+            "$11,140",
+            "$94,330",
+            "$72,760",
+            "$83,180"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2048",
+            "$11,360",
+            "$98,100",
+            "$76,100",
+            "$86,730"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2049",
+            "$11,590",
+            "$102,020",
+            "$79,590",
+            "$90,430"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        },
+        {
+          "cells": [
+            "2050",
+            "$11,820",
+            "$106,100",
+            "$83,220",
+            "$94,280"
+          ],
+          "source": "BOE_P800_9",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Full reassessment = market value at date of death × client-derived effective rate. Prop 19 column shown from 2040 for the candidate transfer window; blank before then."
+        }
+      ],
+      "caption": "Model outputs. The reassessment-at-death rule is official (BOE Publication 800-9). The applied effective rate is client-derived and flagged. Prop 19 figures are shown only for 2040-2050."
+    },
+    "prop19": {
+      "id": "prop19",
+      "title": "Proposition 19 value-limit test at each candidate transfer year",
+      "columns": [
+        "Transfer year",
+        "Market value (4%)",
+        "Factored base year value",
+        "Projected inflation-adjusted allowance",
+        "Exclusion cap (FBYV + allowance)",
+        "Market value above cap",
+        "New taxable value if eligible",
+        "Annual tax if eligible",
+        "Annual tax saved vs full reassessment",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2040",
+            "$5,368,200",
+            "$726,420",
+            "$1,405,880",
+            "$2,132,300",
+            "$3,235,900",
+            "$3,962,320",
+            "$52,910",
+            "$18,770"
+          ],
+          "source": "BOE_P801",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Allowance projected from the official $1,044,590 (2/16/2025-2/15/2027) at 2%/yr; future BOE amounts are not yet published."
+        },
+        {
+          "cells": [
+            "2045",
+            "$6,531,230",
+            "$802,030",
+            "$1,552,200",
+            "$2,354,230",
+            "$4,177,000",
+            "$4,979,030",
+            "$66,480",
+            "$20,730"
+          ],
+          "source": "BOE_P801",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Allowance projected from the official $1,044,590 (2/16/2025-2/15/2027) at 2%/yr; future BOE amounts are not yet published."
+        },
+        {
+          "cells": [
+            "2050",
+            "$7,946,240",
+            "$885,500",
+            "$1,713,750",
+            "$2,599,260",
+            "$5,346,980",
+            "$6,232,490",
+            "$83,220",
+            "$22,880"
+          ],
+          "source": "BOE_P801",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Allowance projected from the official $1,044,590 (2/16/2025-2/15/2027) at 2%/yr; future BOE amounts are not yet published."
+        }
+      ],
+      "caption": "Model outputs computed with the official Prop 19 formula. Eligibility itself is unverified — see FLAG-010."
+    },
+    "cost_a": {
+      "id": "cost_a",
+      "title": "Property A — projected annual carrying costs (base preserved)",
+      "columns": [
+        "Year",
+        "Property tax",
+        "Insurance",
+        "Water",
+        "Electricity / solar (negative = credit)",
+        "Maintenance & repairs",
+        "Total annual",
+        "Total monthly",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2026",
+            "$7,350",
+            "$1,570",
+            "$1,440",
+            "$-240",
+            "$6,200",
+            "$16,320",
+            "$1,360"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property tax uses the preserved Prop 13 base (no transfer). Costs inflated 2%/yr; maintenance at 0.20% of projected market value."
+        },
+        {
+          "cells": [
+            "2030",
+            "$7,960",
+            "$1,700",
+            "$1,560",
+            "$-260",
+            "$7,850",
+            "$18,810",
+            "$1,570"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property tax uses the preserved Prop 13 base (no transfer). Costs inflated 2%/yr; maintenance at 0.20% of projected market value."
+        },
+        {
+          "cells": [
+            "2035",
+            "$8,790",
+            "$1,880",
+            "$1,720",
+            "$-290",
+            "$10,550",
+            "$22,640",
+            "$1,890"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property tax uses the preserved Prop 13 base (no transfer). Costs inflated 2%/yr; maintenance at 0.20% of projected market value."
+        },
+        {
+          "cells": [
+            "2040",
+            "$9,700",
+            "$2,070",
+            "$1,900",
+            "$-320",
+            "$14,170",
+            "$27,520",
+            "$2,290"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property tax uses the preserved Prop 13 base (no transfer). Costs inflated 2%/yr; maintenance at 0.20% of projected market value."
+        },
+        {
+          "cells": [
+            "2045",
+            "$10,710",
+            "$2,290",
+            "$2,100",
+            "$-350",
+            "$19,030",
+            "$33,780",
+            "$2,810"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property tax uses the preserved Prop 13 base (no transfer). Costs inflated 2%/yr; maintenance at 0.20% of projected market value."
+        },
+        {
+          "cells": [
+            "2050",
+            "$11,820",
+            "$2,530",
+            "$2,320",
+            "$-390",
+            "$25,560",
+            "$41,840",
+            "$3,490"
+          ],
+          "source": "CDI_AVG",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property tax uses the preserved Prop 13 base (no transfer). Costs inflated 2%/yr; maintenance at 0.20% of projected market value."
+        }
+      ],
+      "caption": "Model outputs. Insurance baseline is the official CDI statewide average; all other inputs are client figures or model assumptions."
+    },
+    "cost_b": {
+      "id": "cost_b",
+      "title": "Property B — projected operating costs and rental cash flow",
+      "columns": [
+        "Year",
+        "Property tax",
+        "Insurance",
+        "Water",
+        "Electricity",
+        "Maintenance & repairs",
+        "Total annual cost",
+        "Gross rental income",
+        "Net operating cash flow",
+        "Net per month",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2026",
+            "$2,490",
+            "$1,570",
+            "$4,440",
+            "$600",
+            "$3,600",
+            "$12,700",
+            "$85,800",
+            "$73,100",
+            "$6,090"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rental income grown at the official 1.6% SF allowable increase; rent-control coverage of the units is unconfirmed."
+        },
+        {
+          "cells": [
+            "2030",
+            "$2,690",
+            "$1,700",
+            "$4,810",
+            "$650",
+            "$4,560",
+            "$14,410",
+            "$91,420",
+            "$77,020",
+            "$6,420"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rental income grown at the official 1.6% SF allowable increase; rent-control coverage of the units is unconfirmed."
+        },
+        {
+          "cells": [
+            "2035",
+            "$2,970",
+            "$1,880",
+            "$5,310",
+            "$720",
+            "$6,120",
+            "$17,000",
+            "$98,980",
+            "$81,980",
+            "$6,830"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rental income grown at the official 1.6% SF allowable increase; rent-control coverage of the units is unconfirmed."
+        },
+        {
+          "cells": [
+            "2040",
+            "$3,280",
+            "$2,070",
+            "$5,860",
+            "$790",
+            "$8,230",
+            "$20,230",
+            "$107,150",
+            "$86,920",
+            "$7,240"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rental income grown at the official 1.6% SF allowable increase; rent-control coverage of the units is unconfirmed."
+        },
+        {
+          "cells": [
+            "2045",
+            "$3,620",
+            "$2,290",
+            "$6,470",
+            "$870",
+            "$11,050",
+            "$24,300",
+            "$116,000",
+            "$91,700",
+            "$7,640"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rental income grown at the official 1.6% SF allowable increase; rent-control coverage of the units is unconfirmed."
+        },
+        {
+          "cells": [
+            "2050",
+            "$4,000",
+            "$2,530",
+            "$7,140",
+            "$970",
+            "$14,840",
+            "$29,480",
+            "$125,580",
+            "$96,110",
+            "$8,010"
+          ],
+          "source": "SF_RENT",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Rental income grown at the official 1.6% SF allowable increase; rent-control coverage of the units is unconfirmed."
+        }
+      ],
+      "caption": "Model outputs, before income tax. Rental income is taxable (IRS Pub 527) and may attract the 3.8% NIIT (Topic 559); depreciation and filing status are unknown, so income tax is not computed here. See FLAG-012."
+    },
+    "process": {
+      "id": "process",
+      "title": "Step-by-step inheritance of Property A through a trust",
+      "columns": [
+        "#",
+        "Timing",
+        "Action",
+        "Why it matters / official rule",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1",
+            "Before death",
+            "Confirm the property is titled in the trust (funding)",
+            "A living trust only avoids probate for assets actually transferred into it; a pour-over will catches unfunded assets."
+          ],
+          "source": "COURTS_LIVING",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2",
+            "Before death",
+            "Document whether the home is the transferor's principal residence",
+            "Prop 19 requires the family home to be the principal residence of BOTH transferor and transferee. This single fact determines whether a reassessment exclusion is even possible."
+          ],
+          "source": "BOE_PROP19",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "3",
+            "Date of death",
+            "Successor trustee signs Acceptance of Trusteeship; trust becomes irrevocable",
+            "Trustee takes over without probate court supervision when the trust is funded."
+          ],
+          "source": "COURTS_TRUST",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "4",
+            "Within 60 days",
+            "Written notice to all beneficiaries and heirs (Prob. Code §16061.7)",
+            "Notice must include trustee contact, place of administration, and the right to request a copy of the trust; 120-day contest period follows."
+          ],
+          "source": "COURTS_TRUST",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "5",
+            "As of date of death",
+            "Date-of-death appraisal / inventory of all estate assets",
+            "Needed to establish fair market value for basis and to determine whether estate tax returns are required."
+          ],
+          "source": "COURTS_TRUST",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "6",
+            "Date of death",
+            "Property-tax change in ownership occurs on the date of death",
+            "Applies to trust-held property even if the deed to beneficiaries is recorded years later; reassessment to market value unless an exclusion applies."
+          ],
+          "source": "BOE_P800_9",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "7",
+            "Within 150 days",
+            "File BOE-502-D with the county assessor for each parcel",
+            "Trustee or transferee files; if probated, file with the inventory and appraisal. Penalties may apply on an assessor's request."
+          ],
+          "source": "BOE_502D",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "8",
+            "Within 1 year",
+            "Beneficiary occupies the home as principal residence",
+            "Required for the Prop 19 intergenerational exclusion. Later occupancy does not qualify retroactively."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "9",
+            "Within 1 year",
+            "File homeowners' exemption (BOE-266) or disabled veterans' exemption (BOE-261-G)",
+            "Timely filing gives the exclusion as of the date of transfer; late filing gives prospective relief only."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "10",
+            "Within 3 years",
+            "File BOE-19-P (parent→child) or BOE-19-G (grandparent→grandchild)",
+            "Must be filed before transfer to a third party; also timely if within 6 months of a supplemental/escape assessment notice."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "11",
+            "If no exclusion",
+            "Assessor issues supplemental / escape assessment at market value",
+            "Supplemental bills are in addition to the regular annual bill; SF also publishes escape-assessment procedures."
+          ],
+          "source": "SCC_RATEPDF",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "12",
+            "Within 9 months",
+            "File Form 706 if gross estate + adjusted taxable gifts > $15,000,000 (2026)",
+            "Estate tax is on the estate, not the beneficiary; top rate 40%; 6-month extension via Form 4768."
+          ],
+          "source": "IRS_ESTATE_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "13",
+            "Administration period",
+            "Obtain a new TIN for the trust and file Form 1041 for post-death income",
+            "Interest, dividends and rents earned after death are taxable to the estate/trust or to beneficiaries."
+          ],
+          "source": "COURTS_TRUST",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "14",
+            "At distribution",
+            "Record the deed / affidavit and update the tax mailing address",
+            "The tax bill mailing address is unchanged until the assessor is notified."
+          ],
+          "source": "BOE_P800_9",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "15",
+            "At distribution",
+            "Basis in the real property = FMV at date of death",
+            "A stepped-up basis normally eliminates gain on an immediate sale; later appreciation is taxable."
+          ],
+          "source": "IRS_P551",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "16",
+            "Decision point",
+            "Choose: occupy, rent, or sell and reinvest",
+            "See the Decision Analysis page; a sale reinvested in stocks cannot use §1031 deferral."
+          ],
+          "source": "IRS_FS1031",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "17",
+            "If sold after 2 years of ownership + use",
+            "§121 may exclude up to $250,000 ($500,000 joint) of gain",
+            "Ownership and use tests are 2 out of the 5 years before sale; nonqualified use and depreciation rules apply."
+          ],
+          "source": "IRS_TC701",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "18",
+            "Solar system",
+            "Confirm the NEM / Net Billing Tariff legacy period transfers with the property",
+            "CPUC states legacy periods remain in effect when a property with a NEM system changes hands."
+          ],
+          "source": "CPUC_SB695",
+          "status": "VERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "Timing and rules are read from the linked government pages. Steps describing client-specific facts are labelled as actions to take, not as completed events."
+    },
+    "estate_threshold": {
+      "id": "estate_threshold",
+      "title": "Inheritance / estate tax thresholds and projected headroom",
+      "columns": [
+        "Year",
+        "Official single exemption",
+        "Official couple exemption (portability)",
+        "Projected single exemption",
+        "Projected couple exemption",
+        "Top federal rate",
+        "CA state tax",
+        "Local tax",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2026",
+            "$15,000,000",
+            "$30,000,000",
+            "$15,000,000",
+            "$30,000,000",
+            "40%",
+            "$0",
+            "$0"
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "VERIFIED",
+          "note": "2026 values are official. Later single-person figures project the statutory inflation indexing at 2%/yr; no official future amounts exist."
+        },
+        {
+          "cells": [
+            "2030",
+            "—",
+            "—",
+            "$16,236,480",
+            "$32,472,960",
+            "40%",
+            "$0",
+            "$0"
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "2026 values are official. Later single-person figures project the statutory inflation indexing at 2%/yr; no official future amounts exist."
+        },
+        {
+          "cells": [
+            "2040",
+            "—",
+            "—",
+            "$19,792,180",
+            "$39,584,360",
+            "40%",
+            "$0",
+            "$0"
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "2026 values are official. Later single-person figures project the statutory inflation indexing at 2%/yr; no official future amounts exist."
+        },
+        {
+          "cells": [
+            "2045",
+            "—",
+            "—",
+            "$21,852,170",
+            "$43,704,340",
+            "40%",
+            "$0",
+            "$0"
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "2026 values are official. Later single-person figures project the statutory inflation indexing at 2%/yr; no official future amounts exist."
+        },
+        {
+          "cells": [
+            "2050",
+            "—",
+            "—",
+            "$24,126,560",
+            "$48,253,120",
+            "40%",
+            "$0",
+            "$0"
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "2026 values are official. Later single-person figures project the statutory inflation indexing at 2%/yr; no official future amounts exist."
+        }
+      ],
+      "caption": "2026 row is verified from IRS / Congress.gov. Later rows are model projections of the statutory inflation index. California and local estate/inheritance tax are $0 by statute (R&T §13301)."
+    },
+    "estate_matrix": {
+      "id": "estate_matrix",
+      "title": "Illustrative federal estate tax by gross estate size (2026 law)",
+      "columns": [
+        "Gross estate (illustrative)",
+        "Headroom before 2026 single threshold",
+        "Federal tax · single",
+        "Federal tax · couple with portability",
+        "CA state tax",
+        "Local tax",
+        "Net to heirs · single, before deductions",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "$5,000,000",
+            "$10,000,000",
+            "$0",
+            "$0",
+            "$0",
+            "$0",
+            "$5,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$10,000,000",
+            "$5,000,000",
+            "$0",
+            "$0",
+            "$0",
+            "$0",
+            "$10,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$15,000,000",
+            "$0",
+            "$0",
+            "$0",
+            "$0",
+            "$0",
+            "$15,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$20,000,000",
+            "$0",
+            "$2,000,000",
+            "$0",
+            "$0",
+            "$0",
+            "$18,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$25,000,000",
+            "$0",
+            "$4,000,000",
+            "$0",
+            "$0",
+            "$0",
+            "$21,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$30,000,000",
+            "$0",
+            "$6,000,000",
+            "$0",
+            "$0",
+            "$0",
+            "$24,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$40,000,000",
+            "$0",
+            "$10,000,000",
+            "$4,000,000",
+            "$0",
+            "$0",
+            "$30,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        },
+        {
+          "cells": [
+            "$50,000,000",
+            "$0",
+            "$14,000,000",
+            "$8,000,000",
+            "$0",
+            "$0",
+            "$36,000,000"
+          ],
+          "source": "IRS_I706",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Illustrative gross-estate sizes. Excludes deductions, marital/charitable deductions, lifetime taxable gifts and DSUE; those change the real result."
+        }
+      ],
+      "caption": "The estate size in this case is UNKNOWN. These rows are arithmetic illustrations of the official 40% rate above the official $15M / $30M thresholds, not statements about this estate. See FLAG-013."
+    },
+    "law_changes": {
+      "id": "law_changes",
+      "title": "Enacted, pending and proposed law changes that could alter the decision",
+      "columns": [
+        "Level",
+        "Change",
+        "Status",
+        "Why it matters to this decision",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Federal",
+            "Basic exclusion made permanent at $15M, inflation indexed after 2026",
+            "Already enacted (P.L. 119-21, July 4, 2025)",
+            "Removes the pre-2026 sunset risk; exemption rises with inflation, but Congress can amend it at any time."
+          ],
+          "source": "CONGRESS_HR1_SUM",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Federal",
+            "SALT cap $40,400 in 2026, temporary through 2029",
+            "Enacted",
+            "Affects the after-tax cost of holding a high-property-tax home; a return to $10,000 would raise the net cost of ownership."
+          ],
+          "source": "IRS_SALT2026",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "Prop. 3 (Nov. 3, 2026): makes permanent the high-income tax rates due to expire in 2031",
+            "On the 2026 ballot; results not certified as of 2026-11-10",
+            "Would keep top marginal CA rates in place for a 2040-2050 sale, increasing tax on gains taxed as ordinary income."
+          ],
+          "source": "SOS_CERTIFIES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "Prop. 40 (Nov. 3, 2026): one-time up-to-5% tax on covered assets over $1B, excluding real property",
+            "On the 2026 ballot; results not certified",
+            "Real property is excluded, but a very large liquid estate could be affected; the estate size here is unknown."
+          ],
+          "source": "SOS_PROP40",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "Prop. 42 (Nov. 3, 2026): prohibits new state personal property taxes and certain retroactive taxes",
+            "On the 2026 ballot; results not certified",
+            "Would constrain future state-level wealth taxation."
+          ],
+          "source": "SOS_BALLOT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "Prop. 43 (Nov. 3, 2026): limits voters' ability to raise revenues for local services",
+            "On the 2026 ballot; results not certified",
+            "Could constrain future local bond/parcel taxes that make up part of the property tax bill."
+          ],
+          "source": "SOS_BALLOT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "Election results certification",
+            "Due December 11, 2026",
+            "As of publication, outcomes are not yet official; all 2026 measure impacts are treated as unresolved."
+          ],
+          "source": "SOS_RESULTS_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "Prop. 19 remains the operative intergenerational-transfer rule",
+            "Current law",
+            "Any repeal or amendment before 2040-2050 would change the reassessment analysis materially; no repeal is on the 2026 statewide ballot."
+          ],
+          "source": "BOE_PROP19",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "California",
+            "SB 284 (2025) proposed clarifying the Prop. 19 one-year residency window for probate transfers",
+            "Proposal analysed by BOE; not treated as enacted here",
+            "Would relax a deadline that is critical to the exclusion; status must be re-checked before the transfer."
+          ],
+          "source": "BOE_PROP19",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Federal / CA",
+            "Step-up in basis under §1014",
+            "Current law; repeatedly proposed for repeal in past Congresses",
+            "If repealed before the transfer, an immediate sale would realise the decedent's full unrealised gain and change the recommendation."
+          ],
+          "source": "IRS_P551",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "Local",
+            "Solar Net Billing Tariff and NEM legacy periods",
+            "Current CPUC rules",
+            "A 20-year legacy period may expire before 2040-2050; the solar credit assumption would then change."
+          ],
+          "source": "CPUC_SB695",
+          "status": "VERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "Only government sources are used. 'Proposed' items are described as proposals, never as current law. The SB 284 row links to the BOE Prop. 19 guidance hub rather than asserting an unverified bill status."
+    },
+    "decision": {
+      "id": "decision",
+      "title": "Three options compared at each candidate transfer year (base case)",
+      "columns": [
+        "Transfer year",
+        "Option",
+        "Market value at death",
+        "New taxable assessed value",
+        "Annual property tax",
+        "Net cash invested if sold",
+        "10-year wealth",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2040",
+            "1 · Occupy (Prop 19 eligible)",
+            "$5,368,200",
+            "$3,962,320",
+            "$52,910",
+            "—",
+            "$5,975,860"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2050; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2040",
+            "2 · Rent out (no exclusion)",
+            "$5,368,200",
+            "$5,368,200",
+            "$71,680",
+            "—",
+            "$6,546,170"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2050; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2040",
+            "3 · Sell at death, reinvest",
+            "$5,368,200",
+            "—",
+            "—",
+            "$5,046,110",
+            "$8,219,570"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2050; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2045",
+            "1 · Occupy (Prop 19 eligible)",
+            "$6,531,230",
+            "$4,979,030",
+            "$66,480",
+            "—",
+            "$7,208,090"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2055; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2045",
+            "2 · Rent out (no exclusion)",
+            "$6,531,230",
+            "$6,531,230",
+            "$87,210",
+            "—",
+            "$7,847,410"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2055; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2045",
+            "3 · Sell at death, reinvest",
+            "$6,531,230",
+            "—",
+            "—",
+            "$6,139,360",
+            "$10,000,370"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2055; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2050",
+            "1 · Occupy (Prop 19 eligible)",
+            "$7,946,240",
+            "$6,232,490",
+            "$83,220",
+            "—",
+            "$8,697,190"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2060; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2050",
+            "2 · Rent out (no exclusion)",
+            "$7,946,240",
+            "$7,946,240",
+            "$106,100",
+            "—",
+            "$9,412,710"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2060; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        },
+        {
+          "cells": [
+            "2050",
+            "3 · Sell at death, reinvest",
+            "$7,946,240",
+            "—",
+            "—",
+            "$7,469,470",
+            "$12,166,980"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "10-year nominal wealth at year 2060; base 4% appreciation, 5% portfolio return, 6% selling cost, 37.10% combined gain tax. Pre-beneficiary-income-tax on operating cash flows."
+        }
+      ],
+      "caption": "All figures are model outputs. The official rules behind them: §1014 stepped-up basis, Prop 19 reassessment exclusion, and §121 capital-gain exclusion. No beneficiary income tax is applied to annual cash flows (FLAG-012)."
+    },
+    "ranking": {
+      "id": "ranking",
+      "title": "2045 base-case ranking by 10-year wealth",
+      "columns": [
+        "Rank",
+        "Option",
+        "10-year wealth",
+        "Difference vs sell & reinvest",
+        "Scenario",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1",
+            "3 · Sell & reinvest",
+            "$10,000,370",
+            "$0",
+            "Base case (4% appreciation, 5% portfolio return)"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2",
+            "2 · Rent out",
+            "$7,847,410",
+            "$-2,152,960",
+            "Base case (4% appreciation, 5% portfolio return)"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "3",
+            "1 · Occupy",
+            "$7,208,090",
+            "$-2,792,280",
+            "Base case (4% appreciation, 5% portfolio return)"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        }
+      ],
+      "caption": "Model output only. The ranking is conditional on the assumptions; see the sensitivity and break-even tables below."
+    },
+    "sensitivity": {
+      "id": "sensitivity",
+      "title": "Sensitivity of 10-year wealth to appreciation and portfolio return",
+      "columns": [
+        "Transfer year",
+        "Appreciation scenario",
+        "Portfolio return",
+        "Occupy",
+        "Rent out",
+        "Sell & reinvest",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2040",
+            "low 2%",
+            "base 5%",
+            "$3,996,030",
+            "$4,566,340",
+            "$6,263,040"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2040",
+            "base 4%",
+            "base 5%",
+            "$5,975,860",
+            "$6,546,170",
+            "$8,219,570"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2040",
+            "high 6%",
+            "base 5%",
+            "$8,985,630",
+            "$9,555,940",
+            "$10,731,600"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2040",
+            "base 4%",
+            "low (3%)",
+            "$5,975,860",
+            "$6,546,170",
+            "$6,781,540"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2040",
+            "base 4%",
+            "base (5%)",
+            "$5,975,860",
+            "$6,546,170",
+            "$8,219,570"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2040",
+            "base 4%",
+            "high (7%)",
+            "$5,975,860",
+            "$6,546,170",
+            "$9,926,450"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2045",
+            "low 2%",
+            "base 5%",
+            "$4,387,360",
+            "$5,026,680",
+            "$6,914,900"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2045",
+            "base 4%",
+            "base 5%",
+            "$7,208,090",
+            "$7,847,410",
+            "$10,000,370"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2045",
+            "high 6%",
+            "base 5%",
+            "$11,917,140",
+            "$12,556,460",
+            "$14,361,310"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2045",
+            "base 4%",
+            "low (3%)",
+            "$7,208,090",
+            "$7,847,410",
+            "$8,250,780"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2045",
+            "base 4%",
+            "base (5%)",
+            "$7,208,090",
+            "$7,847,410",
+            "$10,000,370"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2045",
+            "base 4%",
+            "high (7%)",
+            "$7,208,090",
+            "$7,847,410",
+            "$12,077,050"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2050",
+            "low 2%",
+            "base 5%",
+            "$4,816,160",
+            "$5,531,680",
+            "$7,634,610"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2050",
+            "base 4%",
+            "base 5%",
+            "$8,697,190",
+            "$9,412,710",
+            "$12,166,980"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2050",
+            "high 6%",
+            "base 5%",
+            "$15,818,210",
+            "$16,533,730",
+            "$19,218,670"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2050",
+            "base 4%",
+            "low (3%)",
+            "$8,697,190",
+            "$9,412,710",
+            "$10,038,340"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2050",
+            "base 4%",
+            "base (5%)",
+            "$8,697,190",
+            "$9,412,710",
+            "$12,166,980"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        },
+        {
+          "cells": [
+            "2050",
+            "base 4%",
+            "high (7%)",
+            "$8,697,190",
+            "$9,412,710",
+            "$14,693,570"
+          ],
+          "source": "FED_FOMC",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": ""
+        }
+      ],
+      "caption": "Model outputs. Rows with a portfolio-return variation hold appreciation at the 4% base; rows with an appreciation variation hold the portfolio at 5%."
+    },
+    "breakeven": {
+      "id": "breakeven",
+      "title": "Break-even and tax-friction numbers behind the recommendation",
+      "columns": [
+        "Question",
+        "Answer",
+        "Reference value",
+        "Basis",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Monthly rent needed for 'rent out' to match 'sell & reinvest' (2045, 2026-equivalent dollars)",
+            "$16,260",
+            "$5,010",
+            "224.47% above HUD benchmark"
+          ],
+          "source": "HUD_FMR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "HUD FY2026 4-BR FMR for the San Jose HMFA, inflated 2%/yr to 2045, multiplied by the solved factor; reported here in 2026-equivalent dollars."
+        },
+        {
+          "cells": [
+            "Annual appreciation needed for 'occupy' to match 'sell & reinvest' (2045)",
+            "8.49%",
+            "4.00% (base)",
+            "Break-even appreciation rate"
+          ],
+          "source": "FHFA_HPI",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Solved against the 4% base case; FHFA HPI is the official price-index source."
+        },
+        {
+          "cells": [
+            "Property tax saved in year 2045 if Prop 19 exclusion is granted",
+            "$20,730",
+            "$87,210",
+            "Full reassessment tax"
+          ],
+          "source": "BOE_P801",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Difference between full market reassessment and the Prop 19 adjusted base year value."
+        },
+        {
+          "cells": [
+            "10-year imputed housing value credited to 'occupy' at the official HUD benchmark",
+            "$959,010",
+            "$5,010 / month (2026)",
+            "HUD 4-BR FMR grown 2%/yr"
+          ],
+          "source": "HUD_FMR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "A generous non-cash credit for living in the home; not cash and not a property-specific appraisal."
+        },
+        {
+          "cells": [
+            "'Occupy' wealth even after crediting that imputed housing value",
+            "$8,167,100",
+            "$10,000,370",
+            "'Sell & reinvest' wealth"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Shows the recommendation is robust even with an unpriced housing benefit added back."
+        },
+        {
+          "cells": [
+            "Immediate-sale capital gain at date of death (stepped-up basis)",
+            "$0",
+            "$6,531,230",
+            "Basis = FMV at date of death"
+          ],
+          "source": "IRS_P551",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "A sale at the date-of-death value realises no gain; selling costs and later appreciation do."
+        },
+        {
+          "cells": [
+            "Beneficiary federal income tax on the inheritance itself",
+            "$0 (generally)",
+            "Not gross income",
+            "Later rents/interest/dividends are taxable"
+          ],
+          "source": "IRS_P525",
+          "status": "VERIFIED",
+          "note": "Official rule; excludes inherited IRA/pension income."
+        }
+      ],
+      "caption": "Break-even figures are solved from the model, not published values. The final row is a verified official rule."
+    },
+    "property_b": {
+      "id": "property_b",
+      "title": "Property B — the low-cost residence anchor",
+      "columns": [
+        "Year",
+        "Taxable assessed value",
+        "Property tax",
+        "Gross rental income",
+        "Total operating cost",
+        "Net operating cash flow",
+        "Gross rent / month",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2026",
+            "$116,530",
+            "$2,490",
+            "$85,800",
+            "$12,700",
+            "$73,100",
+            "$7,150"
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property B's very low assessed value is preserved until a change in ownership; official 2% cap applied."
+        },
+        {
+          "cells": [
+            "2040",
+            "$153,760",
+            "$3,280",
+            "$107,150",
+            "$20,230",
+            "$86,920",
+            "$8,930"
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property B's very low assessed value is preserved until a change in ownership; official 2% cap applied."
+        },
+        {
+          "cells": [
+            "2045",
+            "$169,770",
+            "$3,620",
+            "$116,000",
+            "$24,300",
+            "$91,700",
+            "$9,670"
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property B's very low assessed value is preserved until a change in ownership; official 2% cap applied."
+        },
+        {
+          "cells": [
+            "2050",
+            "$187,440",
+            "$4,000",
+            "$125,580",
+            "$29,480",
+            "$96,110",
+            "$10,470"
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "MODEL OUTPUT — NOT AN OFFICIAL VALUE",
+          "note": "Property B's very low assessed value is preserved until a change in ownership; official 2% cap applied."
+        }
+      ],
+      "caption": "Model outputs from client-supplied inputs and official rules. The client states residence at Property B does not reduce the rental income from the two let units — that statement is unverified (FLAG-016)."
+    },
+    "flags_table": {
+      "id": "flags_table",
+      "title": "Flagged for Review — all unverified values and irregularities",
+      "columns": [
+        "ID",
+        "Severity",
+        "Item",
+        "Detail",
+        "Recommended action",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "FLAG-001",
+            "Process",
+            "Single fixed working branch",
+            "The parallel-session instructions call for session-<id>/<task> branches and a separate integration branch. This Arena session is bound to one fixed branch (arena/91a4a9f9-tino5) and cannot create or switch branches. Non-overlap was enforced by file scope; all tasks were claimed by one session and no other claim was overwritten.",
+            "If a multi-branch workflow is required later, re-run the coordination step in an environment that permits branch creation."
+          ],
+          "source": "SOS_BALLOT",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-002",
+            "Privacy",
+            "No personal information published",
+            "All people, addresses, trust names and account identifiers were replaced with placeholders. Only ZIP-code-level geography is used. Client-supplied financial figures are anonymous and remain unverified.",
+            "No action required; re-check before adding any new data."
+          ],
+          "source": "SCC_PROP13",
+          "status": "CLOSED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-003",
+            "Data quality",
+            "Client tax/assessment pairs do not reconcile to an official rate",
+            "Client ratios imply ~1.34% (Property A) and ~2.13% (Property B) effective rates, above the official 1% + voter-approved ad valorem rates (Santa Clara TRA book; SF FY2026-27 1.18162182%). Direct charges / special assessments are a plausible explanation but are not confirmed.",
+            "Reconcile against the actual tax bills; the model uses the client-derived ratios and labels them unverified."
+          ],
+          "source": "SF_TREASURER",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-004",
+            "Insurance",
+            "Property A primary-residence insurance premium unverified",
+            "No ZIP-specific official premium was retrieved. CDI's tool publishes sample annual premiums effective May 1, 2026, and explicitly says it is not a quote. The model uses the official CDI statewide average of $1,570/yr.",
+            "Obtain quotes through the CDI comparison tool for SANTA CLARA / CUPERTINO at the correct coverage amount."
+          ],
+          "source": "CDI_TOOL",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-005",
+            "Insurance",
+            "Property B landlord / rental dwelling insurance unverified",
+            "A landlord or dwelling-fire policy is not the same as a homeowner policy, and no official ZIP-level premium was retrieved.",
+            "Use the CDI Residential Property Insurance Report (ZIP-level earned premiums by policy form) and carrier quotes."
+          ],
+          "source": "CDI_REPORT",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-006",
+            "Utilities",
+            "Water, electricity and solar credit figures are client estimates",
+            "Property A water $100-$150/mo and solar net credit $10-$20/mo; Property B water $330-$400/mo and electricity $30-$70/mo. Official tariffs are usage-based; no monthly bill was verified.",
+            "Confirm from CPUC-regulated water tariffs, SFPUC rate schedules, and the actual PG&E NEM/NBT interconnection date."
+          ],
+          "source": "CPUC_SB695",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-007",
+            "Costs",
+            "Maintenance and repair cost assumption unverified",
+            "No figure was supplied. The model uses 0.20% of market value per year for both properties, inflated with CPI. The client's statement that Property A needs less maintenance than Property B is qualitative and not modelled.",
+            "Supply a documented maintenance history or a reserve study; replace the assumption."
+          ],
+          "source": "IRS_P527",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-008",
+            "Model",
+            "Appreciation and portfolio-return scenarios are not official forecasts",
+            "2%/4%/6% home appreciation and 3%/5%/7% portfolio returns are model scenario bands. FHFA publishes the official historical HPI series, not a forecast to 2050.",
+            "Treat the sensitivity table as the decision range, not a point prediction."
+          ],
+          "source": "FHFA_HPI",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-009",
+            "Model",
+            "2% inflation is a policy goal, not a 25-year forecast",
+            "The FOMC's 2% longer-run PCE goal is used to escalate costs and project the estate-tax exemption. No official 2040-2050 inflation forecast is asserted.",
+            "Re-run with alternative inflation paths if needed."
+          ],
+          "source": "FED_FOMC",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-010",
+            "Critical",
+            "Prop 19 eligibility is unconfirmed",
+            "The exclusion requires the home to be the transferor's principal residence AND the transferee's principal residence within one year, plus a timely homeowners' exemption and BOE-19-P/19-G claim. None of these facts is verified for this estate. If ineligible, the property is reassessed to full market value.",
+            "Confirm the decedent's principal residence and decide on occupancy BEFORE the transfer; diarise the 1-year and 3-year deadlines."
+          ],
+          "source": "BOE_P800_9",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-011",
+            "Model",
+            "Future Prop 19 allowance amounts are projected",
+            "Only $1,044,590 (for transfers 2/16/2025-2/15/2027) is official. BOE publishes the inflation-adjusted amount biennially; 2040-2050 amounts do not yet exist.",
+            "Replace with the BOE-published amount in the year of transfer."
+          ],
+          "source": "BOE_P801",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-012",
+            "Tax",
+            "Beneficiary-level income tax not fully computed in cash-flow comparisons",
+            "Filing status, other income, depreciation basis, land/building split and NIIT applicability are unknown. Rental income is taxable under Pub 527; gains may attract 20% + 3.8% NIIT + up to 13.3% CA. The decision table is therefore pre-beneficiary-income-tax on annual cash flows.",
+            "Have a tax professional run the specific return before relying on the net-cash-flow ranking."
+          ],
+          "source": "IRS_TC559",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-013",
+            "Critical",
+            "Estate size is unquantified",
+            "The brief says the inheritance includes a 'considerable amount of money' that may exceed the exempt amount, but gives no figure. The estate-tax matrix is therefore illustrative arithmetic, not a calculation for this estate.",
+            "Obtain the gross estate estimate, lifetime taxable gifts, and whether a DSUE portability election was made."
+          ],
+          "source": "IRS_ESTATE",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-014",
+            "Law change",
+            "November 3, 2026 California ballot results not certified",
+            "As of 2026-11-10, the Secretary of State states county results are due December 4, 2026 and certification by December 11, 2026. Measures affecting high-income tax rates, a one-time wealth tax, and local revenue limits are listed as unresolved.",
+            "Re-check the official results after certification and update the Law Changes page."
+          ],
+          "source": "SOS_RESULTS_FAQ",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-015",
+            "Verification",
+            "All projections are model outputs, not official values",
+            "Every projection row is labelled MODEL OUTPUT and links to the official rule behind it. No future assessed value, market value, tax bill or exemption amount is presented as an official figure.",
+            "None; this is by design."
+          ],
+          "source": "SCC_PROP13",
+          "status": "CLOSED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-016",
+            "Rent",
+            "SF rent-control coverage of the two let units is unconfirmed",
+            "The official 1.6% allowable increase (3/1/2026-2/28/2027) applies to covered units. The client's $7,150/mo rental income and the claim that owner occupancy does not reduce it are unverified.",
+            "Confirm unit coverage, lawful rent, and the Housing Inventory registration with the SF Rent Board."
+          ],
+          "source": "SF_RENT",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-017",
+            "Data quality",
+            "Property A 2026 tax bill supplied as '--'",
+            "The 2026 property tax figure is missing from the client's table; 2025 is used as the effective-rate base.",
+            "Insert the 2026 secured tax bill once available."
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-018",
+            "Rent",
+            "HUD Fair Market Rent is a program benchmark, not a market appraisal",
+            "FY2026 4-BR FMR of $5,010/mo for the San Jose HMFA is an official HUD program figure. It is used as the rent benchmark because no property-specific official rent exists.",
+            "Replace with a documented appraisal or executed lease if available."
+          ],
+          "source": "HUD_FMR",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-019",
+            "Model",
+            "6% selling-cost assumption unverified",
+            "Commission, transfer taxes and closing costs are modelled at 6% of price. No official source sets this rate.",
+            "Use actual listing agreement and closing estimate at the time of sale."
+          ],
+          "source": "IRS_P523",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FLAG-020",
+            "Law change",
+            "SB 284 (2025) status not verified against an official bill-status page",
+            "A BOE legislative analysis describes a proposal to reset the Prop 19 one-year residency window for probate transfers. The live bill status could not be confirmed from an official legislative status page, so it is described only as a proposal.",
+            "Verify against leginfo.legislature.ca.gov before relying on it."
+          ],
+          "source": "BOE_PROP19",
+          "status": "FLAGGED — UNVERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "Every flag links to the official agency that holds the confirming record. Flagged items do not block publication."
+    },
+    "sources_table": {
+      "id": "sources_table",
+      "title": "Official source registry (all links retrieved and read 2026-11-10 UTC)",
+      "columns": [
+        "ID",
+        "Agency",
+        "Document",
+        "What was verified",
+        "Official source",
+        "Status"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "IRS_ESTATE",
+            "Internal Revenue Service",
+            "Estate tax (filing thresholds by year of death)",
+            "Gross-estate definition; 2026 Form 706 filing threshold $15,000,000; portability election."
+          ],
+          "source": "IRS_ESTATE",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_ESTATE_FAQ",
+            "Internal Revenue Service",
+            "Frequently asked questions on estate taxes",
+            "Public Law 119-21 raised the basic exclusion to $15,000,000 for 2026; Form 706 due 9 months after death; 6-month extension via Form 4768; DSUE portability."
+          ],
+          "source": "IRS_ESTATE_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CONGRESS_HR1",
+            "United States Congress",
+            "H.R.1, Public Law 119-21, text (Sec. 70106)",
+            "Sec. 70106 replaces $5,000,000 with $15,000,000; inflation indexing for years beginning after 2026."
+          ],
+          "source": "CONGRESS_HR1",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CONGRESS_HR1_SUM",
+            "United States Congress",
+            "H.R.1 summary, Public Law 119-21 (07/04/2025)",
+            "Increases the base estate, gift and GST exemption after 2025 to $15 million, adjusted for inflation."
+          ],
+          "source": "CONGRESS_HR1_SUM",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_RP2532",
+            "Internal Revenue Service",
+            "Revenue Procedure 2025-32 (2026 inflation adjustments)",
+            "2026 long-term capital gain 0%/15% thresholds (MFJ $98,900 / $613,700); 2026 annual gift exclusion $19,000; estates/trusts 20% rate above $16,250."
+          ],
+          "source": "IRS_RP2532",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_I706",
+            "Internal Revenue Service",
+            "Instructions for Form 706 (07/2026)",
+            "Estate tax is levied on the entire taxable estate, not on a beneficiary's share; top unified rate 40%; estate/GST tax due within 9 months."
+          ],
+          "source": "IRS_I706",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_P551",
+            "Internal Revenue Service",
+            "Publication 551, Basis of Assets",
+            "Basis of inherited property is generally FMV at date of death (or alternate valuation date); §1014(f) consistency rule."
+          ],
+          "source": "IRS_P551",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_INHERIT_FAQ",
+            "Internal Revenue Service",
+            "Gifts & inheritances (IRS FAQ)",
+            "Inherited-property basis is FMV at death whether or not Form 706 is filed; gain on later sale is taxable."
+          ],
+          "source": "IRS_INHERIT_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_P525",
+            "Internal Revenue Service",
+            "Publication 525, Taxable and Nontaxable Income",
+            "Generally, property received as a gift, bequest or inheritance is not included in income; later interest, dividends or rents are taxable."
+          ],
+          "source": "IRS_P525",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_TC701",
+            "Internal Revenue Service",
+            "Topic no. 701, Sale of your home",
+            "§121 exclusion up to $250,000 ($500,000 joint); ownership and use 2 of the 5 years before sale; no exclusion if another home was excluded in prior 2 years."
+          ],
+          "source": "IRS_TC701",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_P523",
+            "Internal Revenue Service",
+            "Publication 523, Selling Your Home",
+            "Rules for home inherited from a decedent; business or rental use, nonqualified use after 2008, and basis adjustments."
+          ],
+          "source": "IRS_P523",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_TC409",
+            "Internal Revenue Service",
+            "Topic no. 409, Capital gains and losses",
+            "0% / 15% / 20% rates; 25% maximum on unrecaptured §1250 gain; short-term gains at ordinary rates."
+          ],
+          "source": "IRS_TC409",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_TC559",
+            "Internal Revenue Service",
+            "Topic no. 559, Net investment income tax",
+            "3.8% NIIT; $250,000 MFJ / $200,000 single MAGI thresholds; rents and gains from real estate generally included; §121-excluded gain is not."
+          ],
+          "source": "IRS_TC559",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_P527",
+            "Internal Revenue Service",
+            "Publication 527, Residential Rental Property",
+            "Rental income, deductible expenses, depreciation, repairs vs. improvements, and sale of a main home used as rental property."
+          ],
+          "source": "IRS_P527",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_FS1031",
+            "Internal Revenue Service",
+            "Like-Kind Exchanges Under IRC Section 1031 (FS-2008-18)",
+            "§1031 applies only to business/investment real property; primary residences, stocks, bonds, notes and securities do not qualify."
+          ],
+          "source": "IRS_FS1031",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_P544",
+            "Internal Revenue Service",
+            "Publication 544, Sales and Other Dispositions of Assets",
+            "Like-kind exchange nonrecognition rules apply only to real property held for investment or business use."
+          ],
+          "source": "IRS_P544",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_TC503",
+            "Internal Revenue Service",
+            "Topic no. 503, Deductible taxes",
+            "SALT deduction limited to $40,000 ($20,000 MFS), subject to MAGI limitation, floor $10,000."
+          ],
+          "source": "IRS_TC503",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_SALT2026",
+            "Internal Revenue Service",
+            "Correction to 2026 Form 1040-ES SALT amount",
+            "2026 SALT limit $40,400 ($20,200 MFS); reduced above MAGI $505,000 ($252,500 MFS); floor $10,000."
+          ],
+          "source": "IRS_SALT2026",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_F1041ES",
+            "Internal Revenue Service",
+            "Form 1041-ES 2026, Estimated Income Tax for Estates and Trusts",
+            "2026 estates/trusts: 20% capital-gain rate above $16,250; NIIT 3.8% on undistributed net investment income."
+          ],
+          "source": "IRS_F1041ES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "IRS_P559",
+            "Internal Revenue Service",
+            "Publication 559, Survivors, Executors and Administrators",
+            "Duties of the personal representative, final Form 1040, Form 56, and estate/trust income tax reporting."
+          ],
+          "source": "IRS_P559",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FED_FOMC",
+            "Federal Reserve",
+            "Statement on Longer-Run Goals and Monetary Policy Strategy (reaffirmed 2026)",
+            "FOMC longer-run inflation goal is 2 percent (PCE). This is a policy goal, not a forecast through 2050."
+          ],
+          "source": "FED_FOMC",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FHFA_HPI",
+            "Federal Housing Finance Agency",
+            "FHFA House Price Index datasets",
+            "Official repeat-sales house price indexes at metro-area, county and ZIP-code level; used as the official anchor for appreciation scenarios."
+          ],
+          "source": "FHFA_HPI",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "HUD_FMR",
+            "U.S. Department of Housing and Urban Development",
+            "FY 2026 Schedule of Fair Market Rents",
+            "CA metropolitan FMRs: San Jose-Sunnyvale-Santa Clara HMFA 4-BR $5,010/mo; San Francisco HMFA 4-BR $4,770/mo (official figure, rounded to the nearest $10). Program benchmark, not a property appraisal."
+          ],
+          "source": "HUD_FMR",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "COURTS_TRUST",
+            "California Courts (Santa Clara County Superior Court)",
+            "Probate Trusts — trustee duties when the settlor dies",
+            "Successor trustee acceptance; written notice to beneficiaries/heirs within 60 days; inventory and appraisal; estate tax returns and payment within 9 months; new trust TIN; trust income tax returns."
+          ],
+          "source": "COURTS_TRUST",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "COURTS_LIVING",
+            "California Courts (Santa Clara County Superior Court)",
+            "Living Trusts (self-help)",
+            "A funded living trust avoids probate; successor trustee distributes without court supervision; pour-over will used for unfunded assets."
+          ],
+          "source": "COURTS_LIVING",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "BOE_PROP19",
+            "California State Board of Equalization",
+            "Proposition 19 (official BOE page and comparison charts)",
+            "Current law: principal residence of transferor AND transferee; value limit of current taxable value + $1,000,000 (biennially adjusted); homeowners' exemption within 1 year; claim within 3 years; R&T Code §63.2."
+          ],
+          "source": "BOE_PROP19",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "BOE_P801",
+            "California State Board of Equalization",
+            "Proposition 19 Fact Sheet (Publication 801)",
+            "Date of death is the date of transfer; transferee must occupy as principal residence within 1 year; adjusted value limit $1,044,590 for 2/16/2025-2/15/2027; forms BOE-19-P, BOE-19-G, BOE-266, BOE-261-G."
+          ],
+          "source": "BOE_P801",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "BOE_P800_9",
+            "California State Board of Equalization",
+            "Death of a Real Property Owner — Reporting Requirements (Publication 800-9)",
+            "Death is a change in ownership as of date of death even when property is held in a trust; BOE-502-D filed within 150 days; BOE-19-P / BOE-19-G / BOE-58-H claims; reassessment to market value unless an exclusion applies."
+          ],
+          "source": "BOE_P800_9",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "BOE_P800_10",
+            "California State Board of Equalization",
+            "How Property Is Assessed for Property Tax Purposes (Publication 800-10)",
+            "Assessed value less exemptions multiplied by the tax rate; homeowners' exemption reduces assessed value by $7,000."
+          ],
+          "source": "BOE_P800_10",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "BOE_502D",
+            "California State Board of Equalization",
+            "Sample BOE-502-D, Change in Ownership Statement — Death of a Real Property Owner",
+            "Trustee/transferee files within 150 days of death; 18 CCR 462.260(c) sets date of change in ownership at date of death."
+          ],
+          "source": "BOE_502D",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SCC_PROP13",
+            "Santa Clara County Assessor",
+            "Understanding Proposition 13",
+            "1% rate limit, assessed-value growth no greater than 2% annually, reassessment at market value on change of ownership; additional voter-approved taxes may raise the rate."
+          ],
+          "source": "SCC_PROP13",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SCC_RATEBOOK",
+            "Santa Clara County Controller-Treasurer",
+            "Property Tax Rate Book (archive, incl. FY2025-26)",
+            "Official TRA-specific rates; 816 tax rate areas in FY2025-26; 1.00000% maximum levy plus voter-approved bond rates; supplemental bills after change in ownership."
+          ],
+          "source": "SCC_RATEBOOK",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SCC_RATEPDF",
+            "Santa Clara County Controller-Treasurer",
+            "County of Santa Clara Compilation of Tax Rates & Information, FY2025-2026",
+            "1.00000% maximum levy plus bond rates; assessed value increases by CCPI or 2%, whichever is less; direct/special assessments are separate."
+          ],
+          "source": "SCC_RATEPDF",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SCC_ANNUAL",
+            "Santa Clara County Assessor",
+            "Santa Clara County Assessor Annual Report 2025-2026",
+            "2025-26 CCPI 2.514% produced the maximum 2% assessed-value increase; death of an owner is a reassessable change in ownership; trust-held property reassessed at date of death."
+          ],
+          "source": "SCC_ANNUAL",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SF_ASSESSOR",
+            "San Francisco Assessor-Recorder",
+            "Learn about real property assessments",
+            "1% rate plus voter-approved bond indebtedness and direct assessments; assessment growth capped at inflation or 2%, whichever is lower."
+          ],
+          "source": "SF_ASSESSOR",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SF_TREASURER",
+            "San Francisco Treasurer & Tax Collector",
+            "Secured Property Taxes",
+            "FY2026-27 secured property tax rate 1.18162182%; supplemental and escape assessments after a change in ownership; total due includes direct charges/special assessments."
+          ],
+          "source": "SF_TREASURER",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SCO_ESTATE",
+            "California State Controller's Office",
+            "California Estate Tax",
+            "For decedents dying on or after January 1, 2005, no California Estate Tax Return is required."
+          ],
+          "source": "SCO_ESTATE",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SCO_RTC13301",
+            "California State Controller's Office",
+            "Estate Tax and GST Tax Laws (R&T Code §13301)",
+            "§13301: neither the state nor any political subdivision may impose any gift, inheritance, succession, legacy, income or estate tax on a transfer occurring by reason of death."
+          ],
+          "source": "SCO_RTC13301",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FTB_FEDCHANGES",
+            "California Franchise Tax Board",
+            "Summary of Federal Income Tax Changes",
+            "California does not provide special rates for net capital gain; gains are taxed at ordinary income rates of 1% to 12.3%."
+          ],
+          "source": "FTB_FEDCHANGES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FTB_RATES",
+            "California Franchise Tax Board",
+            "2025 California Tax Rate Schedules",
+            "Top California personal income tax rate 12.30% on the highest bracket."
+          ],
+          "source": "FTB_RATES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "FTB_540ES",
+            "California Franchise Tax Board",
+            "2025 Instructions for Form 540-ES",
+            "Additional 1% tax on California taxable income over $1,000,000 (Behavioral Health Services Tax), making the top marginal rate 13.3%."
+          ],
+          "source": "FTB_540ES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SOS_BALLOT",
+            "California Secretary of State",
+            "Qualified Statewide Ballot Measures — November 3, 2026",
+            "14 measures qualified, including Prop. 3 (extends high-income tax), Prop. 40 (one-time tax on certain taxpayers), Prop. 42 (prohibits new state personal property taxes), Prop. 43 (limits local revenue measures)."
+          ],
+          "source": "SOS_BALLOT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SOS_CERTIFIES",
+            "California Secretary of State",
+            "Secretary of State certifies measures for Nov. 3, 2026 ballot",
+            "Prop. 3 would make permanent the 2012 high-income tax rates otherwise expiring in 2031; estimated $5B-$15B annual state income tax maintained."
+          ],
+          "source": "SOS_CERTIFIES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SOS_PROP40",
+            "California Secretary of State",
+            "Official Voter Information Guide — Proposition 40",
+            "One-time tax measure; SOS news release describes up to 5% on covered assets over $1 billion, excluding real property."
+          ],
+          "source": "SOS_PROP40",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SOS_RESULTS_FAQ",
+            "California Secretary of State",
+            "Election results FAQ — November 3, 2026",
+            "County results due December 4, 2026; Secretary of State compiles and certifies results by December 11, 2026."
+          ],
+          "source": "SOS_RESULTS_FAQ",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SF_RENT",
+            "City and County of San Francisco (Rent Board)",
+            "Learn about rent increases in San Francisco",
+            "For covered units the allowable annual rent increase effective March 1, 2026 through February 28, 2027 is 1.6%."
+          ],
+          "source": "SF_RENT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CDI_AVG",
+            "California Department of Insurance",
+            "Sustainable Insurance Strategy — California market snapshot",
+            "California average homeowner premium $1,570 (national $1,510); page updated October 27, 2026. Statewide average, not ZIP-specific."
+          ],
+          "source": "CDI_AVG",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CDI_REPORT",
+            "California Department of Insurance",
+            "Residential Property Insurance Report",
+            "CDI collects ZIP-code-level earned premiums, coverage amounts and losses by policy form; reports cover dwelling-fire, homeowners multi-peril, renters and condo policies."
+          ],
+          "source": "CDI_REPORT",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CDI_TOOL",
+            "California Department of Insurance",
+            "2026 Homeowners Insurance premium comparison tool",
+            "Annual premiums effective May 1, 2026; lists 'SANTA CLARA CUPERTINO' and 'SAN FRANCISCO SAN FRANCISCO-Sunset District'; explicitly not a quote."
+          ],
+          "source": "CDI_TOOL",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CPUC_SB695",
+            "California Public Utilities Commission",
+            "2025 Senate Bill 695 Report (net energy metering)",
+            "New solar customers from April 2023 receive the Net Billing Tariff; NEM 1.0/2.0 legacy 20-year periods remain in effect when a property with a NEM system changes hands."
+          ],
+          "source": "CPUC_SB695",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CPUC_VNEM",
+            "California Public Utilities Commission",
+            "Virtual Net Energy Metering / Net Billing Tariff",
+            "Decision D.22-12-056 adopted the net billing tariff; NEM 2.0 sunset April 14, 2023; legacy period rules."
+          ],
+          "source": "CPUC_VNEM",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "CPUC_WATER",
+            "California Public Utilities Commission",
+            "San Jose Water Company tariff (Cupertino service territory)",
+            "CPUC tariff schedules list 'portions of Cupertino' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."
+          ],
+          "source": "CPUC_WATER",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SFPUC_RATES",
+            "San Francisco Public Utilities Commission",
+            "Rates Schedules and Fees (2026-27 water, sewer, power)",
+            "Official rate schedules for water/sewer and Hetch Hetchy Power / CleanPowerSF."
+          ],
+          "source": "SFPUC_RATES",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
+            "SFPUC_218",
+            "San Francisco Public Utilities Commission",
+            "Proposition 218 notice for proposed water and sewer rates",
+            "Approved average single-family water/sewer bill increase of about 8.3% per year; rates are set by tariff, not by a fixed monthly bill."
+          ],
+          "source": "SFPUC_218",
+          "status": "VERIFIED",
+          "note": ""
+        }
+      ],
+      "caption": "The 'Official source' column is the live government URL for each row."
+    }
+  },
+  "flags": [
+    {
+      "id": "FLAG-001",
+      "severity": "Process",
+      "item": "Single fixed working branch",
+      "detail": "The parallel-session instructions call for session-<id>/<task> branches and a separate integration branch. This Arena session is bound to one fixed branch (arena/91a4a9f9-tino5) and cannot create or switch branches. Non-overlap was enforced by file scope; all tasks were claimed by one session and no other claim was overwritten.",
+      "action": "If a multi-branch workflow is required later, re-run the coordination step in an environment that permits branch creation.",
+      "source": "SOS_BALLOT",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-002",
+      "severity": "Privacy",
+      "item": "No personal information published",
+      "detail": "All people, addresses, trust names and account identifiers were replaced with placeholders. Only ZIP-code-level geography is used. Client-supplied financial figures are anonymous and remain unverified.",
+      "action": "No action required; re-check before adding any new data.",
+      "source": "SCC_PROP13",
+      "status": "closed"
+    },
+    {
+      "id": "FLAG-003",
+      "severity": "Data quality",
+      "item": "Client tax/assessment pairs do not reconcile to an official rate",
+      "detail": "Client ratios imply ~1.34% (Property A) and ~2.13% (Property B) effective rates, above the official 1% + voter-approved ad valorem rates (Santa Clara TRA book; SF FY2026-27 1.18162182%). Direct charges / special assessments are a plausible explanation but are not confirmed.",
+      "action": "Reconcile against the actual tax bills; the model uses the client-derived ratios and labels them unverified.",
+      "source": "SF_TREASURER",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-004",
+      "severity": "Insurance",
+      "item": "Property A primary-residence insurance premium unverified",
+      "detail": "No ZIP-specific official premium was retrieved. CDI's tool publishes sample annual premiums effective May 1, 2026, and explicitly says it is not a quote. The model uses the official CDI statewide average of $1,570/yr.",
+      "action": "Obtain quotes through the CDI comparison tool for SANTA CLARA / CUPERTINO at the correct coverage amount.",
+      "source": "CDI_TOOL",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-005",
+      "severity": "Insurance",
+      "item": "Property B landlord / rental dwelling insurance unverified",
+      "detail": "A landlord or dwelling-fire policy is not the same as a homeowner policy, and no official ZIP-level premium was retrieved.",
+      "action": "Use the CDI Residential Property Insurance Report (ZIP-level earned premiums by policy form) and carrier quotes.",
+      "source": "CDI_REPORT",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-006",
+      "severity": "Utilities",
+      "item": "Water, electricity and solar credit figures are client estimates",
+      "detail": "Property A water $100-$150/mo and solar net credit $10-$20/mo; Property B water $330-$400/mo and electricity $30-$70/mo. Official tariffs are usage-based; no monthly bill was verified.",
+      "action": "Confirm from CPUC-regulated water tariffs, SFPUC rate schedules, and the actual PG&E NEM/NBT interconnection date.",
+      "source": "CPUC_SB695",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-007",
+      "severity": "Costs",
+      "item": "Maintenance and repair cost assumption unverified",
+      "detail": "No figure was supplied. The model uses 0.20% of market value per year for both properties, inflated with CPI. The client's statement that Property A needs less maintenance than Property B is qualitative and not modelled.",
+      "action": "Supply a documented maintenance history or a reserve study; replace the assumption.",
+      "source": "IRS_P527",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-008",
+      "severity": "Model",
+      "item": "Appreciation and portfolio-return scenarios are not official forecasts",
+      "detail": "2%/4%/6% home appreciation and 3%/5%/7% portfolio returns are model scenario bands. FHFA publishes the official historical HPI series, not a forecast to 2050.",
+      "action": "Treat the sensitivity table as the decision range, not a point prediction.",
+      "source": "FHFA_HPI",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-009",
+      "severity": "Model",
+      "item": "2% inflation is a policy goal, not a 25-year forecast",
+      "detail": "The FOMC's 2% longer-run PCE goal is used to escalate costs and project the estate-tax exemption. No official 2040-2050 inflation forecast is asserted.",
+      "action": "Re-run with alternative inflation paths if needed.",
+      "source": "FED_FOMC",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-010",
+      "severity": "Critical",
+      "item": "Prop 19 eligibility is unconfirmed",
+      "detail": "The exclusion requires the home to be the transferor's principal residence AND the transferee's principal residence within one year, plus a timely homeowners' exemption and BOE-19-P/19-G claim. None of these facts is verified for this estate. If ineligible, the property is reassessed to full market value.",
+      "action": "Confirm the decedent's principal residence and decide on occupancy BEFORE the transfer; diarise the 1-year and 3-year deadlines.",
+      "source": "BOE_P800_9",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-011",
+      "severity": "Model",
+      "item": "Future Prop 19 allowance amounts are projected",
+      "detail": "Only $1,044,590 (for transfers 2/16/2025-2/15/2027) is official. BOE publishes the inflation-adjusted amount biennially; 2040-2050 amounts do not yet exist.",
+      "action": "Replace with the BOE-published amount in the year of transfer.",
+      "source": "BOE_P801",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-012",
+      "severity": "Tax",
+      "item": "Beneficiary-level income tax not fully computed in cash-flow comparisons",
+      "detail": "Filing status, other income, depreciation basis, land/building split and NIIT applicability are unknown. Rental income is taxable under Pub 527; gains may attract 20% + 3.8% NIIT + up to 13.3% CA. The decision table is therefore pre-beneficiary-income-tax on annual cash flows.",
+      "action": "Have a tax professional run the specific return before relying on the net-cash-flow ranking.",
+      "source": "IRS_TC559",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-013",
+      "severity": "Critical",
+      "item": "Estate size is unquantified",
+      "detail": "The brief says the inheritance includes a 'considerable amount of money' that may exceed the exempt amount, but gives no figure. The estate-tax matrix is therefore illustrative arithmetic, not a calculation for this estate.",
+      "action": "Obtain the gross estate estimate, lifetime taxable gifts, and whether a DSUE portability election was made.",
+      "source": "IRS_ESTATE",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-014",
+      "severity": "Law change",
+      "item": "November 3, 2026 California ballot results not certified",
+      "detail": "As of 2026-11-10, the Secretary of State states county results are due December 4, 2026 and certification by December 11, 2026. Measures affecting high-income tax rates, a one-time wealth tax, and local revenue limits are listed as unresolved.",
+      "action": "Re-check the official results after certification and update the Law Changes page.",
+      "source": "SOS_RESULTS_FAQ",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-015",
+      "severity": "Verification",
+      "item": "All projections are model outputs, not official values",
+      "detail": "Every projection row is labelled MODEL OUTPUT and links to the official rule behind it. No future assessed value, market value, tax bill or exemption amount is presented as an official figure.",
+      "action": "None; this is by design.",
+      "source": "SCC_PROP13",
+      "status": "closed"
+    },
+    {
+      "id": "FLAG-016",
+      "severity": "Rent",
+      "item": "SF rent-control coverage of the two let units is unconfirmed",
+      "detail": "The official 1.6% allowable increase (3/1/2026-2/28/2027) applies to covered units. The client's $7,150/mo rental income and the claim that owner occupancy does not reduce it are unverified.",
+      "action": "Confirm unit coverage, lawful rent, and the Housing Inventory registration with the SF Rent Board.",
+      "source": "SF_RENT",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-017",
+      "severity": "Data quality",
+      "item": "Property A 2026 tax bill supplied as '--'",
+      "detail": "The 2026 property tax figure is missing from the client's table; 2025 is used as the effective-rate base.",
+      "action": "Insert the 2026 secured tax bill once available.",
+      "source": "SCC_RATEBOOK",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-018",
+      "severity": "Rent",
+      "item": "HUD Fair Market Rent is a program benchmark, not a market appraisal",
+      "detail": "FY2026 4-BR FMR of $5,010/mo for the San Jose HMFA is an official HUD program figure. It is used as the rent benchmark because no property-specific official rent exists.",
+      "action": "Replace with a documented appraisal or executed lease if available.",
+      "source": "HUD_FMR",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-019",
+      "severity": "Model",
+      "item": "6% selling-cost assumption unverified",
+      "detail": "Commission, transfer taxes and closing costs are modelled at 6% of price. No official source sets this rate.",
+      "action": "Use actual listing agreement and closing estimate at the time of sale.",
+      "source": "IRS_P523",
+      "status": "needs review"
+    },
+    {
+      "id": "FLAG-020",
+      "severity": "Law change",
+      "item": "SB 284 (2025) status not verified against an official bill-status page",
+      "detail": "A BOE legislative analysis describes a proposal to reset the Prop 19 one-year residency window for probate transfers. The live bill status could not be confirmed from an official legislative status page, so it is described only as a proposal.",
+      "action": "Verify against leginfo.legislature.ca.gov before relying on it.",
+      "source": "BOE_PROP19",
+      "status": "needs review"
+    }
+  ],
+  "summary": {
+    "generated": "2026-11-10",
+    "property_a_value": "$3,100,000",
+    "property_b_value": "$1,800,000",
+    "estate_exemption_2026": "$15,000,000",
+    "estate_exemption_couple": "$30,000,000",
+    "estate_exemption_2045": "$21,852,170",
+    "estate_rate": "40%",
+    "prop19_allowance_2025": "$1,044,590",
+    "prop19_allowance_2045": "$1,552,200",
+    "ca_avg_insurance": "$1,570",
+    "mv_2045": "$6,531,230",
+    "assessed_2045_no_transfer": "$802,030",
+    "tax_2045_preserved": "$10,710",
+    "tax_2045_full": "$87,210",
+    "tax_2045_prop19": "$66,480",
+    "prop19_saving_2045": "$20,730",
+    "cost_a_2045": "$33,780",
+    "noi_b_2026": "$73,100",
+    "wealth_2045_occupy": "$7,208,090",
+    "wealth_2045_rent": "$7,847,410",
+    "wealth_2045_sell": "$10,000,370",
+    "best_2045": "3 · Sell & reinvest",
+    "breakeven_rent": "$16,260",
+    "breakeven_appreciation": "8.49%",
+    "hud_fmr": "$5,010",
+    "effective_rate_a": "1.34%",
+    "effective_rate_b": "2.13%",
+    "gain_tax_rate": "37.10%",
+    "verified_fact_count": 44,
+    "source_count": 54,
+    "flag_count": 20,
+    "projection_years": 25
+  }
+}
