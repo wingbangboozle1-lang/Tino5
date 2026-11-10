@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live vs. Rent vs. Sell Analysis — Estate Decision Dashboard</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div class="privacy-strip">
+    <strong>Privacy Protected:</strong> All personal identities, trust names, street addresses, and parcel numbers are strictly anonymized using placeholders. Research data is verified from official government and utility sources as of November 10, 2026.
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <div class="brand-mark">EP</div>
+        <div>
+          <div class="brand-title">Estate &amp; Property Decision Dashboard</div>
+          <div class="brand-sub">Cupertino (95014) &amp; San Francisco Outer Sunset (94122) &middot; Horizon 2040–2050</div>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="../index.html">Executive Summary</a>
+        <a class="nav-link active" href="decision-analysis.html">Live vs. Rent vs. Sell</a>
+        <a class="nav-link" href="projections.html">2026–2050 Projections</a>
+        <a class="nav-link" href="tax-laws.html">Tax &amp; Property Laws</a>
+        <a class="nav-link" href="estate-thresholds.html">Inheritance Thresholds</a>
+        <a class="nav-link" href="inheritance-process.html">Step-by-Step Process</a>
+        <a class="nav-link nav-flag" href="verification-review.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <div class="page-eyebrow">Decision Engine &middot; Live vs. Rent vs. Sell Portfolio Analysis</div>
+      <h1>Interactive Inheritance Strategy Simulator (2040–2050)</h1>
+      <p class="lead">
+        Compare all six combined portfolio strategies integrating <strong>[Cupertino Residence — ZIP 95014]</strong> and
+        <strong>[San Francisco 3-Unit Property — ZIP 94122]</strong>. Adjust appreciation, stock market returns, Cupertino rental yield,
+        parent primary residence, and insurance assumptions below. All outputs round to the nearest <strong>$10</strong>.
+      </p>
+    </section>
+
+    <section class="card" id="decision-simulator">
+      <div class="card-header">
+        <h2>Interactive Parameter Controls</h2>
+        <span class="badge badge-projected">Formula-Driven from Verified Rates</span>
+      </div>
+
+      <div class="controls-grid">
+        <div class="control-group">
+          <label for="sim-preset">Benchmark Preset</label>
+          <select id="sim-preset">
+            <option value="hist" selected>Historical FHFA (4.91%/4.76%) &amp; 9.5% Equity</option>
+            <option value="cons">Conservative (RE 3.75%/3.5%, Eq 8.0%)</option>
+            <option value="tsp">Full TSP C-Fund Historical (11.34% S&amp;P 500)</option>
+            <option value="custom">Custom Assumptions</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sim-year">Inheritance Year <span id="lbl-year">2045</span></label>
+          <input type="range" id="sim-year" min="2040" max="2050" step="1" value="2045" />
+        </div>
+
+        <div class="control-group">
+          <label for="sim-hold">Post-Inheritance Hold <span id="lbl-hold">10 yrs</span></label>
+          <input type="range" id="sim-hold" min="5" max="20" step="1" value="10" />
+        </div>
+
+        <div class="control-group">
+          <label for="sim-cup-app">Cupertino Apprec./yr <span id="lbl-cup-app">4.91%</span></label>
+          <input type="range" id="sim-cup-app" min="2.0" max="7.0" step="0.1" value="4.91" />
+        </div>
+
+        <div class="control-group">
+          <label for="sim-sf-app">San Francisco Apprec./yr <span id="lbl-sf-app">4.76%</span></label>
+          <input type="range" id="sim-sf-app" min="2.0" max="7.0" step="0.1" value="4.76" />
+        </div>
+
+        <div class="control-group">
+          <label for="sim-eq-ret">Equity Market Return/yr <span id="lbl-eq-ret">9.50%</span></label>
+          <input type="range" id="sim-eq-ret" min="5.0" max="12.0" step="0.1" value="9.50" />
+        </div>
+
+        <div class="control-group">
+          <label for="sim-cup-yield">Cupertino Rent Yield (Unverified) <span id="lbl-cup-yield">2.80%</span></label>
+          <input type="range" id="sim-cup-yield" min="1.8" max="4.0" step="0.1" value="2.80" />
+        </div>
+
+        <div class="control-group">
+          <label for="sim-parent-res">Transferor Principal Residence</label>
+          <select id="sim-parent-res">
+            <option value="cup" selected>Cupertino (Standard Prop 19 on Cup)</option>
+            <option value="sf">SF Unit 3 (Pre-Death Move Saves SF Tax)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sim-ins-mode">Insurance Basis (2026$ Indexed)</label>
+          <select id="sim-ins-mode">
+            <option value="avg" selected>CDI CA Avg ($1,570 / $1,570)</option>
+            <option value="sens">High-Value Sensitivity ($2,800 / $3,500)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Cupertino Value at Inheritance</div>
+          <div class="kpi-value" id="sim-cup-fmv">$7,706,950</div>
+          <div class="kpi-note">Stepped-up IRC &sect; 1014 basis on death</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">SF 3-Unit Value at Inheritance</div>
+          <div class="kpi-value" id="sim-sf-fmv">$4,354,990</div>
+          <div class="kpi-note">3 units total (2 rented, Unit 3 vacant)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Prop 19 Exclusion Cap at Year</div>
+          <div class="kpi-value" id="sim-p19-cap">$2,378,470</div>
+          <div class="kpi-note">Indexed from $1,044,586 (BOE NR-25-02)</div>
+        </div>
+      </div>
+
+      <div class="callout callout-good" id="sim-winner-note">Loading simulation results...</div>
+
+      <div class="table-wrap">
+        <table id="sim-table">
+          <thead>
+            <tr>
+              <th>Portfolio Strategy</th>
+              <th class="num">Yr-1 Net Cash Flow</th>
+              <th class="num">Yr-1 Cup. Tax</th>
+              <th class="num">Yr-1 SF Tax</th>
+              <th class="num">End Real Estate</th>
+              <th class="num">End Liquid Port.</th>
+              <th class="num">End Total Gross</th>
+              <th class="num">End After-Tax Liq.</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:20px;">Visual Wealth Comparison (End of Hold Period)</h3>
+      <div id="sim-bars" class="bar-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Line-by-Line Benchmark Sources Driving the Simulator</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model Input Parameter</th>
+              <th>Verified Benchmark / Value</th>
+              <th>Classification</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cupertino Nov 2026 Value &amp; Assessment</td>
+              <td>$3,100,000 FMV / $550,540 AV ($550,537 exact)</td>
+              <td><span class="badge badge-user">User Baseline</span></td>
+              <td><a class="source-link" href="verification-review.html">Audited in Review Log</a></td>
+            </tr>
+            <tr>
+              <td>San Francisco Nov 2026 Value &amp; 2-Unit Rent</td>
+              <td>$1,800,000 FMV / $85,800/yr ($7,150/mo) rent</td>
+              <td><span class="badge badge-user">User Baseline</span></td>
+              <td><a class="source-link" href="verification-review.html">Audited in Review Log</a></td>
+            </tr>
+            <tr>
+              <td>San Jose MSA Home Appreciation (1991Q1–2026Q2)</td>
+              <td>+442.30% cumulative = <strong>4.91% annualized CAGR</strong></td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2" target="_blank" rel="noopener">FHFA HPI 2026Q2</a></td>
+            </tr>
+            <tr>
+              <td>San Francisco MSAD Home Appreciation (1991Q1–2026Q2)</td>
+              <td>+414.37% cumulative = <strong>4.76% annualized CAGR</strong></td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2" target="_blank" rel="noopener">FHFA HPI 2026Q2</a></td>
+            </tr>
+            <tr>
+              <td>U.S. Stock Market Return (S&amp;P 500 / TSP C Fund)</td>
+              <td><strong>11.34%/yr</strong> since Jan 1988 (14.79% 10-yr); 8.0%–9.5% conservative/base used</td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://www.tsp.gov/publications/tsplf14.pdf" target="_blank" rel="noopener">Federal TSP C Fund</a></td>
+            </tr>
+            <tr>
+              <td>U.S. Treasury / Savings Benchmark (TSP G Fund)</td>
+              <td><strong>4.44%</strong> (2025 1-yr) / <strong>4.65%/yr</strong> (since 1987); state-tax-exempt on direct Treasuries</td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://www.tsp.gov/publications/tsplf14.pdf" target="_blank" rel="noopener">Federal TSP G Fund</a></td>
+            </tr>
+            <tr>
+              <td>Bay Area Consumer Inflation (CPI-U SF Area)</td>
+              <td>2.4%–3.8% (2024–2026 range); <strong>2.80%</strong> baseline assumption</td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://www.bls.gov/regions/west/news-release/2026/consumerpriceindex_sanfrancisco_20260714.htm" target="_blank" rel="noopener">BLS SF CPI-U June 2026</a></td>
+            </tr>
+            <tr>
+              <td>California Homeowners Average Premium Benchmark</td>
+              <td><strong>$1,570</strong> ($1,571 exact CA avg vs $1,512 US); 95014/94122 &gt;99.5% voluntary market</td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm" target="_blank" rel="noopener">CA Dept. of Insurance</a></td>
+            </tr>
+            <tr>
+              <td>Cupertino Gross Rental Yield (If Rented)</td>
+              <td><span class="blank-cell">Blank in Official Table</span> — Modeled 1.8%–4.0% sensitivity (HUD 4-BR county floor $4,688/mo)</td>
+              <td><span class="badge badge-flagged">Flagged for Review</span></td>
+              <td><a class="source-link" href="https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf" target="_blank" rel="noopener">HUD FY27 FMR Schedule</a></td>
+            </tr>
+            <tr>
+              <td>Selling Costs: Santa Clara vs. San Francisco</td>
+              <td>Cupertino: ~5% broker + <strong>0.11%</strong> County tax (no city tax); SF: ~5% + <strong>0.75%</strong> (&lt;$5M) / <strong>2.25%</strong> (&ge;$5M)</td>
+              <td><span class="badge badge-verified">Verified Official</span></td>
+              <td><a class="source-link" href="https://sfassessor.org/recorder-information/recording-document/transfer-tax" target="_blank" rel="noopener">SF Assessor</a> &amp; <a class="source-link" href="https://clerkrecorder.sccgov.org/real-estate-recording" target="_blank" rel="noopener">SCC Recorder</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Deep-Dive Reasoning: Live vs. Rent vs. Sell</h2>
+      <div class="grid-3">
+        <div>
+          <h3>Why Live in SF Unit 3 + Sell Cupertino (Plan A) Wins</h3>
+          <p>
+            Living in SF Unit 3 unlocks free Bay Area housing <em>without</em> sacrificing the <strong>$85,800/yr</strong> (2026$) income from Units 1 &amp; 2. Selling Cupertino immediately post-inheritance uses IRC &sect; 1014 to erase $2.5M+ of embedded capital gains tax, eliminates ~$73k–$117k/yr in non-owner-occupied Cupertino property taxes, and shifts concentrated real estate into liquid, compounding S&amp;P 500 equities.
+          </p>
+        </div>
+        <div>
+          <h3>When "Sell Both" (Plan E) Makes Sense</h3>
+          <p>
+            If <strong>[Beneficiary / Heir Placeholder]</strong> prefers zero landlord management, wants to leave the Bay Area, or finds SF's pre-1979 rent control &amp; SFPUC water escalations burdensome, selling <strong>both</strong> properties immediately at death (stepped-up basis on both!) delivers roughly equal after-tax wealth—provided SF is sold before crossing SF's <strong>$5,000,000</strong> 2.25% transfer tax cliff.
+          </p>
+        </div>
+        <div>
+          <h3>Why Pre-Death SF Move Boosts Plan A by ~$16,490/yr</h3>
+          <p>
+            Try toggling <em>"Transferor Principal Residence &rarr; SF Unit 3"</em> in the simulator above! Under BOE LTA 2026/026 Q5/Q15, if a parent resides in SF Unit 3 before death and the heir occupies Unit 3 within 1 year, 1/3rd of SF avoids reassessment (~$16,490/yr tax saved in 2045) while Cupertino <em>still</em> receives full IRC &sect; 1014 step-up before sale!
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>Estate &amp; Property Decision Dashboard</strong> &middot; All decision figures rounded to nearest $10.</div>
+      <div><a href="projections.html">Next: 2026–2050 Year-by-Year Projections &rarr;</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

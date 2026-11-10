@@ -57,6 +57,7 @@ scripts/build_site.py       builds pages/*.html from src/pages/*.html
 scripts/verify.mjs          verification and link checker
 verification-report.json    last verification run
 COORDINATION.md             shared task board for parallel agent sessions
+session-2f7b1b3f/           standalone 7-page interactive dashboard & simulator (session arena-2f7b1b3f)
 ```
 
 ## Rebuild
@@ -74,3 +75,11 @@ directly by GitHub Pages.
 
 Decision support only — not legal, tax or investment advice. Trust drafting, titling, insurance and condition
 are unknown and each can change the answer; see the flagged list before acting.
+
+## Parallel Session Interactive Simulator (`session-2f7b1b3f/`)
+
+Session `arena-2f7b1b3f` contributed a standalone 7-page interactive simulator and verified regulatory compendium under `session-2f7b1b3f/index.html`, preserved alongside the combined dashboard (`index.html`), `/archive/`, and `/mine/pages/`. Reproduce its dataset with:
+
+```bash
+python3 session-2f7b1b3f/scripts/generate_data.py
+```

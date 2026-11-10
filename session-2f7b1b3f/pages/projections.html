@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026–2050 Year-by-Year Projections — Estate Decision Dashboard</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div class="privacy-strip">
+    <strong>Privacy Protected:</strong> All personal identities, trust names, street addresses, and parcel numbers are strictly anonymized using placeholders. Research data is verified from official government and utility sources as of November 10, 2026.
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <div class="brand-mark">EP</div>
+        <div>
+          <div class="brand-title">Estate &amp; Property Decision Dashboard</div>
+          <div class="brand-sub">Cupertino (95014) &amp; San Francisco Outer Sunset (94122) &middot; Horizon 2040–2050</div>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="../index.html">Executive Summary</a>
+        <a class="nav-link" href="decision-analysis.html">Live vs. Rent vs. Sell</a>
+        <a class="nav-link active" href="projections.html">2026–2050 Projections</a>
+        <a class="nav-link" href="tax-laws.html">Tax &amp; Property Laws</a>
+        <a class="nav-link" href="estate-thresholds.html">Inheritance Thresholds</a>
+        <a class="nav-link" href="inheritance-process.html">Step-by-Step Process</a>
+        <a class="nav-link nav-flag" href="verification-review.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <div class="page-hero-top">
+        <div>
+          <div class="page-eyebrow">25-Year Financial Projections &middot; 2026–2050</div>
+          <h1>Year-by-Year Value, Tax Assessment, Property Tax &amp; Cost Projections</h1>
+          <p class="lead">
+            Annual projections from 2026 through 2050 for both properties, comparing Prop 13 pre-death assessed values against Prop 19 post-inheritance taxable values and operating expenses. Highlighted rows mark the <strong>2040–2050</strong> target trust inheritance window. All dollar amounts rounded to the nearest <strong>$10</strong>.
+          </p>
+        </div>
+        <div class="btn-group" role="group" aria-label="Projection Regime">
+          <button type="button" class="btn-tab active" id="btn-proj-hist">Historical Official (4.91% / 4.76%)</button>
+          <button type="button" class="btn-tab" id="btn-proj-cons">Conservative (3.75% / 3.50%)</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Methodology &amp; Official Projection Driver Links</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Line Item</th>
+              <th>2026 Baseline (Rounded to $10)</th>
+              <th>Annual Projection Formula</th>
+              <th>Official Verification Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Property Market Value (FMV)</td>
+              <td>Cupertino: $3,100,000 &middot; SF: $1,800,000</td>
+              <td>Historical: 4.91% (SJ MSA) / 4.76% (SF MSAD); Conservative: 3.75% / 3.50%</td>
+              <td><a class="source-link" href="https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2" target="_blank" rel="noopener">FHFA HPI 2026Q2</a></td>
+            </tr>
+            <tr>
+              <td>Prop 13 Assessed Value</td>
+              <td>Cupertino: $550,540 &middot; SF: $116,530 (est. from $114,248 &times; 1.02)</td>
+              <td>+2.00%/yr statutory maximum inflation cap (Cal. Const. Art. XIII A &sect; 2(b))</td>
+              <td><a class="source-link" href="https://boe.ca.gov/proptaxes/pdf/lta26002.pdf" target="_blank" rel="noopener">BOE LTA 2026/002</a></td>
+            </tr>
+            <tr>
+              <td>Prop 19 Exclusion Cap</td>
+              <td>$1,044,590 ($1,044,586 exact through Feb 15, 2027)</td>
+              <td>Biennial (odd years) adjustment by FHFA CA HPI (~4.2% hist / 3.5% cons)</td>
+              <td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm" target="_blank" rel="noopener">BOE NR-25-02</a></td>
+            </tr>
+            <tr>
+              <td>Ad Valorem Property Tax + Fixed Charges</td>
+              <td>Cup: 1.18% + $900 parcel &middot; SF: 1.18162182% + $1,100 parcel</td>
+              <td>Ad valorem scales with taxable value; fixed parcel charges inflate at 2.8% CPI</td>
+              <td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" target="_blank" rel="noopener">SCC Tax Book</a> &amp; <a class="source-link" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer</a></td>
+            </tr>
+            <tr>
+              <td>Water &amp; Sewer Utilities</td>
+              <td>Cup: $1,500/yr ($125/mo) &middot; SF: $4,380/yr ($365/mo)</td>
+              <td>Cup (SJWC): +4.0%/yr; SF (SFPUC): +8.5%/yr yrs 1–10 per 10-Yr Plan, then +4.5%/yr</td>
+              <td><a class="source-link" href="https://www.sjwater.com/media/qeeh013c/adv-628a_web.pdf" target="_blank" rel="noopener">SJWC AL-628-A</a> &amp; <a class="source-link" href="https://www.sfpuc.gov/sites/default/files/about-us/policies-reports/FY27-10-Year-Plan-Presentation.pdf" target="_blank" rel="noopener">SFPUC 10-Yr Plan</a></td>
+            </tr>
+            <tr>
+              <td>Electricity &amp; Solar NEM Transition</td>
+              <td>Cup: -$180/yr credit (-$15/mo) &middot; SF: $600/yr ($50/mo)</td>
+              <td>Cupertino NEM legacy transfers on death until 20-yr sunset (~2042), then $420/yr (2026$ indexed) Solar Billing Plan</td>
+              <td><a class="source-link" href="https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf" target="_blank" rel="noopener">CPUC SB 695</a> &amp; <a class="source-link" href="https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_SCHEDS_E-ELEC.pdf" target="_blank" rel="noopener">PG&amp;E E-ELEC</a></td>
+            </tr>
+            <tr>
+              <td>Insurance &amp; Maintenance</td>
+              <td>Ins: $1,570 CDI avg (Sens: $2,800 Cup / $3,500 SF) &middot; Maint: $6,200 Cup / $12,600 SF</td>
+              <td>Insurance +4.5%/yr; Maintenance +2.8% CPI (SF &gt; Cup per older 3-unit structure)</td>
+              <td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm" target="_blank" rel="noopener">CA CDI</a> &amp; <a class="source-link" href="https://www.census.gov/library/stories/2023/10/older-home-costs.html" target="_blank" rel="noopener">Census AHS</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>[Cupertino Residence — ZIP 95014] Annual Projections (2026–2050)</h2>
+        <span class="badge badge-projected">All Dollars Rounded to Nearest $10</span>
+      </div>
+      <p class="lead" style="margin-bottom:10px;">
+        Shows pre-death Prop 13 tax vs. post-inheritance Prop 19 (if parent &amp; child principal residence) vs. non-owner-occupied full FMV reassessment.
+        Source links: <a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener">BOE Prop 19 FAQ</a>,
+        <a href="https://www.sjwater.com/media/qeeh013c/adv-628a_web.pdf" target="_blank" rel="noopener">SJWC Tariff</a>,
+        <a href="https://www.pge.com/content/dam/pge/docs/clean-energy/solar/nem-faq.pdf" target="_blank" rel="noopener">PG&amp;E NEM FAQ</a>.
+      </p>
+      <div class="table-wrap">
+        <table id="proj-cup-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Est. Value</th>
+              <th class="num">Prop 13 AV</th>
+              <th class="num">Pre-Death Tax</th>
+              <th class="num">Prop 19 Cap</th>
+              <th class="num">Taxable (w/ P19)</th>
+              <th class="num">Tax (w/ P19)</th>
+              <th class="num">Tax (No P19)</th>
+              <th class="num">P19 Tax Savings</th>
+              <th class="num">Water/yr</th>
+              <th class="num">Elec/Solar</th>
+              <th class="num">Ins (Avg / Sens)</th>
+              <th class="num">Maint./yr</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>[San Francisco 3-Unit Property — ZIP 94122] Annual Projections (2026–2050)</h2>
+        <span class="badge badge-projected">All Dollars Rounded to Nearest $10</span>
+      </div>
+      <p class="lead" style="margin-bottom:10px;">
+        Compares existing 2-unit rent (strict 1.8%/yr rent control vs. 3.0% blended with natural turnover), full FMV reassessment vs. 1-unit Prop 19 scenario, and SFPUC water/sewer escalation.
+        Source links: <a href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer 1.18162182%</a>,
+        <a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" target="_blank" rel="noopener">SF Rent Board</a>,
+        <a href="https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf" target="_blank" rel="noopener">SFPUC Schedule</a>.
+      </p>
+      <div class="table-wrap">
+        <table id="proj-sf-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Est. Value</th>
+              <th class="num">Prop 13 AV</th>
+              <th class="num">Pre-Death Tax</th>
+              <th class="num">Tax (Full FMV)</th>
+              <th class="num">Tax (1-Unit P19)</th>
+              <th class="num">2-Unit Rent (RC)</th>
+              <th class="num">2-Unit Rent (Blend)</th>
+              <th class="num">Water/Sewer</th>
+              <th class="num">Elec./yr</th>
+              <th class="num">Ins (Avg / Sens)</th>
+              <th class="num">Maint./yr</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>Estate &amp; Property Decision Dashboard</strong> &middot; All projections derived deterministically from verified Nov 2026 inputs &amp; official rates.</div>
+      <div><a href="tax-laws.html">Next: Federal, State &amp; Local Tax Laws &rarr;</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
