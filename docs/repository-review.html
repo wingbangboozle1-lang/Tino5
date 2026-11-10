@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Line-by-line review of the Tino5 repository">
+<meta name="robots" content="noindex">
+<title>Repository Review | House Inheritance Decision Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">H</div>
+      <div class="logo-text"><b>House Inheritance Decision Dashboard</b><span>Cupertino &amp; San Francisco · Trust Settlement Plan 2040–2050</span></div>
+    </a>
+  </div>
+  <nav class="mainnav" aria-label="Sections">
+      <a href="index.html" class="">Executive Summary</a>
+      <a href="property-a-cupertino.html" class="">Cupertino Home</a>
+      <a href="property-b-san-francisco.html" class="">SF Rental</a>
+      <a href="decision-analysis.html" class="">Decision Analysis</a>
+      <a href="tax-laws.html" class="">Tax Laws & Rules</a>
+      <a href="inheritance-process.html" class="">Inheritance Process</a>
+      <a href="insurance.html" class="">Insurance</a>
+      <a href="methodology.html" class="">Methodology & Sources</a>
+      <a href="flagged-for-review.html" class="">Flagged for Review</a>
+      <a href="repository-review.html" class="active">Repository Review</a>
+  </nav>
+</header>
+<main>
+<h1>Repository Review — wingbangboozle1-lang/Tino5 (line-by-line)</h1>
+<p class="small">Reviewed 2026-11-10 on branch <code>arena/80c92539-tino5</code> (forked from <code>main</code> @ <code>db3ab93</code>). Repository is <b>public</b>. Method: full clone enumeration, git history inspection, GitHub API checks (<code>gh api</code>), and GitHub Pages settings audit.</p>
+
+<h2>R.1 · Inventory (before this work began)</h2>
+<div class="wrap-table"><table>
+<thead><tr><th>Path</th><th>Content</th><th>Assessment</th></tr></thead>
+<tbody>
+<tr><td><code>README.md</code></td><td>Single line: <code># Tino5</code></td><td><span class="badge flag">Placeholder</span> — no project description, setup, or license info</td></tr>
+<tr><td><code>.git/</code></td><td>One commit: <code>db3ab93</code> "Initial commit" (adds README.md only)</td><td><span class="badge ok">Clean history</span> — no stray data, no secrets found</td></tr>
+<tr><td>License</td><td><b>None</b></td><td><span class="badge flag">Flagged</span> — public repo with no license = all-rights-reserved; owner should choose (MIT/Apache-2.0 typical for analysis tooling)</td></tr>
+<tr><td><code>.gitignore</code></td><td><b>None</b> (added this session: <code>work/</code>, <code>node_modules/</code>)</td><td><span class="badge ok">Fixed</span></td></tr>
+<tr><td>Issues / PRs</td><td>None open; no prior PRs</td><td><span class="badge ok">Clean</span></td></tr>
+<tr><td>Branches</td><td><code>main</code> (default), <code>arena/80c92539-tino5</code> (this work)</td><td><span class="badge ok">Clean</span></td></tr>
+<tr><td>Topics / description</td><td>Empty</td><td><span class="badge est">Metadata — cosmetic; recommend adding description + topics (property, estate, california)</span></td></tr>
+<tr><td>Languages (GitHub stats)</td><td>Reports CSS/HTML/JavaScript/Python for a README-only main</td><td><span class="badge est">Anomaly — GitHub stats are cached/derived; not meaningful. See Flag #F-15</span></td></tr>
+</tbody></table></div>
+
+<h2>R.2 · GitHub Pages configuration audit</h2>
+<div class="wrap-table"><table>
+<thead><tr><th>Setting</th><th>State at review</th><th>Action this session</th></tr></thead>
+<tbody>
+<tr><td>Pages enabled</td><td>Yes — "legacy" (branch-based) deploy; source <code>main: /</code>; HTTPS enforced; <code>html_url: https://wingbangboozle1-lang.github.io/Tino5/</code></td><td>Deployment path switched to <code>main: /docs</code> after merge (this PR), so the repository root no longer doubles as the site source</td></tr>
+<tr><td>Status at review</td><td><code>building</code> (legacy builder re-rendering)</td><td>Will re-verify post-merge deploy</td></tr>
+<tr><td>Custom domain / CNAME</td><td>None — served at wingbangboozle1-lang.github.io/Tino5/</td><td>None — no domain supplied; fine</td></tr>
+<tr><td>HTTPS</td><td>Enforced ✓</td><td>Keep</td></tr>
+</tbody></table></div>
+
+<h2>R.3 · Security &amp; hygiene findings</h2>
+<div class="wrap-table"><table>
+<thead><tr><th>Check</th><th>Result</th><th>Severity</th></tr></thead>
+<tbody>
+<tr><td>Secrets / credentials in history</td><td>None — repo contained only <code>README.md</code>; no env files, no keys</td><td><span class="badge ok">Pass</span></td></tr>
+<tr><td>Personal data in repository</td><td>None in git history. All analysis published this session follows the privacy protocol (no names/addresses/ZIP/APNs; rounded figures)</td><td><span class="badge ok">Pass</span></td></tr>
+<tr><td>Branch protection on <code>main</code></td><td><b>Could not be verified</b> — token lacks access (HTTP 403, "Resource not accessible by integration")</td><td><span class="badge flag">Unverified — owner: Settings → Branches → require PR + 1 approving review + status checks</span></td></tr>
+<tr><td>Required reviews / CODEOWNERS</td><td>None present</td><td><span class="badge est">Recommended for a repo of this sensitivity</span></td></tr>
+<tr><td>CI/CD</td><td>None — static site, no build step; integrity check is the internal link check + manual build verification this session</td><td><span class="badge est">Acceptable for static HTML; consider a Pages Action workflow + link-checker CI later</span></td></tr>
+<tr><td>Dependabot / secret scanning</td><td>Not evaluable with current token scope</td><td><span class="badge flag">Unverified — enable in Settings if not already on</span></td></tr>
+<tr><td>Signed commits</td><td>Not enforced</td><td><span class="badge est">Optional hardening</span></td></tr>
+</tbody></table></div>
+
+<h2>R.4 · Content additions by this session (inventory)</h2>
+<ul>
+<li><code>COORDINATION.md</code> — multi-session task board &amp; log (required by the engagement protocol; contains no personal data)</li>
+<li><code>.gitignore</code>, <code>docs/.nojekyll</code> (raw static serving)</li>
+<li><code>docs/*.html</code> — landing dashboard + 9 content pages + 404 (this site, 11 files total)</li>
+<li><code>docs/assets/style.css</code> — shared design system (no external assets, no trackers, no CDNs → no third-party data leakage)</li>
+</ul>
+
+<h2>R.5 · Irregularities summary (for the owner)</h2>
+<ol>
+<li>README.md is a stub → expanded via the site itself; owner may want a real README next (this session did not rewrite it to avoid conflicting with repo intent — flagged).</li>
+<li>No LICENSE file (owner's choice — flagged, not changed).</li>
+<li>Branch protection &amp; security features unverifiable with this token (403) — owner to enable.</li>
+<li>GitHub language stats anomaly (CSS/HTML/JS/Python on a README-only default branch) — metadata, ignore.</li>
+<li>Pages deployment source moved <code>main: /</code> → <code>main: /docs</code> as part of this change; old configuration would have served raw repo files at the site root.</li>
+<li>No historical data loss: this session added files only; it did not delete or rewrite any committed file.</li>
+</ol>
+<p class="small">Verification of this page: repository state enumerated via <code>git log</code>, <code>git ls-tree -r</code>, <code>gh api</code> calls (all outputs in session log); Pages state read via <code>gh api repos/wingbangboozle1-lang/Tino5/pages</code>; GitHub links click-through verified where the sandbox could reach (github.com only).</p>
+</main>
+<footer class="site">
+  <div class="foot-inner">
+    <b>Educational research project — not legal, tax, or financial advice.</b> All personal identifiers (names, addresses, ZIP codes, APNs, owner-of-record data) are deliberately omitted. Figures are rounded to the nearest $10. Projections are assumption-based planning estimates, not appraisals or quotes. Every legal/tax statement cites an official source on the Methodology &amp; Sources page (verified 2026-11-10). Items that could not be verified are blank or flagged on the Flagged for Review page. Inheritance decisions must be reviewed with a licensed CA attorney and CPA before execution.<br>
+    Site: <a href="https://github.com/wingbangboozle1-lang/Tino5">github.com/wingbangboozle1-lang/Tino5</a> · Published via GitHub Pages · Last reviewed 2026-11-10
+  </div>
+</footer>
+</body>
+</html>
