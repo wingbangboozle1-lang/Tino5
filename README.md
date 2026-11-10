@@ -83,3 +83,23 @@ Session `arena-2f7b1b3f` contributed a standalone 7-page interactive simulator a
 ```bash
 python3 session-2f7b1b3f/scripts/generate_data.py
 ```
+
+
+---
+
+## Session `arena-91a4a9f9` — independently verified dashboard (`docs/`)
+
+A second, independently researched dashboard lives under **`docs/`** and is served by GitHub Pages at
+**https://wingbangboozle1-lang.github.io/Tino5/docs/**. It does not modify any other session's pages,
+data files or navigation. It contains 13 pages, 54 official government sources (all retrieved and
+read), 21 data tables / 326 rows, 25 years of projections (2026–2050), a three-option decision model,
+a step-by-step trust-inheritance process, and a **Flagged for Review** page with 20 items.
+
+* Everything is anonymized: city + ZIP only, no personal identifiers.
+* Every table row carries a link to an official government source; unverified values are blank and flagged.
+* All dollar figures are rounded to the nearest $10.
+* Reproduce: `python3 model/build_data.py && python3 scripts/build_dashboard.py && python3 scripts/verify.py`
+* Its line-by-line record: `research/verification-log.md`; its task board: the appendix in `COORDINATION.md`.
+
+The two dashboards reach different conclusions under different assumptions; both are published rather
+than reconciled by fiat. See `docs/decision-analysis.html` for this session's sensitivity analysis.
