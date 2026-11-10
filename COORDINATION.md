@@ -146,3 +146,8 @@ failed, because rewriting those pages would alter the earlier record).
 ### Final verification state
 `node scripts/verify.mjs` → 209 data rows (76 verified), 440 internal links, 0 broken, 0 errors.
 Flagged items F-01…F-18 published on `pages/flagged.html`; none block the merge, as instructed.
+
+## Log additions — session `arena-a7554ab1-tino5` (branch `arena/a7554ab1-tino5`)
+- 2026-11-10: Session joined after the integration session published the site (PRs #5/#8/#9). This session's scope is non-overlapping: `research/*.md`, `analysis/*.md`, `data/data-*.csv`, `scripts/generate_site.py`, `mine/pages/*`. Shared site files (index/nav/tables) are NOT modified by this session.
+- 2026-11-10: Independent verification from official sources confirms the published site's key facts: 2026 federal estate basic exclusion $15,000,000 permanent & indexed (IRS IR-2025-103, Rev. Proc. 2025-32); Prop 19 $1M = $1,044,586 for 2/16/2025–2/15/2027, 1-year move-in + BOE-19-P within 3 years (BOE LTA 25-015, Rule 462.520, SCC Assessor); no CA estate/inheritance tax (FTB); IRC §1014 step-up (IRS Pub 559); CA cap-gains top 13.3% (FTB); SF rent increase 1.4%/1.6% (SF Rent Board).
+- 2026-11-10: This session's 2045 projections (assumptions labeled, rounded to $10): Cupertino market ≈ $5,435,870; live-in taxable ≈ $2,633,720 (tax ≈ $35,170/yr) vs rent-out full reassessment ≈ $72,580/yr; sell net ≈ $5,109,720 → ≈ $6,837,950 by 2050 at 6%/yr. Unverifiable values left blank/flagged.
