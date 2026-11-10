@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inheritance Tax Thresholds &amp; Liquid Estate Headroom — Estate Decision Dashboard</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div class="privacy-strip">
+    <strong>Privacy Protected:</strong> All personal identities, trust names, street addresses, and parcel numbers are strictly anonymized using placeholders. Research data is verified from official government and utility sources as of November 10, 2026.
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <div class="brand-mark">EP</div>
+        <div>
+          <div class="brand-title">Estate &amp; Property Decision Dashboard</div>
+          <div class="brand-sub">Cupertino (95014) &amp; San Francisco Outer Sunset (94122) &middot; Horizon 2040–2050</div>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="../index.html">Executive Summary</a>
+        <a class="nav-link" href="decision-analysis.html">Live vs. Rent vs. Sell</a>
+        <a class="nav-link" href="projections.html">2026–2050 Projections</a>
+        <a class="nav-link" href="tax-laws.html">Tax &amp; Property Laws</a>
+        <a class="nav-link active" href="estate-thresholds.html">Inheritance Thresholds</a>
+        <a class="nav-link" href="inheritance-process.html">Step-by-Step Process</a>
+        <a class="nav-link nav-flag" href="verification-review.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <div class="page-eyebrow">Federal, State &amp; Local Wealth Transfer Thresholds &middot; 2026–2050</div>
+      <h1>Inheritance Tax Thresholds &amp; Liquid Estate Headroom Calculator</h1>
+      <p class="lead">
+        Evaluation of how much total estate value (<strong>[Cupertino Residence — ZIP 95014]</strong> + <strong>[San Francisco 3-Unit Property — ZIP 94122]</strong> + <strong>[Estate Liquid Assets Placeholder]</strong>) can be inherited tax-free at local, state, and federal levels before incurring the <strong>40%</strong> federal estate tax penalty. All outputs rounded to the nearest <strong>$10</strong>.
+      </p>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Federal 2026 Exemption (Single)</div>
+        <div class="kpi-value">$15,000,000</div>
+        <div class="kpi-note">Enacted by OBBBA (P.L. 119-21); CPI-indexed starting 2027. Tax rate above cap: <strong>40%</strong>.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Federal 2026 Exemption (Married DSUE)</div>
+        <div class="kpi-value">$30,000,000</div>
+        <div class="kpi-note">Requires timely Form 706 portability election upon 1st spouse's death.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">California &amp; Local Estate Tax</div>
+        <div class="kpi-value">$0 (No Limit)</div>
+        <div class="kpi-note">CA RTC &sect; 13301 prohibits state/local estate, inheritance, or succession taxes.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Annual Gift Exclusion (2026)</div>
+        <div class="kpi-value">$19,000 / Donee</div>
+        <div class="kpi-note">Tax-free per recipient per year ($38,000/yr if married gift-splitting) without touching lifetime cap.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Interactive Estate Threshold &amp; Liquid Money Stress Test (2026–2050)</h2>
+          <p class="lead">Enter an illustrative 2026 liquid/investment balance (<strong>[Estate Liquid Assets Placeholder]</strong>) and growth rate to test exactly when total estate value crosses Single, Married DSUE, or Legislative Downside ($7.5M CPI-indexed) estate tax thresholds.</p>
+        </div>
+        <span class="badge badge-flagged">Actual Liquid Balance Unverified (Use Placeholder Input)</span>
+      </div>
+
+      <div class="controls-grid">
+        <div class="control-group">
+          <label for="est-liquid-2026">2026 Liquid / Investment Assets ($ Placeholder)</label>
+          <input type="number" id="est-liquid-2026" value="4000000" step="250000" min="0" />
+        </div>
+        <div class="control-group">
+          <label for="est-liquid-growth">Annual Liquid Portfolio Growth (%)</label>
+          <input type="number" id="est-liquid-growth" value="6.0" step="0.5" min="0" max="15" />
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="estate-headroom-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Combined Real Estate</th>
+              <th class="num">OBBBA Single Cap</th>
+              <th class="num">Liquid Headroom (Single)</th>
+              <th class="num">OBBBA Married Cap</th>
+              <th class="num">Liquid Headroom (Married)</th>
+              <th class="num">Proj. Liquid Assets</th>
+              <th class="num">Proj. Total Estate</th>
+              <th class="num">Est. Tax (Single)</th>
+              <th class="num">Est. Tax (Married)</th>
+              <th class="num">Tax If Cut to $7.5M*</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="kpi-note" style="margin-top:10px;">
+        *Column "Tax If Cut to $7.5M*" illustrates legislative risk if a future Congress lowers the federal exemption to $7,500,000 (2026$ CPI-indexed at 2.8%/yr) prior to 2040–2050. Official current law baseline:
+        <a href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax" target="_blank" rel="noopener">IRS Estate &amp; Gift Tax</a>,
+        <a href="https://www.congress.gov/crs_external_products/R/PDF/R48183/R48183.4.pdf" target="_blank" rel="noopener">CRS R48183</a>.
+      </p>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Verified Threshold Rules by Jurisdiction</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Threshold &amp; Rate</th>
+                <th>Official Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Federal Estate Tax (2026)</strong></td>
+                <td><strong>$15,000,000</strong> per decedent (<strong>$30,000,000</strong> married w/ DSUE); <strong>40%</strong> marginal rate above exclusion. Indexed annually for inflation post-2026.</td>
+                <td><a class="source-link" href="https://www.irs.gov/instructions/i706" target="_blank" rel="noopener">IRS Form 706 Instr.</a></td>
+              </tr>
+              <tr>
+                <td><strong>Federal GST Tax (2026)</strong></td>
+                <td><strong>$15,000,000</strong> lifetime exemption (flat <strong>40%</strong> tax on transfers skipping a generation beyond exemption).</td>
+                <td><a class="source-link" href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" target="_blank" rel="noopener">IRS Rev. Proc. 2025-32</a></td>
+              </tr>
+              <tr>
+                <td><strong>Federal Annual Gift Exclusion</strong></td>
+                <td><strong>$19,000</strong> per recipient per year (2025 &amp; 2026). Does not consume lifetime $15M exclusion.</td>
+                <td><a class="source-link" href="https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances" target="_blank" rel="noopener">IRS Gift FAQ</a></td>
+              </tr>
+              <tr>
+                <td><strong>California State</strong></td>
+                <td><strong>$0 tax / No threshold</strong> (<code>RTC &sect; 13301</code> prohibition). Note: Nov 2026 Prop 40 billionaire tax failed; Prop 42 banned personal property/financial asset taxes.</td>
+                <td><a class="source-link" href="https://www.sco.ca.gov/Files-ARD-Tax-Info/estate_lawreg_lawreg.pdf" target="_blank" rel="noopener">CA State Controller</a></td>
+              </tr>
+              <tr>
+                <td><strong>Local (Santa Clara / SF)</strong></td>
+                <td><strong>$0 local estate/inheritance tax</strong> (<code>RTC &sect; 13301</code> prohibits political subdivisions from levying death taxes; transfer taxes exempt under <code>RTC &sect; 11930</code>).</td>
+                <td><a class="source-link" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=11930" target="_blank" rel="noopener">CA RTC &sect; 11930</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Estate Tax Mitigation Playbook (If Total Estate Approaches Cap)</h2>
+        <div class="callout callout-good">
+          <strong>1. Always File IRS Form 706 at First Parent's Death (Portability):</strong> Even if the first spouse's estate is under $15M and owes $0 tax, failing to file Form 706 forfeits DSUE portability—cutting the family's combined tax-free shield from <strong>~$50.70M</strong> down to <strong>~$25.35M</strong> in 2045!
+        </div>
+        <div class="callout">
+          <strong>2. Gift High-Basis Cash, NEVER Low-Basis Cupertino/SF Real Estate:</strong> Real estate appreciation (~$7M–$14M combined gain) gets wiped out by IRC &sect; 1014 step-up only if held until death. If liquid funds threaten the threshold, gift high-basis cash using the <strong>$19,000/yr</strong> (or $38,000/yr married) per-donee exclusion (and direct 529/tuition/medical payments, which are unlimited and tax-free!).
+        </div>
+        <div class="callout callout-warn">
+          <strong>3. Avoid Rev. Rul. 2023-2 Basis-Loss Traps:</strong> If an irrevocable trust is ever used to freeze estate tax growth above $30M, only place <em>high-basis cash or rapidly growing non-RE assets</em> where 40% estate tax savings exceed the ~37.1% lost step-up tax! Keep low-basis Cupertino &amp; SF inside a gross-estate-included revocable trust.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>Estate &amp; Property Decision Dashboard</strong> &middot; All threshold &amp; headroom projections rounded to nearest $10.</div>
+      <div><a href="inheritance-process.html">Next: Step-by-Step Trust Inheritance Process &rarr;</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

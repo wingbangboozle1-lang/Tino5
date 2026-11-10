@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Summary — Cupertino &amp; San Francisco Inheritance Decision Dashboard</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="privacy-strip">
+    <strong>Privacy Protected:</strong> All personal identities, trust names, street addresses, and parcel numbers are strictly anonymized using placeholders. Research data is verified from official government and utility sources as of November 10, 2026.
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">EP</div>
+        <div>
+          <div class="brand-title">Estate &amp; Property Decision Dashboard</div>
+          <div class="brand-sub">Cupertino (95014) &amp; San Francisco Outer Sunset (94122) &middot; Horizon 2040–2050</div>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link active" href="index.html">Executive Summary</a>
+        <a class="nav-link" href="pages/decision-analysis.html">Live vs. Rent vs. Sell</a>
+        <a class="nav-link" href="pages/projections.html">2026–2050 Projections</a>
+        <a class="nav-link" href="pages/tax-laws.html">Tax &amp; Property Laws</a>
+        <a class="nav-link" href="pages/estate-thresholds.html">Inheritance Thresholds</a>
+        <a class="nav-link" href="pages/inheritance-process.html">Step-by-Step Process</a>
+        <a class="nav-link nav-flag" href="pages/verification-review.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <div class="page-hero-top">
+        <div>
+          <div class="page-eyebrow">Executive Summary &middot; Trust Inheritance Horizon 2040–2050</div>
+          <h1>Cupertino &amp; San Francisco House Inheritance Strategy</h1>
+          <p class="lead">
+            Comprehensive, verified decision analysis for <strong>[Beneficiary / Heir Placeholder]</strong> inheriting
+            <strong>[Cupertino Residence — ZIP 95014]</strong> and <strong>[San Francisco 3-Unit Property — Outer Sunset ZIP 94122]</strong>
+            via <strong>[Family Trust Name Placeholder]</strong> between 2040 and 2050. All decision dollar figures are rounded to the nearest <strong>$10</strong>.
+          </p>
+        </div>
+        <div class="controls-grid" style="margin:0; min-width:300px;">
+          <div class="control-group">
+            <label for="exec-year">Target Inheritance Year</label>
+            <select id="exec-year">
+              <option value="2040">2040 (Early Horizon)</option>
+              <option value="2045" selected>2045 (Midpoint Baseline)</option>
+              <option value="2050">2050 (Late Horizon)</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="exec-regime">Growth &amp; Return Regime</label>
+            <select id="exec-regime">
+              <option value="hist" selected>Historical Official (FHFA 4.91%/4.76%, Eq 9.5%)</option>
+              <option value="cons">Conservative Forward (RE 3.75%/3.5%, Eq 8.0%)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="meta-chips">
+        <span class="chip">Verified Date: Nov 10, 2026</span>
+        <span class="chip">Federal OBBBA (P.L. 119-21) Estate Cap: $15,000,000 / $30,000,000</span>
+        <span class="chip">CA Estate Tax: $0 (RTC &sect; 13301)</span>
+        <span class="chip">Prop 19 Exclusion Cap (2025–2027): $1,044,590 (exact $1,044,586)</span>
+        <span class="chip">Nov 3, 2026 CA Prop 3 Passed / Prop 40 Rejected</span>
+      </div>
+    </section>
+
+    <section class="verdict-card">
+      <h2>Recommended Best Plan: Strategy A — Live in SF Unit 3, Keep 2 SF Rentals, Sell Cupertino &amp; Reinvest in Equities</h2>
+      <p>
+        Because <strong>[San Francisco 3-Unit Property — ZIP 94122]</strong> has a vacant 3rd unit allowing rent-free primary occupancy without forfeiting the existing <strong>$7,150/mo ($85,800/yr)</strong> rental stream from Units 1 &amp; 2, selling <strong>[Cupertino Residence — ZIP 95014]</strong> immediately upon trust inheritance captures a <strong>100% IRC &sect; 1014 step-up in cost basis</strong> (~$0 capital gains tax on decades of parent appreciation), avoids Cupertino's <strong>$72,890–$117,320/yr</strong> Prop 19 reassessment trap on non-owner-occupied property, avoids San Francisco's <strong>0.75%–2.25% transfer tax</strong>, and deploys ~$7.31M+ (2045 baseline) into diversified equity index compounding.
+      </p>
+      <div class="verdict-grid">
+        <div class="verdict-pill">
+          <div class="label">Cupertino Est. Value at Inheritance</div>
+          <div class="val" id="exec-cup-val">$7,706,950</div>
+          <div class="sub">Tax-free § 1014 basis reset at death (vs $550,540 AV in 2026)</div>
+        </div>
+        <div class="verdict-pill">
+          <div class="label">San Francisco Est. Value at Inheritance</div>
+          <div class="val" id="exec-sf-val">$4,354,990</div>
+          <div class="sub">Retain Units 1 &amp; 2 rent + free Unit 3 primary home</div>
+        </div>
+        <div class="verdict-pill">
+          <div class="label">10-Year Wealth Edge vs. Renting Cupertino</div>
+          <div class="val" id="exec-adv-val">+$3,793,970</div>
+          <div class="sub">Gross 10-yr advantage (+$3,083,460 after liquidation tax)</div>
+        </div>
+        <div class="verdict-pill">
+          <div class="label">Year-1 Post-Tax Free Cash Flow</div>
+          <div class="val" id="exec-yr1-cf">+$47,470</div>
+          <div class="sub">After SF reassessed taxes, SFPUC water, insurance &amp; repairs</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">2026 Combined Real Estate</div>
+        <div class="kpi-value">$4,900,000</div>
+        <div class="kpi-note">Cupertino $3,100,000 + SF 3-Unit $1,800,000 (User Baseline, Nov 2026).</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">2045 Projected Real Estate</div>
+        <div class="kpi-value">$12,061,940</div>
+        <div class="kpi-note">At FHFA 4.91% / 4.76% CAGR ($9,516,060 in 2040; $15,289,110 in 2050).</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">2026 Estate Tax Exemption</div>
+        <div class="kpi-value">$15,000,000</div>
+        <div class="kpi-note">Single ($30,000,000 Married w/ DSUE) under OBBBA P.L. 119-21; CPI-indexed 2027+.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">2045 Liquid Cash Headroom</div>
+        <div class="kpi-value">$13,287,040</div>
+        <div class="sub kpi-note">Remaining before 40% Federal Estate Tax (Single; $38,636,020 if Married w/ DSUE).</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>10-Year Post-Inheritance Portfolio Strategy Comparison (Nearest $10)</h2>
+          <p class="lead">Comparison from selected Inheritance Year through Year +10 using verified tax, utility, and market benchmarks.</p>
+        </div>
+        <a class="source-link" href="pages/decision-analysis.html">Open Full Interactive Simulator &rarr;</a>
+      </div>
+
+      <div class="table-wrap">
+        <table id="exec-strategy-table">
+          <thead>
+            <tr>
+              <th>Portfolio Strategy</th>
+              <th class="num">Yr-1 Net Cash Flow</th>
+              <th class="num">Yr-1 Property Tax (Cup / SF)</th>
+              <th class="num">Yr+10 Real Estate</th>
+              <th class="num">Yr+10 Liquid Portfolio</th>
+              <th class="num">Yr+10 Total Gross</th>
+              <th class="num">Yr+10 After-Tax Liq.</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:20px;">10-Year Projected Total Wealth Comparison</h3>
+      <div id="exec-bars" class="bar-list"></div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Why Strategy A Beats Every Alternative</h2>
+        <div class="callout callout-good">
+          <strong>1. Eliminates Prop 19 Non-Residence Penalty on Cupertino:</strong> Under <a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener">BOE LTA 2026/026</a>, Prop 19 gives <strong>$0 exclusion</strong> if Cupertino is rented or second-home held. Reassessed taxes jump to <strong>$72,890–$117,320/yr</strong> (2040–2050). Selling at inheritance avoids this permanent yield drag.
+        </div>
+        <div class="callout">
+          <strong>2. Captures 100% IRC &sect; 1014 Stepped-Up Basis:</strong> Selling Cupertino immediately post-death resets basis to full market value (<a href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener">IRS Pub 551</a>), erasing ~$2.5M+ in combined Federal (23.8%) + California (13.3%, made permanent by Nov 2026 Prop 3) capital gains tax.
+        </div>
+        <div class="callout">
+          <strong>3. Preserves Free SF Housing + $85,800/yr Rental Base:</strong> Living in vacant SF Unit 3 avoids paying ~$8,250–$24,730+ SF Rent Board OMI relocation fees (<a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" target="_blank" rel="noopener">SF Rent Board</a>), avoids SF's 0.75%–2.25% transfer tax, and shelters 2/3 of SF operating costs &amp; stepped-up 27.5-year depreciation.
+        </div>
+        <div class="callout callout-warn">
+          <strong>4. Why Not Pure Savings / Cash (Strategy A2)?</strong> Parking Cupertino proceeds in 4.5% U.S. Treasuries trails S&amp;P 500 equities by <strong>~$7.33M</strong> over 10 years because interest faces ordinary federal tax and 2.8% inflation erosion. Keep only 12–24 months of operating reserves in CA-tax-exempt U.S. Treasuries; invest surplus proceeds in equities.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Critical Legal &amp; Tax Traps Discovered</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Risk / Opportunity</th>
+                <th>Key Rule &amp; Financial Impact</th>
+                <th>Official Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Rev. Rul. 2023-2 Trust Trap</strong></td>
+                <td>Assets in an <em>irrevocable grantor trust</em> outside the gross estate get <strong>NO &sect; 1014 step-up</strong>. Must confirm Revocable Living Trust structure.</td>
+                <td><a class="source-link" href="https://www.irs.gov/pub/irs-drop/rr-23-02.pdf" target="_blank" rel="noopener">IRS Rev. Rul. 2023-2</a></td>
+              </tr>
+              <tr>
+                <td><strong>SF Triplex Prop 19 Rule</strong></td>
+                <td>On a 3-unit parcel, Prop 19 applies <strong>only to 1 unit</strong> occupied by BOTH parent &amp; heir; the 2 rented units always reassess to FMV.</td>
+                <td><a class="source-link" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener">BOE LTA 2026/026 Q5/Q15</a></td>
+              </tr>
+              <tr>
+                <td><strong>Form 706 DSUE Portability</strong></td>
+                <td>If parents are married, failure to file Form 706 after the 1st death forfeits <strong>$15M–$29M+</strong> of unused second exemption (40% estate tax risk).</td>
+                <td><a class="source-link" href="https://www.irs.gov/instructions/i706" target="_blank" rel="noopener">IRS Form 706 Instr.</a></td>
+              </tr>
+              <tr>
+                <td><strong>SF $5M Transfer Tax Cliff</strong></td>
+                <td>SF sale transfer tax triples from <strong>0.75%</strong> ($1M–$4.99M) to <strong>2.25%</strong> at $5,000,000+ (~2048). Plan sale timing if ever exiting SF.</td>
+                <td><a class="source-link" href="https://sfassessor.org/recorder-information/recording-document/transfer-tax" target="_blank" rel="noopener">SF Assessor Transfer Tax</a></td>
+              </tr>
+              <tr>
+                <td><strong>PG&amp;E 20-Yr NEM Sunset</strong></td>
+                <td>Legacy solar NEM transfers to heir only for the remainder of the 20-year term (ending ~2037–2043), then moves to Solar Billing Plan.</td>
+                <td><a class="source-link" href="https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf" target="_blank" rel="noopener">CPUC SB 695 Report</a></td>
+              </tr>
+              <tr>
+                <td><strong>SALT Cap Reversion (2030)</strong></td>
+                <td>Federal SALT cap ($40,400 in 2026) reverts to <strong>$10,000 in 2030</strong>, making personal home taxes mostly non-deductible vs 100% deductible on rentals.</td>
+                <td><a class="source-link" href="https://www.irs.gov/pub/irs-access/p6079_accessible.pdf" target="_blank" rel="noopener">IRS Pub. 6079</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2026 Verified Baseline &amp; Key Horizon Milestones (Rounded to Nearest $10)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Property / Metric</th>
+              <th class="num">2026 Baseline</th>
+              <th class="num">2040 Projected</th>
+              <th class="num">2045 Projected</th>
+              <th class="num">2050 Projected</th>
+              <th>Verification Status &amp; Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cupertino Market Value (95014)</td>
+              <td class="num">$3,100,000</td>
+              <td class="num">$6,064,540</td>
+              <td class="num">$7,706,950</td>
+              <td class="num">$9,794,160</td>
+              <td><span class="badge badge-user">User Baseline</span> + <a class="source-link" href="https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2" target="_blank" rel="noopener">FHFA 4.91% HPI</a></td>
+            </tr>
+            <tr>
+              <td>Cupertino Prop 13 Assessed Value</td>
+              <td class="num">$550,540</td>
+              <td class="num">$726,420</td>
+              <td class="num">$802,030</td>
+              <td class="num">$885,500</td>
+              <td><span class="badge badge-verified">Verified 2% Cap</span> <a class="source-link" href="https://boe.ca.gov/proptaxes/pdf/lta26002.pdf" target="_blank" rel="noopener">BOE LTA 2026/002</a></td>
+            </tr>
+            <tr>
+              <td>Cupertino Annual Tax (If Reassessed / No Prop 19)</td>
+              <td class="num">$37,480</td>
+              <td class="num">$72,890</td>
+              <td class="num">$92,460</td>
+              <td class="num">$117,320</td>
+              <td><span class="badge badge-projected">Projected</span> <a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" target="_blank" rel="noopener">SCC Tax Rate Book</a></td>
+            </tr>
+            <tr>
+              <td>Cupertino Annual Tax (With Prop 19 Exclusion)</td>
+              <td class="num">$25,150</td>
+              <td class="num">$50,960</td>
+              <td class="num">$64,400</td>
+              <td class="num">$84,230</td>
+              <td><span class="badge badge-projected">Projected</span> <a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm" target="_blank" rel="noopener">BOE NR-25-02</a></td>
+            </tr>
+            <tr>
+              <td>SF Outer Sunset Market Value (94122, 3-Unit)</td>
+              <td class="num">$1,800,000</td>
+              <td class="num">$3,451,510</td>
+              <td class="num">$4,354,990</td>
+              <td class="num">$5,494,960</td>
+              <td><span class="badge badge-user">User Baseline</span> + <a class="source-link" href="https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2" target="_blank" rel="noopener">FHFA 4.76% HPI</a></td>
+            </tr>
+            <tr>
+              <td>SF Gross Rent (2 Existing Units; 3rd Vacant)</td>
+              <td class="num">$85,800</td>
+              <td class="num">$129,780</td>
+              <td class="num">$150,450</td>
+              <td class="num">$174,410</td>
+              <td><span class="badge badge-user">User $7,150/mo</span> + <a class="source-link" href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" target="_blank" rel="noopener">SF Rent Board</a></td>
+            </tr>
+            <tr>
+              <td>SF Annual Tax (Full FMV Reassessment)</td>
+              <td class="num">$22,370</td>
+              <td class="num">$42,400</td>
+              <td class="num">$53,320</td>
+              <td class="num">$67,060</td>
+              <td><span class="badge badge-verified">1.18162182% Rate</span> <a class="source-link" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer</a></td>
+            </tr>
+            <tr>
+              <td>Federal Estate Exclusion (Single / Married DSUE)</td>
+              <td class="num">$15.00M / $30.00M</td>
+              <td class="num">$22.08M / $44.16M</td>
+              <td class="num">$25.35M / $50.70M</td>
+              <td class="num">$29.10M / $58.20M</td>
+              <td><span class="badge badge-verified">OBBBA Law</span> <a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax" target="_blank" rel="noopener">IRS Estate Tax</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>Estate &amp; Property Decision Dashboard</strong> &middot; Educational &amp; financial planning analysis based on official sources as of Nov 10, 2026; verify legal/tax filings with a CA estate attorney &amp; CPA.</div>
+      <div><a href="pages/verification-review.html">View Verification Audit &amp; Flagged Items</a> &middot; All PII strictly anonymized</div>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
