@@ -1,0 +1,47 @@
+{
+ "title": "Law watch — enacted, pending and defeated",
+ "sections": [
+  {
+   "id": "enacted",
+   "title": "1. Enacted and in force",
+   "intro": "These are the rules the model actually applies.",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Proposition 19 (2020) — intergenerational transfer exclusion","value":"In force for transfers on/after 16 Feb 2021","status":"verified","sources":["boe-prop19","rtc-632"],"note":"The dominant tax factor in this plan. Value cap = base year value + indexed amount ($1,044,586 for 2025–2027)."},
+    {"item":"Proposition 13 (1978) — 1% levy, 2% assessment cap, reassessment on change of ownership","value":"In force","status":"verified","sources":["scc-assessor-ar","boe-prop19"],"note":"Death is a change of ownership unless an exclusion applies."},
+    {"item":"P.L. 119-21 (2025) — federal estate/gift basic exclusion","value":"$15,000,000 for 2026, indexed from 2027, no sunset","status":"verified","sources":["irs-whatsnew","irs-faq-estate"],"note":"Removes the scheduled 2026 halving that was the main federal planning concern."},
+    {"item":"Net Billing Tariff (NEM 3.0) — CPUC D.22-12-056","value":"applies to interconnections applied for after 14 Apr 2023; legacy NEM systems keep 20-year terms","status":"verified","sources":["cpuc-nem","pge-solar-billing"],"note":"Legacy status follows the system, so it transfers with Property A — but the remaining years are finite."},
+    {"item":"SB 974 (2025) — special needs trusts and the Prop 19 exclusion","value":"Effective 1 Jan 2027","status":"secondary","sources":["rtc-632"],"note":"Clarifies the exclusion for certain special-needs trusts. Reported by secondary sources; the chaptered text was not retrieved — verify at leginfo before relying on it (F-16)."}
+   ]
+  },
+  {
+   "id": "election2026",
+   "title": "2. The 3 November 2026 statewide measures that touch this plan",
+   "intro": "Results are UNOFFICIAL as of 10 November 2026. County counts run to 11 December 2026 and measures take effect five days after certification. Nothing here is treated as law in the model.",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Proposition 40 — one-time 5% tax on individuals and trusts with over $1 billion in assets","value":"Unofficial: failing","status":"secondary","sources":["sos-quickguide","sos-results"],"note":"Would not reach this estate even if it passed. Relevant only as a signal of appetite for wealth taxation of trusts."},
+    {"item":"Proposition 41 — bars state taxes whose revenue is excluded from the spending limit; requires audits","value":"Unofficial: not leading","status":"secondary","sources":["sos-quickguide","sos-results"],"note":"Constitutional amendment; would constrain future tax design."},
+    {"item":"Proposition 42 — prohibits new state personal-property taxes (including taxes on financial assets) and certain retroactive taxes","value":"Unofficial: leading","status":"secondary","sources":["sos-quickguide","sos-results"],"note":"If certified, it constitutionally blocks a state wealth tax on financial assets — the main tail risk to the 'sell and invest' option."},
+    {"item":"Proposition 43 — two-thirds voter approval for voter-proposed local special taxes","value":"Unofficial: leading","status":"secondary","sources":["sos-quickguide","sos-results"],"note":"Makes new local parcel taxes (which land in Property A's fixed direct assessments) harder to pass."},
+    {"item":"Proposition 3 — extends the existing high-income income tax for schools and health care","value":"Unofficial: reported","status":"secondary","sources":["sos-quickguide","sos-results"],"note":"Affects the California rate applied to rental income and to capital gains on a later sale."},
+    {"item":"San Francisco local measures (transfer tax above $10M; foreclosure transfer tax; parcel tax for transit)","value":"Unofficial: mixed","status":"secondary","sources":["sos-results"],"note":"Only relevant to Property B. The parcel tax measure (H) is reported as failing; the transfer-tax measures affect a sale above $10M."},
+    {"item":"Certification","value":"11 December 2026","status":"verified","sources":["sos-results"],"note":"Re-check every 'unofficial' line after certification. This page is dated 10 November 2026."}
+   ]
+  },
+  {
+   "id": "watching",
+   "title": "3. What to keep watching through 2040",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Federal estate exclusion after 2026","value":"indexed annually","status":"verified","sources":["irs-estate"],"note":"Indexation matters more than the headline: at 2.3%/yr the exclusion is ≈$23.1M by 2045."},
+    {"item":"Attempts to narrow or repeal Prop 19","value":"SCA 4 (2023–24 session) — died without enactment","status":"secondary","sources":["boe-prop19"],"note":"BOE's Prop 19 legislation table lists SCA 4 and SB 890. Nothing is pending that changes the exclusion as of this review."},
+    {"item":"Split-roll / commercial reassessment proposals","value":"","value_display":"no active measure verified","status":"unverified","sources":[],"note":"Proposition 15 (2020) failed. No 2026 statewide measure on the ballot. Left blank rather than asserted — F-17."},
+    {"item":"California wealth tax proposals aimed at trusts","value":"","value_display":"see Prop 40","status":"secondary","sources":["sos-quickguide"],"note":"Prop 40 is the live example; it targets $1B+ trusts, far above this estate."},
+    {"item":"Local parcel taxes and bonds in Cupertino / Santa Clara County","value":"$770/yr of fixed direct assessments in 2026","status":"derived","sources":["nolo-note","scc-assessor-ar"],"note":"These sit outside the 1% cap and rise without a vote of the property owner. Watch each November ballot."},
+    {"item":"Insurance market rules (FAIR Plan, rate approvals)","value":"","value_display":"","status":"unverified","sources":["cdi"],"note":"Premiums are the least predictable line in the plan. Monitor CDI rate filings — F-06."},
+    {"item":"Net metering rules","value":"NEM 3.0 upheld; no sunset","status":"verified","sources":["cpuc-nem","pge-solar-billing"],"note":"The value of Property A's solar array falls sharply when its legacy term ends."}
+   ]
+  }
+ ]
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inheritance decision dashboard · Cupertino &amp; San Francisco</title>
+<meta name="description" content="A source-linked decision analysis for inheriting a Cupertino house held in trust, alongside an owned and rented San Francisco property.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="index" data-root="">
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span> Inheritance decision dashboard</div>
+    <nav class="main">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="pages/executive-summary.html">Executive summary</a>
+      <a href="pages/scenarios.html">Options</a>
+      <a href="pages/projections.html">Projections</a>
+      <a href="pages/property-tax.html">Property tax</a>
+      <a href="pages/inheritance-tax.html">Inheritance tax</a>
+      <a href="pages/inheritance-process.html">Process</a>
+      <a href="pages/operating-costs.html">Costs</a>
+      <a href="pages/law-watch.html">Law watch</a>
+      <a href="pages/sources.html">Sources</a>
+      <a href="pages/flagged.html">Flagged</a>
+      <a href="pages/methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Two Bay Area houses, one trust, one decision</h1>
+    <p>Property A is a Cupertino house (95014) expected to pass by trust around 2040–2050, currently valued at $3,100,000.
+       Property B is an owned, part-rented San Francisco building (94122) worth $1,800,000 that stays in place either way.
+       This dashboard prices the three real options for Property A — live in it, rent it, or sell it and reinvest —
+       using published California and federal rules, and it shows its work line by line.</p>
+    <div class="chips">
+      <span class="chip">Every row carries a source</span>
+      <span class="chip">Money rounded to $10</span>
+      <span class="chip">Unverified items left blank and flagged</span>
+      <span class="chip">As of 10 Nov 2026</span>
+    </div>
+  </div>
+
+  <h2>Net wealth in 2065, if the property transfers in 2045</h2>
+  <div class="grid k4">
+    <div class="card kpi good">
+      <div class="lab">Sell at inheritance</div>
+      <div class="val" data-bind="sell">—</div>
+      <div class="sub">Stepped-up basis, ≈6.1% selling costs, balance invested at 6%</div>
+    </div>
+    <div class="card kpi">
+      <div class="lab">Keep and rent it out</div>
+      <div class="val" data-bind="rent">—</div>
+      <div class="sub">Fully reassessed; rent covers the tax, the risk stays with you</div>
+    </div>
+    <div class="card kpi">
+      <div class="lab">Live in it</div>
+      <div class="val" data-bind="live">—</div>
+      <div class="sub">Keeps the Prop 19 exclusion; you consume the house instead of the market</div>
+    </div>
+    <div class="card kpi warn">
+      <div class="lab">Value of the Prop 19 exclusion</div>
+      <div class="val" data-bind="prop19pv">—</div>
+      <div class="sub">Present value, 2045–2065 — the entire tax advantage of moving in</div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <h4>The headline</h4>
+    <p><strong>California has no inheritance tax.</strong> The federal estate tax will very likely never apply to this
+       family: the exemption is $15,000,000 per person for 2026 deaths and is indexed from 2027. The tax that actually
+       bites on inheritance is the <strong>property tax reassessment</strong> under Proposition 19 — and it bites hardest
+       on exactly the options that do not involve living in the house.</p>
+    <p>The second-largest tax item is the opposite: the <strong>step-up in basis</strong> on death erases roughly
+       $2,549,460 of built-in gain on Property A. That benefit is only worth having if the trust is drafted and funded so
+       the house is inside the parents' estate (flag F-14).</p>
+  </div>
+
+  <h2>The decision, side by side</h2>
+  <div id="scenario-cards" class="cards"></div>
+  <div id="scenario-table" style="margin-top:14px"></div>
+
+  <div class="callout">
+    <h4>Why the ranking is closer than it looks</h4>
+    <p>Selling wins on these assumptions because it converts an asset that grows at 4% into a portfolio assumed to grow
+       at 6%, and because it avoids a 37.1% federal-plus-California capital-gains bill at the end. The result flips if
+       Property A appreciates faster than <span data-bind="breakeven">—</span> a year. Over the last ten years the
+       San Jose metro index rose about 5.0% a year, so this is genuinely a close call — which is why the
+       <a href="pages/scenarios.html">options page</a> shows three cases rather than one answer.</p>
+  </div>
+
+  <h2>Explore the analysis</h2>
+  <div class="cards">
+    <a class="navcard" href="pages/executive-summary.html">
+      <div class="k">Start here</div><h3>Executive summary</h3>
+      <p>The recommendation, the ten findings that support it, the risks, and what to do before 2040.</p>
+    </a>
+    <a class="navcard" href="pages/scenarios.html">
+      <div class="k">Decision</div><h3>Live / rent / sell</h3>
+      <p>Three full cases, low-base-high sensitivity, break-even appreciation, and the first-year numbers.</p>
+    </a>
+    <a class="navcard" href="pages/property-tax.html">
+      <div class="k">Largest controllable cost</div><h3>Property tax</h3>
+      <p>Prop 13 and Prop 19 in plain terms, both properties' bills, and where the owner's data disagrees with published rates.</p>
+    </a>
+    <a class="navcard" href="pages/inheritance-tax.html">
+      <div class="k">Federal and state</div><h3>Inheritance tax</h3>
+      <p>The $15,000,000 threshold, portability, step-up basis, and the trust trap that gives it all away.</p>
+    </a>
+    <a class="navcard" href="pages/inheritance-process.html">
+      <div class="k">Operations</div><h3>The process, step by step</h3>
+      <p>Sixteen steps and the five deadlines that decide the money, with the form for each.</p>
+    </a>
+    <a class="navcard" href="pages/operating-costs.html">
+      <div class="k">Running costs</div><h3>Insurance, water, power, repairs</h3>
+      <p>Tariff-level detail for San Jose Water and SFPUC, and why the $1,500 insurance figure is too low.</p>
+    </a>
+    <a class="navcard" href="pages/projections.html">
+      <div class="k">Numbers</div><h3>Year-by-year projections</h3>
+      <p>2026–2050 for value, assessed value and tax under each treatment, plus the cash-flow lines.</p>
+    </a>
+    <a class="navcard" href="pages/law-watch.html">
+      <div class="k">Change</div><h3>Law watch</h3>
+      <p>What is in force, what passed on 3 November 2026 (unofficial), and what to monitor through 2040.</p>
+    </a>
+    <a class="navcard" href="pages/flagged.html">
+      <div class="k">Open items</div><h3>Flagged for review</h3>
+      <p>18 flagged items that are unverified, inconsistent, or dependent on a document you hold.</p>
+    </a>
+  </div>
+
+  <div class="callout">
+    <h4>Prior version</h4>
+    <p>An earlier session published a 12-page version of this dashboard. It is preserved unaltered at
+       <a href="archive/index.html">/archive/</a> — its internal links still work and nothing has been deleted.
+       It reached a different recommendation for the Cupertino house; the reasoning behind the difference is set out
+       plainly on the <a href="pages/executive-summary.html">executive summary</a>.
+       Three further pages contributed by a later session — <a href="mine/pages/decision-analysis.html">decision analysis</a>,
+       <a href="mine/pages/inheritance-estate-tax.html">inheritance and estate tax</a> and
+       <a href="mine/pages/flagged-for-review.html">a second flagged list</a> — are published alongside it for the same reason:
+       nothing from any session has been deleted.</p>
+  </div>
+
+  <h2>How to read this site</h2>
+  <div class="two-col">
+    <div class="card">
+      <h3 style="margin-top:0">Status labels</h3>
+      <div class="legend">
+        <span class="badge b-verified">verified</span>
+        <span class="badge b-secondary">secondary</span>
+        <span class="badge b-owner">owner-provided</span>
+        <span class="badge b-derived">derived</span>
+        <span class="badge b-assumption">assumption</span>
+        <span class="badge b-unverified">unverified</span>
+      </div>
+      <ul class="tight small" style="margin-top:12px">
+        <li><strong>verified</strong> — read from an official source, linked in the row.</li>
+        <li><strong>secondary</strong> — credible non-official reporting, or an official value whose page could not be retrieved here.</li>
+        <li><strong>owner-provided</strong> — supplied by the owner on 10 Nov 2026; not independently confirmed.</li>
+        <li><strong>derived</strong> — arithmetic on the above, with the arithmetic shown.</li>
+        <li><strong>assumption</strong> — a named model parameter (A1–A29) with a sensitivity.</li>
+        <li><strong>unverified</strong> — not confirmable; the value is left blank and listed on Flagged for review.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">What this is not</h3>
+      <p class="small">This is a decision-support model, not legal, tax or investment advice. It contains no names,
+         addresses, parcel numbers or account numbers — the two properties are called A and B throughout, and every
+         owner-supplied figure is clearly marked. Ownership, debt, trust drafting, condition and insurance are unknown
+         (see the flagged list); each of those can move the answer.</p>
+      <p class="small">Statutory values are quoted exactly as published. Anything computed or projected is rounded to
+         the nearest $10.</p>
+      <p class="small"><a href="pages/methodology.html">Methodology and all 29 assumptions →</a></p>
+    </div>
+  </div>
+
+  <footer>
+    Built from public official sources — California State Board of Equalization, California statutes (leginfo),
+    IRS, Santa Clara County Assessor, SF Treasurer &amp; Tax Collector, San Jose Water Company (CPUC tariffs),
+    SFPUC, PG&amp;E, CPUC, CBO, FHFA, California Secretary of State. Full list with links:
+    <a href="pages/sources.html">sources</a>. Reviewed 10 November 2026.
+  </footer>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

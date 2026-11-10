@@ -1,0 +1,57 @@
+{
+ "title": "Inheritance process — step by step, with deadlines",
+ "sections": [
+  {
+   "id": "clocks",
+   "title": "1. The five clocks that decide the money",
+   "intro": "Almost every expensive mistake in a California inheritance is a missed deadline, not a wrong calculation. These are the deadlines that apply to Property A.",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Move in (or don't) — Prop 19 principal-residence test","value":"Within 1 year of the transfer","status":"verified","sources":["rtc-632","boe-prop19"],"note":"This is the decision deadline for live-vs-rent. There is no extension."},
+    {"item":"Claim the homeowners' exemption","value":"Within 1 year of the transfer (BOE-266)","status":"verified","sources":["rtc-632","boe-hox"],"note":"Required for the Prop 19 exclusion. File by February 15 of the year you want the exemption to apply in full."},
+    {"item":"Claim the parent-child exclusion","value":"Within 3 years of the transfer, or before sale (BOE-19-P)","status":"verified","sources":["boe-prop19"],"note":"Filing after 1 year but within 3 years can still work if the exemption and residency tests were met."},
+    {"item":"Federal estate tax return","value":"9 months after death (Form 706; 6-month extension available)","status":"verified","sources":["irs-form706"],"note":"Only if the gross estate plus taxable gifts exceeds the exclusion."},
+    {"item":"Property tax installments","value":"Nov 1 / Feb 1, delinquent Dec 10 / Apr 10","status":"verified","sources":["sftreasurer","scc-assessor"],"note":"A 10% penalty applies immediately — this is the most common avoidable cost after a death."},
+    {"item":"Trustee's notification to beneficiaries and heirs","value":"Required when the revocable trust becomes irrevocable","status":"verified","sources":["prob-16061-7"],"note":"Starts the contest period. The statute's practical deadline is commonly stated as 60 days — that specific number is secondary, not read from the statute here."}
+   ]
+  },
+  {
+   "id": "pre",
+   "title": "2. Before the death (2026–2039) — what to fix while there is still time",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Confirm Property A is the parents' principal residence on the assessor's record","value":"Homeowners' exemption present on the tax bill","status":"verified","sources":["boe-hox"],"note":"Prop 19 only works for the parent's principal residence. If the exemption is not on the bill, the full $3.1M reassessment applies."},
+    {"item":"Confirm the trust is funded","value":"Deed shows the trustee as record owner","status":"verified","sources":["cacourts-probate"],"note":"A trust that owns nothing avoids nothing. Check the recorded deed, not the binder."},
+    {"item":"Confirm what the trust does to the step-up","value":"Property must be included in the grantor's gross estate","status":"verified","sources":["irs-p559"],"note":"An irrevocable, non-includible trust produces carry-over basis. Worth ≈$945,000 in avoided capital gains on Property A. Ask the estate attorney for written confirmation — F-14."},
+    {"item":"Record the capital-improvement history","value":"Receipts, permits, dates","status":"verified","sources":["irs-p559"],"note":"Needed for the Form 706 value and for any later basis question."},
+    {"item":"Photograph the original solar interconnection date","value":"NEM legacy term (20 years) is tied to the system","status":"verified","sources":["pge-solar-billing"],"note":"A pre-2023 system loses retail-rate net metering by 2043 at the latest."},
+    {"item":"Get a replacement-cost estimate and a home inspection","value":"","value_display":"no data","status":"unverified","sources":[],"note":"Drives insurance and maintenance. Owner has not supplied either — F-07."},
+    {"item":"Confirm flood / fire hazard zone status","value":"","value_display":"no data","status":"unverified","sources":["cdi"],"note":"Determines whether a FAIR Plan wrap is needed. Not supplied — F-06."},
+    {"item":"Decide the family policy now: who lives there, who sells, who rents","value":"Written, signed, shared","status":"assumption","value_display":"—","sources":[],"note":"The 12-month clock after death is the worst time to negotiate this."}
+   ]
+  },
+  {
+   "id": "steps",
+   "title": "3. After the death — the sequence",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"1. Obtain certified death certificates","value":"8–12 originals","status":"assumption","value_display":"—","sources":[],"note":"Banks, title, insurers and the assessor each want one."},
+    {"item":"2. Locate the original trust and any amendments; successor trustee accepts","value":"Read before acting","status":"verified","sources":["cacourts-probate"],"note":"If there is a will that names the trust, the original will is lodged with the court."},
+    {"item":"3. Secure the property and notify the insurer","value":"Same week","status":"assumption","value_display":"—","sources":["cdi"],"note":"Vacant houses lose coverage quickly; a landlord or vacant-property endorsement is usually required."},
+    {"item":"4. Serve the trustee's notification","value":"Per Prob. Code §16061.7","status":"verified","sources":["prob-16061-7"],"note":"To each beneficiary and each heir of the deceased settlor."},
+    {"item":"5. Obtain a trust EIN","value":"Form SS-4","status":"verified","sources":["irs-p559"],"note":"Required to open accounts and to file Form 1041 / CA Form 541."},
+    {"item":"6. Order a date-of-death appraisal","value":"As of the date of death","status":"verified","sources":["irs-p559"],"note":"This is the number that sets both the step-up basis and, for Property A, the Prop 19 market value. One appraisal serves both."},
+    {"item":"7. Record the transfer to the beneficiaries (trustee's deed)","value":"After the appraisal","status":"verified","sources":["cacourts-probate"],"note":"Recording triggers the assessor's change-of-ownership review."},
+    {"item":"8. Tell the county assessor","value":"Preliminary change of ownership report with the deed","status":"verified","sources":["scc-assessor"],"note":"Santa Clara County Assessor handles the Prop 19 claim and the new base year value."},
+    {"item":"9. File BOE-266 (homeowners' exemption)","value":"Within 1 year","status":"verified","sources":["boe-hox","rtc-632"],"note":"Mandatory for the exclusion — do this even if the long-term plan is to sell."},
+    {"item":"10. File BOE-19-P (parent-child exclusion)","value":"Within 3 years","status":"verified","sources":["boe-prop19"],"note":"Do not wait to see whether the assessor notices."},
+    {"item":"11. Notify the mortgage servicer if there is a loan","value":"Immediately","status":"assumption","value_display":"—","sources":[],"note":"Federal law restricts enforcement of due-on-sale clauses on a transfer by inheritance, but the servicer must still be told and the loan assumed formally. No loan data supplied — F-15."},
+    {"item":"12. Re-title insurance for the actual use","value":"Owner-occupied HO-3 or landlord DP-3","status":"verified","sources":["cdi"],"note":"Claims get denied when the policy use does not match reality."},
+    {"item":"13. Set up the property tax calendar","value":"Nov 1 / Feb 1","status":"verified","sources":["sftreasurer","scc-assessor"],"note":"Expect a supplemental bill for the difference between the old and new assessed values."},
+    {"item":"14. File Form 706 if required","value":"9 months","status":"verified","sources":["irs-form706"],"note":"Also the moment to make the portability election."},
+    {"item":"15. Final income tax returns","value":"Form 1040 (decedent), Form 1041 / CA 541 (trust)","status":"verified","sources":["irs-p559","ftb-540"],"note":"Trust rental income is reported while the trust holds the property."},
+    {"item":"16. Sell with a stepped-up basis, if that is the decision","value":"No capital gain on the date-of-death value","status":"verified","sources":["irs-p559"],"note":"Selling in the year of death is the cleanest tax outcome in the whole plan."}
+   ]
+  }
+ ]
+}

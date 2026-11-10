@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property tax · Inheritance decision dashboard</title>
+<meta name="description" content="Prop 13 and Prop 19 rules, published rates, both properties' bills, and rate reconciliation.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="property-tax" data-root="../" data-json="data/property-tax.json">
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span> Inheritance decision dashboard</div>
+    <nav class="main">
+      <a href="../index.html">Overview</a>
+      <a href="../pages/executive-summary.html">Executive summary</a>
+      <a href="../pages/scenarios.html">Options</a>
+      <a href="../pages/projections.html">Projections</a>
+      <a href="../pages/property-tax.html" aria-current="page">Property tax</a>
+      <a href="../pages/inheritance-tax.html">Inheritance tax</a>
+      <a href="../pages/inheritance-process.html">Process</a>
+      <a href="../pages/operating-costs.html">Costs</a>
+      <a href="../pages/law-watch.html">Law watch</a>
+      <a href="../pages/sources.html">Sources</a>
+      <a href="../pages/flagged.html">Flagged</a>
+      <a href="../pages/methodology.html">Method</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+<h1 style="margin:0 0 6px;font-size:27px;letter-spacing:-.02em">Property tax</h1>
+<p class="lead">The largest cost this analysis can actually control. Proposition 13 fixes the levy and caps assessment growth;
+Proposition 19 decides whether a death resets the assessment to market value. For Property A the difference is roughly
+$21,300 a year — and unlike the federal estate tax, it applies every year.</p>
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Filter rows (e.g. exclusion, 2019, transfer tax)">
+  <button class="btn on" data-filter="all">All</button>
+  <button class="btn" data-filter="verified">Verified</button>
+  <button class="btn" data-filter="owner">Owner data</button>
+  <button class="btn" data-filter="unverified">Unverified</button>
+</div>
+<div id="content"></div>
+  <footer>
+    Reviewed 10 November 2026. Statutory figures are quoted as published; anything computed or projected is rounded to
+    the nearest $10. Not legal, tax or investment advice. <a href="../pages/methodology.html">Methodology</a> ·
+    <a href="../pages/sources.html">Sources</a> · <a href="../pages/flagged.html">Flagged for review</a>
+  </footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>
