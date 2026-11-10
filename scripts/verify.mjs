@@ -100,7 +100,10 @@ walkMoney(model.projection?.slice(0, 3), "projection");
 // ------------------------------------------------------------- link checking
 const htmlFiles = ["index.html",
   ...fs.readdirSync(path.join(ROOT, "pages")).filter((f) => f.endsWith(".html")).map((f) => "pages/" + f),
-  ...fs.readdirSync(path.join(ROOT, "archive")).filter((f) => f.endsWith(".html")).map((f) => "archive/" + f)];
+  ...fs.readdirSync(path.join(ROOT, "archive")).filter((f) => f.endsWith(".html")).map((f) => "archive/" + f),
+  ...(fs.existsSync(path.join(ROOT, "mine/pages"))
+    ? fs.readdirSync(path.join(ROOT, "mine/pages")).filter((f) => f.endsWith(".html")).map((f) => "mine/pages/" + f)
+    : [])];
 const registryUrls = new Set(sources.sources.map((s) => s.url));
 let internalLinks = 0;
 let externalLinks = 0;
@@ -123,9 +126,9 @@ for (const u of externalSeen) {
   if (registryUrls.has(u)) continue;
   // Pages under /archive/ are a prior session's work, preserved verbatim; their links are
   // reported but not failed, because rewriting them would alter that record.
-  const inArchive = htmlFiles.some((f) => f.startsWith("archive/") &&
+  const inPreserved = htmlFiles.some((f) => (f.startsWith("archive/") || f.startsWith("mine/")) &&
     fs.readFileSync(path.join(ROOT, f), "utf8").includes(u));
-  if (inArchive) warnings.push(`archived page links to a source outside this registry: ${u}`);
+  if (inPreserved) warnings.push(`preserved page (another session) links to a source outside this registry: ${u}`);
   else errors.push(`external link not in source registry: ${u}`);
 }
 
