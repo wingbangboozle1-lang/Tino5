@@ -322,11 +322,11 @@
         if (document.getElementById("sensitivity")) document.getElementById("sensitivity").innerHTML = sensitivityTableHtml();
         if (document.getElementById("prop19rows")) document.getElementById("prop19rows").innerHTML = prop19RowsHtml();
         if (document.getElementById("estate-table")) document.getElementById("estate-table").innerHTML = estateTableHtml();
-        if (page === "sources" && mount) { renderSources(mount); wireFilters(); }
+        if (page === "sources" && mount) { renderSources(mount); try { wireFilters(); } catch (e) {} }
         else if (mount && document.body.dataset.json) {
           loadJSON(r + document.body.dataset.json).then(function (data) {
             renderDataPage(data, mount);
-            wireFilters();
+            try { wireFilters(); } catch (e) { /* filters are non-essential */ }
           }).catch(function (e) {
             mount.innerHTML = '<div class="callout bad"><h4>Data unavailable</h4><p>' + e.message + "</p></div>";
           });
@@ -408,8 +408,9 @@
         rows[i].style.display = ok ? "" : "none";
       }
     }
-    if (input) input.addEventListener("input", apply);
+    if (input && typeof input.addEventListener === "function") input.addEventListener("input", apply);
     for (var i = 0; i < btns.length; i++) {
+      if (typeof btns[i].addEventListener !== "function") continue;
       btns[i].addEventListener("click", function () {
         for (var j = 0; j < btns.length; j++) btns[j].classList.remove("on");
         this.classList.add("on");
