@@ -1,14 +1,14 @@
 {
-  "generated": "2026-11-10T10:16:29.939Z",
+  "generated": "2026-11-10T10:19:16.063Z",
   "summary": {
     "dataFiles": 7,
     "rowsChecked": 209,
     "verifiedRows": 76,
-    "internalLinks": 485,
-    "externalLinks": 138,
-    "registrySources": 40,
+    "internalLinks": 543,
+    "externalLinks": 171,
+    "registrySources": 80,
     "errors": 0,
-    "warnings": 30
+    "warnings": 25
   },
   "errors": [],
   "warnings": [
@@ -22,23 +22,18 @@
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/publications/p551",
     "preserved page (another session) links to a source outside this registry: https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers",
-    "preserved page (another session) links to a source outside this registry: https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
     "preserved page (another session) links to a source outside this registry: https://sf.gov/departments--rent-board",
     "preserved page (another session) links to a source outside this registry: https://www.courts.ca.gov/",
     "preserved page (another session) links to a source outside this registry: https://sf.courts.ca.gov/divisions/probate-court/trusts",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/forms-instructions",
-    "preserved page (another session) links to a source outside this registry: https://sccassessor.org/index.php/tax-savings/transferring-your-assessed-value/parent-to-child-2",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/publications/p559",
     "preserved page (another session) links to a source outside this registry: https://www.ftb.ca.gov/tax-pros/law/legislation/2017-2018/sb726-032317.pdf",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions",
-    "preserved page (another session) links to a source outside this registry: https://www.irs.gov/instructions/i706",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/businesses/small-businesses-selfemployed/whats-new-estate-and-gift-tax",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/irm/part21/irm_21-008-005r",
-    "preserved page (another session) links to a source outside this registry: https://www.irs.gov/taxtopics/tc701",
     "preserved page (another session) links to a source outside this registry: https://www.irs.gov/taxtopics/tc409",
     "preserved page (another session) links to a source outside this registry: https://www.ftb.ca.gov/about-ftb/data-reports-plans/summary-of-federal-income-tax-changes/index.html",
     "preserved page (another session) links to a source outside this registry: https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf",
-    "preserved page (another session) links to a source outside this registry: https://www.sos.ca.gov/elections/ballot-measures/initiative-and-referendum-status/failed-qualify",
     "preserved page (another session) links to a source outside this registry: https://sfrb.org/article/summary-ab-1482-california-tenant-protection-act-2019",
     "preserved page (another session) links to a source outside this registry: https://sfrb.org/topic-no-051-years-annual-allowable-increase",
     "preserved page (another session) links to a source outside this registry: https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/distributed-energy-resources/net-energy-metering"
