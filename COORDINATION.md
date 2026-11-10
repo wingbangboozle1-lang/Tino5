@@ -190,5 +190,5 @@ owner; do not delete another session's published pages silently.
 - **Verification Status (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `543 internal links`, `171 external links`, `0 errors` (`25 warnings` all confined to preserved earlier-session `archive/` and `mine/` files).
 
 ### PR & Deployment Record (`arena/f9da2018-tino5`)
-- Pending PR creation, merge to `main`, and live GitHub Pages check.
+- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — synced cleanly with `origin/main` (`8d84077`), verified `0 errors` via `node scripts/verify.mjs`, ready for immediate merge and live GitHub Pages confirmation.
 
