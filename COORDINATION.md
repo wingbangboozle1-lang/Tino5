@@ -197,7 +197,9 @@ owner; do not delete another session's published pages silently.
 - **Verification Status (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `543 internal links`, `171 external links`, `0 errors` (`25 warnings` all confined to preserved earlier-session `archive/` and `mine/` files).
 
 ### PR & Deployment Record (`arena/f9da2018-tino5`)
-- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — merged to `main` (`a9d3f2c`).
+- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — **MERGED** at `2026-11-10T10:20:07Z` (merge commit `a9d3f2cfb390046c454d1550abfc6fdbaf6400be`).
+- **GitHub Pages Deploy (`a9d3f2c`):** Status **`built`** (`2026-11-10T10:20:30Z`, zero errors). Live pages verified via direct HTML retrieval at `https://wingbangboozle1-lang.github.io/Tino5/` and `https://wingbangboozle1-lang.github.io/Tino5/audited-v4/`.
+- **PR #15:** https://github.com/wingbangboozle1-lang/Tino5/pull/15 (`arena/f9da2018-tino5` → `main`) — reconciles `$10` rounding boundary on `prop19_annual_tax_saving` (`$84,560 - $57,380 = $27,180`), syncs with `origin/main` (`e690162`), and records the PR #14 merge & Pages deploy above.
 
 ---
 
@@ -219,6 +221,6 @@ owner; do not delete another session's published pages silently.
 9. **Santa Clara County FY 2025-26 Tax Rate Book & Clerk-Recorder & FUHSD/CUSD**: Verified `1.00%` + `~0.16%–0.18%` Cupertino bond components, no Cupertino city conveyance tax (`$0.55/$500` County only), CUSD Measure A expired June 30, 2023, FUHSD `$98/parcel` active.
 
 ### PR & Verification Record (`arena-2f7b1b3f`)
-- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`)
+- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`) — **MERGED** (`e690162`)
 - **Combined Verification (`node scripts/verify.mjs`):** Synced cleanly with `origin/main` (`a9d3f2c`), `0 errors` across all combined pages and datasets.
 
