@@ -1,0 +1,306 @@
+{
+ "title": "Inheritance tax — federal, state and the basis rules",
+ "sections": [
+  {
+   "id": "thresholds",
+   "title": "1. How much can be inherited before a tax applies",
+   "intro": "Answer in one line: at the state level there is no limit because there is no California inheritance or estate tax; the only binding threshold is the federal estate tax exemption, which is $15,000,000 per person for 2026 deaths and is indexed for inflation.",
+   "columns": [
+    "item",
+    "value",
+    "status",
+    "sources",
+    "note"
+   ],
+   "rows": [
+    {
+     "item": "California inheritance tax",
+     "value": "None",
+     "status": "verified",
+     "sources": [
+      "rtc-13302"
+     ],
+     "note": "California repealed its inheritance and gift taxes in 1982. No California statute taxes a beneficiary for receiving an inheritance."
+    },
+    {
+     "item": "California estate tax",
+     "value": "None collected",
+     "status": "verified",
+     "sources": [
+      "rtc-13302"
+     ],
+     "note": "RTC 13302 is a 'pick-up' tax tied to a federal credit for state death taxes that Congress repealed for deaths after 2004. With no credit to pick up, the tax collects nothing."
+    },
+    {
+     "item": "Federal estate tax — basic exclusion amount for 2026 deaths",
+     "value": "$15,000,000 per person",
+     "status": "verified",
+     "sources": [
+      "irs-estate",
+      "irs-whatsnew",
+      "irs-faq-estate"
+     ],
+     "note": "Raised from $13,990,000 by P.L. 119-21 (§70106) and indexed for inflation from 2027. There is no scheduled sunset."
+    },
+    {
+     "item": "Federal estate tax — married couple with portability",
+     "value": "$30,000,000",
+     "status": "verified",
+     "sources": [
+      "irs-estate",
+      "irs-faq-estate"
+     ],
+     "note": "Requires a timely Form 706 for the first spouse."
+    },
+    {
+     "item": "Combined value of both properties at a 2045 transfer",
+     "value": "$10,323,560",
+     "status": "derived",
+     "sources": [
+      "fhfa-hpi"
+     ],
+     "note": "Model output: Property A $6,531,230 + Property B $3,792,330 at 4.0%/yr from 2026. Against a projected 2045 single-decedent exemption of about $23,160,000 that leaves roughly $12.8M of headroom; a couple with portability has about $46.3M. The unknown quantity is the cash and securities (flag F-18) — see the exposure table at the end of this page."
+    },
+    {
+     "item": "Federal estate tax — top rate above the exclusion",
+     "value": "40%",
+     "status": "verified",
+     "sources": [
+      "irs-estate"
+     ],
+     "note": "Only the amount above the exclusion is taxed, after deductions (marital, charitable, debts, administration)."
+    },
+    {
+     "item": "Form 706 filing threshold, 2026",
+     "value": "gross estate + adjusted taxable gifts above $15,000,000",
+     "status": "verified",
+     "sources": [
+      "irs-faq-estate",
+      "irs-form706"
+     ],
+     "note": "Filing is required above the threshold even if no tax is due."
+    },
+    {
+     "item": "Form 706 due date",
+     "value": "9 months after the date of death (6-month extension available)",
+     "status": "verified",
+     "sources": [
+      "irs-form706"
+     ],
+     "note": "The executor/trustee files it and pays any tax from estate assets — not from the beneficiaries' own funds."
+    },
+    {
+     "item": "Annual gift tax exclusion, 2026",
+     "value": "$19,000 per recipient",
+     "status": "secondary",
+     "sources": [
+      "irs-whatsnew"
+     ],
+     "note": "Reported from the 2026 inflation adjustments; confirm on the IRS revenue procedure before relying on it for gifts."
+    },
+    {
+     "item": "Who pays the federal estate tax",
+     "value": "The estate, before distribution",
+     "status": "verified",
+     "sources": [
+      "irs-estate",
+      "irs-faq-estate"
+     ],
+     "note": "A beneficiary never receives a bill for federal estate tax on their share."
+    },
+    {
+     "item": "Heir's income tax on receiving the inheritance",
+     "value": "$0",
+     "status": "verified",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "'Property received as a gift, bequest, or inheritance is not included in your income.' Income it later produces is taxable."
+    }
+   ]
+  },
+  {
+   "id": "basis",
+   "title": "2. Step-up in basis — the largest single tax benefit in this plan, and the easiest to lose",
+   "intro": "The value that matters most is not the estate tax exemption, which this family will probably never touch. It is IRC §1014: assets included in the decedent's estate take a new basis equal to date-of-death value, which wipes out decades of built-in gain.",
+   "columns": [
+    "item",
+    "value",
+    "status",
+    "sources",
+    "note"
+   ],
+   "rows": [
+    {
+     "item": "Basis of inherited property",
+     "value": "Fair market value on the date of death (or the alternate valuation date)",
+     "status": "verified",
+     "sources": [
+      "irs-p559",
+      "irs-p551"
+     ],
+     "note": "Pub 559, 'Basis of Inherited Property'."
+    },
+    {
+     "item": "Holding period",
+     "value": "Treated as more than one year regardless of actual holding",
+     "status": "verified",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "Long-term capital gain treatment from day one."
+    },
+    {
+     "item": "Revocable living trust",
+     "value": "Assets are included in the grantor's estate → full step-up",
+     "status": "verified",
+     "sources": [
+      "irs-p559",
+      "irs-p551"
+     ],
+     "note": "A revocable trust avoids probate; it does not change the income-tax basis result."
+    },
+    {
+     "item": "Irrevocable trust whose assets are NOT included in the decedent's estate",
+     "value": "No step-up — carry-over basis",
+     "status": "verified",
+     "sources": [
+      "irs-p559",
+      "irs-p551"
+     ],
+     "note": "This is the single biggest trap in 'inheriting by trust'. If the trust is drafted so the house is not in the grantor's gross estate, the heirs inherit the parents' low basis and a sale can produce a large gain. Confirm the trust's inclusion before relying on the step-up — F-14."
+    },
+    {
+     "item": "Estimated value of the step-up on Property A",
+     "value": "$2,549,460 of gain erased at a 2026 transfer",
+     "status": "derived",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "$3,100,000 market value − $550,540 assessed value, used as a proxy for original cost basis. At a 37.1% combined federal + California rate that is ≈$945,000 of tax avoided if the property is sold."
+    },
+    {
+     "item": "Consistency requirement",
+     "value": "Beneficiary's basis cannot exceed the value reported on Form 706",
+     "status": "verified",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "Enforced through Form 8971 when a 706 is filed."
+    },
+    {
+     "item": "Consequence for the sale scenario",
+     "value": "A sale in the year of death produces ≈$0 capital gain",
+     "status": "derived",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "Sale proceeds are reduced by selling costs, which can even create a small deductible loss."
+    }
+   ]
+  },
+  {
+   "id": "trust",
+   "title": "3. What 'inheriting by trust' actually changes",
+   "columns": [
+    "item",
+    "value",
+    "status",
+    "sources",
+    "note"
+   ],
+   "rows": [
+    {
+     "item": "Probate",
+     "value": "Avoided if the house is titled in the trust",
+     "status": "verified",
+     "sources": [
+      "cacourts-probate"
+     ],
+     "note": "Probate is the court process; a funded trust bypasses it. An unfunded trust does not."
+    },
+    {
+     "item": "Change of ownership date for property tax",
+     "value": "Date the revocable trust becomes irrevocable — normally the date of death",
+     "status": "verified",
+     "sources": [
+      "boe-prop19",
+      "rtc-61"
+     ],
+     "note": "Prop 19 timelines run from that date, not from the date the deed is recorded."
+    },
+    {
+     "item": "Prop 19 exclusion",
+     "value": "Fully available to a trust distribution to a child, on the same terms",
+     "status": "verified",
+     "sources": [
+      "boe-prop19",
+      "rtc-632"
+     ],
+     "note": "BOE FAQ #9: the trust gets no separate rule. Principal residence + move-in within 1 year + BOE-266 + BOE-19-P."
+    },
+    {
+     "item": "Trustee notification to beneficiaries and heirs",
+     "value": "Required when a revocable trust becomes irrevocable",
+     "status": "verified",
+     "sources": [
+      "prob-16061-7"
+     ],
+     "note": "Prob. Code §16061.7. Starts the clock on the contest period."
+    },
+    {
+     "item": "Trustee duties and accounting",
+     "value": "Duty to administer per the instrument and to keep beneficiaries reasonably informed",
+     "status": "verified",
+     "sources": [
+      "prob-16061-7",
+      "cacourts-probate"
+     ],
+     "note": "Applies to whoever serves as successor trustee — a family member acting as trustee is exposed to these duties."
+    },
+    {
+     "item": "Probate threshold if the trust is not funded",
+     "value": "",
+     "value_display": "statutory threshold, periodically adjusted",
+     "status": "unverified",
+     "sources": [
+      "prob-13100"
+     ],
+     "note": "Prob. Code §13100 sets a dollar threshold that adjusts; credible secondary sources give conflicting current figures ($208,850 / $239,700). No official page with the current figure was retrievable, so no number is stated here — F-13."
+    },
+    {
+     "item": "Trust income tax reporting",
+     "value": "Form 1041 for the trust's income; Form 541 for California",
+     "status": "verified",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "Applies while the trust holds rental property after death."
+    }
+   ]
+  },
+  {
+   "id": "exposure",
+   "title": "4. Federal estate tax exposure (model)",
+   "intro": "Projected with the 2026 exemption indexed at 2.3%/yr (CBO CPI path). California adds nothing at any level. Every figure is rounded to the nearest $10.",
+   "columns": [
+    "item",
+    "value",
+    "value2",
+    "status",
+    "sources",
+    "note"
+   ],
+   "column_labels": [
+    "Gross estate at death",
+    "Federal estate tax if death in 2026",
+    "Federal estate tax if death in 2045",
+    "Status",
+    "Sources",
+    "Note"
+   ],
+   "source": "model",
+   "rows": []
+  }
+ ]
+}

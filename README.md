@@ -1,83 +1,105 @@
-# Tino5 — Property Inheritance Decision Support
+# Inheritance decision dashboard — Cupertino (95014) & San Francisco (94122)
 
-A source-verified, **anonymized** decision dashboard for a planned 2040–2050 trust inheritance of a
-Cupertino property (ZIP 95014), with a San Francisco rental/residence property (ZIP 94122) as the
-housing anchor.
+A source-linked decision analysis for a house expected to pass by trust around 2040–2050, alongside an
+already-owned, part-rented San Francisco building that stays in place either way.
 
-**Live site:** published from `docs/` on the `main` branch via GitHub Pages.
+**Live site:** https://wingbangboozle1-lang.github.io/Tino5/
 
-## Privacy (highest priority)
+## What the site answers
 
-No personal information appears in any published site file. Identities, street addresses, trust
-names and account identifiers are replaced with placeholders (`Property A`, `Property B`,
-`Beneficiary`, `Trust`). Geography stops at city and ZIP-code level. Client-supplied financial
-figures are anonymous scenario inputs and are never presented as verified facts.
+| Question | Page |
+|---|---|
+| What is the best plan, and why? | `pages/executive-summary.html` |
+| Should I live in it, rent it, or sell and reinvest? | `pages/scenarios.html` |
+| What will it be worth, and what will the tax be, year by year? | `pages/projections.html` |
+| How does Proposition 19 change the cost? | `pages/property-tax.html` |
+| How much can be inherited before a tax applies? | `pages/inheritance-tax.html` |
+| What does the transfer actually involve, step by step? | `pages/inheritance-process.html` |
+| What will insurance, water, power and repairs cost? | `pages/operating-costs.html` |
+| What is changing in the law? | `pages/law-watch.html` |
+| What is unverified or inconsistent? | `pages/flagged.html` |
+| How were the numbers produced? | `pages/methodology.html` |
+| Audited Interactive Briefing (Charts, 2027 IRS / LTA 26-026, Liquid Estate Matrix) | `audited-v4/index.html` |
 
-## Three value classes — never mixed
+## Privacy
 
-| Class | Meaning | Rendering |
-| --- | --- | --- |
-| `VERIFIED` | Read directly from an official government page | Value shown; row links to that page |
-| `CLIENT INPUT — UNVERIFIED` | Supplied in the brief | Official-value cell left **blank**; flagged |
-| `MODEL OUTPUT — NOT AN OFFICIAL VALUE` | Computed from explicit assumptions | Labelled as model output; flagged |
+No personal data is stored in this repository or served on the site. The properties are referred to only as
+**Property A** (95014) and **Property B** (94122). No names, street addresses, parcel numbers, account
+numbers, emails or phone numbers appear anywhere — `scripts/verify.mjs` scans for those patterns on every run.
+Anything identified during research that could identify a person is kept out of the repository entirely.
 
-Every data-table row has a link to an official government source. Values that cannot be confirmed
-are left blank and published on the **Flagged for Review** page. No value is inferred or filled in.
-All dollar figures are rounded to the nearest $10.
+## Verification model
 
-## Site map
+Every table row carries one of six statuses:
 
-| Page | Contents |
-| --- | --- |
-| `index.html` | Dashboard, KPIs, bottom-line recommendation |
-| `executive-summary.html` | Executive summary with clear numbers |
-| `properties.html` | Anonymous client inputs and tax/assessment history |
-| `tax-law.html` | Verified federal, state and local law/figures |
-| `inheritance-process.html` | Step-by-step trust inheritance and statutory clocks |
-| `projections.html` | 2026–2050 market value, assessed value, property tax |
-| `costs.html` | Carrying costs and every model parameter |
-| `decision-analysis.html` | Live / rent / sell comparison, sensitivity, break-even |
-| `estate-tax.html` | Exemptions, projected headroom, 40% rate matrix |
-| `law-changes.html` | Enacted, pending and proposed law changes |
-| `flagged.html` | **Flagged for Review** — unverified values and irregularities |
-| `sources.html` | Complete official source registry |
-| `methodology.html` | Privacy, verification and limitations |
+- **verified** — read from an official source (statute, agency, utility tariff), linked in the row
+- **secondary** — credible non-official reporting, or an official value whose page could not be retrieved here
+- **owner-provided** — supplied by the owner on 10 Nov 2026, not independently confirmed
+- **derived** — arithmetic on the above, with the arithmetic shown in the note
+- **assumption** — a named model parameter (A1–A29) with a sensitivity
+- **unverified** — not confirmable; the value is left blank and listed on the Flagged for Review page
 
-## Reproduce locally
-
-```bash
-python3 model/build_data.py      # -> data/site_data.json (source of truth)
-python3 scripts/build_dashboard.py    # -> docs/*.html
-python3 scripts/verify.py        # verification + research/verification-log.md
-python3 scripts/write_research.py
-cd docs && python3 -m http.server 8000
-```
-
-No third-party packages are required. The site is plain HTML/CSS/JS with no build tool and no
-external CDN dependencies, so it works offline and behind the GitHub Pages proxy.
+Nothing is inferred or filled in. Money in the analysis is rounded to the nearest $10; statutory constants are
+quoted exactly as published.
 
 ## Repository layout
 
 ```
-COORDINATION.md          shared task board / session log
-data/site_data.json      single source of truth (sources, tables, flags, summary)
-model/build_data.py      official source registry, assumptions, projections, decision model
-scripts/build_dashboard.py    static HTML renderer
-scripts/verify.py        line-by-line verification + HTTP smoke test
-scripts/write_research.py
-research/                human-readable notes with official links + verification log
-docs/                    published static site (GitHub Pages source)
-docs/.nojekyll          disables Jekyll processing
+index.html                  dashboard
+pages/*.html                built pages (generated — do not edit by hand)
+src/pages/*.html            page bodies; the build wraps them in the shared shell
+assets/style.css, app.js    styling and the data-driven renderer (no dependencies)
+data/sources.json           source registry (publisher, document, URL, how verified)
+data/*.json                 verified / flagged data tables
+data/model.json             model output (generated)
+scripts/model.py            the financial model — one named parameter per assumption
+scripts/build_site.py       builds pages/*.html from src/pages/*.html
+scripts/verify.mjs          verification and link checker
+verification-report.json    last verification run
+COORDINATION.md             shared task board for parallel agent sessions
+session-2f7b1b3f/           standalone 7-page interactive dashboard & simulator (session arena-2f7b1b3f)
 ```
 
-## Coordination
+## Rebuild
 
-Multiple agent sessions may work on this repository. Read `COORDINATION.md` before starting, claim
-a task with non-overlapping file scope, commit and push the claim immediately, and record sources,
-verification and irregularities there when done. Shared outputs (`data/site_data.json`,
-`docs/index.html`, navigation) are integration-owned.
+```bash
+python3 scripts/model.py       # recompute data/model.json
+python3 scripts/build_site.py  # rebuild pages/*.html
+node scripts/verify.mjs        # verify rows, sources, links, rounding, PII patterns
+```
+
+No build tooling, no external CDNs, no npm dependencies. The site is plain HTML, CSS and JavaScript served
+directly by GitHub Pages.
 
 ## Disclaimer
 
-Research and modelling only — not legal, tax, appraisal or investment advice. Confirm all figures
-with the linked government agencies and a qualified adviser before acting.
+Decision support only — not legal, tax or investment advice. Trust drafting, titling, insurance and condition
+are unknown and each can change the answer; see the flagged list before acting.
+
+## Parallel Session Interactive Simulator (`session-2f7b1b3f/`)
+
+Session `arena-2f7b1b3f` contributed a standalone 7-page interactive simulator and verified regulatory compendium under `session-2f7b1b3f/index.html`, preserved alongside the combined dashboard (`index.html`), `/archive/`, and `/mine/pages/`. Reproduce its dataset with:
+
+```bash
+python3 session-2f7b1b3f/scripts/generate_data.py
+```
+
+
+---
+
+## Session `arena-91a4a9f9` — independently verified dashboard (`docs/`)
+
+A second, independently researched dashboard lives under **`docs/`** and is served by GitHub Pages at
+**https://wingbangboozle1-lang.github.io/Tino5/docs/**. It does not modify any other session's pages,
+data files or navigation. It contains 13 pages, 54 official government sources (all retrieved and
+read), 21 data tables / 326 rows, 25 years of projections (2026–2050), a three-option decision model,
+a step-by-step trust-inheritance process, and a **Flagged for Review** page with 20 items.
+
+* Everything is anonymized: city + ZIP only, no personal identifiers.
+* Every table row carries a link to an official government source; unverified values are blank and flagged.
+* All dollar figures are rounded to the nearest $10.
+* Reproduce: `python3 model/build_data.py && python3 scripts/build_dashboard.py && python3 scripts/verify.py`
+* Its line-by-line record: `research/verification-log.md`; its task board: the appendix in `COORDINATION.md`.
+
+The two dashboards reach different conclusions under different assumptions; both are published rather
+than reconciled by fiat. See `docs/decision-analysis.html` for this session's sensitivity analysis.

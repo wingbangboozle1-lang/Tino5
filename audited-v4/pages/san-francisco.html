@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Francisco (ZIP 94122) 3-Unit Analysis &amp; 2026–2050 Projections</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">T</span>
+        <span>Bay Area Trust Inheritance Briefing (2026–2050)</span>
+      </a>
+      <nav class="nav" aria-label="Primary Navigation">
+        <a href="../index.html">Executive Summary</a>
+        <a href="./trust-and-taxes.html">Trust Process &amp; Tax Law</a>
+        <a href="./cupertino.html">Cupertino (95014)</a>
+        <a href="./san-francisco.html" class="active">San Francisco (94122)</a>
+        <a href="./flagged-for-review.html" class="nav-flag">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Property B &bull; Outer Sunset 3-Unit &bull; ZIP 94122</div>
+      <h1>San Francisco 3-Unit Property: Rental Yield, Prop 19 Multi-Unit Rule &amp; 2026–2050 Projections</h1>
+      <p class="lead">
+        Line-by-line verification of SF secured property taxes, Article 12-C transfer tax cliffs ($5M 2.25% tier), SF Rent Ordinance 1.6% annual cap, SFPUC water/wastewater rate escalation, CleanPowerSF 2026 cuts, and CDI rental-dwelling insurance settlement impacts. All projections rounded to the nearest $10.
+      </p>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Nov 2026 Value &amp; Rental Gross</div>
+        <div class="kpi-value">$1,800,000 / $85,800 yr</div>
+        <div class="kpi-sub">2 rented units ($7,150/mo) + 1 unrented unit</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">FY 2026-27 SF Secured Rate</div>
+        <div class="kpi-value">1.18162%</div>
+        <div class="kpi-sub">Plus ~$1,110/yr implied parcel taxes (2.135% eff. on $114k AV)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">SF Reassessed 2-Unit Net CF (2045)</div>
+        <div class="kpi-value" style="color:var(--amber)">+$24,570 / yr</div>
+        <div class="kpi-sub">Pre-tax yield compresses to 0.65% on $3.79M equity after reassessment</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">SF Transfer Tax Cliff (&ge; $5.0M)</div>
+        <div class="kpi-value neg">0.75% &rarr; 2.25%</div>
+        <div class="kpi-sub">Applies to ENTIRE price; triggered ~2048 in High-Growth scenario</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Verified San Francisco Rates, Rent Control, Utilities &amp; Insurance Audit</h2>
+          <p class="lead">Official CCSF Treasurer, Assessor, Rent Board, SFPUC, and CDI findings vs. baseline assumptions.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>User Baseline Input</th>
+              <th>Verified Official Fact / Regulatory Finding</th>
+              <th>Audit Status</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody id="sf-verified-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Historical Property Tax &amp; Assessed Value Audit (2016–2026)</h2>
+          <p class="lead">Cross-checked against CA BOE LTA 2026/002 CCPI factors &amp; SF Treasurer tax rates. 2026 left blank (missing from input).</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Property Tax (User Input)</th>
+              <th class="num">Tax YoY</th>
+              <th class="num">Assessed Value (User Input)</th>
+              <th class="num">AV YoY</th>
+              <th class="num">Official BOE CCPI Factor</th>
+              <th>Audit Status</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody id="sf-hist-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Year-by-Year San Francisco 3-Unit Projections (2026–2050)</h2>
+          <p class="lead">Shows parent-held net cash flow vs. post-inheritance reassessed cash flow (2 rented units vs. all 3 rented) and SF Article 12-C transfer tax exposure. Rounded to nearest $10.</p>
+        </div>
+        <div class="controls">
+          <label class="control-group">
+            Scenario:
+            <select id="sel-sf-sc">
+              <option value="base" selected>Base Case (4.0% RE, 2.0% Rent, Audited Costs)</option>
+              <option value="conservative">Conservative (2.5% RE, 1.6% Rent, Audited Costs)</option>
+              <option value="growth">High Growth (4.7% RE, 2.4% Rent — Hits $5M Cliff!)</option>
+              <option value="user_naive">Unadjusted User Baseline ($1,500 Ins.)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="chart-box" id="chart-sf-cf" style="margin-bottom:1.25rem;"></div>
+      <div class="chart-legend" style="margin-bottom:1rem;"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Est. Market Value</th>
+              <th class="num">Parent Prop 13 Tax</th>
+              <th class="num">2-Unit Eff. Rent</th>
+              <th class="num">Water &amp; Sewer</th>
+              <th class="num">Electric</th>
+              <th class="num">Insurance*</th>
+              <th class="num">Maint. Reserve*</th>
+              <th class="num">Parent Net CF (2u)</th>
+              <th class="num">If Inherited: Full Reassess Tax</th>
+              <th class="num">Reassessed Net CF (2u)</th>
+              <th class="num">Reassessed Net CF (3u)*</th>
+              <th class="num">SF Transfer Tax (% / $)</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody id="sf-proj-tbody"></tbody>
+        </table>
+      </div>
+      <p style="font-size:0.8rem;color:var(--ink-muted);margin-top:0.65rem;">
+        *<code>Insurance</code>, <code>Maintenance Reserve</code>, and <code>3rd-Unit Rent</code> (modeled at equal $3,575/mo 2026 market rent) reflect explicitly labeled model assumptions because site-specific underwriting/repair logs and Unit 3 layout are unverified. Notice that per BOE LTA 2026/026 Q5, even if Unit 3 qualified as both parent &amp; child principal residence, 2/3 of the building still reassesses to market value.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div>Property B — San Francisco Outer Sunset (ZIP 94122) &bull; Audited Model Output Rounded to Nearest $10</div>
+      <div><a href="./cupertino.html">&larr; Cupertino (95014)</a> &nbsp;|&nbsp; <a href="./flagged-for-review.html">Next: Flagged for Review &rarr;</a></div>
+    </footer>
+  </main>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script>
+    (async function () {
+      const data = await AppUtils.loadProjections("../");
+      const sf = data.verified_anchors.sf;
+
+      const userInputs = [
+        "2025 tax $2,439 on $114,248 AV (2.135% eff.); 2026 missing",
+        "Not specified (selling transfer tax)",
+        "2 units rented at $7,150/mo; 1 unit unrented",
+        "Water: $330–$400/mo (3 units)",
+        "Electricity: $30–$70/mo",
+        "Est. insurance: ~$1,500/yr (needs research)"
+      ];
+      const statuses = [
+        `<span class="badge badge-info">Rate Verified / 2026 Missing</span>`,
+        `<span class="badge badge-danger">$5.0M = 2.25% Cliff Risk</span>`,
+        `<span class="badge badge-flag">Pre-1979 Status Unverified</span>`,
+        `<span class="badge badge-danger">SFPUC +7.5%–10.1% Surge</span>`,
+        `<span class="badge badge-verified">CleanPowerSF -25% Gen / +$24.15 Base</span>`,
+        `<span class="badge badge-flag">Quote Unverified / +32.8% Rental Hike</span>`
+      ];
+      document.getElementById("sf-verified-tbody").innerHTML = sf.official_verified.map((row, idx) => `
+        <tr>
+          <td><strong>${row.category}</strong></td>
+          <td>${userInputs[idx]}</td>
+          <td>${row.verified_value}</td>
+          <td>${statuses[idx]}</td>
+          <td>${AppUtils.sourceAnchor(row.source_url, row.source_label)}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("sf-hist-tbody").innerHTML = sf.user_baseline.historical_tax_assessment.map((r) => {
+        const flagged = r.audit_status.startsWith("Flagged");
+        return `
+          <tr>
+            <td><strong>${r.year}</strong></td>
+            <td class="num">${r.tax_usd === null ? "" : AppUtils.fmtUSD(r.tax_usd)}</td>
+            <td class="num">${r.tax_yoy === null ? "" : r.tax_yoy}</td>
+            <td class="num">${r.assessed_value_usd === null ? "" : AppUtils.fmtUSD(r.assessed_value_usd)}</td>
+            <td class="num">${r.av_yoy === null ? "" : r.av_yoy}</td>
+            <td class="num">${r.boe_ccpi_factor}</td>
+            <td><span class="badge ${flagged ? "badge-flag" : "badge-verified"}">${flagged ? "Flagged" : "CCPI Match"}</span> ${r.audit_status}</td>
+            <td>${AppUtils.sourceAnchor("https://sftreasurer.org/property/secured-property-taxes", "SF Treasurer + BOE LTA")}</td>
+          </tr>
+        `;
+      }).join("");
+
+      const selSc = document.getElementById("sel-sf-sc");
+      function renderProj() {
+        const rows = data.yearly_by_scenario[selSc.value];
+        document.getElementById("sf-proj-tbody").innerHTML = rows.map((r) => {
+          const s = r.sf;
+          const cliffCls = s.sf_transfer_tax_rate_pct > 1.0 ? "neg" : "";
+          return `
+            <tr>
+              <td><strong>${r.year}</strong></td>
+              <td class="num">${AppUtils.fmtUSD(s.market_value, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(s.parent_prop_tax, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(s.gross_rent_2u_eff, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(s.water_sewer, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(s.electric, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(s.insurance, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(s.maintenance, true)}</td>
+              <td class="num pos">${AppUtils.fmtSignedUSD(s.net_cashflow_parent_2u)}</td>
+              <td class="num neg">${AppUtils.fmtUSD(s.inherit_tax_full_reassess, true)}</td>
+              <td class="num ${s.net_cashflow_reassessed_2u >= 0 ? "pos" : "neg"}">${AppUtils.fmtSignedUSD(s.net_cashflow_reassessed_2u)}</td>
+              <td class="num pos">${AppUtils.fmtSignedUSD(s.net_cashflow_reassessed_3u)}</td>
+              <td class="num ${cliffCls}">${s.sf_transfer_tax_rate_pct.toFixed(2)}% (${AppUtils.fmtUSD(s.sf_transfer_tax, true)})</td>
+              <td>${AppUtils.sourceAnchor("https://www.sf.gov/transfer-tax", "SF Assessor / SFPUC")}</td>
+            </tr>
+          `;
+        }).join("");
+
+        AppCharts.renderMultiLineChart(
+          "chart-sf-cf",
+          rows.map((r) => r.year),
+          [
+            { name: "2-Unit Gross Effective Rent", values: rows.map((r) => r.sf.gross_rent_2u_eff), color: "#0f4c5c" },
+            { name: "Reassessed 3-Unit Net CF", values: rows.map((r) => r.sf.net_cashflow_reassessed_3u), color: "#1b6b4a", dashed: true },
+            { name: "Post-Death Full Reassessed Tax", values: rows.map((r) => r.sf.inherit_tax_full_reassess), color: "#9b2226" },
+            { name: "Reassessed 2-Unit Net CF (1 Vacant)", values: rows.map((r) => r.sf.net_cashflow_reassessed_2u), color: "#9c5700" },
+          ]
+        );
+      }
+      renderProj();
+      selSc.addEventListener("change", renderProj);
+      window.addEventListener("resize", renderProj);
+    })();
+  </script>
+</body>
+</html>

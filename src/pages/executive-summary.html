@@ -1,0 +1,109 @@
+<!--title: Executive summary-->
+<!--page: executive-summary-->
+<!--blurb: The recommendation for the Cupertino house, the findings behind it, and what to do before 2040.-->
+<h1 style="margin:0 0 6px;font-size:27px;letter-spacing:-.02em">Executive summary</h1>
+<p class="lead">Two properties, one trust, and a decision that is really two decisions: what to do with the Cupertino house
+(Property A) when it passes, and how to structure the transfer so that the tax outcome is not left to the county assessor.
+Everything below is derived from public official sources; the working numbers are model output and every assumption is named.</p>
+
+<div class="rec">
+  <h2>Recommendation</h2>
+  <p class="big">Sell Property A within the year of death, unless you actually want to live in Cupertino.</p>
+  <p style="margin-top:10px">On the base case a sale produces <strong data-bind="sell">—</strong> of net wealth by 2065, against
+     <strong data-bind="rent">—</strong> for holding and renting and <strong data-bind="live">—</strong> for moving in. The sale
+     works because it converts a 4%-a-year asset into a diversified portfolio assumed at 6%, and because the step-up in basis
+     means the sale is essentially tax-free on the day it happens.</p>
+  <p>Two conditions attach to that recommendation. First, the trust must include Property A in the parents' estate — otherwise
+     the step-up disappears and the sale becomes a large capital-gains event (flag F-14). Second, the gap is not large: if
+     Cupertino appreciates faster than <strong data-bind="breakeven">—</strong> a year, holding overtakes selling. Treat the
+     recommendation as a conditional, and revisit it at the transfer date with a real appraisal.</p>
+</div>
+
+<h2>Ten findings</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th style="width:34px">#</th><th>Finding</th><th style="text-align:right;white-space:nowrap">Number</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>California imposes no inheritance tax and collects no estate tax</td><td class="numv">$0</td><td class="note">RTC §13302 is a "pick-up" tax tied to a federal credit repealed for deaths after 2004. Nothing is owed to the state for inheriting.</td></tr>
+<tr><td>2</td><td>The federal estate tax almost certainly will not apply</td><td class="numv">$15,000,000</td><td class="note">The 2026 basic exclusion is $15M per person, $30M for a couple with portability, indexed from 2027 and with no sunset.</td></tr>
+<tr><td>3</td><td>The real inheritance tax is the Proposition 19 reassessment</td><td class="numv">$21,300 / yr</td><td class="note">Renting instead of living in it costs about $21,300 more in property tax in the first year at a 2045 transfer — and grows.</td></tr>
+<tr><td>4</td><td>But that reassessment is worth less than people assume</td><td class="numv" data-bind="prop19pv">—</td><td class="note">Present value of the entire exclusion benefit 2045–2065. It is not a reason to move in; it is a reason not to rent it out casually.</td></tr>
+<tr><td>5</td><td>The exclusion is all-or-nothing and time-limited</td><td class="numv">1 year</td><td class="note">Move in within 12 months and file BOE-266; move out later and the exclusion is removed as of that date. "Move in for a year, then rent" fails.</td></tr>
+<tr><td>6</td><td>The step-up in basis is the largest single benefit in the plan</td><td class="numv">$2,549,460</td><td class="note">Built-in gain that disappears at death. At a 37.1% combined rate it is worth about $945,000 of tax avoided on a sale.</td></tr>
+<tr><td>7</td><td>That benefit depends entirely on the trust being drafted correctly</td><td class="numv">—</td><td class="note">Assets not included in the grantor's estate get carry-over basis instead. This is the highest-value open item on the site.</td></tr>
+<tr><td>8</td><td>The owners' insurance estimates are too low</td><td class="numv">$5,120 / yr</td><td class="note">$1,500/yr prices a $300k house. Modelled at 0.30% of a $1.705M replacement cost for Property A, with 6%/yr escalation.</td></tr>
+<tr><td>9</td><td>"No electricity cost" will probably not survive to 2045</td><td class="numv">20 years</td><td class="note">Legacy net metering runs 20 years from interconnection and follows the system — but a pre-2023 array is off retail-rate credits by 2043.</td></tr>
+<tr><td>10</td><td>The 2026 ballot is leaning against new wealth taxes</td><td class="numv">unofficial</td><td class="note">Proposition 42 (barring new state taxes on personal property and financial assets) is leading as of 10 Nov 2026. Not certified until 11 Dec 2026.</td></tr>
+</tbody></table></div>
+
+<h2>What the three options actually cost in the first year</h2>
+<p class="small">Transfer year 2045, nominal dollars, rounded to $10. Property B's numbers are identical in every column because it is unaffected by the decision.</p>
+<div id="snapshot"></div>
+
+<h2>What to do, in order</h2>
+<div class="two-col">
+  <div class="card">
+    <h3 style="margin-top:0">Now → 2039</h3>
+    <ul class="tight">
+      <li>Confirm Property A carries the homeowners' exemption — that is the proof it is the parents' principal residence and therefore Prop 19 eligible.</li>
+      <li>Read the trust and confirm three things in writing: the house is titled to the trust, the trust is revocable, and the assets are includible in the estate (step-up).</li>
+      <li>Get a replacement-cost estimate and a home inspection so insurance and maintenance stop being guesses (F-07, F-08).</li>
+      <li>Find the solar interconnection date and the remaining NEM term.</li>
+      <li>Decide as a family who would live there; the decision is on a 12-month clock after death.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">The first 12 months after death</h3>
+    <ul class="tight">
+      <li>Serve the trustee's notification, get the EIN, order the date-of-death appraisal.</li>
+      <li>Record the trustee's deed — that starts the assessor's review.</li>
+      <li>File <strong>BOE-266 by month 12</strong> and <strong>BOE-19-P within 3 years</strong>. File both even if the plan is to sell.</li>
+      <li>Keep the tax installments current: 10 December and 10 April, 10% penalty if missed.</li>
+      <li>If selling, sell in the year of death. If holding as a rental, accept the full reassessment and re-underwrite the rent.</li>
+    </ul>
+  </div>
+</div>
+
+
+<h2>Where this analysis disagrees with the earlier published version</h2>
+<div class="callout warn">
+  <h4>Two sessions, two conclusions — and why</h4>
+  <p>The earlier session's dashboard, preserved verbatim at <a href="../archive/index.html">/archive/</a>, concluded that
+     <em>living in Cupertino</em> was the lowest-cost path. This analysis concludes <em>selling</em> is, on the base case.
+     The difference is not a data error; it is a modelling choice, and it is worth understanding before you rely on either.</p>
+  <ul class="tight">
+    <li><strong>Housing consumption.</strong> The earlier version treats "live in Cupertino" as avoiding a second housing
+        cost. That is true, but it omits what you give up: you stop collecting market rent on the Cupertino house
+        (≈$9,820/month on the modelled yield) while you gain the ability to rent out the San Francisco unit you currently
+        occupy (≈$3,575/month). This analysis counts both sides; the earlier one counts neither.</li>
+    <li><strong>The terminal capital-gains bill.</strong> Holding to 2065 and then selling pays 37.1% on two decades of
+        gain above the stepped-up basis, plus depreciation recapture — about $3.6M in 2065 dollars. Selling at death pays
+        nothing on the gain that existed at death.</li>
+    <li><strong>The spread.</strong> This analysis assumes 4.0%/yr appreciation and a 6.0% nominal return on reinvested
+        proceeds. The earlier version assumes the reverse relationship holds long enough for housing to win. Above
+        ≈5.0%/yr appreciation the ranking flips in favour of holding — see the
+        <a href="../pages/scenarios.html">sensitivity table</a>.</li>
+  </ul>
+  <p>The earlier session's Prop 19 tax arithmetic, its assessment history and its flags all reconcile with this one; where
+     the two differ on a <em>fact</em> the live page here is the later, re-verified reading, and the archive is dated
+     10 November 2026 as well. Treat both conclusions as conditional, and re-run the model with a real appraisal at the
+     transfer date.</p>
+</div>
+
+<h2>Risk register</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Risk</th><th>Effect</th><th>Mitigation</th></tr></thead>
+<tbody>
+<tr><td class="item">Trust gives no step-up</td><td class="note">Up to ≈$945,000 of extra capital-gains tax on a sale</td><td class="note">Attorney opinion now; fix the drafting while the settlors are alive.</td></tr>
+<tr><td class="item">Appreciation beats the market</td><td class="note">Holding overtakes selling above ≈5.0%/yr</td><td class="note">Re-run the model with an appraisal at transfer; the sensitivity table shows all three cases.</td></tr>
+<tr><td class="item">Insurance market deteriorates</td><td class="note">+$3,000–$8,000/yr on a high-value Bay Area house</td><td class="note">Real quotes now; FAIR Plan wrap if carriers decline.</td></tr>
+<tr><td class="item">Deferred maintenance</td><td class="note">$50,000–$150,000 of deferred work is unpriced</td><td class="note">Inspection; discount the sale or reserve the cost in the hold case.</td></tr>
+<tr><td class="item">Prop 19 indexed amount grows slowly</td><td class="note">Smaller exclusion at transfer</td><td class="note">It has averaged ≈2.2% per two-year adjustment; the model uses 3%/yr, disclosed as A25.</td></tr>
+<tr><td class="item">Tenant and habitability exposure (rent option)</td><td class="note">Not priced in this model</td><td class="note">A Cupertino single-family rental carries habitability, rent-control and liability risk that a portfolio does not.</td></tr>
+</tbody></table></div>
+
+<div class="callout warn">
+  <h4>What could change this answer</h4>
+  <p>The model is deterministic. The three inputs that matter are growth in Property A's value (A1), the return on the
+     reinvested proceeds (A15), and whether you want to live in Cupertino at all — which is a preference, not a
+     calculation. Everything else, including insurance and utilities, moves the totals by thousands, not millions.</p>
+</div>

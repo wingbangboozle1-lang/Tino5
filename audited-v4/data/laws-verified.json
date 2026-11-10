@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "as_of_date": "2026-11-10",
+    "verified_only": true,
+    "notes": "Every entry below is sourced directly from official .gov statutes, IRS Revenue Procedures, CA BOE Letters to Assessors, CA FTB tax schedules, CA Secretary of State records, or Congressional records."
+  },
+  "federal": [
+    {
+      "id": "fed-estate-exclusion-2025",
+      "topic": "Federal Estate & Gift Basic Exclusion (2025)",
+      "value": "$13,990,000 per individual ($27,980,000 married w/ DSUE)",
+      "numeric_usd": 13990000,
+      "effective": "CY 2025",
+      "source_label": "IRS Instructions for Form 706 (Rev. 07/2026)",
+      "source_url": "https://www.irs.gov/instructions/i706"
+    },
+    {
+      "id": "fed-estate-exclusion-2026",
+      "topic": "Federal Estate, Gift & GST Exclusion (2026)",
+      "value": "$15,000,000 per individual ($30,000,000 married w/ DSUE); permanent & inflation-indexed per P.L. 119-21 Sec. 70106",
+      "numeric_usd": 15000000,
+      "effective": "CY 2026",
+      "source_label": "IRS Rev. Proc. 2025-32 / P.L. 119-21",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    },
+    {
+      "id": "fed-estate-exclusion-2027",
+      "topic": "Federal Estate, Gift & GST Exclusion (2027)",
+      "value": "$15,480,000 per individual ($30,960,000 married w/ DSUE; +3.20% YoY)",
+      "numeric_usd": 15480000,
+      "effective": "CY 2027",
+      "source_label": "IRS Rev. Proc. 2026-35 (Sec. 3.44)",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+    },
+    {
+      "id": "fed-estate-top-rate",
+      "topic": "Federal Estate & Gift Top Marginal Rate",
+      "value": "40% on taxable transfers exceeding applicable exclusion + $1,000,000 bracket",
+      "numeric_rate": 0.40,
+      "effective": "Current law",
+      "source_label": "IRS Form 706 Instructions, Table A (Rev. 07/2026)",
+      "source_url": "https://www.irs.gov/pub/irs-pdf/i706.pdf"
+    },
+    {
+      "id": "fed-gift-annual-2026",
+      "topic": "Federal Annual Gift Tax Exclusion (2026)",
+      "value": "$19,000 per recipient ($38,000 gift-splitting)",
+      "numeric_usd": 19000,
+      "effective": "CY 2026",
+      "source_label": "IRS Rev. Proc. 2025-32 / Notice in Rev. Proc. 2026-25",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-26-25.pdf"
+    },
+    {
+      "id": "fed-gift-annual-2027",
+      "topic": "Federal Annual Gift Tax Exclusion (2027)",
+      "value": "$20,000 per recipient ($40,000 gift-splitting)",
+      "numeric_usd": 20000,
+      "effective": "CY 2027",
+      "source_label": "IRS Rev. Proc. 2026-35 (Sec. 3.46)",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+    },
+    {
+      "id": "fed-step-up-basis",
+      "topic": "IRC § 1014 Step-Up in Basis at Death (incl. CA Community Property 100% Double Step-Up)",
+      "value": "Basis resets to Fair Market Value at date of death (or 6-month alternate valuation date); 100% step-up on both halves of community property in CA",
+      "effective": "Current law",
+      "source_label": "IRS Publication 523 & Estate Tax FAQs",
+      "source_url": "https://www.irs.gov/publications/p523"
+    },
+    {
+      "id": "fed-sec-121",
+      "topic": "IRC § 121 Principal Residence Sale Exclusion",
+      "value": "Up to $250,000 (Single) / $500,000 (MFJ) gain excluded if owned & used 2 of last 5 years (excluding post-1997 depreciation recapture)",
+      "numeric_usd_single": 250000,
+      "numeric_usd_mfj": 500000,
+      "effective": "Current law",
+      "source_label": "IRS Topic No. 701 & Pub. 523",
+      "source_url": "https://www.irs.gov/taxtopics/tc701"
+    },
+    {
+      "id": "fed-ltcg-2026",
+      "topic": "Federal Long-Term Capital Gains Brackets (2026)",
+      "value": "0% up to $49,450 Single ($98,900 MFJ); 15% up to $545,500 Single ($613,700 MFJ); 20% above ($16,250 Estates/Trusts)",
+      "effective": "TY 2026",
+      "source_label": "IRS Rev. Proc. 2025-32 (Sec. 4.03)",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+    },
+    {
+      "id": "fed-ltcg-2027",
+      "topic": "Federal Long-Term Capital Gains Brackets (2027)",
+      "value": "0% up to $51,050 Single ($102,100 MFJ); 15% up to $563,200 Single ($633,600 MFJ); 20% above ($16,750 Estates/Trusts)",
+      "effective": "TY 2027",
+      "source_label": "IRS Rev. Proc. 2026-35 (Sec. 3.03)",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+    },
+    {
+      "id": "fed-niit",
+      "topic": "Net Investment Income Tax (IRC § 1411)",
+      "value": "3.8% surtax on investment income/capital gains above $200,000 Single / $250,000 MFJ ($16,000 Trusts 2026)",
+      "numeric_rate": 0.038,
+      "effective": "Current law (unindexed individual thresholds)",
+      "source_label": "IRS Publication 505 (2026) & Form 1041-ES",
+      "source_url": "https://www.irs.gov/publications/p505"
+    },
+    {
+      "id": "fed-trust-tax-rates",
+      "topic": "Federal Trust Compressed Income Tax Thresholds (2026 / 2027)",
+      "value": "Top 37% ordinary rate hits at $16,000 (2026) / $16,500 (2027) of retained trust taxable income",
+      "effective": "TY 2026–2027",
+      "source_label": "IRS Rev. Proc. 2025-32 & Rev. Proc. 2026-35",
+      "source_url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+    }
+  ],
+  "california": [
+    {
+      "id": "ca-estate-tax",
+      "topic": "California State Estate / Inheritance Tax",
+      "value": "$0 (Repealed by voters in 1982 via Propositions 5 & 6; federal pickup tax eliminated 2005)",
+      "numeric_rate": 0.0,
+      "effective": "Current law",
+      "source_label": "CA State Controller's Office Appendix / Tax History",
+      "source_url": "https://sco.ca.gov/Files-EO/Appendices_cea.pdf"
+    },
+    {
+      "id": "ca-cap-gains-2026",
+      "topic": "California Capital Gains & Income Tax Rates (2026)",
+      "value": "Taxed as ordinary income: 1.0% to 12.3% (top bracket >$768,213 Single / >$1,536,426 MFJ in 2026) + 1.0% Mental Health Services Tax >$1,000,000 = 13.3% max",
+      "numeric_top_rate": 0.133,
+      "effective": "TY 2026 (Prop 3 extending high-income brackets permanent leading 60.6% in Nov 2026 returns)",
+      "source_label": "CA FTB 2026 Tax Rate Schedules & Federal Conformity Summary",
+      "source_url": "https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf"
+    },
+    {
+      "id": "ca-step-up-conformity",
+      "topic": "California Basis Step-Up Conformity (R&TC § 18031)",
+      "value": "Conforms to IRC § 1014: inherited property receives FMV basis at date of death for CA income/capital gains tax",
+      "effective": "Current law",
+      "source_label": "CA Legislative Info R&TC § 18031 & FTB Schedule D (540) Instructions",
+      "source_url": "https://www.ftb.ca.gov/forms/2024/2024-540-d-instructions.html"
+    },
+    {
+      "id": "ca-prop13-cap",
+      "topic": "Proposition 13 Annual Assessed Value Cap",
+      "value": "Max 2.0% annual increase (or CCPI if lower): 2021-22 was 1.036%; 2022-23 through 2026-27 all capped at 2.00% (Aug 2024–Aug 2025 CCPI was 3.307%)",
+      "numeric_cap": 0.02,
+      "effective": "FY 2026-27 Roll",
+      "source_label": "CA BOE Letter to Assessors No. 2026/002",
+      "source_url": "https://boe.ca.gov/proptaxes/pdf/lta26002.pdf"
+    },
+    {
+      "id": "ca-prop19-cap-2025-2027",
+      "topic": "Proposition 19 Intergenerational Exclusion Cap (2025–2027)",
+      "value": "Factored Base Year Value + $1,044,586 (Feb 16, 2025 – Feb 15, 2027; up 2.15% from $1,022,600 in 2023–25; adjusted biennially by FHFA CA HPI; next Feb 2027)",
+      "numeric_cap_addon": 1044586,
+      "effective": "Feb 16, 2025 – Feb 15, 2027",
+      "source_label": "CA BOE Letter to Assessors No. 2025/009 & Pub. 801",
+      "source_url": "https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf"
+    },
+    {
+      "id": "ca-prop19-occupancy",
+      "topic": "Prop 19 Primary Residence, 1-Year Deadline & Multi-Unit Rules",
+      "value": "Transferor AND eligible child must use as principal residence within 1 year; BOE-266 due within 1 year for retroactive relief, BOE-19-P within 3 years. Multi-unit: ONLY the single occupied unit qualifies; rental units are 100% reassessed. LLCs ineligible.",
+      "effective": "Current law (R&TC § 63.2, Rule 462.520)",
+      "source_label": "CA BOE Letter to Assessors No. 2026/026 (Aug 3, 2026)",
+      "source_url": "https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf"
+    },
+    {
+      "id": "ca-homeowners-exemption",
+      "topic": "California Homeowners' Property Tax Exemption",
+      "value": "$7,000 assessed value reduction (~$70–$83/yr tax savings); requires BOE-266 filing",
+      "numeric_av_reduction": 7000,
+      "effective": "Current law (R&TC § 218)",
+      "source_label": "CA BOE Pub. 800-6 Homeowners' Exemption",
+      "source_url": "https://www.boe.ca.gov/pdf/pub800-6.pdf"
+    },
+    {
+      "id": "ca-trust-notice",
+      "topic": "California Probate Code § 16061.7 Trustee Notice",
+      "value": "When revocable trust becomes irrevocable on death, successor trustee must serve § 16061.7 notice to heirs/beneficiaries within 60 days (triggers 120-day contest window)",
+      "effective": "Current law",
+      "source_label": "CA Legislative Info Probate Code § 16061.7",
+      "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=16061.7"
+    }
+  ],
+  "legislative_watch_2025_2026": [
+    {
+      "measure": "P.L. 119-21 (H.R. 1 / OBBBA, Enacted July 4, 2025)",
+      "jurisdiction": "Federal",
+      "status": "Enacted Law",
+      "summary": "Eliminated the scheduled 2026 TCJA cliff (~$7M); set federal estate/gift/GST exclusion to $15,000,000 in 2026, indexed for inflation ($15,480,000 in 2027), and made 10%–37% brackets permanent.",
+      "source_label": "Congress.gov H.R. 1 / P.L. 119-21",
+      "source_url": "https://www.congress.gov/bill/119th-congress/house-bill/1/all-info"
+    },
+    {
+      "measure": "CA Initiative #1994 (AG #25-0017) — Repeal Prop 19 Family Transfer Rules",
+      "jurisdiction": "California",
+      "status": "Did Not Qualify (May 5, 2026 deadline)",
+      "summary": "Sought to restore Prop 58/193 unlimited principal residence & $1M non-residence inheritance tax-base transfers; did not appear on qualified Nov 2026 or 2028 ballot lists.",
+      "source_label": "CA Secretary of State Qualified Ballot Measures",
+      "source_url": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "measure": "CA Proposition 3 (Nov 3, 2026 Ballot, Initiative 25-0016)",
+      "jurisdiction": "California",
+      "status": "Leading / Unofficial Pass (60.6% Yes as of Nov 9, 2026)",
+      "summary": "Makes permanent the Prop 30/55 high-income surtax brackets (10.3%, 11.3%, 12.3% + 1% MHSA = 13.3% top) instead of expiring in 2031.",
+      "source_label": "CA Secretary of State Nov 2026 Election Results",
+      "source_url": "https://electionresults.sos.ca.gov/returns/ballot-measures"
+    },
+    {
+      "measure": "CA Proposition 40 (One-Time Wealth Tax) vs Proposition 42 (Bans Personal Property Taxes)",
+      "jurisdiction": "California",
+      "status": "Unofficial Nov 9, 2026: Prop 40 Failing (47.2% Yes); Prop 42 Leading (51.6% Yes)",
+      "summary": "Prop 40 proposed a one-time billionaire wealth tax on individuals/trusts; Prop 42 constitutionally prohibits new state taxes on financial/personal property and retroactive taxes.",
+      "source_label": "CA Secretary of State Nov 2026 Voter Guide & Results",
+      "source_url": "https://electionresults.sos.ca.gov/returns/ballot-measures"
+    },
+    {
+      "measure": "CA Initiative #2012 (AG #25-0035) — 60+ Property Tax Exemption",
+      "jurisdiction": "California",
+      "status": "Failed to Qualify (Aug 17, 2026)",
+      "summary": "Would have exempted principal residences of owners aged 60+ from ad valorem property taxes; failed signature qualification.",
+      "source_label": "CA Secretary of State Failed/Withdrawn List",
+      "source_url": "https://www.sos.ca.gov/elections/ballot-measures/initiative-and-referendum-status/failed-qualify"
+    },
+    {
+      "measure": "Federal H.R. 2038 (119th Congress) vs H.Res. 206",
+      "jurisdiction": "Federal",
+      "status": "Introduced / In Committee (Unlikely in 119th Congress; long-term 2029–2050 legislative risk)",
+      "summary": "H.R. 2038 proposes lowering federal estate thresholds, raising rates, and curbing grantor trust step-up; H.Res. 206 affirms preserving IRC § 1014 step-up. Future Congresses before 2040–2050 could revisit estate exemptions or step-up caps.",
+      "source_label": "Congress.gov H.R. 2038 & H.Res. 206",
+      "source_url": "https://www.congress.gov/bill/119th-congress/house-bill/2038/text"
+    }
+  ],
+  "macro_benchmarks": {
+    "cpi_u_long_term": 0.023,
+    "cpi_u_cbo_source": "https://www.cbo.gov/publication/61270",
+    "treasury_10yr_nov2026": 0.0494,
+    "treasury_10yr_oct30_source": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202610",
+    "treasury_long_term_cbo": 0.039,
+    "equity_long_term_nominal": 0.10,
+    "equity_sec_source": "https://www.sec.gov/investor/pubs/savings-investing-for-students.pdf",
+    "fhfa_san_jose_1yr_2026q2": -0.0162,
+    "fhfa_san_jose_5yr_2026q2": 0.1198,
+    "fhfa_san_jose_since_1991_2026q2": 4.4230,
+    "fhfa_sf_1yr_2026q2": -0.0242,
+    "fhfa_sf_5yr_2026q2": 0.0499,
+    "fhfa_sf_since_1991_2026q2": 4.1437,
+    "fhfa_source": "https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2",
+    "bls_sf_cpi_aug2026_12mo": 0.034,
+    "bls_sf_cpi_source": "https://www.bls.gov/regions/west/news-release/consumerpriceindex_sanfrancisco.htm"
+  }
+}
