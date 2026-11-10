@@ -413,4 +413,4 @@ are preserved with their own sensitivity tables and flags.
 - **Flagged irregularities do not block the merge**; all 20 are published on the live
   Flagged for Review page with source links for post-launch review.
 
-This record was published to `main` by follow-up PR: RECORD_PR_PLACEHOLDER.
+This record was published to `main` by follow-up PR #18 — https://github.com/wingbangboozle1-lang/Tino5/pull/18.
