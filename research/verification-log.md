@@ -4,8 +4,8 @@ Generated: 2026-11-10 (UTC). Automated: `python3 scripts/verify.py`.
 
 ## What was verified
 
-- 54 official government sources, each fetched and read during research.
-- 21 data tables containing 326 rows in total.
+- 55 official government sources, each fetched and read during research.
+- 21 data tables containing 327 rows in total.
 - 44 rows of federal and state/local law read directly from the linked agency pages.
 - 13 published HTML pages, all served successfully over HTTP (200).
 - 20 items published on the Flagged for Review page.
@@ -69,6 +69,7 @@ Generated: 2026-11-10 (UTC). Automated: `python3 scripts/verify.py`.
 | `SOS_BALLOT` | California Secretary of State | Qualified Statewide Ballot Measures — November 3, 2026 | https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures | 14 measures qualified, including Prop. 3 (extends high-income tax), Prop. 40 (one-time tax on certain taxpayers), Prop. 42 (prohibits new state personal property taxes), Prop. 43 (limits local revenue measures). |
 | `SOS_CERTIFIES` | California Secretary of State | Secretary of State certifies measures for Nov. 3, 2026 ballot | https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/california-secretary-state-shirley-n-weber-phd-certifies-measures-november-3-2026-general-election-ballot | Prop. 3 would make permanent the 2012 high-income tax rates otherwise expiring in 2031; estimated $5B-$15B annual state income tax maintained. |
 | `SOS_PROP40` | California Secretary of State | Official Voter Information Guide — Proposition 40 | https://voterguide.sos.ca.gov/propositions/40/ | One-time tax measure; SOS news release describes up to 5% on covered assets over $1 billion, excluding real property. |
+| `SOS_RESULTS` | California Secretary of State | State Ballot Measures — unofficial statewide results, Nov. 3, 2026 | https://electionresults.sos.ca.gov/returns/ballot-measures | Unofficial results as of Nov. 9, 2026 (23,860 of 23,860 precincts partially reporting): Prop. 3 Yes 60.6%, Prop. 40 No 52.8%, Prop. 42 Yes 51.6%, Prop. 43 No 57.3%. Results certified by Dec. 11, 2026. |
 | `SOS_RESULTS_FAQ` | California Secretary of State | Election results FAQ — November 3, 2026 | https://electionresults.sos.ca.gov/frequently-asked-questions | County results due December 4, 2026; Secretary of State compiles and certifies results by December 11, 2026. |
 | `SF_RENT` | City and County of San Francisco (Rent Board) | Learn about rent increases in San Francisco | https://www.sf.gov/learn-about-rent-increases-san-francisco/ | For covered units the allowable annual rent increase effective March 1, 2026 through February 28, 2027 is 1.6%. |
 | `CDI_AVG` | California Department of Insurance | Sustainable Insurance Strategy — California market snapshot | https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.Cfm | California average homeowner premium $1,570 (national $1,510); page updated October 27, 2026. Statewide average, not ZIP-specific. |
@@ -104,7 +105,7 @@ Generated: 2026-11-10 (UTC). Automated: `python3 scripts/verify.py`.
 | `breakeven` — Break-even and tax-friction numbers behind the recommendation | 7 | YES | MODEL OUTPUT — NOT AN OFFICIAL VALUE, VERIFIED |
 | `property_b` — Property B — the low-cost residence anchor | 4 | YES | MODEL OUTPUT — NOT AN OFFICIAL VALUE |
 | `flags_table` — Flagged for Review — all unverified values and irregularities | 20 | YES | CLOSED, FLAGGED — UNVERIFIED |
-| `sources_table` — Official source registry (all links retrieved and read 2026-11-10 UTC) | 54 | YES | VERIFIED |
+| `sources_table` — Official source registry (all links retrieved and read 2026-11-10 UTC) | 55 | YES | VERIFIED |
 
 ## Flagged irregularities
 
@@ -125,7 +126,7 @@ See `docs/flagged.html` (published) and `data/site_data.json` → `flags`.
 | FLAG-011 — Future Prop 19 allowance amounts are projected | Model | needs review | https://www.boe.ca.gov/pdf/pub801.pdf |
 | FLAG-012 — Beneficiary-level income tax not fully computed in cash-flow comparisons | Tax | needs review | https://www.irs.gov/taxtopics/tc559 |
 | FLAG-013 — Estate size is unquantified | Critical | needs review | https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax |
-| FLAG-014 — November 3, 2026 California ballot results not certified | Law change | needs review | https://electionresults.sos.ca.gov/frequently-asked-questions |
+| FLAG-014 — November 3, 2026 California ballot results not certified | Law change | needs review | https://electionresults.sos.ca.gov/returns/ballot-measures |
 | FLAG-015 — All projections are model outputs, not official values | Verification | closed | https://asr.santaclaracounty.gov/faq/understanding-proposition-13 |
 | FLAG-016 — SF rent-control coverage of the two let units is unconfirmed | Rent | needs review | https://www.sf.gov/learn-about-rent-increases-san-francisco/ |
 | FLAG-017 — Property A 2026 tax bill supplied as '--' | Data quality | needs review | https://controller.santaclaracounty.gov/property-tax-distribution/property-tax-rate-book |

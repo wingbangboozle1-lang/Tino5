@@ -211,7 +211,7 @@ assumption. Even crediting the full HUD benchmark as imputed housing value does 
 5. Get ZIP-specific insurance quotes via {link('CDI_TOOL')} and {link('CDI_REPORT')}.
 6. Reconcile the client tax/assessment figures against actual bills (FLAG-003).
 7. Re-check the November 3, 2026 California results after certification on December 11, 2026
-   ({link('SOS_RESULTS_FAQ')}).
+   (unofficial returns: {link('SOS_RESULTS')}; certification: {link('SOS_RESULTS_FAQ')}).
 
 ## Conditions that would change the recommendation
 

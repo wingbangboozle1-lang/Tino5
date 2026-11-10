@@ -222,8 +222,9 @@ owner; do not delete another session's published pages silently.
 9. **Santa Clara County FY 2025-26 Tax Rate Book & Clerk-Recorder & FUHSD/CUSD**: Verified `1.00%` + `~0.16%–0.18%` Cupertino bond components, no Cupertino city conveyance tax (`$0.55/$500` County only), CUSD Measure A expired June 30, 2023, FUHSD `$98/parcel` active.
 
 ### PR & Verification Record (`arena-2f7b1b3f`)
-- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`) — **MERGED** (`e690162`)
-- **Combined Verification (`node scripts/verify.mjs`):** Synced cleanly with `origin/main` (`a9d3f2c`), `0 errors` across all combined pages and datasets.
+- **Pull Request #11:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`) — **MERGED** at `2026-11-10T10:21:31Z` (merge commit `e690162f184d1f38b50d97deb771614fccc8aff8`).
+- **GitHub Pages Deploy Confirmation:** Status **`built`** (`2026-11-10T10:23:14Z`, Actions run `42798576716`, `conclusion: success`). Live pages verified by direct retrieval at `https://wingbangboozle1-lang.github.io/Tino5/` and all 7 pages under `https://wingbangboozle1-lang.github.io/Tino5/session-2f7b1b3f/`.
+- **Combined Verification (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `638 internal links` (0 broken), `281 external links`, `0 errors` (`53 warnings` all confined to preserved earlier/parallel-session directories `/archive/`, `/mine/`, `/session-2f7b1b3f/`).
 
 
 

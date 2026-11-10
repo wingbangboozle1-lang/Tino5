@@ -263,7 +263,7 @@ exec_body += section("3. Conditions that would change the recommendation", [
     '<b>Repeal of the stepped-up basis rule.</b> If §1014 were repealed before the transfer, an immediate sale would realise the decedent’s full unrealised gain and the sell-and-reinvest advantage would shrink sharply.',
     '<b>Appreciation above ' + SUM["breakeven_appreciation"] + ' a year</b>, or portfolio returns far below the 5% base, would favour holding.',
     '<b>Market rent above ' + SUM["breakeven_rent"] + ' per month</b> (2026-equivalent) would favour renting. The official HUD 4-bedroom benchmark is ' + SUM["hud_fmr"] + ' per month.',
-    '<b>Ballot and legislative outcomes.</b> November 3, 2026 California results are not certified until December 11, 2026; measures touching high-income tax rates, a one-time wealth tax and local revenue limits are unresolved.',
+    '<b>Ballot and legislative outcomes.</b> Unofficial November 3, 2026 results show Proposition 3 passing (60.6%), Proposition 40 failing (52.8%), Proposition 42 passing (51.6%) and Proposition 43 failing (57.3%). Certification is due December 11, 2026, so re-check before acting.',
     '<b>Non-financial preferences.</b> The model does not price attachment, control, or the option value of a family home. These can rationally override a wealth ranking.',
 ])
 exec_body += section("4. Highest-urgency actions", [
@@ -273,7 +273,7 @@ exec_body += section("4. Highest-urgency actions", [
     '4. <b>Quantify the gross estate</b>, including lifetime taxable gifts and whether a portability (DSUE) election exists.',
     '5. <b>Obtain ZIP-specific insurance quotes</b> for a primary-residence policy (95014) and a landlord/dwelling-fire policy (94122) through the CDI comparison tool.',
     '6. <b>Reconcile the client tax/assessment figures</b> against actual tax bills: they imply effective rates of ' + SUM["effective_rate_a"] + ' and ' + SUM["effective_rate_b"] + ', above the official ad valorem rates.',
-    '7. <b>Re-check official 2026 election results after certification</b> and re-run the model with the law then in force.',
+    '7. <b>Re-check official 2026 election results after certification on December 11, 2026</b> and re-run the model with the law then in force.',
 ])
 exec_body += section("5. Full detail", "The tables below reproduce the ranked comparison and the break-even reasoning used above. Every row links to an official government source.", ["ranking", "breakeven"])
 write("executive-summary.html", "Executive Summary", "Findings, reasoning and the recommended plan — with clear numbers", exec_body)
@@ -390,7 +390,7 @@ write("estate-tax.html", "Estate & Inheritance Tax Thresholds",
 # ===========================================================================
 write("law-changes.html", "Enacted, Pending & Proposed Law Changes",
       "What could change before the 2040–2050 transfer window",
-      section("Watch list", 'Only government sources are used. “Proposed” items are described as proposals, never as current law. As of 2026-11-10 the November 3, 2026 California results are not yet certified; the Secretary of State says certification is due December 11, 2026.', ["law_changes"]) +
+      section("Watch list", 'Only government sources are used. “Proposed” items are described as proposals, never as current law. Unofficial statewide results from the November 3, 2026 election were published as of November 9, 2026; the Secretary of State certifies them on December 11, 2026, so percentages may still change during the canvass.', ["law_changes"]) +
       section("Sensitivity of the decision to law change", [
           'The two rules that matter most are <b>§1014 stepped-up basis</b> and <b>Proposition 19</b>. Repeal of the step-up would make an immediate sale taxable on decades of appreciation. Tightening or repeal of Prop 19 would remove even the partial property-tax relief. Conversely, a restoration of broader parent-child exclusions would improve the hold case.',
           'Because the transfer is 14–24 years away, the correct procedure is to re-verify every rule in the year of transfer rather than to assume the 2026 law persists. The site’s Source Registry is designed for exactly that re-check.',

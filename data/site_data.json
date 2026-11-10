@@ -272,6 +272,12 @@
       "url": "https://voterguide.sos.ca.gov/propositions/40/",
       "note": "One-time tax measure; SOS news release describes up to 5% on covered assets over $1 billion, excluding real property."
     },
+    "SOS_RESULTS": {
+      "title": "State Ballot Measures — unofficial statewide results, Nov. 3, 2026",
+      "agency": "California Secretary of State",
+      "url": "https://electionresults.sos.ca.gov/returns/ballot-measures",
+      "note": "Unofficial results as of Nov. 9, 2026 (23,860 of 23,860 precincts partially reporting): Prop. 3 Yes 60.6%, Prop. 40 No 52.8%, Prop. 42 Yes 51.6%, Prop. 43 No 57.3%. Results certified by Dec. 11, 2026."
+    },
     "SOS_RESULTS_FAQ": {
       "title": "Election results FAQ — November 3, 2026",
       "agency": "California Secretary of State",
@@ -2976,10 +2982,10 @@
           "cells": [
             "California",
             "Prop. 3 (Nov. 3, 2026): makes permanent the high-income tax rates due to expire in 2031",
-            "On the 2026 ballot; results not certified as of 2026-11-10",
+            "Unofficial result 60.6% Yes; certification due 12/11/2026",
             "Would keep top marginal CA rates in place for a 2040-2050 sale, increasing tax on gains taxed as ordinary income."
           ],
-          "source": "SOS_CERTIFIES",
+          "source": "SOS_RESULTS",
           "status": "VERIFIED",
           "note": ""
         },
@@ -2987,10 +2993,10 @@
           "cells": [
             "California",
             "Prop. 40 (Nov. 3, 2026): one-time up-to-5% tax on covered assets over $1B, excluding real property",
-            "On the 2026 ballot; results not certified",
-            "Real property is excluded, but a very large liquid estate could be affected; the estate size here is unknown."
+            "Unofficial result 52.8% No; certification due 12/11/2026",
+            "Real property is excluded, and the measure appears to have been rejected; a very large liquid estate was the only possible exposure."
           ],
-          "source": "SOS_PROP40",
+          "source": "SOS_RESULTS",
           "status": "VERIFIED",
           "note": ""
         },
@@ -2998,10 +3004,10 @@
           "cells": [
             "California",
             "Prop. 42 (Nov. 3, 2026): prohibits new state personal property taxes and certain retroactive taxes",
-            "On the 2026 ballot; results not certified",
+            "Unofficial result 51.6% Yes; certification due 12/11/2026",
             "Would constrain future state-level wealth taxation."
           ],
-          "source": "SOS_BALLOT",
+          "source": "SOS_RESULTS",
           "status": "VERIFIED",
           "note": ""
         },
@@ -3009,10 +3015,10 @@
           "cells": [
             "California",
             "Prop. 43 (Nov. 3, 2026): limits voters' ability to raise revenues for local services",
-            "On the 2026 ballot; results not certified",
-            "Could constrain future local bond/parcel taxes that make up part of the property tax bill."
+            "Unofficial result 57.3% No; certification due 12/11/2026",
+            "Appears rejected, so no immediate constraint on future local bond/parcel taxes."
           ],
-          "source": "SOS_BALLOT",
+          "source": "SOS_RESULTS",
           "status": "VERIFIED",
           "note": ""
         },
@@ -3021,7 +3027,7 @@
             "California",
             "Election results certification",
             "Due December 11, 2026",
-            "As of publication, outcomes are not yet official; all 2026 measure impacts are treated as unresolved."
+            "Unofficial returns are published (23,860 of 23,860 precincts partially reporting as of Nov. 9, 2026) but are not yet certified; percentages may change during the canvass."
           ],
           "source": "SOS_RESULTS_FAQ",
           "status": "VERIFIED",
@@ -3861,10 +3867,10 @@
             "FLAG-014",
             "Law change",
             "November 3, 2026 California ballot results not certified",
-            "As of 2026-11-10, the Secretary of State states county results are due December 4, 2026 and certification by December 11, 2026. Measures affecting high-income tax rates, a one-time wealth tax, and local revenue limits are listed as unresolved.",
-            "Re-check the official results after certification and update the Law Changes page."
+            "Unofficial statewide results were published as of November 9, 2026 (Prop. 3 60.6% Yes; Prop. 40 52.8% No; Prop. 42 51.6% Yes; Prop. 43 57.3% No), but the Secretary of State certifies results only on December 11, 2026. Percentages may still change during the canvass.",
+            "Re-check the certified results after December 11, 2026 and update the Law Changes page."
           ],
-          "source": "SOS_RESULTS_FAQ",
+          "source": "SOS_RESULTS",
           "status": "FLAGGED — UNVERIFIED",
           "note": ""
         },
@@ -4441,6 +4447,17 @@
         },
         {
           "cells": [
+            "SOS_RESULTS",
+            "California Secretary of State",
+            "State Ballot Measures — unofficial statewide results, Nov. 3, 2026",
+            "Unofficial results as of Nov. 9, 2026 (23,860 of 23,860 precincts partially reporting): Prop. 3 Yes 60.6%, Prop. 40 No 52.8%, Prop. 42 Yes 51.6%, Prop. 43 No 57.3%. Results certified by Dec. 11, 2026."
+          ],
+          "source": "SOS_RESULTS",
+          "status": "VERIFIED",
+          "note": ""
+        },
+        {
+          "cells": [
             "SOS_RESULTS_FAQ",
             "California Secretary of State",
             "Election results FAQ — November 3, 2026",
@@ -4675,9 +4692,9 @@
       "id": "FLAG-014",
       "severity": "Law change",
       "item": "November 3, 2026 California ballot results not certified",
-      "detail": "As of 2026-11-10, the Secretary of State states county results are due December 4, 2026 and certification by December 11, 2026. Measures affecting high-income tax rates, a one-time wealth tax, and local revenue limits are listed as unresolved.",
-      "action": "Re-check the official results after certification and update the Law Changes page.",
-      "source": "SOS_RESULTS_FAQ",
+      "detail": "Unofficial statewide results were published as of November 9, 2026 (Prop. 3 60.6% Yes; Prop. 40 52.8% No; Prop. 42 51.6% Yes; Prop. 43 57.3% No), but the Secretary of State certifies results only on December 11, 2026. Percentages may still change during the canvass.",
+      "action": "Re-check the certified results after December 11, 2026 and update the Law Changes page.",
+      "source": "SOS_RESULTS",
       "status": "needs review"
     },
     {
@@ -4765,7 +4782,7 @@
     "effective_rate_b": "2.13%",
     "gain_tax_rate": "37.10%",
     "verified_fact_count": 44,
-    "source_count": 54,
+    "source_count": 55,
     "flag_count": 20,
     "projection_years": 25
   }
