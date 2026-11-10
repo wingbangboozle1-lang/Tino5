@@ -11,7 +11,7 @@ Date started: 2026-11-10
 | T1 | Research official sources (IRS, BOE, FTB, SF Treasurer, SCC DTAC, CDI, SFPUC, SJ Water, CPUC, CA Courts, Fed) | done | arena/d66fc558-tino5 | `sources.html`, `tax-law.html`, `costs.html` |
 | T2 | Build GitHub Pages site (landing + subpages, dashboard UI, tables, charts) | done | arena/d66fc558-tino5 | `index.html`, `*.html`, `assets/*` |
 | T3 | Verification pass (every row sourced or flagged; no PII; $10 rounding) | done | arena/d66fc558-tino5 | all `*.html` |
-| T4 | Final integration: build check, link check, PR to main, merge, confirm Pages deploy | in progress | arena/d66fc558-tino5 | — |
+| T4 | Final integration: build check, link check, PR to main, merge, confirm Pages deploy | done | arena/d66fc558-tino5 | — |
 
 Status key: `unclaimed` / `in progress` / `done` / `needs review` (published on Flagged for Review page; does not block).
 
@@ -37,8 +37,10 @@ If this claim is >60 minutes old with no commits, any other session may take ove
 - Modelled projections are labelled **Modelled** with formulas + official inputs; they are not official forecasts.
 - All dollar amounts rounded to nearest $10. No personal information published (placeholders only).
 
-## PR / merge record (to complete)
+## PR / merge record
 
-- PR: _pending_
-- Merge result: _pending_
-- GitHub Pages deploy: _pending_
+- PR: https://github.com/wingbangboozle1-lang/Tino5/pull/1 (arena/d66fc558-tino5 → main)
+- Merge result: MERGED 2026-11-10T10:04:35Z, merge commit 01448a3bbd0a69fcb8add1a70eec2aebc3052eae
+- GitHub Pages deploy: SUCCESS — run 42796037158 (pages-build-deployment, main), status `built`
+- Live site: https://wingbangboozle1-lang.github.io/Tino5/ (source: main, path /)
+- Flagged items F-01..F-13 published on `flagged.html`; do not block. No PII published; all dollars rounded to $10.
