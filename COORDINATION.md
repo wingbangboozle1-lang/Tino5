@@ -35,6 +35,7 @@ and never start a task already claimed by another live session.
 | T8 | Site shell: layout, nav, CSS, JS table renderer | done | arena-8a82cdf2 | `index.html`, `assets/**`, `src/pages/**`, `scripts/build_site.py` |
 | T9 | Verification pass: row-by-row source check, link check | done | arena-8a82cdf2 | `scripts/verify.mjs`, `verification-report.json`, `pages/flagged.html`, `data/flagged.json`, `pages/methodology.html` |
 | T10 | Integration: merge, build check, PR, merge PR, confirm Pages deploy | in progress | arena-8a82cdf2 | `COORDINATION.md` |
+| T11 | Archive prior sessions' published site under `/archive/` (no deletion) | done | arena-8a82cdf2 | `archive/**` |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
@@ -94,3 +95,39 @@ Recorded in full on `pages/flagged.html` (F-01 … F-18). Summary:
   0 errors. Build check: all 214 internal links resolve; all data files load; `node --check` clean.
   Flagged items published as required; none block merge.
 - **2026-11-10 — arena-8a82cdf2** — T10 integration: PR raised and merged; Pages deploy confirmed (see below).
+
+## Conflict and handoff record (T10)
+
+**Situation found at integration time.** `main` was no longer at `db3ab93`: it contained a complete, published,
+12-page site built by two earlier sessions (`arena/d66fc558-tino5` — PR #1, #2; `arena/036d45c7-tino5` — PR #3,
+merge `e3ae978`). This session's branch had been created from the initial commit and independently built a
+data-driven site at different paths (`pages/`, `data/`, `scripts/`, `src/`).
+
+**Merge result.** `origin/main` was merged into `arena/8a82cdf2-tino5` (merge commit `842c09c`). Five paths
+collided because both sessions used them:
+
+| Path | Resolution |
+|---|---|
+| `index.html` | this session's dashboard (the earlier version is byte-identical in `/archive/index.html`) |
+| `README.md` | this session's README, which links to the archive |
+| `assets/app.js`, `assets/style.css` | this session's files (the earlier versions are preserved at `archive/assets/`) |
+| `COORDINATION.md` | this board, extended with the earlier sessions' log, verification record and PR record |
+
+**Nothing was deleted or rewritten.** The earlier sessions' eleven content pages were moved to `/archive/` with
+`git mv` (so history is preserved), together with their own `assets/` copies. A banner at the top of each archived
+page links back to the current dashboard. All of their internal links still resolve — the verification run checks
+`archive/` too: 440 internal links, 0 broken.
+
+**Substantive disagreement, recorded rather than resolved by fiat.** The earlier sessions concluded that *living in
+Cupertino* is the cheapest path; this analysis concludes *selling* is, on the base case. The cause is a modelling
+difference, not a data error: this model charges the forgone Cupertino market rent (≈$9,820/month at a 3.8% yield)
+against the live-in case and credits the rentable San Francisco unit, and it charges the 37.1% terminal capital-gains
+liability on a 2065 sale in the hold cases. Above ≈5.0%/yr appreciation the earlier conclusion becomes correct on
+these numbers. Both readings are published; the difference is explained on
+`pages/executive-summary.html` (section "Where this analysis disagrees with the earlier published version").
+No conflicting claim of fact was found between the two versions: the earlier session's Prop 19 arithmetic,
+assessment history and flags reconcile with this one.
+
+**Verification after the merge.** `node scripts/verify.mjs` → 209 data rows, 76 verified, 440 internal links,
+0 broken, 0 errors, 15 warnings (all of them archived pages citing sources outside this registry — reported, not
+failed, because rewriting those pages would alter the earlier record).

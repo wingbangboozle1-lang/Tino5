@@ -1,17 +1,33 @@
 {
-  "generated": "2026-11-10T10:11:33.874Z",
+  "generated": "2026-11-10T10:12:27.049Z",
   "summary": {
     "dataFiles": 7,
     "rowsChecked": 209,
     "verifiedRows": 76,
-    "internalLinks": 214,
-    "externalLinks": 1,
+    "internalLinks": 440,
+    "externalLinks": 113,
     "registrySources": 40,
     "errors": 0,
-    "warnings": 0
+    "warnings": 15
   },
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "archived page links to a source outside this registry: https://www.insurance.ca.gov/01-consumers/120-company/04-mrktshare/2025/",
+    "archived page links to a source outside this registry: https://www.sjwater.com/rates/",
+    "archived page links to a source outside this registry: https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation",
+    "archived page links to a source outside this registry: https://controller.santaclaracounty.gov/property-tax-distribution/property-tax-rate-book",
+    "archived page links to a source outside this registry: https://dtac.santaclaracounty.gov/services/property-taxes",
+    "archived page links to a source outside this registry: https://www.boe.ca.gov/news/2025/nr-25-02.htm",
+    "archived page links to a source outside this registry: https://www.federalreserve.gov/",
+    "archived page links to a source outside this registry: https://www.irs.gov/publications/p551",
+    "archived page links to a source outside this registry: https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html",
+    "archived page links to a source outside this registry: https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers",
+    "archived page links to a source outside this registry: https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+    "archived page links to a source outside this registry: https://sf.gov/departments--rent-board",
+    "archived page links to a source outside this registry: https://www.courts.ca.gov/",
+    "archived page links to a source outside this registry: https://sf.courts.ca.gov/divisions/probate-court/trusts",
+    "archived page links to a source outside this registry: https://www.irs.gov/forms-instructions"
+  ],
   "notes": [
     "undefined › 1. Property A (95014) — carrying costs today row 6: unverified, value left blank (correct)",
     "undefined › 3. What to keep watching through 2040 row 6: unverified, value left blank (correct)",

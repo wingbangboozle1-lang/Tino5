@@ -98,7 +98,9 @@ walkMoney(model.sensitivity, "sensitivity");
 walkMoney(model.projection?.slice(0, 3), "projection");
 
 // ------------------------------------------------------------- link checking
-const htmlFiles = ["index.html", ...fs.readdirSync(path.join(ROOT, "pages")).filter((f) => f.endsWith(".html")).map((f) => "pages/" + f)];
+const htmlFiles = ["index.html",
+  ...fs.readdirSync(path.join(ROOT, "pages")).filter((f) => f.endsWith(".html")).map((f) => "pages/" + f),
+  ...fs.readdirSync(path.join(ROOT, "archive")).filter((f) => f.endsWith(".html")).map((f) => "archive/" + f)];
 const registryUrls = new Set(sources.sources.map((s) => s.url));
 let internalLinks = 0;
 let externalLinks = 0;
@@ -118,7 +120,13 @@ for (const f of htmlFiles) {
   }
 }
 for (const u of externalSeen) {
-  if (!registryUrls.has(u)) errors.push(`external link not in source registry: ${u}`);
+  if (registryUrls.has(u)) continue;
+  // Pages under /archive/ are a prior session's work, preserved verbatim; their links are
+  // reported but not failed, because rewriting them would alter that record.
+  const inArchive = htmlFiles.some((f) => f.startsWith("archive/") &&
+    fs.readFileSync(path.join(ROOT, f), "utf8").includes(u));
+  if (inArchive) warnings.push(`archived page links to a source outside this registry: ${u}`);
+  else errors.push(`external link not in source registry: ${u}`);
 }
 
 // ------------------------------------------------------------- PII scanning
