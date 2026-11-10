@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology · Inheritance decision dashboard</title>
+<meta name="description" content="Verification rules, all 29 model assumptions, and the limits of the analysis.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="methodology" data-root="../" data-json="data/assumptions.json">
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><span class="dot"></span> Inheritance decision dashboard</div>
+    <nav class="main">
+      <a href="../index.html">Overview</a>
+      <a href="../pages/executive-summary.html">Executive summary</a>
+      <a href="../pages/scenarios.html">Options</a>
+      <a href="../pages/projections.html">Projections</a>
+      <a href="../pages/property-tax.html">Property tax</a>
+      <a href="../pages/inheritance-tax.html">Inheritance tax</a>
+      <a href="../pages/inheritance-process.html">Process</a>
+      <a href="../pages/operating-costs.html">Costs</a>
+      <a href="../pages/law-watch.html">Law watch</a>
+      <a href="../pages/sources.html">Sources</a>
+      <a href="../pages/flagged.html">Flagged</a>
+      <a href="../pages/methodology.html" aria-current="page">Method</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+<h1 style="margin:0 0 6px;font-size:27px;letter-spacing:-.02em">Methodology and assumptions</h1>
+<p class="lead">Every number on this site is one of six things: verified against an official source, secondary, supplied by
+the owner, derived by arithmetic, a named assumption, or unverified and left blank. The model itself is a single Python file
+(<span class="tag">scripts/model.py</span>) with every parameter named A1–A29, so any assumption can be changed and the whole
+analysis regenerated.</p>
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Filter assumptions (e.g. A1, insurance)">
+  <button class="btn on" data-filter="all">All</button>
+  <button class="btn" data-filter="assumption">Assumptions</button>
+  <button class="btn" data-filter="verified">Rules</button>
+</div>
+<div id="content"></div>
+<h2>Reproducing the numbers</h2>
+<div class="card">
+  <p class="small">From the repository root:</p>
+  <p><span class="tag">python3 scripts/model.py</span> regenerates <span class="tag">data/model.json</span>.
+     <span class="tag">python3 scripts/build_site.py</span> rebuilds <span class="tag">pages/</span>.
+     <span class="tag">node scripts/verify.mjs</span> checks every table row for a source, checks statuses and internal links,
+     and writes <span class="tag">verification-report.json</span>.</p>
+  <p class="small">No personal data is used anywhere in this repository: the two properties are referred to only as
+     Property A (95014) and Property B (94122), and no names, street addresses, parcel numbers, account numbers or
+     contact details are stored.</p>
+</div>
+  <footer>
+    Reviewed 10 November 2026. Statutory figures are quoted as published; anything computed or projected is rounded to
+    the nearest $10. Not legal, tax or investment advice. <a href="../pages/methodology.html">Methodology</a> ·
+    <a href="../pages/sources.html">Sources</a> · <a href="../pages/flagged.html">Flagged for review</a>
+  </footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

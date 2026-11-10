@@ -1,0 +1,20 @@
+{
+  "generated": "2026-11-10T10:11:10.067Z",
+  "summary": {
+    "dataFiles": 7,
+    "rowsChecked": 209,
+    "verifiedRows": 76,
+    "internalLinks": 214,
+    "externalLinks": 1,
+    "registrySources": 40,
+    "errors": 0,
+    "warnings": 0
+  },
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "undefined › 1. Property A (95014) — carrying costs today row 6: unverified, value left blank (correct)",
+    "undefined › 3. What to keep watching through 2040 row 6: unverified, value left blank (correct)",
+    "undefined › A. Data that could not be verified row 18: unverified, value left blank (correct)"
+  ]
+}
