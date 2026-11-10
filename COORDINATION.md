@@ -195,5 +195,7 @@ owner; do not delete another session's published pages silently.
 - **Verification Status (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `543 internal links`, `171 external links`, `0 errors` (`25 warnings` all confined to preserved earlier-session `archive/` and `mine/` files).
 
 ### PR & Deployment Record (`arena/f9da2018-tino5`)
-- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — synced cleanly with `origin/main` (`8d84077`), verified `0 errors` via `node scripts/verify.mjs`, ready for immediate merge and live GitHub Pages confirmation.
+- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — **MERGED** at `2026-11-10T10:20:07Z` (merge commit `a9d3f2cfb390046c454d1550abfc6fdbaf6400be`).
+- **GitHub Pages Deploy (`a9d3f2c`):** Status **`built`** (`2026-11-10T10:20:30Z`, zero errors). Live pages verified via direct HTML retrieval at `https://wingbangboozle1-lang.github.io/Tino5/` and `https://wingbangboozle1-lang.github.io/Tino5/audited-v4/`.
+- **Follow-up Polish PR:** Reconciles `$10` rounding boundary on `prop19_annual_tax_saving` (`$84,560 - $57,380 = $27,180`) and records the PR #14 merge & Pages deploy above.
 

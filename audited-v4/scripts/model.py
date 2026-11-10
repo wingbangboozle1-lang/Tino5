@@ -264,7 +264,7 @@ def project_yearly(scenario_key: str) -> List[Dict[str, Any]]:
                 "inherit_av_prop19": r10(cu_av_p19),
                 "inherit_tax_prop19": r10(cu_tax_p19),
                 "inherit_tax_full_reassess": r10(cu_tax_full),
-                "prop19_annual_tax_saving": r10(cu_p19_annual_saving),
+                "prop19_annual_tax_saving": r10(cu_tax_full) - r10(cu_tax_p19),
                 "imputed_gross_rent": r10(cu_imputed_rent),
                 "est_selling_costs": r10(cu_sell_cost),
                 "net_sale_proceeds_at_death": r10(cu_val - cu_sell_cost)
