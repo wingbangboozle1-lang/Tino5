@@ -269,7 +269,7 @@ This session's own task board is preserved verbatim below. It uses file-scope is
 | T7 | Site build: landing + subpages + navigation + tables (all rows carry official source links) | done | `arena-91a4a9f9` | `scripts/build_dashboard.py`, `docs/**`, `assets/**` |
 | T8 | Flagged for Review page (unverified / irregular items) | done | `arena-91a4a9f9` | `data/flags.json`, `docs/flagged.html` |
 | T9 | Line-by-line verification + broken-link / build check | done | `arena-91a4a9f9` | `scripts/verify.py`, `research/verification-log.md` |
-| T10 | Integration: PR → merge → GitHub Pages deploy confirmation → log PR link/result | in progress | `arena-91a4a9f9` | `COORDINATION.md`, `.github/workflows/**` (if needed) |
+| T10 | Integration: PR → merge → GitHub Pages deploy confirmation → log PR link/result | done | `arena-91a4a9f9` | `COORDINATION.md`, `.github/workflows/**` (if needed) |
 
 **Shared outputs** (`data/sources.json`, `docs/index.html`, `docs/assets/nav.js`) are integration-owned; edits are made only by this final integration session (T10) after T2–T9 complete. Individual research files write only their own key ranges to `data/sources.json`.
 
@@ -329,7 +329,7 @@ python3 model/build_data.py && python3 scripts/build_dashboard.py && python3 scr
 
 | Date (UTC) | Event | Result |
 | --- | --- | --- |
-| 2026-11-10 | All T1–T9 committed and pushed to `arena/91a4a9f9-tino5`. | pending PR |
+| 2026-11-10 | All T1–T9 committed and pushed to `arena/91a4a9f9-tino5`. | PR #17 merged |
 
 ---
 
@@ -384,3 +384,33 @@ reinvest" on a different model (4% appreciation / 5% portfolio, 10-year horizon)
 archived analysis concluded "live in it". The difference is a modelling choice about forgone rent,
 terminal capital-gains tax and horizon — not a conflicting claim of official fact. Both dashboards
 are preserved with their own sensitivity tables and flags.
+
+
+---
+
+## PR / merge / deploy record — session `arena-91a4a9f9` (T10, done)
+
+- **PR #17** — https://github.com/wingbangboozle1-lang/Tino5/pull/17
+  (`arena/91a4a9f9-tino5` → `main`) — **MERGED** at `2026-11-10T10:27:44Z` as merge commit
+  `dd39eddfb34b37eb0cdfaa36cb2038825d492ebb`, without waiting for approval, as instructed.
+  `gh pr view 17` reports `state: MERGED`; PR checks: none reported (static site, no CI workflow).
+  `mergeStateStatus: CLEAN` before merge.
+- **GitHub Pages deploy** — build triggered on `dd39edd`; `pages/builds/latest` status **`built`**
+  at `2026-11-10T10:28:10Z`, `error: null`. Pages is configured with `build_type: legacy`,
+  source `main` / path `/` (root); `.nojekyll` at the repo root disables Jekyll, so the `docs/`
+  tree is served as-is.
+- **Live HTML retrieved and read (not just build status)**:
+  - https://wingbangboozle1-lang.github.io/Tino5/ — shared root dashboard, with the additive
+    `docs/index.html` navigation link confirmed present on `main` (`index.html` line 27).
+  - https://wingbangboozle1-lang.github.io/Tino5/docs/index.html — this session's landing page
+    (KPIs, recommendation, 12 subpage links).
+  - https://wingbangboozle1-lang.github.io/Tino5/docs/flagged.html — Flagged for Review,
+    all 20 items with official source links.
+- **Combined verification on the merged tree**: `python3 scripts/verify.py` → 3,633 checks,
+  ALL PASSED (55 official sources, 327 rows, 13 pages, HTTP 200, 0 PII patterns, 0 unrounded
+  amounts, 0 broken links); `node scripts/verify.mjs` → 209 rows (76 verified), 639 internal /
+  281 external links, **0 errors** (53 pre-existing warnings about preserved archived pages).
+- **Flagged irregularities do not block the merge**; all 20 are published on the live
+  Flagged for Review page with source links for post-launch review.
+
+This record was published to `main` by follow-up PR #18 — https://github.com/wingbangboozle1-lang/Tino5/pull/18.
