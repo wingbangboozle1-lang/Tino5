@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Property B (San Francisco) inheritance analysis">
+<meta name="robots" content="noindex">
+<title>Property B — SF Rental | House Inheritance Decision Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">H</div>
+      <div class="logo-text"><b>House Inheritance Decision Dashboard</b><span>Cupertino &amp; San Francisco · Trust Settlement Plan 2040–2050</span></div>
+    </a>
+  </div>
+  <nav class="mainnav" aria-label="Sections">
+      <a href="index.html" class="">Executive Summary</a>
+      <a href="property-a-cupertino.html" class="">Cupertino Home</a>
+      <a href="property-b-san-francisco.html" class="active">SF Rental</a>
+      <a href="decision-analysis.html" class="">Decision Analysis</a>
+      <a href="tax-laws.html" class="">Tax Laws & Rules</a>
+      <a href="inheritance-process.html" class="">Inheritance Process</a>
+      <a href="insurance.html" class="">Insurance</a>
+      <a href="methodology.html" class="">Methodology & Sources</a>
+      <a href="flagged-for-review.html" class="">Flagged for Review</a>
+      <a href="repository-review.html" class="">Repository Review</a>
+  </nav>
+</header>
+<main>
+<h1>Property B — San Francisco Outer Sunset Triplex (San Francisco City &amp; County, CA)</h1>
+<p class="small">Estimated market value (Nov 2026, user-provided estimate): <b>$1,800,000</b> · Three livable units, two rented and one owner-occupiable at no loss of rental income · Rounded to nearest $10 · Identifiers withheld (privacy protocol).</p>
+
+<h2>B.1 · Current position (user-provided data, rounded)</h2>
+<div class="wrap-table">
+<table>
+<thead><tr><th>Metric</th><th>Value (rounded)</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Estimated market value, Nov 2026</td><td>$1,800,000</td><td>User-provided estimate; not an appraisal</td></tr>
+<tr><td>Assessed (factored base-year) value, 2025</td><td>$114,250</td><td>User-provided, rounded to nearest $10 — legacy Prop 13 base (&lt;7% of market)</td></tr>
+<tr><td>Property tax, 2025 (with % change)</td><td>$2,440 (+5.3%)</td><td>User-provided; derived effective rate <b>≈2.14% of FBYV — anomalous vs ~1.18% SF composite rate; flagged (see <a href="flagged-for-review.html#B-rate">Flag B-rate</a>)</b></td></tr>
+<tr><td>Gross rent (2 of 3 units), current</td><td>$7,150/mo = <b>$85,800/yr</b></td><td>User-provided; 3rd unit is <u>not rented</u> (owner-occupiable without losing income)</td></tr>
+<tr><td>Water &amp; sewer (whole triplex)</td><td>$330–$400/mo (modeled $365/mo = $4,380/yr)</td><td>User-provided range</td></tr>
+<tr><td>Electricity (common/landlord)</td><td>$30–$70/mo (modeled $50/mo = $600/yr)</td><td>User-provided range</td></tr>
+<tr><td>Home insurance (landlord/DP-3, 3 units)</td><td><b>Estimate $2,200/yr — no official source; flagged</b> (user's guess ≈$1,500/yr appears low for 3 units — flagged)</td><td>See <a href="insurance.html">Insurance</a></td></tr>
+<tr><td>Maintenance &amp; repairs (assumption)</td><td>1.0% of market value/yr (≈$18,000 in 2026)</td><td>Assumption (older multi-unit SF building; higher than Property A) — sensitivity on <a href="decision-analysis.html#sensitivity">Decision Analysis</a></td></tr>
+<tr><td>Vacancy / turnover allowance</td><td>Not modeled — <b>blank (unverified)</b></td><td>No vacancy data supplied; gross rent is assumed collected 12/mo</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>B.2 · Annual operating economics (2026, pre-transfer)</h2>
+<div class="wrap-table">
+<table>
+<thead><tr><th>Line</th><th>2026</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Gross rent (2 units)</td><td>$85,800</td><td>20%+ upside if 3rd unit ever leased (rent level blank — unverified)</td></tr>
+<tr><td>Water &amp; sewer</td><td>−$4,380</td><td>Modeled midpoint</td></tr>
+<tr><td>Electricity</td><td>−$600</td><td>Modeled midpoint</td></tr>
+<tr><td>Landlord insurance</td><td>−$2,200 <span class="badge est">estimate</span></td><td>Flagged</td></tr>
+<tr><td>Maintenance (1.0% of value)</td><td>−$18,000 <span class="badge est">estimate</span></td><td>Assumption</td></tr>
+<tr><td>Property tax (current, legacy base)</td><td>−$2,440 (2025, latest provided) <span class="badge flag">anomaly flagged</span></td><td>Model uses 2026 estimate ≈$2,490 (+2%)</td></tr>
+<tr class="total"><td>Net operating income (before income tax &amp; mgmt)</td><td>≈$58,000</td><td>≈3.2% simple yield on $1,800,000 market value</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn"><b>This is the central fact of Property B: it is a low-yield, high-appreciation asset being taxed at a vanished legacy rate.</b> That structure is fragile and cannot survive the transfer. Every projection below assumes the worst realistic case (full reassessment at death) and the best realistic case (family-home occupancy by the heir). Both beat doing nothing.</div>
+
+<h2>B.3 · The reassessment shock at death — projections 2026 → 2060</h2>
+<p>Since Property B is a <u>rental</u> (not the parents' sole principal residence for exclusion purposes — see Flag #B-pro19 for the one-unit principal-residence nuance), it is expected to be <b>fully reassessed to fair market value at the parent's death</b> under Prop 13 (change in ownership) / Prop 19 (no exclusion for non-principal-residence transfers). Modeled at the SF composite ≈1.18% (flagged — see methodology) applied to projected market value:</p>
+<div class="wrap-table">
+<table>
+<thead><tr><th>Year</th><th>Market value</th><th>FBYV (no sale, +2%/yr)</th><th>Tax at legacy base (≈1.18%)</th><th>Tax after reassessment at death</th><th>Increase</th></tr></thead>
+<tbody>
+<tr><td>2026</td><td>$1,800,000</td><td>$116,540</td><td>$1,380</td><td>$21,240</td><td>≈15.4×</td></tr>
+<tr><td>2030</td><td>$2,146,530</td><td>$126,140</td><td>$1,490</td><td>$25,330</td><td>≈17.0×</td></tr>
+<tr><td>2035</td><td>$2,674,970</td><td>$139,270</td><td>$1,640</td><td>$31,560</td><td>≈19.2×</td></tr>
+<tr><td>2040</td><td>$3,333,500</td><td>$153,770</td><td>$1,810</td><td>$39,340</td><td>≈21.7×</td></tr>
+<tr><td>2045</td><td>$4,154,150</td><td>$169,770</td><td>$2,000</td><td>$49,020</td><td>≈24.5×</td></tr>
+<tr><td>2050</td><td>$5,176,820</td><td>$187,440</td><td>$2,210</td><td>$61,090</td><td>≈27.6×</td></tr>
+<tr><td>2060</td><td>$8,039,450</td><td>$228,490</td><td>$2,700</td><td>$94,870</td><td>≈35.1×</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">Rounded to $10. After reassessment, the new base grows ≤2%/yr (Prop 13). Assumption: no Prop 19 exclusion (rental = not the eligible family home for the transferred portion). If one unit qualified as the parents' principal residence, the exclusion analysis in <a href="tax-laws.html#prop19">Tax Laws → Prop 19</a> could partially soften this — flagged for assessor confirmation (Flag #B-pro19).</p>
+
+<h2>B.4 · Keep-vs-sell math at inheritance (illustrative, 2045 step-off, 20-yr horizon)</h2>
+<div class="wrap-table">
+<table>
+<thead><tr><th></th><th>Keep &amp; rent (reassess at death)</th><th>Sell at death &amp; reinvest (7%)</th><th>Occupy 1 unit + rent 2 (owner move-in)</th></tr></thead>
+<tbody>
+<tr><td>2045 market value</td><td>$4,154,150</td><td>$4,154,150</td><td>$4,154,150</td></tr>
+<tr><td>Sale/move cost (5.5%)</td><td>n/a</td><td>−$228,500 → net $3,925,670</td><td>n/a</td></tr>
+<tr><td>Basis at death (§1014)</td><td>FMV</td><td>FMV → gain ≈ $0</td><td>FMV</td></tr>
+<tr><td>Property tax trend</td><td>≈$49,020/yr growing ≤2%</td><td>$0</td><td>Occupied portion may qualify for Prop 19 partial exclusion (assessor-dependent)</td></tr>
+<tr><td>Net rental (2045, modeled)</td><td>≈$73,300/yr (yield 1.8%) <span class="badge est">estimate</span></td><td>$0</td><td>2/3 of $180,770 rent ≈ $120,500 minus 2/3 opex</td></tr>
+<tr><td>Portfolio value after 20 yrs (2065)</td><td>House ≈$10,020,000 + cumulated net rent</td><td>≈$15,190,000</td><td>House ≈$10,020,000 + 20-yr net rent from 2 units ≈$1,455,000 (growing 4%/yr, 2 of 3 units)</td></tr>
+<tr><td>Income-tax on rent</td><td>CA + federal ordinary; depreciation recapture ≤25% on later sale (unrecaptured §1250)</td><td>n/a</td><td>same as keep</td></tr>
+<tr><td>Verdict</td><td><span class="badge flag">Weak — sub-2% net yield + tax shock</span></td><td><span class="badge ok">Best financial outcome</span></td><td><span class="badge est">Best only for a family that genuinely wants the SF home; verify Prop 19 with assessor</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>B.5 · Recommendation</h2>
+<div class="callout ok"><b>Default recommendation: sell Property B at or soon after the trust's distribution and reinvest the net proceeds</b> (diversified equity index + Treasury ladder). The legacy 1.1%-of-FBYV property tax was the entire economic case for keeping it; the transfer destroys it. Expected outcome vs keeping: ≈<b>$3,000,000</b> more wealth after 20 years (≈$15,190,000 portfolio vs ≈$12,200,000 house + net rent of the two rented units; taxes on eventual portfolio liquidation not included), with lower effort, lower concentration risk, and no CA landlord-regulatory exposure.
+<br><br><b>Exception — keep only if ALL true:</b> (1) an heir wants it as a principal residence; (2) the SF Assessor confirms the occupied portion qualifies for a Prop 19 partial exclusion (family-home portion only); (3) the remaining two units' rent covers ≥ the post-reassessment carrying cost with margin; (4) the household accepts tenant law obligations. Even then, re-run this page's numbers before and after the first property-tax bill arrives post-transfer.</div>
+<div class="callout info"><b>Portfolio/diversification note.</b> Concentrated single-asset real estate (two Bay Area houses, one metro) is the risk this plan retires. After both decisions execute, the estate's risk profile moves from ~100% illiquid Bay Area real estate to a diversified portfolio — the goal stated in the brief ("maximize profit, lower costs") is best served by that shift, subject to the household-housing exception above.</div>
+</main>
+<footer class="site">
+  <div class="foot-inner">
+    <b>Educational research project — not legal, tax, or financial advice.</b> All personal identifiers (names, addresses, ZIP codes, APNs, owner-of-record data) are deliberately omitted. Figures are rounded to the nearest $10. Projections are assumption-based planning estimates, not appraisals or quotes. Every legal/tax statement cites an official source on the Methodology &amp; Sources page (verified 2026-11-10). Items that could not be verified are blank or flagged on the Flagged for Review page. Inheritance decisions must be reviewed with a licensed CA attorney and CPA before execution.<br>
+    Site: <a href="https://github.com/wingbangboozle1-lang/Tino5">github.com/wingbangboozle1-lang/Tino5</a> · Published via GitHub Pages · Last reviewed 2026-11-10
+  </div>
+</footer>
+</body>
+</html>

@@ -103,3 +103,18 @@ a step-by-step trust-inheritance process, and a **Flagged for Review** page with
 
 The two dashboards reach different conclusions under different assumptions; both are published rather
 than reconciled by fiat. See `docs/decision-analysis.html` for this session's sensitivity analysis.
+
+---
+
+## Session `arena-80c92539` — independent decision dashboard (`docs/arena-80c92539/`)
+
+A third, independently researched static dashboard lives at **`docs/arena-80c92539/`** and is served at
+**https://wingbangboozle1-lang.github.io/Tino5/docs/arena-80c92539/**. It does not modify any other session's pages,
+data files or navigation. It contains an executive summary, per-property analyses (Cupertino; SF Outer Sunset),
+a keep/rent/sell decision model with a sensitivity grid, a source-linked tax-law page, a step-by-step
+trust-inheritance process, an insurance research page, a methodology/source register, a Flagged-for-Review
+page (15 items), and this session's repository review.
+
+* Privacy: city-level labels only; no names, addresses, ZIP codes, parcel numbers or owner figures; `noindex`.
+* All dollar figures rounded to the nearest $10; statutory figures quoted verbatim.
+* Unverified or assumed values are flagged, never invented; see `docs/arena-80c92539/flagged-for-review.html`.
