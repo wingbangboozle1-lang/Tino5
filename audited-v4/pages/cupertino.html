@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cupertino (ZIP 95014) Analysis &amp; 2026–2050 Projections | Trust Inheritance</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">T</span>
+        <span>Bay Area Trust Inheritance Briefing (2026–2050)</span>
+      </a>
+      <nav class="nav" aria-label="Primary Navigation">
+        <a href="../index.html">Executive Summary</a>
+        <a href="./trust-and-taxes.html">Trust Process &amp; Tax Law</a>
+        <a href="./cupertino.html" class="active">Cupertino (95014)</a>
+        <a href="./san-francisco.html">San Francisco (94122)</a>
+        <a href="./flagged-for-review.html" class="nav-flag">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Property A &bull; Santa Clara County &bull; ZIP 95014</div>
+      <h1>Cupertino Single-Family Property: Audited Baseline &amp; 2026–2050 Projections</h1>
+      <p class="lead">
+        Line-by-line Prop 13 / BOE CCPI audit of 2014–2026 assessments, verification of Cupertino water, SVCE/PG&amp;E solar tariffs, Santa Clara County bond rates, and CDI homeowners insurance benchmarks, followed by year-by-year 2026–2050 projections rounded to the nearest $10.
+      </p>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Nov 2026 Est. Market Value</div>
+        <div class="kpi-value">$3,100,000</div>
+        <div class="kpi-sub">2026 Assessed Value: $550,537 (verified +2% BOE CCPI)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Cupertino Ad Valorem Rate</div>
+        <div class="kpi-value">~1.1612%</div>
+        <div class="kpi-sub">FY 2025-26 Santa Clara Tax Rate Book + ~$960 direct charges</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">2026 Audited vs. User Insurance</div>
+        <div class="kpi-value" style="color:var(--amber)">$4,230 vs. $1,500</div>
+        <div class="kpi-sub">Exact quote unverified; scaled via CDI 2025 $3.38/$1k rate</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">2045 Prop 19 Tax Shield</div>
+        <div class="kpi-value pos">$27,180 / yr saved</div>
+        <div class="kpi-sub">Requires 1-yr residency + BOE-266 + BOE-19-P</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Verified Cupertino Rates, Utilities, Solar &amp; Insurance Audit</h2>
+          <p class="lead">Official county, city, CPUC, SVCE, and CDI benchmarks compared against user baseline inputs.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>User Baseline Input</th>
+              <th>Verified Official Fact / Regulatory Finding</th>
+              <th>Audit Status</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody id="cu-verified-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Historical Property Tax &amp; Assessed Value Audit (2014–2026)</h2>
+          <p class="lead">Cross-checked against CA BOE Letter to Assessors No. 2026/002 official Prop 13 CCPI inflation factors.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Property Tax (User Input)</th>
+              <th class="num">Tax YoY</th>
+              <th class="num">Assessed Value (User Input)</th>
+              <th class="num">AV YoY</th>
+              <th class="num">Official BOE CCPI Factor</th>
+              <th>Audit Status</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody id="cu-hist-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Year-by-Year Cupertino Projections (2026–2050)</h2>
+          <p class="lead">Modeled carrying expenses, Prop 19 vs. full reassessment property taxes, and tax-free &sect;1014 sale proceeds (rounded to nearest $10).</p>
+        </div>
+        <div class="controls">
+          <label class="control-group">
+            Scenario:
+            <select id="sel-cu-sc">
+              <option value="base" selected>Base Case (4.5% RE, Audited Ins. &amp; 2040 NEM Sunset)</option>
+              <option value="conservative">Conservative (3.0% RE, Audited Ins. &amp; 2040 NEM Sunset)</option>
+              <option value="growth">High Growth (5.2% RE, Audited Ins. &amp; 2040 NEM Sunset)</option>
+              <option value="user_naive">Unadjusted User Baseline ($1,500 Ins. &amp; Solar Credit)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="chart-box" id="chart-cu-taxes" style="margin-bottom:1.25rem;"></div>
+      <div class="chart-legend" style="margin-bottom:1rem;"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num">Est. Market Value</th>
+              <th class="num">Parent Prop 13 AV</th>
+              <th class="num">Parent Prop Tax</th>
+              <th class="num">Water</th>
+              <th class="num">Electric / Solar</th>
+              <th class="num">Insurance*</th>
+              <th class="num">Maint. Reserve*</th>
+              <th class="num">Total Parent Carry</th>
+              <th class="num">If Inherited: Prop 19 Tax</th>
+              <th class="num">If Inherited: Full Reassess Tax</th>
+              <th class="num">Prop 19 Annual Savings</th>
+              <th class="num">Net &sect;1014 Sale Proceeds</th>
+              <th>Basis / Source</th>
+            </tr>
+          </thead>
+          <tbody id="cu-proj-tbody"></tbody>
+        </table>
+      </div>
+      <p style="font-size:0.8rem;color:var(--ink-muted);margin-top:0.65rem;">
+        *Items marked with an asterisk (<code>Insurance</code>, <code>Maintenance Reserve</code>) reflect transparent model assumptions scaled from CDI 2025 averages and institutional benchmarks because site-specific underwriting/repair records are unverified. Toggle "Unadjusted User Baseline" to view the raw $1,500 insurance &amp; -$180/yr solar credit path.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div>Property A — Cupertino (ZIP 95014) &bull; Audited Model Output Rounded to Nearest $10</div>
+      <div><a href="./trust-and-taxes.html">&larr; Trust Process &amp; Tax Law</a> &nbsp;|&nbsp; <a href="./san-francisco.html">Next: San Francisco (94122) &rarr;</a></div>
+    </footer>
+  </main>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script>
+    (async function () {
+      const data = await AppUtils.loadProjections("../");
+      const cu = data.verified_anchors.cu;
+
+      const userInputs = [
+        "Baseline historical taxes (1.335% effective in 2025)",
+        "Not specified (selling costs)",
+        "Water: $100–$150/mo",
+        "Solar installed: +$10–$20/mo profit",
+        "Est. insurance: ~$1,500/yr (needs research)"
+      ];
+      const statuses = [
+        `<span class="badge badge-info">Districts Verified / APN Blank</span>`,
+        `<span class="badge badge-verified">Official Statutory Rate</span>`,
+        `<span class="badge badge-flag">Provider Split (Cal Water vs SJWC)</span>`,
+        `<span class="badge badge-danger">2026 NSC Cut &amp; NEM Sunset Risk</span>`,
+        `<span class="badge badge-flag">Quote Unverified / Likely Understated</span>`
+      ];
+      document.getElementById("cu-verified-tbody").innerHTML = cu.official_verified.map((row, idx) => `
+        <tr>
+          <td><strong>${row.category}</strong></td>
+          <td>${userInputs[idx]}</td>
+          <td>${row.verified_value}</td>
+          <td>${statuses[idx]}</td>
+          <td>${AppUtils.sourceAnchor(row.source_url, row.source_label)}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("cu-hist-tbody").innerHTML = cu.user_baseline.historical_tax_assessment.map((r) => {
+        const flagged = r.audit_status.startsWith("Flagged");
+        return `
+          <tr>
+            <td><strong>${r.year}</strong></td>
+            <td class="num">${r.tax_usd === null ? "" : AppUtils.fmtUSD(r.tax_usd)}</td>
+            <td class="num">${r.tax_yoy === null ? "" : r.tax_yoy}</td>
+            <td class="num">${AppUtils.fmtUSD(r.assessed_value_usd)}</td>
+            <td class="num">${r.av_yoy}</td>
+            <td class="num">${r.boe_ccpi_factor}</td>
+            <td><span class="badge ${flagged ? "badge-flag" : "badge-verified"}">${flagged ? "Flagged" : "CCPI Match"}</span> ${r.audit_status}</td>
+            <td>${AppUtils.sourceAnchor("https://boe.ca.gov/proptaxes/pdf/lta26002.pdf", "CA BOE LTA 2026/002")}</td>
+          </tr>
+        `;
+      }).join("");
+
+      const selSc = document.getElementById("sel-cu-sc");
+      function renderProj() {
+        const rows = data.yearly_by_scenario[selSc.value];
+        document.getElementById("cu-proj-tbody").innerHTML = rows.map((r) => {
+          const c = r.cu;
+          return `
+            <tr>
+              <td><strong>${r.year}</strong></td>
+              <td class="num">${AppUtils.fmtUSD(c.market_value, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(c.parent_av, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(c.parent_prop_tax, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(c.water, true)}</td>
+              <td class="num ${c.electric_solar < 0 ? "pos" : ""}">${AppUtils.fmtSignedUSD(c.electric_solar)}</td>
+              <td class="num">${AppUtils.fmtUSD(c.insurance, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(c.maintenance, true)}</td>
+              <td class="num"><strong>${AppUtils.fmtUSD(c.total_cost_parent, true)}</strong></td>
+              <td class="num">${AppUtils.fmtUSD(c.inherit_tax_prop19, true)}</td>
+              <td class="num neg">${AppUtils.fmtUSD(c.inherit_tax_full_reassess, true)}</td>
+              <td class="num pos">${AppUtils.fmtUSD(c.prop19_annual_tax_saving, true)}</td>
+              <td class="num">${AppUtils.fmtUSD(c.net_sale_proceeds_at_death, true)}</td>
+              <td>${AppUtils.sourceAnchor("https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf", "BOE LTA 25/009 + SCC Rates")}</td>
+            </tr>
+          `;
+        }).join("");
+
+        AppCharts.renderMultiLineChart(
+          "chart-cu-taxes",
+          rows.map((r) => r.year),
+          [
+            { name: "Full Reassessment Tax (No Prop 19)", values: rows.map((r) => r.cu.inherit_tax_full_reassess), color: "#9b2226" },
+            { name: "Prop 19 Inherited Tax (If Occupied)", values: rows.map((r) => r.cu.inherit_tax_prop19), color: "#0f4c5c" },
+            { name: "Total Parent Annual Carry (Incl. Tax & Maint)", values: rows.map((r) => r.cu.total_cost_parent), color: "#9c5700", dashed: true },
+            { name: "Parent Prop 13 Tax", values: rows.map((r) => r.cu.parent_prop_tax), color: "#1b6b4a" },
+          ]
+        );
+      }
+      renderProj();
+      selSc.addEventListener("change", renderProj);
+      window.addEventListener("resize", renderProj);
+    })();
+  </script>
+</body>
+</html>

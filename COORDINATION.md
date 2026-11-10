@@ -177,3 +177,23 @@ Integration actions taken in response (PR #10):
 **Housekeeping note for any future session:** the repository now contains three generations of the same analysis
 (root dashboard, `/archive/`, `/mine/pages/`). If consolidating, do it as a deliberate editorial decision with the
 owner; do not delete another session's published pages silently.
+
+---
+
+## Log additions — session `arena/f9da2018-tino5` (branch `arena/f9da2018-tino5`)
+
+- **2026-11-10 — `arena/f9da2018-tino5`:** Initialized independent official-source verification & modeling (`T0`–`T6`), observed merged `main` state (`#1`–`#10`), and integrated cleanly without deleting any earlier session's published pages by placing our audited 5-page interactive dashboard under `audited-v4/` (`audited-v4/index.html`, `audited-v4/pages/{trust-and-taxes,cupertino,san-francisco,flagged-for-review}.html`), registering 40 newly retrieved official `.gov`/agency sources into `data/sources.json` (total 80), extending `scripts/verify.mjs`, and linking `audited-v4/` directly from root `index.html` and `README.md`.
+- **Additional Official Verifications Added by `arena/f9da2018-tino5`:**
+  - **IRS Rev. Proc. 2026-35 (Nov 2026):** 2027 federal estate/gift/GST exclusion **`$15,480,000`** (`$30.96M` married, `+3.20%` YoY) and 2027 annual gift exclusion **`$20,000`** (up from `$19,000` in 2026), plus 2027 LTCG/trust tax brackets (`37%` over `$16,500`).
+  - **CA BOE LTA 2026/026 (Aug 3, 2026) & LTA 2026/002:** Prop 19 Q5 multi-unit limit (*only the single occupied unit qualifies; rental units reassess 100%*), Q32–Q35 LLC disqualification, and full 1976–2027 Prop 13 CCPI history matching user's 2014–2026 assessment rates (`+0.45%`, `+1.53%`, `+1.04%`, `+2%`).
+  - **CA SoS Nov 3, 2026 Unofficial Returns (Nov 9, 2026):** Prop 3 (`60.6%` Yes — makes 13.3% top CA rate permanent past 2031), Prop 42 (`51.6%` Yes — prohibits state personal property/wealth taxes), Prop 40 (`47.2%` Yes / trailing), and confirmed Prop 19 repeal `#1994 (25-0017)` & 60+ exemption `#2012 (25-0035)` failed to qualify.
+  - **CA Dept. of Insurance `EQEXP2025Summary.pdf` & March 2026 State Farm Settlement:** 2025 Homeowners `$2,339.99` (`$3.38/$1k`) and Dwelling Fire `$1,701.60` (`$2.94/$1k`; `$3.50/$1k` FAIR Plan) plus `+17%` Homeowners / `+32.8%` Rental Dwelling hikes.
+  - **Local Utilities & Taxes:** SVCE 2026 NSC cut (`2x -> 1x`), CPUC `D.24-05-028` `$24.15/mo` PG&E Base Services Charge, CPUC SB 695 20-year NEM legacy sunset, SF Article 12-C `$5.0M` `2.25%` transfer-tax cliff, SFPUC 10-Year Plan (`+6.4%` water / `+10.1%` sewer), Santa Clara FY 2025-26 Tax Rate Book (`~1.1612%` Cupertino district bonds), and zero Cupertino city transfer tax.
+- **Model Key Findings (`audited-v4/scripts/model.py`, rounded to nearest `$10`):**
+  - Across `2040`, `2045`, and `2050` inheritance horizons, **Strategy C** (Live in SF Unit 3 + Sell Cupertino tax-free via `&sect;1014` & reinvest) and **Strategy E** (Sell Both via `&sect;1014` & reinvest) lead after-tax net wealth (`~$16.30M–$16.32M` in 2055 from 2045 inheritance), while **Strategy D** (Live in Cupertino with Prop 19 + Sell SF via `&sect;1014` & reinvest) dominates if living in Cupertino (`+$130,010/yr` Yr-1 CF vs `-$65,240/yr` deficit in `Strategy A1` keeping SF Unit 3 empty).
+  - **Liquid Assets Estate Matrix:** Combined real estate (`$10.95M` in 2045) stays below single exclusion (`$23.31M`), but `$6M+` of 2026 liquid investments (`~$18.15M` by 2045) creates `$2.32M+` in 40% estate tax without Form 706 DSUE portability.
+- **Verification Status (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `543 internal links`, `171 external links`, `0 errors` (`25 warnings` all confined to preserved earlier-session `archive/` and `mine/` files).
+
+### PR & Deployment Record (`arena/f9da2018-tino5`)
+- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — synced cleanly with `origin/main` (`8d84077`), verified `0 errors` via `node scripts/verify.mjs`, ready for immediate merge and live GitHub Pages confirmation.
+

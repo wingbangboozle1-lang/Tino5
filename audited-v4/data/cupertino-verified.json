@@ -1,0 +1,59 @@
+{
+  "property_id": "Property A — Cupertino (ZIP 95014)",
+  "anonymized": true,
+  "user_baseline": {
+    "estimated_value_nov_2026": 3100000,
+    "water_monthly_range_usd": [100, 150],
+    "solar_monthly_credit_range_usd": [10, 20],
+    "estimated_insurance_annual_usd": 1500,
+    "insurance_note": "User noted '~1500 (need to research more)' — flagged for review against CDI data",
+    "maintenance_note": "Lower maintenance than San Francisco 3-unit building",
+    "historical_tax_assessment": [
+      {"year": 2026, "tax_usd": null, "tax_yoy": null, "assessed_value_usd": 550537, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Flagged: 2026 property tax missing ('--'); AV +2.00% matches BOE LTA 2026/002"},
+      {"year": 2025, "tax_usd": 7207, "tax_yoy": "+2.9%", "assessed_value_usd": 539743, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%); implied 1.335% effective rate reflects ~1.16% ad valorem + direct charges"},
+      {"year": 2024, "tax_usd": 7003, "tax_yoy": "+1.2%", "assessed_value_usd": 529161, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2023, "tax_usd": 6917, "tax_yoy": "+2.4%", "assessed_value_usd": 518786, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2022, "tax_usd": 6755, "tax_yoy": "+1.4%", "assessed_value_usd": 508614, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2021, "tax_usd": 6662, "tax_yoy": "+1.5%", "assessed_value_usd": 498642, "av_yoy": "+1%", "boe_ccpi_factor": "1.036%", "audit_status": "Verified AV growth (+1.036% CCPI -> $498,643 vs $498,642)"},
+      {"year": 2020, "tax_usd": 6565, "tax_yoy": null, "assessed_value_usd": 493530, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Flagged: Tax identical to 2019 ($6,565) despite +2% AV growth"},
+      {"year": 2019, "tax_usd": 6565, "tax_yoy": "+2.8%", "assessed_value_usd": 483854, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2018, "tax_usd": 6383, "tax_yoy": null, "assessed_value_usd": 474368, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Flagged: Tax identical to 2017 ($6,383) despite +2% AV growth"},
+      {"year": 2017, "tax_usd": 6383, "tax_yoy": "-0.5%", "assessed_value_usd": 465067, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%); tax decline -0.5%"},
+      {"year": 2016, "tax_usd": 6414, "tax_yoy": "+4.6%", "assessed_value_usd": 455949, "av_yoy": "+1.5%", "boe_ccpi_factor": "1.525%", "audit_status": "Verified AV growth (+1.525% CCPI)"},
+      {"year": 2015, "tax_usd": 6130, "tax_yoy": "+2.8%", "assessed_value_usd": 449101, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2014, "tax_usd": 5965, "tax_yoy": null, "assessed_value_usd": 440305, "av_yoy": "+0.5%", "boe_ccpi_factor": "0.454%", "audit_status": "Verified AV growth (+0.454% CCPI)"}
+    ]
+  },
+  "official_verified": [
+    {
+      "category": "Ad Valorem Property Tax Rate (Cupertino 95014 Districts)",
+      "verified_value": "1.00% Prop 13 base + 0.0388% Co. Retirement + 0.0108% Co. Housing/VMC + 0.0335% Cupertino Elem + 0.0417% Fremont Union High + 0.0311% Foothill-De Anza + 0.0014% Midpen Open Space + 0.0039% SCVWD = ~1.1612% (1.1632% incl. El Camino Hosp); exact parcel TRA unverified without APN",
+      "source_label": "Santa Clara County FY 2025-26 Tax Rate Book",
+      "source_url": "https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf"
+    },
+    {
+      "category": "County Documentary Transfer Tax & City Conveyance Tax",
+      "verified_value": "$0.55 per $500 ($1.10 per $1,000 = 0.11%) County DTT; City of Cupertino has NO city conveyance tax (unlike San Jose, Palo Alto, Mountain View). Inheritance/trust transfers exempt.",
+      "source_label": "Santa Clara County Clerk-Recorder Real Estate Recording",
+      "source_url": "https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate"
+    },
+    {
+      "category": "Water Provider & Regulated Tariffs (Cupertino 95014)",
+      "verified_value": "Split service area: Cal Water Los Altos District (2026 avg 9 CCF bill ~$87.53/mo + A.24-07-003/D.26-04-045 increases) OR San Jose Water (2026 avg 10 CCF ~$125.44/mo + surcharges; 2027 ~$131.12/mo). Exact parcel retailer unverified without street address.",
+      "source_label": "City of Cupertino Utilities & CPUC Cal Water / SJWC Filings",
+      "source_url": "https://www.cupertino.gov/Residents/Utilities"
+    },
+    {
+      "category": "Electricity & Rooftop Solar (SVCE + PG&E + CPUC NEM/NBT)",
+      "verified_value": "SVCE cut Net Surplus Compensation from 2x PG&E NSC to 1x PG&E NSC (~2.5–3¢/kWh) starting 2026; NEM 1.0/2.0 20-year legacy expires onto Net Billing Tariff (NBT) 20 years after install (2037–2043 window); PG&E Base Services Charge ($24.15/mo non-CARE) cannot be offset by NEM export credits; PG&E SAR 34.9¢/kWh (2025), Moderate Zone bills projected $212 -> $264/mo by 2028.",
+      "source_label": "SVCE 2025–2026 Presentations & CPUC SB 695 / D.24-05-028",
+      "source_url": "https://www.svcleanenergy.org/solar-billing-plan/"
+    },
+    {
+      "category": "California Homeowners Insurance Market Benchmark",
+      "verified_value": "Exact quote for Property A is UNVERIFIED (needs carrier underwriting). Official CDI 2025 Data Call shows statewide Homeowners average $2,339.99/yr ($3.38 per $1,000 coverage exposure; +17% State Farm interim settlement 2025-26); FAIR Plan residential cap is $3,000,000 all coverages combined; optional EQ averages $1.62/$1,000.",
+      "source_label": "CA Dept. of Insurance 2025 Residential Summary (EQEXP2025Summary)",
+      "source_url": "https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf"
+    }
+  ]
+}

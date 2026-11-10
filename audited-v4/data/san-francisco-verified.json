@@ -1,0 +1,67 @@
+{
+  "property_id": "Property B — San Francisco Outer Sunset (ZIP 94122)",
+  "anonymized": true,
+  "user_baseline": {
+    "estimated_value_nov_2026": 1800000,
+    "units_total": 3,
+    "units_rented": 2,
+    "units_unrented_owner_option": 1,
+    "monthly_rental_income_2_units": 7150,
+    "water_monthly_range_usd": [330, 400],
+    "electricity_monthly_range_usd": [30, 70],
+    "estimated_insurance_annual_usd": 1500,
+    "insurance_note": "User noted '~$1,500 a year, probably need more research as it's a rental property' — flagged for review",
+    "maintenance_note": "Higher maintenance than Cupertino (older multi-unit Outer Sunset coastal structure)",
+    "historical_tax_assessment": [
+      {"year": 2026, "tax_usd": null, "tax_yoy": null, "assessed_value_usd": null, "av_yoy": null, "boe_ccpi_factor": "2%", "audit_status": "Flagged: 2026 SF tax and AV missing from baseline input"},
+      {"year": 2025, "tax_usd": 2439, "tax_yoy": "+5.3%", "assessed_value_usd": 114248, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%); implied 2.135% effective rate reflects 1.18268% ad valorem (~$1,351) + ~$1,088 fixed parcel taxes"},
+      {"year": 2024, "tax_usd": 2315, "tax_yoy": "+6.2%", "assessed_value_usd": 112008, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2023, "tax_usd": 2179, "tax_yoy": "+3.4%", "assessed_value_usd": 109814, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2022, "tax_usd": 2107, "tax_yoy": "+2%", "assessed_value_usd": 107662, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2021, "tax_usd": 2066, "tax_yoy": "-5.9%", "assessed_value_usd": 105595, "av_yoy": "+1%", "boe_ccpi_factor": "1.036%", "audit_status": "Flagged: -5.9% tax drop (-$131) despite +1.036% CCPI AV increase"},
+      {"year": 2020, "tax_usd": 2197, "tax_yoy": "+3%", "assessed_value_usd": 104513, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2019, "tax_usd": 2134, "tax_yoy": "+3.5%", "assessed_value_usd": 102465, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2018, "tax_usd": 2061, "tax_yoy": "+18.4%", "assessed_value_usd": 100456, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Flagged: +18.4% tax spike (+$321) consistent with new SF parcel taxes on low Prop 13 base"},
+      {"year": 2017, "tax_usd": 1740, "tax_yoy": "+3.9%", "assessed_value_usd": 98488, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%)"},
+      {"year": 2016, "tax_usd": 1675, "tax_yoy": "+1.6%", "assessed_value_usd": 96557, "av_yoy": "+1.5%", "boe_ccpi_factor": "1.525%", "audit_status": "Verified AV growth (+1.525% CCPI)"}
+    ]
+  },
+  "official_verified": [
+    {
+      "category": "Secured Property Tax Rate (San Francisco)",
+      "verified_value": "1.18162182% for FY 2026-27 (1.18268325% for FY 2025-26) ad valorem + direct parcel taxes/special assessments (~$714–$1,100+/yr implied on property)",
+      "source_label": "SF Office of the Treasurer & Tax Collector / BOS Res. 447-25",
+      "source_url": "https://sftreasurer.org/property/secured-property-taxes"
+    },
+    {
+      "category": "SF Real Property Transfer Tax Tiers (Article 12-C)",
+      "verified_value": "$1M–<$5M: $3.75/$500 (0.75%); $5M–<$10M: $11.25/$500 (2.25% on ENTIRE price — cliff risk if SF exceeds $5M by 2046–2050!); $10M–<$25M: $27.50/$500 (5.50%). Inheritances & transfers to own revocable trust EXEMPT.",
+      "source_label": "SF Assessor-Recorder Transfer Tax Rates & Exemptions",
+      "source_url": "https://www.sf.gov/transfer-tax"
+    },
+    {
+      "category": "SF Rent Ordinance & Rent Board Fee (3-Unit Building)",
+      "verified_value": "Pre-June 13, 1979 3-unit buildings are rent-controlled: allowable annual increase = 1.6% (3/1/26–2/28/27; 1.4% prior year), capped at 60% of Bay Area CPI-U; vacancy decontrol applies on voluntary turnover. Rent Board fee = $59/dwelling unit ($177/yr for 3 units; 50% tenant pass-through). Residential lessors exempt from SF Gross Receipts Tax <$5M.",
+      "source_label": "SF Rent Board Current Rates & FY 2026-27 Budget Memo",
+      "source_url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit"
+    },
+    {
+      "category": "SFPUC Water, Wastewater & Stormwater Rates (FY 2026-27 & FY 2027-28)",
+      "verified_value": "Schedule W-1B (Multi-Family): $19.65–$35.53/mo meter charge + $12.03/CCF (first 3 CCF/unit) or $12.91/CCF (FY26-27); Wastewater Schedule A: $6.62/mo + $20.74/CCF at 95% flow factor; Stormwater Schedule D: $19.66–$29.55/mo (FY26-27) jumping to $28.13–$42.29/mo (FY27-28). 10-Yr Plan projects +6.4%/yr water & +10.1%/yr sewer increases!",
+      "source_label": "SFPUC FY 2026-27 & FY 2027-28 Water/Sewer Rate Schedules & 10-Yr Plan",
+      "source_url": "https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf"
+    },
+    {
+      "category": "Electricity (CleanPowerSF + PG&E)",
+      "verified_value": "CleanPowerSF cut residential generation rates 25% effective March 1, 2026 (typical E-TOU-C bill ~$93/mo incl. PG&E delivery); however, PG&E Base Services Charge ($24.15/mo per meter) raises minimum fixed bill on owner/common meters.",
+      "source_label": "SFPUC CleanPowerSF 2026-27 Rates & CPUC D.24-05-028",
+      "source_url": "https://www.sfpuc.gov/accounts-services/water-power-sewer-rates/power-rates"
+    },
+    {
+      "category": "Landlord / Dwelling Fire Insurance Market Benchmark",
+      "verified_value": "Exact quote for Property B 3-unit building is UNVERIFIED (needs carrier underwriting). CDI 2025 Data Call shows statewide Dwelling Fire avg $1,701.60 ($2.94/$1,000; $3.50/$1,000 on FAIR Plan) — usually covering smaller 1-unit values; State Farm settled +32.8% rental dwelling emergency rate hike (March 2026). Multi-unit $1.8M SF building + loss-of-rents + liability typically far exceeds $1,500/yr.",
+      "source_label": "CA Dept. of Insurance EQEXP2025Summary & State Farm Settlement (2026)",
+      "source_url": "https://www.insurance.ca.gov/0400-news/0100-press-releases/2026/release012-2026.cfm"
+    }
+  ]
+}
