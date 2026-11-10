@@ -1,0 +1,59 @@
+{
+ "title": "Operating costs — utilities, insurance, maintenance",
+ "sections": [
+  {
+   "id": "a-costs",
+   "title": "1. Property A (95014) — carrying costs today",
+   "intro": "Owner-supplied amounts are marked 'owner'. Anything that could be checked against a published tariff is marked 'verified' or 'derived'.",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Water and sewer","value":"$130/month ($1,560/yr)","status":"owner","sources":["nolo-note"],"note":"Owner range $100–$150/month. Cross-check below."},
+    {"item":"Water cross-check against the San Jose Water Company tariff","value":"≈ $110–$130/month for 10–12 Ccf plus the meter service charge","status":"derived","sources":["sjwc-al629","sjwc-al628a"],"note":"Tier 1 (0–6 Ccf) $4.97–$5.04, Tier 2 (6–12 Ccf) $7.42–$7.52 per Ccf. 12 Ccf ≈ $75 of volume plus a fixed service charge. The owner's range is consistent with the tariff — no discrepancy."},
+    {"item":"Electricity (with rooftop solar)","value":"net credit of $10–$20/month","status":"owner","sources":["nolo-note"],"note":"Consistent with legacy net metering; see the solar section for why this may not survive to 2045+."},
+    {"item":"Home insurance","value":"$1,500/yr (owner estimate)","status":"owner","sources":["nolo-note"],"note":"Owner states they do not know this figure. Not verifiable from a public source — flagged F-06. Model does not use this figure (see insurance section)."},
+    {"item":"Maintenance and repairs","value":"≈ $1% of structure value/yr (model)","status":"assumption","value_display":"A9","sources":[],"note":"Owner says 'not as much as the San Francisco house'. Modelled at 1.0% of replacement cost (≈$17,050/yr in 2026) and flagged F-07."},
+    {"item":"Supplemental/one-off items","value":"","value_display":"","status":"unverified","sources":[],"note":"Roof, sewer lateral, HVAC, foundation, electrical panel condition unknown. A 1960s–1970s Cupertino house can require $50,000–$150,000 of deferred work. No data — left blank, flagged F-08."}
+   ]
+  },
+  {
+   "id": "b-costs",
+   "title": "2. Property B (94122) — carrying costs today",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Water and sewer (all 3 units)","value":"$365/month ($4,380/yr)","status":"owner","sources":["nolo-note"],"note":"Owner range $330–$400/month."},
+    {"item":"Water cross-check against SFPUC multi-family rates","value":"≈ $290–$420/month for 15–20 Ccf","status":"derived","sources":["sfpuc-prop218","sfpuc-rates"],"note":"FY2026-27 multi-family: Tier 1 (first 3 Ccf per dwelling) $12.03/Ccf, Tier 2 $12.91/Ccf, plus the meter service charge and sewer charges. The owner's range is consistent."},
+    {"item":"Electricity (landlord-paid common/3 units)","value":"$50/month ($600/yr)","status":"owner","sources":["nolo-note"],"note":"Owner range $30–$70/month."},
+    {"item":"Home insurance (3-unit rental, DP-3 class)","value":"$1,500/yr (owner estimate)","status":"owner","sources":["nolo-note"],"note":"Owner states they do not know this figure — flagged F-06. A 3-unit rental needs a landlord policy, which prices above an owner-occupied HO-3."},
+    {"item":"Earthquake coverage","value":"not stated","value_display":"not stated","status":"unverified","sources":["cea"],"note":"Standard homeowners/landlord policies exclude earth movement; CEA coverage is a separate purchase. Neither property's earthquake coverage is known — flagged F-11."},
+    {"item":"Rental income, 2 of 3 units","value":"$7,150/month ($85,800/yr gross)","status":"owner","sources":["nolo-note"],"note":"Third unit is occupied by the owner and produces no rent today."},
+    {"item":"Maintenance and repairs","value":"1.25% of structure value/yr (model)","status":"assumption","value_display":"A10","sources":[],"note":"Owner states this house needs more work than Property A. ≈$12,380/yr in 2026."}
+   ]
+  },
+  {
+   "id": "insurance",
+   "title": "3. Insurance — the least verifiable, most under-estimated line",
+   "intro": "No public dataset prices a specific high-value Bay Area house. Rather than invent a premium, the model prices insurance as a rate on replacement cost and shows the sensitivity. Both owner figures look low for these building values.",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"Owner's planning figure, Property A","value":"$1,500/yr","status":"owner","sources":["nolo-note"],"note":"Equal to the premium a ~$300,000 dwelling typically carries. Property A's structure alone is worth well over $1,000,000."},
+    {"item":"Model method","value":"0.30% of replacement cost per year, escalated 6%/yr, capped at 0.80%","status":"assumption","value_display":"A7, A6","sources":["cdi"],"note":"Property A: ≈$5,120/yr in 2026. Property B (landlord policy, ×1.4): ≈$4,160/yr. Range tested in sensitivity."},
+    {"item":"Replacement cost assumption","value":"55% of market value (land share 45%)","status":"assumption","value_display":"A8","sources":[],"note":"Coastal California split for a 1960s–70s tract house. Needs a replacement-cost estimator (F-07)."},
+    {"item":"Why the model is above the owner's figure","value":"A $3.1M house with a $1.7M replacement cost is not priced like a $300k house","status":"assumption","sources":["cdi"],"note":"California premiums rose sharply 2023–2026 and many carriers now require a FAIR Plan wrap for high-value or fire-exposed homes. If the actual policy is genuinely $1,500, the model overstates costs by ≈$3,600/yr — not enough to change the ranking of options."},
+    {"item":"Earthquake","value":"excluded from standard policies","status":"verified","sources":["cea"],"note":"A separate CEA policy on a $1.7M structure typically runs four figures per year. Unpriced here — flagged F-11."}
+   ]
+  },
+  {
+   "id": "utilities",
+   "title": "4. Utility tariff references (for future-year cost growth)",
+   "columns": ["item","value","status","sources","note"],
+   "rows": [
+    {"item":"San Jose Water Company Tier 1 / 2 / 3 quantity rates","value":"$4.97–$5.04 / $7.42–$7.52 / $14.17–$14.35 per Ccf","status":"verified","sources":["sjwc-al629","sjwc-al628a"],"note":"Two CPUC-approved tariff filings in 2026 carry slightly different effective dates; both shown. Historical increases ≈4–5%/yr, which is the growth rate used (A4)."},
+    {"item":"SFPUC multi-family water, FY2026-27","value":"$12.03/Ccf (Tier 1), $12.91/Ccf (Tier 2)","status":"verified","sources":["sfpuc-prop218","sfpuc-rates"],"note":"Tier 1 applies to the first 3 Ccf per dwelling per month."},
+    {"item":"PG&E E-1 tiered residential electricity","value":"32.561¢/kWh Tier 1, 40.702¢/kWh Tier 2 (2026)","status":"secondary","sources":["pge-tariffs"],"note":"Tariff values reported from PG&E's published E-1 schedule; the PDF itself could not be retrieved from this sandbox (F-12). Electricity is a small line for both properties."},
+    {"item":"Legacy net metering (NEM 1.0 / 2.0)","value":"20-year term tied to the system and inherited by a buyer","status":"verified","sources":["pge-solar-billing","cpuc-nem"],"note":"'The 20-year NEM legacy program rules are tied to the system, not the owner.'"},
+    {"item":"NEM 3.0 (Solar Billing Plan)","value":"applies to interconnections applied for after 14 April 2023","status":"verified","sources":["pge-solar-billing","cpuc-nem"],"note":"Export credits are far below retail, so a post-legacy solar house pays materially more for evening/night power."},
+    {"item":"Consequence for Property A in 2040–2050","value":"","value_display":"likely no longer a net-zero bill","status":"assumption","sources":["pge-solar-billing"],"note":"If the system was interconnected before 2023, the 20-year legacy term ends by 2043 at the latest. The model therefore assumes an electricity cost from transfer year +16 onward (A29). This directly contradicts the owner's 'no electricity cost' expectation for the post-inheritance period."}
+   ]
+  }
+ ]
+}

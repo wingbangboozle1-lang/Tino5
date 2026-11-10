@@ -1,0 +1,56 @@
+<!--title: Options — live, rent or sell-->
+<!--page: scenarios-->
+<!--blurb: Three full cases for the Cupertino house with sensitivity and break-even analysis.-->
+<h1 style="margin:0 0 6px;font-size:27px;letter-spacing:-.02em">Options: live in it, rent it, or sell it</h1>
+<p class="lead">Each option is modelled to 2065 with identical assumptions, identical Property B cash flows, and all taxes
+included. Transfer is assumed in the middle of the stated window (2045), because Prop 19, the exclusion indexation and the
+federal exemption all move with the date.</p>
+
+<div id="scenario-cards" class="cards"></div>
+
+<h2>The comparison</h2>
+<div id="scenario-table"></div>
+
+<div class="callout">
+  <h4>Reading the two totals</h4>
+  <p><strong>Net wealth</strong> counts only financial and property value. <strong>Plus housing consumed</strong> adds the
+     market rent of the home each case occupies — this is what makes "live in it" comparable, because living in a $6.5M
+     house is a real benefit that never appears in a bank account. Without that adjustment the live case looks worse than
+     it is; with it, the live case still loses to selling, because it consumes a much more expensive house than the
+     alternatives.</p>
+</div>
+
+<h2>Why selling wins on the base case</h2>
+<ul class="tight">
+  <li><strong>Return spread.</strong> Property A is assumed to grow 4.0%/yr; the reinvested proceeds 6.0% before a 1.0% tax drag. Over 20 years that spread is worth millions.</li>
+  <li><strong>No reassessment.</strong> A sale ends the property-tax question. Renting triggers a full reassessment to market value: <span data-bind="tax-rent">—</span> in 2045 against <span data-bind="tax-live">—</span> if the exclusion is preserved.</li>
+  <li><strong>No terminal capital-gains bill.</strong> A sale at death is tax-free on the stepped-up basis; a sale in 2065 from a 2045 basis carries ≈37.1% on two decades of gain plus depreciation recapture — <span data-bind="sell-net">—</span> of proceeds at transfer versus a large tax later.</li>
+  <li><strong>Concentration and liability.</strong> One house, one tenant, one wildfire-season insurance renewal, versus a diversified portfolio.</li>
+</ul>
+
+<h2>Why it is close, and when holding wins</h2>
+<p>Everything hinges on the appreciation assumption. The break-even rate — the growth rate at which holding and renting
+equals selling — is <strong data-bind="breakeven">—</strong> a year. For living in it, the break-even is
+<strong data-bind="breakeven-live">—</strong>. The FHFA index for the San Jose metro rose about 5.0%/yr over 2015–2025 and
+about 4.2%/yr since 2000, so the answer genuinely sits on the boundary.</p>
+<div id="sensitivity"></div>
+
+<h2>The Prop 19 exclusion, quantified</h2>
+<p>Living in Property A is the only way to keep the parent-child exclusion. Its entire value — the difference in property
+tax between the live and rent cases — is <strong data-bind="prop19pv">—</strong> in present value over 2045–2065. The table
+shows the annual difference.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th style="text-align:right">Year</th><th style="text-align:right">Property tax if you live in it</th>
+<th style="text-align:right">Property tax if you rent it out</th><th style="text-align:right">Annual saving from the exclusion</th></tr></thead>
+<tbody id="prop19rows"></tbody></table></div>
+<p class="small">Model output, nearest $10, transfer in 2045. The saving grows because the exclusion is indexed while the rent case is taxed on the full market value.</p>
+
+<h2>Cash flow, sell-at-inheritance case</h2>
+<div id="cashflow"></div>
+
+<div class="callout bad">
+  <h4>The one thing the numbers do not capture</h4>
+  <p>Renting out a single-family house in Cupertino means becoming a landlord in one of the most tenant-protective states in
+     the country, with habitability duties, rent-cap rules on some units, and liability that a brokerage account does not
+     carry. That is a qualitative cost, and it is the strongest non-numeric argument for selling.</p>
+</div>
