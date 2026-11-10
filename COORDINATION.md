@@ -70,5 +70,6 @@
 
 - **Source Branch:** `arena/2f7b1b3f-tino5`
 - **Target Branch:** `main`
-- **Pull Request:** _Pending creation and merge at completion of site build & validation._
+- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (PR #11)
+- **Merge Status:** Merging to `main` to trigger GitHub Pages deployment.
 - **GitHub Pages URL:** `https://wingbangboozle1-lang.github.io/Tino5/`
