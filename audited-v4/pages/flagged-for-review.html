@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flagged for Review &amp; Unverified Items | Trust Inheritance Audit</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">T</span>
+        <span>Bay Area Trust Inheritance Briefing (2026–2050)</span>
+      </a>
+      <nav class="nav" aria-label="Primary Navigation">
+        <a href="../index.html">Executive Summary</a>
+        <a href="./trust-and-taxes.html">Trust Process &amp; Tax Law</a>
+        <a href="./cupertino.html">Cupertino (95014)</a>
+        <a href="./san-francisco.html">San Francisco (94122)</a>
+        <a href="./flagged-for-review.html" class="nav-flag active">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="border-left:4px solid var(--amber);">
+      <div class="eyebrow" style="color:var(--amber);">Audit Transparency &bull; Data Integrity Log</div>
+      <h1>Flagged for Review: Unverified Inputs, Data Anomalies &amp; Policy Risks</h1>
+      <p class="lead">
+        Per strict verification standards, any input that could not be independently confirmed from an official government or utility record is left blank in official verification cells, never fabricated, and documented below alongside every historical anomaly and policy cliff discovered during verification.
+      </p>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Missing / Blank Historical Data</div>
+        <div class="kpi-value" style="color:var(--amber)">2 Rows</div>
+        <div class="kpi-sub">Cupertino 2026 tax ('--') &amp; SF 2026 tax/AV omitted</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Historical Tax vs. AV Anomalies</div>
+        <div class="kpi-value" style="color:var(--amber)">4 Events</div>
+        <div class="kpi-sub">CU 2017–18 / 2019–20 flat taxes; SF 2018 +18.4% &amp; 2021 -5.9%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Policy &amp; Underwriting Gaps</div>
+        <div class="kpi-value" style="color:var(--rose)">5 Items</div>
+        <div class="kpi-sub">$1.5k insurance guesses, SVCE/NEM sunset, 95014 water split, SF 1979 date, Trust vs LLC</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">PII &amp; Anonymization Audit</div>
+        <div class="kpi-value pos">100% Clean</div>
+        <div class="kpi-sub">Zero names, street addresses, APNs, or trust identifiers published</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2>Complete Audit Register: Flagged Items &amp; Required Follow-Ups</h2>
+          <p class="lead">Each item lists the discrepancy, impact on the 2040–2050 decision, exact verification action, and closest official source.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Property / Scope</th>
+              <th>Category</th>
+              <th>Flagged Observation / Unverified Item</th>
+              <th>Financial / Legal Impact</th>
+              <th>Verification Action Required</th>
+              <th>Official Reference Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>Cupertino (95014)</td>
+              <td><span class="badge badge-flag">Missing Data</span></td>
+              <td><strong>2026 Property Tax Listed as <code>--</code></strong><br>2026 Assessed Value ($550,537, +2%) matches BOE CCPI, but the actual FY 2025-26/2026-27 tax bill was blank.</td>
+              <td>Low near-term impact (~$7,270–$7,350 projected), but exact TRA bond rate &amp; parcel charges remain unconfirmed without APN.</td>
+              <td>Look up APN on Santa Clara DTAC secured property tax portal to confirm FY 2026-27 bill &amp; TRA code (013-xxx).</td>
+              <td><a class="source-link" href="https://dtac.santaclaracounty.gov/taxes/obtain-secured-property-tax-information" target="_blank" rel="noopener noreferrer">Santa Clara DTAC Portal &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Cupertino (95014)</td>
+              <td><span class="badge badge-flag">Data Anomaly</span></td>
+              <td><strong>Identical Tax Bills in 2017–2018 ($6,383) &amp; 2019–2020 ($6,565)</strong><br>Assessed value rose +2% both times, yet portal tax figures stayed flat (0% YoY) in 2018 and 2020.</td>
+              <td>Likely consumer-portal duplicate scrape or temporary GO bond rate drop offsetting +2% AV; does not affect future Prop 19 math.</td>
+              <td>Pull official 10-year payment history from Santa Clara County DTAC if historical reconciliation is desired.</td>
+              <td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" target="_blank" rel="noopener noreferrer">SCC FY 2025-26 Tax Rate Book &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>San Francisco (94122)</td>
+              <td><span class="badge badge-flag">Missing Data</span></td>
+              <td><strong>2026 Property Tax &amp; Assessed Value Missing</strong><br>Baseline table stops at 2025 ($2,439 tax / $114,248 AV).</td>
+              <td>Model projects 2026 AV = $116,533 (+2% CCPI) and tax ~$2,490 using FY 2026-27 SF rate (1.18162%) + parcel charges.</td>
+              <td>Confirm 2026–27 secured bill on SF Treasurer portal using Block/Lot.</td>
+              <td><a class="source-link" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer">SF Treasurer Secured Tax &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>San Francisco (94122)</td>
+              <td><span class="badge badge-flag">Data Anomaly</span></td>
+              <td><strong>2018 (+18.4% Tax Spike) &amp; 2021 (-5.9% Tax Dip) vs. Steady +1–2% AV</strong><br>2025 effective rate (2.135%) far exceeds SF's 1.18268% ad valorem rate because ~$1,088/yr of fixed direct parcel taxes sit on a tiny $114k base.</td>
+              <td>Confirms SF parcel taxes grow via flat CPI-adjusted voter levies, not Prop 13 AV—driving higher fixed carrying costs even before death.</td>
+              <td>Inspect Breakdown of Direct Charges (SFUSD/SFCCD/Park/Library) on SF secured tax bill.</td>
+              <td><a class="source-link" href="https://sfbos.archive.sf.gov/sites/default/files/r0447-25.pdf" target="_blank" rel="noopener noreferrer">SF BOS Res. 447-25 &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Cupertino &amp; SF</td>
+              <td><span class="badge badge-danger">Unverified Guess</span></td>
+              <td><strong>User Insurance Estimates (~$1,500/yr Each) Are Unverified &amp; Likely Severely Understated</strong><br>CDI 2025 statewide average Homeowners is $2,340 ($3.38/$1k exposure); Dwelling Fire is $1,702 ($2.94/$1k; $3.50/$1k on FAIR Plan), plus State Farm's March 2026 settlement raised homeowners +17% and rental dwelling +32.8%.</td>
+              <td>Swings annual carry by <strong>~$6,000+/yr combined</strong> ($4,230 CU + $4,800 SF audited model assumptions vs. $3,000 total naive user estimate), compressing SF rental net yield.</td>
+              <td>Obtain written HO-3/HO-5 (Cupertino) &amp; 3-unit DP-3/landlord liability + loss-of-rents (SF) quotes based on exact sq ft, roof age, and electrical/plumbing specs.</td>
+              <td><a class="source-link" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf" target="_blank" rel="noopener noreferrer">CDI 2025 Residential Summary &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Cupertino (95014)</td>
+              <td><span class="badge badge-danger">Policy Cliff</span></td>
+              <td><strong>Solar Credit (+$10–$20/mo) Threatened by 2026 SVCE Cut &amp; NEM Legacy Sunset</strong><br>SVCE lowered Net Surplus Compensation from 2x to 1x in 2026; PG&amp;E enacted a non-offsettable $24.15/mo Base Services Charge; 20-year NEM 1.0/2.0 grandfathering expires onto NBT between 2037 and 2043.</td>
+              <td>Flips Cupertino electricity from -$180/yr credit to ~$200/yr now and ~$1,320/yr (in 2026$) post-2040 unless battery storage is added.</td>
+              <td>Check PG&amp;E Permission-to-Operate (PTO) date to determine exact 20-year NEM 1.0/2.0 expiration year.</td>
+              <td><a class="source-link" href="https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf" target="_blank" rel="noopener noreferrer">CPUC 2025 SB 695 Report &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td>Cupertino (95014)</td>
+              <td><span class="badge badge-flag">Utility Split</span></td>
+              <td><strong>Cupertino Water Utility Split Between Cal Water &amp; San Jose Water</strong><br>Northwest Cupertino is served by San Jose Water ($125.44/mo avg 2026) while eastern/central parcels use Cal Water Los Altos ($87.53/mo avg 2026).</td>
+              <td>Both align with user's $100–$150/mo range, though exact CPUC GRC escalations differ slightly.</td>
+              <td>Verify water retailer on current utility bill or City of Cupertino utility boundary map.</td>
+              <td><a class="source-link" href="https://www.cupertino.gov/Residents/Utilities" target="_blank" rel="noopener noreferrer">City of Cupertino Utilities &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>San Francisco (94122)</td>
+              <td><span class="badge badge-flag">Rent Law &amp; Comp</span></td>
+              <td><strong>SF Building Construction Date (Pre- vs. Post-June 13, 1979) &amp; Unit 3 Market Rent Unverified</strong><br>Model assumes pre-1979 rent control (1.6%–2.4% growth) and Unit 3 comparable rent ($3,575/mo in 2026 for Strategy A2).</td>
+              <td>If post-1979 or recently vacated, SF rent growth could track market inflation (~3%+), improving Strategy A2/B/C slightly—though rarely enough to beat Strategy C/E.</td>
+              <td>Confirm original Certificate of Occupancy date and Unit 3 bed/bath layout vs. rented units.</td>
+              <td><a class="source-link" href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" target="_blank" rel="noopener noreferrer">SF Rent Board Rates &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Trust &amp; Prop 19</td>
+              <td><span class="badge badge-danger">Legal Structure</span></td>
+              <td><strong>Deed Vesting (Trust vs. LLC), Parents' Primary Residence &amp; Prop 19 Multi-Unit Limit</strong><br>Properties inside an LLC are 100% disqualified from Prop 19. Only ONE parent residence qualifies, and for SF 3-unit, at most 1 of 3 units could ever qualify.</td>
+              <td>Mis-titling in an LLC or failing to file BOE-266 within 1 year costs <strong>$27,180+/yr</strong> (2045) in lost Cupertino Prop 19 tax protection.</td>
+              <td>Review recorded grant deeds for both APNs to confirm title is held by individuals or a look-through Revocable Living Trust (not an LLC).</td>
+              <td><a class="source-link" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer">CA BOE LTA 2026/026 &#8599;</a></td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Portfolio &amp; Upkeep</td>
+              <td><span class="badge badge-info">Model Assumption</span></td>
+              <td><strong>Cupertino Market Rent ($7,200/mo), Maintenance Reserves ($12k CU / $16.5k SF), &amp; Exact Parent Liquid Wealth Unverified</strong><br>Site-specific CapEx reserves, parent brokerage/401(k)/IRA balances, and exact inheritance year inside 2040–2050 are modeled via parametric sensitivity ranges.</td>
+              <td>Liquid assets above ~$6M in 2026 push 2045 gross estate past single exclusion ($23.31M), requiring DSUE Form 706 portability or lifetime gifting.</td>
+              <td>Update estate matrix with actual trust balance sheet (taxable brokerage vs. pre-tax retirement accounts, which lack IRC &sect;1014 step-up).</td>
+              <td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/i706.pdf" target="_blank" rel="noopener noreferrer">IRS Form 706 Instructions &#8599;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>Flagged for Review &amp; Audit Log &bull; Transparent Verification Standard</div>
+      <div><a href="./san-francisco.html">&larr; San Francisco (94122)</a> &nbsp;|&nbsp; <a href="../index.html">Back to Executive Summary &rarr;</a></div>
+    </footer>
+  </main>
+</body>
+</html>

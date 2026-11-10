@@ -1,0 +1,646 @@
+{
+ "generated": "2026-11-10",
+ "note": "Source registry. 'checked' = how the link/value was verified from this environment: fetched = page retrieved and read; search = surfaced directly from the official domain in search results and quoted from that page's text; pattern = official domain, URL follows the publisher's documented pattern but the page could not be retrieved from this sandbox.",
+ "sources": [
+  {
+   "id": "boe-prop19",
+   "org": "California State Board of Equalization (BOE)",
+   "title": "Proposition 19 \u2014 Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act (incl. FAQs, forms checklist, trust FAQ #9)",
+   "url": "https://boe.ca.gov/prop19/",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "boe-prop19-q",
+   "org": "California State Board of Equalization (BOE)",
+   "title": "Proposition 19 training Q&A (value cap, worked examples, biennial adjustment)",
+   "url": "https://boe.ca.gov/proptaxes/pdf/Prop19Intergenerational-Questions.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "boe-pub801",
+   "org": "California State Board of Equalization (BOE)",
+   "title": "Publication 801 \u2014 Proposition 19 fact sheet",
+   "url": "https://www.boe.ca.gov/pdf/pub801.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "boe-hox",
+   "org": "California State Board of Equalization (BOE)",
+   "title": "Homeowners' Exemption ($7,000 reduction in taxable value; BOE-266; February 15 filing rule)",
+   "url": "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "rtc-632",
+   "org": "California Legislative Information (leginfo)",
+   "title": "Rev. & Tax. Code \u00a763.2 \u2014 intergenerational transfer exclusion (operative 2/16/2021)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "rtc-61",
+   "org": "California Legislative Information (leginfo)",
+   "title": "Rev. & Tax. Code \u00a761 \u2014 change in ownership; \u00a761(h) trusts becoming irrevocable",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=61",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "rtc-13302",
+   "org": "California Legislative Information (leginfo)",
+   "title": "Rev. & Tax. Code \u00a713302 \u2014 California estate tax (federal credit pick-up; no federal credit since 2005)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=13302",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "rtc-11911",
+   "org": "California Legislative Information (leginfo)",
+   "title": "Rev. & Tax. Code \u00a711911 \u2014 documentary transfer tax ($0.55 per $500 of value)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=11911",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "prob-16061-7",
+   "org": "California Legislative Information (leginfo)",
+   "title": "Prob. Code \u00a716061.7 \u2014 trustee's notification to beneficiaries and heirs",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=16061.7",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "prob-13100",
+   "org": "California Legislative Information (leginfo)",
+   "title": "Prob. Code \u00a713100 \u2014 small estate affidavit (threshold is periodically adjusted)",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=13100",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "cacourts-probate",
+   "org": "California Courts (Judicial Branch)",
+   "title": "Guide to property after someone dies \u2014 probate, simple transfers, trust vs probate",
+   "url": "https://selfhelp.courts.ca.gov/probate",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sftreasurer",
+   "org": "SF Office of the Treasurer & Tax Collector",
+   "title": "Secured Property Taxes \u2014 FY2026-27 secured rate 1.18162182%; due dates & penalties",
+   "url": "https://sftreasurer.org/property/secured-property-taxes",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sftreasurer-heirs",
+   "org": "SF Office of the Treasurer & Tax Collector",
+   "title": "Information for heirs (property tax after a death)",
+   "url": "https://sftreasurer.org/property/information-heirs",
+   "type": "official",
+   "checked": "fetched-link"
+  },
+  {
+   "id": "scc-assessor-ar",
+   "org": "Santa Clara County Assessor",
+   "title": "Assessor's Annual Report 2025-26 (1% base levy plus voter-approved debt; county average ad valorem rate; city averages)",
+   "url": "https://files.santaclaracounty.gov/exjcpb1521/2025-11/annual_report_2025-2026.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "scc-assessor",
+   "org": "Santa Clara County Assessor",
+   "title": "Santa Clara County Assessor \u2014 property tax overview, change in ownership, Prop 19 claims",
+   "url": "https://www.sccassessor.org/",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-estate",
+   "org": "Internal Revenue Service",
+   "title": "Estate tax \u2014 filing threshold table (2026: $15,000,000)",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-whatsnew",
+   "org": "Internal Revenue Service",
+   "title": "What's new \u2014 Estate and gift tax (P.L. 119-21 raised basic exclusion amount to $15,000,000 for 2026)",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-faq-estate",
+   "org": "Internal Revenue Service",
+   "title": "Frequently asked questions on estate taxes (2026 filing threshold $15,000,000)",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-p559",
+   "org": "Internal Revenue Service",
+   "title": "Publication 559 (2025) \u2014 Survivors, Executors, and Administrators; basis of inherited property; Form 8971",
+   "url": "https://www.irs.gov/pub/irs-pdf/p559.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-p551",
+   "org": "Internal Revenue Service",
+   "title": "Publication 551 \u2014 Basis of Assets",
+   "url": "https://www.irs.gov/pub/irs-pdf/p551.pdf",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "irs-form706",
+   "org": "Internal Revenue Service",
+   "title": "About Form 706 \u2014 United States Estate (and Generation-Skipping Transfer) Tax Return",
+   "url": "https://www.irs.gov/forms-pubs/about-form-706",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "irs-p550",
+   "org": "Internal Revenue Service",
+   "title": "Publication 550 \u2014 Investment Income and Expenses (net investment income tax)",
+   "url": "https://www.irs.gov/pub/irs-pdf/p550.pdf",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "ftb-540",
+   "org": "California Franchise Tax Board",
+   "title": "2025 Form 540 \u2014 California Resident Income Tax Return (rate schedules; behavioral health services tax line)",
+   "url": "https://www.ftb.ca.gov/forms/2025/2025-540.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sjwc-al629",
+   "org": "San Jose Water Company / CPUC",
+   "title": "Advice Letter 629 \u2014 CPUC tariff sheets, general metered service, Tier 1\u20133 quantity rates per Ccf (2026)",
+   "url": "https://www.sjwater.com/media/gyqpekkb/al629-ami-ratebase-2026-web.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sjwc-al628a",
+   "org": "San Jose Water Company / CPUC",
+   "title": "Advice Letter 628-A \u2014 tariff sheets effective July 1, 2026 (Tier 1 $4.9692, Tier 2 $7.4167, Tier 3 $14.1659 per Ccf)",
+   "url": "https://www.sjwater.com/media/dm3lribs/san-jose-water-company-al-628-a-approved.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "pge-solar-billing",
+   "org": "Pacific Gas and Electric Company",
+   "title": "Solar Billing Plan \u2014 NEM legacy status is tied to the system, not the owner (inherited on purchase)",
+   "url": "https://www.pge.com/en/clean-energy/solar/getting-started-with-solar/solar-billing-plan.html",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "pge-tariffs",
+   "org": "Pacific Gas and Electric Company",
+   "title": "PG&E tariffs (electric rate schedules, incl. E-1 tiered rates)",
+   "url": "https://www.pge.com/tariffs/en.html",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "cpuc-nem",
+   "org": "California Public Utilities Commission",
+   "title": "Net energy metering / Net Billing Tariff (D.22-12-056)",
+   "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/net-energy-metering",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "sfpuc-rates",
+   "org": "San Francisco Public Utilities Commission",
+   "title": "Rate Schedules and Fees for Water and Sewer Service, FY2026-27 and FY2027-28",
+   "url": "https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sfpuc-prop218",
+   "org": "San Francisco Public Utilities Commission",
+   "title": "Proposition 218 notice \u2014 proposed water & sewer rates (multi-family tier 1 $12.03, tier 2 $12.91 per Ccf, FY2026-27)",
+   "url": "https://www.sfpuc.gov/accounts-services/water-power-sewer-rates/proposed-water-sewer-rates-2026/proposition-218-notice",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "cbo-outlook",
+   "org": "Congressional Budget Office",
+   "title": "The Budget and Economic Outlook: 2026 to 2036 (CPI-U inflation path: 2.8% 2026, 2.3% from 2028)",
+   "url": "https://www.cbo.gov/publication/62105",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "fhfa-hpi",
+   "org": "Federal Housing Finance Agency",
+   "title": "FHFA House Price Index datasets",
+   "url": "https://www.fhfa.gov/data/hpi",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "hud-fmr",
+   "org": "U.S. Department of Housing and Urban Development",
+   "title": "Fair Market Rents (FY2026) \u2014 dataset landing page",
+   "url": "https://www.huduser.gov/portal/datasets/fmr.html",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "sos-qualified",
+   "org": "California Secretary of State",
+   "title": "Qualified Statewide Ballot Measures \u2014 November 3, 2026 (Prop 3, 37, 40, 41, 42 \u2026)",
+   "url": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sos-quickguide",
+   "org": "California Secretary of State",
+   "title": "Quick Guide to Propositions \u2014 November 3, 2026",
+   "url": "https://quickguidetoprops.sos.ca.gov/propositions/2026-11-03/",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sos-results",
+   "org": "California Secretary of State",
+   "title": "Statewide election results \u2014 ballot measures (unofficial until certification)",
+   "url": "https://electionresults.sos.ca.gov/returns/ballot-measures",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "cdi",
+   "org": "California Department of Insurance",
+   "title": "California Department of Insurance \u2014 consumer rate and coverage information (homeowners)",
+   "url": "https://www.insurance.ca.gov/",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "cea",
+   "org": "California Earthquake Authority",
+   "title": "California Earthquake Authority \u2014 earthquake coverage is a separate policy; standard homeowners policies exclude earth movement",
+   "url": "https://www.earthquakeauthority.com/",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "municode-cupertino",
+   "org": "City of Cupertino (Municipal Code)",
+   "title": "Cupertino Municipal Code Ch. 3.04 \u2014 real property transfer tax (city rate $0.55/$500, credited against county tax)",
+   "url": "https://library.municode.com/ca/cupertino",
+   "type": "official",
+   "checked": "pattern"
+  },
+  {
+   "id": "nolo-note",
+   "org": "Internal working note (this project)",
+   "title": "Owner-supplied schedules (property tax histories, rents, utility bills, values) \u2014 provided 2026-11-10, not independently verified",
+   "url": "#",
+   "type": "internal",
+   "checked": "n/a"
+  },
+  {
+   "id": "boe-lta-26002",
+   "org": "CA State Board of Equalization (BOE)",
+   "title": "LTA 2026/002 \u2014 2026-27 California Consumer Price Index (CCPI 1976\u20132027 Table)",
+   "url": "https://boe.ca.gov/proptaxes/pdf/lta26002.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "boe-lta-25009",
+   "org": "CA State Board of Equalization (BOE)",
+   "title": "LTA 2025/009 \u2014 Prop 19 Intergenerational Exclusion Adjustment ($1,044,586 for 2/16/25\u20132/15/27)",
+   "url": "https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "boe-lta-26026",
+   "org": "CA State Board of Equalization (BOE)",
+   "title": "LTA 2026/026 \u2014 Prop 19 Intergenerational Exclusion FAQ (Q5 Multi-Unit, Q32\u201335 Legal Entities)",
+   "url": "https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "boe-pub800-6",
+   "org": "CA State Board of Equalization (BOE)",
+   "title": "Publication 800-6 \u2014 Homeowners' Property Tax Exemption ($7,000)",
+   "url": "https://www.boe.ca.gov/pdf/pub800-6.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "scc-recorder-dtt",
+   "org": "Santa Clara County Clerk-Recorder",
+   "title": "Real Estate Recording & Documentary Transfer Tax ($0.55/$500 county; Cupertino $0 city)",
+   "url": "https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "scc-dtac-secured",
+   "org": "Santa Clara County DTAC",
+   "title": "Obtain Secured Property Tax Information Portal",
+   "url": "https://dtac.santaclaracounty.gov/taxes/obtain-secured-property-tax-information",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "scc-taxratebook-2526",
+   "org": "Santa Clara County Controller-Treasurer",
+   "title": "Compilation of Tax Rates & Information FY 2025-2026",
+   "url": "https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "scc-assessor-prop19",
+   "org": "Santa Clara County Assessor",
+   "title": "Parent-Child Transfer (Proposition 19) Guidance & Calculator",
+   "url": "https://sccassessor.org/index.php/tax-savings/transferring-your-assessed-value/parent-to-child-2",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "cupertino-utilities",
+   "org": "City of Cupertino",
+   "title": "Residential Utilities Directory (Cal Water, San Jose Water, SVCE)",
+   "url": "https://www.cupertino.gov/Residents/Utilities",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "svce-solar-billing",
+   "org": "Silicon Valley Clean Energy (SVCE)",
+   "title": "Solar Billing Plan (Net Billing Tariff / Net Surplus Compensation)",
+   "url": "https://www.svcleanenergy.org/solar-billing-plan/",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "svce-nsc-2026",
+   "org": "Silicon Valley Clean Energy (SVCE)",
+   "title": "2025\u20132026 NEM & NBT Rate Update (NSC 2x to 1x PG&E reduction in 2026)",
+   "url": "https://svcleanenergy.org/wp-content/uploads/2025-1112-Presentations-Combined-3-4-5-6-scrubbed.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "cpuc-base-services",
+   "org": "California Public Utilities Commission (CPUC)",
+   "title": "Draft Res. E-5354 / D.24-05-028 PG&E Base Services Charge ($24.15/mo Tier 3)",
+   "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M555/K816/555816677.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "cpuc-sb695-2025",
+   "org": "California Public Utilities Commission (CPUC)",
+   "title": "2025 Senate Bill 695 Report (20-Year NEM 1.0/2.0 Legacy Expiration Timeline)",
+   "url": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sf-bos-447-25",
+   "org": "San Francisco Board of Supervisors",
+   "title": "Resolution No. 447-25 \u2014 FY 2025-26 Combined Property Tax Rate (1.18268325%)",
+   "url": "https://sfbos.archive.sf.gov/sites/default/files/r0447-25.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sf-transfer-tax",
+   "org": "City & County of San Francisco Assessor-Recorder",
+   "title": "Real Property Transfer Tax Tiers (Article 12-C: 0.75% <$5M, 2.25% $5M\u2013<$10M)",
+   "url": "https://www.sf.gov/transfer-tax",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sf-transfer-exempt",
+   "org": "City & County of San Francisco Assessor-Recorder",
+   "title": "Learn About Transfer Tax & Trust/Inheritance Exemptions",
+   "url": "https://www.sf.gov/information--learn-about-transfer-tax",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sf-rent-board-rates",
+   "org": "San Francisco Rent Board",
+   "title": "Current Allowable Rent Increase (1.6% for 3/1/26\u20132/28/27) & Security Deposit Interest",
+   "url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sfpuc-power-rates",
+   "org": "San Francisco Public Utilities Commission (SFPUC)",
+   "title": "CleanPowerSF 2026-27 Power Rates (-25% residential generation effective 3/1/2026)",
+   "url": "https://www.sfpuc.gov/accounts-services/water-power-sewer-rates/power-rates",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sfpuc-10yr-plan",
+   "org": "San Francisco Public Utilities Commission (SFPUC)",
+   "title": "FY 2027\u20132036 10-Year Financial Plan (Water +6.4%/yr, Wastewater +10.1%/yr projections)",
+   "url": "https://www.sfpuc.gov/sites/default/files/about-us/policies-reports/FY27-10-Year-Plan-Report.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "cdi-eqexp-2025",
+   "org": "California Department of Insurance (CDI)",
+   "title": "2025 Residential Insurance & Earthquake Summary (Homeowners $2,340/$3.38 per $1k; Dwelling Fire $1,702/$2.94 per $1k)",
+   "url": "https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "cdi-statefarm-2026",
+   "org": "California Department of Insurance (CDI)",
+   "title": "State Farm Emergency Rate Settlement (March 6, 2026: +17% Homeowners / +32.8% Rental Dwelling)",
+   "url": "https://www.insurance.ca.gov/0400-news/0100-press-releases/2026/release012-2026.cfm",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "irs-rp-25-32",
+   "org": "Internal Revenue Service",
+   "title": "Rev. Proc. 2025-32 \u2014 2026 Inflation Adjustments (OBBBA $15.0M Estate Exclusion & LTCG Thresholds)",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "irs-rp-26-25",
+   "org": "Internal Revenue Service",
+   "title": "Rev. Proc. 2026-25 \u2014 2026 Annual Gift Tax Exclusion ($19,000)",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-26-25.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-rp-26-35",
+   "org": "Internal Revenue Service",
+   "title": "Rev. Proc. 2026-35 \u2014 2027 Inflation Adjustments ($15.48M Estate Exclusion, $20k Gift Exclusion, Trust Brackets)",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "irs-i706-html",
+   "org": "Internal Revenue Service",
+   "title": "Instructions for Form 706 (Rev. 07/2026)",
+   "url": "https://www.irs.gov/instructions/i706",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-i706-pdf",
+   "org": "Internal Revenue Service",
+   "title": "Instructions for Form 706 PDF (Table A 40% Estate Rate & DSUE Portability)",
+   "url": "https://www.irs.gov/pub/irs-pdf/i706.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "irs-p505",
+   "org": "Internal Revenue Service",
+   "title": "Publication 505 (2026) \u2014 Net Investment Income Tax (3.8% NIIT)",
+   "url": "https://www.irs.gov/publications/p505",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-p523",
+   "org": "Internal Revenue Service",
+   "title": "Publication 523 \u2014 Selling Your Home (IRC \u00a7121 & \u00a71014 Step-Up / Community Property)",
+   "url": "https://www.irs.gov/publications/p523",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "irs-tc701",
+   "org": "Internal Revenue Service",
+   "title": "Tax Topic No. 701 \u2014 Sale of Your Home ($250k/$500k Exclusion)",
+   "url": "https://www.irs.gov/taxtopics/tc701",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "ftb-sched-d",
+   "org": "California Franchise Tax Board",
+   "title": "2024 Schedule D (540) Instructions \u2014 California Basis Step-Up Conformity",
+   "url": "https://www.ftb.ca.gov/forms/2024/2024-540-d-instructions.html",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "ftb-2026-schedules",
+   "org": "California Franchise Tax Board",
+   "title": "2026 California Tax Rate Schedules (1%\u201312.3% + 1% MHSA)",
+   "url": "https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "ca-sco-history",
+   "org": "California State Controller's Office",
+   "title": "Appendix I \u2014 Major Tax Changes in California (1982 Inheritance Tax Repeal)",
+   "url": "https://sco.ca.gov/Files-EO/Appendices_cea.pdf",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "congress-hr1",
+   "org": "U.S. Congress (Congress.gov)",
+   "title": "P.L. 119-21 (H.R. 1 / OBBBA, July 4, 2025) \u2014 $15M Indexed Estate/Gift Exclusion",
+   "url": "https://www.congress.gov/bill/119th-congress/house-bill/1/all-info",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "congress-hr2038",
+   "org": "U.S. Congress (Congress.gov)",
+   "title": "H.R. 2038 (119th Congress) \u2014 Proposed Estate Tax Reform & Grantor Trust Step-Up Limits",
+   "url": "https://www.congress.gov/bill/119th-congress/house-bill/2038/text",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "sos-failed-qualify",
+   "org": "California Secretary of State",
+   "title": "Initiatives and Referenda Withdrawn or Failed to Qualify (2026 Cycle)",
+   "url": "https://www.sos.ca.gov/elections/ballot-measures/initiative-and-referendum-status/failed-qualify",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "cbo-longterm",
+   "org": "Congressional Budget Office (CBO)",
+   "title": "The Long-Term Budget Outlook: 2025 to 2055 (2.3% CPI-U Long-Run Projection)",
+   "url": "https://www.cbo.gov/publication/61270",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "fhfa-hpi-2026q2",
+   "org": "Federal Housing Finance Agency (FHFA)",
+   "title": "FHFA House Price Index Quarterly Report 2026Q2 & June 2026",
+   "url": "https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2026q2",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "bls-sf-cpi",
+   "org": "U.S. Bureau of Labor Statistics (BLS)",
+   "title": "Consumer Price Index, San Francisco Area \u2014 August 2026",
+   "url": "https://www.bls.gov/regions/west/news-release/consumerpriceindex_sanfrancisco.htm",
+   "type": "official",
+   "checked": "search"
+  },
+  {
+   "id": "treasury-yield-2026",
+   "org": "U.S. Department of the Treasury",
+   "title": "Daily Treasury Par Yield Curve Rates (October 2026: 10-Yr 4.94%)",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202610",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sec-investor-10pct",
+   "org": "U.S. Securities and Exchange Commission (SEC)",
+   "title": "Saving and Investing \u2014 Historical ~10% Nominal Equity Return Benchmark",
+   "url": "https://www.sec.gov/investor/pubs/savings-investing-for-students.pdf",
+   "type": "official",
+   "checked": "search"
+  }
+ ]
+}

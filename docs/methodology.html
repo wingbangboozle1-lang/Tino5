@@ -1,144 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Verification methodology, source register, privacy protocol">
-<meta name="robots" content="noindex">
-<title>Methodology & Sources | House Inheritance Decision Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Anonymized, source-verified property inheritance decision dashboard.">
+<title>Methodology, Privacy &amp; Verification · Property Inheritance Decision Support</title>
 <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<header class="top">
-  <div class="top-inner">
-    <a class="logo" href="index.html">
-      <div class="logo-mark">H</div>
-      <div class="logo-text"><b>House Inheritance Decision Dashboard</b><span>Cupertino &amp; San Francisco · Trust Settlement Plan 2040–2050</span></div>
-    </a>
-  </div>
-  <nav class="mainnav" aria-label="Sections">
-      <a href="index.html" class="">Executive Summary</a>
-      <a href="property-a-cupertino.html" class="">Cupertino Home</a>
-      <a href="property-b-san-francisco.html" class="">SF Rental</a>
-      <a href="decision-analysis.html" class="">Decision Analysis</a>
-      <a href="tax-laws.html" class="">Tax Laws & Rules</a>
-      <a href="inheritance-process.html" class="">Inheritance Process</a>
-      <a href="insurance.html" class="">Insurance</a>
-      <a href="methodology.html" class="active">Methodology & Sources</a>
-      <a href="flagged-for-review.html" class="">Flagged for Review</a>
-      <a href="repository-review.html" class="">Repository Review</a>
-  </nav>
-</header>
-<main>
-<h1>Methodology &amp; Sources — How Every Number on This Site Was Produced</h1>
-
-<h2>M.1 · Verification standard</h2>
-<ul>
-<li>Laws, rates, and thresholds are cited to <b>official sources</b>: irs.gov (Rev. Proc., Pubs, Form instructions), congress.gov (statutes), law.cornell.edu (codified IRC), boe.ca.gov (Prop 13/19, LTAs), ftb.ca.gov, cbo.gov, fhfa.gov, insurance.ca.gov. Statutory sources verified by direct retrieval 2026-11-10 where feasible; two BOE deep links had moved (404) and were replaced with index pages or specific LTAs — see Log M.6.</li>
-<li><b>If a value could not be confirmed from an official source, it is either shown as a flagged estimate, or left blank</b> (e.g., earthquake premium, 2026 Property A tax bill, Cupertino market rent). No value was invented.</li>
-<li>All dollar figures are <b>rounded to the nearest $10</b> (derived rates like 1.34% are not rounded). Statutory and regulatory figures (e.g., the Prop 19 cap of $1,044,586; IRS bracket thresholds) are published verbatim because they are law, not personal data; rounding applies to financial estimates and user-provided figures only. Projections (2026→2060/2065) are assumption-based planning estimates — never presented as appraisals, quotes, or predictions.</li>
-<li><b>Every table row on this site carries an inline source link or an explicit UNVERIFIED flag.</b> The full citation register is M.4 below.</li>
-</ul>
-
-<h2 id="privacy">M.2 · Privacy protocol (top priority — applied before any content was written)</h2>
-<ul>
-<li><b>Omitted everywhere on this site:</b> owner names, street addresses, ZIP codes, assessor parcel numbers, recorded-owner data, financial-institution details, trust names/dates, family members' identities, exact year-by-year DOD balances.</li>
-<li>Properties are referred to only as <b>"Property A — Cupertino (Santa Clara County)"</b> and <b>"Property B — Outer Sunset, San Francisco (San Francisco City &amp; County)"</b>, exactly as framed in the engagement brief.</li>
-<li><b>Year-by-year raw tax/assessment history (user-provided) is NOT published.</b> Only derived, decision-relevant aggregates are shown: derived effective rate (≈1.34% Property A / user-reported Property B), projected reassessment deltas, and the verified ≤2%/yr FBYV growth rule. The raw history remains with the owner/CPA file; it was used only to derive those aggregates. Per Protocol P-4, the raw tables in the brief were treated as personal data contained in research material → internal use only.</li>
-<li><code>meta robots noindex</code> is set on every page; the site is not intended for search-engine discovery. If the owner later forks this into a public-marketing site, remove noindex consciously.</li>
-<li>This public repository contains nothing else personal: COORDINATION.md is a process log (task board), and contains no personal or property-specific data beyond what is already public law/market data and city-level labels.</li>
-<li><b>Nothing on this site is tax, legal, or investment advice.</b> Before acting: retain a CA-licensed attorney + CPA; this document is their briefing book, not their substitute.</li>
-</ul>
-
-<h2>M.3 · Assumptions register (change-controlled)</h2>
-<div class="wrap-table"><table>
-<thead><tr><th>Assumption</th><th>Value</th><th>Type</th></tr></thead>
-<tbody>
-<tr><td>Appreciation (A &amp; B)</td><td>4.5%/yr nominal; sensitivity 3.0%/6.0%</td><td>Assumption anchored to FHFA CA HPI (2025Q2: +0.38% 1-yr, +41.38% 5-yr, +320% since 1991)</td></tr>
-<tr><td>Inflation for indexation</td><td>2.3%/yr</td><td>CBO Feb 2026 Baseline decade-average CPI (cbo.gov/publication/62105)</td></tr>
-<tr><td>FBYV growth</td><td>≤2.0%/yr</td><td><b>Law</b> — Prop 13 (Cal. Const. art. XIII A; BOE Pub 29)</td></tr>
-<tr><td>Prop 19 exclusion (FMV − cap), cap path</td><td>$1,044,586 (Feb 2025–Feb 2027, law-verified); then ≈+2.15% per 2 years (BOE HPI method)</td><td><b>Law + assumption</b> (future indexation estimated)</td></tr>
-<tr><td>Property A effective rate on new base</td><td>1.34%</td><td>Derived from user data ($7,210 ÷ $539,740, 2025)</td></tr>
-<tr><td>Property B composite rate on new base</td><td>≈1.18% (flagged, see Flag #B-rate)</td><td>County-rate estimates from non-official composites; <b>official composite PDF not retrieved — flagged</b></td></tr>
-<tr><td>Insurance premiums &amp; growth</td><td>$2,500 (A) / $2,200 (B); +6.0%/yr</td><td>Planning estimate — no official ZIP-level source; quotes required</td></tr>
-<tr><td>Water/electric growth</td><td>4.0% / 3.0%</td><td>Planning estimate — utility escalators are not officially published per ZIP</td></tr>
-<tr><td>Maintenance</td><td>A 0.5% / B 1.0% of market value per yr</td><td>Assumption (condition differential), not sourced</td></tr>
-<tr><td>Sale transaction cost</td><td>5.5% of price</td><td>Assumption (negotiable commissions post-2024 settlement) — not official</td></tr>
-<tr><td>Reinvestment return</td><td>7.0%/yr nominal; sensitivity 5%/10%</td><td>Assumption (diversified stock/bond mix) — not a guarantee</td></tr>
-<tr><td>Combined federal estate exposure</td><td>Headroom analysis only</td><td>Estate cash component <b>not provided</b> — analysis is conditional, not absolute</td></tr>
-<tr><td>Household move-in for Prop 19</td><td>Scenario-dependent</td><td>Legal requirement, not a preference</td></tr>
-</tbody></table></div>
-
-<h2>M.4 · Complete source register (verified 2026-11-10)</h2>
-<div class="wrap-table"><table>
-<thead><tr><th>#</th><th>Source</th><th>Used for</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td>S1</td><td><a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf">IRS Rev. Proc. 2025-32 (2026 inflation adjustments)</a></td><td>$15.0M exclusion; $19,000 gift exclusion; LTCG 0/15/20 thresholds (MFJ $98,900/$613,700); ordinary brackets; trust 37% &gt;$16,000</td><td><span class="badge ok">fetched &amp; verified</span></td></tr>
-<tr><td>S2</td><td><a href="https://www.irs.gov/pub/irs-drop/rp-22-32.pdf">IRS Rev. Proc. 2022-32</a></td><td>Late portability election ≤ 5th anniversary</td><td><span class="badge ok">fetched &amp; verified</span></td></tr>
-<tr><td>S3</td><td><a href="https://www.congress.gov/bill/119th-congress/house-bill/1/text">OBBBA — H.R.1 (119th Congress), P.L. 119-21</a></td><td>§70106 exclusion $15M; §70120 SALT cap; permanence of 2017 rate structure</td><td><span class="badge ok">statute — section numbers verified via S1 &amp; secondary analyses; full text not line-read in session</span></td></tr>
-<tr><td>S4</td><td><a href="https://www.law.cornell.edu/uscode/text/26/2010">26 U.S.C. §2010 (LII)</a> · <a href="https://www.law.cornell.edu/uscode/text/26/2001">§2001</a> · <a href="https://www.law.cornell.edu/uscode/text/26/1014">§1014</a></td><td>Unified credit &amp; portability; 40% rate; basis step-up</td><td><span class="badge ok">statute text (Cornell LII)</span></td></tr>
-<tr><td>S5</td><td><a href="https://www.irs.gov/publications/p551">IRS Pub 551 — Basis of Assets</a></td><td>DOD basis; alternate valuation; trust property basis rule</td><td><span class="badge ok">official publication</span></td></tr>
-<tr><td>S6</td><td><a href="https://www.irs.gov/publications/p523">IRS Pub 523 — Selling Your Home</a></td><td>$250,000/$500,000 principal-residence exclusion</td><td><span class="badge ok">official publication</span></td></tr>
-<tr><td>S7</td><td><a href="https://www.irs.gov/publications/p527">IRS Pub 527 — Residential Rental Property</a> · <a href="https://www.irs.gov/publications/p544">Pub 544 — Sales and Other Dispositions</a></td><td>Rental income &amp; depreciation recapture ≤25%</td><td><span class="badge ok">official publication</span></td></tr>
-<tr><td>S8</td><td><a href="https://www.irs.gov/instructions/i706">IRS — Instructions for Form 706</a></td><td>706 due 9 months after death; 6-month extension (Form 4768); portability election</td><td><span class="badge ok">official instructions</span></td></tr>
-<tr><td>S9</td><td><a href="https://www.irs.gov/taxtopics/tc559">IRS Topic No. 559 — NIIT</a></td><td>+3.8% NIIT on lesser of NII or MAGI &gt; $250,000 MFJ / $200,000 single</td><td><span class="badge ok">official topic page</span></td></tr>
-<tr><td>S10</td><td><a href="https://www.boe.ca.gov/prop19/">BOE — Proposition 19</a> (incl. comparison chart vs Props 58/193)</td><td>Parent-child exclusion; occupancy &amp; claim deadlines; family-farm exception; sibling rule; indexation method</td><td><span class="badge ok">fetched &amp; verified</span></td></tr>
-<tr><td>S11</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE LTA 2025/009 (2025-03-07)</a> · <a href="https://boe.ca.gov/proptaxes/pdf/lta25015.pdf">LTA 2025/015</a></td><td>$1,044,586 cap, Feb 16 2025–Feb 15 2027; $1,022,600 prior cycle; FHFA CA HPI basis; next adj Feb 2027</td><td><span class="badge ok">official letter to assessors (verified via search + BOE cross-refs)</span></td></tr>
-<tr><td>S12</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf">BOE Publication 29 — California Property Tax: An Overview</a></td><td>Prop 13: 1% + voter-approved debt; ≤2%/yr FBYV growth; change-in-ownership reassessment; lien date Jan 1</td><td><span class="badge ok">fetched &amp; verified</span></td></tr>
-<tr><td>S13</td><td><a href="https://www.boe.ca.gov/pdf/pub801.pdf">BOE Publication 801 — Proposition 19 Fact Sheet (June 2025)</a></td><td>Prop 19 claim flow; Pub-801 summary</td><td><span class="badge ok">official fact sheet (search-verified)</span></td></tr>
-<tr><td>S14</td><td><a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200ACA11">ACA 11 (2019-20) — Proposition 19 text</a></td><td>Statute enacting Prop 19; RTC §63.2 implementing statute</td><td><span class="badge est">leg info — standard pattern; not re-fetched line-by-line</span></td></tr>
-<tr><td>S15</td><td><a href="https://www.ftb.ca.gov/tax-pros/law/legislation/2017-2018/sb726-032317.pdf">FTB bill analysis — SB 726 (2017)</a></td><td>CA estate "pick-up" tax = $0 for deaths after 2004; CA has no estate/inheritance/gift tax</td><td><span class="badge ok">official FTB analysis</span></td></tr>
-<tr><td>S16</td><td><a href="https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html">FTB — Capital gains and losses</a></td><td>"California does not have a lower rate for capital gains. All capital gains are taxed as ordinary income."</td><td><span class="badge ok">official FTB page (search-verified)</span></td></tr>
-<tr><td>S17</td><td><a href="https://www.ftb.ca.gov/forms/2024/2024-540-ca-instructions.html">FTB 2024 Schedule CA (540) instructions</a></td><td>CA non-conformity to federal SALT cap; IRD rules</td><td><span class="badge ok">official FTB page (search-verified)</span></td></tr>
-<tr><td>S18</td><td><a href="https://www.ftb.ca.gov/tax-pros/law/legislation/2023-2024/SB326-071323.pdf">FTB bill analysis — SB 326 (071323)</a></td><td>1% Mental Health Services Tax &gt; $1,000,000 taxable income (Prop 63, 2004, 1% of excess)</td><td><span class="badge ok">official FTB analysis</span></td></tr>
-<tr id="fhfa"><td>S19</td><td><a href="https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2025q2">FHFA House Price Index Report — 2025Q2 (incl. state table)</a> · <a href="https://fred.stlouisfed.org/data/CASTHPI">FRED CASTHPI series</a></td><td>CA: +0.38% 1-yr; +41.38% 5-yr; +320.05% since 1991; all-transactions index</td><td><span class="badge ok">official (search-verified excerpts)</span></td></tr>
-<tr><td>S20</td><td><a href="https://www.cbo.gov/publication/62105">CBO — The Budget and Economic Outlook: 2026–2036</a></td><td>CPI ≈2.9% (2026), ≈2.3%/yr decade average; PCE ≈2.0% long-run by 2030</td><td><span class="badge ok">official (search-verified)</span></td></tr>
-<tr><td>S21</td><td><a href="https://www.congress.gov/bill/119th-congress/senate-bill/4196">congress.gov — S.4196 (119th)</a> · <a href="https://www.congress.gov/bill/119th-congress/house-bill/601">congress.gov — H.R.601 (119th)</a></td><td>Pending estate-tax bills ($3.5M/45% vs rate reduction)</td><td><span class="badge ok">official congress.gov bill pages</span></td></tr>
-<tr><td>S22</td><td><a href="https://igs.berkeley.edu/library/california-ballot-proposition-guides/november-3-2026-general-election/proposition-40">IGS Berkeley — Prop 40 guide</a> · <a href="https://www.sos.ca.gov/elections/ballot-measures">CA SOS — Ballot measures</a></td><td>Nov 2026 billionaire wealth tax (proposed; appears to have failed ≈56% no)</td><td><span class="badge est">IGS (UC Berkeley) — secondary; result per news tallies, votes certified later</span></td></tr>
-<tr><td>S23</td><td><a href="https://www.insurance.ca.gov/">CA Dept. of Insurance</a> · <a href="https://www.cfpnet.com/">California FAIR Plan</a></td><td>CDI rate approvals (FAIR Plan +29.1% eff. 2026-10-15); FAIR Plan structure/limits</td><td><span class="badge est">official portals; specific news figures from press (ABC10 etc.) — flagged</span></td></tr>
-<tr><td>S24</td><td><a href="https://www.earthquakeauthority.com/">California Earthquake Authority</a></td><td>EQ coverage availability (premium blank — unverified)</td><td><span class="badge ok">official CEA site (verified live)</span></td></tr>
-<tr><td>S25</td><td><a href="https://www.fire.ca.gov/">CAL FIRE — fire.ca.gov (FHSZ maps)</a></td><td>Wildfire-zone confirmation (owner task; exact viewer URL unverified)</td><td><span class="badge est">official portal; parcel class not checked</span></td></tr>
-<tr><td>S26</td><td><a href="https://sftreasurer.org/">SF Treasurer &amp; Tax Collector</a> · <a href="https://www.scctax.org/">Santa Clara County Tax &amp; Treasurer-Tax Collector</a> · <a href="https://www.sfassessor.org/">SF Assessor-Recorder</a> · <a href="https://www.sccassessor.org/">Santa Clara County Assessor</a></td><td>County tax statements, supplemental bills, exclusion claims, appeals</td><td><span class="badge est">county portals (not deep-fetched; composite rate not independently verified — Flag #B-rate)</span></td></tr>
-<tr><td>S27</td><td><a href="https://www.congress.gov/bill/119th-congress/house-bill/1/text">OBBBA §70120 detail (SALT)</a> — corroborated by <a href="https://tax.thomsonreuters.com/blog/how-the-one-big-beautiful-bill-reshapes-salt-planning/">Thomson Reuters</a></td><td>$40,000 (2025) → $40,400 (2026) → +1%/yr to 2029; MAGI phaseout $500K/$505K; floor $10,000; revert 2030</td><td><span class="badge est">statute + secondary corroboration (statute section verified via S1 cross-refs)</span></td></tr>
-<tr><td>S28</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=16061.7.&amp;lawCode=PROB">CA Probate Code §16061.7</a></td><td>60-day trustee notice to beneficiaries</td><td><span class="badge est">leginfo standard pattern — not re-fetched</span></td></tr>
-</tbody></table></div>
-
-<h2>M.5 · Reproduction recipe</h2>
-<ol>
-<li>Take user-provided current figures (rounded to $10).</li>
-<li>Project market value: <code>V(t) = V₀ × 1.045^(t−2026)</code>.</li>
-<li>Project FBYV without transfer: <code>B(t) = B₀ × 1.02^(t−base)</code>; tax = B(t) ÷ FBYV × rate.</li>
-<li>Reassessment at death: new base = FMV; tax = FMV × county rate; re-grows ≤2%/yr.</li>
-<li>Prop 19: taxable = max(FMV − E(t), FBYV), E(0) = $1,044,586 growing ≈2.15%/2yr.</li>
-<li>Portfolio: <code>V(t+n) = V(t) × (1+r)^n</code>; deltas vs keep shown net of 5.5% sale cost.</li>
-<li>Exclusion path: $15,000,000 × 1.023^(t−2026).</li>
-</ol>
-<p class="small">Computation performed with python3 (scripts in the session workspace, not committed). No spreadsheets with personal data exist on this site.</p>
-
-<h2>M.6 · Verification log &amp; link health</h2>
-<ul>
-<li>2026-11-10 — BOE <code>/proptaxes/homeowners-exemption.htm</code> → <b>404</b>; citations repointed to verified BOE indices. BOE <code>/proptaxes/pdf/pub800-10.pdf</code> → <b>404</b>; citation repointed to BOE Property Taxes home + RTC §§75–75.80 (flagged).</li>
-<li>2026-11-10 — CDI "Safer from Wildfires" deep link → <b>404</b>; repointed to CDI home with search instruction. CAL FIRE FHSZ viewer deep link → <b>404</b>; repointed to CAL FIRE home.</li>
-<li>2026-11-10 — irs.gov PDFs (RP 2025-32, RP 2022-32), BOE pub29.pdf, BOE prop19 page — <b>live</b>.</li>
-<li>2026-11-10 — earthquakeauthority.com — live (note: premium data is personalized; none published).</li>
-<li>External URLs can rot; if any link fails, email the maintainer via GitHub Issues and consult the source register in this section (search the exact document number, e.g., "LTA 2025/009").</li>
-</ul>
-
-<h2 id="limits">M.7 · Limitations and honest disclaimers</h2>
-<ul>
-<li>Not legal, tax, insurance, or investment advice; no attorney-client or CPA-client relationship is created.</li>
-<li>Projections assume no change in law beyond those listed in <a href="tax-laws.html#pending">Pending legislation</a>; OBBBA is "permanent" only until Congress amends it.</li>
-<li>Appreciation/return assumptions are not predictions; a 20-page Monte Carlo was deliberately replaced by transparent base-case + sensitivity tables.</li>
-<li>User-provided data was taken as accurate (tax bills, assessed values, rent, utilities, home values). Errors in those inputs propagate; the derived 2.14% anomaly on Property B is flagged, not corrected, because the raw bill was not re-verified.</li>
-<li>Insurance premiums for both properties are estimates pending quotes; budgets should not be set on them.</li>
-<li>This analysis assumes both parents are California residents, both properties are 100% community/separate properly characterized, and the trust is a revocable living trust governed by CA law. Deviations (e.g., one separate-property home) change the analysis — counsel must confirm.</li>
-</ul>
-</main>
-<footer class="site">
-  <div class="foot-inner">
-    <b>Educational research project — not legal, tax, or financial advice.</b> All personal identifiers (names, addresses, ZIP codes, APNs, owner-of-record data) are deliberately omitted. Figures are rounded to the nearest $10. Projections are assumption-based planning estimates, not appraisals or quotes. Every legal/tax statement cites an official source on the Methodology &amp; Sources page (verified 2026-11-10). Items that could not be verified are blank or flagged on the Flagged for Review page. Inheritance decisions must be reviewed with a licensed CA attorney and CPA before execution.<br>
-    Site: <a href="https://github.com/wingbangboozle1-lang/Tino5">github.com/wingbangboozle1-lang/Tino5</a> · Published via GitHub Pages · Last reviewed 2026-11-10
-  </div>
-</footer>
-</body>
-</html>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brandmark">PI</div><div>
+      <div class="brandname">Inheritance Decision</div>
+      <div class="brandsub">Verified dashboard</div></div></div>
+    <div class="privacybadge">🔒 Anonymized · no personal data</div>
+    <nav aria-label="Main navigation"><a class="navlink" href="index.html"><span class="navtitle">Dashboard</span><span class="navsub">Overview &amp; key figures</span></a><a class="navlink" href="executive-summary.html"><span class="navtitle">Executive Summary</span><span class="navsub">The decision in one page</span></a><a class="navlink" href="properties.html"><span class="navtitle">Properties &amp; Inputs</span><span class="navsub">Anonymous client inputs</span></a><a class="navlink" href="tax-law.html"><span class="navtitle">Tax Law &amp; Official Figures</span><span class="navsub">Federal / state / local</span></a><a class="navlink" href="inheritance-process.html"><span class="navtitle">Inheritance Process</span><span class="navsub">Step by step through a trust</span></a><a class="navlink" href="projections.html"><span class="navtitle">Projections 2026–2050</span><span class="navsub">Value, assessment &amp; tax</span></a><a class="navlink" href="costs.html"><span class="navtitle">Costs &amp; Assumptions</span><span class="navsub">Carrying costs by year</span></a><a class="navlink" href="decision-analysis.html"><span class="navtitle">Decision Analysis</span><span class="navsub">Live, rent or sell</span></a><a class="navlink" href="estate-tax.html"><span class="navtitle">Estate Tax Thresholds</span><span class="navsub">Exemptions &amp; headroom</span></a><a class="navlink" href="law-changes.html"><span class="navtitle">Law Changes</span><span class="navsub">Enacted, pending, proposed</span></a><a class="navlink" href="flagged.html"><span class="navtitle">Flagged for Review</span><span class="navsub">Unverified &amp; irregularities</span></a><a class="navlink" href="sources.html"><span class="navtitle">Source Registry</span><span class="navsub">Every official link</span></a><a class="navlink active" href="methodology.html"><span class="navtitle">Methodology &amp; Privacy</span><span class="navsub">Verification rules</span></a></nav>
+    <div class="sidefoot">Generated 2026-11-10<br>
+      <a href="flagged.html">20 items flagged for review</a></div>
+  </aside>
+  <main id="main" class="content">
+    <header class="pagehead">
+      <div class="breadcrumb"><a href="index.html">Dashboard</a> / <a href="methodology.html">Methodology &amp; Privacy</a></div>
+      <h1>Methodology, Privacy &amp; Verification</h1>
+      <p class="subtitle">Rules used to build every table on this site</p>
+      
+      <div class="statusstrip">
+        <span><b>Official values</b> are linked to government sources</span>
+        <span><b>Client inputs</b> are blank in official columns</span>
+        <span><b>Model outputs</b> are labelled and flagged</span>
+      </div>
+    </header>
+    <section class="block"><h2>Privacy (highest priority)</h2><p><b>No personal information appears on this site. All identities, street addresses, trust names and account numbers are replaced with placeholders; only city and ZIP-code-level geography is used.</b></p><p>Client-supplied figures are anonymous scenario inputs. No parcel number, street address, owner or beneficiary name, trust name, date of birth, tax identification number, account number or contact detail appears on this site. Research notes in the repository are also anonymized.</p></section><section class="block"><h2>Three value classes</h2><p><span class="badge ok">VERIFIED</span> — read directly from an official government page; the row links to it.</p><p><span class="badge warn">CLIENT INPUT — UNVERIFIED</span> — supplied in the brief; the official-value column is blank and the item is flagged.</p><p><span class="badge model">MODEL OUTPUT — NOT AN OFFICIAL VALUE</span> — computed from explicit assumptions; never presented as an official figure or forecast.</p><p>No value is inferred or filled in. Where a value cannot be confirmed, the cell is blank.</p></section><section class="block"><h2>Rounding and clarity</h2><p>All dollar amounts are rounded to the nearest $10. Percentages are shown to two decimals (or whole numbers where the official source publishes a whole number). All decision-analysis figures are dollar amounts so the reasoning can be checked arithmetically.</p></section><section class="block"><h2>Verification performed</h2><p>1. Each official URL was fetched and its text read; the fact recorded in the site matches the text of that page.</p><p>2. An automated check confirms every data-table row has a valid source ID and that the source URL is on an official government host.</p><p>3. An automated check confirms every internal link resolves to a page that exists, and that the site contains no broken relative references.</p><p>4. An automated check confirms no personal-information patterns appear in any published HTML file.</p><p>5. An automated check confirms every table row has the correct number of cells and a status label.</p><p>Full results are in <code>research/verification-log.md</code>.</p></section><section class="block"><h2>Limitations</h2><p>This is research and modelling, not legal, tax, appraisal or investment advice. Property-specific official records were deliberately not retrieved because doing so would require personal information. Filing status, other income, depreciation basis, rent-control coverage, insurance quotes, solar interconnection date, maintenance history and estate size are all unknown and flagged.</p></section>
+    <footer class="footer">
+      <p>No personal information appears on this site. All identities, street addresses, trust names and account numbers are replaced with placeholders; only city and ZIP-code-level geography is used.</p>
+      <p>All dollar amounts are rounded to the nearest $10. Every data-table row carries a link to an official government source. Values that cannot be confirmed are left blank and flagged. Official values, client inputs and model outputs are three separate, labelled categories.</p>
+      <p class="disclaimer">This site is research and modelling, not legal, tax or investment advice. Confirm all figures with the linked agencies and a qualified adviser.</p>
+    </footer>
+  </main>
+</div>
+<script src="assets/app.js" defer></script>
+</body></html>

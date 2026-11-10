@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projections — Assessed Value, Property Tax &amp; Market Value to 2055</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<div style="background:#3a2c00;color:#ffe9b0;font:13px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;padding:8px 16px;text-align:center">
+ARCHIVED — earlier session's published version, retained intact for comparison.
+<a href="../index.html" style="color:#ffd166;font-weight:600">Open the current dashboard →</a>
+</div>
+
+<a class="skip" href="#main">Skip to main content</a>
+<header class="topbar">
+  <div class="brand">Inheritance Decision Dashboard<small>Cupertino 95014 · San Francisco 94122 · Trust inheritance 2040–2050</small></div>
+  <nav aria-label="Site">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="inheritance-process.html">Inheritance Process</a>
+    <a href="tax-law.html">Tax Law</a>
+    <a href="cupertino.html">Cupertino 95014</a>
+    <a href="san-francisco.html">San Francisco 94122</a>
+    <a href="decision-analysis.html">Decision Analysis</a>
+    <a href="projections.html" class="active">Projections</a>
+    <a href="costs.html">Costs &amp; Utilities</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for Review</a>
+  </nav>
+</header>
+<main class="wrap" id="main">
+  <section class="hero"><h1>Projections to 2055</h1><p>Assessed value grows at the Prop 13 cap (2%/yr). Market value is shown as three <strong>scenarios</strong> (2%/3%/4% nominal) — not forecasts. Property tax = assessed × rate. All dollars rounded to nearest $10. Formulas on <a href="methodology.html">Methodology</a>.</p></section>
+
+  <section class="section">
+    <h2>Charts (modelled)</h2>
+    <h3>Market value — 3% scenario</h3>
+    <canvas class="chart" id="chart-market" aria-label="Market value chart"></canvas>
+    <div class="legend"><span style="color:#0e7c7b">Cupertino 95014</span><span style="color:#0f2a44">San Francisco 94122</span></div>
+    <h3>Assessed value — 2%/yr (Prop 13 cap)</h3>
+    <canvas class="chart" id="chart-assessed" aria-label="Assessed value chart"></canvas>
+    <div class="legend"><span style="color:#0e7c7b">Cupertino assessed</span><span style="color:#0f2a44">SF assessed</span></div>
+    <p class="small">Charts plot the same rounded values as the tables below. Source for 2% cap: <a href="https://www.boe.ca.gov/pdf/pub801.pdf" target="_blank" rel="noopener">BOE Pub. 801</a>. Market scenarios are modelled — see Methodology.</p>
+  </section>
+
+  <section class="section">
+    <h2>Assessed value &amp; property tax — year by year (modelled, current base)</h2>
+    <p class="small">Cupertino tax at implied 1.335% (F-03). SF tax at official 1.18162182% (SF Treasurer). “Current base” means no reassessment — i.e., the bill if nothing changes. After a transfer, the base resets (see next table).</p>
+    <table>
+      <thead><tr><th>Year</th><th class="num">Cupertino assessed</th><th class="num">Cupertino tax</th><th class="num">SF assessed</th><th class="num">SF tax (official rate)</th><th>Label &amp; source</th></tr></thead>
+      <tbody>
+        <tr><td>2026</td><td class="num">$550,540</td><td class="num">$7,350</td><td class="num">$114,250</td><td class="num">$1,350</td><td><span class="pill modelled">Modelled</span> 2%/yr from user bases. Rates: F-03 / <a href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer</a></td></tr>
+        <tr><td>2030</td><td class="num">$595,920</td><td class="num">$7,960</td><td class="num">$123,670</td><td class="num">$1,460</td><td><span class="pill modelled">Modelled</span></td></tr>
+        <tr><td>2035</td><td class="num">$657,940</td><td class="num">$8,790</td><td class="num">$136,540</td><td class="num">$1,610</td><td><span class="pill modelled">Modelled</span></td></tr>
+        <tr><td>2040</td><td class="num">$726,420</td><td class="num">$9,700</td><td class="num">$150,750</td><td class="num">$1,780</td><td><span class="pill modelled">Modelled</span></td></tr>
+        <tr><td>2045</td><td class="num">$802,030</td><td class="num">$10,710</td><td class="num">$166,440</td><td class="num">$1,970</td><td><span class="pill modelled">Modelled</span></td></tr>
+        <tr><td>2050</td><td class="num">$885,500</td><td class="num">$11,820</td><td class="num">$183,760</td><td class="num">$2,170</td><td><span class="pill modelled">Modelled</span></td></tr>
+        <tr><td>2055</td><td class="num">$977,670</td><td class="num">$13,050</td><td class="num">$202,890</td><td class="num">$2,400</td><td><span class="pill modelled">Modelled</span></td></tr>
+      </tbody>
+    </table>
+    <p class="small">Full annual series 2026–2055 (same formulas) is available in the site data — every year follows assessed<sub>t</sub> = assessed<sub>2026</sub> × 1.02<sup>(t−2026)</sup>, tax = assessed × rate, rounded to $10. Intermediate years interpolate at 2%/yr (e.g., 2041 Cupertino assessed $740,950, tax $9,890; 2042 $755,770 / $10,090; 2043 $770,880 / $10,290; 2044 $786,300 / $10,500 — modelled, same source).</p>
+  </section>
+
+  <section class="section">
+    <h2>Market-value scenarios (modelled — not forecasts)</h2>
+    <table>
+      <thead><tr><th>Year</th><th class="num">Cupertino 2%</th><th class="num">Cupertino 3%</th><th class="num">Cupertino 4%</th><th class="num">SF 2%</th><th class="num">SF 3%</th><th class="num">SF 4%</th></tr></thead>
+      <tbody>
+        <tr><td>2026</td><td class="num">$3,100,000</td><td class="num">$3,100,000</td><td class="num">$3,100,000</td><td class="num">$1,800,000</td><td class="num">$1,800,000</td><td class="num">$1,800,000</td></tr>
+        <tr><td>2030</td><td class="num">$3,355,540</td><td class="num">$3,489,080</td><td class="num">$3,626,560</td><td class="num">$1,948,380</td><td class="num">$2,025,920</td><td class="num">$2,105,750</td></tr>
+        <tr><td>2035</td><td class="num">$3,704,790</td><td class="num">$4,044,800</td><td class="num">$4,412,270</td><td class="num">$2,151,170</td><td class="num">$2,348,590</td><td class="num">$2,561,960</td></tr>
+        <tr><td>2040</td><td class="num">$4,090,380</td><td class="num">$4,689,030</td><td class="num">$5,368,200</td><td class="num">$2,375,060</td><td class="num">$2,722,660</td><td class="num">$3,117,020</td></tr>
+        <tr><td>2045</td><td class="num">$4,516,110</td><td class="num">$5,435,870</td><td class="num">$6,531,230</td><td class="num">$2,622,260</td><td class="num">$3,156,310</td><td class="num">$3,792,330</td></tr>
+        <tr><td>2050</td><td class="num">$4,986,160</td><td class="num">$6,301,660</td><td class="num">$7,946,240</td><td class="num">$2,895,190</td><td class="num">$3,659,030</td><td class="num">$4,613,950</td></tr>
+        <tr><td>2055</td><td class="num">$5,505,120</td><td class="num">$7,305,350</td><td class="num">$9,667,820</td><td class="num">$3,196,520</td><td class="num">$4,241,820</td><td class="num">$5,613,570</td></tr>
+      </tbody>
+    </table>
+    <p class="small"><span class="pill modelled">Modelled</span> Market<sub>t</sub> = Market<sub>2026</sub> × (1+g)<sup>(t−2026)</sup>. Starting points are user-provided estimates (F-02). No official house-price forecast is published on this site.</p>
+  </section>
+
+  <section class="section">
+    <h2>Post-transfer tax (the jump) — transfer-year snapshots (modelled)</h2>
+    <p class="small">Assumes transfer at start of year, market at 3% scenario, cap frozen at $1,044,590 (F-04 — real cap will differ), Cupertino rate 1.335%. Shows why the transfer year matters more than the growth rate.</p>
+    <table>
+      <thead><tr><th>Transfer year</th><th class="num">Market (3%)</th><th class="num">Prop 19 base</th><th class="num">Tax with Prop 19</th><th class="num">Tax without (rent)</th><th class="num">Saving</th></tr></thead>
+      <tbody>
+        <tr><td>2026 (snapshot)</td><td class="num">$3,100,000</td><td class="num">$2,055,410</td><td class="num">$27,450</td><td class="num">$41,390</td><td class="num">$13,950</td></tr>
+        <tr><td>2040</td><td class="num">$4,689,030</td><td class="num">$3,644,440</td><td class="num">$48,660</td><td class="num">$62,610</td><td class="num">$13,950</td></tr>
+        <tr><td>2045</td><td class="num">$5,435,870</td><td class="num">$4,391,280</td><td class="num">$58,640</td><td class="num">$72,580</td><td class="num">$13,950</td></tr>
+        <tr><td>2050</td><td class="num">$6,301,660</td><td class="num">$5,257,080</td><td class="num">$70,200</td><td class="num">$84,140</td><td class="num">$13,950</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Saving is constant ($13,950) in this frozen-cap illustration because saving = cap × rate. If the cap grows with HPI, the saving grows too. After transfer, the new base grows at 2%/yr (Prop 13). See <a href="methodology.html">Methodology</a> for formulas.</p>
+  </section>
+</main>
+<footer><p><strong>Disclaimer:</strong> Modelled scenarios only — not forecasts or appraisals. Last verified 2026-11-10.</p></footer>
+</body>
+</html>

@@ -1,0 +1,203 @@
+{
+ "title": "Flagged for review",
+ "intro": "Everything on this page is either unverified, internally inconsistent, or built on an assumption that a document could replace. Nothing here blocks the analysis, but each item should be closed before a final decision is made. Items are referenced from the other pages as F-01 … F-18.",
+ "columns": [
+  "item",
+  "value",
+  "status",
+  "sources",
+  "note"
+ ],
+ "sections": [
+  {
+   "id": "data",
+   "title": "A. Data that could not be verified",
+   "rows": [
+    {
+     "item": "F-01 — Both property tax histories are owner-supplied",
+     "value": "13 + 10 annual rows",
+     "status": "unverified",
+     "sources": [
+      "nolo-note"
+     ],
+     "note": "No APN or parcel number was provided, so no row can be matched to the Santa Clara County or San Francisco roll. Resolve with one tax bill PDF per property (or an assessor print-out); that also confirms the tax rate area, the fixed direct assessments, and any exemptions."
+    },
+    {
+     "item": "F-02 — Arithmetic inconsistencies in the supplied histories",
+     "value": "10 rows",
+     "status": "unverified",
+     "sources": [
+      "nolo-note"
+     ],
+     "note": "Examples: Property A 2017 (assessment +2%, bill −0.5%), Property A 2014 (assessment +0.5%), Property B 2018 (bill +18.4%), Property B 2021 (assessment up, bill down). These suggest a column mis-alignment, a mid-year supplemental bill, or a rate change. Resolve with the source bills."
+    },
+    {
+     "item": "F-03 — Cupertino tax rate area rate unknown",
+     "value": "county average 1.193% used",
+     "status": "unverified",
+     "sources": [
+      "scc-assessor-ar"
+     ],
+     "note": "Rates vary by tax rate area. The supplied bills imply ≈1.35% including fixed assessments; the model splits 1.193% ad valorem + $770 fixed. A single bill resolves it and would shift the annual cost by roughly ±$800."
+    },
+    {
+     "item": "F-04 — 2027–2029 Prop 19 indexed amount not yet published",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [
+      "boe-prop19-q"
+     ],
+     "note": "The current $1,044,586 runs to 15 Feb 2027. BOE must publish the next figure before it applies. Left blank deliberately; the model grows it at 3%/yr (A25)."
+    },
+    {
+     "item": "F-05 — Property B assessed value in the owner's table does not reconcile",
+     "value": "$114,248 supplied vs ≈$206,410 implied by the bill",
+     "status": "unverified",
+     "sources": [
+      "sftreasurer"
+     ],
+     "note": "At the published SF rate the supplied bill implies an assessed value almost twice the supplied figure — consistent with a land-only value. The model uses the tax bill, not the assessment column. Resolve with the SF Assessor's roll entry."
+    },
+    {
+     "item": "F-06 — Home insurance is not known for either property",
+     "value": "$1,500/yr owner estimate for each",
+     "status": "unverified",
+     "sources": [
+      "cdi"
+     ],
+     "note": "The owner explicitly says they are unsure. Public data does not price a specific high-value home. Resolve with two real quotes (owner-occupied HO-3 for Property A; landlord DP-3 for Property B) plus a replacement-cost estimate. Model uses 0.30% of replacement cost (A7) — roughly $5,100 and $4,200 per year."
+    },
+    {
+     "item": "F-07 — Replacement cost and condition unknown",
+     "value": "55% structure share assumed",
+     "status": "unverified",
+     "sources": [],
+     "note": "Drives both insurance and maintenance. No inspection, no estimator output, no repair history was supplied."
+    },
+    {
+     "item": "F-08 — Deferred maintenance / capital needs unknown",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [],
+     "note": "Nothing is known about roof, sewer lateral, electrical panel, foundation, HVAC, or permit history on a house built decades ago. This is the largest unpriced risk in the 'live in it' option."
+    },
+    {
+     "item": "F-09 — Assessment appeal window and fee",
+     "value": "July 2 – September 15 (secondary)",
+     "status": "unverified",
+     "sources": [
+      "scc-assessor"
+     ],
+     "note": "The window and the filing fee come from secondary compilations of county practice; confirm on sccassessor.org before relying on it for an appeal."
+    },
+    {
+     "item": "F-10 — Transfer tax on an inheritance transfer",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [
+      "rtc-11911"
+     ],
+     "note": "The documentary transfer tax is measured by consideration. A distribution by a trustee for no consideration normally carries none, but this was not confirmed against a county or state publication. Resolve with the title company."
+    },
+    {
+     "item": "F-11 — Earthquake coverage unknown",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [
+      "cea"
+     ],
+     "note": "Standard policies exclude earth movement. Neither property is stated to carry CEA coverage. Resolve with the declarations pages."
+    },
+    {
+     "item": "F-12 — PG&E E-1 tariff values",
+     "value": "32.561¢ / 40.702¢ per kWh (secondary)",
+     "status": "unverified",
+     "sources": [
+      "pge-tariffs"
+     ],
+     "note": "Values were reported from PG&E's published schedule but the tariff PDF itself could not be retrieved from this environment. Electricity is a small line for both properties, so the effect on the analysis is immaterial."
+    },
+    {
+     "item": "F-13 — California small-estate / probate threshold",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [
+      "prob-13100"
+     ],
+     "note": "Prob. Code §13100 sets a figure that is adjusted periodically. Credible secondary sources give conflicting current values ($208,850 and $239,700), and no official page with the operative number was retrievable. No number is stated. Only matters if the trust is not funded."
+    },
+    {
+     "item": "F-14 — Whether the trust's assets are included in the grantor's estate",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [
+      "irs-p559"
+     ],
+     "note": "Determines whether the ≈$945,000 step-up benefit exists at all. Requires reading the trust instrument and confirming titling. This is the highest-value item on this page."
+    },
+    {
+     "item": "F-15 — Mortgages / liens on either property",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [],
+     "note": "Not supplied. A loan changes the sale proceeds, the assumption process, and the insurance requirement."
+    },
+    {
+     "item": "F-16 — SB 974 chaptered text",
+     "value": "effective 1 Jan 2027 (secondary)",
+     "status": "unverified",
+     "sources": [
+      "rtc-632"
+     ],
+     "note": "Reported by secondary sources only; the bill text was not retrieved from leginfo in this session. Only relevant to special-needs trusts."
+    },
+    {
+     "item": "F-17 — Split-roll / commercial reassessment status",
+     "value": "blank",
+     "status": "unverified",
+     "sources": [],
+     "note": "No active 2026 statewide measure was verified. Nothing is asserted; re-check each election cycle."
+    },
+    {
+     "item": "F-18 — Amount of cash and securities to be inherited",
+     "value": "",
+     "status": "unverified",
+     "sources": [],
+     "note": "Described by the owner as 'a considerable amount' but never quantified. It matters in two ways: it determines whether the federal estate tax is ever reached, and it changes the opportunity cost of holding the house versus a diversified portfolio. Left blank. Resolve with a current statement of the trust's holdings (internal use only — do not publish)."
+    }
+   ]
+  },
+  {
+   "id": "model-flags",
+   "title": "B. Modelling assumptions that materially move the answer",
+   "intro": "These are not errors — they are choices, all listed on the Methodology page with their sensitivity. The three that matter most:",
+   "rows": [
+    {
+     "item": "A1 — house appreciation 4.0%/yr",
+     "value": "break-even vs. selling is ≈5.0%/yr",
+     "status": "assumption",
+     "sources": [
+      "fhfa-hpi"
+     ],
+     "note": "If Cupertino appreciates faster than ≈5.0%/yr, holding and renting overtakes selling and reinvesting. This single number decides the recommendation."
+    },
+    {
+     "item": "A15 — investment return 6.0% nominal (5.0% after tax drag)",
+     "value": "tested 5%–7%",
+     "status": "assumption",
+     "sources": [],
+     "note": "No official source forecasts equity returns. A lower return favours holding the house."
+    },
+    {
+     "item": "A7 — insurance at 0.30% of replacement cost",
+     "value": "tested at the owner's $1,500 and at 2×",
+     "status": "assumption",
+     "sources": [
+      "cdi"
+     ],
+     "note": "A $3,600/yr error on a $3.1M asset does not change the ranking of the three options."
+    }
+   ]
+  }
+ ]
+}

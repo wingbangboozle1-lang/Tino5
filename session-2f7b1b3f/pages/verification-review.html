@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verification Audit &amp; Flagged for Review — Estate Decision Dashboard</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div class="privacy-strip">
+    <strong>Privacy Protected:</strong> All personal identities, trust names, street addresses, and parcel numbers are strictly anonymized using placeholders. Research data is verified from official government and utility sources as of November 10, 2026.
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <div class="brand-mark">EP</div>
+        <div>
+          <div class="brand-title">Estate &amp; Property Decision Dashboard</div>
+          <div class="brand-sub">Cupertino (95014) &amp; San Francisco Outer Sunset (94122) &middot; Horizon 2040–2050</div>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="../index.html">Executive Summary</a>
+        <a class="nav-link" href="decision-analysis.html">Live vs. Rent vs. Sell</a>
+        <a class="nav-link" href="projections.html">2026–2050 Projections</a>
+        <a class="nav-link" href="tax-laws.html">Tax &amp; Property Laws</a>
+        <a class="nav-link" href="estate-thresholds.html">Inheritance Thresholds</a>
+        <a class="nav-link" href="inheritance-process.html">Step-by-Step Process</a>
+        <a class="nav-link nav-flag active" href="verification-review.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <div class="page-eyebrow">Line-by-Line Verification &amp; Audit Log &middot; Non-Hallucination Standard</div>
+      <h1>Flagged for Review &amp; Historical Property Tax Verification</h1>
+      <p class="lead">
+        Per verification policy, any figure that cannot be confirmed from an official public source without private parcel, underwriting, or trust documents is <strong>left blank</strong> in official columns and flagged below for manual review with direct links to official lookup portals.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Flagged for Review — Unverified or Missing Values (Left Blank in Official Tables)</h2>
+        <span class="badge badge-flagged">8 Items Requiring Private Record / Underwriting Check</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Item / Parameter</th>
+              <th>Confirmed Official Benchmark (If Any)</th>
+              <th>Unverified Value (Left Blank)</th>
+              <th>Irregularity / Why Manual Verification Is Needed</th>
+              <th>Official Verification Portal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-warn">
+              <td><strong>F1</strong></td>
+              <td><strong>2026 Cupertino Property Tax Bill</strong></td>
+              <td>2026 Assessed Value confirmed <code>$550,537</code> (+2% BOE 1.02 factor on $539,743).</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>User input listed <code>--</code> for 2026 property tax. Must check FY 2026–27 bill (mailed Oct/Nov 2026) for exact bond/parcel tax charges.</td>
+              <td><a class="source-link" href="https://payments.sccgov.org/propertytaxallocation" target="_blank" rel="noopener">SCC Tax Collector Lookup</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F2</strong></td>
+              <td><strong>2026 San Francisco Tax Assessment &amp; Property Tax Bill</strong></td>
+              <td>FY 2026–27 secured rate verified at <strong>1.18162182%</strong>; BOE 1.02 factor yields $116,530 est. AV.</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>User SF table ended at 2025 ($114,248 AV / $2,439 tax). Actual FY 2026–27 SF roll &amp; direct charges must be pulled from SF Treasurer bill.</td>
+              <td><a class="source-link" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer Portal</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F3</strong></td>
+              <td><strong>Cupertino &amp; SF Property-Specific Insurance Quotes</strong></td>
+              <td>CDI/NAIC CA avg homeowner premium: <strong>$1,570</strong> ($1,571 exact). 95014/94122 are &gt;99.5% voluntary market (low FAIR Plan use).</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>User guessed ~$1,500/yr for both houses, which equals the statewide average on lower Coverage A values—NOT a $3.1M Cupertino rebuild policy or a 3-unit SF landlord habitational policy. Flagged for carrier underwriting quotes.</td>
+              <td><a class="source-link" href="https://interactive.web.insurance.ca.gov/apex_extprd/f?p=111%3A20" target="_blank" rel="noopener">CDI 2026 Premium Tool</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F4</strong></td>
+              <td><strong>Cupertino 95014 Market Rent (If Rented)</strong></td>
+              <td>HUD FY 2027 Santa Clara 40th-pct 4-BR FMR floor: <strong>$4,688/mo</strong> (FY26: $5,010/mo).</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>No rental figure provided for Cupertino; HUD county FMR understates premium 95014 $3.1M SFH rents. Modeled 1.8%–4.0% sensitivity; verify via local CMA.</td>
+              <td><a class="source-link" href="https://www.huduser.gov/portal/datasets/fmr.html" target="_blank" rel="noopener">HUD FMR Datasets</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F5</strong></td>
+              <td><strong>SF 3-Unit Certificate-of-Occupancy Date &amp; Unit 3 Rent</strong></td>
+              <td>SF Rent Board 2026–27 cap: <strong>1.6%</strong> on pre-June 13, 1979 buildings; just-cause applies to all units.</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>Build year determines whether Units 1 &amp; 2 remain under strict SF rent control (pre-1979) or exempt (post-1979 under Costa-Hawkins). Unit 3 market rent also unverified.</td>
+              <td><a class="source-link" href="https://www.sf.gov/departments--rent-board" target="_blank" rel="noopener">SF Rent Board</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F6</strong></td>
+              <td><strong>Trust Legal Terms &amp; Total Liquid Estate Assets</strong></td>
+              <td>Revocable trusts get &sect; 1014 step-up; irrevocable non-estate trusts do NOT (Rev. Rul. 2023-2). 2026 Fed cap: <strong>$15M / $30M</strong>.</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>Must inspect <strong>[Family Trust Name Placeholder]</strong> trust instrument, community property status, and total liquid balance to confirm exact &sect; 1014 step-up and estate tax proximity.</td>
+              <td><a class="source-link" href="https://www.irs.gov/pub/irs-drop/rr-23-02.pdf" target="_blank" rel="noopener">IRS Rev. Rul. 2023-2</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F7</strong></td>
+              <td><strong>Exact Cupertino TRA &amp; SF Direct-Charge Breakdown</strong></td>
+              <td>SCC FY25-26 Tax Book shows ~1.16% ad valorem + FUHSD $98 + Clean Water ~$56.42; SF 2018 (+18.4%) &amp; 2021 (-5.9%) swings noted.</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>Exact APN / Tax Rate Area withheld for privacy. Historical SF tax spikes (+18.4% in 2018, -5.9% in 2021) reflect parcel/bond/Rent Board billing changes; verify parcel line items internally.</td>
+              <td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" target="_blank" rel="noopener">SCC Tax Rate Book</a></td>
+            </tr>
+            <tr class="row-warn">
+              <td><strong>F8</strong></td>
+              <td><strong>Cupertino Solar Original Permission-to-Operate (PTO) Date</strong></td>
+              <td>NEM 1.0/2.0 legacy lasts <strong>20 years</strong> from PTO and transfers on inheritance, then shifts to Solar Billing Plan (NBT).</td>
+              <td><span class="blank-cell">&mdash; (Blank)</span></td>
+              <td>Original PG&amp;E PTO date determines exact year (between 2037 and 2043) that solar profit ends and Base Services Charge begins.</td>
+              <td><a class="source-link" href="https://www.pge.com/content/dam/pge/docs/clean-energy/solar/nem-faq.pdf" target="_blank" rel="noopener">PG&amp;E NEM FAQ</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Line-by-Line Audit: Cupertino Historical Tax &amp; Assessment Table (2014–2026)</h2>
+      <p class="lead" style="margin-bottom:10px;">
+        Cross-checked every user-supplied year against official California Board of Equalization Prop 13 CCPI inflation factors (<a href="https://boe.ca.gov/proptaxes/pdf/lta26002.pdf" target="_blank" rel="noopener">BOE LTA 2026/002</a>). Every single assessment increment matches BOE statutory factors!
+      </p>
+      <div class="table-wrap">
+        <table id="audit-cup-table">
+          <thead>
+            <tr>
+              <th>Year (Roll FY)</th>
+              <th class="num">Property Tax ($10 / Exact)</th>
+              <th class="num">Tax YoY %</th>
+              <th class="num">Tax Assessment ($10 / Exact)</th>
+              <th class="num">AV YoY %</th>
+              <th class="num">Official BOE Factor (CCPI)</th>
+              <th class="num">Effective Rate</th>
+              <th>Verification Audit</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Line-by-Line Audit: San Francisco Outer Sunset Historical Tax &amp; Assessment Table (2016–2026)</h2>
+      <p class="lead" style="margin-bottom:10px;">
+        Cross-checked against <a href="https://boe.ca.gov/proptaxes/pdf/lta26002.pdf" target="_blank" rel="noopener">BOE LTA 2026/002</a> and <a href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer Secured Tax Rates</a>. Irregular tax swings (&gt;&plusmn;5%) and missing 2026 data are flagged for bill review.
+      </p>
+      <div class="table-wrap">
+        <table id="audit-sf-table">
+          <thead>
+            <tr>
+              <th>Year (Roll FY)</th>
+              <th class="num">Property Tax ($10 / Exact)</th>
+              <th class="num">Tax YoY %</th>
+              <th class="num">Tax Assessment ($10 / Exact)</th>
+              <th class="num">AV YoY %</th>
+              <th class="num">Official BOE Factor (CCPI)</th>
+              <th class="num">Effective Rate</th>
+              <th>Verification Audit</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>Estate &amp; Property Decision Dashboard</strong> &middot; Zero hallucinations &middot; Every unverified input cleanly flagged.</div>
+      <div><a href="../index.html">&larr; Back to Executive Summary</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
