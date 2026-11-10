@@ -37,3 +37,10 @@ Session ID for this working branch: `arena-80c92539` (branch `arena/80c92539-tin
 ## Log
 - 2026-11-10 — `arena-80c92539` created this board; all tasks claimed by the single active session on `arena/80c92539-tino5` per system branch constraint. No other session had claimed any task (file did not exist).
 - Handoff rule: takeover allowed if claim >60 min old with no commits; note the handoff here.
+- 2026-11-10 — Tasks 1-12 completed and committed (`df01b02`). Site built under `/docs` (landing + 10 pages), all internal links machine-verified, privacy sweep clean (no ZIP/names/addresses/full-precision user figures), rounding sweep clean. External BOE/CDI/CAL-FIRE 404 links found by verification and fixed (re-pointed to verified pages). Public site deliberately excludes raw year-by-year brief tables (Flag F-13).
+- 2026-11-10 — PR opened: https://github.com/wingbangboozle1-lang/Tino5/pull/19 (integration: `arena/80c92539-tino5` -> `main`). Merge to follow immediately after this entry; GitHub Pages source to be switched from `main:/` to `main:/docs` post-merge. Deploy result recorded as PR comment and here (branch copy).
+- Sources: see docs/methodology.html section M.4 (S1-S28). Verification: internal link checker OK (11 files), HTML parser OK, external spot checks recorded in M.6, calculations re-derived twice programmatically.
+
+
+## Status summary (2026-11-10)
+Tasks 1-12: done (this branch). Task 13: in progress — PR #19 opened; merge + Pages switch + deploy verification pending. Task 14: done (index.html is the executive summary).
