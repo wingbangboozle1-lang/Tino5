@@ -36,6 +36,8 @@ and never start a task already claimed by another live session.
 | T9 | Verification pass: row-by-row source check, link check | done | arena-8a82cdf2 | `scripts/verify.mjs`, `verification-report.json`, `pages/flagged.html`, `data/flagged.json`, `pages/methodology.html` |
 | T10 | Integration: merge, build check, PR, merge PR, confirm Pages deploy | done | arena-8a82cdf2 | `COORDINATION.md` |
 | T11 | Archive prior sessions' published site under `/archive/` (no deletion) | done | arena-8a82cdf2 | `archive/**` |
+| T12 | Independent verification, interactive simulator & 2026-2050 dashboard (preserved non-overlapping under `session-2f7b1b3f/`) | done | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/**`, `index.html`, `README.md`, `scripts/verify.mjs`, `COORDINATION.md` |
+| T13 | Flagged irregularities & unverified property-specific items (`session-2f7b1b3f/pages/verification-review.html`) | needs review | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/pages/verification-review.html` |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
@@ -195,5 +197,28 @@ owner; do not delete another session's published pages silently.
 - **Verification Status (`node scripts/verify.mjs`):** `209 data rows (76 verified)`, `543 internal links`, `171 external links`, `0 errors` (`25 warnings` all confined to preserved earlier-session `archive/` and `mine/` files).
 
 ### PR & Deployment Record (`arena/f9da2018-tino5`)
-- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — synced cleanly with `origin/main` (`8d84077`), verified `0 errors` via `node scripts/verify.mjs`, ready for immediate merge and live GitHub Pages confirmation.
+- **PR #14:** https://github.com/wingbangboozle1-lang/Tino5/pull/14 (`arena/f9da2018-tino5` → `main`) — merged to `main` (`a9d3f2c`).
+
+---
+
+## Fifth Session Merged — `arena-2f7b1b3f` (branch `arena/2f7b1b3f-tino5`)
+
+### Conflict & Integration Record (T12–T13)
+- **Situation at integration time:** While `arena/2f7b1b3f-tino5` prepared PR #11 from `db3ab93`, parallel sessions (`arena-8a82cdf2`, `arena-a7554ab1`, `arena-f9da2018`, and archived prior sessions) had merged PRs #5–#10 and #12–#14 into `main` (`a9d3f2c`).
+- **Resolution without discarding any prior work:** Moved `arena-2f7b1b3f`'s standalone 7-page interactive dashboard, Python model (`session-2f7b1b3f/scripts/generate_data.py`), and JSON/JS datasets into non-overlapping `session-2f7b1b3f/`, merged `origin/main` cleanly into `arena/2f7b1b3f-tino5`, preserved all existing root/archive/mine/audited-v4 files verbatim, cross-linked `/session-2f7b1b3f/` from `index.html` and `README.md`, and extended `scripts/verify.mjs` to check `session-2f7b1b3f/` internal links and PII scanning.
+
+### Additional Official Sources Directly Retrieved & Verified by `arena-2f7b1b3f` (2026-11-10)
+1. **CA BOE Prop 13 Historical CCPI Factors (`LTA 2026/002`, Jan. 13, 2026)** (`https://boe.ca.gov/proptaxes/pdf/lta26002.pdf`): Confirms 100% of year-over-year assessment percentages in both Cupertino (2014–2026) and San Francisco (2016–2025) match BOE statutory CCPI factors (`1.00454` in 2014-15, `1.01998` in 2015-16, `1.01525` in 2016-17, `1.01036` in 2021-22, `1.02000` in all other years). Note: SF's `$2,439` 2025 bill vs `$114,248` AV at `1.18268325%` (`$1,351` ad valorem) indicates `~$1,088/yr` in fixed SF parcel taxes/direct charges in addition to ad valorem tax.
+2. **CA BOE Prop 19 Intergenerational FAQ (`LTA 2026/026`, Aug. 3, 2026)** (`https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf`): Q5 & Q15 confirm multi-unit triplex limit (*only 1 unit occupied as principal residence by both transferor and transferee qualifies; remaining 2 units reassess to FMV*).
+3. **CA FTB 2026 Tax Rate Schedules (`2026-540-tax-rate-schedules.pdf`)** (`https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf`): Exact 2026 California Schedules X/Y/Z brackets (`1.0%`–`12.3%`, plus `1.0%` Behavioral Health Services Tax over `$1M` = `13.3%`).
+4. **IRS `Rev. Proc. 2025-32`, `Pub. 6079`, `Pub. 527` & `Rev. Rul. 2023-2`**: Exact 2026 OBBBA thresholds, `$40,400` 2026 SALT cap reverting to `$10,000` in 2030, and irrevocable grantor trust step-up exclusion.
+5. **CA SOS Nov. 3, 2026 Statewide Results (`electionresults.sos.ca.gov`) & Prop 19 Repeal Status**: Prop 3 passed (`60.6%` Yes), Prop 40 failed (`52.8%` No), Prop 42 passed (`51.6%` Yes), Prop 43 failed (`57.3%` No), and Nov 2025 Prop 19 repeal initiative failed to qualify.
+6. **HUD FY 2026 & FY 2027 FMR Schedules (`huduser.gov`)**: San Jose-Sunnyvale-Santa Clara HMFA FY27 4-BR `$4,688` (FY26 `$5,010`); San Francisco HMFA FY27 2-BR `$3,697` / 3-BR `$4,832`.
+7. **CA Dept. of Insurance (`sustainable-insurance-strategy.cfm`, Oct. 27, 2026 & ZIP FAIR Plan PDF)**: Verified CA average homeowner premium `$1,571` (`$1,570` rounded vs `$1,512` national) and low 2022 FAIR Plan policy share in `95014` (`0.5%`, 67/12,930) and `94122` (`0.2%`, 22/13,338).
+8. **Federal TSP (`tsplf14.pdf`), FHFA HPI (`2026Q2`), BLS SF CPI-U (`2026-06`), & Census AHS (`older-home-costs.html`)**: Verified S&P 500 / C Fund `11.34%/yr` since 1988, G Fund `4.44%` (1-yr) / `4.65%` since 1987, FHFA 1991Q1–2026Q2 SJ MSA `+442.30%` (`4.91%` CAGR) & SF MSAD `+414.37%` (`4.76%` CAGR).
+9. **Santa Clara County FY 2025-26 Tax Rate Book & Clerk-Recorder & FUHSD/CUSD**: Verified `1.00%` + `~0.16%–0.18%` Cupertino bond components, no Cupertino city conveyance tax (`$0.55/$500` County only), CUSD Measure A expired June 30, 2023, FUHSD `$98/parcel` active.
+
+### PR & Verification Record (`arena-2f7b1b3f`)
+- **Pull Request:** https://github.com/wingbangboozle1-lang/Tino5/pull/11 (`arena/2f7b1b3f-tino5` → `main`)
+- **Combined Verification (`node scripts/verify.mjs`):** Synced cleanly with `origin/main` (`a9d3f2c`), `0 errors` across all combined pages and datasets.
 

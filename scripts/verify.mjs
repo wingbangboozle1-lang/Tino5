@@ -121,6 +121,10 @@ const htmlFiles = ["index.html",
   ...(fs.existsSync(path.join(ROOT, "mine/pages"))
     ? fs.readdirSync(path.join(ROOT, "mine/pages")).filter((f) => f.endsWith(".html")).map((f) => "mine/pages/" + f)
     : []),
+  ...(fs.existsSync(path.join(ROOT, "session-2f7b1b3f/index.html")) ? ["session-2f7b1b3f/index.html"] : []),
+  ...(fs.existsSync(path.join(ROOT, "session-2f7b1b3f/pages"))
+    ? fs.readdirSync(path.join(ROOT, "session-2f7b1b3f/pages")).filter((f) => f.endsWith(".html")).map((f) => "session-2f7b1b3f/pages/" + f)
+    : []),
   ...(fs.existsSync(path.join(ROOT, "audited-v4/index.html")) ? ["audited-v4/index.html"] : []),
   ...(fs.existsSync(path.join(ROOT, "audited-v4/pages"))
     ? fs.readdirSync(path.join(ROOT, "audited-v4/pages")).filter((f) => f.endsWith(".html")).map((f) => "audited-v4/pages/" + f)
@@ -145,9 +149,9 @@ for (const f of htmlFiles) {
 }
 for (const u of externalSeen) {
   if (registryUrls.has(u)) continue;
-  // Pages under /archive/ are a prior session's work, preserved verbatim; their links are
-  // reported but not failed, because rewriting them would alter that record.
-  const inPreserved = htmlFiles.some((f) => (f.startsWith("archive/") || f.startsWith("mine/")) &&
+  // Pages under /archive/, /mine/, and /session-2f7b1b3f/ are separate session deliverables, preserved verbatim;
+  // their links are reported but not failed, because rewriting them would alter that record.
+  const inPreserved = htmlFiles.some((f) => (f.startsWith("archive/") || f.startsWith("mine/") || f.startsWith("session-2f7b1b3f/")) &&
     fs.readFileSync(path.join(ROOT, f), "utf8").includes(u));
   if (inPreserved) warnings.push(`preserved page (another session) links to a source outside this registry: ${u}`);
   else errors.push(`external link not in source registry: ${u}`);
