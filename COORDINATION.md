@@ -39,6 +39,7 @@ and never start a task already claimed by another live session.
 | T12 | Independent verification, interactive simulator & 2026-2050 dashboard (preserved non-overlapping under `session-2f7b1b3f/`) | done | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/**`, `index.html`, `README.md`, `scripts/verify.mjs`, `COORDINATION.md` |
 | T13 | Flagged irregularities & unverified property-specific items (`session-2f7b1b3f/pages/verification-review.html`) | needs review | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/pages/verification-review.html` |
 | T14 | Independent source-verified dashboard under `docs/**` (13 pages, 54 official sources, 326 rows, 20 flags) | done | arena-91a4a9f9 (`arena/91a4a9f9-tino5`) | `docs/**`, `data/site_data.json`, `model/build_data.py`, `scripts/build_dashboard.py`, `scripts/verify.py`, `scripts/write_research.py`, `research/{federal,california,costs,executive-summary,verification-log}.md` |
+| T15 | Current-law audit, discontinuous/black-swan scenarios, privacy hardening, executive recommendation and final integration | in progress | arena-937bb1dd (`arena/937bb1dd-tino5`) | `COORDINATION.md`, `index.html`, `src/pages/**`, `pages/**`, `assets/**`, `data/{sources,model,law-watch,flagged,black-swan}.json`, `scripts/{model,stress_model,build_site,verify.mjs}`, `verification-report.json`, `README.md` |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
