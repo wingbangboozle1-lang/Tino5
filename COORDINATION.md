@@ -436,7 +436,7 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 
 | ID | Task | Status | Session | File scope |
 |---|---|---|---|---|
-| T16 | Independent privacy and decision-safety audit | in progress | arena-ffaaf05c | `COORDINATION.md`, `index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py` |
+| T16 | Independent privacy and decision-safety audit | in progress | arena-ffaaf05c | `COORDINATION.md`, `index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`, `data/sources.json` (additive source registration only) |
 
 ---
 
