@@ -7089,7 +7089,7 @@
             "assessed_value_usd": 498640,
             "av_yoy": "+1%",
             "boe_ccpi_factor": "1.036%",
-            "audit_status": "Verified AV growth (+1.036% CCPI -> $498,640 vs $498,640)"
+            "audit_status": "Verified AV growth (+1.036% CCPI; matches to the nearest $10)"
           },
           {
             "year": 2020,

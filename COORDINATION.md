@@ -44,35 +44,67 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
-## Session `arena-22c14528` — claims (2026-11-11, branch `arena/22c14528-tino5`)
+## Session `arena-22c14528` — claims and record (2026-11-11, branch `arena/22c14528-tino5`)
 
-Read before claiming: this board on `main` @ `e81296b` **and** the boards on every live session branch
-(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`), because claims pushed to a session branch are not
-visible on `main` until that session's PR merges. Live claims found at 2026-11-11T07:42Z and respected here:
-`arena-37b0e3a2` (P1: `public-safe/**`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`),
-`arena-66c0b07f` (T16: `stress-test/**`, `research/black-swan.md`), `arena-937bb1dd` (T15: root `index.html`,
-`src/pages/**`, `pages/**`, `assets/**`, `data/{sources,model,law-watch,flagged,black-swan}.json`,
-`scripts/{model,stress_model,build_site,verify.mjs}`, `verification-report.json`, `README.md`),
-`arena-ffaaf05c` (T16: `index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`),
-`arena-82802df9` (`privacy-review.md`), `arena-ebe0d0ca` (`audit/arena-ebe0d0ca.md`), `arena-e10f31dc` (T15, merged PR #21).
+Read before claiming: this board on `main` **and** the boards on every live session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Claims pushed to a session branch are invisible on
+`main` until that session's PR merges, which is why several sessions each concluded they were the only one live.
+Task IDs here are session-prefixed (`22c/…`) because two other sessions independently reused `T16`–`T18`.
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| T17 | **Privacy remediation of the unclaimed legacy tree (urgent).** Replace every owner-supplied exact figure (assessment and tax-bill histories) with its nearest-$10 value in every tracked file that no live session has claimed. Takes over the finished sessions' paths under the 60-minute rule (their last commits are from 2026-11-10). | in progress | arena-22c14528 | `archive/**`, `audited-v4/**`, `session-2f7b1b3f/**`, `docs/properties.html`, `data/{property-tax,assumptions,site_data}.json`, `model/build_data.py`, `research/property-tax.md`, `scripts/generate_site.py`, rounding-only edits to existing lines of `COORDINATION.md`, new `scripts/privacy_scan.py` |
-| T18 | **Independent line-by-line verification register.** Check every decision-critical claim published in this repository (legacy and newly landed) against the official source, record confirmed / contradicted / unverifiable with the link for manual review, and publish it with its own Flagged for Review page. | in progress | arena-22c14528 | `review/**` (new directory), `COORDINATION.md` (this section only) |
+| 22c/P | **Privacy remediation of the unclaimed legacy tree.** Every owner-supplied figure (assessment and tax-bill histories), and every value derived from one at full precision, replaced with its nearest-$10 value in every tracked file no live session had claimed. Finished sessions' paths taken over under the 60-minute rule (last commits 2026-11-10). | **done** | arena-22c14528 | `archive/**`, `audited-v4/**`, `session-2f7b1b3f/**`, `data/{property-tax,assumptions}.json`, `model/build_data.py`, `research/property-tax.md`, `scripts/generate_site.py`, rounding-only edits to five figures in earlier `COORDINATION.md` entries, new `scripts/privacy_scan.py` |
+| 22c/V | **Independent line-by-line verification register.** Each decision-critical claim published in this repository checked against the official source: confirmed / contradicted / unverifiable, with the link for manual review, plus its own Flagged for Review page. | in progress | arena-22c14528 | `review/**` (new directory), this section of `COORDINATION.md` |
 
 Platform constraint: this session is bound to the single branch `arena/22c14528-tino5` and cannot create
-`session-<id>/<task>` branches, so non-overlap is enforced by file scope (same deviation earlier sessions logged).
+`session-<id>/<task>` branches, so non-overlap is enforced by file scope (the same deviation earlier sessions logged).
+
+**Live claims respected** (as read at 07:42Z and again at 07:55Z): `arena-37b0e3a2` P1 (`public-safe/**`,
+`scripts/{verify_safe,build_safe}.py`, `.github/workflows/privacy-pages.yml`, `_config.yml`, root `index.html`);
+`arena-937bb1dd` T15 (root `index.html`, `src/pages/**`, `pages/**`, `assets/**`,
+`data/{sources,model,law-watch,flagged,black-swan}.json`, `scripts/{model,stress_model,build_site,verify.mjs}`,
+`verification-report.json`, `README.md`); `arena-66c0b07f` T16 (`stress-test/**`, `research/black-swan.md`);
+`arena-80f89895` T16–T18 (`stress/**`); `arena-ffaaf05c` T16 (`index.html`, `pages/audit-notice.html`,
+`scripts/privacy_audit.py`, additive `data/sources.json`); `arena-82802df9` (`privacy-review.md`);
+`arena-ebe0d0ca` (`audit/arena-ebe0d0ca.md`); `arena-e10f31dc` T15 (done, PRs #21/#22).
+
+### 22c/P — what was done, how it was verified, what remains
+
+- **Before:** 30 tracked files held 337 occurrences of the owner's figures at full precision — both complete
+  histories in `data/property-tax.json` (the root site's table data), `archive/cupertino.html`,
+  `archive/san-francisco.html`, `model/build_data.py`, `scripts/generate_site.py` and the `session-2f7b1b3f` and
+  `audited-v4` data files. Earlier scans reported "0 unrounded amounts" because they covered `docs/**` and the
+  rendered root pages only, not the data, scripts or archive.
+- **Done:** 484 replacements in 25 files. Besides the supplied figures themselves this covers values derived from
+  them at full precision (a one-year projection of an assessment, two implied-charge figures, two year-over-year
+  bill differences), since those would let the originals be recovered. Three illustrative lines that quoted a figure
+  "before rounding" now use a synthetic example. No statutory or agency figure was altered.
+- **Verified:** an exact-match scan kept outside the repository returns **0 occurrences in this session's scope**.
+  All edited JSON parses, all edited Python compiles, both edited JS files pass `node --check`.
+  `docs/**` and `data/site_data.json` needed no change (already rounded, as session `arena-91a4a9f9` stated).
+- **Tool:** `python3 scripts/privacy_scan.py` — generic by design: it finds unrounded money in prose, unrounded
+  integers under money-like data keys, and identifier shapes, **without containing any private value**. Output is
+  masked unless `--show` is passed.
+- **Not possible from this session, and important:** the figures remain in this public repository's **Git history,
+  in every earlier session branch, and in the diffs of merged pull requests #1–#20**. A commit cannot remove those.
+  See "Owner action" in this session's final report and on `review/flagged.html`.
 
 **Requests to other sessions (logged here, not acted on by this session):**
 
-1. `arena-937bb1dd` — your claimed files `data/flagged.json`, `data/model.json` and `scripts/model.py` each still
-   contain one or two owner-supplied figures at full precision. Please round them to the nearest $10 in your pass.
-   `python3 scripts/privacy_scan.py` (added by T17) reports the file and line without printing the value.
-2. `arena-937bb1dd` / `arena-ffaaf05c` / `arena-82802df9` (all three claim root `index.html`) — when the root
-   navigation is settled, please add one link to `review/index.html`. This session will not edit `index.html`.
-3. `arena-37b0e3a2` — if Pages moves to an allow-listed artifact, please include `review/**`. It contains no
-   owner-supplied figures at all.
+1. `arena-937bb1dd` — five files in your claimed scope still hold values this scan flags:
+   `data/model.json` (4, under `inputs_used`), `scripts/model.py` (4, the same inputs), `data/flagged.json` (1),
+   and `pages/executive-summary.html` + `src/pages/executive-summary.html` (1 each, a per-unit rent that is not a
+   multiple of $10). `python3 scripts/privacy_scan.py` lists file and line. Please round them in your pass.
+2. `arena-37b0e3a2` — `scripts/verify_safe.py` enforces privacy with a *literal list of four of the owner's
+   figures* (twice: with and without thousands separators). In a public repository that list publishes what it
+   protects. A generic rule gives the same protection: the script's existing "unrounded money" check already
+   catches the separator form, and `scripts/privacy_scan.py` rule B catches the bare-integer form. Please drop the
+   literals. (This session's scan cannot see bare numbers inside a regular-expression string, so it does not flag
+   that file; the outside-the-repo exact scan does: 8 occurrences.)
+3. Whoever settles root navigation — please link `review/index.html`. This session will not edit `index.html`.
+   `_config.yml` does not exclude `review/`, so it will publish; please keep it that way.
+4. If either request is still open when its owner's claim is more than 60 minutes without a commit, this session
+   will make the rounding-only edit under the takeover rule and log it here.
 
 ## Verification performed (T2–T9)
 

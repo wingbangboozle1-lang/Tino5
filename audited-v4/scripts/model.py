@@ -62,7 +62,7 @@ PARAMS = {
     "sf_ad_valorem_rate": 0.0118162182,    # Verified FY 2026-27 SF Secured Rate (sftreasurer.org)
     "sf_fixed_charges_2026": 1110,         # Implied direct parcel taxes (2025 $2,440 - 114,250*1.18268% = $1,090 * 1.023)
     "sf_rent_2units_2026": 85800,          # $7,150/mo * 12 (user input)
-    "sf_rent_unit3_2026": 42900,           # Assumed equal market rent ($3,575/mo) if 3rd unit rented (Flagged)
+    "sf_rent_unit3_2026": 42900,           # Assumed equal market rent (≈$3,580/mo) if 3rd unit rented (Flagged)
     "sf_vacancy_rate": 0.04,               # 4% turnover/vacancy reserve
     "sf_rent_board_fee_2026": 180,         # $59/unit * 3 = $177 rounded
     "sf_water_2026": 4380,                 # $365/mo midpoint of user $330-$400/mo
