@@ -491,3 +491,12 @@ P1 scope additionally includes `scripts/build_safe.py` (deterministic generator)
 Merge log: arena-37b0e3a2 integrated origin/main (T15 completed audit). COORDINATION append conflict resolved by preserving both sessions’ text in order; no work discarded.
 
 Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks settings permission). Retain existing legacy Pages deployment, remove root `.nojekyll`, and add Jekyll `_config.yml` exclusions for every legacy tree, plus a privacy-safe root redirect. Integration scope therefore additionally claims completed/shared `index.html`, `.nojekyll`, `_config.yml`; no active session owns these. CI verifies curated artifact, legacy Pages does deployment. Repository history is intentionally not rewritten. An ordinary pull --rebase after merge attempted replay of concurrent commits; aborted without discarding anything, then pull --rebase=merges succeeded.
+
+### P1 completion / deployment record
+- Status: **done** (curated publication); unresolved findings remain **needs review** on `public-safe/flagged.html`.
+- PR #23: https://github.com/wingbangboozle1-lang/Tino5/pull/23 — MERGED 2026-11-11T07:44:12Z, commit `7ac54b1956dd1a26a9170940ec270bf070e2bfca`.
+- Curated CI passed; Pages run `42981668449` build/report/deploy all successful; Pages API reports `built`, exact merge commit, no error.
+- Live curated overview and Flagged page fetched and read successfully at https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html and `/public-safe/flagged.html`.
+- Live excluded legacy `/data/property-tax.json` and `/pages/executive-summary.html` both return GitHub Pages 404. This confirms exclusion for sampled paths, not eradication of public repository history.
+- Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
+- Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
