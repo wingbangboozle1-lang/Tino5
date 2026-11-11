@@ -562,3 +562,9 @@ Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks s
 - Live excluded legacy `/data/property-tax.json` and `/pages/executive-summary.html` both return GitHub Pages 404. This confirms exclusion for sampled paths, not eradication of public repository history.
 - Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
 - Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
+
+## Session arena-a1cb2872 — claim (2026-11-11)
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|------------|
+| T19 | Deep black-swan / uneven-economy expansion: historically-grounded official-source episodes, 50-yr non-linear scenario paths (baseline/stagflation/crash/sequence/insurance-climate) applied to live-in vs rent vs sell, normalized fictional $ units (no owner figures) | in progress | arena-a1cb2872 | `public-safe/stress.html`, `public-safe/sources.html`, `public-safe/flagged.html`, `scripts/verify_safe.py` (host allowlist only if needed), `research/black-swan-a1cb2872.md`, this section of `COORDINATION.md` |
+Privacy: no ZIPs, city names beyond existing public-safe conventions, valuations, rents, or assessment histories. Money rounded to $10. Unverifiable values left blank/flagged.
