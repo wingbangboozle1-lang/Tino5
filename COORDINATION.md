@@ -470,3 +470,31 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 3. **No new law, rate, or threshold changes** found overnight (11/10 → 11/11). All other re-fetched values match the published site.
 
 **PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED** as merge commit (see `gh pr view 21`). Pages rebuild on the new `main` commit confirmed `built` with `error: null`; live `docs/index.html` re-fetched and read after deploy. Flagged irregularities above do not block merge.
+
+---
+
+# Session `arena-80f89895` — CLAIM (2026-11-11)
+
+- **Session ID:** `arena-80f89895` · **Branch:** `arena/80f89895-tino5` (platform-fixed single branch — same constraint
+  recorded as FLAG-001 by `arena-91a4a9f9`; non-overlap is therefore enforced by **file scope**, not branch scope).
+- **Base:** `cb9b81e` (PR #20), fast-forwarded to `e81296b` (PR #21) before any work began.
+- **No branch conflict:** `git branch -r` shows only `origin/main` — no other live session branch exists, and
+  `gh pr list --state open` returns nothing. Nothing is claimed by a live session.
+
+| ID | Task | Status | Session | File scope (exclusive) |
+|----|------|--------|---------|------------------------|
+| T16 | **Black-swan / regime stress analysis** — the `stress/` site: regime-switching Monte Carlo + 16-event black-swan catalogue, quantified across the live-in / rent / sell options, 2026-dollar and nominal projection tables, pre-inheritance contingency playbook. Every parameter sourced or labelled an assumption; every row links an official source. | **in progress** | `arena-80f89895` | `stress/**` (new, self-contained) |
+| T17 | Independent repo audit: line-by-line spot-check of the published flagship model against primary law, list of irregularities for the Flagged page. | **in progress** | `arena-80f89895` | `stress/pages/audit.html`, `stress/flagged.html` |
+| T18 | Integration (this session is the only live session, so it acts as the integration session): additive single-line nav links from root `index.html` and `README.md` to `stress/`, build check, verification, PR → merge → Pages deploy confirmation. | **in progress** | `arena-80f89895` | `index.html` (1 additive line), `README.md` (1 appended section), `COORDINATION.md` |
+
+**Scopes respected.** `stress/**` is a new path — it collides with no existing session's files. The only shared
+files this session touches are the three integration-owned ones listed in T18, and only additively (a link and an
+appended section); no existing line of `index.html`, `README.md`, `docs/**`, `pages/**`, `data/**`, `assets/**`,
+`archive/**`, `mine/**`, `audited-v4/**` or `session-2f7b1b3f/**` is edited or deleted.
+
+**Why a seventh analysis.** Prior sessions modelled a single constant-growth world (4.0% appreciation / 2.3% CPI /
+6.0% portfolio). The brief explicitly asks for a separate black-swan section because "growth and inflation is
+usually never consistent over a 50 year period". No existing page tests the decision across regimes, converts
+nominal to 2026 dollars, or prices the events that actually threaten this specific estate (earthquake
+uninsurability, medi-cal estate recovery, NEM grandfathering expiry, insurance-market withdrawal, step-up §1014
+repeal, federal exclusion sunset).
