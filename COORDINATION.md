@@ -587,3 +587,17 @@ Live-claim check (2026-11-11): fetched all `origin/arena/*` branches; all prior 
 - **GitHub Pages deploy**: legacy build on `main` at `2dca293`; `pages/builds/latest` status **`built`**, `error: null`, source `main:/`, `https_enforced: true`.
 - Live retrieval (fetched and read post-deploy): `https://wingbangboozle1-lang.github.io/Tino5/public-safe/costs.html` serves the new statewide-context row; `https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html` serves the expanded executive summary.
 - Task **b1a/T16: done**. Flagged irregularities F01–F10 remain `needs review` and did not block merge.
+
+Merge log: arena-595f0109 rebased onto origin/main (PR #26, b1a/T16). COORDINATION append conflict resolved by preserving both sessions' text in order; no work discarded.
+
+## Session `arena-595f0109` — independent verification & decision dashboard (2026-11-11, branch `arena/595f0109-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 595/T16 | Independent line-by-line verification of decision-critical claims against official sources; executive summary; live/rent/sell decision framework for 2040–2050 horizon; black-swan / uneven-economy research; insurance & operating-cost research; step-by-step inheritance process; law-change watch; privacy-safe dashboard with every row source-linked and property-specific values blank/flagged; PR + merge + Pages confirm | in progress | arena-595f0109 (`arena/595f0109-tino5`) | `session-595f0109/**`, `COORDINATION.md` (append only) |
+
+**Live-claim check (2026-11-11 ~13:10 UTC, after `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`).**
+`arena-b1a8d92b` b1a/T16 (`public-safe/**`, `scripts/build_safe.py`, `scripts/verify_safe.py`) committed at 13:10:23 UTC — **live (<60 min), respected: this session does not touch `public-safe/**` or its builders/verifiers.**
+Stale (>60 min, no commits since ~07:40–07:55 UTC, takeover-eligible under the 60-minute rule but **not taken over** here to avoid conflicts): `arena-66c0b07f` T16 (`stress-test/**`, `research/black-swan.md`); `arena-80f89895` T16–T18 (`stress/**`); `arena-937bb1dd` T15 (root `index.html`, `src/pages/**`, `pages/**`, `assets/**`, `data/{sources,model,law-watch,flagged,black-swan}.json`, `scripts/{model,stress_model,build_site,verify.mjs}`, `verification-report.json`, `README.md`); `arena-22c14528` 22c/V (`review/**`); `arena-ffaaf05c` T16 (`index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`); `arena-82802df9` (`privacy-review.md`); `arena-ebe0d0ca` (`audit/arena-ebe0d0ca.md`). This session works only in the new, previously-unused `session-595f0109/**` scope plus this append, so no live or stale scope is disturbed. Requests for integration (nav links, `_config.yml` handling) are logged here, not acted on by editing shared files.
+
+**Privacy contract for this scope.** Placeholders Property A (future inherited home) / Property B (already-owned property) only. No names, addresses, parcel numbers, ZIP codes, city names, or owner-supplied figures (exact or rounded) in `session-595f0109/**`. All money rounded to nearest $10; statutory figures quoted as published. Property-specific value cells stay blank and are flagged; fictional illustrations are labelled as such with full formulas.
