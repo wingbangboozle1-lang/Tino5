@@ -436,7 +436,7 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 
 | ID | Task | Status | Session | File scope |
 |---|---|---|---|---|
-| T16 | Independent privacy and decision-safety audit | in progress | arena-ffaaf05c | `COORDINATION.md`, `index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`, `data/sources.json` (additive source registration only) |
+| T16 | Independent privacy and decision-safety audit | needs review | arena-ffaaf05c | `COORDINATION.md`, `index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`, `data/sources.json` (additive source registration only) |
 
 ---
 
@@ -478,3 +478,16 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 **PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED** as merge commit (see `gh pr view 21`). Pages rebuild on the new `main` commit confirmed `built` with `error: null`; live `docs/index.html` re-fetched and read after deploy. Flagged irregularities above do not block merge.
 
 **Merge conflict 2026-11-11:** Concurrent PR #21 and this session both added board appendices. Both were retained; this task was renamed T16 to avoid the identifier collision. An attempted rebase replayed already-merged commits and was aborted without discarding other work; main was then merged with the same resolution.
+
+
+## T16 independent audit — arena-ffaaf05c (2026-11-11)
+
+**Status: needs review / integration incomplete.** The existing Pages deployment is live, but it is not privacy-safe or sufficiently verified to release as complete. The repository is public and Pages uses `main:/`. Detailed owner-supplied histories and unrounded property-specific figures exist in public HTML and other tracked assets; the public Git history can also retain them. Removing files from a new commit alone cannot remove old history, caches, clones or PR references. No history rewrite, visibility change, or Pages shutdown was attempted: coordinated history cleanup has material side effects and this session is restricted to its branch. Official guidance: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository and https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages.
+
+**Findings.** At least one companion model incorrectly includes the already-owned property in the other person's estate and assumes an inheritance basis adjustment. Other pages make unsupported claims that estate tax almost certainly does not apply despite unknown cash, gifts and trust facts; an immediate sale is not necessarily tax-free. BOE's exclusion has eligibility conditions and a value cap. Some HTML tables lack row-level source links. Model outputs and private facts cannot be individually verified from the general official sources cited. The new `pages/audit-notice.html` describes these issues without repeating owner figures; `index.html` links to it on this branch. Sources read: IRS https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax, https://www.irs.gov/publications/p551, https://www.irs.gov/pub/irs-drop/rr-23-02.pdf; BOE https://www.boe.ca.gov/prop19/; SEC https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks.
+
+**Checks.** Existing Python verifier reports 3,633 checks passed; Node verifier reports 0 errors and 53 warnings. These do not establish comprehensive row verification or contextual privacy. New `scripts/privacy_audit.py` deliberately returns failure pending review: 28 tracked HTML files contain candidate unrounded dollar figures. Matches include statutory values and may be false positives; this check does not scan non-HTML assets, history, or re-identification combinations. Manual inspection confirmed some matches are owner-specific.
+
+**Remaining work.** Curate a fully sanitized release artifact and remove sensitive inputs from every public file; coordinate cleanup of existing Git history, Pages and copies; correct/rebuild all affected models and publicly accessible companion pages; independently verify each applicable source, row and link; test and deploy. The audit notice is not yet on main or live and does not itself remediate exposure. No PR or merge was made because the project explicitly prohibits merging a broken site; the privacy issue and inaccurate models remain unresolved.
+
+**Conflict record.** The attempted pull --rebase of this branch after merging main replayed already-integrated commits and conflicted in this board; it was aborted without dropping others' work. Both audit appendices were retained in the merge, and the subsequent branch pull and push succeeded.

@@ -641,6 +641,30 @@
    "url": "https://www.sec.gov/investor/pubs/savings-investing-for-students.pdf",
    "type": "official",
    "checked": "search"
+  },
+  {
+   "id": "github-pages-doc",
+   "org": "GitHub",
+   "title": "What is GitHub Pages?",
+   "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "github-sensitive-removal",
+   "org": "GitHub",
+   "title": "Removing sensitive data from a repository",
+   "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+   "type": "official",
+   "checked": "fetched"
+  },
+  {
+   "id": "sec-stocks-risk",
+   "org": "U.S. Securities and Exchange Commission",
+   "title": "Stocks: benefits and risks",
+   "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+   "type": "official",
+   "checked": "fetched"
   }
  ]
 }
