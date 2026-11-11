@@ -110,7 +110,7 @@ Recorded in full on `pages/flagged.html` (F-01 … F-18). Summary:
 
 - **F-02** — ten arithmetic inconsistencies in the supplied tax histories (e.g. Property A 2017: assessment
   +2% but bill −0.5%; Property B 2018: bill +18.4%).
-- **F-05** — Property B's supplied assessed value ($114,248) is about half the value implied by its own tax
+- **F-05** — Property B's supplied assessed value ($114,250) is about half the value implied by its own tax
   bill at the published SF rate (≈$206,410). Most likely a land-only figure.
 - **F-03** — the Cupertino bills imply ≈1.35% effective, above the Assessor's 1.16% city average; modelled as
   1.193% ad valorem + $770 fixed direct assessments.
@@ -242,7 +242,7 @@ owner; do not delete another session's published pages silently.
 - **Resolution without discarding any prior work:** Moved `arena-2f7b1b3f`'s standalone 7-page interactive dashboard, Python model (`session-2f7b1b3f/scripts/generate_data.py`), and JSON/JS datasets into non-overlapping `session-2f7b1b3f/`, merged `origin/main` cleanly into `arena/2f7b1b3f-tino5`, preserved all existing root/archive/mine/audited-v4 files verbatim, cross-linked `/session-2f7b1b3f/` from `index.html` and `README.md`, and extended `scripts/verify.mjs` to check `session-2f7b1b3f/` internal links and PII scanning.
 
 ### Additional Official Sources Directly Retrieved & Verified by `arena-2f7b1b3f` (2026-11-10)
-1. **CA BOE Prop 13 Historical CCPI Factors (`LTA 2026/002`, Jan. 13, 2026)** (`https://boe.ca.gov/proptaxes/pdf/lta26002.pdf`): Confirms 100% of year-over-year assessment percentages in both Cupertino (2014–2026) and San Francisco (2016–2025) match BOE statutory CCPI factors (`1.00454` in 2014-15, `1.01998` in 2015-16, `1.01525` in 2016-17, `1.01036` in 2021-22, `1.02000` in all other years). Note: SF's `$2,439` 2025 bill vs `$114,248` AV at `1.18268325%` (`$1,351` ad valorem) indicates `~$1,088/yr` in fixed SF parcel taxes/direct charges in addition to ad valorem tax.
+1. **CA BOE Prop 13 Historical CCPI Factors (`LTA 2026/002`, Jan. 13, 2026)** (`https://boe.ca.gov/proptaxes/pdf/lta26002.pdf`): Confirms 100% of year-over-year assessment percentages in both Cupertino (2014–2026) and San Francisco (2016–2025) match BOE statutory CCPI factors (`1.00454` in 2014-15, `1.01998` in 2015-16, `1.01525` in 2016-17, `1.01036` in 2021-22, `1.02000` in all other years). Note: SF's `$2,440` 2025 bill vs `$114,250` AV at `1.18268325%` (`$1,350` ad valorem) indicates `~$1,090/yr` in fixed SF parcel taxes/direct charges in addition to ad valorem tax.
 2. **CA BOE Prop 19 Intergenerational FAQ (`LTA 2026/026`, Aug. 3, 2026)** (`https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf`): Q5 & Q15 confirm multi-unit triplex limit (*only 1 unit occupied as principal residence by both transferor and transferee qualifies; remaining 2 units reassess to FMV*).
 3. **CA FTB 2026 Tax Rate Schedules (`2026-540-tax-rate-schedules.pdf`)** (`https://www.ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf`): Exact 2026 California Schedules X/Y/Z brackets (`1.0%`–`12.3%`, plus `1.0%` Behavioral Health Services Tax over `$1M` = `13.3%`).
 4. **IRS `Rev. Proc. 2025-32`, `Pub. 6079`, `Pub. 527` & `Rev. Rul. 2023-2`**: Exact 2026 OBBBA thresholds, `$40,400` 2026 SALT cap reverting to `$10,000` in 2030, and irrevocable grantor trust step-up exclusion.

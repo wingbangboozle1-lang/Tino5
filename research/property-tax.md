@@ -14,8 +14,8 @@
 - Base-year-value portability (55+/severely disabled/wildfire victims) allows transferring a low taxable value to a replacement home anywhere in CA (up to 3 times; others once). Source: SCC Assessor.
 
 ## Effective rates implied by actual bills (user-provided records — flagged, not official)
-- Cupertino 95014: 2025 tax $7,207 on assessed $539,743 → **1.335%**
-- SF 94122: 2025 tax $2,439 on assessed $114,248 → **2.135%** (includes SF special parcel taxes)
+- Cupertino 95014: 2025 tax $7,210 on assessed $539,740 → **1.335%**
+- SF 94122: 2025 tax $2,440 on assessed $114,250 → **2.135%** (includes SF special parcel taxes)
 
 ## Law-change watch
 - Initiative 25-0017 (repeal Prop 19 inheritance reassessment) **failed to qualify** for the 2026 ballot; current law unchanged. Source: CA Secretary of State https://www.sos.ca.gov/elections/ballot-measures/initiative-and-referendum-status/failed-qualify

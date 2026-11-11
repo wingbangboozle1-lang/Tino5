@@ -38,9 +38,9 @@ PARAMS = {
     "primary_inheritance_year": 2045,
     # Property A: Cupertino (95014)
     "cu_value_2026": 3100000,
-    "cu_av_2026": 550537,
+    "cu_av_2026": 550540,
     "cu_ad_valorem_rate": 0.011612,        # Verified FY25-26 Santa Clara Tax Rate Book bond components
-    "cu_fixed_charges_2026": 960,          # Implied direct charges (2025 tax $7,207 - 539,743*1.1612% = $940 * 1.02)
+    "cu_fixed_charges_2026": 960,          # Implied direct charges (2025 tax $7,210 - 539,740*1.1612% = $940 * 1.02)
     "cu_water_2026": 1500,                 # $125/mo midpoint of user $100-$150/mo
     "cu_water_growth": 0.042,              # CPUC SJWC/CalWater multi-year GRC escalation
     "cu_solar_credit_2026_user": -180,     # -$15/mo user baseline (pre-2026 SVCE 2x NSC)
@@ -58,9 +58,9 @@ PARAMS = {
 
     # Property B: San Francisco (94122) 3-Unit
     "sf_value_2026": 1800000,
-    "sf_av_2025": 114248,                  # 2026 missing in user input; 2026 = 114248 * 1.02 = 116533
+    "sf_av_2025": 114250,                  # 2026 missing in user input; 2026 = 114250 * 1.02 = 116530
     "sf_ad_valorem_rate": 0.0118162182,    # Verified FY 2026-27 SF Secured Rate (sftreasurer.org)
-    "sf_fixed_charges_2026": 1110,         # Implied direct parcel taxes (2025 $2,439 - 114,248*1.18268% = $1,088 * 1.023)
+    "sf_fixed_charges_2026": 1110,         # Implied direct parcel taxes (2025 $2,440 - 114,250*1.18268% = $1,090 * 1.023)
     "sf_rent_2units_2026": 85800,          # $7,150/mo * 12 (user input)
     "sf_rent_unit3_2026": 42900,           # Assumed equal market rent ($3,575/mo) if 3rd unit rented (Flagged)
     "sf_vacancy_rate": 0.04,               # 4% turnover/vacancy reserve

@@ -43,19 +43,19 @@
    "columns": ["item","value","value2","value3","status","sources","note"],
    "column_labels": ["Year","Property tax (as supplied)","Tax assessment (as supplied)","Implied rate (tax ÷ assessment)","Status","Sources","Note"],
    "rows": [
-    {"item":"2026","value":"—","value2":"$550,537 (+2%)","value3":"—","status":"owner","sources":["nolo-note"],"note":"2026 tax not supplied; assessment appears to be the 2025 figure grown 2%."},
-    {"item":"2025","value":"$7,207 (+2.9%)","value2":"$539,743 (+2%)","value3":"1.335%","status":"owner","sources":["nolo-note"],"note":"Implied rate 1.34% is above the 1.19% county average."},
-    {"item":"2024","value":"$7,003 (+1.2%)","value2":"$529,161 (+2%)","value3":"1.323%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2023","value":"$6,917 (+2.4%)","value2":"$518,786 (+2%)","value3":"1.333%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2022","value":"$6,755 (+1.4%)","value2":"$508,614 (+2%)","value3":"1.328%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2021","value":"$6,662 (+1.5%)","value2":"$498,642 (+1%)","value3":"1.336%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2020","value":"$6,565","value2":"$493,530 (+2%)","value3":"1.330%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2019","value":"$6,565 (+2.8%)","value2":"$483,854 (+2%)","value3":"1.357%","status":"owner","sources":["nolo-note"],"note":"Same tax as 2020 but a different assessment — inconsistent (F-02)."},
-    {"item":"2018","value":"$6,383","value2":"$474,368 (+2%)","value3":"1.345%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2017","value":"$6,383 (−0.5%)","value2":"$465,067 (+2%)","value3":"1.356%","status":"owner","sources":["nolo-note"],"note":"Assessment rose 2% while the bill fell 0.5% — mathematically impossible at a constant rate (F-02)."},
-    {"item":"2016","value":"$6,414 (+4.6%)","value2":"$455,949 (+1.5%)","value3":"1.407%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2015","value":"$6,130 (+2.8%)","value2":"$449,101 (+2%)","value3":"1.365%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2014","value":"$5,965","value2":"$440,305 (+0.5%)","value3":"1.355%","status":"owner","sources":["nolo-note"],"note":"Assessment up only 0.5% — inconsistent with a 2% cap year (F-02)."}
+    {"item":"2026","value":"—","value2":"$550,540 (+2%)","value3":"—","status":"owner","sources":["nolo-note"],"note":"2026 tax not supplied; assessment appears to be the 2025 figure grown 2%."},
+    {"item":"2025","value":"$7,210 (+2.9%)","value2":"$539,740 (+2%)","value3":"1.335%","status":"owner","sources":["nolo-note"],"note":"Implied rate 1.34% is above the 1.19% county average."},
+    {"item":"2024","value":"$7,000 (+1.2%)","value2":"$529,160 (+2%)","value3":"1.323%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2023","value":"$6,920 (+2.4%)","value2":"$518,790 (+2%)","value3":"1.333%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2022","value":"$6,760 (+1.4%)","value2":"$508,610 (+2%)","value3":"1.328%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2021","value":"$6,660 (+1.5%)","value2":"$498,640 (+1%)","value3":"1.336%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2020","value":"$6,570","value2":"$493,530 (+2%)","value3":"1.330%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2019","value":"$6,570 (+2.8%)","value2":"$483,850 (+2%)","value3":"1.357%","status":"owner","sources":["nolo-note"],"note":"Same tax as 2020 but a different assessment — inconsistent (F-02)."},
+    {"item":"2018","value":"$6,380","value2":"$474,370 (+2%)","value3":"1.345%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2017","value":"$6,380 (−0.5%)","value2":"$465,070 (+2%)","value3":"1.356%","status":"owner","sources":["nolo-note"],"note":"Assessment rose 2% while the bill fell 0.5% — mathematically impossible at a constant rate (F-02)."},
+    {"item":"2016","value":"$6,410 (+4.6%)","value2":"$455,950 (+1.5%)","value3":"1.407%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2015","value":"$6,130 (+2.8%)","value2":"$449,100 (+2%)","value3":"1.365%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2014","value":"$5,970","value2":"$440,310 (+0.5%)","value3":"1.355%","status":"owner","sources":["nolo-note"],"note":"Assessment up only 0.5% — inconsistent with a 2% cap year (F-02)."}
    ]
   },
   {
@@ -65,16 +65,16 @@
    "columns": ["item","value","value2","value3","status","sources","note"],
    "column_labels": ["Year","Property tax (as supplied)","Tax assessment (as supplied)","Implied rate (tax ÷ assessment)","Status","Sources","Note"],
    "rows": [
-    {"item":"2025","value":"$2,439 (+5.3%)","value2":"$114,248 (+2%)","value3":"2.135%","status":"owner","sources":["nolo-note"],"note":"Implied rate is 81% above the published SF rate."},
-    {"item":"2024","value":"$2,315 (+6.2%)","value2":"$112,008 (+2%)","value3":"2.067%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2023","value":"$2,179 (+3.4%)","value2":"$109,814 (+2%)","value3":"1.984%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2022","value":"$2,107 (+2%)","value2":"$107,662 (+2%)","value3":"1.957%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2021","value":"$2,066 (−5.9%)","value2":"$105,595 (+1%)","value3":"1.956%","status":"owner","sources":["nolo-note"],"note":"Assessment rose while the bill fell (F-02)."},
-    {"item":"2020","value":"$2,197 (+3%)","value2":"$104,513 (+2%)","value3":"2.102%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2019","value":"$2,134 (+3.5%)","value2":"$102,465 (+2%)","value3":"2.083%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2018","value":"$2,061 (+18.4%)","value2":"$100,456 (+2%)","value3":"2.052%","status":"owner","sources":["nolo-note"],"note":"An 18.4% one-year jump in the bill is not explainable by the 2% cap alone (F-02)."},
-    {"item":"2017","value":"$1,740 (+3.9%)","value2":"$98,488 (+2%)","value3":"1.767%","status":"owner","sources":["nolo-note"],"note":""},
-    {"item":"2016","value":"$1,675 (+1.6%)","value2":"$96,557 (+1.5%)","value3":"1.734%","status":"owner","sources":["nolo-note"],"note":""}
+    {"item":"2025","value":"$2,440 (+5.3%)","value2":"$114,250 (+2%)","value3":"2.135%","status":"owner","sources":["nolo-note"],"note":"Implied rate is 81% above the published SF rate."},
+    {"item":"2024","value":"$2,320 (+6.2%)","value2":"$112,010 (+2%)","value3":"2.067%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2023","value":"$2,180 (+3.4%)","value2":"$109,810 (+2%)","value3":"1.984%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2022","value":"$2,110 (+2%)","value2":"$107,660 (+2%)","value3":"1.957%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2021","value":"$2,070 (−5.9%)","value2":"$105,600 (+1%)","value3":"1.956%","status":"owner","sources":["nolo-note"],"note":"Assessment rose while the bill fell (F-02)."},
+    {"item":"2020","value":"$2,200 (+3%)","value2":"$104,510 (+2%)","value3":"2.102%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2019","value":"$2,130 (+3.5%)","value2":"$102,470 (+2%)","value3":"2.083%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2018","value":"$2,060 (+18.4%)","value2":"$100,460 (+2%)","value3":"2.052%","status":"owner","sources":["nolo-note"],"note":"An 18.4% one-year jump in the bill is not explainable by the 2% cap alone (F-02)."},
+    {"item":"2017","value":"$1,740 (+3.9%)","value2":"$98,490 (+2%)","value3":"1.767%","status":"owner","sources":["nolo-note"],"note":""},
+    {"item":"2016","value":"$1,680 (+1.6%)","value2":"$96,560 (+1.5%)","value3":"1.734%","status":"owner","sources":["nolo-note"],"note":""}
    ]
   },
   {
@@ -84,11 +84,11 @@
    "columns": ["item","value","status","sources","note"],
    "rows": [
     {"item":"Property A — implied average rate 2014–2024","value":"1.36%","status":"derived","sources":["nolo-note"],"note":"Arithmetic on supplied bills. Sits between the county average (1.19%) and a rate that includes fixed direct assessments and parcel taxes."},
-    {"item":"Property A — decomposed for modelling","value":"1.193% × assessed value + $770 fixed direct assessments","status":"derived","sources":["scc-assessor-ar","nolo-note"],"note":"$7,207 − (1.193% × $539,743) = $770. Fixed assessments are levied per parcel and do not grow with value. Assumption A26."},
-    {"item":"Property A — 2026 tax check","value":"1.193% × $550,537 + $770 ≈ $7,340","status":"derived","sources":["scc-assessor-ar","nolo-note"],"note":"Within 2% of the 2025 bill, consistent with the 2% assessment cap."},
-    {"item":"Property B — total assessed value implied by the supplied 2025 bill","value":"$206,410","status":"derived","sources":["sftreasurer","nolo-note"],"note":"$2,439 ÷ 1.18268325%. The supplied assessment of $114,248 is roughly half of this — most likely land-only. Flagged F-05; use the tax amount, not the assessment column, for modelling."},
+    {"item":"Property A — decomposed for modelling","value":"1.193% × assessed value + $770 fixed direct assessments","status":"derived","sources":["scc-assessor-ar","nolo-note"],"note":"$7,210 − (1.193% × $539,740) = $770. Fixed assessments are levied per parcel and do not grow with value. Assumption A26."},
+    {"item":"Property A — 2026 tax check","value":"1.193% × $550,540 + $770 ≈ $7,340","status":"derived","sources":["scc-assessor-ar","nolo-note"],"note":"Within 2% of the 2025 bill, consistent with the 2% assessment cap."},
+    {"item":"Property B — total assessed value implied by the supplied 2025 bill","value":"$206,410","status":"derived","sources":["sftreasurer","nolo-note"],"note":"$2,440 ÷ 1.18268325%. The supplied assessment of $114,250 is roughly half of this — most likely land-only. Flagged F-05; use the tax amount, not the assessment column, for modelling."},
     {"item":"Property B — supplied assessment ÷ total implied","value":"55%","status":"derived","sources":["sftreasurer","nolo-note"],"note":"Consistent with a land-only figure on an Outer Sunset parcel."},
-    {"item":"Property B — 2026 tax check","value":"≈ $2,880 ÷ 2 = $1,440 per installment","status":"derived","value_display":"about $2,880/yr","sources":["sftreasurer"],"note":"2025 bill grown by the 2% cap: $2,439 × 1.02 ≈ $2,490, less if the rate slipped to 1.1816%. Model uses 1.18162182% applied to the implied assessed value, which reproduces ≈ $2,440 for FY2026-27."}
+    {"item":"Property B — 2026 tax check","value":"≈ $2,880 ÷ 2 = $1,440 per installment","status":"derived","value_display":"about $2,880/yr","sources":["sftreasurer"],"note":"2025 bill grown by the 2% cap: $2,440 × 1.02 ≈ $2,490, less if the rate slipped to 1.1816%. Model uses 1.18162182% applied to the implied assessed value, which reproduces ≈ $2,440 for FY2026-27."}
    ]
   }
  ]
