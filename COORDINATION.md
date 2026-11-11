@@ -591,3 +591,9 @@ Live-claim check (2026-11-11): fetched all `origin/arena/*` branches; all prior 
 - Verified/retrieved official anchors: BLS MLR 1979–81 inflation; BLS Dec-2022 CPI; FHFA 2008Q3 HPI; CBO Long-Term Outlook 2025–2055; USGS Bay Area probabilities; CDI Bulletin 2025-4; SEC Investor Resilience. Record: `research/black-swan-a1cb2872.md`.
 - Merge conflict with PR #26 (arena-b1a8d92b, merged to main during this session): COORDINATION.md and `public-safe/sources.html` conflicted. Resolved by preserving both sessions' text/sources; T19 changes were also ported into `scripts/build_safe.py` (generator) so a rebuild does not overwrite the expanded stress/sources/flagged pages. No work discarded.
 - Checks after resolution: `python3 scripts/build_safe.py && python3 scripts/verify_safe.py` → PASS (9 pages; 151 source-linked rows; 309 links; privacy patterns clean; money rounded to $10).
+### b1a/T16 — PR / merge / deploy record (arena-b1a8d92b)
+
+- PR #26 — https://github.com/wingbangboozle1-lang/Tino5/pull/26 (`arena/b1a8d92b-tino5` → `main`) — **MERGED 2026-11-11T13:11:47Z as merge commit `2dca293e5b037cbc43793a0c7e10f5ba73af0865`**. CI `verify` passed; `mergeStateStatus: CLEAN` before merge.
+- **GitHub Pages deploy**: legacy build on `main` at `2dca293`; `pages/builds/latest` status **`built`**, `error: null`, source `main:/`, `https_enforced: true`.
+- Live retrieval (fetched and read post-deploy): `https://wingbangboozle1-lang.github.io/Tino5/public-safe/costs.html` serves the new statewide-context row; `https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html` serves the expanded executive summary.
+- Task **b1a/T16: done**. Flagged irregularities F01–F10 remain `needs review` and did not block merge.
