@@ -277,6 +277,34 @@ assumptions it costs about {m.money(W['s3']-W['s1'])} of wealth over 25 years co
 
 <div class="cards">{cards}</div>
 
+<h2>Executive summary</h2>
+<ul class="tight">
+<li><strong>Two assets, two different problems.</strong> Property A is inherited around 2040–2050: its income-tax
+basis resets to date-of-death value and its property tax resets unless the heir occupies it. Property B is
+already owned and is unaffected by A's transfer — no step-up, no reassessment, tenants and rents unchanged.</li>
+<li><strong>The tax mechanics decide the answer.</strong> Occupying A and claiming the Prop 19 family-home
+exclusion keeps part of the old assessment; renting it out forfeits the exclusion entirely, so the taxable
+value becomes full market value. At 2045 that is {m.money(T['assess_rent'])}, and the tax is
+{m.money(T['tax_rent'])} a year on rent of {m.money(T['rent'])}.</li>
+<li><strong>The numbers at a 2045 transfer.</strong> A is worth about {m.money(T['fmv'])}; tax is
+{m.money(T['tax_occupy'])} if occupied and {m.money(T['tax_rent'])} if rented; net rental is
+{m.money(T['net_rent'])} after costs; selling nets about {m.money(T['proceeds'])} with a stepped-up basis and no
+capital-gains tax. By 2070 the paths are {m.money(W['s3'])} (sell), {m.money(W['s2'])} (rent) and
+{m.money(W['s1'])} (occupy).</li>
+<li><strong>Recommendation.</strong> Keep B; sell A and reinvest unless you genuinely want to live in A. The
+preference for living there is affordable but it is a purchase: about {m.money(W['s3']-W['s1'])} of forgone
+wealth over 25 years, or roughly {m.money((W['s3']-W['s1'])/25)} a year.</li>
+<li><strong>Inheritance tax.</strong> California has no estate or inheritance tax. The federal estate tax is
+paid by the estate, not the heir, and only above {stat('$15,000,000')} per person in 2026. A received
+inheritance is not taxable income.</li>
+<li><strong>What could reverse the ranking.</strong> Losing the step-up through how the trust is drafted;
+after-tax portfolio returns below about {m.pct(BE_PORT,2)}; rent growth above about {m.pct(BE_RENT,2)} a year;
+or a genuine wish to live in the house.</li>
+<li><strong>What is not known.</strong> Trust terms and estate inclusion, B's income-tax basis, actual
+insurance quotes, water and power bills, the legal status of B's third unit, and whether the solar tariff
+survives a transfer. These are published on <a href="flagged.html">Flagged for review</a>.</li>
+</ul>
+
 <h2>Decision at a glance</h2>
 {table("Three paths for Property A and the standing decision for Property B",
        ["Option", "What the numbers say", "Verdict", "Official source"], rows, numeric=())}
