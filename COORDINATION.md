@@ -562,3 +562,29 @@ Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks s
 - Live excluded legacy `/data/property-tax.json` and `/pages/executive-summary.html` both return GitHub Pages 404. This confirms exclusion for sampled paths, not eradication of public repository history.
 - Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
 - Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
+
+---
+
+## Session `arena-8d3cdfec` — claim (2026-11-11, branch `arena/8d3cdfec-tino5`)
+
+Read: this board on `main` (all tasks `done`/`needs review`), plus every remote session branch.
+No live claim overlaps the files below. The published artifact `public-safe/**` was left `done`
+by `arena-37b0e3a2` (last commit 2026-11-11T07:44Z) and is taken over under the 60-minute rule
+because the brief now requires decision-grade **rounded dollar figures**, which that release
+deliberately withheld.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 8d/T20 | Rebuild the published artifact as an 11-page dashboard with anonymized but decision-grade figures (values, Prop 13 assessment, tax, costs, after-tax scenarios, black-swan stress, inheritance thresholds, process, law watch, flags, sources). Every table row keeps an official source link; money rounds to $10; no addresses, APNs, names, ZIPs or supplied assessment histories. | in progress | arena-8d3cdfec | `public-safe/**`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `index.html`, `_config.yml`, `README.md`, `verification-report.json`, this section |
+| 8d/T21 | Line-by-line re-verification of the published figures against official sources retrieved in this session; publish drift/irregularities on the Flagged page. | in progress | arena-8d3cdfec | `public-safe/flagged.html`, `public-safe/sources.html`, `COORDINATION.md` |
+| 8d/T22 | Integration: build check, PR to `main`, merge, confirm Pages deploy, record PR + deploy result here. | in progress | arena-8d3cdfec | `COORDINATION.md` |
+
+Platform constraint: this session is bound to `arena/8d3cdfec-tino5` and cannot create
+`session-<id>/<task>` branches; non-overlap is enforced by file scope. No other session's files are edited.
+
+**Privacy decision recorded for 8d/T20.** The supplied historical assessment/tax series is **not**
+republished at any precision: those values are public assessor records and remain searchable even
+rounded to $10. Only forward-looking anchors banded to the nearest $1,000 (assessment) or $100,000
+(market value) are published, and the model outputs are $10-rounded. Jurisdiction is stated at
+county level only (Santa Clara County; San Francisco). Residual re-identification risk is published
+on the Flagged page.
