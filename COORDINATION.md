@@ -562,3 +562,11 @@ Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks s
 - Live excluded legacy `/data/property-tax.json` and `/pages/executive-summary.html` both return GitHub Pages 404. This confirms exclusion for sampled paths, not eradication of public repository history.
 - Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
 - Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
+
+## Session `arena-b1a8d92b` — independent re-verification & gap-close (2026-11-11, branch `arena/b1a8d92b-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| b1a/T16 | Independent re-verification of curated `public-safe/**` dashboard against official sources; close remaining brief gaps (insurance context, 2040–2050 window, executive summary completeness) without introducing any private figures; PR + merge + Pages confirm | in progress | arena-b1a8d92b | `public-safe/**`, `scripts/build_safe.py`, `scripts/verify_safe.py`, `COORDINATION.md` |
+
+Live-claim check (2026-11-11): fetched all `origin/arena/*` branches; all prior sessions' tasks are `done`/`needs review` or merged PRs (#1–#25). No live overlapping claim on `public-safe/**` (P1 by `arena-37b0e3a2` is `done`). This session works only within the scope above.
