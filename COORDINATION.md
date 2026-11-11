@@ -39,6 +39,7 @@ and never start a task already claimed by another live session.
 | T12 | Independent verification, interactive simulator & 2026-2050 dashboard (preserved non-overlapping under `session-2f7b1b3f/`) | done | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/**`, `index.html`, `README.md`, `scripts/verify.mjs`, `COORDINATION.md` |
 | T13 | Flagged irregularities & unverified property-specific items (`session-2f7b1b3f/pages/verification-review.html`) | needs review | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/pages/verification-review.html` |
 | T14 | Independent source-verified dashboard under `docs/**` (13 pages, 54 official sources, 326 rows, 20 flags) | done | arena-91a4a9f9 (`arena/91a4a9f9-tino5`) | `docs/**`, `data/site_data.json`, `model/build_data.py`, `scripts/build_dashboard.py`, `scripts/verify.py`, `scripts/write_research.py`, `research/{federal,california,costs,executive-summary,verification-log}.md` |
+| T15 | Re-verification & integration audit 2026-11-11 (line-by-line source, link, PII, rounding re-check; Pages deploy confirm; PR + merge) | done | arena-e10f31dc (`arena/e10f31dc-tino5`) | `COORDINATION.md`, `verification-report.json` |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
@@ -448,3 +449,43 @@ P1 scope additionally includes `scripts/build_safe.py` (deterministic generator)
 - Manual formula checks: occupancy/lease opportunity costs kept distinct; B held constant; estate vs beneficiary exclusion distinguished; 2026 rule not extrapolated as future law; illustrative growth rates explicitly analyst-selected; after-tax personalized ranking withheld, not invented. Stress paths are examples, not probability estimates.
 - Irregularities F01–F10 published at curated Flagged for Review. Known limits: full historical repo not semantically certified, actual private inputs not verified, bill/legal rental/insurance details unknown, pending law/local transfer rules not comprehensively rechecked. These do not block publication.
 - Privacy residual: public repository and history still expose prior session outputs. Allowlisted artifact prevents legacy website paths from being redeployed, but cannot erase prior public disclosure/caches. No historical Git rewrite or repository visibility change attempted without explicit authorization.
+---
+
+## Appendix — session `arena-e10f31dc` (T15 re-verification & integration audit, 2026-11-11)
+
+**Context.** Branched from `cb9b81e` (PR #20 merge, `main` @ 2026-11-10) on `arena/e10f31dc-tino5`. The brief was already fully implemented and live (root dashboard + `docs/` 13-page verified dashboard + `docs/arena-80c92539/` + `audited-v4/` + `session-2f7b1b3f/` + `archive/`). This session claimed **T15** (scope: `COORDINATION.md`, `verification-report.json` only — no other session's files touched) and performed an independent re-verification rather than rebuilding.
+
+**Verification performed (2026-11-11 UTC).**
+
+| Check | Result |
+|---|---|
+| `python3 scripts/verify.py` | 3,633 checks, **ALL PASSED** — 21 tables, 327 rows, 55 sources, 13 pages |
+| `node scripts/verify.mjs` | 209 rows (76 verified), 639 internal / 281 external links, **0 errors**, 53 pre-existing warnings (preserved archived pages citing sources outside that registry) |
+| Independent PII scan (36 HTML files: `docs/**`, `index.html`, `pages/**`) | **0 hits** (SSN/phone/email/APN patterns; public agency contacts excluded) |
+| Independent rounding scan (`docs/**`) | **0 unrounded amounts ≥ $100** |
+| Independent internal-link scan | **0 broken** |
+| GitHub Pages (`gh api .../pages`) | `status: built`, `build_type: legacy`, source `main:/`, `https_enforced: true`; latest build on `cb9b81e` |
+| Live retrieval (fetched + read) | `https://wingbangboozle1-lang.github.io/Tino5/docs/index.html` serves the dashboard (KPIs, recommendation, 12 subpage links) |
+
+**Official sources re-fetched 2026-11-11 (values unchanged unless noted).**
+
+| Source | Finding |
+|---|---|
+| IRS Estate tax — https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax | 2026 threshold **$15,000,000** confirmed; portability text unchanged |
+| CA BOE Prop 19 — https://www.boe.ca.gov/prop19/ | Principal-residence (both parties), value limit = taxable value + $1,000,000 biennially adjusted, 1-yr exemption / 3-yr claim — unchanged |
+| CA BOE Pub 801 — https://www.boe.ca.gov/pdf/pub801.pdf | Allowance **$1,044,586** for 2/16/2025–2/15/2027 confirmed (site rounds to $1,044,590) |
+| SF Treasurer — https://sftreasurer.org/property/secured-property-taxes | FY2026-27 rate **1.18162182%** confirmed; due-date/penalty tables unchanged |
+| IRS Pub 551 — https://www.irs.gov/publications/p551 | Stepped-up basis (FMV at date of death) — page live, rule unchanged |
+| CA SCO R&T §13301 — https://www.sco.ca.gov/Files-ARD-Tax-Info/estate_lawreg_lawreg.pdf | Prohibition of gift/death taxes — live, unchanged |
+| CDI Sustainable Insurance Strategy — https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm | CA average **$1,571** (site: $1,570 rounded to $10 — correct); page updated 10/27/2026 |
+| CA SOS ballot measures — https://electionresults.sos.ca.gov/returns/ballot-measures | **Drift (see below):** updated 11/10 5:31 p.m. vs site's 11/9 snapshot; certification still due 12/11/2026 |
+
+**Irregularities / drift found (do not block merge; published here for review).**
+
+1. **SOS unofficial percentages drifted 0.1–0.2 pp** between the site's 11/9 snapshot and the 11/10 5:31 p.m. update: Prop 40 No 52.8% → **52.6%**, Prop 42 Yes 51.6% → **51.5%**, Prop 43 No 57.3% → **57.4%**; Prop 3 Yes 60.6% unchanged. Outcomes (pass/fail) unchanged. The site already labels these **unofficial** with certification due **December 11, 2026** (FLAG-014). No `docs/` edit was made in this session (T14 scope); the next `docs/` rebuild should refresh to the latest unofficial (or certified) figures. Source: https://electionresults.sos.ca.gov/returns/ballot-measures
+2. **CDI $1,571 vs site $1,570** — not an error: site rounds to the nearest $10 per project rule. No action.
+3. **No new law, rate, or threshold changes** found overnight (11/10 → 11/11). All other re-fetched values match the published site.
+
+**PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED 2026-11-11T07:40:31Z as merge commit `e81296b3598aef735469aaebfaedcaa84935df05`** (verified via `gh pr view 21 --json state,mergedAt,mergeCommit`; `mergeStateStatus: CLEAN` before merge). **GitHub Pages deploy**: legacy build on `main` triggered at `e81296b`; `pages/builds/latest` status **`built`** at `2026-11-11T07:40:33Z`, `error: null`, source `main:/`, `https_enforced: true`. Live retrieval (fetched and read): `https://wingbangboozle1-lang.github.io/Tino5/docs/index.html` serves the dashboard. Flagged irregularities above do not block merge. This record was published to `main` by follow-up PR #22.
+
+Merge log: arena-37b0e3a2 integrated origin/main (T15 completed audit). COORDINATION append conflict resolved by preserving both sessions’ text in order; no work discarded.
