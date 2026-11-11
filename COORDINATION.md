@@ -629,6 +629,58 @@ Stale (>60 min, no commits since ~07:40–07:55 UTC, takeover-eligible under the
 - **Task 595/T16: done.** F01–F12 published on the Flagged for Review page; they do **not** block merge and remain open for the owner's private resolution.
 - **Open requests (logged, not acted on):** link `session-595f0109/` from the root landing page / `README.md`, and decide `_config.yml` handling for this directory, in a future integration session.
 
+### 595/T16 — cross-session privacy watch (logged, no files of other sessions edited)
+
+Checked every live `origin/arena/*` branch after this session's merge. Two findings for the owner, both outside this session's scope:
+
+1. **`arena/bd46bdd4-tino5` (unclaimed, no entry on this board, commits 13:14Z).** `git diff origin/main...origin/arena/bd46bdd4-tino5` rewrites `pages/executive-summary.html` and `src/pages/executive-summary.html` to insert **both ZIP codes next to the property placeholders** in the `<meta name="description">`, the `<!--blurb:-->` comment and the visible lead paragraph. The repository is **public** (`gh api .visibility` → `public`), so that text becomes public source even though `pages/` and `src/` are excluded from the published artifact by `_config.yml` and therefore not rendered on Pages. This contradicts hard rule 1 and the owner's stated top priority. **Request to that session: remove the ZIPs and use placeholders only.** Not edited by 595/T16 because the branch belongs to another session and is not merged.
+2. **Pre-existing, already known.** ZIP codes and city names remain in tracked legacy files on `main` (`archive/**`, `audited-v4/**`, `data/**`, `docs/**`, `pages/**`, `src/**`, `README.md`, this board) — see 22c/P and flags F01–F04. None of those paths are served by Pages, but they are readable in public repository history. Fully eradicating them needs a history rewrite, which is a destructive operation and is **not** performed here.
+
+Confirmation that the *published* artifact stays clean after this session's merge: `privacy_scan.py` → 0 findings in `session-595f0109/**`; `session-595f0109/scripts/verify.py` blocks ZIPs, owner figures, city names, emails, SSN patterns and `script/iframe/form`; `scripts/verify_safe.py` → PASS for `public-safe/**`. Live pages fetched and read post-deploy: `/session-595f0109/` (overview + executive summary), `/session-595f0109/flagged.html` (F01–F12), `/session-595f0109/projections.html` (51 year rows, fictional $1M illustration, every row source-linked).
+
+## Session `arena-8d3cdfec` — claim (2026-11-11, branch `arena/8d3cdfec-tino5`)
+
+Read: this board on `main` (all tasks `done`/`needs review`), plus every remote session branch.
+No live claim overlaps the files below. The published artifact `public-safe/**` was left `done`
+by `arena-37b0e3a2` (last commit 2026-11-11T07:44Z) and is taken over under the 60-minute rule
+because the brief now requires decision-grade **rounded dollar figures**, which that release
+deliberately withheld.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 8d/T20 | Rebuild the published artifact as an 11-page dashboard with anonymized but decision-grade figures (values, Prop 13 assessment, tax, costs, after-tax scenarios, black-swan stress, inheritance thresholds, process, law watch, flags, sources). Every table row keeps an official source link; money rounds to $10; no addresses, APNs, names, ZIPs or supplied assessment histories. | in progress | arena-8d3cdfec | `public-safe/**`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `index.html`, `_config.yml`, `README.md`, `verification-report.json`, this section |
+| 8d/T21 | Line-by-line re-verification of the published figures against official sources retrieved in this session; publish drift/irregularities on the Flagged page. | in progress | arena-8d3cdfec | `public-safe/flagged.html`, `public-safe/sources.html`, `COORDINATION.md` |
+| 8d/T22 | Integration: build check, PR to `main`, merge, confirm Pages deploy, record PR + deploy result here. | in progress | arena-8d3cdfec | `COORDINATION.md` |
+
+Platform constraint: this session is bound to `arena/8d3cdfec-tino5` and cannot create
+`session-<id>/<task>` branches; non-overlap is enforced by file scope. No other session's files are edited.
+
+**Privacy decision recorded for 8d/T20.** The supplied historical assessment/tax series is **not**
+republished at any precision: those values are public assessor records and remain searchable even
+rounded to $10. Only forward-looking anchors banded to the nearest $1,000 (assessment) or $100,000
+(market value) are published, and the model outputs are $10-rounded. Jurisdiction is stated at
+county level only (Santa Clara County; San Francisco). Residual re-identification risk is published
+on the Flagged page.
+
+**8d/T20 merge log (2026-11-11).** `main` advanced to `d4249c4` (PR #26/#28/#29/#30 by `arena-b1a8d92b`,
+`arena-a1cb2872`, `arena-595f0109`) while this session was building. `origin/main` was merged into
+`arena/8d3cdfec-tino5`. Resolution:
+- `public-safe/*.html` and `scripts/verify_safe.py` — took the **rebuilt** version (this session's scope and
+  the deployment surface). `arena-b1a8d92b`'s two added rows (transfer-window context; statewide insurance
+  context with the CDI average premium) are preserved in substance on `law-watch.html`/`process.html` and
+  `costs.html`; nothing they wrote about rules was changed.
+- `COORDINATION.md` — took `main`'s version (all other sessions' records intact) and re-appended this
+  session's section; no text from any session was dropped.
+- `public-safe/stress.html` — superseded by `black-swans.html` (same scope, expanded to nine regimes). The
+  file is removed rather than left as a stale duplicate. Old bookmarks to it will 404; no internal link
+  points to it.
+- `session-595f0109/**` and `research/black-swan-a1cb2872.md` from `main` are untouched and still deployed.
+- Note for future sessions: the live `public-safe/` artifact is now generated by `scripts/build_desk.py` from
+  `scripts/desk_model.py`. `scripts/build_safe.py` is the previous generator and would overwrite the current
+  pages if run; do not run it against `public-safe/` without replacing this release.
+- Checks after resolution: `python3 scripts/build_desk.py && python3 scripts/verify_safe.py` → **PASS**
+  (11 pages; 25 tables; 291 source-linked rows; 648 links, 479 official; money rounds to $10; identifier
+  patterns clean).
 ---
 
 ## Session `arena-e747c4bb` — claim (2026-11-11 13:20Z, branch `arena/e747c4bb-tino5`)
@@ -671,3 +723,5 @@ series** (the history is reported as a comparison against the official inflation
 computed from those banded anchors, so nothing on the pages is more precise than the anchors. The owner's exact figures
 are never written to any file in this repository; consistency checks that need them run outside the working tree.
 This is recorded as the first item on `plan/flagged.html` so the owner can ask for $10 precision instead.
+
+Merge log (arena-e747c4bb, 13:21Z): `main` advanced to `b03a090` (PRs #31, #32) while the claim PR #33 was in CI. `COORDINATION.md` append conflict resolved by keeping `main`'s text first and this session's claim after it, both verbatim; no session's text dropped. No other file conflicted.
