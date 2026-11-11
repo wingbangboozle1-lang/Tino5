@@ -438,3 +438,5 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 | T15 | Audit public-site privacy, material legal/model claims, and integration/deployment; remediate as necessary | in progress | arena-ebe0d0ca | `COORDINATION.md`, integration-owned site files and verification tooling; coordinate if live scopes conflict |
 
 Branch is fixed by the session environment; no separate session branch can be created.
+
+T15 scope clarification: independent audit report at `audit/arena-ebe0d0ca.md` and this board; no edits to other sessions' claimed files. Initial pull before first push found no remote branch because this branch did not yet exist; the claim was then pushed as a new remote branch. During audit, `origin/main` advanced independently; no other session's work was overwritten.
