@@ -431,3 +431,42 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 **PR / merge / deploy record (arena-80c92539).** PR #19 — https://github.com/wingbangboozle1-lang/Tino5/pull/19 — opened pre-merge; blocked by conflicts with PRs #16–#18 → resolved as above (no session's work discarded) → **MERGED 2026-11-10T10:35:10Z as merge commit `74542f49634bb7056435a31de86bfd549a194ed8`** (verified via `gh pr view 19 --json state,mergedAt,mergeCommit`; mergeStateStatus CLEAN before merge). **GitHub Pages deploy**: legacy build on main triggered at `74542f4`; `pages/builds/latest` status **`built`** at 2026-11-10T10:35:12Z, `error: null`, `https_enforced: true`; source remains `main:/` (path in root — required so the root dashboard, `docs/`, `audited-v4/` and `session-2f7b1b3f/` remain served). Live retrieval check (fetched and read): `https://wingbangboozle1-lang.github.io/Tino5/`, `https://wingbangboozle1-lang.github.io/Tino5/docs/index.html`, `https://wingbangboozle1-lang.github.io/Tino5/docs/arena-80c92539/index.html` — all serve the combined content. Combined verifier on the merged tree (`node scripts/verify.mjs`): **errors: 0**, warnings: 55 (pre-existing pattern of preserved pages citing sources outside that registry). This session's subtree link check: ALL INTERNAL LINKS & TAGS OK (11 files). Flagged irregularities do not block merge.
 
 **Conclusion alignment.** This session's bottom line agrees with the other published dashboards: inherit, step-up + Prop 19 occupancy decision on the Cupertino home (keep if occupied within 1 year, otherwise sell at death and reinvest), sell the rented San Francisco building unless an heir genuinely occupies one unit (Prop 19 apportionment is assessor-specific), and stay well below the $15,000,000 (2026) indexed federal exclusion unless the cash component is larger than the analysis assumes.
+
+---
+
+## Appendix — session `arena-e10f31dc` (T15 re-verification & integration audit, 2026-11-11)
+
+**Context.** Branched from `cb9b81e` (PR #20 merge, `main` @ 2026-11-10) on `arena/e10f31dc-tino5`. The brief was already fully implemented and live (root dashboard + `docs/` 13-page verified dashboard + `docs/arena-80c92539/` + `audited-v4/` + `session-2f7b1b3f/` + `archive/`). This session claimed **T15** (scope: `COORDINATION.md`, `verification-report.json` only — no other session's files touched) and performed an independent re-verification rather than rebuilding.
+
+**Verification performed (2026-11-11 UTC).**
+
+| Check | Result |
+|---|---|
+| `python3 scripts/verify.py` | 3,633 checks, **ALL PASSED** — 21 tables, 327 rows, 55 sources, 13 pages |
+| `node scripts/verify.mjs` | 209 rows (76 verified), 639 internal / 281 external links, **0 errors**, 53 pre-existing warnings (preserved archived pages citing sources outside that registry) |
+| Independent PII scan (36 HTML files: `docs/**`, `index.html`, `pages/**`) | **0 hits** (SSN/phone/email/APN patterns; public agency contacts excluded) |
+| Independent rounding scan (`docs/**`) | **0 unrounded amounts ≥ $100** |
+| Independent internal-link scan | **0 broken** |
+| GitHub Pages (`gh api .../pages`) | `status: built`, `build_type: legacy`, source `main:/`, `https_enforced: true`; latest build on `cb9b81e` |
+| Live retrieval (fetched + read) | `https://wingbangboozle1-lang.github.io/Tino5/docs/index.html` serves the dashboard (KPIs, recommendation, 12 subpage links) |
+
+**Official sources re-fetched 2026-11-11 (values unchanged unless noted).**
+
+| Source | Finding |
+|---|---|
+| IRS Estate tax — https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax | 2026 threshold **$15,000,000** confirmed; portability text unchanged |
+| CA BOE Prop 19 — https://www.boe.ca.gov/prop19/ | Principal-residence (both parties), value limit = taxable value + $1,000,000 biennially adjusted, 1-yr exemption / 3-yr claim — unchanged |
+| CA BOE Pub 801 — https://www.boe.ca.gov/pdf/pub801.pdf | Allowance **$1,044,586** for 2/16/2025–2/15/2027 confirmed (site rounds to $1,044,590) |
+| SF Treasurer — https://sftreasurer.org/property/secured-property-taxes | FY2026-27 rate **1.18162182%** confirmed; due-date/penalty tables unchanged |
+| IRS Pub 551 — https://www.irs.gov/publications/p551 | Stepped-up basis (FMV at date of death) — page live, rule unchanged |
+| CA SCO R&T §13301 — https://www.sco.ca.gov/Files-ARD-Tax-Info/estate_lawreg_lawreg.pdf | Prohibition of gift/death taxes — live, unchanged |
+| CDI Sustainable Insurance Strategy — https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm | CA average **$1,571** (site: $1,570 rounded to $10 — correct); page updated 10/27/2026 |
+| CA SOS ballot measures — https://electionresults.sos.ca.gov/returns/ballot-measures | **Drift (see below):** updated 11/10 5:31 p.m. vs site's 11/9 snapshot; certification still due 12/11/2026 |
+
+**Irregularities / drift found (do not block merge; published here for review).**
+
+1. **SOS unofficial percentages drifted 0.1–0.2 pp** between the site's 11/9 snapshot and the 11/10 5:31 p.m. update: Prop 40 No 52.8% → **52.6%**, Prop 42 Yes 51.6% → **51.5%**, Prop 43 No 57.3% → **57.4%**; Prop 3 Yes 60.6% unchanged. Outcomes (pass/fail) unchanged. The site already labels these **unofficial** with certification due **December 11, 2026** (FLAG-014). No `docs/` edit was made in this session (T14 scope); the next `docs/` rebuild should refresh to the latest unofficial (or certified) figures. Source: https://electionresults.sos.ca.gov/returns/ballot-measures
+2. **CDI $1,571 vs site $1,570** — not an error: site rounds to the nearest $10 per project rule. No action.
+3. **No new law, rate, or threshold changes** found overnight (11/10 → 11/11). All other re-fetched values match the published site.
+
+**PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED** as merge commit (see `gh pr view 21`). Pages rebuild on the new `main` commit confirmed `built` with `error: null`; live `docs/index.html` re-fetched and read after deploy. Flagged irregularities above do not block merge.
