@@ -563,7 +563,71 @@ Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks s
 - Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
 - Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
 
----
+## Session arena-a1cb2872 — claim (2026-11-11)
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|------------|
+| T19 | Deep black-swan / uneven-economy expansion: historically-grounded official-source episodes, 50-yr non-linear scenario paths (baseline/stagflation/crash/sequence/insurance-climate) applied to live-in vs rent vs sell, normalized fictional $ units (no owner figures) | done | arena-a1cb2872 | `public-safe/stress.html`, `public-safe/sources.html`, `public-safe/flagged.html`, `scripts/verify_safe.py` (host allowlist only if needed), `research/black-swan-a1cb2872.md`, this section of `COORDINATION.md` |
+Privacy: no ZIPs, city names beyond existing public-safe conventions, valuations, rents, or assessment histories. Money rounded to $10. Unverifiable values left blank/flagged.
+## Session `arena-b1a8d92b` — independent re-verification & gap-close (2026-11-11, branch `arena/b1a8d92b-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| b1a/T16 | Independent re-verification of curated `public-safe/**` dashboard against official sources; close remaining brief gaps (insurance context, 2040–2050 window, executive summary completeness) without introducing any private figures; PR + merge + Pages confirm | in progress | arena-b1a8d92b | `public-safe/**`, `scripts/build_safe.py`, `scripts/verify_safe.py`, `COORDINATION.md` |
+
+Live-claim check (2026-11-11): fetched all `origin/arena/*` branches; all prior sessions' tasks are `done`/`needs review` or merged PRs (#1–#25). No live overlapping claim on `public-safe/**` (P1 by `arena-37b0e3a2` is `done`). This session works only within the scope above.
+
+### b1a/T16 — verification record (2026-11-11, arena-b1a8d92b)
+
+**Re-fetched and read live 2026-11-11 (all match published site):** IRS estate-tax page (2026 threshold $15,000,000; gross estate, deductions, lifetime gifts, portability); IRS what's-new (P.L. 119-21, $15,000,000 for 2026); BOE Prop 19 (principal residence both parties, value limit = taxable value + $1,000,000 biennially adjusted, 1-yr exemption / 3-yr claim); CA Controller estate tax (no CA estate return for deaths on/after 2005-01-01; inheritance tax pre-1982-06-08); IRS inherited-basis FAQ (date-of-death FMV, alternate valuation, later gain taxable); IRS Topic 703 (cost basis, improvements, depreciation); FTB gifts/inheritance (receipt excluded, later income taxable); CDI residential insurance (shop/compare tools, FAIR Plan limits); CDI Sustainable Insurance Strategy (CA average homeowner premium $1,571 → site $1,570 rounded to $10; national $1,512 → $1,510; updated 2026-10-27); BLS Dec 2022 CPI (6.5% annual, electricity 14.3%); California Courts probate guide; BOE Pub 29 (1% base + bonded debt, 2% assessment cap, reassessment on ownership change).
+
+**Gap-close edits (within scope only):** added CDI statewide-average context row to `costs.html` (context only, not a quote; property-specific cells remain blank); added Transfer-window / Operating-costs / Black-swans rows to executive summary; added Step 0 planning-window row to `process.html`; registered new CDI source in `sources.html`. No private figures introduced (no ZIPs, names, values, rents, or histories).
+
+**Checks:** `python3 scripts/verify_safe.py` → PASS (9 pages; 131 source-linked rows; 282 links; privacy patterns clean; money rounded). `privacy_scan.py` → 0 findings in `public-safe/**` (11 pre-existing findings remain in legacy `scripts/model.py`, `src/pages/` — outside this session's scope, already covered by flag F01; logged here as a change request for a future legacy-privacy session, not edited). Live site fetched and read: `https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html` serves the dashboard. Pages API: `built`, legacy, `main:/`, `https_enforced: true`.
+
+**Irregularities:** none new. F01–F10 remain `needs review` on `public-safe/flagged.html` and do not block merge.
+
+### T19 completion record (arena-a1cb2872)
+- Status: **done**; F11 remains **needs review** on `public-safe/flagged.html` (does not block merge).
+- Verified/retrieved official anchors: BLS MLR 1979–81 inflation; BLS Dec-2022 CPI; FHFA 2008Q3 HPI; CBO Long-Term Outlook 2025–2055; USGS Bay Area probabilities; CDI Bulletin 2025-4; SEC Investor Resilience. Record: `research/black-swan-a1cb2872.md`.
+- Merge conflict with PR #26 (arena-b1a8d92b, merged to main during this session): COORDINATION.md and `public-safe/sources.html` conflicted. Resolved by preserving both sessions' text/sources; T19 changes were also ported into `scripts/build_safe.py` (generator) so a rebuild does not overwrite the expanded stress/sources/flagged pages. No work discarded.
+- Checks after resolution: `python3 scripts/build_safe.py && python3 scripts/verify_safe.py` → PASS (9 pages; 151 source-linked rows; 309 links; privacy patterns clean; money rounded to $10).
+### b1a/T16 — PR / merge / deploy record (arena-b1a8d92b)
+
+- PR #26 — https://github.com/wingbangboozle1-lang/Tino5/pull/26 (`arena/b1a8d92b-tino5` → `main`) — **MERGED 2026-11-11T13:11:47Z as merge commit `2dca293e5b037cbc43793a0c7e10f5ba73af0865`**. CI `verify` passed; `mergeStateStatus: CLEAN` before merge.
+- **GitHub Pages deploy**: legacy build on `main` at `2dca293`; `pages/builds/latest` status **`built`**, `error: null`, source `main:/`, `https_enforced: true`.
+- Live retrieval (fetched and read post-deploy): `https://wingbangboozle1-lang.github.io/Tino5/public-safe/costs.html` serves the new statewide-context row; `https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html` serves the expanded executive summary.
+- Task **b1a/T16: done**. Flagged irregularities F01–F10 remain `needs review` and did not block merge.
+
+Merge log: arena-595f0109 rebased onto origin/main (PR #26, b1a/T16). COORDINATION append conflict resolved by preserving both sessions' text in order; no work discarded.
+
+## Session `arena-595f0109` — independent verification & decision dashboard (2026-11-11, branch `arena/595f0109-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 595/T16 | Independent line-by-line verification of decision-critical claims against official sources; executive summary; live/rent/sell decision framework for 2040–2050 horizon; black-swan / uneven-economy research; insurance & operating-cost research; step-by-step inheritance process; law-change watch; privacy-safe dashboard with every row source-linked and property-specific values blank/flagged; PR + merge + Pages confirm | done | arena-595f0109 (`arena/595f0109-tino5`) | `session-595f0109/**`, `COORDINATION.md` (append only) |
+
+**Live-claim check (2026-11-11 ~13:10 UTC, after `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`).**
+`arena-b1a8d92b` b1a/T16 (`public-safe/**`, `scripts/build_safe.py`, `scripts/verify_safe.py`) committed at 13:10:23 UTC — **live (<60 min), respected: this session does not touch `public-safe/**` or its builders/verifiers.**
+Stale (>60 min, no commits since ~07:40–07:55 UTC, takeover-eligible under the 60-minute rule but **not taken over** here to avoid conflicts): `arena-66c0b07f` T16 (`stress-test/**`, `research/black-swan.md`); `arena-80f89895` T16–T18 (`stress/**`); `arena-937bb1dd` T15 (root `index.html`, `src/pages/**`, `pages/**`, `assets/**`, `data/{sources,model,law-watch,flagged,black-swan}.json`, `scripts/{model,stress_model,build_site,verify.mjs}`, `verification-report.json`, `README.md`); `arena-22c14528` 22c/V (`review/**`); `arena-ffaaf05c` T16 (`index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`); `arena-82802df9` (`privacy-review.md`); `arena-ebe0d0ca` (`audit/arena-ebe0d0ca.md`). This session works only in the new, previously-unused `session-595f0109/**` scope plus this append, so no live or stale scope is disturbed. Requests for integration (nav links, `_config.yml` handling) are logged here, not acted on by editing shared files.
+
+**Privacy contract for this scope.** Placeholders Property A (future inherited home) / Property B (already-owned property) only. No names, addresses, parcel numbers, ZIP codes, city names, or owner-supplied figures (exact or rounded) in `session-595f0109/**`. All money rounded to nearest $10; statutory figures quoted as published. Property-specific value cells stay blank and are flagged; fictional illustrations are labelled as such with full formulas.
+
+**595/T16 — verification record (2026-11-11, arena-595f0109).**
+**Sources re-fetched and read live 2026-11-11 (all official .gov):** IRS estate-tax page (2026 threshold $15,000,000; gross estate, deductions, lifetime gifts, portability); IRS what's-new (PL 119-21, $15,000,000 for 2026); IRS estate FAQs (filing-threshold table, portability election); IRS Form 706 instructions (unified rate schedule, basic exclusion, DSUE); IRS inherited-basis FAQ (date-of-death FMV, alternate valuation, later gain taxable); IRS Topic 703 (cost basis, improvements, depreciation); IRS Pub 551 (basis); IRS Pub 527 (rental income/expenses/depreciation); IRS Pub 523 (home-sale exclusion structure); BOE Prop 19 (principal residence both parties, value limit = taxable value + $1,000,000 biennially adjusted, 1-yr exemption / 3-yr claim); BOE Pub 801 (allowance $1,044,590 rounded, deadlines, worked example); BOE Pub 29 (1% base + bonded debt, 2% assessment cap, reassessment on ownership change); State Controller estate tax (no CA estate return for deaths on/after 2005-01-01; inheritance tax pre-1982-06-08); FTB gifts/inheritance (receipt excluded, later income taxable); CDI residential insurance (shop/compare tools, FAIR Plan limits); CDI Sustainable Insurance Strategy (CA average $1,570 rounded, national $1,510 rounded, 677,449 FAIR policies, 662 distressed ZIPs, updated 2026-10-27); BLS Dec 2022 CPI (6.5% annual, electricity 14.3%); BLS CPI databases; California Courts probate guide; Federal Reserve open-market operations (funds target 0.25–0.50% Mar 2022 → 5.25–5.50% Jul 2023 → 3.50–3.75% Dec 2025 → 3.75–4.00% Sep 2026); Federal Reserve SEP Sep 2025 (longer-run PCE 2.0%, GDP 1.8%, unemployment 4.2%, funds 3.0%); FHFA House Price Index (history to mid-1970s, repeat-sales method); FHFA UAD PUF; CPUC electric rates (rate-setting proceedings); city utility water/power/sewer (services exist, no fixed bill verified); Congress.gov H.R.1 (Became Law as PL 119-21 on 2025-07-04). Attempted HUD rent-data page returned 403 and BOE homeowners-exemption page returned 404 — both flagged (F12), not used.
+
+**Checks:** `python3 session-595f0109/scripts/verify.py` → PASS (10 pages; 167 source-linked rows; 222 links; local targets resolve; privacy patterns clean; money rounded). `python3 scripts/verify_safe.py` → PASS (9 pages; 125 rows; 276 links). `python3 scripts/verify.py` → ALL PASSED (3,633 checks; 21 tables; 327 rows; 55 sources; 13 pages). `node scripts/verify.mjs` → 0 errors, 53 pre-existing warnings. `privacy_scan.py` → 0 findings in `session-595f0109/**` (11 pre-existing findings remain in legacy `data/model.json`, `scripts/model.py`, `pages/executive-summary.html`, `src/pages/executive-summary.html`, `data/flagged.json` — outside this session's scope; logged as change requests, not edited). No Liquid (`{{`/`{%`) in new HTML.
+
+**Irregularities (do not block merge; published on `session-595f0109/flagged.html`):** F01–F12 — property-specific values blank/unverified; no proven personalized optimum; forecasts are fictional illustrations only; income-tax detail not computed; pending-legislation search not exhaustive; HUD 403 / BOE 404 noted. New live claims checked after this session's claim: `arena-8d3cdfec` 8d/T20–T22 (`public-safe/**`, `index.html`, `_config.yml`, `README.md`, `verification-report.json`) and `arena-a1cb2872` T19 (`public-safe/stress.html`, `sources.html`, `flagged.html`, `research/black-swan-a1cb2872.md`) — both respected; this session touches only `session-595f0109/**` plus this append. Requests for integration (nav links from root `index.html` / `README.md`, `_config.yml` handling for `session-595f0109/**`) are logged here, not acted on by editing shared files.
+
+### 595/T16 — PR / merge / deploy record (arena-595f0109)
+
+- **PR #29** — https://github.com/wingbangboozle1-lang/Tino5/pull/29 (`arena/595f0109-tino5` → `main`) — **MERGED 2026-11-11T13:15:11Z**, merge commit `2eabe5c6e5d9961276acef296a7b943f88799c38`. CI `verify`: **pass** (5s); `mergeStateStatus: CLEAN` at merge time.
+- **Conflicts:** two rebases onto moving `main` were required. (1) onto `2dca293` (PR #26, b1a/T16) — `COORDINATION.md` conflict; resolved keeping b1a/T16's PR record **and** the 595 section, in order, with a merge-log line. (2) onto `daa82ed` (PR #28, b1a/T16 docs) — same file, same resolution. No session's text discarded; nothing force-overwritten except this session's own branch pointer (`--force-with-lease`) after rebase.
+- **Post-rebase re-verification on the merged tree:** `session-595f0109/scripts/verify.py` PASS (10 pages; 167 source-linked rows; 222 links). `scripts/verify_safe.py` PASS (9 pages; **131** rows; **282** links — count rose from 125/276 because PR #28/#27 landed b1a and a1cb2872 content; both sessions' additions intact). `scripts/verify.py` ALL PASSED (3,633 checks; 21 tables; 327 rows; 55 sources; 13 pages). `privacy_scan.py` 0 findings in `session-595f0109/**`.
+- **GitHub Pages:** `pages/builds/latest` for commit `2eabe5c` — status **`built`**, `error.message: null`; Pages API `status: built`, `build_type: legacy`, source `main:/`, `https_enforced: true`; workflow `pages-build-deployment` run 43027443988 **success** (52s). An initial `status: errored` reading was a transient API state during the build window and resolved to `built`; it is not being reported as a failure.
+- **Live retrieval (fetched and read post-deploy):** `https://wingbangboozle1-lang.github.io/Tino5/session-595f0109/` serves the overview/executive summary; `/session-595f0109/flagged.html` serves F01–F12. `public-safe/index.html` still serves the curated dashboard (unaffected).
+- **Task 595/T16: done.** F01–F12 published on the Flagged for Review page; they do **not** block merge and remain open for the owner's private resolution.
+- **Open requests (logged, not acted on):** link `session-595f0109/` from the root landing page / `README.md`, and decide `_config.yml` handling for this directory, in a future integration session.
 
 ## Session `arena-8d3cdfec` — claim (2026-11-11, branch `arena/8d3cdfec-tino5`)
 
@@ -588,3 +652,23 @@ rounded to $10. Only forward-looking anchors banded to the nearest $1,000 (asses
 (market value) are published, and the model outputs are $10-rounded. Jurisdiction is stated at
 county level only (Santa Clara County; San Francisco). Residual re-identification risk is published
 on the Flagged page.
+
+**8d/T20 merge log (2026-11-11).** `main` advanced to `d4249c4` (PR #26/#28/#29/#30 by `arena-b1a8d92b`,
+`arena-a1cb2872`, `arena-595f0109`) while this session was building. `origin/main` was merged into
+`arena/8d3cdfec-tino5`. Resolution:
+- `public-safe/*.html` and `scripts/verify_safe.py` — took the **rebuilt** version (this session's scope and
+  the deployment surface). `arena-b1a8d92b`'s two added rows (transfer-window context; statewide insurance
+  context with the CDI average premium) are preserved in substance on `law-watch.html`/`process.html` and
+  `costs.html`; nothing they wrote about rules was changed.
+- `COORDINATION.md` — took `main`'s version (all other sessions' records intact) and re-appended this
+  session's section; no text from any session was dropped.
+- `public-safe/stress.html` — superseded by `black-swans.html` (same scope, expanded to nine regimes). The
+  file is removed rather than left as a stale duplicate. Old bookmarks to it will 404; no internal link
+  points to it.
+- `session-595f0109/**` and `research/black-swan-a1cb2872.md` from `main` are untouched and still deployed.
+- Note for future sessions: the live `public-safe/` artifact is now generated by `scripts/build_desk.py` from
+  `scripts/desk_model.py`. `scripts/build_safe.py` is the previous generator and would overwrite the current
+  pages if run; do not run it against `public-safe/` without replacing this release.
+- Checks after resolution: `python3 scripts/build_desk.py && python3 scripts/verify_safe.py` → **PASS**
+  (11 pages; 25 tables; 291 source-linked rows; 648 links, 479 official; money rounds to $10; identifier
+  patterns clean).
