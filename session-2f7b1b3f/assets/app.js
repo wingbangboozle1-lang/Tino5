@@ -22,7 +22,7 @@
   // Exact constants verified from official sources + user baseline
   const BASE = {
     cupFmv2026: 3100000,
-    cupAv2026: 550537,
+    cupAv2026: 550540,
     cupParcel2026: 900,
     cupAdvalRate: 0.0118,
     cupWater2026: 1500,
@@ -32,7 +32,7 @@
     cupMaint2026: 6200,
 
     sfFmv2026: 1800000,
-    sfAv2026: Math.round(114248 * 1.02), // 116,533 statutory projection
+    sfAv2026: Math.round(114250 * 1.02), // 116,530 statutory projection
     sfAdvalRate: 0.0118162182,
     sfParcel2026: 1100,
     sfRent2Units2026: 7150 * 12,

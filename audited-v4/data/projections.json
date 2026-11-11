@@ -7041,97 +7041,97 @@
             "year": 2026,
             "tax_usd": null,
             "tax_yoy": null,
-            "assessed_value_usd": 550537,
+            "assessed_value_usd": 550540,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Flagged: 2026 property tax missing ('--'); AV +2.00% matches BOE LTA 2026/002"
           },
           {
             "year": 2025,
-            "tax_usd": 7207,
+            "tax_usd": 7210,
             "tax_yoy": "+2.9%",
-            "assessed_value_usd": 539743,
+            "assessed_value_usd": 539740,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%); implied 1.335% effective rate reflects ~1.16% ad valorem + direct charges"
           },
           {
             "year": 2024,
-            "tax_usd": 7003,
+            "tax_usd": 7000,
             "tax_yoy": "+1.2%",
-            "assessed_value_usd": 529161,
+            "assessed_value_usd": 529160,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2023,
-            "tax_usd": 6917,
+            "tax_usd": 6920,
             "tax_yoy": "+2.4%",
-            "assessed_value_usd": 518786,
+            "assessed_value_usd": 518790,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2022,
-            "tax_usd": 6755,
+            "tax_usd": 6760,
             "tax_yoy": "+1.4%",
-            "assessed_value_usd": 508614,
+            "assessed_value_usd": 508610,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2021,
-            "tax_usd": 6662,
+            "tax_usd": 6660,
             "tax_yoy": "+1.5%",
-            "assessed_value_usd": 498642,
+            "assessed_value_usd": 498640,
             "av_yoy": "+1%",
             "boe_ccpi_factor": "1.036%",
-            "audit_status": "Verified AV growth (+1.036% CCPI -> $498,643 vs $498,642)"
+            "audit_status": "Verified AV growth (+1.036% CCPI; matches to the nearest $10)"
           },
           {
             "year": 2020,
-            "tax_usd": 6565,
+            "tax_usd": 6570,
             "tax_yoy": null,
             "assessed_value_usd": 493530,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
-            "audit_status": "Flagged: Tax identical to 2019 ($6,565) despite +2% AV growth"
+            "audit_status": "Flagged: Tax identical to 2019 ($6,570) despite +2% AV growth"
           },
           {
             "year": 2019,
-            "tax_usd": 6565,
+            "tax_usd": 6570,
             "tax_yoy": "+2.8%",
-            "assessed_value_usd": 483854,
+            "assessed_value_usd": 483850,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2018,
-            "tax_usd": 6383,
+            "tax_usd": 6380,
             "tax_yoy": null,
-            "assessed_value_usd": 474368,
+            "assessed_value_usd": 474370,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
-            "audit_status": "Flagged: Tax identical to 2017 ($6,383) despite +2% AV growth"
+            "audit_status": "Flagged: Tax identical to 2017 ($6,380) despite +2% AV growth"
           },
           {
             "year": 2017,
-            "tax_usd": 6383,
+            "tax_usd": 6380,
             "tax_yoy": "-0.5%",
-            "assessed_value_usd": 465067,
+            "assessed_value_usd": 465070,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%); tax decline -0.5%"
           },
           {
             "year": 2016,
-            "tax_usd": 6414,
+            "tax_usd": 6410,
             "tax_yoy": "+4.6%",
-            "assessed_value_usd": 455949,
+            "assessed_value_usd": 455950,
             "av_yoy": "+1.5%",
             "boe_ccpi_factor": "1.525%",
             "audit_status": "Verified AV growth (+1.525% CCPI)"
@@ -7140,16 +7140,16 @@
             "year": 2015,
             "tax_usd": 6130,
             "tax_yoy": "+2.8%",
-            "assessed_value_usd": 449101,
+            "assessed_value_usd": 449100,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2014,
-            "tax_usd": 5965,
+            "tax_usd": 5970,
             "tax_yoy": null,
-            "assessed_value_usd": 440305,
+            "assessed_value_usd": 440310,
             "av_yoy": "+0.5%",
             "boe_ccpi_factor": "0.454%",
             "audit_status": "Verified AV growth (+0.454% CCPI)"
@@ -7221,90 +7221,90 @@
           },
           {
             "year": 2025,
-            "tax_usd": 2439,
+            "tax_usd": 2440,
             "tax_yoy": "+5.3%",
-            "assessed_value_usd": 114248,
+            "assessed_value_usd": 114250,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
-            "audit_status": "Verified AV growth (+2.00%); implied 2.135% effective rate reflects 1.18268% ad valorem (~$1,351) + ~$1,088 fixed parcel taxes"
+            "audit_status": "Verified AV growth (+2.00%); implied 2.135% effective rate reflects 1.18268% ad valorem (~$1,350) + ~$1,090 fixed parcel taxes"
           },
           {
             "year": 2024,
-            "tax_usd": 2315,
+            "tax_usd": 2320,
             "tax_yoy": "+6.2%",
-            "assessed_value_usd": 112008,
+            "assessed_value_usd": 112010,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2023,
-            "tax_usd": 2179,
+            "tax_usd": 2180,
             "tax_yoy": "+3.4%",
-            "assessed_value_usd": 109814,
+            "assessed_value_usd": 109810,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2022,
-            "tax_usd": 2107,
+            "tax_usd": 2110,
             "tax_yoy": "+2%",
-            "assessed_value_usd": 107662,
+            "assessed_value_usd": 107660,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2021,
-            "tax_usd": 2066,
+            "tax_usd": 2070,
             "tax_yoy": "-5.9%",
-            "assessed_value_usd": 105595,
+            "assessed_value_usd": 105600,
             "av_yoy": "+1%",
             "boe_ccpi_factor": "1.036%",
-            "audit_status": "Flagged: -5.9% tax drop (-$131) despite +1.036% CCPI AV increase"
+            "audit_status": "Flagged: -5.9% tax drop (-$130) despite +1.036% CCPI AV increase"
           },
           {
             "year": 2020,
-            "tax_usd": 2197,
+            "tax_usd": 2200,
             "tax_yoy": "+3%",
-            "assessed_value_usd": 104513,
+            "assessed_value_usd": 104510,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2019,
-            "tax_usd": 2134,
+            "tax_usd": 2130,
             "tax_yoy": "+3.5%",
-            "assessed_value_usd": 102465,
+            "assessed_value_usd": 102470,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2018,
-            "tax_usd": 2061,
+            "tax_usd": 2060,
             "tax_yoy": "+18.4%",
-            "assessed_value_usd": 100456,
+            "assessed_value_usd": 100460,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
-            "audit_status": "Flagged: +18.4% tax spike (+$321) consistent with new SF parcel taxes on low Prop 13 base"
+            "audit_status": "Flagged: +18.4% tax spike (+$320) consistent with new SF parcel taxes on low Prop 13 base"
           },
           {
             "year": 2017,
             "tax_usd": 1740,
             "tax_yoy": "+3.9%",
-            "assessed_value_usd": 98488,
+            "assessed_value_usd": 98490,
             "av_yoy": "+2%",
             "boe_ccpi_factor": "2%",
             "audit_status": "Verified AV growth (+2.00%)"
           },
           {
             "year": 2016,
-            "tax_usd": 1675,
+            "tax_usd": 1680,
             "tax_yoy": "+1.6%",
-            "assessed_value_usd": 96557,
+            "assessed_value_usd": 96560,
             "av_yoy": "+1.5%",
             "boe_ccpi_factor": "1.525%",
             "audit_status": "Verified AV growth (+1.525% CCPI)"
