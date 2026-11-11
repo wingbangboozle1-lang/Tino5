@@ -580,3 +580,10 @@ Live-claim check (2026-11-11): fetched all `origin/arena/*` branches; all prior 
 **Checks:** `python3 scripts/verify_safe.py` → PASS (9 pages; 131 source-linked rows; 282 links; privacy patterns clean; money rounded). `privacy_scan.py` → 0 findings in `public-safe/**` (11 pre-existing findings remain in legacy `scripts/model.py`, `src/pages/` — outside this session's scope, already covered by flag F01; logged here as a change request for a future legacy-privacy session, not edited). Live site fetched and read: `https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html` serves the dashboard. Pages API: `built`, legacy, `main:/`, `https_enforced: true`.
 
 **Irregularities:** none new. F01–F10 remain `needs review` on `public-safe/flagged.html` and do not block merge.
+
+### b1a/T16 — PR / merge / deploy record (arena-b1a8d92b)
+
+- PR #26 — https://github.com/wingbangboozle1-lang/Tino5/pull/26 (`arena/b1a8d92b-tino5` → `main`) — **MERGED 2026-11-11T13:11:47Z as merge commit `2dca293e5b037cbc43793a0c7e10f5ba73af0865`**. CI `verify` passed; `mergeStateStatus: CLEAN` before merge.
+- **GitHub Pages deploy**: legacy build on `main` at `2dca293`; `pages/builds/latest` status **`built`**, `error: null`, source `main:/`, `https_enforced: true`.
+- Live retrieval (fetched and read post-deploy): `https://wingbangboozle1-lang.github.io/Tino5/public-safe/costs.html` serves the new statewide-context row; `https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html` serves the expanded executive summary.
+- Task **b1a/T16: done**. Flagged irregularities F01–F10 remain `needs review` and did not block merge.
