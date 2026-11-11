@@ -1,0 +1,19 @@
+title: Estate decision desk
+plugins: []
+exclude:
+  - "COORDINATION.md"
+  - "README.md"
+  - "analysis"
+  - "archive"
+  - "assets"
+  - "audited-v4"
+  - "data"
+  - "docs"
+  - "mine"
+  - "model"
+  - "pages"
+  - "research"
+  - "scripts"
+  - "session-2f7b1b3f"
+  - "src"
+  - "verification-report.json"
