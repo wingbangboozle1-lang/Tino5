@@ -435,8 +435,12 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 
 | Task | Status | Owner | Scope |
 |---|---|---|---|
-| T15 | Audit public-site privacy, material legal/model claims, and integration/deployment; remediate as necessary | in progress | arena-ebe0d0ca | `COORDINATION.md`, integration-owned site files and verification tooling; coordinate if live scopes conflict |
+| T15 | Audit public-site privacy, material legal/model claims, and integration/deployment; remediate as necessary | needs review | arena-ebe0d0ca | `COORDINATION.md`, integration-owned site files and verification tooling; coordinate if live scopes conflict |
 
 Branch is fixed by the session environment; no separate session branch can be created.
 
 T15 scope clarification: independent audit report at `audit/arena-ebe0d0ca.md` and this board; no edits to other sessions' claimed files. Initial pull before first push found no remote branch because this branch did not yet exist; the claim was then pushed as a new remote branch. During audit, `origin/main` advanced independently; no other session's work was overwritten.
+
+### T15 outcome — needs review
+
+Targeted audit: `audit/arena-ebe0d0ca.md`. Existing `node scripts/verify.mjs` returned 0 errors / 53 warnings; `python3 scripts/verify.py` returned 3,633 passing checks. These are structural tests, not proof of source accuracy or privacy. Identified public household-specific financial information across published and tracked files, and material unsupported statements about estate tax, income-tax basis and Proposition 19. Checked relevant claims against https://www.irs.gov/instructions/i706, https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances and https://www.boe.ca.gov/pdf/pub801.pdf. Repository is public; removal from the current tree alone does not remove public Git history. The audit is not a line-by-line certification. No integration PR or merge was performed because the existing public site fails the user's priority privacy requirement and has material uncorrected claims; do not label it verified. Pages API reports an existing successful build of a newer `main` commit, not validation of this branch. No other session's files were edited.
