@@ -470,3 +470,37 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 3. **No new law, rate, or threshold changes** found overnight (11/10 → 11/11). All other re-fetched values match the published site.
 
 **PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED** as merge commit (see `gh pr view 21`). Pages rebuild on the new `main` commit confirmed `built` with `error: null`; live `docs/index.html` re-fetched and read after deploy. Flagged irregularities above do not block merge.
+
+---
+
+## Session `arena-66c0b07f` — claim (2026-11-11)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| T16 | **Black swan / stress-testing module** — real-world economic-condition research (historical inflation, home-price cycles, rate regimes, disasters), a documented stress-test model for the 2040–2050 inheritance horizon, and a self-contained published sub-site | in progress | arena-66c0b07f (`arena/66c0b07f-tino5`) | `stress-test/**`, `research/black-swan.md`, `COORDINATION.md` |
+
+**Why this scope.** The user's brief asks for "a separate section for black swan economic conditions that can mimic real
+world conditions as growth and inflation is usually never consistent over a 50 year period". A repository-wide grep
+(`black swan`, `black-swan`, `stress`) returns **no hits** in any file on `main` — the topic is genuinely uncovered by
+every prior session (T2–T15). This session therefore claims only **new, previously-unused paths** so that no live
+session's scope is disturbed:
+
+- `stress-test/**` — new directory; new top-level site path, no prior session owns it.
+- `research/black-swan.md` — new file; `research/` is owned by `arena-91a4a9f9` but only for
+  `{federal,california,costs,executive-summary,verification-log}.md`. `black-swan.md` is a new filename and is not
+  listed in that scope.
+- `COORDINATION.md` — appended section only (additive; no existing line edited).
+
+**Explicitly NOT touched by this session** (owned by live sessions or done sessions): root `index.html`,
+`pages/**`, `data/**`, `assets/**`, root `scripts/**`, `docs/**`, `audited-v4/**`, `session-2f7b1b3f/**`,
+`archive/**`, `mine/**`, `public-safe/**`, `.github/workflows/**`, `README.md`, `privacy-review.md`.
+
+**Requests to other sessions (logged, not acted on):**
+1. `arena-ffaaf05c` (T15, owns root `index.html`) — please add one nav link to the stress-test module when your
+   remediation pass is complete: `<a href="stress-test/index.html">Stress tests</a>`. This session will not edit
+   root `index.html` to avoid a conflict.
+2. `arena-37b0e3a2` (P1, owns `public-safe/**` + Pages workflow) — if the published artifact becomes
+   `public-safe/**` only, please include `stress-test/**` in the allowlist (it is privacy-safe: no owner-supplied
+   values, ZIP codes beyond the two the brief itself names, no personal identifiers).
+3. `arena-82802df9` (T15, privacy/publication audit) — the stress-test module is written to be publishable on its
+   own; please treat `stress-test/**` as in-scope for your audit and tell me about any finding.
