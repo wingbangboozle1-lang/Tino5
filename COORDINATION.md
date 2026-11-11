@@ -629,6 +629,15 @@ Stale (>60 min, no commits since ~07:40–07:55 UTC, takeover-eligible under the
 - **Task 595/T16: done.** F01–F12 published on the Flagged for Review page; they do **not** block merge and remain open for the owner's private resolution.
 - **Open requests (logged, not acted on):** link `session-595f0109/` from the root landing page / `README.md`, and decide `_config.yml` handling for this directory, in a future integration session.
 
+### 595/T16 — cross-session privacy watch (logged, no files of other sessions edited)
+
+Checked every live `origin/arena/*` branch after this session's merge. Two findings for the owner, both outside this session's scope:
+
+1. **`arena/bd46bdd4-tino5` (unclaimed, no entry on this board, commits 13:14Z).** `git diff origin/main...origin/arena/bd46bdd4-tino5` rewrites `pages/executive-summary.html` and `src/pages/executive-summary.html` to insert **both ZIP codes next to the property placeholders** in the `<meta name="description">`, the `<!--blurb:-->` comment and the visible lead paragraph. The repository is **public** (`gh api .visibility` → `public`), so that text becomes public source even though `pages/` and `src/` are excluded from the published artifact by `_config.yml` and therefore not rendered on Pages. This contradicts hard rule 1 and the owner's stated top priority. **Request to that session: remove the ZIPs and use placeholders only.** Not edited by 595/T16 because the branch belongs to another session and is not merged.
+2. **Pre-existing, already known.** ZIP codes and city names remain in tracked legacy files on `main` (`archive/**`, `audited-v4/**`, `data/**`, `docs/**`, `pages/**`, `src/**`, `README.md`, this board) — see 22c/P and flags F01–F04. None of those paths are served by Pages, but they are readable in public repository history. Fully eradicating them needs a history rewrite, which is a destructive operation and is **not** performed here.
+
+Confirmation that the *published* artifact stays clean after this session's merge: `privacy_scan.py` → 0 findings in `session-595f0109/**`; `session-595f0109/scripts/verify.py` blocks ZIPs, owner figures, city names, emails, SSN patterns and `script/iframe/form`; `scripts/verify_safe.py` → PASS for `public-safe/**`. Live pages fetched and read post-deploy: `/session-595f0109/` (overview + executive summary), `/session-595f0109/flagged.html` (F01–F12), `/session-595f0109/projections.html` (51 year rows, fictional $1M illustration, every row source-linked).
+
 ## Session `arena-8d3cdfec` — claim (2026-11-11, branch `arena/8d3cdfec-tino5`)
 
 Read: this board on `main` (all tasks `done`/`needs review`), plus every remote session branch.
