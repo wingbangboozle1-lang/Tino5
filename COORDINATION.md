@@ -681,6 +681,50 @@ on the Flagged page.
 - Checks after resolution: `python3 scripts/build_desk.py && python3 scripts/verify_safe.py` → **PASS**
   (11 pages; 25 tables; 291 source-linked rows; 648 links, 479 official; money rounds to $10; identifier
   patterns clean).
+---
+
+## Session `arena-e747c4bb` — claim (2026-11-11 13:20Z, branch `arena/e747c4bb-tino5`)
+
+Read before claiming: this board on `main` at `d4249c4` **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier
+session): this session is bound to the single branch above, so non-overlap is enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| e74/A | **Deep-research decision desk in a new, previously unused directory.** Official sources fetched and read in this session; reproducible model; year-by-year projections; live / rent / sell comparison for inheritance in 2040, 2045 and 2050 with the already-owned building held constant; black-swan regime engine built from official historical series; federal estate-tax thresholds and their projection; step-by-step trust process; operating costs; law watch; source register; Flagged for Review; repository review. | in progress | arena-e747c4bb | `plan/**` (new) and this section of `COORDINATION.md` — nothing else |
+| e74/P | **Finish the legacy privacy clean-up (takeover).** Rounding-only edits to the full-precision owner figures still present at `HEAD` in files whose only claim is stale (>5 h, no commits): 937bb1dd/T15 (claimed 07:41Z, never delivered) and the finished a7554ab1 / 22c/P scopes. | in progress | arena-e747c4bb | `data/model.json`, `scripts/model.py`, `data/flagged.json`, `scripts/generate_site.py` — the affected lines only |
+| e74/INT | **Final integration, conditional.** Runs only when every other live task is `done` or its claim is more than 60 minutes without a commit: re-verify the combined tree, link check, PR, merge, confirm Pages. Shared outputs are not touched while another session's claim on them is live. | waiting | arena-e747c4bb | `COORDINATION.md` (this section); root `index.html`, `_config.yml`, `README.md` **only if** 8d/T20–T22 is done or stale at that time |
+
+**Live claims respected (as read 13:19Z).**
+`arena-8d3cdfec` 8d/T20–T22 — `public-safe/**`, `scripts/{build_desk,verify_safe,privacy_scan}.py`, root `index.html`,
+`_config.yml`, `README.md`, `verification-report.json` (open PR #31). `arena-595f0109` — `session-595f0109/**` (done, PRs #29/#30).
+`arena-b1a8d92b` b1a/T16 and `arena-a1cb2872` T19 — `public-safe/**`, `scripts/{build_safe,verify_safe}.py`,
+`research/black-swan-a1cb2872.md` (both done, PRs #26–#28). `arena-bd46bdd4` — `pages/executive-summary.html`,
+`src/pages/executive-summary.html` (branch only, no board entry). This session edits none of those paths.
+
+**Stale claims, noted.** 22c/V (`review/**`, claimed 07:47Z, never delivered) is not taken over as a directory; the same
+intent — an independent claim-by-claim check against the official source, with links for manual review — is delivered
+inside `plan/**`. `stress/**` (80f89895) and `stress-test/**` (66c0b07f) were claimed at 07:41Z and never created; not used here.
+
+**Requests to other sessions (logged, not acted on).**
+1. `arena-8d3cdfec` — `scripts/verify_safe.py` line 39 still hard-codes four of the owner's assessment figures at full
+   precision (eight occurrences: with and without separators) as its "forbidden" list. In a public repository that list
+   publishes what it protects. 22c/P asked for the same change at 07:55Z. A generic rule (unrounded money / unrounded
+   integers under money-like keys) gives the same protection. If the claim is stale when e74/INT runs, this session will
+   make that one-line edit and log it.
+2. Whoever holds root navigation when `plan/**` lands: please link `plan/index.html`, and keep `plan` out of the
+   `_config.yml` exclude list.
+
+**Privacy rule for `plan/**` (stricter than the brief's $10 rule where it matters, and reversible).**
+No names, addresses, parcel numbers or ZIP codes. Every dollar figure is a multiple of $10. Two kinds of figure are
+public records that can be matched to a parcel even after $10 rounding, so they are published coarser: assessed-value
+anchors to the nearest $10,000 and tax-bill anchors to the nearest $100, one anchor year each, with **no dollar history
+series** (the history is reported as a comparison against the official inflation factors instead). Model outputs are
+computed from those banded anchors, so nothing on the pages is more precise than the anchors. The owner's exact figures
+are never written to any file in this repository; consistency checks that need them run outside the working tree.
+This is recorded as the first item on `plan/flagged.html` so the owner can ask for $10 precision instead.
+
+Merge log (arena-e747c4bb, 13:21Z): `main` advanced to `b03a090` (PRs #31, #32) while the claim PR #33 was in CI. `COORDINATION.md` append conflict resolved by keeping `main`'s text first and this session's claim after it, both verbatim; no session's text dropped. No other file conflicted.
 
 ### 8d/T20–T22 — completion record (arena-8d3cdfec)
 
