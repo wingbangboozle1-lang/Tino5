@@ -39,7 +39,7 @@ and never start a task already claimed by another live session.
 | T12 | Independent verification, interactive simulator & 2026-2050 dashboard (preserved non-overlapping under `session-2f7b1b3f/`) | done | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/**`, `index.html`, `README.md`, `scripts/verify.mjs`, `COORDINATION.md` |
 | T13 | Flagged irregularities & unverified property-specific items (`session-2f7b1b3f/pages/verification-review.html`) | needs review | arena-2f7b1b3f (`arena/2f7b1b3f-tino5`) | `session-2f7b1b3f/pages/verification-review.html` |
 | T14 | Independent source-verified dashboard under `docs/**` (13 pages, 54 official sources, 326 rows, 20 flags) | done | arena-91a4a9f9 (`arena/91a4a9f9-tino5`) | `docs/**`, `data/site_data.json`, `model/build_data.py`, `scripts/build_dashboard.py`, `scripts/verify.py`, `scripts/write_research.py`, `research/{federal,california,costs,executive-summary,verification-log}.md` |
-| T15 | Re-verification & integration audit 2026-11-11 (line-by-line source, link, PII, rounding re-check; Pages deploy confirm; PR + merge) | in progress | arena-e10f31dc (`arena/e10f31dc-tino5`) | `COORDINATION.md`, `verification-report.json` |
+| T15 | Re-verification & integration audit 2026-11-11 (line-by-line source, link, PII, rounding re-check; Pages deploy confirm; PR + merge) | done | arena-e10f31dc (`arena/e10f31dc-tino5`) | `COORDINATION.md`, `verification-report.json` |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
@@ -462,6 +462,23 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 
 **Conclusion alignment.** This session's bottom line agrees with the other published dashboards: inherit, step-up + Prop 19 occupancy decision on the Cupertino home (keep if occupied within 1 year, otherwise sell at death and reinvest), sell the rented San Francisco building unless an heir genuinely occupies one unit (Prop 19 apportionment is assessor-specific), and stay well below the $15,000,000 (2026) indexed federal exclusion unless the cash component is larger than the analysis assumes.
 
+## Session arena-37b0e3a2 — privacy-first final integration (2026-11-11)
+
+| Task | Status | Owner | Scope |
+|---|---|---|---|
+| P1 Audit and publish isolated privacy-safe dashboard | in progress | arena-37b0e3a2 | `public-safe/**`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md` |
+
+Existing tasks are completed; no live overlapping claims found. Work stays on assigned `arena/37b0e3a2-tino5` branch (platform constraint). Existing research trees are not overwritten. Critical finding: legacy root deployment exposes owner-supplied property histories and ZIP codes; rounding alone is not anonymization. Replace Pages deployment with an explicit allowlisted public artifact, excluding all legacy files and this board. Existing repository/history remains accessible if repository is public; this cannot be repaired by a new website deployment alone. Existing conclusion that Property B should be sold at inheritance incorrectly treats an already-owned asset as inherited; new dashboard will explicitly correct that distinction. No public parcel lookup will be attempted.
+
+P1 scope additionally includes `scripts/build_safe.py` (deterministic generator). Initial pull-before-push failed because the assigned remote branch did not yet exist; initial claim push then succeeded. A later fetch found completed T15 audits merged by another session; no overlapping active claim or file edits.
+
+### P1 verification and findings
+- Curated release: 9 static pages; annual fictional 2026–2076 table, incremental decision framework, executive summary, tax rules, costs with blank actual cells, process, separate nonlinear stress tests and published review flags.
+- Retrieved/read official sources this session: IRS estate-tax page, estate/gift what's-new (2026 $15m), inherited-property basis FAQ, Topic 703; BOE Prop 19 and Publication 29; California Controller estate-tax page; FTB gifts/inheritance page; CDI residential insurance; BLS December 2022 release; California Courts probate guide. Source register is in `public-safe/sources.html`. Failed FTB estate URLs and SF transfer URL were not treated as verified.
+- `python3 scripts/verify_safe.py`: all curated pages parse, every table body row includes an official source link, all local links resolve, monetary displays round to $10, supplied fingerprint pattern scan clean. This is structural verification, NOT automatic semantic truth certification or proof of anonymity.
+- Manual formula checks: occupancy/lease opportunity costs kept distinct; B held constant; estate vs beneficiary exclusion distinguished; 2026 rule not extrapolated as future law; illustrative growth rates explicitly analyst-selected; after-tax personalized ranking withheld, not invented. Stress paths are examples, not probability estimates.
+- Irregularities F01–F10 published at curated Flagged for Review. Known limits: full historical repo not semantically certified, actual private inputs not verified, bill/legal rental/insurance details unknown, pending law/local transfer rules not comprehensively rechecked. These do not block publication.
+- Privacy residual: public repository and history still expose prior session outputs. Allowlisted artifact prevents legacy website paths from being redeployed, but cannot erase prior public disclosure/caches. No historical Git rewrite or repository visibility change attempted without explicit authorization.
 ---
 
 ## Appendix — session `arena-e10f31dc` (T15 re-verification & integration audit, 2026-11-11)
@@ -499,4 +516,17 @@ This record was published to `main` by follow-up PR #18 — https://github.com/w
 2. **CDI $1,571 vs site $1,570** — not an error: site rounds to the nearest $10 per project rule. No action.
 3. **No new law, rate, or threshold changes** found overnight (11/10 → 11/11). All other re-fetched values match the published site.
 
-**PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED** as merge commit (see `gh pr view 21`). Pages rebuild on the new `main` commit confirmed `built` with `error: null`; live `docs/index.html` re-fetched and read after deploy. Flagged irregularities above do not block merge.
+**PR / merge / deploy record (arena-e10f31dc).** PR #21 — https://github.com/wingbangboozle1-lang/Tino5/pull/21 (`arena/e10f31dc-tino5` → `main`) — **MERGED 2026-11-11T07:40:31Z as merge commit `e81296b3598aef735469aaebfaedcaa84935df05`** (verified via `gh pr view 21 --json state,mergedAt,mergeCommit`; `mergeStateStatus: CLEAN` before merge). **GitHub Pages deploy**: legacy build on `main` triggered at `e81296b`; `pages/builds/latest` status **`built`** at `2026-11-11T07:40:33Z`, `error: null`, source `main:/`, `https_enforced: true`. Live retrieval (fetched and read): `https://wingbangboozle1-lang.github.io/Tino5/docs/index.html` serves the dashboard. Flagged irregularities above do not block merge. This record was published to `main` by follow-up PR #22.
+
+Merge log: arena-37b0e3a2 integrated origin/main (T15 completed audit). COORDINATION append conflict resolved by preserving both sessions’ text in order; no work discarded.
+
+Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks settings permission). Retain existing legacy Pages deployment, remove root `.nojekyll`, and add Jekyll `_config.yml` exclusions for every legacy tree, plus a privacy-safe root redirect. Integration scope therefore additionally claims completed/shared `index.html`, `.nojekyll`, `_config.yml`; no active session owns these. CI verifies curated artifact, legacy Pages does deployment. Repository history is intentionally not rewritten. An ordinary pull --rebase after merge attempted replay of concurrent commits; aborted without discarding anything, then pull --rebase=merges succeeded.
+
+### P1 completion / deployment record
+- Status: **done** (curated publication); unresolved findings remain **needs review** on `public-safe/flagged.html`.
+- PR #23: https://github.com/wingbangboozle1-lang/Tino5/pull/23 — MERGED 2026-11-11T07:44:12Z, commit `7ac54b1956dd1a26a9170940ec270bf070e2bfca`.
+- Curated CI passed; Pages run `42981668449` build/report/deploy all successful; Pages API reports `built`, exact merge commit, no error.
+- Live curated overview and Flagged page fetched and read successfully at https://wingbangboozle1-lang.github.io/Tino5/public-safe/index.html and `/public-safe/flagged.html`.
+- Live excluded legacy `/data/property-tax.json` and `/pages/executive-summary.html` both return GitHub Pages 404. This confirms exclusion for sampled paths, not eradication of public repository history.
+- Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
+- Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
