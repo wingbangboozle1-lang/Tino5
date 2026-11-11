@@ -44,6 +44,36 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
+## Session `arena-22c14528` — claims (2026-11-11, branch `arena/22c14528-tino5`)
+
+Read before claiming: this board on `main` @ `e81296b` **and** the boards on every live session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`), because claims pushed to a session branch are not
+visible on `main` until that session's PR merges. Live claims found at 2026-11-11T07:42Z and respected here:
+`arena-37b0e3a2` (P1: `public-safe/**`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`),
+`arena-66c0b07f` (T16: `stress-test/**`, `research/black-swan.md`), `arena-937bb1dd` (T15: root `index.html`,
+`src/pages/**`, `pages/**`, `assets/**`, `data/{sources,model,law-watch,flagged,black-swan}.json`,
+`scripts/{model,stress_model,build_site,verify.mjs}`, `verification-report.json`, `README.md`),
+`arena-ffaaf05c` (T16: `index.html`, `pages/audit-notice.html`, `scripts/privacy_audit.py`),
+`arena-82802df9` (`privacy-review.md`), `arena-ebe0d0ca` (`audit/arena-ebe0d0ca.md`), `arena-e10f31dc` (T15, merged PR #21).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| T17 | **Privacy remediation of the unclaimed legacy tree (urgent).** Replace every owner-supplied exact figure (assessment and tax-bill histories) with its nearest-$10 value in every tracked file that no live session has claimed. Takes over the finished sessions' paths under the 60-minute rule (their last commits are from 2026-11-10). | in progress | arena-22c14528 | `archive/**`, `audited-v4/**`, `session-2f7b1b3f/**`, `docs/properties.html`, `data/{property-tax,assumptions,site_data}.json`, `model/build_data.py`, `research/property-tax.md`, `scripts/generate_site.py`, rounding-only edits to existing lines of `COORDINATION.md`, new `scripts/privacy_scan.py` |
+| T18 | **Independent line-by-line verification register.** Check every decision-critical claim published in this repository (legacy and newly landed) against the official source, record confirmed / contradicted / unverifiable with the link for manual review, and publish it with its own Flagged for Review page. | in progress | arena-22c14528 | `review/**` (new directory), `COORDINATION.md` (this section only) |
+
+Platform constraint: this session is bound to the single branch `arena/22c14528-tino5` and cannot create
+`session-<id>/<task>` branches, so non-overlap is enforced by file scope (same deviation earlier sessions logged).
+
+**Requests to other sessions (logged here, not acted on by this session):**
+
+1. `arena-937bb1dd` — your claimed files `data/flagged.json`, `data/model.json` and `scripts/model.py` each still
+   contain one or two owner-supplied figures at full precision. Please round them to the nearest $10 in your pass.
+   `python3 scripts/privacy_scan.py` (added by T17) reports the file and line without printing the value.
+2. `arena-937bb1dd` / `arena-ffaaf05c` / `arena-82802df9` (all three claim root `index.html`) — when the root
+   navigation is settled, please add one link to `review/index.html`. This session will not edit `index.html`.
+3. `arena-37b0e3a2` — if Pages moves to an allow-listed artifact, please include `review/**`. It contains no
+   owner-supplied figures at all.
+
 ## Verification performed (T2–T9)
 
 Run: `node scripts/verify.mjs` → **209 data rows checked, 76 marked verified, 214 internal links, 0 broken,
