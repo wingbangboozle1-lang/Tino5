@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlparse
 import re
 root=Path('public-safe')
-allowed={'www.sco.ca.gov','boe.ca.gov','www.boe.ca.gov','www.irs.gov','www.insurance.ca.gov','www.bls.gov','selfhelp.courts.ca.gov','www.ftb.ca.gov'}
+allowed={'www.sco.ca.gov','boe.ca.gov','www.boe.ca.gov','www.irs.gov','www.insurance.ca.gov','www.bls.gov','selfhelp.courts.ca.gov','www.ftb.ca.gov','www.cbo.gov','www.fhfa.gov','www.usgs.gov','www.sec.gov'}
 errors=[]; rows=0; links=0
 class Check(HTMLParser):
  def __init__(self,path):

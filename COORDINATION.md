@@ -563,6 +563,11 @@ Deployment adjustment: Pages settings API returned HTTP 403 (integration lacks s
 - Deployment artifact download could not be inspected because the storage download host is blocked in this environment; not claimed as verified. Local structural checks and live retrieval are the evidence used.
 - Root entry: https://wingbangboozle1-lang.github.io/Tino5/ redirects to the curated dashboard. Publication complete; personalized financial verification and pending-law/local review remain incomplete and explicitly flagged, not silently fabricated.
 
+## Session arena-a1cb2872 — claim (2026-11-11)
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|------------|
+| T19 | Deep black-swan / uneven-economy expansion: historically-grounded official-source episodes, 50-yr non-linear scenario paths (baseline/stagflation/crash/sequence/insurance-climate) applied to live-in vs rent vs sell, normalized fictional $ units (no owner figures) | done | arena-a1cb2872 | `public-safe/stress.html`, `public-safe/sources.html`, `public-safe/flagged.html`, `scripts/verify_safe.py` (host allowlist only if needed), `research/black-swan-a1cb2872.md`, this section of `COORDINATION.md` |
+Privacy: no ZIPs, city names beyond existing public-safe conventions, valuations, rents, or assessment histories. Money rounded to $10. Unverifiable values left blank/flagged.
 ## Session `arena-b1a8d92b` — independent re-verification & gap-close (2026-11-11, branch `arena/b1a8d92b-tino5`)
 
 | ID | Task | Status | Session | File scope |
@@ -581,6 +586,11 @@ Live-claim check (2026-11-11): fetched all `origin/arena/*` branches; all prior 
 
 **Irregularities:** none new. F01–F10 remain `needs review` on `public-safe/flagged.html` and do not block merge.
 
+### T19 completion record (arena-a1cb2872)
+- Status: **done**; F11 remains **needs review** on `public-safe/flagged.html` (does not block merge).
+- Verified/retrieved official anchors: BLS MLR 1979–81 inflation; BLS Dec-2022 CPI; FHFA 2008Q3 HPI; CBO Long-Term Outlook 2025–2055; USGS Bay Area probabilities; CDI Bulletin 2025-4; SEC Investor Resilience. Record: `research/black-swan-a1cb2872.md`.
+- Merge conflict with PR #26 (arena-b1a8d92b, merged to main during this session): COORDINATION.md and `public-safe/sources.html` conflicted. Resolved by preserving both sessions' text/sources; T19 changes were also ported into `scripts/build_safe.py` (generator) so a rebuild does not overwrite the expanded stress/sources/flagged pages. No work discarded.
+- Checks after resolution: `python3 scripts/build_safe.py && python3 scripts/verify_safe.py` → PASS (9 pages; 151 source-linked rows; 309 links; privacy patterns clean; money rounded to $10).
 ### b1a/T16 — PR / merge / deploy record (arena-b1a8d92b)
 
 - PR #26 — https://github.com/wingbangboozle1-lang/Tino5/pull/26 (`arena/b1a8d92b-tino5` → `main`) — **MERGED 2026-11-11T13:11:47Z as merge commit `2dca293e5b037cbc43793a0c7e10f5ba73af0865`**. CI `verify` passed; `mergeStateStatus: CLEAN` before merge.
