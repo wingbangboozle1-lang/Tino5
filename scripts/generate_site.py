@@ -16,9 +16,9 @@ def usd(x): return "${:,.0f}".format(x)
 
 # ---------------- data ----------------
 CUP_AV_2026, CUP_MV_2026 = 550540.0, 3100000.0
-CUP_RATE = 7207.0 / 539740.0          # effective rate derived from user-provided 2025 bill
+CUP_RATE = 7210.0 / 539740.0          # effective rate derived from user-provided 2025 bill
 SF_AV_2025, SF_MV_2026 = 114250.0, 1800000.0
-SF_RATE = 2439.0 / 114250.0
+SF_RATE = 2440.0 / 114250.0
 APPR, INFL, EXCL0 = 0.03, 0.02, 1044586.0
 INH_YEAR = 2045
 
