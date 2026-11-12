@@ -1106,8 +1106,9 @@ historical windows with Treasuries, 25 of 25 with equities) and ties at 6.1% a y
 **Irregularities (details and official links on `referee-abae/discrepancies.html`).**
 X02 terminal-tax convention undocumented (medium); X03 flat top-bracket rates; **X04 desk-b4f `estate-tax.html` shows the 2026 trust capital-gain ceiling as $16,200, Rev. Proc. 2025-32 says $16,250**;
 **X05 same page says the closing-letter fee rose "from $67"; IRS says from $56 to $76**; X06 live landing/tax pages list 2026 federal figures only although IRS published 2027 on 5 Nov;
-X07 small-estate limit $184,500 is stale (DE-300: $208,850 for deaths from 1 Apr 2025; next adjustment 1 Apr 2028); X08 water 3.0% vs 2.5% inside desk-b4f; X10 insurance above CDI averages;
+X07 small-estate limit $184,500 is stale (DE-300: $208,850 for deaths from 1 Apr 2025; next adjustment 1 Apr 2028); X08 water 3.0% vs 2.5% inside desk-b4f; X10 insurance above CDI averages (11 items X02-X08, X10, X12, X13, X15);
 **X12 two published desks, two headline levels (medium)**; X13 desk-22a32b17 shows Property B's yearly property tax as two figures ~4% apart (model value includes the $7,000 homeowners' exemption, the other leaves it out; the properties page's printed arithmetic also uses a fixed charge that differs from the model parameter and from its own flag F-01).
+**X15 the two desks value released passive losses differently** (first: against later rent then against the gain, recapture first; second: total at the ordinary rate at sale; IRS Topic 425 says disallowed losses may generally be fully deducted in the year the entire interest is disposed of, without naming the income or rate; -1.6% on Sell/Rent; low).
 Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.py` does not guard the `desk-b4f` exclusion; X11 exclusion is not removal (cf. 966/A finding 1);
 **X14 the published trees draw the privacy line in different places** (see below). Cleared: BOE-58-H is the surviving-cotenant form, not a conflict with BOE-19-P.
 
