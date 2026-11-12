@@ -15,10 +15,10 @@
     "tax.html"
   ],
   "counts": {
-    "rows": 291,
-    "links": 649,
+    "rows": 295,
+    "links": 659,
     "tables": 25,
-    "external": 479
+    "external": 489
   },
   "checks": {
     "page_set_exact": true,
@@ -45,6 +45,7 @@
     "https://www.bls.gov/cpi/",
     "https://www.boe.ca.gov/pdf/pub801.pdf",
     "https://www.boe.ca.gov/prop19/",
+    "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm",
     "https://www.cpuc.ca.gov/nem",
     "https://www.fhfa.gov/data/hpi",
     "https://www.ftb.ca.gov/file/personal/income-types/gifts-and-inheritance.html",
@@ -55,6 +56,8 @@
     "https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax",
     "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances",
     "https://www.irs.gov/instructions/i706",
+    "https://www.irs.gov/publications/p523",
+    "https://www.irs.gov/publications/p527",
     "https://www.irs.gov/publications/p551",
     "https://www.sco.ca.gov/ardtax_estate_tax.html",
     "https://www.sf.gov/information--learn-about-change-ownership",

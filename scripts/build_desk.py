@@ -30,6 +30,9 @@ S = {
     "pub801": ("BOE · Prop 19 fact sheet (Pub 801)", "https://www.boe.ca.gov/pdf/pub801.pdf"),
     "boe800": ("BOE · How property is assessed (Pub 800-10)", "https://boe.ca.gov/pdf/pub800-10.pdf"),
     "boe266": ("BOE · Homeowners' exemption claim (BOE-266)", "https://boe.ca.gov/proptaxes/pdf/sample-boe266.pdf"),
+    "boe_home": ("BOE · Homeowners' exemption eligibility", "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm"),
+    "irs_523": ("IRS · Publication 523, sale gain and expenses", "https://www.irs.gov/publications/p523"),
+    "irs_527": ("IRS · Publication 527, rental income and depreciation", "https://www.irs.gov/publications/p527"),
     "scc_prop19": ("SCC Assessor · Parent-child transfer", "https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2"),
     "scc_assessor": ("SCC Assessor · Decline in value", "https://asr.santaclaracounty.gov/online-services/decline-in-value/decline-in-value-request"),
     "scc_report": ("SCC Assessor · Annual report 2025-26", "https://files.santaclaracounty.gov/exjcpb1521/2025-11/annual_report_2025-2026.pdf"),
@@ -228,10 +231,6 @@ A26 = m.A.tax(2026)
 B26 = m.B.tax(2026)
 BVIEW = m.property_b_view(2026)
 B_SALE_PROCEEDS = m.B.market_value * (1 - m.ASSUMPTIONS["sf_sell_cost_rate"])
-B_BASIS_PROXY = m.B.taxable_value
-B_GAIN = B_SALE_PROCEEDS - B_BASIS_PROXY
-B_GAIN_TAX = B_GAIN * m.ASSUMPTIONS["terminal_cg_rate"]
-B_NET = B_SALE_PROCEEDS - B_GAIN_TAX
 
 # ------------------------------------------------------------------ 1. dashboard
 def build_index():
@@ -265,15 +264,16 @@ def build_index():
          f"{m.pct(m.ASSUMPTIONS['portfolio_return'],1)} after tax.",
          '<span class="chip ok">Recommended baseline</span>', src("irs_basis", "ftb")),
         ("<strong>Keep B</strong>", f"Already owned. No step-up and no reassessment from A's transfer. Net rental income "
-         f"{m.money(BVIEW['noi'])} a year against {m.money(B_SALE_PROCEEDS)} of proceeds if sold now, of which an "
-         f"illustrative {m.money(B_GAIN_TAX)} would go to capital-gains tax on a proxy basis.",
+         f"{m.money(BVIEW['noi'])} a year before income tax; sale proceeds before capital-gains tax "
+         f"would be {m.money(B_SALE_PROCEEDS)}. The actual basis and tax are unknown.",
          '<span class="chip ok">Hold unless plans change</span>', src("sf_rate", "civ1947")),
     ]
     body = f"""
 <div class="notice"><strong>The short answer.</strong> Inherit A, keep B, and treat selling A as the default.
 It is the only path that converts an illiquid, reassessed, low-yielding asset into a diversified portfolio
 without a capital-gains bill. Living in A is a legitimate choice, but it is a lifestyle purchase: on these
-assumptions it costs about {m.money(W['s3']-W['s1'])} of wealth over 25 years compared with selling.</div>
+assumptions A-only cash flows trail selling by {m.money(W['s3']-W['s1'])} over 25 years;
+this excludes any rent from the freed unit at B and is not a housing-adjusted comparison.</div>
 
 <div class="cards">{cards}</div>
 
@@ -292,8 +292,8 @@ value becomes full market value. At 2045 that is {m.money(T['assess_rent'])}, an
 capital-gains tax. By 2070 the paths are {m.money(W['s3'])} (sell), {m.money(W['s2'])} (rent) and
 {m.money(W['s1'])} (occupy).</li>
 <li><strong>Recommendation.</strong> Keep B; sell A and reinvest unless you genuinely want to live in A. The
-preference for living there is affordable but it is a purchase: about {m.money(W['s3']-W['s1'])} of forgone
-wealth over 25 years, or roughly {m.money((W['s3']-W['s1'])/25)} a year.</li>
+A-only comparison shows {m.money(W['s3']-W['s1'])} less over 25 years, but excludes
+rent that might be earned from the unit freed at B. This is not a personal housing-cost estimate.</li>
 <li><strong>Inheritance tax.</strong> California has no estate or inheritance tax. The federal estate tax is
 paid by the estate, not the heir, and only above {stat('$15,000,000')} per person in 2026. A received
 inheritance is not taxable income.</li>
@@ -386,11 +386,13 @@ def build_decision():
                           m.money(d["s3"]), src("fhfa", "boe800")))
 
     body = f"""
-<p class="lead">Property B already provides housing at no rent, so all three paths assume the same housing
-outcome. That removes lifestyle from the comparison and leaves tax, cash flow and returns.</p>
+<p class="lead">Property B is retained in every path. In the rent and sell cases the owner can remain in B.
+In the occupy-A case the owner moves out of B, freeing its third unit. No rent is counted for that
+unit because legal status, condition and market rent are unverified. Thus the A-only occupancy figure
+is <strong>not</strong> a housing-equivalent wealth comparison.</p>
 
 <div class="callout"><h3>The result</h3>
-<p>Selling A is ahead of renting by <strong>{m.money(W['s3']-W['s2'])}</strong> and ahead of occupying by
+<p>Selling A is ahead of renting by <strong>{m.money(W['s3']-W['s2'])}</strong> and ahead of A-only occupancy cash flows (excluding possible extra B rent) by
 <strong>{m.money(W['s3']-W['s1'])}</strong> by {W['end']}. Renting only wins if the reinvested portfolio earns
 less than <strong>{m.pct(BE_PORT,2)}</strong> after tax, or if rent grows faster than
 <strong>{m.pct(BE_RENT,2)}</strong> a year for 25 years.</p></div>
@@ -399,14 +401,18 @@ less than <strong>{m.pct(BE_PORT,2)}</strong> after tax, or if rent grows faster
 {table("Property A in the year the trust distributes it", ["Line", "Amount / value", "Source"], snap)}
 
 <h2>25-year comparison</h2>
-{table("Net worth at the horizon; the owner lives in B in every case",
+{table("A-only horizon cash-flow illustration; B held, freed-unit rent excluded",
        ["Transfer year → horizon", "Occupy A", "Rent A", "Sell A", "Rent − sell", "Occupy − sell", "Source"],
        comp, numeric=(1, 2, 3, 4, 5))}
 <p class="small">Arithmetic: home value grows at {m.pct(m.ASSUMPTIONS['home_growth'],1)}; operating costs at
 {m.pct(m.ASSUMPTIONS['inflation'],1)}; rent at {m.pct(m.ASSUMPTIONS['rent_growth_a'],1)}; taxes at the Prop 13
 2% cap after the transfer-year reassessment; selling costs 6%; reinvested proceeds earn
 {m.pct(m.ASSUMPTIONS['portfolio_return'],1)} after tax; a terminal sale of A pays capital-gains tax at
-{m.pct(m.ASSUMPTIONS['terminal_cg_rate'],1)} on post-transfer appreciation only.</p>
+{m.pct(m.ASSUMPTIONS['terminal_cg_rate'],1)} on gain after selling costs above stepped-up basis (before other basis adjustments, exclusions or depreciation).
+Exactly 25 annual cost and rental periods are counted, 2045–2069, for a 2070 terminal value;
+vacancy and management grow with rent, not with inflation. Annual A cash flows are carried
+to the same terminal date at the assumed portfolio return; rental income tax is not included
+({src("irs_523", "irs_527", "boe_home")}).</p>
 
 <h2>Sensitivity — sell minus rent</h2>
 {table("Positive means selling wins. After-tax portfolio return (rows) × rent growth (columns)",
@@ -424,26 +430,26 @@ transferee's principal residence. Rent it out and the taxable value becomes the 
 <li><strong>Bay Area rental yields are thin at these prices.</strong> Gross rent is
 {m.pct(T['rent']/T['fmv'],2)} of value at 2045 before costs — the reason the net result is
 {m.money(T['net_rent'])}.</li>
-<li><strong>Occupying converts an asset into consumption.</strong> It is rational if living there is worth about
-{m.money(W['s3']-W['s1'])} over 25 years — roughly {m.money((W['s3']-W['s1'])/25)} a year — but it is a
-purchase, not an investment.</li>
+<li><strong>Occupying converts an asset into consumption.</strong> The A-only gap is
+{m.money(W['s3']-W['s1'])} over 25 years, before any additional rent from the vacated unit at B.
+Without a verified third-unit rent, it is not a price of occupancy or a personalized optimum.</li>
 <li><strong>Property B is different.</strong> It is already owned, so there is no step-up and no reassessment.
-Its low basis makes a sale expensive: proceeds {m.money(B_SALE_PROCEEDS)}, illustrative gain tax
-{m.money(B_GAIN_TAX)}, net {m.money(B_NET)} — which would then have to beat {m.money(BVIEW['noi'])} of
-existing net rent plus appreciation to be worth doing ({src("sf_rate")}).</li>
+Its tax basis is unknown: proceeds before income tax would be {m.money(B_SALE_PROCEEDS)};
+capital-gains tax and after-tax investable proceeds are blank pending basis records. Compare against
+{m.money(BVIEW['noi'])} in existing net rent before income tax ({src("irs_551", "sf_rate")}).</li>
 </ul>
 
 <h2>One offset not in the table</h2>
 <p>If you moved into A, the third unit at B could in principle be let, adding rent that the table does not
 count. At a placeholder {m.money(36_000)} a year growing {m.pct(m.ASSUMPTIONS['rent_growth_a'],1)}, that would
-narrow the gap to selling by roughly {m.money(36_000*sum((1+m.ASSUMPTIONS['rent_growth_a'])**i for i in range(26)))}.
-It would not close it. The placeholder is not a rent estimate, and letting the unit depends on its legal
+narrow the gap to selling by roughly {m.money(36_000*sum((1+m.ASSUMPTIONS['rent_growth_a'])**i for i in range(25)))}.
+This simple gross-rent illustration ignores expenses, income tax and reinvestment of receipts; the placeholder is not a rent estimate, and letting the unit depends on its legal
 status and condition — both unverified ({src("civ1947")}).</p>
 
 <h2>What would change the recommendation</h2>
 {table("Decision triggers to re-run before the transfer", ["Trigger", "Effect", "Action", "Official source"], [
  ("You want to live in A", "Occupy becomes a consumption choice, not a yield comparison",
-  "Re-run the price-of-occupancy figure against your own budget; confirm the one-year exemption deadline", src("prop19", "boe266")),
+  "Model rent from the freed B unit before valuing occupancy; confirm the one-year exemption deadline", src("prop19", "boe266")),
  ("Rent could clear roughly 4% of value net", "Rental economics change materially",
   "Obtain written rent estimates and a unit-condition report; rerun with verified rent", src("civ1947")),
  (f"Rent growth above about {m.pct(BE_RENT,1)} a year sustained", "Rental path can overtake selling",
@@ -566,17 +572,16 @@ def build_properties():
         ("Sale price anchor", m.money(m.B.market_value), src("fhfa")),
         ("Selling costs (6.25% incl. SF transfer tax)", m.money(m.B.market_value * m.ASSUMPTIONS["sf_sell_cost_rate"]), src("sf_transfer")),
         ("Net proceeds", m.money(B_SALE_PROCEEDS), src("sf_transfer")),
-        ("Illustrative basis (assessment proxy, not tax basis)", m.money(B_BASIS_PROXY), "Actual basis unknown → F09", src("irs_551")),
-        ("Illustrative taxable gain", m.money(B_GAIN), src("irs_551")),
-        ("Illustrative capital-gains tax at 37.1%", m.money(B_GAIN_TAX), "20% federal + 3.8% NIIT + 13.3% CA, assumed", src("ftb")),
-        ("Net after illustrative tax", m.money(B_NET), src("irs_551")),
-        ("Income if that net were invested at 4.5% after tax", m.money(B_NET * m.ASSUMPTIONS["portfolio_return"]), src("irs_basis")),
+        ("Income-tax basis — unverified", "", "Requires acquisition, improvement and depreciation records; F09", src("irs_551")),
+        ("Taxable gain — unverified", "", "No assessed-value proxy can establish income-tax basis", src("irs_551")),
+        ("Capital-gains tax — unverified", "", "Depends on actual basis and tax circumstances", src("irs_523")),
+        ("After-tax investable proceeds — unverified", "", "Do not compare with rent until tax is known", src("irs_551")),
         ("Compare: current net operating income", m.money(BVIEW["noi"]), "Plus appreciation and a later step-up", src("civ1947")),
     ]
     body = f"""
 <p class="lead">Two properties, opposite starting points. A is a future inheritance with a low taxable value and
 a high market value. B is already owned, with a very low taxable value and rent-controlled tenants; its
-income-tax basis is probably low but is not verified. Confusing the two produces bad advice, so they are
+income-tax basis is unknown. Confusing the two produces bad advice, so they are
 kept separate throughout.</p>
 
 <div class="callout"><h3>The distinction that drives everything</h3>
@@ -593,10 +598,9 @@ rents. Any plan that sells B "because of the inheritance" is solving a problem t
 
 <h2>Should B also be sold?</h2>
 {table("A sale of B today, for comparison with holding it", ["Line", "Amount", "Source"], sale_rows, numeric=(1,))}
-<p class="small">This is the weakest-supported table on the site because B's actual income-tax basis is not
-known. It is included to show direction, not to justify a sale. Holding B keeps
-{m.money(BVIEW['noi'])} of net rent, keeps the housing, and preserves a future step-up for the next
-generation; selling converts it into a taxable portfolio and a large, one-off tax bill.</p>
+<p class="small">B's actual income-tax basis is unknown; taxable gain and after-tax proceeds are intentionally blank.
+Holding B keeps {m.money(BVIEW['noi'])} of modelled net rent before income tax and keeps housing available.
+No conclusion about selling B is possible without basis and the owner's investment alternative.</p>
 
 <h2>What is still unknown</h2>
 <ul class="tight">
@@ -1107,8 +1111,8 @@ def build_flagged():
          "Could eliminate the step-up and change the entire ranking.",
          "Read the trust with an estate attorney and accountant before the transfer.", src("irs_estate")),
         ("F09 · Property B income-tax basis is unknown",
-         "B's capital-gains illustration uses the assessment as a proxy, which is not a tax basis.",
-         "A sale of B could cost materially more or less than the illustrative figure.",
+         "Assessment is not income-tax basis. No taxable-gain figure for B can be verified.",
+         "After-tax proceeds from a sale of B cannot currently be calculated.",
          "Reconstruct basis from the purchase deed and improvement records.", src("irs_551")),
         ("F10 · Small-estate limit may be stale",
          "The courts' page states $184,500 for deaths on or after 1 April 2022; the current statutory amount is published in form DE-300.",
@@ -1126,6 +1130,14 @@ def build_flagged():
          "Earlier commits and merged pull requests contain full-precision supplied figures. The curated deployment excludes those files, but it cannot unpublish history or caches.",
          "The privacy objective is only partly met at repository level.",
          "Decide whether to make the repository private or rewrite history; both are owner actions outside this session.", src("sco")),
+        ("F16 · Rental income tax and depreciation not modelled",
+         "Rental results are before income tax. Depreciation, passive-loss limits, basis adjustments and recapture depend on records and tax bracket not supplied.",
+         "The sell-versus-rent horizon ranking is a scenario, not a verified after-tax result.",
+         "Recalculate with a tax adviser using the actual estate basis and rental tax records.", src("irs_527", "irs_551")),
+        ("F15 · Occupancy comparison excludes the freed B unit",
+         "Occupying A means the owner can no longer occupy B. The published A-only horizon calculation keeps B owned but does not count possible new rent from its third unit.",
+         "The displayed occupy-versus-sell gap is not a housing-equivalent opportunity cost; it can change materially.",
+         "Confirm legal unit status and obtain a rent opinion before comparing occupancy and sale.", src("prop19", "sf_rent")),
         ("F14 · This is not advice",
          "No attorney, accountant, insurer or appraiser reviewed this analysis.",
          "Personal circumstances could reverse the ranking.",
@@ -1188,6 +1200,9 @@ SOURCE_USE = {
     "pub801": "Prop 19 statutory allowance through 15 February 2027; BOE-19-P timing",
     "boe800": "Prop 13 1% + bonds, 2% cap, reassessment on change of ownership, Prop 8 decline",
     "boe266": "$7,000 homeowners' exemption and filing deadlines",
+    "boe_home": "Only an owner-occupied principal home qualifies for the $7,000 exemption",
+    "irs_523": "Selling expenses reduce proceeds when calculating gain",
+    "irs_527": "Rental income, expenses and depreciation require income-tax treatment",
     "scc_prop19": "County assessor's parent-child transfer requirements",
     "scc_assessor": "Decline-in-value (Prop 8) request process",
     "scc_report": "County assessed-value roll and tax-rate structure",
