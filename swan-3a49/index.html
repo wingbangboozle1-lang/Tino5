@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Uneven-economy replay · Uneven-economy replay</title>
+<style>
+:root{--ink:#1c2430;--mute:#5a6675;--line:#d9dee5;--bg:#f6f7f9;--card:#fff;--accent:#1f5f8b;--warn:#8a4b00;--warnbg:#fff6e5}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header,main,footer{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding-top:22px}
+.kicker{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+h1{font-size:28px;line-height:1.2;margin:6px 0 10px}
+h2{font-size:20px;margin:34px 0 8px}
+h3{font-size:16px;margin:22px 0 6px}
+p{margin:8px 0}
+.lede{font-size:17px;max-width:70ch}
+nav{display:flex;flex-wrap:wrap;gap:6px 8px;margin:14px 0 6px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav a{padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--accent);font-size:14px}
+nav a.on{background:var(--accent);color:#fff}
+nav a.back{margin-left:auto;color:var(--mute)}
+a{color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card .big{font-size:26px;font-weight:650;line-height:1.15;margin:2px 0 4px}
+.card .lab{font-size:13px;color:var(--mute)}
+.card .src{font-size:12px;margin-top:6px}
+.note{background:var(--warnbg);border-left:4px solid #d08a1f;padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;color:#4a3200}
+.plain{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0}
+.scroll{overflow-x:auto;margin:10px 0 6px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#eef1f5;font-weight:600;font-size:13px}
+tbody tr:last-child td{border-bottom:0}
+table.num td:not(:first-child):not(:last-child){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.num th:not(:first-child):not(:last-child){text-align:right}
+td:last-child{font-size:12.5px;min-width:150px}
+.rng{color:var(--mute);font-size:12.5px;white-space:nowrap}
+.neg{color:#a11}
+.stat{white-space:nowrap}
+.small{font-size:13px;color:var(--mute)}
+ul{padding-left:20px;margin:8px 0}
+li{margin:4px 0}
+footer{margin-top:40px;padding-top:14px;padding-bottom:40px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+</style></head><body>
+<header><div class="kicker">Estate decision desk · black-swan section · public · anonymized</div>
+<h1>Uneven-economy replay</h1><nav><a href="index.html" class="on">Overview</a><a href="replay.html">Replay results</a><a href="paths.html">Year by year</a><a href="baseline.html">Baseline</a><a href="sources.html">Sources and method</a><a href="flagged.html">Flagged for review</a><a class="back" href="../public-safe/index.html">Main dashboard</a></nav></header>
+<main>
+<p class="lede">The main dashboard tests a few scenarios that each hold one growth rate for decades. Real economies do not do that. This section takes what actually happened to prices, house values, rents, interest rates and stocks in each year from 1977 to 2025 and replays those years, in order, over the next half century.</p>
+<div class="note"><strong>What this is not.</strong> It is not a forecast, and it does not say what Property A or Property B is worth. Nothing here uses a household figure. The replay shows how much the answer to "live in, rent, or sell and reinvest" can move when good and bad years arrive in a different order.</div>
+<div class="grid"><div class="card"><div class="big">49 paths</div><div class="lab">The same 49 recorded years (1977 to 2025), replayed over 2027 to 2075 starting from each year in turn. Only the order changes.</div><div class="src"><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></div></div><div class="card"><div class="big">1.76× to 6.64×</div><div class="lab">Range of the home-price multiple for Property A's metro area between 2026 and 2045. Median 3.75×. A constant-rate model gives one number.</div><div class="src"><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></div></div><div class="card"><div class="big">25 of 25</div><div class="lab">Recorded 25-year periods in which stocks with dividends ended ahead of metro home prices alone (before rent, costs and tax). Treasury bills ended ahead in 0 of 25.</div><div class="src"><a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table55.pdf">ERP 2026 B-55</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table56.pdf">B-56</a></div></div><div class="card"><div class="big">4.2% a year</div><div class="lab">Median net cash yield the house would have had to pay, after every cost and tax, to keep up with stocks. Range 1.1% to 7.7%.</div><div class="src"><a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table55.pdf">ERP 2026 B-55</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table56.pdf">B-56</a></div></div><div class="card"><div class="big">21 of 49</div><div class="lab">Paths in which a home reassessed at market value on transfer was later worth less than its taxable value on at least one 1 January, so the lower market value should be enrolled.</div><div class="src"><a href="https://www.boe.ca.gov/proptaxes/decline-in-value/">BOE decline in value</a></div></div><div class="card"><div class="big">11 of 49 years</div><div class="lab">Recorded years in which the Prop 13 factor was below the 2% ceiling. In one year it was negative.</div><div class="src"><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26002.pdf">BOE LTA 2026/002</a></div></div></div>
+<h2>What the replay says about the decision</h2>
+<ul>
+<li><strong>The order of good and bad years moves the result a long way.</strong> Every path has the same average growth. By 2045 the home-price multiple ranges from 1.76× (the path that begins with the years from 2007) to 6.64× (the path that begins with 2020). After inflation the range is 1.10× to 2.65×.</li>
+<li><strong>Sell and buy stocks: ahead on price in 25 of 25 recorded 25-year periods.</strong> That is before rent, costs and tax. Keeping the house matched stocks only if it paid net cash, after all costs and taxes, of 1.1% to 7.7% of its value each year (middle 4.2%). Living in the house counts as that cash only to the extent it replaces rent the owner would otherwise pay.</li>
+<li><strong>Sell and hold savings: behind in 25 of 25.</strong> Treasury bills ended ahead of home prices in 0 of 25 periods. The house could have cost its owner 1.3% to 4.0% of its value a year and still matched bills.</li>
+<li><strong>The replay can only reorder the record.</strong> Over these 49 years stocks with dividends returned about 11.5% a year and local home prices rose about 6.7% a year. It cannot show an economy worse than the record itself (flags S02, S11).</li>
+<li><strong>Renting out the inherited home resets its taxable value to market value.</strong> In 21 of 49 paths that new value was later above the market on at least one 1 January. A decline-in-value review applies in those years (flag S06).</li>
+<li><strong>The Prop 19 amount and the estate exclusion move with different indexes than the house.</strong> See the transfer-year tables for how far each can drift.</li>
+</ul>
+<h2>Where to look</h2>
+<div class="scroll"><table class=""><thead><tr>
+<th>Page</th>
+<th>What it holds</th>
+<th>Main official sources</th>
+</tr></thead><tbody>
+<tr><td><a href="replay.html">Replay results</a></td><td>Home values, Prop 19 amount, estate exclusion and property tax at transfers in 2040, 2045 and 2050; house against stocks and Treasury bills over the 25 years after; rent control on Property B; the recorded downturns.</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table55.pdf">ERP 2026 B-55</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table56.pdf">B-56</a> · <a href="https://www.boe.ca.gov/proptaxes/pdf/lta26002.pdf">BOE LTA 2026/002</a></td></tr>
+<tr><td><a href="paths.html">Year by year</a></td><td>Three complete paths, 2027 to 2075, one row a year: the lowest, middle and highest home value in 2045.</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a> · <a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td><a href="baseline.html">Baseline</a></td><td>What official forecasters assume for inflation and interest rates, next to the recorded averages.</td><td><a href="https://www.cbo.gov/system/files/2026-02/61882-Executive-Summary.pdf">CBO outlook 2026-2036</a> · <a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a></td></tr>
+<tr><td><a href="sources.html">Sources and method</a></td><td>Every series, where it came from, and each rule used in the arithmetic.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE LTA 2025/009</a> · <a href="https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm">P.L. 119-21 sec. 70106</a></td></tr>
+<tr><td><a href="flagged.html">Flagged for review</a></td><td>Approximations, gaps, and things that do not line up.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE LTA 2025/009</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table55.pdf">ERP 2026 B-55</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table56.pdf">B-56</a></td></tr>
+</tbody></table></div>
+</main>
+<footer><p><strong>Not advice.</strong> This is arithmetic on published historical series. It is not a forecast and not legal, tax or investment advice.</p>
+<p><strong>Privacy.</strong> No household figure is used or shown. Results are per dollar, per $1,000,000, or for round reference home sizes. Property A is the inherited home; Property B is the home already owned.</p>
+<p>Sources retrieved 12 November 2026. Built by <code>swan-3a49/build.py</code> from the series files listed under <a href="sources.html">Sources and method</a>.</p></footer>
+</body></html>
