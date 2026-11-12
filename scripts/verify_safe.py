@@ -29,6 +29,7 @@ ALLOWED_HOSTS = {
     "files.santaclaracounty.gov", "sftreasurer.org", "www.sf.gov", "sfassessor.org",
     "www.insurance.ca.gov", "selfhelp.courts.ca.gov", "leginfo.legislature.ca.gov",
     "www.cpuc.ca.gov", "electionresults.sos.ca.gov", "www.bls.gov", "www.fhfa.gov",
+    "www.federalreserve.gov", "www.usgs.gov",
 }
 # Structural personal-data patterns only. No real identifier is stored in this file.
 PII = [
@@ -146,7 +147,7 @@ print(summary)
 
 if "--json" in __import__("sys").argv:
     report = {
-        "generated": "2026-11-11",
+        "generated": "2026-11-12",
         "artifact": "public-safe/",
         "pages": pages,
         "counts": stats,

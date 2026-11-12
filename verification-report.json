@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-11",
+  "generated": "2026-11-12",
   "artifact": "public-safe/",
   "pages": [
     "black-swans.html",
@@ -15,10 +15,10 @@
     "tax.html"
   ],
   "counts": {
-    "rows": 295,
-    "links": 659,
-    "tables": 25,
-    "external": 489
+    "rows": 80,
+    "links": 262,
+    "tables": 11,
+    "external": 118
   },
   "checks": {
     "page_set_exact": true,
@@ -31,37 +31,28 @@
   },
   "scope_note": "Structural and privacy checks only. Semantic accuracy of each cited page was established by reading the page; see public-safe/sources.html.",
   "official_urls": [
-    "https://asr.santaclaracounty.gov/online-services/decline-in-value/decline-in-value-request",
-    "https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2",
     "https://boe.ca.gov/pdf/pub800-10.pdf",
-    "https://boe.ca.gov/proptaxes/pdf/sample-boe266.pdf",
-    "https://electionresults.sos.ca.gov/returns/ballot-measures",
-    "https://files.santaclaracounty.gov/exjcpb1521/2025-11/annual_report_2025-2026.pdf",
-    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV\u00a7ionNum=1947.12",
-    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC\u00a7ionNum=11911",
+    "https://leginfo.legislature.ca.gov/faces/codes.xhtml",
     "https://selfhelp.courts.ca.gov/probate",
-    "https://selfhelp.courts.ca.gov/probate/small-estate",
-    "https://sftreasurer.org/property/secured-property-taxes",
     "https://www.bls.gov/cpi/",
+    "https://www.bls.gov/cpi/tables/supplemental-files/historical-cpi-u-202402.pdf",
+    "https://www.bls.gov/news.release/archives/cpi_01122023.htm",
     "https://www.boe.ca.gov/pdf/pub801.pdf",
     "https://www.boe.ca.gov/prop19/",
-    "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm",
+    "https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf",
+    "https://www.cpuc.ca.gov/industries-and-topics/water",
     "https://www.cpuc.ca.gov/nem",
+    "https://www.federalreserve.gov/monetarypolicy.htm",
     "https://www.fhfa.gov/data/hpi",
     "https://www.ftb.ca.gov/file/personal/income-types/gifts-and-inheritance.html",
     "https://www.insurance.ca.gov/01-consumers/105-type/5-residential/index.cfm",
     "https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm",
     "https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax",
-    "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes",
     "https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax",
     "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances",
     "https://www.irs.gov/instructions/i706",
-    "https://www.irs.gov/publications/p523",
     "https://www.irs.gov/publications/p527",
-    "https://www.irs.gov/publications/p551",
     "https://www.sco.ca.gov/ardtax_estate_tax.html",
-    "https://www.sf.gov/information--learn-about-change-ownership",
-    "https://www.sf.gov/learn-about-rent-increases-san-francisco",
-    "https://www.sf.gov/transfer-tax"
+    "https://www.usgs.gov/programs/earthquake-hazards"
   ]
 }
