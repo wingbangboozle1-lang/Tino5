@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Repository Review &amp; Privacy Audit · Anonymized After-Tax Inheritance Desk</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-row">
+      <div class="brand">Anonymized Inheritance Decision Desk · After-Tax &amp; Tariff Edition</div>
+      <div class="stamp">Verified 2026-11-12 · All modeled figures rounded to $10 · Zero PII</div>
+    </div>
+    <nav class="nav" aria-label="Primary navigation"><a href="index.html">Overview</a><a href="decision.html">After-Tax Decision</a><a href="properties.html">Properties</a><a href="projections.html">2026–2076 Projections</a><a href="costs.html">Utilities, Solar &amp; Insurance</a><a href="estate-tax.html">2027 IRS &amp; Estate Matrix</a><a href="black-swans.html">Black Swans</a><a href="process.html">Trust Process</a><a href="law-watch.html">Law Watch</a><a href="repo-audit.html" class="active">Repo Review</a><a href="flagged.html">Flagged (F01–F20)</a><a href="sources.html">Sources</a></nav>
+  </div>
+</header>
+<main class="container">
+  <div class="page-header">
+    <h1>Repository Review &amp; Privacy Audit</h1>
+    <p class="subtitle">Summary of repository-wide verification, privacy remediation (b4f/P), and model reconciliations.</p>
+  </div>
+  <div class="scroll"><table><caption>Repository Line-by-Line Audit &amp; Privacy Disposition (2026-11-12)</caption><thead><tr><th scope="col">Component / Path</th><th scope="col">Disposition</th><th scope="col">Audit Finding &amp; Remediation</th><th scope="col">Official Reference</th></tr></thead><tbody><tr><td>session-595f0109/scripts/verify.py (Fixed via b4f/P)</td><td>Remediated & Verified</td><td>Was unexcluded in _config.yml and served live on Pages with hardcoded ZIPs, cities & unrounded owner numbers; replaced literal list with generic regexes + SHA-256 digests (0 literal tokens; 10 pages / 167 rows pass).</td><td><span class="src-links"><a href="https://www.boe.ca.gov/pdf/pub800-10.pdf" rel="noopener noreferrer">CA BOE · Pub 800-10 assessment</a></span></td></tr><tr><td>public-safe/ (PR #36 & PR #38 baselines)</td><td>Active on main</td><td>Corrected 25-year horizon, Homeowner Exemption exclusion in S2, and $10 rounding; still omits §121, §168/§469/§1250, ad valorem vs. parcel split, NEM sunset, and mis-cites BOE Pub 800-10 for utilities (addressed in desk-b4f/).</td><td><span class="src-links"><a href="https://www.irs.gov/publications/p523" rel="noopener noreferrer">IRS · Pub 523 (§121 home sale)</a> · <a href="https://www.irs.gov/publications/p527" rel="noopener noreferrer">IRS · Pub 527 (rental &amp; 27.5-yr depr.)</a></span></td></tr><tr><td>Legacy directories excluded in _config.yml</td><td>Excluded from Pages</td><td>analysis/, archive/, assets/, audited-v4/, data/, docs/, mine/, model/, pages/, research/, scripts/, session-2f7b1b3f/, src/ excluded from Jekyll deployment; privacy_scan.py reports 0 findings after PR #38.</td><td><span class="src-links"><a href="https://www.boe.ca.gov/pdf/pub800-10.pdf" rel="noopener noreferrer">CA BOE · Pub 800-10 assessment</a></span></td></tr><tr><td>Owner-only git commit history (F13)</td><td>Outside session authority</td><td>Prior commits on public git history remain accessible via git log; only the repository owner can make the repository private or rewrite git history.</td><td><span class="src-links"><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" rel="noopener noreferrer">IRS · Estate tax</a></span></td></tr></tbody></table></div>
+  <footer class="footer">
+    <div>Anonymized Decision Desk (<code>desk-b4f/</code>) · County-level labels only · Statutory figures marked <code>stat</code>; modeled figures rounded to $10.</div>
+    <div>Informational decision modeling only — confirm parcel tax bills, trust terms, and personal tax brackets with qualified California estate/tax counsel.</div>
+  </footer>
+</main>
+</body>
+</html>
