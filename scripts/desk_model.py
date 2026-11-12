@@ -15,7 +15,7 @@ The arithmetic is deliberately plain so it can be checked by hand:
   a non-occupying heir receives no exclusion, so the taxable value becomes full FMV.
 """
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 
 # ------------------------------------------------------------------ assumptions
 ASSUMPTIONS = {
@@ -72,8 +72,9 @@ class Property:
     def taxable(self, year):
         return self.taxable_value * (1 + ASSUMPTIONS["prop13_cap"]) ** (year - BASE)
 
-    def tax_on(self, base_value):
-        return max(base_value - self.homeowners_exemption, 0) * self.tax_rate
+    def tax_on(self, base_value, occupied=False):
+        exemption = self.homeowners_exemption if occupied else 0
+        return max(base_value - exemption, 0) * self.tax_rate
 
     def tax(self, year):
         return self.tax_on(self.taxable(year))
@@ -143,7 +144,7 @@ def value_b(year, growth=None):
 
 def transfer_year_view(year=None, home_growth=None, rent_growth=None,
                        allowance_growth=None, transfer_discount=0.0,
-                       rent_discount=0.0, insurance_mult=1.0):
+                       rent_discount=0.0, insurance_mult=1.0, inflation=None, vacancy=None):
     """Everything that happens in the year the trust distributes Property A."""
     y = ASSUMPTIONS["transfer_year"] if year is None else year
     g = ASSUMPTIONS["home_growth"] if home_growth is None else home_growth
@@ -156,14 +157,16 @@ def transfer_year_view(year=None, home_growth=None, rent_growth=None,
     allowance = ASSUMPTIONS["allowance_base"] * (1 + ag) ** n
     assess_occupy = prop19_taxable(fmv, taxable, allowance)
     assess_rent = fmv                       # no principal-residence use, no exclusion
-    tax_occupy = A.tax_on(assess_occupy)
+    tax_occupy = A.tax_on(assess_occupy, occupied=True)
     tax_rent = A.tax_on(assess_rent)
 
-    inflated = (1 + ASSUMPTIONS["inflation"]) ** n
+    pi = ASSUMPTIONS["inflation"] if inflation is None else inflation
+    inflated = (1 + pi) ** n
     rent = A.gross_rent * (1 + rg) ** n * (1 - rent_discount)
     fixed = (A.insurance * insurance_mult + A.water + A.electric
              + A.maintenance + A.reserve) * inflated
-    var = rent * (A.vacancy_rate + A.management_rate)
+    v = A.vacancy_rate if vacancy is None else vacancy
+    var = rent * (v + A.management_rate)
     opex_rent = fixed + var
     opex_occupy = fixed
     net_rent = rent - tax_rent - opex_rent
@@ -189,17 +192,21 @@ def wealth(year=None, horizon=None, home_growth=None, rent_growth=None,
            inflation=None, portfolio=None, insurance_mult=1.0,
            transfer_discount=0.0, rent_discount=0.0, vacancy=None,
            terminal_cg=None, allowance_growth=None):
-    """Net worth at the horizon for the three paths, with housing held equal
-    (in every path the owner lives in Property B, so housing consumption is identical).
+    """Incremental A-only horizon comparison; B is not sold in any path.
+    If occupying A, the owner cannot also live in B. Extra rent from B's
+    freed unit is unknown and excluded, so occupancy is NOT housing-adjusted.
 
     S1 occupy A: own it, pay all costs, no rent, no portfolio.
     S2 rent A:   own it, receive rent, pay landlord costs and the reassessed tax.
     S3 sell A:   pay selling costs, reinvest proceeds at an after-tax return.
-    A terminal sale in S1/S2 pays capital-gains tax on post-transfer appreciation only,
+    A terminal sale in S1/S2 pays capital-gains tax on net sale proceeds
+    exceeding stepped-up basis (before further adjustments),
     because the inherited basis is date-of-death FMV.
     """
     y = ASSUMPTIONS["transfer_year"] if year is None else year
     h = ASSUMPTIONS["horizon"] if horizon is None else horizon
+    if h < 1 or int(h) != h:
+        raise ValueError("horizon must be a positive integer number of years")
     g = ASSUMPTIONS["home_growth"] if home_growth is None else home_growth
     rg = ASSUMPTIONS["rent_growth_a"] if rent_growth is None else rent_growth
     pi = ASSUMPTIONS["inflation"] if inflation is None else inflation
@@ -208,25 +215,31 @@ def wealth(year=None, horizon=None, home_growth=None, rent_growth=None,
 
     t = transfer_year_view(y, home_growth=g, rent_growth=rg, allowance_growth=allowance_growth,
                            transfer_discount=transfer_discount, rent_discount=rent_discount,
-                           insurance_mult=insurance_mult)
+                           insurance_mult=insurance_mult, inflation=pi, vacancy=vacancy)
     fmv = t["fmv"]
     value_end = fmv * (1 + g) ** h
     sale_cost_end = value_end * (1 - ASSUMPTIONS["sell_cost_rate"])
-    gain_tax_end = cg * max(value_end - fmv, 0)
+    gain_tax_end = cg * max(sale_cost_end - fmv, 0)
     net_asset_end = sale_cost_end - gain_tax_end
 
-    # S1
-    cost_s1 = accumulate(t["opex_occupy"], pi, h)
-    tax_s1 = accumulate(t["tax_occupy"], ASSUMPTIONS["prop13_cap"], h)
+    # Put ALL annual A cash flows on the same terminal-date basis as the
+    # invested sale proceeds. An annual cash flow at the start of period i
+    # earns the assumed after-tax portfolio return for h-i years. Rental
+    # income tax remains unknown, so the rent path is before income tax.
+    def future_cashflows(first, growth):
+        return sum(first * (1 + growth) ** i * (1 + pr) ** (h - i)
+                   for i in range(h))
+
+    cost_s1 = future_cashflows(t["opex_occupy"], pi)
+    tax_s1 = future_cashflows(t["tax_occupy"], ASSUMPTIONS["prop13_cap"])
     s1 = net_asset_end - cost_s1 - tax_s1
 
-    # S2
-    rent_s2 = accumulate(t["rent"], rg, h)
-    opex_s2 = accumulate(t["opex_rent"], pi, h)
-    tax_s2 = accumulate(t["tax_rent"], ASSUMPTIONS["prop13_cap"], h)
+    rent_s2 = future_cashflows(t["rent"], rg)
+    variable_s2 = t["var"] / t["rent"] * rent_s2 if t["rent"] else 0
+    opex_s2 = future_cashflows(t["opex_rent"] - t["var"], pi) + variable_s2
+    tax_s2 = future_cashflows(t["tax_rent"], ASSUMPTIONS["prop13_cap"])
     s2 = net_asset_end + rent_s2 - opex_s2 - tax_s2
 
-    # S3
     s3 = t["proceeds"] * (1 + pr) ** h
 
     return {
