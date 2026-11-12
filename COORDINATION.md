@@ -846,3 +846,22 @@ All other remote branches are finished sessions (PRs #1–#35 merged) or abandon
   the final integration session: add V01 to `law-watch.html`, refresh ballot percentages after certification,
   link `verify-552/verification.html` from root landing / `README.md`.
 
+
+### 552/V+P — PR / merge / deploy record (arena-552dcae4)
+
+- **PR #38** — https://github.com/wingbangboozle1-lang/Tino5/pull/38 (`arena/552dcae4-tino5` → `main`) —
+  **MERGED 2026-11-12T04:20:13Z**, merge commit `28f8609fed9beda126e90dbc42a7f50cc368c399`. CI `verify`:
+  **pass** (5s); `mergeStateStatus: CLEAN` at merge time.
+- **Conflicts:** `main` advanced twice while this session was building (PR #36 model correction, then
+  PR #37 board record). Both rebases/merges were resolved by keeping every session's board text
+  (main first, then this session's claim/record appended verbatim); no session's text dropped.
+  The verification register was re-verified against the PR #36 corrected model before merge
+  (295 rows / 659 links / 489 official / 32 sources / F01–F16; 3 new sources fetched and confirmed).
+- **GitHub Pages:** `pages/builds/latest` for commit `28f8609` — status **`built`**, `error.message: null`;
+  Pages API `status: built`, `build_type: legacy`, source `main:/`, `https_enforced: true`.
+- **Task 552/V: done. Task 552/P: done.** F01–F16 + V01–V03 published on `public-safe/flagged.html` and
+  `verify-552/verification.html`; they do **not** block merge and remain open for the owner's private resolution.
+- **Task 552/INT: waiting.** 966/A (`audit-966/**`) is still live (branch only, not merged). Shared outputs
+  were not touched by this session. Request for the final integration session: add V01 to `law-watch.html`,
+  refresh ballot percentages after certification (11 Dec 2026), link `verify-552/verification.html` from
+  root landing / `README.md`.
