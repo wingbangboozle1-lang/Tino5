@@ -21,7 +21,7 @@ when the file was written and most values were entered from recall. Its "cross-c
 were copies of the same numbers. The file was removed in commit `261f544`.
 
 After the pages were fetched again, the removed file was compared value by value with the
-official figures in this directory (520 series values plus the BOE table). Three values
+official figures in this directory (510 series values and 100 BOE table values). Three values
 differed, all of them values the official response does not contain or states differently:
 
 | Series | Year | Official response | Removed file had |
