@@ -777,6 +777,10 @@ No active competing claim on this scope: the previous public-safe and model work
 - **Corrected:** (1) no homeowner exemption for the rental path; (2) exactly 25, not 26, annual cash-flow periods for a 25-year terminal value; (3) vacancy/management costs grow with rent rather than inflation; (4) stress inflation and vacancy parameters actually change transfer-year costs; (5) terminal selling expenses reduce taxable gain; (6) annual cash flows and invested proceeds now share a terminal-date basis. Six deterministic regression tests pass.
 - **Corrected unverified claims:** no taxable-gain/tax/net-sale figure for the already-owned B based on its property-tax assessment (not income-tax basis); cells intentionally blank and F09 remains flagged. The A-occupancy case cannot also consume B's empty unit: unverified potential third-unit rent is omitted; published A-only comparisons now say they are not housing-equivalent. F15/F16 added to the site for third-unit income and rental income-tax/depreciation uncertainties. No verified personal optimum is claimed.
 - **Verification:** `python3 -m unittest discover -s scripts -p 'test_desk_model.py'` passes 6/6; `python3 scripts/build_desk.py && python3 scripts/verify_safe.py --json` passes (11 pages, 25 tables, 295 source-linked rows, 659 links, 489 official); `git diff --check` passes. This is structural validation plus targeted source re-check, not independent line-by-line validation of every legacy claim in the repository. Existing public git history privacy concern remains F13; only owner action can address it.
+
+### 803/M integration record
+
+- PR [#36](https://github.com/wingbangboozle1-lang/Tino5/pull/36) (`arena/80398929-tino5` → `main`) merged on 2026-11-12T04:18:14Z; merge commit `8590a1be867a30070cfd8f43038c8f95dc9ece93`. GitHub Action `verify` passed before merge. GitHub Pages build for this merge was initiated; final build status will be checked separately. This board update is documentation only.
 ## Session `arena-552dcae4` — claim (2026-11-12 04:16Z, branch `arena/552dcae4-tino5`)
 
 Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
