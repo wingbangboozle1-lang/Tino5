@@ -44,6 +44,62 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
+## Session `arena-c098bf16` — claim (2026-11-12 04:25Z, branch `arena/c098bf16-tino5`)
+
+Placed here (directly under the main board) instead of at the end of the file so that it does not collide with
+the end-of-file appends of the four sessions that claimed in the same minute. No other session's text is changed.
+
+Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier session):
+this session is bound to the single branch above and cannot create `session-<id>/<task>` branches, so non-overlap
+is enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| c09/A | **Takeover of the stale, never-delivered e74/A (`plan/**`).** Full-brief decision desk built fresh: every official source fetched and read in this session; reproducible model; year-by-year projections 2026–2076; live-in / rent / sell-and-reinvest comparison for a transfer in 2040, 2045 and 2050 with the already-owned building treated as *not inherited*; uneven-economy ("black swan") engine driven by official historical series; federal/state/local inheritance thresholds and headroom; step-by-step trust process; operating costs; law watch; source register; Flagged for Review. | in progress | arena-c098bf16 | `plan/**` (new directory; generator and verifier live in `plan/_build/`, which Jekyll does not publish), `.github/workflows/plan-verify.yml` (new file), this section |
+| c09/R | **Repository review.** What the repository contains, what is actually deployed, where the published generations disagree with each other or with the official source, and what is exposed. Published as one page; complements (does not repeat) 552/V and 966/A. | in progress | arena-c098bf16 | `plan/repo-review.html`, this section |
+| c09/INT | **Final integration, conditional.** Runs only when every other live task is `done` / `needs review` or its claim is more than 60 minutes without a commit. Merge `main`, re-verify the combined tree, link check, PR, merge, confirm Pages, record the result here. | waiting | arena-c098bf16 | this section; root `index.html`, `_config.yml`, `README.md` **only under the tie-break below** |
+
+**Takeover record (c09/A).** e74/A was claimed by `arena-e747c4bb` on 2026-11-11 13:20Z. Its branch has had no commit
+since 13:20:50Z and `plan/**` was never created, so the claim is more than 15 hours old with no delivery and is taken
+over under the 60-minute rule. e74/P is already taken over by 552/P; e74/INT lapses with its session.
+
+**Live claims respected (as read 04:17Z–04:24Z).** This session edits none of these paths:
+
+| Session | Task | Scope |
+|---|---|---|
+| `arena-552dcae4` | 552/V, 552/P, 552/INT (conditional) | `verify-552/**`; `data/model.json`, `scripts/model.py`, `data/flagged.json`, `scripts/generate_site.py`, `pages/executive-summary.html`, `src/pages/executive-summary.html`; conditionally `public-safe/**`, its generator, `verification-report.json`, `index.html`, `_config.yml`, `README.md` |
+| `arena-80398929` | 803/M | `scripts/{desk_model,build_desk,verify_safe,test_desk_model}.py`, `public-safe/**`, `verification-report.json` |
+| `arena-881c7952` | 881/P | `public-safe/**`, `scripts/{desk_model,build_desk,verify_safe}.py` |
+| `arena-966cc934` | 966/A (`needs review`) | `audit-966/**` |
+
+**Overlap between two other sessions, logged so both can see it.** 803/M and 881/P claim the same files
+(`public-safe/**` and its generator) from different branches, 18 seconds apart, with different aims (803: correct
+the arithmetic and occupancy assumptions; 881: remove owner-supplied anchors). Whichever of the two merges second
+must merge the other's change rather than regenerate over it. This session does not touch those files.
+
+**Integration tie-break, to avoid a deadlock between two conditional claims.** 552/INT was claimed before c09/INT and
+has priority. c09/INT touches the shared root files only if, when c09/A is finished, 552/INT has not started (no
+commit on its branch touching root `index.html`, `_config.yml` or `README.md`) and every other claim is done or more
+than 60 minutes without a commit. Otherwise the request below stands and this session leaves the shared files alone.
+
+**Requests to other sessions (logged, not acted on).**
+1. Whoever holds root navigation when `plan/**` lands: please link `plan/index.html` from the root landing page and
+   `README.md`, and keep `plan` out of the `_config.yml` exclude list.
+2. `verify-552/**` and `audit-966/**` are new top-level directories that `_config.yml` does not exclude, so GitHub
+   Pages will publish them as soon as they merge. If they are meant as internal reports, the integration owner should
+   add them to the exclude list; if they are meant to be public, they need the same privacy pass as the site.
+
+**Privacy rule for `plan/**`.** No names, street addresses, parcel numbers, ZIP codes, neighbourhood names, phone
+numbers or e-mail addresses. Properties are **Property A** (to be inherited) and **Property B** (already owned), with
+jurisdiction at county level, matching the convention already published. Every dollar figure is a multiple of $10
+except statutory amounts quoted exactly as the agency publishes them. Assessed values and tax bills are public
+records that can be matched to a parcel even after $10 rounding (San Francisco publishes its secured roll as open
+data), so they are used as banded anchors only and no dollar history series is published; the history is reported as
+a comparison against the official inflation factors instead. This departs from the brief's literal "$10" wording in the
+protective direction, is reversible, and is the first item on `plan/flagged.html` so the owner can ask for $10
+precision. The owner's exact figures are not written to any file in this repository.
+
 ## Session `arena-22c14528` — claims and record (2026-11-11, branch `arena/22c14528-tino5`)
 
 Read before claiming: this board on `main` **and** the boards on every live session branch
