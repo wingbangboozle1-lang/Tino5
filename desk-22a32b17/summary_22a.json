@@ -1,0 +1,138 @@
+{
+  "desk": "desk-22a32b17",
+  "verified_date": "2026-11-12",
+  "rounding_increment_usd": 10,
+  "official_sources_count": 45,
+  "flagged_items_count": 18,
+  "scenarios": {
+    "2040": {
+      "end_year": 2065,
+      "fmv_transfer": 5514550,
+      "net_proceeds_transfer": 5211250,
+      "liquidated_wealth": {
+        "S1a": 6538460,
+        "S1b": 8670500,
+        "S2": 11659690,
+        "S3a": 20348830,
+        "S3b": 9661360
+      },
+      "hold_net_worth": {
+        "S1a": 10655790,
+        "S1b": 12787830,
+        "S2": 15879350,
+        "S3a": 20348830,
+        "S3b": 9661360
+      }
+    },
+    "2045": {
+      "end_year": 2070,
+      "fmv_transfer": 6774050,
+      "net_proceeds_transfer": 6401480,
+      "liquidated_wealth": {
+        "S1a": 8083760,
+        "S1b": 10555390,
+        "S2": 14116470,
+        "S3a": 24996440,
+        "S3b": 11867980
+      },
+      "hold_net_worth": {
+        "S1a": 13162660,
+        "S1b": 15634290,
+        "S2": 19241050,
+        "S3a": 24996440,
+        "S3b": 11867980
+      }
+    },
+    "2050": {
+      "end_year": 2075,
+      "fmv_transfer": 8321220,
+      "net_proceeds_transfer": 7863550,
+      "liquidated_wealth": {
+        "S1a": 9931890,
+        "S1b": 12797170,
+        "S2": 17097430,
+        "S3a": 30705540,
+        "S3b": 14578590
+      },
+      "hold_net_worth": {
+        "S1a": 16191970,
+        "S1b": 19057260,
+        "S2": 23323100,
+        "S3a": 30705540,
+        "S3b": 14578590
+      }
+    }
+  },
+  "black_swan_regimes_2045_to_2070": [
+    {
+      "code": "R0",
+      "name": "Smooth Constant-Rate Baseline (Benchmark)",
+      "fmv_2045": 6774050,
+      "occupy_2070": 8083760,
+      "rent_2070": 14116470,
+      "sell_equities_2070": 24996440,
+      "sell_treasuries_2070": 11867980,
+      "winner": "Sell \u2192 Equities (S3a)"
+    },
+    {
+      "code": "R1",
+      "name": "50-Year Multi-Cycle Real-World Path (5 Recessions + 5 Inflation Waves)",
+      "fmv_2045": 5868690,
+      "occupy_2070": 4913890,
+      "rent_2070": 9885140,
+      "sell_equities_2070": 17502370,
+      "sell_treasuries_2070": 10260310,
+      "winner": "Sell \u2192 Equities (S3a)"
+    },
+    {
+      "code": "R2",
+      "name": "1970s-Style Stagflation Decade (2042\u20132051: CPI ~8.8%, Flat Equities)",
+      "fmv_2045": 7673820,
+      "occupy_2070": 11410510,
+      "rent_2070": 19421940,
+      "sell_equities_2070": 17395920,
+      "sell_treasuries_2070": 14100370,
+      "winner": "Rent A (S2)"
+    },
+    {
+      "code": "R3",
+      "name": "Regional Housing Trough AT Inheritance (2043\u20132045 Home -25.5%, Then Recovery)",
+      "fmv_2045": 4459680,
+      "occupy_2070": 7693900,
+      "rent_2070": 12714880,
+      "sell_equities_2070": 14526060,
+      "sell_treasuries_2070": 7805630,
+      "winner": "Sell \u2192 Equities (S3a)"
+    },
+    {
+      "code": "R4",
+      "name": "Post-Sale Equity Lost-Decade Shock (2046\u20132048: Equities -46% After 2045 Sale)",
+      "fmv_2045": 6774050,
+      "occupy_2070": 6860230,
+      "rent_2070": 12244450,
+      "sell_equities_2070": 11517030,
+      "sell_treasuries_2070": 11787100,
+      "winner": "Rent A (S2)"
+    },
+    {
+      "code": "R5",
+      "name": "CA Insurance Tripling (3.2x) + Uninsured Seismic Repair Shock (12% of FMV in 2048)",
+      "fmv_2045": 6357130,
+      "occupy_2070": 2669820,
+      "rent_2070": 9185850,
+      "sell_equities_2070": 23457970,
+      "sell_treasuries_2070": 11137540,
+      "winner": "Sell \u2192 Equities (S3a)"
+    },
+    {
+      "code": "R6",
+      "name": "Fiscal Dominance & Tax-Drag Regime (Higher Inflation 3.8%, Lower Real After-Tax Returns)",
+      "fmv_2045": 6905200,
+      "occupy_2070": 9297810,
+      "rent_2070": 15049220,
+      "sell_equities_2070": 19147870,
+      "sell_treasuries_2070": 10705630,
+      "winner": "Sell \u2192 Equities (S3a)"
+    }
+  ]
+}

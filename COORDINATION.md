@@ -1008,3 +1008,26 @@ precision, forward anchors banded, every dollar figure a multiple of $10 (statut
 - **After the merge:** the FRED series pages for the bill rate and the house price index were read to confirm two descriptions used in flags S12 and S15 (discount-basis rate, averages of business days; index estimated from sales prices and appraisal data). S12 wording corrected from "repeat sales and appraisals" to the publisher's wording, and both flags now link the series notes.
 - **Still open for a final integration session:** the navigation link request above (3a4/INT, not run); spot check of the transcribed series files against the linked URLs.
 
+
+## Session `arena-22a32b17` — claim & delivery record (2026-11-12, branch `arena/22a32b17-tino5`)
+
+Read before claiming: `COORDINATION.md` on `main` (`28f8609` at initial claim `38ddcc6`, re-read at `e2df1f7` before merge) **and** every remote session branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint: bound to fixed Arena branch `arena/22a32b17-tino5`; strict non-overlap enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 22a/D | **End-to-End Verified 2026–2076 Inheritance Decision Desk, 50-Year Black-Swan Engine & Repo Audit (`desk-22a32b17/**`, `tools-22a32b17/**`).** Built deterministic Python model (`tools-22a32b17/model_22a.py`), 7/7 unit tests (`test_model_22a.py`), deterministic 12-page dashboard generator (`build_desk_22a.py`, `layout_22a.py`, `pages_core_22a.py`, `pages_gov_22a.py`), and structural/link/privacy/rounding gate (`verify_desk_22a.py`). | done | arena-22a32b17 | `desk-22a32b17/**`, `tools-22a32b17/**`, this section of `COORDINATION.md` |
+| 22a/INT | **Conditional root-navigation link.** Not run because sibling integration claims (`552/INT`, `c09/INT`, `3a4/INT`) and `881/P`'s `public-safe/` release remain active (<60 min); `public-safe/**`, `_config.yml`, `scripts/**`, `README.md`, and root `index.html` were left completely untouched. Request for final integration: add optional nav link to `../desk-22a32b17/index.html` if desired. | waiting | arena-22a32b17 | none |
+
+### 22a/D — verification, privacy & conflict-resolution summary
+
+- **45 official `.gov` / statutory URLs fetched & verified HTTP 200 on 2026-11-12:** IRS (`estate-tax`, `whats-new-estate-and-gift-tax`, `IR-2026-133` / `Rev. Proc. 2026-35` enacted 2027 `$15,480,000` exclusion & `$20,000` annual gift exclusion, `frequently-asked-questions-on-estate-taxes`, `i706`, `gifts-inheritances`, `Rev. Rul. 2023-2`, `p523`, `p527`, `p550`, `p551`), CA SCO (`ardtax_estate_tax.html`), CA FTB (`gifts-and-inheritance.html`, `2026-540-tax-rate-schedules.pdf`), CA BOE (`prop19/`, `pub801.pdf`, `lta26026.pdf`, `lta26002.pdf`, `pub800-10.pdf`, `homeowners_exemption.htm`, `sample-boe266.pdf`), CA Legislature (`RTC §§51, 63.2, 480, 11911, 11930`, `PROB §16061.7`, `CIV §1947.12`), Santa Clara County Assessor (`parent-to-child-2`, `annual_report_2025-2026.pdf`), San Francisco (`sftreasurer.org` `1.18162182%`, `sf.gov/transfer-tax`, `sf.gov` current rent rates `1.6%` + BOS File No. 261020 notice, `sfpuc.gov` Prop 218 water/sewer notice), CDI (`sustainable-insurance-strategy.cfm` Oct 27, 2026 snapshot, `res-ins-guide.cfm`), CPUC (`nem`), CA Courts (`probate`), CA SOS (`ballot-measures`), BLS (`cpi.nr0.htm` Oct 2026), Federal Reserve (`fomcminutes20260916.htm` `3.75%–4.00%`), FHFA (`hpi`), CBO (`publication/62105`), TSP (`rates-return/`), and USGS (`UCERF3` `72%` Bay Area M>=6.7).
+- **Automated gates:**
+  - `python3 tools-22a32b17/build_desk_22a.py` → deterministic 14-file build (`desk-22a32b17/`).
+  - `python3 tools-22a32b17/verify_desk_22a.py` → **PASS** (`12` HTML pages, `303` verified table rows, `628` official row citations, `45` HTTP-200 official sources, `0` privacy/rounding/link/Liquid issues).
+  - `python3 -m unittest discover -s tools-22a32b17 -v` → **PASS** (`7/7` tests).
+  - `python3 scripts/privacy_scan.py tools-22a32b17 desk-22a32b17 --minor` → **0 findings and 0 minor amounts**.
+  - `python3 scripts/verify_safe.py` → **PASS** (CI gate preserved).
+- **Privacy & blank-cell compliance:** County-level placeholders (`Property A`, `Property B`) only; zero personal identifiers, street addresses, parcel numbers, ZIP codes, city/neighborhood names, or multi-year parcel-traceable roll sequences; banded roll baselines and nearest-`$10` rounding on every model/projection figure; all 18 unconfirmed parcel/trust/bill/unofficial items left blank (`—`) in confirmed-record columns and catalogued on `desk-22a32b17/flagged.html` (`F-01`–`F-18`, non-blocking).
+- **Merge conflict resolution log:** `COORDINATION.md` append conflict when merging `origin/main` (`e2df1f7`, PRs #39–#45) into `arena/22a32b17-tino5` resolved by keeping 100% of `origin/main`'s `COORDINATION.md` entries verbatim and placing this `arena-22a32b17` section cleanly at the end. Zero other files conflicted.
+
+
