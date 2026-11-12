@@ -18,6 +18,8 @@ import json
 import re
 
 OUT = Path("public-safe")
+CONFIG = Path("_config.yml")
+DEPLOYMENT_EXCLUSIONS = {"verify-552", "session-595f0109"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "flagged.html",
@@ -105,6 +107,10 @@ class Check(HTMLParser):
 
 
 pages = sorted(p.name for p in OUT.glob("*.html"))
+config_text = CONFIG.read_text() if CONFIG.exists() else ""
+for directory in DEPLOYMENT_EXCLUSIONS:
+    if not re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
+        errors.append(f"_config.yml: required deployment exclusion missing for {directory}")
 if set(pages) != EXPECTED_PAGES:
     errors.append(f"page set mismatch: missing {EXPECTED_PAGES - set(pages)}, extra {set(pages) - EXPECTED_PAGES}")
 
@@ -159,6 +165,7 @@ if "--json" in __import__("sys").argv:
             "money_rounds_to_10_except_marked_statutory": True,
             "no_personal_identifier_patterns": True,
             "no_scripts_forms_or_external_assets": True,
+            "nonprimary_site_artifacts_excluded": True,
         },
         "scope_note": "Structural and privacy checks only. Semantic accuracy of each cited page was "
                       "established by reading the page; see public-safe/sources.html.",

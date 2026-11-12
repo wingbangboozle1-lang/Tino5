@@ -27,7 +27,8 @@
     "external_hosts_allowlisted": true,
     "money_rounds_to_10_except_marked_statutory": true,
     "no_personal_identifier_patterns": true,
-    "no_scripts_forms_or_external_assets": true
+    "no_scripts_forms_or_external_assets": true,
+    "nonprimary_site_artifacts_excluded": true
   },
   "scope_note": "Structural and privacy checks only. Semantic accuracy of each cited page was established by reading the page; see public-safe/sources.html.",
   "official_urls": [
