@@ -9,6 +9,7 @@ exclude:
   - "audited-v4"
   - "data"
   - "docs"
+  - "desk-b4f"
   - "mine"
   - "model"
   - "pages"

@@ -3,6 +3,7 @@
 Structural checks only, not semantic certification.
 Run: python3 session-595f0109/scripts/verify.py
 """
+import hashlib
 import re
 import sys
 from html.parser import HTMLParser
@@ -20,15 +21,43 @@ OFFICIAL = (
     "sfpuc.gov", "congress.gov",
 )
 
-FORBIDDEN = [
-    r"\b(?:95014|94122|550537|539743|114248|112008)\b",
-    r"550,537|539,743|114,248|112,008",
-    r"3,100,000|1,800,000|7,150",
-    r"Cupertino|Outer Sunset|Santa Clara",
-    r"San Francisco",
+FORBIDDEN_PATTERNS = [
     r"[\w.+-]+@[\w.-]+\.[a-z]{2,}",
     r"\b\d{3}-\d{2}-\d{4}\b",
+    r"\b(?!20\d{2}-\d{2}-\d{2}\b)\d{3,4}-\d{2,3}-\d{3}\b",
+    r"\b\d{2,5}\s+[A-Z][a-z]+\s+(?:St|Ave|Rd|Dr|Blvd|Ln|Ct|Way|Pl)\b",
 ]
+
+# SHA-256 16-hex prefixes of normalized private tokens (comma-free digits / lowercase names)
+# so no literal ZIPs, location names, or unrounded baseline figures are published in source.
+FORBIDDEN_DIGESTS = frozenset({
+    "2478d903d7c875f0",
+    "43086d953bcc428c",
+    "39842cd9da3b334e",
+    "099edec0edb103d8",
+    "492053065ed017f4",
+    "85df60af2698a93c",
+    "e8537c60cf3ce941",
+    "37bf94938358f1fd",
+    "02cf62656564decc",
+    "f6f9c5f004b4e5b5",
+    "13ec7cc438685651",
+    "4e24b4c8c700c60f",
+    "1a2290470e0aa754",
+})
+
+
+def has_forbidden_digest(text):
+    words = re.findall(r"[a-z]+|\d[\d,]*\d|\d+", text.lower())
+    norm = [w.replace(",", "") for w in words]
+    for i, tok in enumerate(norm):
+        if hashlib.sha256(tok.encode()).hexdigest()[:16] in FORBIDDEN_DIGESTS:
+            return True
+        if i + 1 < len(norm):
+            pair = f"{tok} {norm[i + 1]}"
+            if hashlib.sha256(pair.encode()).hexdigest()[:16] in FORBIDDEN_DIGESTS:
+                return True
+    return False
 
 class Check(HTMLParser):
     def __init__(self, path):
@@ -81,9 +110,11 @@ def main():
         errors.append(f"Expected 10 pages, found {len(pages)}")
     for p in pages:
         text = p.read_text(encoding="utf-8")
-        for pat in FORBIDDEN:
+        for pat in FORBIDDEN_PATTERNS:
             if re.search(pat, text, re.I):
                 errors.append(f"{p.name}: private fingerprint pattern {pat}")
+        if has_forbidden_digest(text):
+            errors.append(f"{p.name}: private fingerprint token digest matched")
         for m in re.finditer(r"\$([\d,]+)(?![\d,])", text):
             try:
                 val = int(m.group(1).replace(",", ""))
