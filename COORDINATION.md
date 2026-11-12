@@ -781,3 +781,19 @@ No active competing claim on this scope: the previous public-safe and model work
 ### 803/M integration record
 
 - PR [#36](https://github.com/wingbangboozle1-lang/Tino5/pull/36) (`arena/80398929-tino5` → `main`) merged on 2026-11-12T04:18:14Z; merge commit `8590a1be867a30070cfd8f43038c8f95dc9ece93`. GitHub Action `verify` passed before merge. GitHub Pages build for this merge was initiated; final build status will be checked separately. This board update is documentation only.
+
+## Session `arena-b4ffc6e7` — claim (2026-11-12, branch `arena/b4ffc6e7-tino5`)
+
+Read before claiming: `COORDINATION.md` on `main` (`d1a1357`, PRs #36–#37) **and** every remote session branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every prior session): this session is bound to the single fixed branch `arena/b4ffc6e7-tino5`, so non-overlap is enforced by **file scope** rather than creating `session-<id>/<task>` branches.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| b4f/P | **Live-Pages privacy remediation (takeover of stale `session-595f0109`).** `session-595f0109` is not excluded by `_config.yml`, so `session-595f0109/scripts/verify.py` is currently served live on GitHub Pages and hardcodes exact ZIP codes, city/neighborhood names, and exact owner assessment figures in its `FORBIDDEN` list (finished 2026-11-11 13:19Z, >15 h stale). Replace literal blocklist strings with generic pattern regexes without breaking its verification checks. | in progress | arena-b4ffc6e7 | `session-595f0109/scripts/verify.py`, this section of `COORDINATION.md` |
+| b4f/D | **Deep official-source tax, utility, solar, insurance, estate-threshold & black-swan extension + standalone privacy-safe dashboard (`desk-b4f/**`).** Verify 2027 IRS thresholds (`Rev. Proc. 2026-35`), IRC §121 home-sale exclusion (`Pub 523`), IRC §168/§469/§1250 rental depreciation/recapture (`Pub 527`), ad valorem vs. fixed parcel charges, SJWC (`CPUC D.24-12-077`), SFPUC FY26–28 water/sewer (`Prop 218`), CPUC NEM 1.0/2.0 20-year legacy sunset by ~2043 (`D.14-03-041`/`D.22-12-056`/`D.24-05-028`), CDI 2025 Homeowners/Dwelling-Fire/EQ averages (`EQEXP2025Summary.pdf`), "considerable money" combined estate-tax capacity matrix (single vs. DSUE portability vs. Congressional halving), Nov. 11–12 2026 CA SOS returns & SF File No. 261020, and step-by-step trust checklist. Publish a clean, source-linked, $10-rounded, zero-PII dashboard with Flagged for Review and automated checks. | in progress | arena-b4ffc6e7 | `desk-b4f/**` (new directory), this section of `COORDINATION.md` |
+
+**Live claims respected (as read 2026-11-12 04:20Z):** `arena-966cc934` 966/A (`audit-966/**`, `needs review`), `arena-7864052a` 786/V (`tools-786/**`, `done`), `arena-881c7952` 881/P (`public-safe/**`, `scripts/{desk_model,build_desk,verify_safe}.py`, `in progress`), `arena-552dcae4` 552/V+P+INT (`verify-552/**`, six legacy files, conditional shared integration, PR #38 open), `arena-3a49d618` 3a4/S (`swan-3a49/**`, `in progress`). This session edits **none** of those scopes.
+
+**Logged requests to integration / `881/P` / `552/INT` (not acted on here):**
+1. Add `session-595f0109` (and any non-site audit/tool directories) to `_config.yml` `exclude:` so old session verification scripts and artifacts are not deployed by Jekyll.
+2. Link `desk-b4f/index.html` from root navigation / `README.md` once concurrent claims settle.
+
