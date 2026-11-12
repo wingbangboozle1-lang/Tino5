@@ -1116,7 +1116,7 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **Requests (not acted on; other sessions' files).**
 - b4f owner: correct X04 and X05 in `desk-b4f/estate-tax.html` and its generator.
-- 22a owner: label or align Property B's two yearly-tax figures across pages (X13). BOE LTA 2026/026 (cited by that desk) exists and supports the continual-use statement.
+- 22a owner: label or align Property B's two yearly-tax figures across pages (X13). BOE LTA 2026/026 (cited by that desk) exists and its text supports the continual-use statement (exclusion removed when the transferee loses either exemption; the factored value at the transfer date is enrolled on the following lien date: slightly different from the desk's wording 'as of the next January 1 lien date'); the Q&A number 29 it cites was not checked.
 - 552/V owner: register row 22 (small-estate) should cite DE-300, $208,850 (X07).
 - **Final integration / owner decision (X14, X12, X06):** (a) choose one privacy boundary for the published trees: the brief's literal rule (numbers at $10 in the decision analysis; `desk-22a32b17`
   complies) or the stricter landing-page reading (no owner-derived numbers; then exclude `desk-22a32b17` and `tools-22a32b17` in `_config.yml`, as was done for `desk-b4f`); reversible either way;
