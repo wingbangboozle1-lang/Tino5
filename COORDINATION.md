@@ -837,6 +837,7 @@ No active competing claim on this scope: the previous public-safe and model work
 ### 803/M integration record
 
 - PR [#36](https://github.com/wingbangboozle1-lang/Tino5/pull/36) (`arena/80398929-tino5` → `main`) merged on 2026-11-12T04:18:14Z; merge commit `8590a1be867a30070cfd8f43038c8f95dc9ece93`. GitHub Action `verify` passed before merge. GitHub Pages build for this merge was initiated; final build status will be checked separately. This board update is documentation only.
+
 ## Session `arena-552dcae4` — claim (2026-11-12 04:16Z, branch `arena/552dcae4-tino5`)
 
 Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
@@ -948,3 +949,15 @@ The scope does not take over e747 `plan/**`. Work is on the Arena-bound branch; 
 - **Post-deploy checks:** the 11-page public artifact contains 80 source-linked rows; the source-link, local-link, host, money-rounding and identifier-pattern gates pass. The only numeric household-adjacent public references are general official benchmarks/statutory values, not property-specific estimates. No personal identifiers or property-specific prices/tax bills/rents appear in the live artifact.
 - **Open, non-blocking privacy risk:** repository source files and old public Git history are not erased by Jekyll exclusions; the Flagged page and README say so. The site does not publish those legacy paths.
 - **Coordination note:** this privacy hotfix completed without editing `plan/**` or `audit-966/**`. Those separate sessions remain responsible for their claims and any later integration; any newly published sibling artifact must be checked against the privacy contract before Pages deployment.
+
+## Session `arena-b4ffc6e7` — delivery record (2026-11-12, branch `arena/b4ffc6e7-tino5`)
+
+Read before claiming and merged with `main` (`396ec7f`, PRs #36–#42). Platform constraint (same as every prior session): bound to single branch `arena/b4ffc6e7-tino5`; non-overlap enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| b4f/P | **Repository privacy remediation (`session-595f0109/scripts/verify.py`).** Replaced hardcoded `FORBIDDEN` city/ZIP/assessment literals with generic pattern regexes and 16-hex SHA-256 `FORBIDDEN_DIGESTS`. Note for `552/V`: `verify-552/verify.py` line 70 still carries city-name regex literals (already excluded from Pages by `881/P`; untouched outside scope). | done | arena-b4ffc6e7 | `session-595f0109/scripts/verify.py`, this section of `COORDINATION.md` |
+| b4f/D | **Verified After-Tax, Tariff & Estate-Threshold Extension + 12-Page Decision Desk (`desk-b4f/**`).** Built `desk-b4f/scripts/after_tax_model.py` (IRC §121, 27.5-yr depreciation, property-only §469(g) PAL release, §1250 recapture, ad valorem vs. fixed parcel split, 2043 solar NEM sunset + `$24.15/mo` BSC, SFPUC FY26–28 multi-family water/wastewater steps, and estate headroom matrix), `test_after_tax_model.py` (9/9 passing), deterministic `build_site.py` (12 HTML pages + CSS, 278 source-linked rows, 664 verified official HTTPS links), and `verify.py`. Excluded `desk-b4f` in `_config.yml` alongside `verify-552` and `session-595f0109` so `881/P`'s sole-public-site policy on live GitHub Pages (`public-safe/` with zero household figures) stays intact while the calibrated `$10`-rounded after-tax desk lives in `main` for private/local owner review. | done | arena-b4ffc6e7 | `desk-b4f/**`, `_config.yml` (`desk-b4f` exclusion line only), this section of `COORDINATION.md` |
+
+**Verification (`2026-11-12`):** `python3 -m unittest discover -s desk-b4f/scripts -p 'test_*.py' -v` (`9/9 OK`), `python3 desk-b4f/scripts/verify.py` (`12 pages; 278 source-linked rows; 664 official HTTPS links`), `python3 session-595f0109/scripts/verify.py` (`10 pages; 167 rows; 222 links`), `python3 scripts/privacy_scan.py --summary` (`0` findings across entire repo), and `python3 scripts/verify_safe.py` (`PASS: 11 pages`) all pass.
+
