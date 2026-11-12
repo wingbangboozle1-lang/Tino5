@@ -15,5 +15,7 @@ exclude:
   - "research"
   - "scripts"
   - "session-2f7b1b3f"
+  - "session-595f0109"
+  - "verify-552"
   - "src"
   - "verification-report.json"

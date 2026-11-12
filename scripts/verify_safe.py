@@ -18,6 +18,8 @@ import json
 import re
 
 OUT = Path("public-safe")
+CONFIG = Path("_config.yml")
+DEPLOYMENT_EXCLUSIONS = {"verify-552", "session-595f0109"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "flagged.html",
@@ -29,6 +31,7 @@ ALLOWED_HOSTS = {
     "files.santaclaracounty.gov", "sftreasurer.org", "www.sf.gov", "sfassessor.org",
     "www.insurance.ca.gov", "selfhelp.courts.ca.gov", "leginfo.legislature.ca.gov",
     "www.cpuc.ca.gov", "electionresults.sos.ca.gov", "www.bls.gov", "www.fhfa.gov",
+    "www.federalreserve.gov", "www.usgs.gov",
 }
 # Structural personal-data patterns only. No real identifier is stored in this file.
 PII = [
@@ -104,6 +107,10 @@ class Check(HTMLParser):
 
 
 pages = sorted(p.name for p in OUT.glob("*.html"))
+config_text = CONFIG.read_text() if CONFIG.exists() else ""
+for directory in DEPLOYMENT_EXCLUSIONS:
+    if not re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
+        errors.append(f"_config.yml: required deployment exclusion missing for {directory}")
 if set(pages) != EXPECTED_PAGES:
     errors.append(f"page set mismatch: missing {EXPECTED_PAGES - set(pages)}, extra {set(pages) - EXPECTED_PAGES}")
 
@@ -146,7 +153,7 @@ print(summary)
 
 if "--json" in __import__("sys").argv:
     report = {
-        "generated": "2026-11-11",
+        "generated": "2026-11-12",
         "artifact": "public-safe/",
         "pages": pages,
         "counts": stats,
@@ -158,6 +165,7 @@ if "--json" in __import__("sys").argv:
             "money_rounds_to_10_except_marked_statutory": True,
             "no_personal_identifier_patterns": True,
             "no_scripts_forms_or_external_assets": True,
+            "nonprimary_site_artifacts_excluded": True,
         },
         "scope_note": "Structural and privacy checks only. Semantic accuracy of each cited page was "
                       "established by reading the page; see public-safe/sources.html.",
