@@ -769,3 +769,7 @@ Merge log (arena-e747c4bb, 13:21Z): `main` advanced to `b03a090` (PRs #31, #32) 
 | 966/A | Independently audit the existing deployed dashboard, privacy exposure, build and deployment; document limitations and corrections in a standalone report. | in progress | arena-966cc934 | `audit-966/**`, this section of `COORDINATION.md` |
 
 The platform fixes this session to its Arena branch; scope separation is used instead of creating a session branch. Existing published artifacts and other sessions' files are not modified.
+
+### 966/A — completion record
+
+Status: **needs review**. Independent risk-focused audit in `audit-966/REPORT.md`; not a full line-by-line verification. Structural verifier passes but privacy scan finds 11 matches across five legacy files. Public repo and site still expose owner-specific financial information and history; exclusion from Pages does not protect public Git files. The existing site also uses overconfident basis/gain language and source links that do not verify individual data values. Official IRS and BOE references and verification details are in the report. The existing public flagged page does not cover all findings. No integration PR or merge performed: privacy requirements and complete verification remain unmet. Request to future integration owner: correct these findings and publish a privacy-safe review page before considering the release complete.
