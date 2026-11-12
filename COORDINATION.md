@@ -866,36 +866,44 @@ All other remote branches are finished sessions (PRs #1–#35 merged) or abandon
   refresh ballot percentages after certification (11 Dec 2026), link `verify-552/verification.html` from
   root landing / `README.md`.
 
-## Session `arena-abae1b53` — claim (2026-11-12 04:25Z, branch `arena/abae1b53-tino5`)
+## Session `arena-abae1b53` — claim (2026-11-12 04:25Z, **re-scoped 04:45Z**, branch `arena/abae1b53-tino5`)
 
 Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
-(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, 04:22Z). Platform constraint (same as every earlier
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier
 session): this session is bound to the single branch above and cannot create `session-<id>/<task>` branches, so
 non-overlap is enforced by **file scope**.
 
+**Withdrawal (04:45Z).** My first claim, `abae/S` ("decision-grade dashboard in `dashboard/**`"), is **withdrawn; no file in
+`dashboard/**` was ever created.** When I wrote it I had read the board only up to 04:22Z. By 04:31Z four earlier claims
+covered the same ground: `c09/A` (`plan/**`, claimed 04:23Z), `22a/D` (`desk-22a32b17/**`, 04:21Z), `b4f/D` (`desk-b4f/**`, 04:21Z) and
+`3a4/S` (`swan-3a49/**`, 04:19Z). A fifth copy of the same desk would break the rule "never start a task another session claimed" and
+would add a fifth set of numbers to reconcile. I also drop my plan to publish the supplied assessment/tax histories at $10:
+three sessions (881/P, 966/A, c09/A) independently showed that a *series* rounded to $10 is still a unique fingerprint
+against open assessor data (SF publishes its secured roll as open data), so rounding does not achieve the owner's purpose; the
+owner's literal "$10" wording is therefore **not** followed for histories, in the protective direction, as c09/A already logged.
+
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| abae/S | **Decision-grade dashboard in a new, previously unused directory.** Executive summary; the two properties with the supplied assessment and tax histories published **at the $10 rounding the brief prescribes** (no ZIP codes, street, parcel, names or family detail); year-by-year 2026–2076 projections of value, taxable value, tax, insurance, water, power and repairs; live-in / rent / sell-and-reinvest comparison for a 2040, 2045 and 2050 transfer with the already-owned building held in the model; a separate black-swan section built from official historical series; federal/CA/local inheritance-tax thresholds and headroom; step-by-step trust process; law watch; costs research; Flagged for Review; source register; repository review. Reproducible stdlib-Python generator and verifier. | in progress | arena-abae1b53 | `dashboard/**` (new directory, including its generator and verifier under `dashboard/_src/**`) and this section of `COORDINATION.md` — nothing else |
-| abae/INT | **Conditional integration.** Root `index.html` link to `dashboard/`, only if no other session holds a live claim on it at that time; otherwise logged here as a request. PR, merge, Pages confirmation and record for this branch only. | waiting | arena-abae1b53 | `COORDINATION.md` (this section); root `index.html` **only if** unclaimed or stale at that time |
+| abae/R | **Independent numeric referee for the combined site.** The user's rules give the final integration session the job of "re-verifying the combined data line by line"; five sessions are now producing five sets of numbers. This task builds (1) a small independent reference engine (stdlib Python, tests) whose every parameter is an official value, a derived value or a named assumption, each with a source link; (2) a register of the official constants (exclusion amounts, Prop 19 allowance, tax rates, CDI premiums, CBO/SSA baselines) with an automated check of what **every published desk** (`public-safe/`, `plan/`, `desk-22a32b17/`, `desk-b4f/`, `swan-3a49/`, ...) actually states; (3) arithmetic-identity, $10-rounding, source-link-per-row and identifier-pattern checks run across **all published directories**, not just `public-safe/`; (4) a requirement-by-requirement traceability matrix of the brief; (5) a published discrepancy log (who says what, official value, verdict, owner of the fix). Output is one small site plus a re-runnable script. It does **not** build another decision desk. | in progress | arena-abae1b53 | `referee-abae/**` (new directory; generator, checks and tests under `referee-abae/_src/**`, which Jekyll does not publish) and this section of `COORDINATION.md` — nothing else |
+| abae/INT | **Backstop integration, last in line.** Runs only after 552/INT, c09/INT, 3a4/INT, 22a/INT and any other earlier INT claim are `done`, withdrawn, or more than 60 minutes without a commit: merge `main`, run the cross-check over the combined tree, fix only shared navigation/exclusion files if still unclaimed, PR, merge, confirm Pages, record here. Otherwise it stays a logged request. | waiting | arena-abae1b53 | `COORDINATION.md` (this section); root `index.html`, `_config.yml`, `README.md` **only if** every earlier INT claim has lapsed |
 
-**Live claims respected (as read 04:22Z, all claimed 04:15–04:16Z, therefore live).**
-`arena-881c7952` 881/P — `public-safe/**`, `scripts/{desk_model,build_desk,verify_safe}.py`.
-`arena-80398929` 803/M — `scripts/{desk_model,build_desk,verify_safe,test_desk_model}.py`, `public-safe/**`, `verification-report.json`.
-`arena-966cc934` 966/A — `audit-966/**` (needs review; no integration planned).
-`arena-7864052a` 786/V — `tools-786/**`.
-`arena-552dcae4` 552/V `verify-552/**`; 552/P six legacy files; 552/INT conditional on root `index.html`, `_config.yml`, `README.md`,
-`public-safe/**`. This session edits **none** of those paths and will not run an integration that overlaps 552/INT while it is live.
-Observation for the owner and those sessions: 881/P and 803/M claim the same files (`public-safe/**` and the desk scripts);
-that overlap is theirs to resolve and is not touched here.
+**Live claims respected (as read 04:31Z–04:45Z).** This session edits **none** of these paths:
+`arena-c098bf16` c09/A `plan/**`, `.github/workflows/plan-verify.yml`; c09/R `plan/repo-review.html`; c09/INT conditional.
+`arena-22a32b17` 22a/D `desk-22a32b17/**`, `tools-22a32b17/**`; 22a/INT conditional.
+`arena-b4ffc6e7` b4f/P `session-595f0109/scripts/verify.py`; b4f/D `desk-b4f/**`.
+`arena-3a49d618` 3a4/S `swan-3a49/**`; 3a4/INT conditional.
+`arena-552dcae4` 552/INT conditional (earliest INT claim, therefore first in line).
+`arena-966cc934` 966/A `audit-966/**` (`needs review`). `arena-7864052a` 786/V `tools-786/**`.
+This session only **reads** those directories (from `origin/<branch>` or `origin/main`) and records findings in `referee-abae/**`
+and here; it never edits another session's file.
 
-**Why a new directory instead of editing `public-safe/**`.** The deployed `public-safe/` release deliberately withholds the
-supplied assessment and tax-bill histories, and 881/P is narrowing it further. The brief says the opposite for this data:
-*use the numbers, rounded to the nearest $10, and report them in the decision analysis.* Those two readings cannot both be the
-only public site, and neither can be settled by file edits inside someone else's live scope. This session therefore follows
-the brief literally in its own scope, keeps every owner-supplied figure in **one data file and one page** so it can be removed
-in one step if the owner prefers the stricter reading, and publishes the trade-off on its Flagged for Review page.
+**Integration order proposed to end the five-way conditional deadlock (for any session to adopt).** Earliest claim first:
+552/INT, then c09/INT (own tie-break text), 22a/INT, 3a4/INT, abae/INT. A later claimant must not act while an earlier one is live
+(commit within 60 min). Whoever integrates should link every merged desk from one landing page and run
+`python3 referee-abae/_src/crosscheck.py` before publishing.
 
-**Privacy contract for `dashboard/**`.** Placeholders only: Property A (inherited), Property B (already owned), Heir,
-Transferor, Trust. No names, street addresses, parcel or account numbers, ZIP codes, neighbourhood names, e-mail or phone numbers.
-Jurisdiction at city/county level only (needed for local law). Every dollar figure a multiple of $10 except statutory amounts shown
-exactly as the official page prints them (marked). Values not confirmable from an official source stay blank and are flagged.
+**Privacy contract for `referee-abae/**`.** Property A / Property B only, county-level jurisdiction, no names, addresses,
+parcel/account numbers, ZIP codes, neighbourhood names, e-mail or phone numbers. No supplied assessment or tax-bill history at any
+precision. Owner-supplied anchors appear only as the banded values the published desks already use. Every dollar figure is a multiple
+of $10 except statutory/agency amounts printed exactly as the agency publishes them (marked). Unconfirmed values stay blank and are
+listed on `referee-abae/flagged.html`. Privacy-scan results are reported as counts and file paths, never as values.
