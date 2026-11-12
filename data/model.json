@@ -18,11 +18,11 @@
  },
  "provided": {
   "A_value_2026": 3100000,
-  "A_assessed_2026": 550537,
-  "A_tax_2025": 7207,
+  "A_assessed_2026": 550540,
+  "A_tax_2025": 7210,
   "B_value_2026": 1800000,
-  "B_tax_2025": 2439,
-  "B_assessed_2025": 114248,
+  "B_tax_2025": 2440,
+  "B_assessed_2025": 114250,
   "B_rent_2units_mo": 7150,
   "A_water_mo": 130,
   "A_elec_mo": -15,
@@ -64,31 +64,31 @@
  },
  "scenarios": {
   "live": {
-   "portfolio": 3587010,
+   "portfolio": 3586850,
    "housing_asset": 13436350,
    "cap_gains_tax": 3605790,
-   "terminal": 13417570,
-   "cum_cash": 627250,
+   "terminal": 13417400,
+   "cum_cash": 627190,
    "imputed_rent": 7537620,
-   "economic_value": 20955180
+   "economic_value": 20955020
   },
   "rent": {
-   "portfolio": 7943600,
+   "portfolio": 7943440,
    "housing_asset": 13436350,
    "cap_gains_tax": 3605790,
-   "terminal": 17774160,
-   "cum_cash": 3424220,
+   "terminal": 17774000,
+   "cum_cash": 3424160,
    "imputed_rent": 2049340,
-   "economic_value": 19823500
+   "economic_value": 19823340
   },
   "sell": {
-   "portfolio": 22342280,
+   "portfolio": 22342120,
    "housing_asset": 0,
    "cap_gains_tax": 0,
-   "terminal": 22342280,
-   "cum_cash": 1660880,
+   "terminal": 22342120,
+   "cum_cash": 1660820,
    "imputed_rent": 2049340,
-   "economic_value": 24391620
+   "economic_value": 24391460
   }
  },
  "timeline": {
@@ -146,7 +146,7 @@
     "phase": "pre-inheritance",
     "cu_value": 3487080,
     "cu_property_tax": 7740,
-    "cu_assessed": 584230,
+    "cu_assessed": 584240,
     "sf_value": 2024760,
     "sf_property_tax": 2590,
     "rent": 89070,
@@ -187,14 +187,14 @@
     "income_tax": 26450,
     "net_cash": 44070,
     "sale_proceeds": 0,
-    "portfolio": 224840
+    "portfolio": 224830
    },
    {
     "year": 2032,
     "phase": "pre-inheritance",
     "cu_value": 3922490,
     "cu_property_tax": 8170,
-    "cu_assessed": 619990,
+    "cu_assessed": 620000,
     "sf_value": 2277570,
     "sf_property_tax": 2750,
     "rent": 97330,
@@ -203,14 +203,14 @@
     "income_tax": 27200,
     "net_cash": 45220,
     "sale_proceeds": 0,
-    "portfolio": 280150
+    "portfolio": 280140
    },
    {
     "year": 2033,
     "phase": "pre-inheritance",
     "cu_value": 4079390,
     "cu_property_tax": 8310,
-    "cu_assessed": 632390,
+    "cu_assessed": 632400,
     "sf_value": 2368680,
     "sf_property_tax": 2800,
     "rent": 100250,
@@ -219,14 +219,14 @@
     "income_tax": 27960,
     "net_cash": 46400,
     "sale_proceeds": 0,
-    "portfolio": 339370
+    "portfolio": 339360
    },
    {
     "year": 2034,
     "phase": "pre-inheritance",
     "cu_value": 4242560,
     "cu_property_tax": 8470,
-    "cu_assessed": 645040,
+    "cu_assessed": 645050,
     "sf_value": 2463420,
     "sf_property_tax": 2860,
     "rent": 103250,
@@ -235,30 +235,30 @@
     "income_tax": 28740,
     "net_cash": 47600,
     "sale_proceeds": 0,
-    "portfolio": 402740
+    "portfolio": 402730
    },
    {
     "year": 2035,
     "phase": "pre-inheritance",
     "cu_value": 4412270,
     "cu_property_tax": 8620,
-    "cu_assessed": 657940,
+    "cu_assessed": 657950,
     "sf_value": 2561960,
-    "sf_property_tax": 2910,
+    "sf_property_tax": 2920,
     "rent": 106350,
     "insurance": 10000,
     "other_costs": 37350,
     "income_tax": 29550,
     "net_cash": 48830,
     "sale_proceeds": 0,
-    "portfolio": 470470
+    "portfolio": 470460
    },
    {
     "year": 2036,
     "phase": "pre-inheritance",
     "cu_value": 4588760,
     "cu_property_tax": 8780,
-    "cu_assessed": 671100,
+    "cu_assessed": 671110,
     "sf_value": 2664440,
     "sf_property_tax": 2970,
     "rent": 109540,
@@ -267,14 +267,14 @@
     "income_tax": 30380,
     "net_cash": 50090,
     "sale_proceeds": 0,
-    "portfolio": 542830
+    "portfolio": 542820
    },
    {
     "year": 2037,
     "phase": "pre-inheritance",
     "cu_value": 4772310,
     "cu_property_tax": 8940,
-    "cu_assessed": 684520,
+    "cu_assessed": 684530,
     "sf_value": 2771020,
     "sf_property_tax": 3030,
     "rent": 112830,
@@ -283,14 +283,14 @@
     "income_tax": 31230,
     "net_cash": 51380,
     "sale_proceeds": 0,
-    "portfolio": 620070
+    "portfolio": 620050
    },
    {
     "year": 2038,
     "phase": "pre-inheritance",
     "cu_value": 4963200,
     "cu_property_tax": 9100,
-    "cu_assessed": 698210,
+    "cu_assessed": 698220,
     "sf_value": 2881860,
     "sf_property_tax": 3090,
     "rent": 116210,
@@ -299,7 +299,7 @@
     "income_tax": 32100,
     "net_cash": 52700,
     "sale_proceeds": 0,
-    "portfolio": 702450
+    "portfolio": 702440
    },
    {
     "year": 2039,
@@ -315,14 +315,14 @@
     "income_tax": 33000,
     "net_cash": 54050,
     "sale_proceeds": 0,
-    "portfolio": 790280
+    "portfolio": 790260
    },
    {
     "year": 2040,
     "phase": "pre-inheritance",
     "cu_value": 5368200,
     "cu_property_tax": 9440,
-    "cu_assessed": 726420,
+    "cu_assessed": 726430,
     "sf_value": 3117020,
     "sf_property_tax": 3220,
     "rent": 123290,
@@ -331,7 +331,7 @@
     "income_tax": 33920,
     "net_cash": 55420,
     "sale_proceeds": 0,
-    "portfolio": 883840
+    "portfolio": 883820
    },
    {
     "year": 2041,
@@ -347,7 +347,7 @@
     "income_tax": 34870,
     "net_cash": 56830,
     "sale_proceeds": 0,
-    "portfolio": 983460
+    "portfolio": 983430
    },
    {
     "year": 2042,
@@ -363,30 +363,30 @@
     "income_tax": 35840,
     "net_cash": 58270,
     "sale_proceeds": 0,
-    "portfolio": 1089460
+    "portfolio": 1089430
    },
    {
     "year": 2043,
     "phase": "pre-inheritance",
     "cu_value": 6038490,
     "cu_property_tax": 9970,
-    "cu_assessed": 770880,
+    "cu_assessed": 770890,
     "sf_value": 3506220,
     "sf_property_tax": 3420,
     "rent": 134720,
     "insurance": 21600,
     "other_costs": 61310,
     "income_tax": 36840,
-    "net_cash": 59740,
+    "net_cash": 59730,
     "sale_proceeds": 0,
-    "portfolio": 1202200
+    "portfolio": 1202170
    },
    {
     "year": 2044,
     "phase": "pre-inheritance",
     "cu_value": 6280030,
     "cu_property_tax": 10150,
-    "cu_assessed": 786300,
+    "cu_assessed": 786310,
     "sf_value": 3646470,
     "sf_property_tax": 3480,
     "rent": 138770,
@@ -395,7 +395,7 @@
     "income_tax": 37860,
     "net_cash": 61230,
     "sale_proceeds": 0,
-    "portfolio": 1322040
+    "portfolio": 1322010
    },
    {
     "year": 2045,
@@ -404,16 +404,16 @@
     "cu_property_tax": 57390,
     "cu_assessed": 4745890,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3792330,
     "sf_property_tax": 3550,
     "rent": 214390,
     "insurance": 52100,
     "other_costs": 93920,
     "income_tax": 13500,
-    "net_cash": -6060,
+    "net_cash": -6070,
     "sale_proceeds": 0,
-    "portfolio": 1449380
+    "portfolio": 1449350
    },
    {
     "year": 2046,
@@ -422,16 +422,16 @@
     "cu_property_tax": 58520,
     "cu_assessed": 4840950,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3944020,
-    "sf_property_tax": 3620,
+    "sf_property_tax": 3630,
     "rent": 220820,
     "insurance": 54180,
     "other_costs": 97580,
     "income_tax": 13380,
     "net_cash": -6470,
     "sale_proceeds": 0,
-    "portfolio": 1515790
+    "portfolio": 1515750
    },
    {
     "year": 2047,
@@ -440,7 +440,7 @@
     "cu_property_tax": 59680,
     "cu_assessed": 4937910,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4101780,
     "sf_property_tax": 3700,
     "rent": 227450,
@@ -449,7 +449,7 @@
     "income_tax": 13240,
     "net_cash": -6910,
     "sale_proceeds": 0,
-    "portfolio": 1585110
+    "portfolio": 1585060
    },
    {
     "year": 2048,
@@ -458,7 +458,7 @@
     "cu_property_tax": 60860,
     "cu_assessed": 5036810,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4265850,
     "sf_property_tax": 3770,
     "rent": 234270,
@@ -467,7 +467,7 @@
     "income_tax": 13080,
     "net_cash": -7390,
     "sale_proceeds": 0,
-    "portfolio": 1657450
+    "portfolio": 1657410
    },
    {
     "year": 2049,
@@ -476,7 +476,7 @@
     "cu_property_tax": 62060,
     "cu_assessed": 5137690,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4436490,
     "sf_property_tax": 3850,
     "rent": 241300,
@@ -485,7 +485,7 @@
     "income_tax": 12880,
     "net_cash": -7900,
     "sale_proceeds": 0,
-    "portfolio": 1732940
+    "portfolio": 1732890
    },
    {
     "year": 2050,
@@ -494,7 +494,7 @@
     "cu_property_tax": 63290,
     "cu_assessed": 5240580,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4613950,
     "sf_property_tax": 3920,
     "rent": 248540,
@@ -503,7 +503,7 @@
     "income_tax": 12660,
     "net_cash": -8460,
     "sale_proceeds": 0,
-    "portfolio": 1811680
+    "portfolio": 1811630
    },
    {
     "year": 2051,
@@ -512,7 +512,7 @@
     "cu_property_tax": 64540,
     "cu_assessed": 5345530,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4798510,
     "sf_property_tax": 4000,
     "rent": 256000,
@@ -521,7 +521,7 @@
     "income_tax": 12400,
     "net_cash": -9070,
     "sale_proceeds": 0,
-    "portfolio": 1893800
+    "portfolio": 1893750
    },
    {
     "year": 2052,
@@ -530,7 +530,7 @@
     "cu_property_tax": 65820,
     "cu_assessed": 5452580,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4990450,
     "sf_property_tax": 4080,
     "rent": 263680,
@@ -539,7 +539,7 @@
     "income_tax": 12110,
     "net_cash": -9720,
     "sale_proceeds": 0,
-    "portfolio": 1979430
+    "portfolio": 1979360
    },
    {
     "year": 2053,
@@ -548,16 +548,16 @@
     "cu_property_tax": 67120,
     "cu_assessed": 5561770,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5190060,
     "sf_property_tax": 4160,
     "rent": 271590,
     "insurance": 71300,
     "other_costs": 127630,
     "income_tax": 11790,
-    "net_cash": -10420,
+    "net_cash": -10430,
     "sale_proceeds": 0,
-    "portfolio": 2068680
+    "portfolio": 2068610
    },
    {
     "year": 2054,
@@ -566,7 +566,7 @@
     "cu_property_tax": 68450,
     "cu_assessed": 5673150,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5397670,
     "sf_property_tax": 4250,
     "rent": 279730,
@@ -575,7 +575,7 @@
     "income_tax": 11430,
     "net_cash": -11180,
     "sale_proceeds": 0,
-    "portfolio": 2161690
+    "portfolio": 2161620
    },
    {
     "year": 2055,
@@ -584,16 +584,16 @@
     "cu_property_tax": 69810,
     "cu_assessed": 5786750,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5613570,
     "sf_property_tax": 4330,
     "rent": 288130,
     "insurance": 77120,
     "other_costs": 137830,
     "income_tax": 11030,
-    "net_cash": -11990,
+    "net_cash": -12000,
     "sale_proceeds": 0,
-    "portfolio": 2258590
+    "portfolio": 2258520
    },
    {
     "year": 2056,
@@ -602,7 +602,7 @@
     "cu_property_tax": 71190,
     "cu_assessed": 5902630,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5838120,
     "sf_property_tax": 4420,
     "rent": 296770,
@@ -611,7 +611,7 @@
     "income_tax": 10590,
     "net_cash": -12870,
     "sale_proceeds": 0,
-    "portfolio": 2359530
+    "portfolio": 2359440
    },
    {
     "year": 2057,
@@ -620,7 +620,7 @@
     "cu_property_tax": 72600,
     "cu_assessed": 6020820,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6071640,
     "sf_property_tax": 4510,
     "rent": 305670,
@@ -629,7 +629,7 @@
     "income_tax": 10100,
     "net_cash": -13810,
     "sale_proceeds": 0,
-    "portfolio": 2464630
+    "portfolio": 2464550
    },
    {
     "year": 2058,
@@ -638,7 +638,7 @@
     "cu_property_tax": 74040,
     "cu_assessed": 6141380,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6314510,
     "sf_property_tax": 4600,
     "rent": 314840,
@@ -647,7 +647,7 @@
     "income_tax": 9570,
     "net_cash": -14820,
     "sale_proceeds": 0,
-    "portfolio": 2574060
+    "portfolio": 2573960
    },
    {
     "year": 2059,
@@ -656,7 +656,7 @@
     "cu_property_tax": 75500,
     "cu_assessed": 6264340,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6567090,
     "sf_property_tax": 4690,
     "rent": 324290,
@@ -665,7 +665,7 @@
     "income_tax": 8990,
     "net_cash": -15900,
     "sale_proceeds": 0,
-    "portfolio": 2687940
+    "portfolio": 2687840
    },
    {
     "year": 2060,
@@ -674,16 +674,16 @@
     "cu_property_tax": 77000,
     "cu_assessed": 6389770,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6829770,
     "sf_property_tax": 4780,
     "rent": 334020,
     "insurance": 93830,
     "other_costs": 167110,
     "income_tax": 8360,
-    "net_cash": -17050,
+    "net_cash": -17060,
     "sale_proceeds": 0,
-    "portfolio": 2806440
+    "portfolio": 2806330
    },
    {
     "year": 2061,
@@ -692,7 +692,7 @@
     "cu_property_tax": 78530,
     "cu_assessed": 6517710,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7102960,
     "sf_property_tax": 4880,
     "rent": 344040,
@@ -701,7 +701,7 @@
     "income_tax": 7670,
     "net_cash": -24250,
     "sale_proceeds": 0,
-    "portfolio": 2929710
+    "portfolio": 2929590
    },
    {
     "year": 2062,
@@ -710,7 +710,7 @@
     "cu_property_tax": 80080,
     "cu_assessed": 6648200,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7387080,
     "sf_property_tax": 4980,
     "rent": 354360,
@@ -719,7 +719,7 @@
     "income_tax": 6920,
     "net_cash": -25870,
     "sale_proceeds": 0,
-    "portfolio": 3051950
+    "portfolio": 3051830
    },
    {
     "year": 2063,
@@ -728,16 +728,16 @@
     "cu_property_tax": 81670,
     "cu_assessed": 6781300,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7682560,
-    "sf_property_tax": 5070,
+    "sf_property_tax": 5080,
     "rent": 364990,
     "insurance": 105540,
     "other_costs": 194190,
     "income_tax": 6110,
-    "net_cash": -27590,
+    "net_cash": -27600,
     "sale_proceeds": 0,
-    "portfolio": 3178680
+    "portfolio": 3178550
    },
    {
     "year": 2064,
@@ -746,7 +746,7 @@
     "cu_property_tax": 83290,
     "cu_assessed": 6917070,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7989860,
     "sf_property_tax": 5180,
     "rent": 375940,
@@ -755,7 +755,7 @@
     "income_tax": 5240,
     "net_cash": -29430,
     "sale_proceeds": 0,
-    "portfolio": 3310020
+    "portfolio": 3309880
    },
    {
     "year": 2065,
@@ -764,7 +764,7 @@
     "cu_property_tax": 84940,
     "cu_assessed": 7055550,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 8309460,
     "sf_property_tax": 5280,
     "rent": 387220,
@@ -773,7 +773,7 @@
     "income_tax": 4290,
     "net_cash": -31390,
     "sale_proceeds": 0,
-    "portfolio": 3446090
+    "portfolio": 3445940
    }
   ],
   "rent": [
@@ -830,7 +830,7 @@
     "phase": "pre-inheritance",
     "cu_value": 3487080,
     "cu_property_tax": 7740,
-    "cu_assessed": 584230,
+    "cu_assessed": 584240,
     "sf_value": 2024760,
     "sf_property_tax": 2590,
     "rent": 89070,
@@ -871,14 +871,14 @@
     "income_tax": 26450,
     "net_cash": 44070,
     "sale_proceeds": 0,
-    "portfolio": 224840
+    "portfolio": 224830
    },
    {
     "year": 2032,
     "phase": "pre-inheritance",
     "cu_value": 3922490,
     "cu_property_tax": 8170,
-    "cu_assessed": 619990,
+    "cu_assessed": 620000,
     "sf_value": 2277570,
     "sf_property_tax": 2750,
     "rent": 97330,
@@ -887,14 +887,14 @@
     "income_tax": 27200,
     "net_cash": 45220,
     "sale_proceeds": 0,
-    "portfolio": 280150
+    "portfolio": 280140
    },
    {
     "year": 2033,
     "phase": "pre-inheritance",
     "cu_value": 4079390,
     "cu_property_tax": 8310,
-    "cu_assessed": 632390,
+    "cu_assessed": 632400,
     "sf_value": 2368680,
     "sf_property_tax": 2800,
     "rent": 100250,
@@ -903,14 +903,14 @@
     "income_tax": 27960,
     "net_cash": 46400,
     "sale_proceeds": 0,
-    "portfolio": 339370
+    "portfolio": 339360
    },
    {
     "year": 2034,
     "phase": "pre-inheritance",
     "cu_value": 4242560,
     "cu_property_tax": 8470,
-    "cu_assessed": 645040,
+    "cu_assessed": 645050,
     "sf_value": 2463420,
     "sf_property_tax": 2860,
     "rent": 103250,
@@ -919,30 +919,30 @@
     "income_tax": 28740,
     "net_cash": 47600,
     "sale_proceeds": 0,
-    "portfolio": 402740
+    "portfolio": 402730
    },
    {
     "year": 2035,
     "phase": "pre-inheritance",
     "cu_value": 4412270,
     "cu_property_tax": 8620,
-    "cu_assessed": 657940,
+    "cu_assessed": 657950,
     "sf_value": 2561960,
-    "sf_property_tax": 2910,
+    "sf_property_tax": 2920,
     "rent": 106350,
     "insurance": 10000,
     "other_costs": 37350,
     "income_tax": 29550,
     "net_cash": 48830,
     "sale_proceeds": 0,
-    "portfolio": 470470
+    "portfolio": 470460
    },
    {
     "year": 2036,
     "phase": "pre-inheritance",
     "cu_value": 4588760,
     "cu_property_tax": 8780,
-    "cu_assessed": 671100,
+    "cu_assessed": 671110,
     "sf_value": 2664440,
     "sf_property_tax": 2970,
     "rent": 109540,
@@ -951,14 +951,14 @@
     "income_tax": 30380,
     "net_cash": 50090,
     "sale_proceeds": 0,
-    "portfolio": 542830
+    "portfolio": 542820
    },
    {
     "year": 2037,
     "phase": "pre-inheritance",
     "cu_value": 4772310,
     "cu_property_tax": 8940,
-    "cu_assessed": 684520,
+    "cu_assessed": 684530,
     "sf_value": 2771020,
     "sf_property_tax": 3030,
     "rent": 112830,
@@ -967,14 +967,14 @@
     "income_tax": 31230,
     "net_cash": 51380,
     "sale_proceeds": 0,
-    "portfolio": 620070
+    "portfolio": 620050
    },
    {
     "year": 2038,
     "phase": "pre-inheritance",
     "cu_value": 4963200,
     "cu_property_tax": 9100,
-    "cu_assessed": 698210,
+    "cu_assessed": 698220,
     "sf_value": 2881860,
     "sf_property_tax": 3090,
     "rent": 116210,
@@ -983,7 +983,7 @@
     "income_tax": 32100,
     "net_cash": 52700,
     "sale_proceeds": 0,
-    "portfolio": 702450
+    "portfolio": 702440
    },
    {
     "year": 2039,
@@ -999,14 +999,14 @@
     "income_tax": 33000,
     "net_cash": 54050,
     "sale_proceeds": 0,
-    "portfolio": 790280
+    "portfolio": 790260
    },
    {
     "year": 2040,
     "phase": "pre-inheritance",
     "cu_value": 5368200,
     "cu_property_tax": 9440,
-    "cu_assessed": 726420,
+    "cu_assessed": 726430,
     "sf_value": 3117020,
     "sf_property_tax": 3220,
     "rent": 123290,
@@ -1015,7 +1015,7 @@
     "income_tax": 33920,
     "net_cash": 55420,
     "sale_proceeds": 0,
-    "portfolio": 883840
+    "portfolio": 883820
    },
    {
     "year": 2041,
@@ -1031,7 +1031,7 @@
     "income_tax": 34870,
     "net_cash": 56830,
     "sale_proceeds": 0,
-    "portfolio": 983460
+    "portfolio": 983430
    },
    {
     "year": 2042,
@@ -1047,30 +1047,30 @@
     "income_tax": 35840,
     "net_cash": 58270,
     "sale_proceeds": 0,
-    "portfolio": 1089460
+    "portfolio": 1089430
    },
    {
     "year": 2043,
     "phase": "pre-inheritance",
     "cu_value": 6038490,
     "cu_property_tax": 9970,
-    "cu_assessed": 770880,
+    "cu_assessed": 770890,
     "sf_value": 3506220,
     "sf_property_tax": 3420,
     "rent": 134720,
     "insurance": 21600,
     "other_costs": 61310,
     "income_tax": 36840,
-    "net_cash": 59740,
+    "net_cash": 59730,
     "sale_proceeds": 0,
-    "portfolio": 1202200
+    "portfolio": 1202170
    },
    {
     "year": 2044,
     "phase": "pre-inheritance",
     "cu_value": 6280030,
     "cu_property_tax": 10150,
-    "cu_assessed": 786300,
+    "cu_assessed": 786310,
     "sf_value": 3646470,
     "sf_property_tax": 3480,
     "rent": 138770,
@@ -1079,7 +1079,7 @@
     "income_tax": 37860,
     "net_cash": 61230,
     "sale_proceeds": 0,
-    "portfolio": 1322040
+    "portfolio": 1322010
    },
    {
     "year": 2045,
@@ -1088,7 +1088,7 @@
     "cu_property_tax": 78690,
     "cu_assessed": 6531230,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3792330,
     "sf_property_tax": 3550,
     "rent": 378710,
@@ -1097,7 +1097,7 @@
     "income_tax": 48890,
     "net_cash": 71800,
     "sale_proceeds": 0,
-    "portfolio": 1449380
+    "portfolio": 1449350
    },
    {
     "year": 2046,
@@ -1106,16 +1106,16 @@
     "cu_property_tax": 80250,
     "cu_assessed": 6661860,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3944020,
-    "sf_property_tax": 3620,
+    "sf_property_tax": 3630,
     "rent": 392420,
     "insurance": 61650,
     "other_costs": 121120,
     "income_tax": 50410,
     "net_cash": 75370,
     "sale_proceeds": 0,
-    "portfolio": 1593650
+    "portfolio": 1593610
    },
    {
     "year": 2047,
@@ -1124,7 +1124,7 @@
     "cu_property_tax": 81840,
     "cu_assessed": 6795090,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4101780,
     "sf_property_tax": 3700,
     "rent": 406650,
@@ -1133,7 +1133,7 @@
     "income_tax": 51970,
     "net_cash": 79090,
     "sale_proceeds": 0,
-    "portfolio": 1748700
+    "portfolio": 1748660
    },
    {
     "year": 2048,
@@ -1142,7 +1142,7 @@
     "cu_property_tax": 83460,
     "cu_assessed": 6931000,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4265850,
     "sf_property_tax": 3770,
     "rent": 421400,
@@ -1151,7 +1151,7 @@
     "income_tax": 53580,
     "net_cash": 82950,
     "sale_proceeds": 0,
-    "portfolio": 1915220
+    "portfolio": 1915180
    },
    {
     "year": 2049,
@@ -1160,7 +1160,7 @@
     "cu_property_tax": 85110,
     "cu_assessed": 7069620,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4436490,
     "sf_property_tax": 3850,
     "rent": 436690,
@@ -1169,7 +1169,7 @@
     "income_tax": 55250,
     "net_cash": 86980,
     "sale_proceeds": 0,
-    "portfolio": 2093940
+    "portfolio": 2093890
    },
    {
     "year": 2050,
@@ -1178,7 +1178,7 @@
     "cu_property_tax": 86800,
     "cu_assessed": 7211010,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4613950,
     "sf_property_tax": 3920,
     "rent": 452550,
@@ -1187,7 +1187,7 @@
     "income_tax": 56970,
     "net_cash": 91160,
     "sale_proceeds": 0,
-    "portfolio": 2285620
+    "portfolio": 2285560
    },
    {
     "year": 2051,
@@ -1196,7 +1196,7 @@
     "cu_property_tax": 88520,
     "cu_assessed": 7355230,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4798510,
     "sf_property_tax": 4000,
     "rent": 469000,
@@ -1205,7 +1205,7 @@
     "income_tax": 58740,
     "net_cash": 95520,
     "sale_proceeds": 0,
-    "portfolio": 2491060
+    "portfolio": 2491000
    },
    {
     "year": 2052,
@@ -1214,7 +1214,7 @@
     "cu_property_tax": 90270,
     "cu_assessed": 7502330,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4990450,
     "sf_property_tax": 4080,
     "rent": 486050,
@@ -1223,7 +1223,7 @@
     "income_tax": 60560,
     "net_cash": 100050,
     "sale_proceeds": 0,
-    "portfolio": 2711130
+    "portfolio": 2711070
    },
    {
     "year": 2053,
@@ -1232,7 +1232,7 @@
     "cu_property_tax": 92060,
     "cu_assessed": 7652380,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5190060,
     "sf_property_tax": 4160,
     "rent": 503740,
@@ -1241,7 +1241,7 @@
     "income_tax": 62450,
     "net_cash": 104760,
     "sale_proceeds": 0,
-    "portfolio": 2946740
+    "portfolio": 2946670
    },
    {
     "year": 2054,
@@ -1250,7 +1250,7 @@
     "cu_property_tax": 93890,
     "cu_assessed": 7805430,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5397670,
     "sf_property_tax": 4250,
     "rent": 522070,
@@ -1259,7 +1259,7 @@
     "income_tax": 64390,
     "net_cash": 109660,
     "sale_proceeds": 0,
-    "portfolio": 3198840
+    "portfolio": 3198760
    },
    {
     "year": 2055,
@@ -1268,7 +1268,7 @@
     "cu_property_tax": 95750,
     "cu_assessed": 7961540,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5613570,
     "sf_property_tax": 4330,
     "rent": 541090,
@@ -1277,7 +1277,7 @@
     "income_tax": 66400,
     "net_cash": 114750,
     "sale_proceeds": 0,
-    "portfolio": 3468440
+    "portfolio": 3468360
    },
    {
     "year": 2056,
@@ -1286,7 +1286,7 @@
     "cu_property_tax": 97650,
     "cu_assessed": 8120770,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5838120,
     "sf_property_tax": 4420,
     "rent": 560810,
@@ -1295,7 +1295,7 @@
     "income_tax": 68460,
     "net_cash": 120050,
     "sale_proceeds": 0,
-    "portfolio": 3756620
+    "portfolio": 3756530
    },
    {
     "year": 2057,
@@ -1304,7 +1304,7 @@
     "cu_property_tax": 99590,
     "cu_assessed": 8283180,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6071640,
     "sf_property_tax": 4510,
     "rent": 581270,
@@ -1313,7 +1313,7 @@
     "income_tax": 70600,
     "net_cash": 125560,
     "sale_proceeds": 0,
-    "portfolio": 4064500
+    "portfolio": 4064410
    },
    {
     "year": 2058,
@@ -1322,16 +1322,16 @@
     "cu_property_tax": 101560,
     "cu_assessed": 8448850,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6314510,
     "sf_property_tax": 4600,
     "rent": 602480,
     "insurance": 98710,
     "other_costs": 193530,
     "income_tax": 72800,
-    "net_cash": 131290,
+    "net_cash": 131280,
     "sale_proceeds": 0,
-    "portfolio": 4393280
+    "portfolio": 4393190
    },
    {
     "year": 2059,
@@ -1340,7 +1340,7 @@
     "cu_property_tax": 103580,
     "cu_assessed": 8617820,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6567090,
     "sf_property_tax": 4690,
     "rent": 624480,
@@ -1349,7 +1349,7 @@
     "income_tax": 75060,
     "net_cash": 137240,
     "sale_proceeds": 0,
-    "portfolio": 4744230
+    "portfolio": 4744130
    },
    {
     "year": 2060,
@@ -1358,7 +1358,7 @@
     "cu_property_tax": 105640,
     "cu_assessed": 8790180,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6829770,
     "sf_property_tax": 4780,
     "rent": 647300,
@@ -1367,7 +1367,7 @@
     "income_tax": 77400,
     "net_cash": 143420,
     "sale_proceeds": 0,
-    "portfolio": 5118680
+    "portfolio": 5118570
    },
    {
     "year": 2061,
@@ -1376,7 +1376,7 @@
     "cu_property_tax": 107730,
     "cu_assessed": 8965980,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7102960,
     "sf_property_tax": 4880,
     "rent": 670960,
@@ -1385,7 +1385,7 @@
     "income_tax": 79820,
     "net_cash": 149850,
     "sale_proceeds": 0,
-    "portfolio": 5518040
+    "portfolio": 5517920
    },
    {
     "year": 2062,
@@ -1394,16 +1394,16 @@
     "cu_property_tax": 109870,
     "cu_assessed": 9145300,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7387080,
     "sf_property_tax": 4980,
     "rent": 695510,
     "insurance": 115480,
     "other_costs": 226340,
     "income_tax": 82310,
-    "net_cash": 156540,
+    "net_cash": 156530,
     "sale_proceeds": 0,
-    "portfolio": 5943800
+    "portfolio": 5943670
    },
    {
     "year": 2063,
@@ -1412,16 +1412,16 @@
     "cu_property_tax": 112060,
     "cu_assessed": 9328210,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7682560,
-    "sf_property_tax": 5070,
+    "sf_property_tax": 5080,
     "rent": 720970,
     "insurance": 120100,
     "other_costs": 235380,
     "income_tax": 84880,
     "net_cash": 163480,
     "sale_proceeds": 0,
-    "portfolio": 6397520
+    "portfolio": 6397390
    },
    {
     "year": 2064,
@@ -1430,7 +1430,7 @@
     "cu_property_tax": 114280,
     "cu_assessed": 9514770,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7989860,
     "sf_property_tax": 5180,
     "rent": 747370,
@@ -1439,7 +1439,7 @@
     "income_tax": 87530,
     "net_cash": 170700,
     "sale_proceeds": 0,
-    "portfolio": 6880880
+    "portfolio": 6880740
    },
    {
     "year": 2065,
@@ -1448,16 +1448,16 @@
     "cu_property_tax": 116550,
     "cu_assessed": 9705070,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 8309460,
     "sf_property_tax": 5280,
     "rent": 774760,
     "insurance": 129900,
     "other_costs": 254580,
     "income_tax": 90260,
-    "net_cash": 178200,
+    "net_cash": 178190,
     "sale_proceeds": 0,
-    "portfolio": 7395620
+    "portfolio": 7395470
    }
   ],
   "sell": [
@@ -1514,7 +1514,7 @@
     "phase": "pre-inheritance",
     "cu_value": 3487080,
     "cu_property_tax": 7740,
-    "cu_assessed": 584230,
+    "cu_assessed": 584240,
     "sf_value": 2024760,
     "sf_property_tax": 2590,
     "rent": 89070,
@@ -1555,14 +1555,14 @@
     "income_tax": 26450,
     "net_cash": 44070,
     "sale_proceeds": 0,
-    "portfolio": 224840
+    "portfolio": 224830
    },
    {
     "year": 2032,
     "phase": "pre-inheritance",
     "cu_value": 3922490,
     "cu_property_tax": 8170,
-    "cu_assessed": 619990,
+    "cu_assessed": 620000,
     "sf_value": 2277570,
     "sf_property_tax": 2750,
     "rent": 97330,
@@ -1571,14 +1571,14 @@
     "income_tax": 27200,
     "net_cash": 45220,
     "sale_proceeds": 0,
-    "portfolio": 280150
+    "portfolio": 280140
    },
    {
     "year": 2033,
     "phase": "pre-inheritance",
     "cu_value": 4079390,
     "cu_property_tax": 8310,
-    "cu_assessed": 632390,
+    "cu_assessed": 632400,
     "sf_value": 2368680,
     "sf_property_tax": 2800,
     "rent": 100250,
@@ -1587,14 +1587,14 @@
     "income_tax": 27960,
     "net_cash": 46400,
     "sale_proceeds": 0,
-    "portfolio": 339370
+    "portfolio": 339360
    },
    {
     "year": 2034,
     "phase": "pre-inheritance",
     "cu_value": 4242560,
     "cu_property_tax": 8470,
-    "cu_assessed": 645040,
+    "cu_assessed": 645050,
     "sf_value": 2463420,
     "sf_property_tax": 2860,
     "rent": 103250,
@@ -1603,30 +1603,30 @@
     "income_tax": 28740,
     "net_cash": 47600,
     "sale_proceeds": 0,
-    "portfolio": 402740
+    "portfolio": 402730
    },
    {
     "year": 2035,
     "phase": "pre-inheritance",
     "cu_value": 4412270,
     "cu_property_tax": 8620,
-    "cu_assessed": 657940,
+    "cu_assessed": 657950,
     "sf_value": 2561960,
-    "sf_property_tax": 2910,
+    "sf_property_tax": 2920,
     "rent": 106350,
     "insurance": 10000,
     "other_costs": 37350,
     "income_tax": 29550,
     "net_cash": 48830,
     "sale_proceeds": 0,
-    "portfolio": 470470
+    "portfolio": 470460
    },
    {
     "year": 2036,
     "phase": "pre-inheritance",
     "cu_value": 4588760,
     "cu_property_tax": 8780,
-    "cu_assessed": 671100,
+    "cu_assessed": 671110,
     "sf_value": 2664440,
     "sf_property_tax": 2970,
     "rent": 109540,
@@ -1635,14 +1635,14 @@
     "income_tax": 30380,
     "net_cash": 50090,
     "sale_proceeds": 0,
-    "portfolio": 542830
+    "portfolio": 542820
    },
    {
     "year": 2037,
     "phase": "pre-inheritance",
     "cu_value": 4772310,
     "cu_property_tax": 8940,
-    "cu_assessed": 684520,
+    "cu_assessed": 684530,
     "sf_value": 2771020,
     "sf_property_tax": 3030,
     "rent": 112830,
@@ -1651,14 +1651,14 @@
     "income_tax": 31230,
     "net_cash": 51380,
     "sale_proceeds": 0,
-    "portfolio": 620070
+    "portfolio": 620050
    },
    {
     "year": 2038,
     "phase": "pre-inheritance",
     "cu_value": 4963200,
     "cu_property_tax": 9100,
-    "cu_assessed": 698210,
+    "cu_assessed": 698220,
     "sf_value": 2881860,
     "sf_property_tax": 3090,
     "rent": 116210,
@@ -1667,7 +1667,7 @@
     "income_tax": 32100,
     "net_cash": 52700,
     "sale_proceeds": 0,
-    "portfolio": 702450
+    "portfolio": 702440
    },
    {
     "year": 2039,
@@ -1683,14 +1683,14 @@
     "income_tax": 33000,
     "net_cash": 54050,
     "sale_proceeds": 0,
-    "portfolio": 790280
+    "portfolio": 790260
    },
    {
     "year": 2040,
     "phase": "pre-inheritance",
     "cu_value": 5368200,
     "cu_property_tax": 9440,
-    "cu_assessed": 726420,
+    "cu_assessed": 726430,
     "sf_value": 3117020,
     "sf_property_tax": 3220,
     "rent": 123290,
@@ -1699,7 +1699,7 @@
     "income_tax": 33920,
     "net_cash": 55420,
     "sale_proceeds": 0,
-    "portfolio": 883840
+    "portfolio": 883820
    },
    {
     "year": 2041,
@@ -1715,7 +1715,7 @@
     "income_tax": 34870,
     "net_cash": 56830,
     "sale_proceeds": 0,
-    "portfolio": 983460
+    "portfolio": 983430
    },
    {
     "year": 2042,
@@ -1731,30 +1731,30 @@
     "income_tax": 35840,
     "net_cash": 58270,
     "sale_proceeds": 0,
-    "portfolio": 1089460
+    "portfolio": 1089430
    },
    {
     "year": 2043,
     "phase": "pre-inheritance",
     "cu_value": 6038490,
     "cu_property_tax": 9970,
-    "cu_assessed": 770880,
+    "cu_assessed": 770890,
     "sf_value": 3506220,
     "sf_property_tax": 3420,
     "rent": 134720,
     "insurance": 21600,
     "other_costs": 61310,
     "income_tax": 36840,
-    "net_cash": 59740,
+    "net_cash": 59730,
     "sale_proceeds": 0,
-    "portfolio": 1202200
+    "portfolio": 1202170
    },
    {
     "year": 2044,
     "phase": "pre-inheritance",
     "cu_value": 6280030,
     "cu_property_tax": 10150,
-    "cu_assessed": 786300,
+    "cu_assessed": 786310,
     "sf_value": 3646470,
     "sf_property_tax": 3480,
     "rent": 138770,
@@ -1763,7 +1763,7 @@
     "income_tax": 37860,
     "net_cash": 61230,
     "sale_proceeds": 0,
-    "portfolio": 1322040
+    "portfolio": 1322010
    },
    {
     "year": 2045,
@@ -1772,7 +1772,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 6531230,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3792330,
     "sf_property_tax": 3550,
     "rent": 142930,
@@ -1781,7 +1781,7 @@
     "income_tax": 35110,
     "net_cash": 31780,
     "sale_proceeds": 6132170,
-    "portfolio": 7581560
+    "portfolio": 7581520
    },
    {
     "year": 2046,
@@ -1790,16 +1790,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 6661860,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3944020,
-    "sf_property_tax": 3620,
+    "sf_property_tax": 3630,
     "rent": 147220,
     "insurance": 24300,
     "other_costs": 51050,
     "income_tax": 36070,
     "net_cash": 32180,
     "sale_proceeds": 0,
-    "portfolio": 7992410
+    "portfolio": 7992370
    },
    {
     "year": 2047,
@@ -1808,7 +1808,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 6795090,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4101780,
     "sf_property_tax": 3700,
     "rent": 151630,
@@ -1817,7 +1817,7 @@
     "income_tax": 37060,
     "net_cash": 32560,
     "sale_proceeds": 0,
-    "portfolio": 8424210
+    "portfolio": 8424170
    },
    {
     "year": 2048,
@@ -1826,7 +1826,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 6931000,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4265850,
     "sf_property_tax": 3770,
     "rent": 156180,
@@ -1835,7 +1835,7 @@
     "income_tax": 38080,
     "net_cash": 32940,
     "sale_proceeds": 0,
-    "portfolio": 8877980
+    "portfolio": 8877940
    },
    {
     "year": 2049,
@@ -1844,7 +1844,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 7069620,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4436490,
     "sf_property_tax": 3850,
     "rent": 160870,
@@ -1853,7 +1853,7 @@
     "income_tax": 39130,
     "net_cash": 33300,
     "sale_proceeds": 0,
-    "portfolio": 9354820
+    "portfolio": 9354770
    },
    {
     "year": 2050,
@@ -1862,7 +1862,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 7211010,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4613950,
     "sf_property_tax": 3920,
     "rent": 165690,
@@ -1871,7 +1871,7 @@
     "income_tax": 40200,
     "net_cash": 33640,
     "sale_proceeds": 0,
-    "portfolio": 9855860
+    "portfolio": 9855810
    },
    {
     "year": 2051,
@@ -1880,16 +1880,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 7355230,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4798510,
     "sf_property_tax": 4000,
     "rent": 170660,
     "insurance": 29560,
     "other_costs": 61840,
     "income_tax": 41300,
-    "net_cash": 33970,
+    "net_cash": 33960,
     "sale_proceeds": 0,
-    "portfolio": 10382300
+    "portfolio": 10382240
    },
    {
     "year": 2052,
@@ -1898,7 +1898,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 7502330,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 4990450,
     "sf_property_tax": 4080,
     "rent": 175780,
@@ -1907,7 +1907,7 @@
     "income_tax": 42430,
     "net_cash": 34270,
     "sale_proceeds": 0,
-    "portfolio": 10935380
+    "portfolio": 10935310
    },
    {
     "year": 2053,
@@ -1916,16 +1916,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 7652380,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5190060,
     "sf_property_tax": 4160,
     "rent": 181060,
     "insurance": 31970,
     "other_costs": 66780,
     "income_tax": 43590,
-    "net_cash": 34560,
+    "net_cash": 34550,
     "sale_proceeds": 0,
-    "portfolio": 11516420
+    "portfolio": 11516350
    },
    {
     "year": 2054,
@@ -1934,16 +1934,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 7805430,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5397670,
     "sf_property_tax": 4250,
     "rent": 186490,
     "insurance": 33250,
     "other_costs": 69400,
     "income_tax": 44780,
-    "net_cash": 34820,
+    "net_cash": 34810,
     "sale_proceeds": 0,
-    "portfolio": 12126790
+    "portfolio": 12126720
    },
    {
     "year": 2055,
@@ -1952,7 +1952,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 7961540,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5613570,
     "sf_property_tax": 4330,
     "rent": 192080,
@@ -1961,7 +1961,7 @@
     "income_tax": 46000,
     "net_cash": 35050,
     "sale_proceeds": 0,
-    "portfolio": 12767950
+    "portfolio": 12767870
    },
    {
     "year": 2056,
@@ -1970,16 +1970,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 8120770,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 5838120,
     "sf_property_tax": 4420,
     "rent": 197850,
     "insurance": 35960,
     "other_costs": 74960,
     "income_tax": 47250,
-    "net_cash": 35260,
+    "net_cash": 35250,
     "sale_proceeds": 0,
-    "portfolio": 13441390
+    "portfolio": 13441310
    },
    {
     "year": 2057,
@@ -1988,7 +1988,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 8283180,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6071640,
     "sf_property_tax": 4510,
     "rent": 203780,
@@ -1997,7 +1997,7 @@
     "income_tax": 48530,
     "net_cash": 35430,
     "sale_proceeds": 0,
-    "portfolio": 14148720
+    "portfolio": 14148630
    },
    {
     "year": 2058,
@@ -2006,7 +2006,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 8448850,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6314510,
     "sf_property_tax": 4600,
     "rent": 209890,
@@ -2015,7 +2015,7 @@
     "income_tax": 49850,
     "net_cash": 35580,
     "sale_proceeds": 0,
-    "portfolio": 14891590
+    "portfolio": 14891490
    },
    {
     "year": 2059,
@@ -2024,16 +2024,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 8617820,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6567090,
     "sf_property_tax": 4690,
     "rent": 216190,
     "insurance": 40450,
     "other_costs": 84170,
     "income_tax": 51200,
-    "net_cash": 35690,
+    "net_cash": 35680,
     "sale_proceeds": 0,
-    "portfolio": 15671750
+    "portfolio": 15671640
    },
    {
     "year": 2060,
@@ -2042,7 +2042,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 8790180,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 6829770,
     "sf_property_tax": 4780,
     "rent": 222680,
@@ -2051,7 +2051,7 @@
     "income_tax": 52580,
     "net_cash": 35760,
     "sale_proceeds": 0,
-    "portfolio": 16491020
+    "portfolio": 16490910
    },
    {
     "year": 2061,
@@ -2060,7 +2060,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 8965980,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7102960,
     "sf_property_tax": 4880,
     "rent": 229360,
@@ -2069,7 +2069,7 @@
     "income_tax": 54000,
     "net_cash": 35790,
     "sale_proceeds": 0,
-    "portfolio": 17351330
+    "portfolio": 17351210
    },
    {
     "year": 2062,
@@ -2078,7 +2078,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 9145300,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7387080,
     "sf_property_tax": 4980,
     "rent": 236240,
@@ -2087,7 +2087,7 @@
     "income_tax": 55460,
     "net_cash": 35770,
     "sale_proceeds": 0,
-    "portfolio": 18254680
+    "portfolio": 18254560
    },
    {
     "year": 2063,
@@ -2096,16 +2096,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 9328210,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7682560,
-    "sf_property_tax": 5070,
+    "sf_property_tax": 5080,
     "rent": 243330,
     "insurance": 47320,
     "other_costs": 98260,
     "income_tax": 56960,
     "net_cash": 35710,
     "sale_proceeds": 0,
-    "portfolio": 19203190
+    "portfolio": 19203060
    },
    {
     "year": 2064,
@@ -2114,7 +2114,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 9514770,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 7989860,
     "sf_property_tax": 5180,
     "rent": 250630,
@@ -2123,7 +2123,7 @@
     "income_tax": 58490,
     "net_cash": 35600,
     "sale_proceeds": 0,
-    "portfolio": 20199060
+    "portfolio": 20198920
    },
    {
     "year": 2065,
@@ -2132,16 +2132,16 @@
     "cu_property_tax": 0,
     "cu_assessed": 9705070,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 8309460,
     "sf_property_tax": 5280,
     "rent": 258140,
     "insurance": 51190,
     "other_costs": 106180,
     "income_tax": 60060,
-    "net_cash": 35440,
+    "net_cash": 35430,
     "sale_proceeds": 0,
-    "portfolio": 21244620
+    "portfolio": 21244460
    }
   ]
  },
@@ -2156,7 +2156,7 @@
    "cu_assessed_rent": 550540,
    "cu_tax_rent": 7340,
    "sf_market_value": 1800000,
-   "sf_assessed": 206410,
+   "sf_assessed": 206500,
    "sf_tax": 2440,
    "prop19_exclusion": 1044590,
    "prop19_limit": 2580370
@@ -2171,7 +2171,7 @@
    "cu_assessed_rent": 561550,
    "cu_tax_rent": 7470,
    "sf_market_value": 1872000,
-   "sf_assessed": 210540,
+   "sf_assessed": 210630,
    "sf_tax": 2490,
    "prop19_exclusion": 1044590,
    "prop19_limit": 2580370
@@ -2186,7 +2186,7 @@
    "cu_assessed_rent": 572780,
    "cu_tax_rent": 7600,
    "sf_market_value": 1946880,
-   "sf_assessed": 214750,
+   "sf_assessed": 214840,
    "sf_tax": 2540,
    "prop19_exclusion": 1075920,
    "prop19_limit": 2580370
@@ -2194,14 +2194,14 @@
   {
    "year": 2029,
    "cu_market_value": 3487080,
-   "cu_assessed_no_transfer": 584230,
+   "cu_assessed_no_transfer": 584240,
    "cu_tax_no_transfer": 7740,
-   "cu_assessed_live": 584230,
+   "cu_assessed_live": 584240,
    "cu_tax_live": 7740,
-   "cu_assessed_rent": 584230,
+   "cu_assessed_rent": 584240,
    "cu_tax_rent": 7740,
    "sf_market_value": 2024760,
-   "sf_assessed": 219050,
+   "sf_assessed": 219140,
    "sf_tax": 2590,
    "prop19_exclusion": 1108200,
    "prop19_limit": 2580370
@@ -2216,7 +2216,7 @@
    "cu_assessed_rent": 595920,
    "cu_tax_rent": 7880,
    "sf_market_value": 2105750,
-   "sf_assessed": 223430,
+   "sf_assessed": 223520,
    "sf_tax": 2640,
    "prop19_exclusion": 1141450,
    "prop19_limit": 2580370
@@ -2231,7 +2231,7 @@
    "cu_assessed_rent": 607840,
    "cu_tax_rent": 8020,
    "sf_market_value": 2189980,
-   "sf_assessed": 227890,
+   "sf_assessed": 227990,
    "sf_tax": 2690,
    "prop19_exclusion": 1175690,
    "prop19_limit": 2580370
@@ -2239,14 +2239,14 @@
   {
    "year": 2032,
    "cu_market_value": 3922490,
-   "cu_assessed_no_transfer": 619990,
+   "cu_assessed_no_transfer": 620000,
    "cu_tax_no_transfer": 8170,
-   "cu_assessed_live": 619990,
+   "cu_assessed_live": 620000,
    "cu_tax_live": 8170,
-   "cu_assessed_rent": 619990,
+   "cu_assessed_rent": 620000,
    "cu_tax_rent": 8170,
    "sf_market_value": 2277570,
-   "sf_assessed": 232450,
+   "sf_assessed": 232550,
    "sf_tax": 2750,
    "prop19_exclusion": 1210960,
    "prop19_limit": 2580370
@@ -2254,14 +2254,14 @@
   {
    "year": 2033,
    "cu_market_value": 4079390,
-   "cu_assessed_no_transfer": 632390,
+   "cu_assessed_no_transfer": 632400,
    "cu_tax_no_transfer": 8310,
-   "cu_assessed_live": 632390,
+   "cu_assessed_live": 632400,
    "cu_tax_live": 8310,
-   "cu_assessed_rent": 632390,
+   "cu_assessed_rent": 632400,
    "cu_tax_rent": 8310,
    "sf_market_value": 2368680,
-   "sf_assessed": 237100,
+   "sf_assessed": 237200,
    "sf_tax": 2800,
    "prop19_exclusion": 1247290,
    "prop19_limit": 2580370
@@ -2269,14 +2269,14 @@
   {
    "year": 2034,
    "cu_market_value": 4242560,
-   "cu_assessed_no_transfer": 645040,
+   "cu_assessed_no_transfer": 645050,
    "cu_tax_no_transfer": 8470,
-   "cu_assessed_live": 645040,
+   "cu_assessed_live": 645050,
    "cu_tax_live": 8470,
-   "cu_assessed_rent": 645040,
+   "cu_assessed_rent": 645050,
    "cu_tax_rent": 8470,
    "sf_market_value": 2463420,
-   "sf_assessed": 241840,
+   "sf_assessed": 241940,
    "sf_tax": 2860,
    "prop19_exclusion": 1284710,
    "prop19_limit": 2580370
@@ -2284,29 +2284,29 @@
   {
    "year": 2035,
    "cu_market_value": 4412270,
-   "cu_assessed_no_transfer": 657940,
+   "cu_assessed_no_transfer": 657950,
    "cu_tax_no_transfer": 8620,
-   "cu_assessed_live": 657940,
+   "cu_assessed_live": 657950,
    "cu_tax_live": 8620,
-   "cu_assessed_rent": 657940,
+   "cu_assessed_rent": 657950,
    "cu_tax_rent": 8620,
    "sf_market_value": 2561960,
-   "sf_assessed": 246680,
-   "sf_tax": 2910,
+   "sf_assessed": 246780,
+   "sf_tax": 2920,
    "prop19_exclusion": 1323250,
    "prop19_limit": 2580370
   },
   {
    "year": 2036,
    "cu_market_value": 4588760,
-   "cu_assessed_no_transfer": 671100,
+   "cu_assessed_no_transfer": 671110,
    "cu_tax_no_transfer": 8780,
-   "cu_assessed_live": 671100,
+   "cu_assessed_live": 671110,
    "cu_tax_live": 8780,
-   "cu_assessed_rent": 671100,
+   "cu_assessed_rent": 671110,
    "cu_tax_rent": 8780,
    "sf_market_value": 2664440,
-   "sf_assessed": 251610,
+   "sf_assessed": 251720,
    "sf_tax": 2970,
    "prop19_exclusion": 1362950,
    "prop19_limit": 2580370
@@ -2314,14 +2314,14 @@
   {
    "year": 2037,
    "cu_market_value": 4772310,
-   "cu_assessed_no_transfer": 684520,
+   "cu_assessed_no_transfer": 684530,
    "cu_tax_no_transfer": 8940,
-   "cu_assessed_live": 684520,
+   "cu_assessed_live": 684530,
    "cu_tax_live": 8940,
-   "cu_assessed_rent": 684520,
+   "cu_assessed_rent": 684530,
    "cu_tax_rent": 8940,
    "sf_market_value": 2771020,
-   "sf_assessed": 256650,
+   "sf_assessed": 256750,
    "sf_tax": 3030,
    "prop19_exclusion": 1403840,
    "prop19_limit": 2580370
@@ -2329,14 +2329,14 @@
   {
    "year": 2038,
    "cu_market_value": 4963200,
-   "cu_assessed_no_transfer": 698210,
+   "cu_assessed_no_transfer": 698220,
    "cu_tax_no_transfer": 9100,
-   "cu_assessed_live": 698210,
+   "cu_assessed_live": 698220,
    "cu_tax_live": 9100,
-   "cu_assessed_rent": 698210,
+   "cu_assessed_rent": 698220,
    "cu_tax_rent": 9100,
    "sf_market_value": 2881860,
-   "sf_assessed": 261780,
+   "sf_assessed": 261890,
    "sf_tax": 3090,
    "prop19_exclusion": 1445950,
    "prop19_limit": 2580370
@@ -2351,7 +2351,7 @@
    "cu_assessed_rent": 712180,
    "cu_tax_rent": 9270,
    "sf_market_value": 2997130,
-   "sf_assessed": 267010,
+   "sf_assessed": 267120,
    "sf_tax": 3160,
    "prop19_exclusion": 1489330,
    "prop19_limit": 2580370
@@ -2359,14 +2359,14 @@
   {
    "year": 2040,
    "cu_market_value": 5368200,
-   "cu_assessed_no_transfer": 726420,
+   "cu_assessed_no_transfer": 726430,
    "cu_tax_no_transfer": 9440,
-   "cu_assessed_live": 726420,
+   "cu_assessed_live": 726430,
    "cu_tax_live": 9440,
-   "cu_assessed_rent": 726420,
+   "cu_assessed_rent": 726430,
    "cu_tax_rent": 9440,
    "sf_market_value": 3117020,
-   "sf_assessed": 272360,
+   "sf_assessed": 272470,
    "sf_tax": 3220,
    "prop19_exclusion": 1534010,
    "prop19_limit": 2580370
@@ -2381,7 +2381,7 @@
    "cu_assessed_rent": 740950,
    "cu_tax_rent": 9610,
    "sf_market_value": 3241700,
-   "sf_assessed": 277800,
+   "sf_assessed": 277920,
    "sf_tax": 3280,
    "prop19_exclusion": 1580030,
    "prop19_limit": 2580370
@@ -2396,7 +2396,7 @@
    "cu_assessed_rent": 755770,
    "cu_tax_rent": 9790,
    "sf_market_value": 3371370,
-   "sf_assessed": 283360,
+   "sf_assessed": 283470,
    "sf_tax": 3350,
    "prop19_exclusion": 1627430,
    "prop19_limit": 2580370
@@ -2404,14 +2404,14 @@
   {
    "year": 2043,
    "cu_market_value": 6038490,
-   "cu_assessed_no_transfer": 770880,
+   "cu_assessed_no_transfer": 770890,
    "cu_tax_no_transfer": 9970,
-   "cu_assessed_live": 770880,
+   "cu_assessed_live": 770890,
    "cu_tax_live": 9970,
-   "cu_assessed_rent": 770880,
+   "cu_assessed_rent": 770890,
    "cu_tax_rent": 9970,
    "sf_market_value": 3506220,
-   "sf_assessed": 289030,
+   "sf_assessed": 289140,
    "sf_tax": 3420,
    "prop19_exclusion": 1676250,
    "prop19_limit": 2580370
@@ -2419,14 +2419,14 @@
   {
    "year": 2044,
    "cu_market_value": 6280030,
-   "cu_assessed_no_transfer": 786300,
+   "cu_assessed_no_transfer": 786310,
    "cu_tax_no_transfer": 10150,
-   "cu_assessed_live": 786300,
+   "cu_assessed_live": 786310,
    "cu_tax_live": 10150,
-   "cu_assessed_rent": 786300,
+   "cu_assessed_rent": 786310,
    "cu_tax_rent": 10150,
    "sf_market_value": 3646470,
-   "sf_assessed": 294810,
+   "sf_assessed": 294930,
    "sf_tax": 3480,
    "prop19_exclusion": 1726540,
    "prop19_limit": 2580370
@@ -2441,7 +2441,7 @@
    "cu_assessed_rent": 6531230,
    "cu_tax_rent": 78690,
    "sf_market_value": 3792330,
-   "sf_assessed": 300700,
+   "sf_assessed": 300830,
    "sf_tax": 3550,
    "prop19_exclusion": 1778340,
    "prop19_limit": 2580370
@@ -2456,8 +2456,8 @@
    "cu_assessed_rent": 6661860,
    "cu_tax_rent": 80250,
    "sf_market_value": 3944020,
-   "sf_assessed": 306720,
-   "sf_tax": 3620,
+   "sf_assessed": 306840,
+   "sf_tax": 3630,
    "prop19_exclusion": 1831690,
    "prop19_limit": 2580370
   },
@@ -2471,7 +2471,7 @@
    "cu_assessed_rent": 6795090,
    "cu_tax_rent": 81840,
    "sf_market_value": 4101780,
-   "sf_assessed": 312850,
+   "sf_assessed": 312980,
    "sf_tax": 3700,
    "prop19_exclusion": 1886640,
    "prop19_limit": 2580370
@@ -2486,7 +2486,7 @@
    "cu_assessed_rent": 6931000,
    "cu_tax_rent": 83460,
    "sf_market_value": 4265850,
-   "sf_assessed": 319110,
+   "sf_assessed": 319240,
    "sf_tax": 3770,
    "prop19_exclusion": 1943240,
    "prop19_limit": 2580370
@@ -2494,14 +2494,14 @@
   {
    "year": 2049,
    "cu_market_value": 7640620,
-   "cu_assessed_no_transfer": 868140,
+   "cu_assessed_no_transfer": 868150,
    "cu_tax_no_transfer": 11130,
    "cu_assessed_live": 5137690,
    "cu_tax_live": 62060,
    "cu_assessed_rent": 7069620,
    "cu_tax_rent": 85110,
    "sf_market_value": 4436490,
-   "sf_assessed": 325490,
+   "sf_assessed": 325620,
    "sf_tax": 3850,
    "prop19_exclusion": 2001530,
    "prop19_limit": 2580370
@@ -2509,14 +2509,14 @@
   {
    "year": 2050,
    "cu_market_value": 7946240,
-   "cu_assessed_no_transfer": 885500,
+   "cu_assessed_no_transfer": 885510,
    "cu_tax_no_transfer": 11330,
    "cu_assessed_live": 5240580,
    "cu_tax_live": 63290,
    "cu_assessed_rent": 7211010,
    "cu_tax_rent": 86800,
    "sf_market_value": 4613950,
-   "sf_assessed": 332000,
+   "sf_assessed": 332140,
    "sf_tax": 3920,
    "prop19_exclusion": 2061580,
    "prop19_limit": 2580370
@@ -2528,42 +2528,42 @@
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "live",
-   "terminal": 8713690,
-   "cum_cash": 1150440,
-   "economic_value": 13567870,
+   "terminal": 8713590,
+   "cum_cash": 1150390,
+   "economic_value": 13567770,
    "imputed_rent": 4854180,
-   "npv": 1784660
+   "npv": 1784640
   },
   {
    "case": "low",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "rent",
-   "terminal": 10753270,
-   "cum_cash": 2560460,
-   "economic_value": 12521050,
+   "terminal": 10753170,
+   "cum_cash": 2560410,
+   "economic_value": 12520950,
    "imputed_rent": 1767780,
-   "npv": 2213190
+   "npv": 2213170
   },
   {
    "case": "low",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "sell",
-   "terminal": 13323860,
-   "cum_cash": 1590540,
-   "economic_value": 15091640,
+   "terminal": 13323760,
+   "cum_cash": 1590490,
+   "economic_value": 15091540,
    "imputed_rent": 1767780,
-   "npv": 2989390
+   "npv": 2989380
   },
   {
    "case": "low",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "live",
-   "terminal": 10884280,
-   "cum_cash": 1486880,
-   "economic_value": 16511610,
+   "terminal": 10884150,
+   "cum_cash": 1486820,
+   "economic_value": 16511480,
    "imputed_rent": 5627330,
    "npv": 1790910
   },
@@ -2572,253 +2572,253 @@
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "rent",
-   "terminal": 13246370,
-   "cum_cash": 3121450,
-   "economic_value": 15295710,
+   "terminal": 13246240,
+   "cum_cash": 3121390,
+   "economic_value": 15295580,
    "imputed_rent": 2049340,
-   "npv": 2179670
+   "npv": 2179660
   },
   {
    "case": "low",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "sell",
-   "terminal": 16254170,
-   "cum_cash": 2012130,
-   "economic_value": 18303510,
+   "terminal": 16254040,
+   "cum_cash": 2012070,
+   "economic_value": 18303380,
    "imputed_rent": 2049340,
-   "npv": 2889570
+   "npv": 2889560
   },
   {
    "case": "low",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "live",
-   "terminal": 13592260,
-   "cum_cash": 1877230,
-   "economic_value": 20115870,
+   "terminal": 13592090,
+   "cum_cash": 1877160,
+   "economic_value": 20115700,
    "imputed_rent": 6523610,
-   "npv": 1800280
+   "npv": 1800260
   },
   {
    "case": "low",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "rent",
-   "terminal": 16332450,
-   "cum_cash": 3774380,
-   "economic_value": 18708200,
+   "terminal": 16332280,
+   "cum_cash": 3774300,
+   "economic_value": 18708030,
    "imputed_rent": 2375750,
-   "npv": 2153590
+   "npv": 2153580
   },
   {
    "case": "low",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "sell",
-   "terminal": 19830510,
-   "cum_cash": 2496370,
-   "economic_value": 22206250,
+   "terminal": 19830340,
+   "cum_cash": 2496300,
+   "economic_value": 22206080,
    "imputed_rent": 2375750,
-   "npv": 2799840
+   "npv": 2799820
   },
   {
    "case": "mid",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "live",
-   "terminal": 10490830,
-   "cum_cash": 581150,
-   "economic_value": 16686200,
+   "terminal": 10490710,
+   "cum_cash": 581100,
+   "economic_value": 16686080,
    "imputed_rent": 6195370,
-   "npv": 1996970
+   "npv": 1996960
   },
   {
    "case": "mid",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "rent",
-   "terminal": 13956250,
-   "cum_cash": 2807520,
-   "economic_value": 15724030,
+   "terminal": 13956130,
+   "cum_cash": 2807470,
+   "economic_value": 15723910,
    "imputed_rent": 1767780,
-   "npv": 2656640
+   "npv": 2656610
   },
   {
    "case": "mid",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "sell",
-   "terminal": 17688660,
-   "cum_cash": 1349570,
-   "economic_value": 19456440,
+   "terminal": 17688550,
+   "cum_cash": 1349520,
+   "economic_value": 19456330,
    "imputed_rent": 1767780,
-   "npv": 3239840
+   "npv": 3239820
   },
   {
    "case": "mid",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "live",
-   "terminal": 13417570,
-   "cum_cash": 627250,
-   "economic_value": 20955180,
+   "terminal": 13417400,
+   "cum_cash": 627190,
+   "economic_value": 20955020,
    "imputed_rent": 7537620,
-   "npv": 2001200
+   "npv": 2001180
   },
   {
    "case": "mid",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "rent",
-   "terminal": 17774160,
-   "cum_cash": 3424220,
-   "economic_value": 19823500,
+   "terminal": 17774000,
+   "cum_cash": 3424160,
+   "economic_value": 19823340,
    "imputed_rent": 2049340,
-   "npv": 2650970
+   "npv": 2650960
   },
   {
    "case": "mid",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "sell",
-   "terminal": 22342280,
-   "cum_cash": 1660880,
-   "economic_value": 24391620,
+   "terminal": 22342120,
+   "cum_cash": 1660820,
+   "economic_value": 24391460,
    "imputed_rent": 2049340,
-   "npv": 3210970
+   "npv": 3210950
   },
   {
    "case": "mid",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "live",
-   "terminal": 17170500,
-   "cum_cash": 636030,
-   "economic_value": 26341170,
+   "terminal": 17170280,
+   "cum_cash": 635960,
+   "economic_value": 26340950,
    "imputed_rent": 9170670,
-   "npv": 2006560
+   "npv": 2006550
   },
   {
    "case": "mid",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "rent",
-   "terminal": 22642090,
-   "cum_cash": 4145720,
-   "economic_value": 25017840,
+   "terminal": 22641880,
+   "cum_cash": 4145650,
+   "economic_value": 25017620,
    "imputed_rent": 2375750,
-   "npv": 2645970
+   "npv": 2645960
   },
   {
    "case": "mid",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "sell",
-   "terminal": 28199610,
-   "cum_cash": 2000430,
-   "economic_value": 30575350,
+   "terminal": 28199390,
+   "cum_cash": 2000360,
+   "economic_value": 30575140,
    "imputed_rent": 2375750,
-   "npv": 3179780
+   "npv": 3179750
   },
   {
    "case": "high",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "live",
-   "terminal": 12568980,
-   "cum_cash": -278160,
-   "economic_value": 20483450,
+   "terminal": 12568840,
+   "cum_cash": -278210,
+   "economic_value": 20483300,
    "imputed_rent": 7914460,
-   "npv": 2271710
+   "npv": 2271680
   },
   {
    "case": "high",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "rent",
-   "terminal": 18251380,
-   "cum_cash": 3156930,
-   "economic_value": 20019160,
+   "terminal": 18251240,
+   "cum_cash": 3156880,
+   "economic_value": 20019020,
    "imputed_rent": 1767780,
-   "npv": 3260070
+   "npv": 3260040
   },
   {
    "case": "high",
    "inherit_year": 2040,
    "horizon": 2060,
    "scenario": "sell",
-   "terminal": 23607370,
-   "cum_cash": 1042560,
-   "economic_value": 25375150,
+   "terminal": 23607230,
+   "cum_cash": 1042510,
+   "economic_value": 25375010,
    "imputed_rent": 1767780,
-   "npv": 3515520
+   "npv": 3515490
   },
   {
    "case": "high",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "live",
-   "terminal": 16283680,
-   "cum_cash": -827830,
-   "economic_value": 26384770,
+   "terminal": 16283480,
+   "cum_cash": -827890,
+   "economic_value": 26384570,
    "imputed_rent": 10101080,
-   "npv": 2262020
+   "npv": 2261990
   },
   {
    "case": "high",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "rent",
-   "terminal": 24086690,
-   "cum_cash": 3886700,
-   "economic_value": 26136030,
+   "terminal": 24086480,
+   "cum_cash": 3886640,
+   "economic_value": 26135820,
    "imputed_rent": 2049340,
-   "npv": 3325420
+   "npv": 3325390
   },
   {
    "case": "high",
    "inherit_year": 2045,
    "horizon": 2065,
    "scenario": "sell",
-   "terminal": 30950140,
-   "cum_cash": 1194150,
-   "economic_value": 32999480,
+   "terminal": 30949940,
+   "cum_cash": 1194090,
+   "economic_value": 32999280,
    "imputed_rent": 2049340,
-   "npv": 3584190
+   "npv": 3584150
   },
   {
    "case": "high",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "live",
-   "terminal": 21073440,
-   "cum_cash": -1684660,
-   "economic_value": 33965270,
+   "terminal": 21073160,
+   "cum_cash": -1684730,
+   "economic_value": 33964990,
    "imputed_rent": 12891830,
-   "npv": 2244360
+   "npv": 2244320
   },
   {
    "case": "high",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "rent",
-   "terminal": 31785060,
-   "cum_cash": 4757130,
-   "economic_value": 34160810,
+   "terminal": 31784780,
+   "cum_cash": 4757060,
+   "economic_value": 34160520,
    "imputed_rent": 2375750,
-   "npv": 3387270
+   "npv": 3387230
   },
   {
    "case": "high",
    "inherit_year": 2050,
    "horizon": 2070,
    "scenario": "sell",
-   "terminal": 40529900,
-   "cum_cash": 1312550,
-   "economic_value": 42905650,
+   "terminal": 40529620,
+   "cum_cash": 1312470,
+   "economic_value": 42905360,
    "imputed_rent": 2375750,
-   "npv": 3644460
+   "npv": 3644420
   }
  ],
  "derived": {
@@ -2963,16 +2963,16 @@
     "cu_property_tax": 57390,
     "cu_assessed": 4745890,
     "cu_base_year_value": 4752890,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3792330,
     "sf_property_tax": 3550,
     "rent": 214390,
     "insurance": 52100,
     "other_costs": 93920,
     "income_tax": 13500,
-    "net_cash": -6060,
+    "net_cash": -6070,
     "sale_proceeds": 0,
-    "portfolio": 1449380
+    "portfolio": 1449350
    },
    "rent": {
     "year": 2045,
@@ -2981,7 +2981,7 @@
     "cu_property_tax": 78690,
     "cu_assessed": 6531230,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3792330,
     "sf_property_tax": 3550,
     "rent": 378710,
@@ -2990,7 +2990,7 @@
     "income_tax": 48890,
     "net_cash": 71800,
     "sale_proceeds": 0,
-    "portfolio": 1449380
+    "portfolio": 1449350
    },
    "sell": {
     "year": 2045,
@@ -2999,7 +2999,7 @@
     "cu_property_tax": 0,
     "cu_assessed": 6531230,
     "cu_base_year_value": 6531230,
-    "prop19_excess": 3950870,
+    "prop19_excess": 3950860,
     "sf_value": 3792330,
     "sf_property_tax": 3550,
     "rent": 142930,
@@ -3008,7 +3008,7 @@
     "income_tax": 35110,
     "net_cash": 31780,
     "sale_proceeds": 6132170,
-    "portfolio": 7581560
+    "portfolio": 7581520
    }
   }
  },
