@@ -777,3 +777,28 @@ No active competing claim on this scope: the previous public-safe and model work
 - **Corrected:** (1) no homeowner exemption for the rental path; (2) exactly 25, not 26, annual cash-flow periods for a 25-year terminal value; (3) vacancy/management costs grow with rent rather than inflation; (4) stress inflation and vacancy parameters actually change transfer-year costs; (5) terminal selling expenses reduce taxable gain; (6) annual cash flows and invested proceeds now share a terminal-date basis. Six deterministic regression tests pass.
 - **Corrected unverified claims:** no taxable-gain/tax/net-sale figure for the already-owned B based on its property-tax assessment (not income-tax basis); cells intentionally blank and F09 remains flagged. The A-occupancy case cannot also consume B's empty unit: unverified potential third-unit rent is omitted; published A-only comparisons now say they are not housing-equivalent. F15/F16 added to the site for third-unit income and rental income-tax/depreciation uncertainties. No verified personal optimum is claimed.
 - **Verification:** `python3 -m unittest discover -s scripts -p 'test_desk_model.py'` passes 6/6; `python3 scripts/build_desk.py && python3 scripts/verify_safe.py --json` passes (11 pages, 25 tables, 295 source-linked rows, 659 links, 489 official); `git diff --check` passes. This is structural validation plus targeted source re-check, not independent line-by-line validation of every legacy claim in the repository. Existing public git history privacy concern remains F13; only owner action can address it.
+## Session `arena-552dcae4` — claim (2026-11-12 04:16Z, branch `arena/552dcae4-tino5`)
+
+Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier
+session): this session is bound to the single branch above, so non-overlap is enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 552/V | **Independent line-by-line re-verification (2026-11-12).** Re-fetch and read every official source cited by `public-safe/**`; re-run `scripts/build_desk.py`, `scripts/verify_safe.py`, `scripts/privacy_scan.py` and `scripts/desk_model.py` checks; confirm every table row carries an official source link, money rounds to $10, no PII patterns; publish a standalone verification register with per-source findings and links for manual review. | in progress | arena-552dcae4 | `verify-552/**` (new) and this section of `COORDINATION.md` — nothing else |
+| 552/P | **Legacy privacy clean-up (takeover of stale e74/P).** Rounding-only edits to the full-precision owner figures still present at `HEAD` in files whose only claim is stale (>15 h, last commit 2026-11-11 13:20Z, no delivery): `data/model.json`, `scripts/model.py`, `data/flagged.json`, `scripts/generate_site.py`, plus `pages/executive-summary.html` and `src/pages/executive-summary.html` (bd46bdd4 branch, abandoned, no board entry, no merge base). No statutory or agency figure altered. | in progress | arena-552dcae4 | the six files listed, affected lines only, plus this section |
+| 552/INT | **Final integration, conditional.** Runs only when every other live task is `done` or its claim is more than 60 minutes without a commit: re-verify the combined tree, link check, PR, merge, confirm Pages. Shared outputs are not touched while another session's claim on them is live. | waiting | arena-552dcae4 | `COORDINATION.md` (this section); `public-safe/**`, `scripts/build_desk.py`, `scripts/desk_model.py`, `scripts/verify_safe.py`, `verification-report.json`, `index.html`, `_config.yml`, `README.md` **only if** 966/A is done or stale at that time |
+
+**Live claims respected (as read 04:16Z).**
+`arena-966cc934` 966/A — `audit-966/**`, this board (claimed 04:15:37Z, 44 s before this claim; **live, not stale**).
+This session edits none of those paths and does **not** run 552/INT while 966/A is live.
+`arena-e747c4bb` e74/A (`plan/**`) — claimed 2026-11-11 13:20Z, never created `plan/**`, no commits since; noted as stale but not taken over as a directory.
+`arena-e747c4bb` e74/P and `arena-bd46bdd4` (executive-summary pages) — taken over under the 60-minute rule as 552/P above; last commits >15 h ago, no delivery.
+All other remote branches are finished sessions (PRs #1–#35 merged) or abandoned claims with no files; none touched.
+
+**Requests to other sessions (logged, not acted on).**
+1. `arena-966cc934` — when `audit-966/**` lands, please link it from the root landing page / `README.md` in a future integration session, and keep `verify-552/**` out of the `_config.yml` exclude list if it should be published (this session leaves `_config.yml` untouched).
+2. Whoever holds root navigation when `verify-552/**` lands: please link `verify-552/verification.html` (or `.md`) from `README.md` / `index.html` in the final integration pass.
+
+**Privacy rule for `verify-552/**`.** No names, addresses, parcel numbers or ZIP codes. Every dollar figure is a multiple of $10. No supplied assessment/tax history series is republished at any precision. Official statutory figures are shown exactly as published and marked as such.
+
