@@ -802,3 +802,43 @@ All other remote branches are finished sessions (PRs #1–#35 merged) or abandon
 
 **Privacy rule for `verify-552/**`.** No names, addresses, parcel numbers or ZIP codes. Every dollar figure is a multiple of $10. No supplied assessment/tax history series is republished at any precision. Official statutory figures are shown exactly as published and marked as such.
 
+### 552/V + 552/P — completion record (arena-552dcae4, 2026-11-12)
+
+- **Status:** 552/V **done**; 552/P **done**; 552/INT **waiting** (966/A live, claimed 04:15:37Z; no file in its scope touched).
+- **552/V — what was done.** All 29 official sources cited by `public-safe/**` re-fetched and read live
+  2026-11-12 via the page fetcher (IRS estate tax / what's-new / FAQ / inherited-basis / Pub 551 / Form 706
+  instructions; SCO estate tax; FTB gifts/inheritance; BOE Prop 19 / Pub 801 / Pub 800-10 / BOE-266; SCC
+  parent-child / decline-in-value / annual report 2025-26; SF Treasurer secured rate; SF transfer tax /
+  change-in-ownership; SF rent increase; CDI residential / Sustainable Insurance Strategy; CA Courts small
+  estate / probate; Civil Code 1947.12; RTC 11911; CPUC NEM/NBT; SOS ballot measures; BLS CPI; FHFA HPI).
+  Key confirmations: 2026 exclusion $15,000,000 (PL 119-21); Prop 19 both-parties principal-residence test
+  and $1,044,586 allowance (16 Feb 2025–15 Feb 2027); SF FY2026-27 rate 1.18162182%; no CA estate return
+  on/after 1 Jan 2005; inherited basis = date-of-death FMV; inheritance not income; 9-month + 6-month
+  filing/portability; SF rent 1.6% (Mar 2026–Feb 2027); Civ 1947.12 cap 5%+CPI max 10%, repealed 1 Jan 2030;
+  RTC 11911 $0.55 per $500; NBT since 15 Apr 2023, NEM closed; CDI CA $1,571 / national $1,512 (dashboard
+  $1,570 / $1,510 correct to $10); small-estate $184,500 (deaths on/after 1 Apr 2022); Oct 2026 CPI +0.4% SA.
+- **Checks re-run:** `python3 scripts/build_desk.py` → deterministic rebuild, no diff;
+  `python3 scripts/verify_safe.py` → **PASS** (11 pages; 25 tables; 291 rows; 649 links, 479 official);
+  `python3 scripts/privacy_scan.py` → **0 findings** after 552/P (was 11 in 5 files);
+  `python3 verify-552/verify.py` → **PASS** (structural gate + privacy + 14 model spot checks, incl. BOE
+  worked example $500,000, B tax $2,430, A tax $6,790, 2045 FMV $6,531,230, 2070 wealth
+  $9,285,040 / $12,564,550 / $18,451,440). Register published at `verify-552/verification.html` (rendered)
+  and `verify-552/verification.md` (source), every row source-linked.
+- **New irregularities (do not block; for next integration):** V01 — SF.gov proposed File No. 261020
+  (posted 9 Nov 2026) to cap banked + capital rent increases at 10%/yr, not yet enacted; V02 — ballot
+  percentages drifted ≤0.1pp since 11 Nov (unofficial, certification 11 Dec 2026); V03 — CDI $1,571/$1,512
+  vs dashboard $1,570/$1,510 (correct to $10, recorded for completeness). F01–F14 all re-checked, none
+  resolved, all still correctly published on `public-safe/flagged.html`.
+- **552/P — what was done.** Rounding-only edits (no statutory/agency figure altered): `scripts/model.py`
+  + `data/model.json` four owner inputs to nearest $10 (now 550540; 7210; 2440; 114250), `data/model.json`
+  regenerated via `scripts/model.py` (derived shifts within $160, all multiples of $10);
+  `data/flagged.json` F-05 value to $114,250; `pages/executive-summary.html` +
+  `src/pages/executive-summary.html` monthly figure to $3,580; `scripts/generate_site.py` two rate
+  numerators to 7210.0 / 2440.0. Verified: JSON parses, Python compiles, `privacy_scan.py` 0 findings,
+  `verify_safe.py` still PASS. Takeover of stale e74/P (>15 h, no delivery) and abandoned bd46bdd4 pages
+  under the 60-minute rule, as claimed.
+- **552/INT — not run.** 966/A is live (claimed 04:15:37Z, 44 s before this session's claim). Shared outputs
+  (`public-safe/**`, `scripts/build_desk.py`, `verification-report.json`, root nav) untouched. Request for
+  the final integration session: add V01 to `law-watch.html`, refresh ballot percentages after certification,
+  link `verify-552/verification.html` from root landing / `README.md`.
+
