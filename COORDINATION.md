@@ -781,6 +781,7 @@ No active competing claim on this scope: the previous public-safe and model work
 ### 803/M integration record
 
 - PR [#36](https://github.com/wingbangboozle1-lang/Tino5/pull/36) (`arena/80398929-tino5` → `main`) merged on 2026-11-12T04:18:14Z; merge commit `8590a1be867a30070cfd8f43038c8f95dc9ece93`. GitHub Action `verify` passed before merge. GitHub Pages build for this merge was initiated; final build status will be checked separately. This board update is documentation only.
+
 ## Session `arena-552dcae4` — claim (2026-11-12 04:16Z, branch `arena/552dcae4-tino5`)
 
 Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
@@ -845,4 +846,21 @@ All other remote branches are finished sessions (PRs #1–#35 merged) or abandon
   (`public-safe/**`, `scripts/build_desk.py`, `verification-report.json`, root nav) untouched. Request for
   the final integration session: add V01 to `law-watch.html`, refresh ballot percentages after certification,
   link `verify-552/verification.html` from root landing / `README.md`.
+
+## Session `arena-22a32b17` — claim (2026-11-12, branch `arena/22a32b17-tino5`)
+
+Read before claiming: `COORDINATION.md` on `main` (`28f8609`) **and** every remote session branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint: this session is bound to the fixed Arena branch `arena/22a32b17-tino5`, so strict non-overlap is enforced by **file scope** (logged on the Flagged for Review page).
+
+| ID | Task | Status | Session | File scope |
+|---|---|---|---|---|
+| 22a/D | **Unified, line-by-line official-source-verified 2026–2076 Inheritance Decision Suite.** Executive summary; Property A (inherited) vs Property B (already owned, 3 units / 2 rented / 1 owner-occupiable) decision modeling for 2040, 2045 and 2050 transfers across Live In, Rent Out (incl. IRC §168 27.5-yr depreciation & §1250 recapture) and Sell & Reinvest (Equities vs Treasury/Savings); 50-year year-by-year projections (2026–2076) rounded to $10; dedicated non-linear 50-year Black Swan & historical economic-cycle engine; federal/state/local inheritance & estate tax threshold analysis (2026 `$15M` P.L. 119-21 / 2027 Rev. Proc. / Form 706 DSUE / liquid-inheritance matrix); insurance, water, solar/electricity & maintenance cost verification; step-by-step trust inheritance checklist; law-change watch; repository audit; Flagged for Review & official source registry. | in progress | arena-22a32b17 | `desk-22a32b17/**`, `tools-22a32b17/**`, this section of `COORDINATION.md` |
+| 22a/INT | **Integration, PR, merge & Pages verification.** Merge `desk-22a32b17/**` and `tools-22a32b17/**` to `main`, confirm CI and live GitHub Pages deployment with zero broken links. Shared root files (`index.html`, `README.md`, `_config.yml`) are touched **only** if no other session holds a live (<60 min) claim on them at integration time; otherwise logged here as a navigation request. | waiting | arena-22a32b17 | `COORDINATION.md` (this section); shared root navigation only if unclaimed at integration |
+
+**Live claims respected (as read 2026-11-12 ~04:20Z).**
+`arena-881c7952` (`881/P`: `public-safe/**`, `scripts/{desk_model,build_desk,verify_safe}.py`); `arena-552dcae4` (`552/V` + `552/P`: done, `552/INT`: conditional); `arena-3a49d618` (`3a4/S`: `swan-3a49/**`, `3a4/INT`: conditional); `arena-7864052a` (`786/V`: `tools-786/**`); `arena-966cc934` (`966/A`: `audit-966/**`); `arena-80398929` (`803/M`: done, PRs #36/#37). Zero files in those scopes are edited by this session.
+
+**Rebase conflict log (2026-11-12).** `main` advanced to `28f8609` (`arena-552dcae4` merge) during initial claim rebase; append conflict in `COORDINATION.md` resolved by preserving `arena-552dcae4`'s entire block verbatim first and appending `arena-22a32b17` below. No session's work discarded.
+
+**Privacy contract for `desk-22a32b17/**` and `tools-22a32b17/**`.**
+Placeholders (`Property A`, `Property B`, `Settlor / Transferor`, `Beneficiary / Owner`, `Family Trust`) and county-level jurisdiction only. Zero personal identifiers, zero street addresses, zero parcel/account numbers, zero ZIP codes, zero city/neighborhood names, and zero multi-year parcel-traceable roll histories anywhere in `desk-22a32b17/**` or `tools-22a32b17/**`. Unconfirmed property-specific values stay **blank** in verified-fact cells and are listed on `desk-22a32b17/flagged.html`; all model/projection figures are rounded to the nearest `$10` (statutory constants published verbatim and marked).
 
