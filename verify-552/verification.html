@@ -27,10 +27,10 @@ a{color:#0d3b66}
 <div class="wrap">
 <div class="eyebrow">Independent verification · session arena-552dcae4 · task 552/V</div>
 <h1>Verification register — 12 November 2026</h1>
-<p class="lead">Every official source cited by the published dashboard (<a href="../public-safe/index.html">public-safe/</a>, 11 pages, 29 sources) was re-fetched and read on 12 November 2026. Every structural check was re-run. No value was inferred; where a figure could not be confirmed it is marked unverified. Money is rounded to the nearest $10 except statutory figures shown exactly as published. No names, addresses, parcel numbers, ZIP codes, e-mail addresses or phone numbers appear here.</p>
-<p><strong>Headline result.</strong> The dashboard's verified rules, thresholds, rates and model arithmetic all reproduce. The build is deterministic; the source-link gate passes; the privacy scan reports 0 findings after task 552/P. Two new items were found (V01, V02); neither changes the ranking. The 14 previously flagged items (F01–F14) remain open and are not blocking.</p>
+<p class="lead">Every official source cited by the published dashboard (<a href="../public-safe/index.html">public-safe/</a>, 11 pages, 32 sources) was re-fetched and read on 12 November 2026. Every structural check was re-run. No value was inferred; where a figure could not be confirmed it is marked unverified. Money is rounded to the nearest $10 except statutory figures shown exactly as published. No names, addresses, parcel numbers, ZIP codes, e-mail addresses or phone numbers appear here.</p>
+<p><strong>Headline result.</strong> The dashboard's verified rules, thresholds, rates and model arithmetic all reproduce. The build is deterministic; the source-link gate passes; the privacy scan reports 0 findings after task 552/P. Two new items were found (V01, V02); neither changes the ranking. The 14 previously flagged items (F01–F16) remain open and are not blocking.</p>
 
-<h2>1. Per-source findings (29 sources)</h2>
+<h2>1. Per-source findings (32 sources)</h2>
 <div class="scroll"><table><caption>Official pages re-fetched and read 12 November 2026</caption><thead><tr><th>Publisher · page</th><th>Claim checked</th><th>Finding</th><th>Link</th></tr></thead><tbody>
 <tr><td>IRS · Estate tax</td><td>2026 threshold $15,000,000; gross estate; portability</td><td><span class="ok">Confirmed.</span> Table shows 2026: $15,000,000.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" rel="noopener noreferrer">irs.gov</a></td></tr>
 <tr><td>IRS · What's new, estate &amp; gift</td><td>PL 119-21 sets $15,000,000 for 2026</td><td><span class="ok">Confirmed.</span> Signed 4 July 2025 as Public Law 119-21.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax" rel="noopener noreferrer">irs.gov</a></td></tr>
@@ -66,7 +66,7 @@ a{color:#0d3b66}
 <h2>2. Structural checks (re-run 12 November 2026)</h2>
 <div class="scroll"><table><caption>Commands and results</caption><thead><tr><th>Check</th><th>Command</th><th>Result</th></tr></thead><tbody>
 <tr><td>Deterministic rebuild</td><td><code>python3 scripts/build_desk.py</code></td><td><span class="ok">PASS</span> — 11 pages, no diff</td></tr>
-<tr><td>Source-link gate</td><td><code>python3 scripts/verify_safe.py</code></td><td><span class="ok">PASS</span> — 11 pages; 25 tables; 291 rows; 649 links (479 official)</td></tr>
+<tr><td>Source-link gate</td><td><code>python3 scripts/verify_safe.py</code></td><td><span class="ok">PASS</span> — 11 pages; 25 tables; 295 rows; 659 links (479 official)</td></tr>
 <tr><td>Privacy scan (whole repo)</td><td><code>python3 scripts/privacy_scan.py</code></td><td><span class="ok">PASS</span> — 0 findings after 552/P (was 11)</td></tr>
 <tr><td>Model arithmetic</td><td><code>python3 scripts/desk_model.py</code> + spot checks</td><td><span class="ok">PASS</span> — see §3</td></tr>
 <tr><td>This register's privacy</td><td><code>python3 verify-552/verify.py</code></td><td><span class="ok">PASS</span></td></tr>
@@ -76,11 +76,11 @@ a{color:#0d3b66}
 <div class="scroll"><table><caption>Recomputed from scripts/desk_model.py</caption><thead><tr><th>Figure</th><th>Published</th><th>Recomputed</th><th>Match</th></tr></thead><tbody>
 <tr><td>A value 2045 (4.0%/yr)</td><td>$6,531,230</td><td>$6,531,230</td><td>Yes</td></tr>
 <tr><td>A tax if occupied 2045</td><td>$62,530</td><td>$62,530</td><td>Yes</td></tr>
-<tr><td>A tax if rented 2045</td><td>$81,550</td><td>$81,550</td><td>Yes</td></tr>
+<tr><td>A tax if rented 2045</td><td>$81,640</td><td>$81,640</td><td>Yes</td></tr>
 <tr><td>A gross rent 2045</td><td>$115,730</td><td>$115,730</td><td>Yes</td></tr>
-<tr><td>A net rent 2045</td><td>-$6,960</td><td>-$6,960</td><td>Yes</td></tr>
+<tr><td>A net rent 2045</td><td>-$7,040</td><td>-$7,040</td><td>Yes</td></tr>
 <tr><td>A net sale proceeds 2045</td><td>$6,139,360</td><td>$6,139,360</td><td>Yes</td></tr>
-<tr><td>25-yr wealth: occupy / rent / sell</td><td>$9,285,040 / $12,564,550 / $18,451,440</td><td>same</td><td>Yes</td></tr>
+<tr><td>25-yr wealth: occupy / rent / sell</td><td>$7,580,540 / $12,885,140 / $18,451,440</td><td>same</td><td>Yes</td></tr>
 <tr><td>B net operating income 2026</td><td>$53,430</td><td>$53,430</td><td>Yes</td></tr>
 <tr><td>Federal exclusion 2045 (2.5% indexing)</td><td>$23,979,750</td><td>$23,979,750</td><td>Yes</td></tr>
 <tr><td>BOE worked example</td><td>$500,000</td><td>$500,000</td><td>Yes</td></tr>
@@ -94,12 +94,15 @@ a{color:#0d3b66}
 <tr><td>V03</td><td>CDI averages $1,571 / $1,512; dashboard $1,570 / $1,510.</td><td>None — correct to $10.</td><td><a href="https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm" rel="noopener noreferrer">insurance.ca.gov</a></td></tr>
 </tbody></table></div>
 
-<h2>5. Previously flagged items (F01–F14)</h2>
+<h2>5. Previously flagged items (F01–F16)</h2>
 <p>All 14 items on <a href="../public-safe/flagged.html">public-safe/flagged.html</a> were re-checked. None has been resolved by a document in this session; all remain correctly published as unverified / assumption / professional-review items. No property-specific assessment, bill, rent, quote, appraisal, trust term or basis was confirmed — those cells are blank or labelled assumption / unverified by design. The supplied multi-year histories are deliberately not republished at any precision (F03).</p>
 
 <h2>6. Task 552/P — legacy privacy clean-up (done)</h2>
 <p>Rounding-only edits (no statutory figure altered); privacy scan 11 findings → 0. Four owner-supplied inputs in <code>scripts/model.py</code> / <code>data/model.json</code> rounded to the nearest $10 (now 550540; 7210; 2440; 114250); F-05 value in <code>data/flagged.json</code> rounded to $114,250; monthly figure in both executive-summary pages rounded to $3,580; two rate numerators in <code>scripts/generate_site.py</code> rounded. Verified: JSON parses; Python compiles; privacy scan 0; source-link gate still PASS.</p>
 
+
+<h2>7. Addendum — PR #36 model correction (rebased 12 November 2026)</h2>
+<p>While this verification was in progress, <code>main</code> advanced to PR #36 (session arena-80398929), which corrected the decision model: no $7,000 exemption on the rental path; exactly 25 cash-flow periods; vacancy/management grow with rent; terminal selling expenses reduce taxable gain; shared terminal-date basis. The artifact is now 295 rows / 659 links (489 official), 32 sources, flags F01–F16. Source findings (§1) are unaffected. Three new sources were fetched and read 12 November 2026: BOE Homeowners' Exemption ($7,000, owner-occupied principal residence) — <a href="https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm" rel="noopener noreferrer">boe.ca.gov</a>; IRS Publication 523 (selling your home) — <a href="https://www.irs.gov/publications/p523" rel="noopener noreferrer">irs.gov</a>; IRS Publication 527 (residential rental property) — <a href="https://www.irs.gov/publications/p527" rel="noopener noreferrer">irs.gov</a>. All confirmed. Model figures in §3 are updated to the corrected model (A tax 2026 $6,880; 2045 rent tax $81,640; net -$7,040; 2070 wealth $7,580,540 / $12,885,140 / $18,451,440; break-evens 3.01% / 5.12%). The ranking is unchanged. Session arena-966cc934's audit (<code>audit-966/REPORT.md</code>, branch only) reports the same 11 privacy matches fixed under 552/P; broader concerns are already in F08/F13/F14.</p>
 <p class="small">Not advice. Educational analysis using published rules and named assumptions. Re-verify every rule and rate in the year of the transfer. Source (markdown): <code>verify-552/verification.md</code>. Re-run: <code>python3 verify-552/verify.py</code>.</p>
 </div>
 </body>

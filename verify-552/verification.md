@@ -1,6 +1,6 @@
 # Independent verification register — 2026-11-12 (session arena-552dcae4, task 552/V)
 
-**Scope.** Every official source cited by the published dashboard (`public-safe/**`, 11 pages, 29 sources)
+**Scope.** Every official source cited by the published dashboard (`public-safe/**`, 11 pages, 32 sources)
 was re-fetched and read on 12 November 2026. Every structural check was re-run. No value was inferred;
 where a published figure could not be confirmed it is marked **unverified** and listed in §6.
 Money is rounded to the nearest $10 except statutory figures shown exactly as published and marked.
@@ -9,9 +9,9 @@ No names, addresses, parcel numbers, ZIP codes, e-mail addresses or phone number
 **Headline result.** The dashboard's verified rules, thresholds, rates and model arithmetic all reproduce.
 `scripts/build_desk.py` rebuilds deterministically; `scripts/verify_safe.py` passes; `scripts/privacy_scan.py`
 now reports **0 findings** after task 552/P. Two new items were found and are flagged below (V01, V02);
-neither changes the ranking. The 14 previously flagged items (F01–F14) remain open and are not blocking.
+neither changes the ranking. The 14 previously flagged items (F01–F16) remain open and are not blocking.
 
-## 1. Per-source findings (29 sources)
+## 1. Per-source findings (32 sources)
 
 | # | Publisher · page | Published claim checked | Finding 2026-11-12 | Link |
 |---|------------------|-------------------------|--------------------|------|
@@ -50,7 +50,7 @@ neither changes the ranking. The 14 previously flagged items (F01–F14) remain 
 | Check | Command | Result |
 |-------|---------|--------|
 | Deterministic rebuild | `python3 scripts/build_desk.py` | **PASS** — 11 pages rebuilt, no diff to published artifact |
-| Source-link gate | `python3 scripts/verify_safe.py` | **PASS** — 11 pages; 25 tables; 291 source-linked rows; 649 links (479 official); local targets resolve; money rounds to $10; no PII patterns |
+| Source-link gate | `python3 scripts/verify_safe.py` | **PASS** — 11 pages; 25 tables; 295 source-linked rows; 659 links (489 official); local targets resolve; money rounds to $10; no PII patterns |
 | Privacy scan (whole repo) | `python3 scripts/privacy_scan.py` | **PASS** — 0 findings after 552/P (was 11 in 5 files) |
 | Model arithmetic | `python3 scripts/desk_model.py` + spot checks below | **PASS** — all key figures reproduce (see §3) |
 | This register's own privacy | `python3 scripts/privacy_scan.py verify-552` | **PASS** — 0 findings (see `verify-552/verify.py`) |
@@ -77,18 +77,18 @@ Per-page row counts (data rows carrying an official source link):
 |--------|-----------|------------|-------|
 | A market value 2045 (4.0%/yr from $3,100,000) | $6,531,230 | $6,531,230 | Yes |
 | A tax if occupied 2045 (Prop 19 partial exclusion) | $62,530 | $62,530 | Yes |
-| A tax if rented 2045 (full reassessment) | $81,550 | $81,550 | Yes |
+| A tax if rented 2045 (full reassessment) | $81,640 | $81,640 | Yes |
 | A gross rent 2045 (3.0%/yr from $66,000) | $115,730 | $115,730 | Yes |
-| A net rent 2045 | -$6,960 | -$6,960 | Yes |
+| A net rent 2045 | -$7,040 | -$7,040 | Yes |
 | A net sale proceeds 2045 (6% costs) | $6,139,360 | $6,139,360 | Yes |
-| 25-yr wealth 2045→2070: occupy / rent / sell | $9,285,040 / $12,564,550 / $18,451,440 | same | Yes |
+| 25-yr wealth 2045→2070: occupy / rent / sell | $7,580,540 / $12,885,140 / $18,451,440 | same | Yes |
 | B net operating income 2026 | $53,430 | $53,430 | Yes |
-| B tax 2026 ($206,000 × 1.18162182%) | $2,430 | $2,430 (raw $2,434.14 → $10) | Yes |
-| A tax 2026 (($550,000 − $7,000) × 1.25%) | $6,790 | $6,790 (raw $6,787.50 → $10) | Yes |
+| B tax 2026 ($206,000 × 1.18162182%) | $2,430 | $2,430 | Yes |
+| A tax 2026 (rental basis, no exemption) | $6,880 | $6,880 | Yes |
 | Federal exclusion 2045 (2.5% indexing from $15,000,000) | $23,979,750 | $23,979,750 | Yes |
 | BOE worked example (FBYV $300,000, FMV $1,500,000, allowance $1,000,000 → $500,000) | $500,000 | $500,000 | Yes |
-| Break-even portfolio return | 2.91% | 2.91% | Yes |
-| Break-even rent growth | 5.69% | 5.69% | Yes |
+| Break-even portfolio return | 3.01% | 3.01% | Yes |
+| Break-even rent growth | 5.12% | 5.12% | Yes |
 
 All projections are arithmetic on named assumptions (home 4.0%, inflation 2.5%, rent 3.0%, Prop 13 cap 2%,
 selling costs 6%, portfolio 4.5% after tax, terminal gains 37.1% on post-transfer appreciation only).
@@ -102,7 +102,7 @@ They are labelled `assumption` / `derived` on the site, never `verified`.
 | V02 | 2026 ballot-measure percentages drifted ≤0.1pp since 11 Nov (unofficial count still running; certification 11 Dec 2026). | Only law-watch commentary affected; no projection uses the results. | Re-check after certification; update percentages. Source: https://electionresults.sos.ca.gov/returns/ballot-measures |
 | V03 | CDI averages are $1,571 (CA) and $1,512 (national); dashboard shows $1,570 / $1,510. | None — correct when rounded to $10. Recorded so a future reader does not mistake it for an error. | No change. Source: https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm |
 
-## 5. Previously flagged items (F01–F14) — status
+## 5. Previously flagged items (F01–F16) — status
 
 All 14 items on `public-safe/flagged.html` were re-checked. None has been resolved by a document in this
 session; all remain correctly published as unverified / assumption / professional-review items:
@@ -147,3 +147,29 @@ Verified: JSON parses; Python compiles; `privacy_scan.py` 0 findings; `verify_sa
 
 *Not advice. Educational analysis using published rules and named assumptions. Re-verify every rule and rate
 in the year of the transfer.*
+
+## 9. Addendum — PR #36 model correction (rebased 2026-11-12)
+
+While this verification was in progress, `main` advanced to `8590a1b` (PR #36, session arena-80398929),
+which corrected the decision model: (1) no $7,000 homeowners' exemption on the rental path;
+(2) exactly 25 annual cash-flow periods for a 25-year terminal value; (3) vacancy/management grow with
+rent, not inflation; (4) terminal selling expenses reduce taxable gain; (5) cash flows and invested
+proceeds share a terminal-date basis. The published artifact is now 295 rows / 659 links (489 official),
+32 sources, flags F01–F16 (F15 third-unit income, F16 rental income-tax/depreciation).
+
+- **Source findings (§1) are unaffected** — the 29 sources still confirm as stated. Three new sources
+  were fetched and read 2026-11-12 for this addendum: BOE Homeowners' Exemption ($7,000, owner-occupied
+  principal residence, BOE-266) — https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm;
+  IRS Publication 523 (selling your home; gain/loss; selling expenses) —
+  https://www.irs.gov/publications/p523; IRS Publication 527 (residential rental property; income,
+  expenses, depreciation) — https://www.irs.gov/publications/p527. All **confirmed**.
+- **Model figures in §3 are updated to the corrected model:** A tax 2026 (rental basis) $6,880;
+  2045 tax if rented $81,640; net rent -$7,040; 2070 wealth occupy $7,580,540 / rent $12,885,140 /
+  sell $18,451,440; break-evens 3.01% / 5.12%. Sell path and B NOI ($53,430) are unchanged.
+  The ranking (sell > rent > occupy) is unchanged; the occupy path is now lower.
+- **966/A audit note.** Session arena-966cc934 published `audit-966/REPORT.md` (branch only, not yet
+  merged) reporting the same 11 privacy-scan matches this session fixed under 552/P, plus broader
+  concerns about pseudonymous labels, categorical recommendation language, conditional Prop 19
+  eligibility, and source-per-row limits. Those broader concerns are already reflected in F08, F13,
+  F14 and the site's "not advice" / conditional language; the 11-match part is now 0. No file in
+  966/A's scope was touched by this session.

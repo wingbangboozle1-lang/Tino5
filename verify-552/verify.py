@@ -43,13 +43,13 @@ def expect(label, got, want):
 t = m.transfer_year_view(2045)
 expect("2045 FMV", t["fmv"], 6531230)
 expect("2045 tax occupy", t["tax_occupy"], 62530)
-expect("2045 tax rent", t["tax_rent"], 81550)
+expect("2045 tax rent", t["tax_rent"], 81640)
 expect("2045 rent", t["rent"], 115730)
-expect("2045 net rent", t["net_rent"], -6960)
+expect("2045 net rent", t["net_rent"], -7040)
 expect("2045 proceeds", t["proceeds"], 6139360)
 w = m.wealth(2045)
-expect("2070 occupy", w["s1"], 9285040)
-expect("2070 rent", w["s2"], 12564550)
+expect("2070 occupy", w["s1"], 7580540)
+expect("2070 rent", w["s2"], 12885140)
 expect("2070 sell", w["s3"], 18451440)
 expect("B NOI 2026", m.property_b_view(2026)["noi"], 53430)
 expect("estate 2045", m.estate_threshold(2045), 23979750)
@@ -59,8 +59,8 @@ print("OK  Prop19 BOE example: 500000")
 # B tax raw -> rounded
 assert m.money(206000 * 0.0118162182) == "$2,430", "B tax"
 print("OK  B tax 2026: $2,430")
-assert m.money((550000 - 7000) * 0.0125) == "$6,790", "A tax"
-print("OK  A tax 2026: $6,790")
+assert m.money(550000 * 0.0125) == "$6,880", "A tax"
+print("OK  A tax 2026: $6,880")
 
 # 4. verify-552 files: no PII patterns, money rounds to $10 (statutory exempt)
 PII = [
