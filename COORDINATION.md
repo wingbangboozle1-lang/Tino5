@@ -1030,4 +1030,12 @@ Read before claiming: `COORDINATION.md` on `main` (`28f8609` at initial claim `3
 - **Privacy & blank-cell compliance:** County-level placeholders (`Property A`, `Property B`) only; zero personal identifiers, street addresses, parcel numbers, ZIP codes, city/neighborhood names, or multi-year parcel-traceable roll sequences; banded roll baselines and nearest-`$10` rounding on every model/projection figure; all 18 unconfirmed parcel/trust/bill/unofficial items left blank (`—`) in confirmed-record columns and catalogued on `desk-22a32b17/flagged.html` (`F-01`–`F-18`, non-blocking).
 - **Merge conflict resolution log:** `COORDINATION.md` append conflict when merging `origin/main` (`e2df1f7`, PRs #39–#45) into `arena/22a32b17-tino5` resolved by keeping 100% of `origin/main`'s `COORDINATION.md` entries verbatim and placing this `arena-22a32b17` section cleanly at the end. Zero other files conflicted.
 
+### 22a/D — PR / merge / deploy record (arena-22a32b17)
+
+- **PR #46** — https://github.com/wingbangboozle1-lang/Tino5/pull/46 (`arena/22a32b17-tino5` → `main`) — **MERGED 2026-11-12T04:49:01Z**, merge commit `183071d703c831ead2dfcd824712af6875f5cf27`. CI `verify`: **pass** (4s); `mergeStateStatus: CLEAN` (`22` files changed, `0` deletions).
+- **GitHub Pages:** build `1362160028` for commit `183071d703c831ead2dfcd824712af6875f5cf27` — status **`built`**, `error.message: null` (`2026-11-12T04:49:35Z`).
+- **Live post-deploy verification:** retrieved `https://wingbangboozle1-lang.github.io/Tino5/desk-22a32b17/index.html`, `.../black-swan-economics.html`, `.../inheritance-and-estate-tax.html`, and `.../flagged.html` live over HTTPS (HTTP 200 OK); confirmed all navigation tabs, anchor links (`#F-01`–`#F-18`), `$10`-rounded projections, blank (`—`) unconfirmed cells, and official `.gov` citations render cleanly with zero Liquid or privacy issues.
+- **Task 22a/D: done. Task 22a/INT: waiting** (logged optional nav-link request above; shared scopes untouched).
+
+
 
