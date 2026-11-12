@@ -1098,15 +1098,14 @@ Series transcribed by 3a49d618: 16 values compared with the official pages, all 
 **Numeric results.** (1) desk-b4f's 15 published figures reproduce within $10 (replication: the engine was written after reading that model, so this is not independent
 validation); break-evens 3.03% / 6.10% reproduce. (2) desk-22a32b17 run through the same engine with its own parameters: sell path exact, rent path -1%, occupy path -4% (it also
 models Property B effects). (3) The two desks differ in level (sell/rent ratio 1.43 vs 1.77) almost only because of the after-tax return assumption (4.5% vs 5.6%); the other
-nine differences together move the ratio by a few percent. (4) The ordering sell > rent > occupy holds in 15 of 17 stresses; it fails under Treasuries-only reinvestment (0 of 25
-historical windows favour selling) and ties at 6.1% a year home-price growth. The historical after-tax equity return (approximation) ranged 4.7%-8.5%; 4.5% is below all 25
-windows, 5.6% below 5.
+nine differences together move the ratio by a few percent. (4) The ordering sell > rent > occupy holds in 15 of 17 stresses; it fails under Treasuries-only reinvestment (selling beats renting in 0 of 25
+historical windows with Treasuries, 25 of 25 with equities) and ties at 6.1% a year home-price growth. The historical after-tax equity return (approximation, F-A8) ranged 4.7%-8.5% over 25 windows; none earned less than 4.5%, 5 of 25 earned less than 5.6%.
 
 **Irregularities (details and official links on `referee-abae/discrepancies.html`).**
 X02 terminal-tax convention undocumented (medium); X03 flat top-bracket rates; **X04 desk-b4f `estate-tax.html` shows the 2026 trust capital-gain ceiling as $16,200, Rev. Proc. 2025-32 says $16,250**;
 **X05 same page says the closing-letter fee rose "from $67"; IRS says from $56 to $76**; X06 live landing/tax pages list 2026 federal figures only although IRS published 2027 on 5 Nov;
 X07 small-estate limit $184,500 is stale (DE-300: $208,850 for deaths from 1 Apr 2025; next adjustment 1 Apr 2028); X08 water 3.0% vs 2.5% inside desk-b4f; X10 insurance above CDI averages;
-**X12 two published desks, two headline levels (medium)**; X13 desk-22a32b17 shows two different figures for Property B's yearly tax (~4% apart).
+**X12 two published desks, two headline levels (medium)**; X13 desk-22a32b17 shows Property B's yearly property tax as two figures ~4% apart (model value includes the $7,000 homeowners' exemption, the other leaves it out; the properties page's printed arithmetic also uses a fixed charge that differs from the model parameter and from its own flag F-01).
 Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.py` does not guard the `desk-b4f` exclusion; X11 exclusion is not removal (cf. 966/A finding 1);
 **X14 the published trees draw the privacy line in different places** (see below). Cleared: BOE-58-H is the surviving-cotenant form, not a conflict with BOE-19-P.
 
@@ -1117,7 +1116,7 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **Requests (not acted on; other sessions' files).**
 - b4f owner: correct X04 and X05 in `desk-b4f/estate-tax.html` and its generator.
-- 22a owner: align Property B's yearly tax figure across pages (X13). BOE LTA 2026/026 (cited by that desk) exists and supports the continual-use statement.
+- 22a owner: label or align Property B's two yearly-tax figures across pages (X13). BOE LTA 2026/026 (cited by that desk) exists and supports the continual-use statement.
 - 552/V owner: register row 22 (small-estate) should cite DE-300, $208,850 (X07).
 - **Final integration / owner decision (X14, X12, X06):** (a) choose one privacy boundary for the published trees: the brief's literal rule (numbers at $10 in the decision analysis; `desk-22a32b17`
   complies) or the stricter landing-page reading (no owner-derived numbers; then exclude `desk-22a32b17` and `tools-22a32b17` in `_config.yml`, as was done for `desk-b4f`); reversible either way;
