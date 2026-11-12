@@ -661,8 +661,8 @@ def build_flagged():
          "Paths that run past 2025 continue with 1977. Results marked recorded order only exclude windows that cross the join.",
          "Use the recorded-order rows when in doubt.", S["hpi"]],
         ["S12", "A metro index is not a house",
-         "The index tracks repeat sales and appraisals across a whole metro area. One property can do better or worse.",
-         "Ranges for a single home are wider than shown.", S["hpi"]],
+         "The index is estimated from sales prices and appraisal data across a whole metro area. One property can do better or worse.",
+         "Ranges for a single home are wider than shown.", a("https://fred.stlouisfed.org/series/ATNHPIUS41940Q", "FHFA all-transactions index, series notes (FRED)")],
         ["S13", "Proposed limit on banked and capital-improvement rent increases",
          "The city page carries a notice, posted 9 November 2026, of proposed legislation (File No. 261020) to cap combined banked and capital-improvement increases at 10% a year. It has not been enacted.",
          "Could limit catch-up increases on Property B after high-inflation years.", S["sfrent"]],
@@ -674,7 +674,7 @@ def build_flagged():
          "The lowest replayed amounts may be too low.", S["lta25"]],
         ["S15", "Treasury bill rate is not a return",
          "The series is the secondary-market rate on a discount basis, averaged over the year. Rolling bills would earn slightly more.",
-         "Savings results are slightly understated.", S["cpi"]],
+         "Savings results are slightly understated.", a("https://fred.stlouisfed.org/series/TB3MS", "Federal Reserve H.15 bill rate, series notes (FRED)")],
     ]
     b = ["""<p class="lede">These are the approximations, gaps and mismatches in this section. None blocks the replay; each changes how much weight a figure can bear.</p>""",
          table(["Flag", "Issue", "What was found", "Effect", "Source"], rows)]
