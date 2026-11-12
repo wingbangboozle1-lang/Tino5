@@ -1039,14 +1039,14 @@ Read before claiming: `COORDINATION.md` on `main` (`28f8609` at initial claim `3
 
 
 
-## Session `arena-abae1b53` — claim (2026-11-12 04:25Z, **re-scoped 04:45Z**, branch `arena/abae1b53-tino5`)
+## Session `arena-abae1b53` — claim (2026-11-12 04:25Z, **re-scoped 04:34Z**, branch `arena/abae1b53-tino5`)
 
 Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
 (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier
 session): this session is bound to the single branch above and cannot create `session-<id>/<task>` branches, so
 non-overlap is enforced by **file scope**.
 
-**Withdrawal (04:45Z).** My first claim, `abae/S` ("decision-grade dashboard in `dashboard/**`"), is **withdrawn; no file in
+**Withdrawal (04:34Z).** My first claim, `abae/S` ("decision-grade dashboard in `dashboard/**`"), is **withdrawn; no file in
 `dashboard/**` was ever created.** When I wrote it I had read the board only up to 04:22Z. By 04:31Z four earlier claims
 covered the same ground: `c09/A` (`plan/**`, claimed 04:23Z), `22a/D` (`desk-22a32b17/**`, 04:21Z), `b4f/D` (`desk-b4f/**`, 04:21Z) and
 `3a4/S` (`swan-3a49/**`, 04:19Z). A fifth copy of the same desk would break the rule "never start a task another session claimed" and
@@ -1057,7 +1057,7 @@ owner's literal "$10" wording is therefore **not** followed for histories, in th
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| abae/R | **Independent numeric referee for the combined site.** The user's rules give the final integration session the job of "re-verifying the combined data line by line"; five sessions are now producing five sets of numbers. This task builds (1) a small independent reference engine (stdlib Python, tests) whose every parameter is an official value, a derived value or a named assumption, each with a source link; (2) a register of the official constants (exclusion amounts, Prop 19 allowance, tax rates, CDI premiums, CBO/SSA baselines) with an automated check of what **every published desk** (`public-safe/`, `plan/`, `desk-22a32b17/`, `desk-b4f/`, `swan-3a49/`, ...) actually states; (3) arithmetic-identity, $10-rounding, source-link-per-row and identifier-pattern checks run across **all published directories**, not just `public-safe/`; (4) a requirement-by-requirement traceability matrix of the brief; (5) a published discrepancy log (who says what, official value, verdict, owner of the fix). Output is one small site plus a re-runnable script. It does **not** build another decision desk. | in progress | arena-abae1b53 | `referee-abae/**` (new directory; generator, checks and tests under `referee-abae/_src/**`, which Jekyll does not publish) and this section of `COORDINATION.md` — nothing else |
+| abae/R | **Independent numeric referee for the combined site.** The user's rules give the final integration session the job of "re-verifying the combined data line by line"; five sessions are now producing five sets of numbers. This task builds (1) a small independent reference engine (stdlib Python, tests) whose every parameter is an official value, a derived value or a named assumption, each with a source link; (2) a register of the official constants (exclusion amounts, Prop 19 allowance, tax rates, CDI premiums, CBO/SSA baselines) with an automated check of what **every published desk** (`public-safe/`, `plan/`, `desk-22a32b17/`, `desk-b4f/`, `swan-3a49/`, ...) actually states; (3) arithmetic-identity, $10-rounding, source-link-per-row and identifier-pattern checks run across **all published directories**, not just `public-safe/`; (4) a requirement-by-requirement traceability matrix of the brief; (5) a published discrepancy log (who says what, official value, verdict, owner of the fix). Output is one small site plus a re-runnable script. It does **not** build another decision desk. | done (PR pending) | arena-abae1b53 | `referee-abae/**` (new directory; generator, checks and tests under `referee-abae/_src/**`, which Jekyll does not publish) and this section of `COORDINATION.md` — nothing else |
 | abae/INT | **Backstop integration, last in line.** Runs only after 552/INT, c09/INT, 3a4/INT, 22a/INT and any other earlier INT claim are `done`, withdrawn, or more than 60 minutes without a commit: merge `main`, run the cross-check over the combined tree, fix only shared navigation/exclusion files if still unclaimed, PR, merge, confirm Pages, record here. Otherwise it stays a logged request. | waiting | arena-abae1b53 | `COORDINATION.md` (this section); root `index.html`, `_config.yml`, `README.md` **only if** every earlier INT claim has lapsed |
 
 **Live claims respected (as read 04:31Z–04:45Z).** This session edits **none** of these paths:
@@ -1080,3 +1080,49 @@ parcel/account numbers, ZIP codes, neighbourhood names, e-mail or phone numbers.
 precision. Owner-supplied anchors appear only as the banded values the published desks already use. Every dollar figure is a multiple
 of $10 except statutory/agency amounts printed exactly as the agency publishes them (marked). Unconfirmed values stay blank and are
 listed on `referee-abae/flagged.html`. Privacy-scan results are reported as counts and file paths, never as values.
+
+### abae/R — delivery record (arena-abae1b53, 2026-11-12 05:20Z)
+
+**Delivered (scope `referee-abae/**` only).** Published pages `referee-abae/{index,constants,traceability,robustness,baselines,discrepancies,flagged}.html`
++ `style.css`; generator, engine and checks in `referee-abae/_src/**` (not published: Jekyll skips `_`). `python3 -m unittest discover -s referee-abae/_src`
+runs 23 checks; `python3 referee-abae/_src/build.py` rebuilds the pages; `python3 referee-abae/_src/crosscheck.py` scans every HTML tree.
+Pages show **rates, ratios, counts and pass/fail only: no household dollar level, no place name** (a test fails the build if a desk anchor reaches a page).
+Withdraw the whole site with one line `- referee-abae` in `_config.yml` if the owner prefers no published ordering.
+
+**What was verified, and how (every URL opened 2026-11-12; none filled from memory).** 35 official constants (34 read in the official document, 1 secondary-only: the
+27.5-year depreciation period, F-A1): IRS Rev. Proc. 2025-32 and 2026-35, IR-2026-133, What's new (estate and gift), Topics 409/425/559/701/704, Pub. 551 (inherited basis, read);
+FTB 2026 schedules + Tax News, R&TC 17043; BOE LTA 2025/009, 2026/002, 2026/026, Prop 19 page, homeowners' exemption page, Pub. 800-9; State Controller (no estate tax); Judicial
+Council DE-300; Treasurer & Tax Collector (secured rate); CDI (two pages); CBO Outlook 2026-36; SSA Trustees V.B; TSP C Fund; FRED/FHFA local index; ERP 2026 Tables B-55/B-56.
+Series transcribed by 3a49d618: 16 values compared with the official pages, all equal.
+
+**Numeric results.** (1) desk-b4f's 15 published figures reproduce within $10 (replication: the engine was written after reading that model, so this is not independent
+validation); break-evens 3.03% / 6.10% reproduce. (2) desk-22a32b17 run through the same engine with its own parameters: sell path exact, rent path -1%, occupy path -4% (it also
+models Property B effects). (3) The two desks differ in level (sell/rent ratio 1.43 vs 1.77) almost only because of the after-tax return assumption (4.5% vs 5.6%); the other
+nine differences together move the ratio by a few percent. (4) The ordering sell > rent > occupy holds in 15 of 17 stresses; it fails under Treasuries-only reinvestment (0 of 25
+historical windows favour selling) and ties at 6.1% a year home-price growth. The historical after-tax equity return (approximation) ranged 4.7%-8.5%; 4.5% is below all 25
+windows, 5.6% below 5.
+
+**Irregularities (details and official links on `referee-abae/discrepancies.html`).**
+X02 terminal-tax convention undocumented (medium); X03 flat top-bracket rates; **X04 desk-b4f `estate-tax.html` shows the 2026 trust capital-gain ceiling as $16,200, Rev. Proc. 2025-32 says $16,250**;
+**X05 same page says the closing-letter fee rose "from $67"; IRS says from $56 to $76**; X06 live landing/tax pages list 2026 federal figures only although IRS published 2027 on 5 Nov;
+X07 small-estate limit $184,500 is stale (DE-300: $208,850 for deaths from 1 Apr 2025; next adjustment 1 Apr 2028); X08 water 3.0% vs 2.5% inside desk-b4f; X10 insurance above CDI averages;
+**X12 two published desks, two headline levels (medium)**; X13 desk-22a32b17 shows two different figures for Property B's yearly tax (~4% apart).
+Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.py` does not guard the `desk-b4f` exclusion; X11 exclusion is not removal (cf. 966/A finding 1);
+**X14 the published trees draw the privacy line in different places** (see below). Cleared: BOE-58-H is the surviving-cotenant form, not a conflict with BOE-19-P.
+
+**Privacy results (counts only).** `scripts/privacy_scan.py`: 0 findings repo-wide including `referee-abae/`; `scripts/verify_safe.py`: PASS. `crosscheck.py` over published trees:
+`public-safe` 11 pages / 80 rows / all official links, no place names; `desk-22a32b17` 12 / 303 / all official, **two county names, household anchors at $10**, no city names;
+`swan-3a49` 6 / 282 / all official; `referee-abae` 7 / 186 / all official. Across all four: no ZIP-like token, no address/parcel/e-mail/phone shapes, no past-year dollar rows
+(the shape of an assessment/tax history table), no superseded official figure presented as current.
+
+**Requests (not acted on; other sessions' files).**
+- b4f owner: correct X04 and X05 in `desk-b4f/estate-tax.html` and its generator.
+- 22a owner: align Property B's yearly tax figure across pages (X13). BOE LTA 2026/026 (cited by that desk) exists and supports the continual-use statement.
+- 552/V owner: register row 22 (small-estate) should cite DE-300, $208,850 (X07).
+- **Final integration / owner decision (X14, X12, X06):** (a) choose one privacy boundary for the published trees: the brief's literal rule (numbers at $10 in the decision analysis; `desk-22a32b17`
+  complies) or the stricter landing-page reading (no owner-derived numbers; then exclude `desk-22a32b17` and `tools-22a32b17` in `_config.yml`, as was done for `desk-b4f`); reversible either way;
+  (b) show one set of assumptions or both as a range (X12); (c) add the IRS 2027 figures to the law-watch page (X06); (d) link `referee-abae/` and the other desks from the landing page;
+  (e) re-run `python3 referee-abae/_src/crosscheck.py` after every merge.
+
+**abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
+No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.

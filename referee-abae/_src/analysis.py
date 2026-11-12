@@ -109,6 +109,53 @@ def compute():
     a = data["hpi_a"]
     out["a_cagr_long"] = (a[2025] / a[1976]) ** (1 / 49) - 1
     out["tax_rates"] = {"ord": p.t_ord, "cg": p.t_cg, "rec": p.t_rec}
+
+    # --- historical after-tax equity return (all return taxed every year at the desk's capital-gain rate)
+    at = sorted(w["eq_total"] * (1 - p.t_cg) for w in ws)
+    out["eq_after_tax"] = {"min": at[0], "median": at[len(at) // 2], "max": at[-1],
+                           "below_desk": sum(1 for v in at if v < p.r), "below_22a": None}
+
+    # --- second desk (22a32b17): reproduce with the same engine; explain the gap to the first desk
+    m22 = RP.load_desk22()
+    if m22 is not None:
+        P22 = m22.DEFAULT_PARAMS
+        p22h, p22d = RP.params_from_22a(m22, P22.a_ins_ho3_2026), RP.params_from_22a(m22, P22.a_ins_dp3_2026)
+        rep22 = []
+        for T in TS:
+            theirs = m22.evaluate_strategies(transfer_year=T, horizon_years=25)
+            mine_s3 = E.run(p22h, T)["S3"]
+            mine_s2 = E.run(p22d, T)["S2"]
+            mine_s1 = E.run(p22h, T)["S1"]
+            rep22.append({"T": T, "s3": mine_s3 / theirs["S3a"]["liquidated_wealth"] - 1, "s2": mine_s2 / theirs["S2"]["liquidated_wealth"] - 1,
+                          "s1": mine_s1 / theirs["S1a"]["liquidated_wealth"] - 1,
+                          "their_s3_s2": theirs["S3a"]["liquidated_wealth"] / theirs["S2"]["liquidated_wealth"],
+                          "their_s2_s1": theirs["S2"]["liquidated_wealth"] / theirs["S1a"]["liquidated_wealth"]})
+        out["rep22"] = rep22
+        base2 = ratios(E.run(p, T_MAIN))
+        groups = [
+            ("Home-price growth", "4.0% -> 4.2% a year", dict(g=P22.home_growth_a)),
+            ("After-tax return on reinvested proceeds", "4.5% -> 5.6% a year", dict(r=P22.equity_after_tax)),
+            ("Selling cost", "6.0% -> 5.5%", dict(sell=P22.a_sell_cost_rate)),
+            ("Tax rates on rent and depreciation recapture", "52.1% / 42.1% -> 42.0% / 38.3%", dict(t_ord=P22.rental_effective_tax_rate, t_rec=P22.recapture_combined_rate)),
+            ("Prop 19 allowance growth", "2.0% -> 2.2% a year", dict(ag=P22.prop19_allowance_growth)),
+            ("Rent level and vacancy plus management", "rent about 4% higher; 13% -> 12%", dict(rent0=P22.a_rent_2026, vac=0.05, mgmt=0.07)),
+            ("Insurance, maintenance, solar-credit end year", "insurance 27% higher on the rental policy; maintenance 3% higher; 2043 -> 2038", dict(insurance=P22.a_ins_dp3_2026, maint=P22.a_maint_2026, reserve=0.0, nem_sunset=P22.a_nem_sunset_year, elec_post=P22.a_elec_post_nem_2026_eq)),
+            ("Building share of basis for depreciation", "40% -> 65%", dict(bldg=P22.building_share_a)),
+            ("Home-sale exclusion on exit", "married $500,000 -> single $250,000", dict(s121=P22.sec121_exclusion)),
+            ("Tax rate and parcel charges", "1.18% -> 1.19%; charges about 70% higher", dict(rate=P22.a_ad_valorem_rate, fixed=P22.a_direct_charges_2026)),
+        ]
+        grows, allkw = [], {}
+        for name, change, kw in groups:
+            r = ratios(E.run(E.with_(p, **kw), T_MAIN))
+            grows.append({"name": name, "change": change, "s3_s2_pct": r["s3_s2"] / base2["s3_s2"] - 1, "s3_s2": r["s3_s2"]})
+            allkw.update(kw)
+        rall = ratios(E.run(E.with_(p, **allkw), T_MAIN))
+        out["groups22"] = grows
+        out["all22"] = rall
+        out["their22"] = rep22[1]
+        at22 = P22.equity_after_tax
+        out["eq_after_tax"]["below_22a"] = sum(1 for v in at if v < at22)
+        out["r22"] = at22
     return out
 
 

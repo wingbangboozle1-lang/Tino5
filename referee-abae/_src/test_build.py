@@ -92,6 +92,14 @@ class Pages(unittest.TestCase):
         p = RP.params_from_desk(desk)
         official = {p.hox, p.allowance0}
         anchors = {p.v0, p.taxable0, p.fixed, p.insurance, p.water, p.maint, p.reserve, p.rent0, abs(p.elec_pre), p.elec_post} - official
+        m22 = RP.load_desk22()
+        if m22 is not None:                       # the second desk's household and assumption levels, read in memory
+            P22 = m22.DEFAULT_PARAMS
+            skip = {P22.prop19_allowance_2026, P22.estate_excl_2026, P22.estate_excl_2027, P22.sec121_exclusion, P22.estate_tax_rate}
+            for name in P22.__dataclass_fields__:
+                v = getattr(P22, name)
+                if isinstance(v, float) and abs(v) >= 1000 and v not in skip:
+                    anchors.add(v)
         found = set()
         for T in (2040, 2045, 2050):
             x = E.run(p, T)
@@ -109,6 +117,11 @@ class Pages(unittest.TestCase):
         blob = " ".join(visible(s)[0] for s in PAGES) + " ".join((OUT / f"{s}.html").read_text(encoding="utf-8") for s in PAGES)
         hits = [n for n in needles if re.search(r"(?<![\d,.])" + re.escape(n) + r"(?![\d,])", blob)]
         self.assertEqual(hits, [], "household-derived level appears in a page (values withheld)")
+
+    def test_no_owner_history_shaped_rows(self):
+        for s in PAGES:
+            a = C.analyse((OUT / f"{s}.html").read_text(encoding="utf-8"))
+            self.assertEqual(a["history_rows"], 0, s)
 
     def test_relative_links_resolve(self):
         for s in PAGES:

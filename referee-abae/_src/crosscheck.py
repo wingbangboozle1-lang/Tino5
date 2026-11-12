@@ -23,6 +23,8 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 import registry as R  # noqa: E402
 
+CITY_WORDS = ["cupertino", "san jose", "sunnyvale", "los altos", "saratoga"]
+COUNTY_WORDS = ["santa clara", "san francisco"]
 LIVE_BRANCHES = ["c098bf16", "22a32b17", "3a49d618", "966cc934", "7864052a"]
 
 
@@ -48,6 +50,16 @@ def is_published(path, excludes):
     if any(p.startswith(("_", ".")) for p in parts):
         return False
     return not any("/".join(parts[:i + 1]) in excludes or parts[i] in excludes for i in range(len(parts)))
+
+
+def past_year_money_rows(html_text):
+    """Rows whose first cell is a past year (2010-2025) and that carry a dollar amount: the shape of an owner history table."""
+    n = 0
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", html_text, flags=re.S):
+        cells = [re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, flags=re.S)]
+        if cells and re.fullmatch(r"20(1[0-9]|2[0-5])", cells[0]) and any(re.search(r"\$\s?\d", c) for c in cells[1:]):
+            n += 1
+    return n
 
 
 class Page(HTMLParser):
@@ -109,7 +121,7 @@ def analyse(html_text):
                 break
     stale = sorted(set(stale))
     return {"tables": p.tables, "rows": len(data_rows), "official": with_official, "other_only": with_other_only,
-            "no_link": none, "links": len(p.links), "non_official_hosts": non_official, "stale": stale, "text": text}
+            "no_link": none, "links": len(p.links), "non_official_hosts": non_official, "stale": stale, "text": text, "history_rows": past_year_money_rows(html_text)}
 
 
 def scan_tree(files, reader, excludes, label_of):
@@ -118,7 +130,7 @@ def scan_tree(files, reader, excludes, label_of):
     trees = {}
     for f in files:
         t = trees.setdefault(label_of(f), {"published": is_published(f, excludes), "pages": 0, "tables": 0, "rows": 0,
-                                           "official": 0, "other_only": 0, "no_link": 0, "stale": 0,
+                                           "official": 0, "other_only": 0, "no_link": 0, "stale": 0, "history": 0, "places": set(),
                                            "non_official_hosts": set(), "scan": Counter(), "files": []})
         txt = reader(f)
         a = analyse(txt)
@@ -126,6 +138,11 @@ def scan_tree(files, reader, excludes, label_of):
         for k in ("tables", "rows", "official", "other_only", "no_link"):
             t[k] += a[k]
         t["stale"] += len(a["stale"])
+        t["history"] += a["history_rows"]
+        low = a["text"].lower()
+        for w in CITY_WORDS + COUNTY_WORDS:
+            if w in low:
+                t["places"].add(w)
         t["non_official_hosts"] |= set(a["non_official_hosts"])
         for _, cat, _tok in ps.scan_text(txt):
             t["scan"][cat] += 1
@@ -191,7 +208,8 @@ if __name__ == "__main__":
     res = run_all()
     for name, t in sorted(res["trees"].items()):
         print(f"{name:22} published={str(t['published']):5} pages={t['pages']:3} rows={t['rows']:4} official={t['official']:4} "
-              f"other_only={t['other_only']:3} no_link={t['no_link']:3} stale={t['stale']} scan={dict(t['scan'])}")
+              f"other_only={t['other_only']:3} no_link={t['no_link']:3} stale={t['stale']} history_rows={t['history']} "
+              f"city_names={sorted(set(t['places']) & set(CITY_WORDS))} county_names={sorted(set(t['places']) & set(COUNTY_WORDS))} scan={dict(t['scan'])}")
     print()
     for r in res["matrix"]:
         print(r["id"], r["label"], r["cells"])

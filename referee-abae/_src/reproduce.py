@@ -29,6 +29,30 @@ def load_desk_module():
     return mod
 
 
+def load_desk22():
+    """Model module of the second published desk (22a32b17), if present in the working tree."""
+    path = ROOT / "tools-22a32b17" / "model_22a.py"
+    if not path.exists():
+        return None
+    spec = importlib.util.spec_from_file_location("desk22_model", path)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules["desk22_model"] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def params_from_22a(m, insurance):
+    """Map the second desk's parameters onto the reference engine. Anchors are used in memory only."""
+    P = m.DEFAULT_PARAMS
+    return E.Params(
+        v0=P.a_fmv_2026, taxable0=P.a_fbyv_2026, fixed=P.a_direct_charges_2026, insurance=insurance, water=P.a_water_2026,
+        maint=P.a_maint_2026, reserve=0.0, elec_pre=P.a_elec_2026, elec_post=P.a_elec_post_nem_2026_eq, rent0=P.a_rent_2026,
+        g=P.home_growth_a, infl=P.inflation, cap=P.prop13_cap, rate=P.a_ad_valorem_rate, allowance0=P.prop19_allowance_2026,
+        ag=P.prop19_allowance_growth, nem_sunset=P.a_nem_sunset_year, rent_g=P.a_rent_growth, vac=0.05, mgmt=0.07,
+        bldg=P.building_share_a, life=27.5, sell=P.a_sell_cost_rate, r=P.equity_after_tax, t_ord=P.rental_effective_tax_rate,
+        t_cg=P.ltcg_combined_rate, t_rec=P.recapture_combined_rate, s121=P.sec121_exclusion, h=25)
+
+
 def params_from_desk(d):
     a, s, w = d.A, d.STATUTORY_2026_2027, d.ASSUMPTIONS
     return E.Params(

@@ -141,12 +141,30 @@ def page_traceability(a):
     for name, mine, off, key in R.SPOT:
         srows.append([esc(name), td_num(f"{mine:g}"), td_num(f"{off:g}"), badge("ok", "equal") if mine == off else badge("bad", "differs"), A(key)])
     t3 = table(["Series value", "In the 3a49d618 transcription", "On the official page", "Result", "Official source"], srows)
+    sec22 = ""
+    if a.get("rep22"):
+        r22 = a["rep22"]
+        t4 = table(["Transfer year", "Sell path: reference engine vs desk", "Rent path: reference engine vs desk", "Occupy path: reference engine vs desk", "Official source"],
+                   [[f"{x['T']}", td_num(f"{x['s3'] * 100:+.1f}%"), td_num(f"{x['s2'] * 100:+.1f}%"), td_num(f"{x['s1'] * 100:+.1f}%"), links(["lta25009", "rp2635"])] for x in r22])
+        g = a["groups22"]
+        t5 = table(["Assumption that differs", "From the first desk to the second", "Effect on Sell \u00f7 Rent when changed alone", "Official source"],
+                   [[esc(x["name"]), esc(x["change"]), td_num(f"{x['s3_s2_pct'] * 100:+.1f}%"),
+                     links(["rp2635", "ftb26"] if "Tax" in x["name"] or "exclusion" in x["name"] else (["fred_a", "fhfa"] if "growth" in x["name"] else (["tsp", "erp56"] if "return" in x["name"] else ["lta25009"])))] for x in g]
+                  + [[esc("All differences together"), esc("first desk's parameters replaced by the second's"), td_num(f"{rx(a['all22']['s3_s2'])} against {rx(a['their22']['their_s3_s2'])} published by the second desk"), links(["tsp", "erp56"])]])
+        sec22 = f"""<h2>A second decision desk (22a32b17), run through the same engine</h2>
+<p>A second session published its own desk with its own model. The reference engine was fed that desk's parameters (read in memory from its model file) and its three paths compared with the desk's published ones.
+The sell path matches to rounding. The rent path is about 1% lower and the occupy path about 4% lower in the engine, because the second desk also includes effects on Property B (owner-occupancy changes there) that the reference engine omits.</p>
+{t4}
+<p>The two desks reach different headline levels for the same decision. Replacing the first desk's parameters with the second's, one group at a time, shows why:</p>
+{t5}
+<p>One assumption, the after-tax return on the reinvested proceeds, explains almost all of the gap. Everything else together moves the ratio by a few percent.</p>"""
     body = f"""<div class="note"><strong>What agreement means.</strong> The reference engine was written after the desk's model had been read, so
 C1 and C2 show that the stated mechanics give the stated numbers (replication). They do not validate the mechanics. Independence comes from
 C3&ndash;C7, from the constants register, and from the stress tests and historical windows on the next pages.</div>
 <h2>Model and arithmetic checks</h2>{t1}
 <h2>Statutory figures shown by the unpublished desk, against the official source</h2>
 <p>{sum(1 for d in R.DESK_STATUTORY if d[4].startswith('match'))} of {len(R.DESK_STATUTORY)} match. Mismatches are logged as X04 and X05 and passed to the desk's owner; the desk is excluded from the site build.</p>{t2}
+{sec22}
 <h2>Spot checks of series transcribed by another session</h2>
 <p>Session 3a49d618 transcribed official time series into <code>swan-3a49/data/</code>. The referee compared {len(R.SPOT)} values with official pages it opened itself; all {len(R.SPOT)} are equal. Other values in those files were not checked (see F-A7).</p>{t3}"""
     return page("traceability", "Desk check", "Do the published numbers follow from the stated rules, and do the statutory figures match the official sources?", body)
@@ -248,6 +266,8 @@ Windows overlap heavily, so they are not 25 independent trials: fifty years of d
     ["Windows in which Sell beats Rent when the portfolio is Treasuries only, taxed at the desk's ordinary rate", td_num(f"{a['win_bond_wins']} of {sm['n']}"), links(["cbo", "fred_a"])],
     ["Windows in which home-price growth exceeded the desk's 6.1% break-even", td_num(f"{a['win_home_above_6_1']} of {sm['n']}"), links(["fred_a", "fhfa"])],
     ["After-tax return needed for Sell to tie Rent: lowest to highest window", td_num(f"{pc(sm['r_star']['min'])} to {pc(sm['r_star']['max'])}"), links(["fred_a", "erp56"])],
+    ["After-tax equity return actually earned in the windows (all return taxed every year at the desk's capital-gain rate, approximation): lowest / median / highest", td_num(f"{pc(a['eq_after_tax']['min'])} / {pc(a['eq_after_tax']['median'])} / {pc(a['eq_after_tax']['max'])}"), links(["erp55", "erp56"])],
+    ["Windows in which that return fell below the first desk's 4.5% / the second desk's 5.6% assumption", td_num(f"{a['eq_after_tax']['below_desk']} / {a['eq_after_tax']['below_22a']} of {sm['n']}") if a['eq_after_tax']['below_22a'] is not None else td_num(f"{a['eq_after_tax']['below_desk']} of {sm['n']} (first desk only)"), links(["erp56", "tsp"])],
     ["Share of the equity return that could be lost to tax before Sell stops beating Rent", td_num(f"{pc(sm['tax_drag_tolerated']['min'], 0)} to {pc(sm['tax_drag_tolerated']['max'], 0)}"), links(["tc409", "tc559"])],
 ]) }
 <h2>Cross-checks on the equity series</h2>
@@ -298,6 +318,12 @@ def page_discrepancies(a):
         ["X08", badge("info", "low"), "Water growth differs between two parts of one desk",
          f"The projection table grows water costs 3.0% a year; the decision model grows them with inflation at 2.5%. Aligning them moves the sell-over-rent ratio from {rx(base['s3_s2'])} to {rx(wat['s3_s2'])} and changes no ordering. Both rates are above the CBO and SSA baselines.",
          links(["cbo", "ssa"])],
+        ["X12", badge("warn", "medium"), "Two published desks, two headline levels",
+         f"For the same decision the first desk shows Sell \u00f7 Rent of {rx(base['s3_s2'])} and the second {rx(a['their22']['their_s3_s2']) if a.get('their22') else 'n/a'}. Both rank Sell > Rent > Occupy and both show Treasuries-only losing to renting. The levels differ because of one assumption (after-tax return 4.5% against 5.6%, worth about {pc(a['groups22'][1]['s3_s2_pct'], 0) if a.get('groups22') else 'n/a'} on the ratio). The historical record does not choose between them (see Baselines). The integration session should show one set of assumptions or both as a range, not two unexplained levels.",
+         links(["tsp", "erp56", "cbo"])],
+        ["X13", badge("info", "low"), "One quantity, two figures inside the second desk",
+         "The second desk shows Property B's yearly property tax as one figure on its summary and inheritance pages and a different one (about 4% higher) on its properties, costs and projections pages. Owner of desk-22a32b17 to align them.",
+         links(["tax_collector"])],
         ["X10", badge("info", "low"), "Insurance assumption above published averages",
          f"The desk models A's insurance above both CDI averages ($2,339.99 statewide homeowners 2025; $1,571 California average, 27 October 2026); no county figure was found. Halving the cost moves the sell lead from {rx(base['s3_s2'])} to {rx(ins['s3_s2'])}; the ordering is unchanged. The desk flags this itself (F04).",
          links(["cdi", "cdi_eq"])],
@@ -308,6 +334,7 @@ def page_discrepancies(a):
 <ul>
 <li><strong>X01 - where the decision numbers live (medium).</strong> The brief asks for decision numbers rounded to $10 in the decision analysis. They exist only in an unpublished desk (excluded from the site build). The published pages show no decision numbers and name no winner. The two readings conflict. The choice is reversible and belongs to the owner or the integration session. This referee's pages show ratios, rates and counts only.</li>
 <li><strong>X09 - one guard for the exclusions (low).</strong> <code>scripts/verify_safe.py</code> requires only two exclusions in <code>_config.yml</code>. The exclusion of the unpublished desk and of the older trees rests on that file alone; removing one line would publish them with no check failing. <code>referee-abae/_src/crosscheck.py</code> reports which trees are published and scans them.</li>
+<li><strong>X14 - the published trees draw the privacy line in different places (medium).</strong> The landing pages (<code>public-safe/</code>) name no places and show no owner-derived figures. <code>desk-22a32b17/</code>, which is also published, names two counties and shows the model's household anchors rounded to $10, in line with the brief's rounding rule; <code>desk-b4f/</code> does the same but is excluded from the site build. Under the brief's literal rule (round to $10, report in the decision analysis) the second desk complies; under the stricter reading adopted for the landing pages it does not. Neither reading publishes ZIP codes, addresses, parcel numbers or multi-year assessment histories (checked: none found in any published tree). The decision is the owner's or the integration session's; excluding a tree is one line in <code>_config.yml</code>.</li>
 <li><strong>X11 - exclusion is not removal (medium, already known).</strong> Folders excluded from the site build remain readable in the public repository and its history (audit finding 1 in <code>audit-966/REPORT.md</code>). Fixing that needs the owner.</li>
 <li><strong>Not a discrepancy, checked and cleared:</strong> an early reading suggested BOE publications name conflicting claim forms (BOE-58-H and BOE-19-P). Publication 800-9 uses BOE-19-P and BOE-19-G for children and grandchildren and BOE-58-H for a surviving cotenant, so there is no conflict.</li>
 </ul>"""
@@ -352,11 +379,12 @@ def page_index(a):
     rows = [
         ["Published desk figures re-derived", f"{rep.get('row_ok', 0)} of {len(rep.get('row_checks', []))} reproduced within $10 (replication, not independent validation)", '<a href="traceability.html">Desk check</a>', links(["lta25009", "rp2635"])],
         ["Official constants register", f"{n_const} figures: {n_open} read in the official source, {n_sec} secondary-only", '<a href="constants.html">Official constants</a>', links(["ir2026133", "lta25009"])],
+        ["Second desk (22a32b17) reproduced with the same engine", (f"sell path matches to rounding, rent path within {abs(a['rep22'][1]['s2']) * 100:.0f}%, occupy path within {abs(a['rep22'][1]['s1']) * 100:.0f}% (it also models Property B effects); the gap between the two desks' headline ratios ({rx(a['base'][2045]['s3_s2'])} against {rx(a['their22']['their_s3_s2'])}) is almost entirely the after-tax return assumption (4.5% against 5.6%)") if a.get("rep22") else "second desk not present in this checkout", '<a href="traceability.html">Desk check</a>', links(["tsp", "erp56"])],
         ["Statutory figures shown by the unpublished desk", f"{n_d} compared: {n_match} match, {n_d - n_match} mismatch (X04, X05)", '<a href="traceability.html">Desk check</a>', links(["rp2632", "irs_new"])],
         ["Ordering under the desk's own assumptions", ("Sell &gt; Rent &gt; Occupy in all three transfer windows; Sell &divide; Rent " + rx(rng['s3_s2'][0]) + "&ndash;" + rx(rng['s3_s2'][1])) if rng else "not computed", '<a href="robustness.html">Robustness</a>', links(["lta25009", "cbo"])],
         ["Stress tests", f"{n_keep} of {max(len(scen) - 1, 0)} stresses keep the ordering; it fails or sits at break-even under {len(flips)} (Treasuries only; growth at the 6.1% break-even)", '<a href="robustness.html">Robustness</a>', links(["cbo", "fhfa"])],
         ["History: 25 rolling windows", f"Sell beats Rent in {a.get('win_s3_wins_full_drag', 0)} of {sm['n']} windows with equities, {a.get('win_bond_wins', 0)} of {sm['n']} with Treasuries only; the desk's 4% home growth is below every window", '<a href="baselines.html">Baselines</a>', links(["fred_a", "erp56"])],
-        ["Discrepancies logged", "8 against official sources or modelling choices, plus 3 process notes; none reverses the model's ordering", '<a href="discrepancies.html">Discrepancies</a>', links(["de300", "irs_new"])],
+        ["Discrepancies logged", "10 against official sources or modelling choices, plus 4 process notes; none reverses the model's ordering", '<a href="discrepancies.html">Discrepancies</a>', links(["de300", "irs_new"])],
         ["Flagged for review", "9 open items the referee could not confirm", '<a href="flagged.html">Flagged</a>', links(["p527", "pub8009"])],
     ]
     t = table(["Check", "Result", "Page", "Official source"], rows)
@@ -367,7 +395,7 @@ figures against official sources, and tries to break their conclusion with the s
 <div class="note"><strong>Bottom line.</strong> The desk's arithmetic follows from its own rules, and nearly all its statutory figures match official sources (two small errors, X04 and X05).
 Its ranking Sell &gt; Rent &gt; Occupy is robust to tax-rate choices, insurance, rent &plusmn;20%, a 27% price fall at transfer, and the terminal-tax convention. It is <em>not</em> robust to the
 return on the proceeds: reinvested in Treasuries only, selling loses to renting in every historical window, and if home prices grow about 6.1% a year renting ties selling.
-The ranking is therefore a bet on owning equities for 25 years, with inputs (rent, tax-rate area, transfer date) still unverified. Nothing here is a recommendation.</div>
+The ranking is therefore a bet on owning equities for 25 years, with inputs (rent, tax-rate area, transfer date) still unverified. The two published desks differ in level mostly because they assume different after-tax returns; the historical record places 4.5% below every 25-year window and 5.6% near the lower middle. Nothing here is a recommendation.</div>
 <h2>The three paths, in plain words</h2>
 {table(["Path", "What it means", "Official source"], [
     ["Occupy (S1)", "The heir moves into Property A. Property tax follows the Prop 19 family-home rules if the heir files for the homeowners' exemption within one year; the home-sale exclusion applies on a later sale.", links(["prop19", "hox", "tc701"])],
