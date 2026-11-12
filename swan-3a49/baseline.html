@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Baseline · Uneven-economy replay</title>
+<style>
+:root{--ink:#1c2430;--mute:#5a6675;--line:#d9dee5;--bg:#f6f7f9;--card:#fff;--accent:#1f5f8b;--warn:#8a4b00;--warnbg:#fff6e5}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header,main,footer{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding-top:22px}
+.kicker{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+h1{font-size:28px;line-height:1.2;margin:6px 0 10px}
+h2{font-size:20px;margin:34px 0 8px}
+h3{font-size:16px;margin:22px 0 6px}
+p{margin:8px 0}
+.lede{font-size:17px;max-width:70ch}
+nav{display:flex;flex-wrap:wrap;gap:6px 8px;margin:14px 0 6px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav a{padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--accent);font-size:14px}
+nav a.on{background:var(--accent);color:#fff}
+nav a.back{margin-left:auto;color:var(--mute)}
+a{color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card .big{font-size:26px;font-weight:650;line-height:1.15;margin:2px 0 4px}
+.card .lab{font-size:13px;color:var(--mute)}
+.card .src{font-size:12px;margin-top:6px}
+.note{background:var(--warnbg);border-left:4px solid #d08a1f;padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;color:#4a3200}
+.plain{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0}
+.scroll{overflow-x:auto;margin:10px 0 6px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#eef1f5;font-weight:600;font-size:13px}
+tbody tr:last-child td{border-bottom:0}
+table.num td:not(:first-child):not(:last-child){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.num th:not(:first-child):not(:last-child){text-align:right}
+td:last-child{font-size:12.5px;min-width:150px}
+.rng{color:var(--mute);font-size:12.5px;white-space:nowrap}
+.neg{color:#a11}
+.stat{white-space:nowrap}
+.small{font-size:13px;color:var(--mute)}
+ul{padding-left:20px;margin:8px 0}
+li{margin:4px 0}
+footer{margin-top:40px;padding-top:14px;padding-bottom:40px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+</style></head><body>
+<header><div class="kicker">Estate decision desk · black-swan section · public · anonymized</div>
+<h1>Baseline</h1><nav><a href="index.html">Overview</a><a href="replay.html">Replay results</a><a href="paths.html">Year by year</a><a href="baseline.html" class="on">Baseline</a><a href="sources.html">Sources and method</a><a href="flagged.html">Flagged for review</a><a class="back" href="../public-safe/index.html">Main dashboard</a></nav></header>
+<main>
+<p class="lede">A baseline is the calm case: one steady rate a year. Official forecasters publish steady long-run rates for consumer prices and interest rates. None retrieved for this section publishes a long-run rate for local home prices, rents or stock returns, so those cells are blank rather than filled in.</p>
+<h2>Official long-run assumptions</h2>
+<div class="scroll"><table class=""><thead><tr>
+<th>Measure</th>
+<th>Official assumption</th>
+<th>Period it covers</th>
+<th>Recorded average 1977 to 2025</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr><td>Consumer prices (CPI)</td><td>2.8% in 2026, 2.4% in 2027, then 2.3% a year</td><td>2026 to 2036, fourth quarter to fourth quarter</td><td>3.6% a year</td><td><a href="https://www.cbo.gov/system/files/2026-02/61882-Executive-Summary.pdf">CBO outlook 2026-2036</a> · <a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>Consumer prices (CPI-W), long range</td><td>2.4% a year (range 1.8% to 3.0%)</td><td>2036 to 2100</td><td>3.6% a year (CPI-U)</td><td><a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a> · <a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>3-month Treasury bill rate</td><td>3.3% in 2026, 3.2% for 2027 to 2030, 3.1% for 2031 to 2036</td><td>2026 to 2036, annual average</td><td>4.3% average; 4.2% compounded</td><td><a href="https://www.cbo.gov/system/files/2026-02/61882-Executive-Summary.pdf">CBO outlook 2026-2036</a> · <a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>10-year Treasury note rate</td><td>4.1% in 2026, 4.3% for 2027 to 2030, 4.4% for 2031 to 2036</td><td>2026 to 2036, annual average</td><td>5.8% average</td><td><a href="https://www.cbo.gov/system/files/2026-02/61882-Executive-Summary.pdf">CBO outlook 2026-2036</a> · <a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>Real interest rate on new Trust Fund issues</td><td>2.3% (range 1.8% to 2.8%)</td><td>2044 and later</td><td></td><td><a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a></td></tr>
+<tr><td>Average covered wage, nominal</td><td>3.57% a year (range 2.34% to 4.79%)</td><td>2036 to 2100</td><td></td><td><a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a></td></tr>
+<tr><td>Real GDP</td><td>2.2% in 2026, then 1.8% a year</td><td>2026 to 2036</td><td></td><td><a href="https://www.cbo.gov/system/files/2026-02/61882-Executive-Summary.pdf">CBO outlook 2026-2036</a></td></tr>
+<tr><td>Home prices, Property A metro</td><td></td><td>No official long-run forecast retrieved (flag S09)</td><td>6.7% a year</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>Home prices, Property B metro</td><td></td><td>No official long-run forecast retrieved (flag S09)</td><td>6.5% a year</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>Home prices, California</td><td></td><td>No official long-run forecast retrieved (flag S09)</td><td>6.0% a year</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>Area rent index</td><td></td><td>No official long-run forecast retrieved (flag S09)</td><td>4.7% a year</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>Stocks with dividends</td><td></td><td>No official long-run forecast retrieved (flag S09)</td><td>11.5% a year (approximate, flag S02)</td><td><a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table55.pdf">ERP 2026 B-55</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table56.pdf">B-56</a></td></tr>
+<tr><td>Prop 13 yearly factor</td><td>At most 2%, by the state constitution</td><td>Every year</td><td>1.81% average</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26002.pdf">BOE LTA 2026/002</a></td></tr>
+</tbody></table></div>
+<div class="note"><strong>The recorded averages are history, not a forecast.</strong> The record starts with consumer prices rising 13.5% in 1980 and a 10-year Treasury yield of 13.91% in 1981, and ends with both far lower. Nothing says the next 49 years will repeat it.</div>
+<h2>What a steady rate gives for the indexed amounts</h2><p>Only the estate exclusion can be projected from an official long-run rate, because it is tied to consumer prices. It is shown at the Trustees' intermediate, low and high inflation assumptions, next to the replay.</p>
+<div class="scroll"><table class="num"><thead><tr>
+<th>Year</th>
+<th>Exclusion at 2.4% a year</th>
+<th>At 1.8%</th>
+<th>At 3.0%</th>
+<th>Replay, all 49 paths</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr><td>2040</td><td>$20,906,950</td><td>$19,255,740</td><td>$22,688,850</td><td>$22,077,560 <span class="rng">($18,723,490 to $34,061,100)</span></td><td><a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a> · <a href="https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm">P.L. 119-21 sec. 70106</a></td></tr>
+<tr><td>2045</td><td>$23,539,130</td><td>$21,052,280</td><td>$26,302,590</td><td>$25,848,890 <span class="rng">($21,582,570 to $40,917,750)</span></td><td><a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a> · <a href="https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm">P.L. 119-21 sec. 70106</a></td></tr>
+<tr><td>2050</td><td>$26,502,710</td><td>$23,016,430</td><td>$30,491,910</td><td>$31,535,480 <span class="rng">($24,185,380 to $48,599,930)</span></td><td><a href="https://www.ssa.gov/oact/tr/2026/II_C_assump.html">Social Security Trustees 2026</a> · <a href="https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm">P.L. 119-21 sec. 70106</a></td></tr>
+</tbody></table></div>
+<p class="small">The steady-rate columns compound from <span class="stat">$15,000,000</span> in 2026 and ignore the rounding rule in the statute (flag S07). The replay column lags one year.</p>
+<h2>Steady rate against uneven path, same average</h2><p>Each of the 49 paths has exactly the same 49 yearly changes, so each ends 2075 at the same level. The table shows how far apart they are on the way, which is when the transfer happens.</p>
+<div class="scroll"><table class="num"><thead><tr>
+<th>Transfer at end of</th>
+<th>Steady path at the recorded average</th>
+<th>Lowest replay</th>
+<th>Middle replay</th>
+<th>Highest replay</th>
+<th>Lowest against steady</th>
+<th>Highest against steady</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr><td>2040</td><td>2.48×</td><td>1.32×</td><td>2.44×</td><td>4.94×</td><td>-46.9%</td><td>98.9%</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>2045</td><td>3.44×</td><td>1.76×</td><td>3.75×</td><td>6.64×</td><td>-48.8%</td><td>93.3%</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>2050</td><td>4.76×</td><td>2.55×</td><td>4.91×</td><td>8.77×</td><td>-46.4%</td><td>84.4%</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+</tbody></table></div>
+</main>
+<footer><p><strong>Not advice.</strong> This is arithmetic on published historical series. It is not a forecast and not legal, tax or investment advice.</p>
+<p><strong>Privacy.</strong> No household figure is used or shown. Results are per dollar, per $1,000,000, or for round reference home sizes. Property A is the inherited home; Property B is the home already owned.</p>
+<p>Sources retrieved 12 November 2026. Built by <code>swan-3a49/build.py</code> from the series files listed under <a href="sources.html">Sources and method</a>.</p></footer>
+</body></html>

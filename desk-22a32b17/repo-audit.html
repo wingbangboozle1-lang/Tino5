@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Line-by-Line Repository Audit, Link Health &amp; Model Reconciliation — California Two-Property Inheritance Decision Desk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-top">
+        <div>
+          <p class="brand-title">California Two-Property Trust &amp; Inheritance Decision Desk</p>
+          <p class="brand-sub">Property A (Inherited Santa Clara County SFR) &amp; Property B (Already-Owned San Francisco County 3-Unit) · 2026–2076 Horizon</p>
+        </div>
+        <div class="privacy-pill">Privacy-Safe Placeholders · Nearest-$10 Rounded · 45 Official Sources Verified 2026-11-12</div>
+      </div>
+      <nav class="topnav" aria-label="Primary Navigation">
+        <a href="index.html">Executive Summary</a>
+        <a href="properties-and-tax.html">Properties &amp; Prop 19</a>
+        <a href="operating-costs.html">Operating Costs</a>
+        <a href="inheritance-and-estate-tax.html">Estate &amp; Cash Tax</a>
+        <a href="decision-scenarios.html">Decision Matrix</a>
+        <a href="projections-50yr.html">50-Yr Projections</a>
+        <a href="black-swan-economics.html">Black Swan Regimes</a>
+        <a href="inheritance-process.html">Trust Walkthrough</a>
+        <a href="law-watch.html">Law Watch</a>
+        <a href="repo-audit.html" class="active">Repo Audit</a>
+        <a href="flagged.html">Flagged (18)</a>
+        <a href="sources.html">Sources (45)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <span class="eyebrow">Independent Verification &amp; QA</span>
+      <h1>Line-by-Line Repository Audit, Link Health &amp; Model Reconciliation</h1>
+      <p class="lead">Verification of repository claims, live HTTP-200 check of all cited official URLs (catching 3 moved/404 county & municipal URLs), privacy-gate audit, and mathematical model improvements.</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>1. Line-by-Line Repository Audit Summary</h2>
+      <p>We audited the repository's existing pages, scripts, data artifacts, Jekyll configuration (<code>_config.yml</code>), and CI gate (<code>.github/workflows/privacy-pages.yml</code>) against live official <code>.gov</code> and statutory sources on November 12, 2026 (respecting parallel-session file scopes by never modifying files owned by sibling sessions and implementing all corrections cleanly in <code>desk-22a32b17/</code> and <code>tools-22a32b17/</code>):</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Audit Dimension</th>
+              <th>Repository Finding</th>
+              <th>Verification Outcome &amp; Action Taken in <code>desk-22a32b17/</code></th>
+              <th>Status</th>
+              <th>Official Sources</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Broken HTTP 404 Official Links in <code>public-safe/</code></strong></td>
+              <td>Three <code>.gov</code> URLs cited in <code>public-safe/</code> returned HTTP 404 when fetched live on 2026-11-12: (a) <code>sf.gov/reports--march-2026--allowable-annual-rent-increases-2026-2027</code>; (b) <code>asr.santaclaracounty.gov/learn-more-about-proposition-19-parent-child</code>; (c) <code>asr.santaclaracounty.gov/decline-value-prop-8</code>.</td>
+              <td>Replaced across all 12 pages of <code>desk-22a32b17/</code> with live HTTP-200 verified official URLs: <code>sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit</code>, <code>asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2</code>, and <code>R&amp;TC §51</code> + <code>SCC 2025–26 Annual Report</code> (<a href="flagged.html#F-17">Flag F-17</a>).</td>
+              <td><span class="badge verified">Fixed in 22a Desk</span></td>
+              <td><a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" target="_blank" rel="noopener noreferrer">SF Rent Board (200 OK)</a> · <a href="https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2" target="_blank" rel="noopener noreferrer">SCC Prop 19 (200 OK)</a> · <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&amp;sectionNum=51." target="_blank" rel="noopener noreferrer">R&amp;TC §51</a></td>
+            </tr>
+            <tr>
+              <td><strong>2. Reassessed Tax Scaling (Ad Valorem vs. Direct Charges)</strong></td>
+              <td>Dividing Property A's $7,210 bill by the ~$550,000 banded FBYV yields ~1.31%—which bundles ~1.19% ad valorem rate with ~$660/yr fixed parcel charges. Multiplying $6.5M reassessed FMV by 1.31% overstates reassessed tax by ~$7,800/yr.</td>
+              <td><code>model_22a.py</code> explicitly separates <strong>1.19% ad valorem rate</strong> (which scales with reassessed taxable value) from <strong>$660/yr fixed direct charges</strong> (which do not jump on reassessment).</td>
+              <td><span class="badge verified">Upgraded in model_22a</span></td>
+              <td><a href="https://boe.ca.gov/pdf/pub800-10.pdf" target="_blank" rel="noopener noreferrer">BOE Pub 800-10</a> · <a href="https://files.santaclaracounty.gov/exjcpb1521/2025-11/annual_report_2025-2026.pdf" target="_blank" rel="noopener noreferrer">SCC Annual Report</a></td>
+            </tr>
+            <tr>
+              <td><strong>3. 2027 IRS Estate &amp; Gift Inflation Release (Nov 5, 2026)</strong></td>
+              <td>Prior tables stopped at the 2026 <span class="stat">$15,000,000</span> / <span class="stat">$19,000</span> statutory figures and projected 2027 purely by assumption.</td>
+              <td>Incorporated official <strong>IRS IR-2026-133 / Rev. Proc. 2026-35</strong> (Nov 5, 2026): enacted 2027 estate exclusion = <span class="stat">$15,480,000</span> (+3.20%) and 2027 annual gift exclusion = <span class="stat">$20,000</span>.</td>
+              <td><span class="badge verified">Verified Official 2027</span></td>
+              <td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" target="_blank" rel="noopener noreferrer">IRS Rev. Proc. 2026-35</a></td>
+            </tr>
+            <tr>
+              <td><strong>4. Rev. Rul. 2023-2 Irrevocable Trust Basis Check</strong></td>
+              <td>Assuming IRC §1014 step-up automatically applies to every trust ignores whether the settlor used an excluded irrevocable grantor trust.</td>
+              <td>Quantified exact <strong>$2,280,000+</strong> immediate tax penalty under <strong>IRS Rev. Rul. 2023-2</strong> if step-up is lost, added unit test, and flagged trust verification (<a href="flagged.html#F-03">Flag F-03</a>).</td>
+              <td><span class="badge verified">Verified &amp; Tested</span></td>
+              <td><a href="https://www.irs.gov/pub/irs-drop/rr-23-02.pdf" target="_blank" rel="noopener noreferrer">IRS Rev. Rul. 2023-2</a></td>
+            </tr>
+            <tr>
+              <td><strong>5. Rental Depreciation (§168 / §1250) &amp; §121 Exclusion</strong></td>
+              <td>Omitting 27.5-year rental building depreciation understates S2 annual after-tax cash flow while omitting §1250 25% recapture + CA tax overstates terminal liquidation proceeds.</td>
+              <td><code>model_22a.py</code> models both 27.5-yr MACRS building depreciation + passive-loss carryforward and terminal IRC §1250 recapture (S2) as well as IRC §121 principal-residence exclusion (S1a/S1b).</td>
+              <td><span class="badge verified">Upgraded in model_22a</span></td>
+              <td><a href="https://www.irs.gov/publications/p527" target="_blank" rel="noopener noreferrer">IRS Pub 527</a> · <a href="https://www.irs.gov/publications/p523" target="_blank" rel="noopener noreferrer">IRS Pub 523</a></td>
+            </tr>
+            <tr>
+              <td><strong>6. Repository Privacy &amp; Nearest-$10 Rounding Gate</strong></td>
+              <td><code>scripts/privacy_scan.py</code> and <code>scripts/verify_safe.py</code> enforce $10 rounding and zero PII across tracked files.</td>
+              <td>Verified <strong>0 privacy findings</strong> across the entire repository (including <code>desk-22a32b17/</code> and <code>tools-22a32b17/</code> even with <code>--minor</code> enabled) and banded roll baselines to prevent parcel lookup.</td>
+              <td><span class="badge verified">0 Findings — PASS</span></td>
+              <td><a href="https://boe.ca.gov/pdf/pub800-10.pdf" target="_blank" rel="noopener noreferrer">BOE Roll Privacy</a> · <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&amp;sectionNum=63.2." target="_blank" rel="noopener noreferrer">R&amp;TC §63.2(c)</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer class="footer">
+    <p><strong>Privacy, Rounding &amp; Verification Notice:</strong> All personal identifiers, street addresses, parcel numbers, ZIP codes, and municipal/neighborhood identifiers have been replaced with neutral county-level placeholders (<strong>Property A</strong> in Santa Clara County and <strong>Property B</strong> in San Francisco County). All non-statutory dollar figures and model projections are rounded to the nearest <strong>$10</strong> so no value can be reverse-matched to public assessment rolls. Unconfirmed parcel, trust, or owner records are left blank (<code>—</code>) and logged on <a href="flagged.html">Flagged for Review</a>. All statutory citations verified against official <code>.gov</code> sources on 2026-11-12 (<a href="../public-safe/index.html">Sibling Desk</a>).</p>
+  </footer>
+</body>
+</html>
