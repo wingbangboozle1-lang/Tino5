@@ -113,5 +113,58 @@ class DeskReproduction(unittest.TestCase):
                 self.assertLessEqual(abs(mine[a] - theirs[b]), 10.0, f"{a} {T}")
 
 
+class Conventions(unittest.TestCase):
+    def test_invalid_modes_raise(self):
+        with self.assertRaises(ValueError):
+            E.run(P(flow_timing="middle"))
+        with self.assertRaises(ValueError):
+            E.run(P(loss_mode="other"))
+
+    def test_flow_timing_matters_only_when_return_positive(self):
+        a, b = E.run(P(r=0.0, flow_timing="start")), E.run(P(r=0.0, flow_timing="end"))
+        for k in ("S1", "S2", "S3"):
+            self.assertAlmostEqual(a[k], b[k], places=6)
+        a, b = E.run(P(r=0.05, flow_timing="start")), E.run(P(r=0.05, flow_timing="end"))
+        self.assertGreater(b["S1"], a["S1"])            # costs compound for one year less
+        self.assertAlmostEqual(a["S3"], b["S3"], places=6)   # the sale proceeds are compounded for the whole horizon either way
+
+    def test_fixed_charge_growth_only_changes_tax_paths(self):
+        a, b = E.run(P(fixed_g=0.0)), E.run(P(fixed_g=0.05))
+        self.assertGreater(a["S1"], b["S1"])
+        self.assertAlmostEqual(a["S3"], b["S3"], places=6)
+
+    def test_shield_mode_formula(self):
+        p = P(loss_mode="shield", rent0=20_000.0)       # low rent: the rental path runs at a loss every year
+        r = E.run(p)
+        self.assertGreater(r["suspended_loss_end"], 0.0)
+        self.assertLess(E.run(p)["S2"], E.run(P(rent0=20_000.0, loss_mode="carry"))["S2"] + 1e12)   # runs, finite
+
+    def test_default_conventions_unchanged(self):
+        d = E.run(P())
+        e = E.run(P(flow_timing="start", fixed_g=-1.0, loss_mode="carry"))
+        for k in ("S1", "S2", "S3"):
+            self.assertEqual(d[k], e[k])
+
+
+class SecondDesk(unittest.TestCase):
+    def setUp(self):
+        sys.path.insert(0, str(HERE))
+        import reproduce as RP
+        self.RP = RP
+        self.m = RP.load_desk22()
+        if self.m is None:
+            self.skipTest("second desk model not present in this checkout")
+
+    def test_reproduces_with_its_own_conventions(self):
+        P22 = self.m.DEFAULT_PARAMS
+        for T in (2040, 2045, 2050):
+            th = self.m.evaluate_strategies(transfer_year=T, horizon_years=25)
+            ph = self.RP.params_from_22a(self.m, P22.a_ins_ho3_2026)
+            pd = self.RP.params_from_22a(self.m, P22.a_ins_dp3_2026)
+            self.assertLessEqual(abs(E.run(ph, T)["S3"] - th["S3a"]["liquidated_wealth"]), 10.0, T)
+            self.assertLessEqual(abs(E.run(pd, T)["S2"] - th["S2"]["liquidated_wealth"]), 10.0, T)
+            self.assertLess(abs(E.run(ph, T)["S1"] / th["S1a"]["liquidated_wealth"] - 1), 0.005, T)   # residue: effects on the other property
+
+
 if __name__ == "__main__":
     unittest.main()

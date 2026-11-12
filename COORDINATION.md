@@ -1085,7 +1085,7 @@ listed on `referee-abae/flagged.html`. Privacy-scan results are reported as coun
 
 **Delivered (scope `referee-abae/**` only).** Published pages `referee-abae/{index,constants,traceability,robustness,baselines,discrepancies,flagged}.html`
 + `style.css`; generator, engine and checks in `referee-abae/_src/**` (not published: Jekyll skips `_`). `python3 -m unittest discover -s referee-abae/_src`
-runs 23 checks; `python3 referee-abae/_src/build.py` rebuilds the pages; `python3 referee-abae/_src/crosscheck.py` scans every HTML tree.
+runs 29 checks; `python3 referee-abae/_src/build.py` rebuilds the pages; `python3 referee-abae/_src/crosscheck.py` scans every HTML tree.
 Pages show **rates, ratios, counts and pass/fail only: no household dollar level, no place name** (a test fails the build if a desk anchor reaches a page).
 Withdraw the whole site with one line `- referee-abae` in `_config.yml` if the owner prefers no published ordering.
 
@@ -1096,9 +1096,11 @@ Council DE-300; Treasurer & Tax Collector (secured rate); CDI (two pages); CBO O
 Series transcribed by 3a49d618: 16 values compared with the official pages, all equal.
 
 **Numeric results.** (1) desk-b4f's 15 published figures reproduce within $10 (replication: the engine was written after reading that model, so this is not independent
-validation); break-evens 3.03% / 6.10% reproduce. (2) desk-22a32b17 run through the same engine with its own parameters: sell path exact, rent path -1%, occupy path -4% (it also
-models Property B effects). (3) The two desks differ in level (sell/rent ratio 1.43 vs 1.77) almost only because of the after-tax return assumption (4.5% vs 5.6%); the other
-nine differences together move the ratio by a few percent. (4) The ordering sell > rent > occupy holds in 15 of 17 stresses; it fails under Treasuries-only reinvestment (selling beats renting in 0 of 25
+validation); break-evens 3.03% / 6.10% reproduce. (2) desk-22a32b17 run through the same engine with its own parameters **and its own three modelling conventions** (each yearly cash flow compounded
+at year end; parcel charges growing 1.5% a year; suspended passive losses valued at the ordinary rate at sale; all three are engine options now): sell and rent paths
+exact (<$10), occupy path within 0.3% (owner-occupancy effects on Property B, not modelled). On the first desk's conventions its occupy path would be 4-5% off and rent ~1% off.
+(3) The two desks differ in level (sell/rent ratio 1.43 vs 1.77) almost only because of the after-tax return assumption (4.5% vs 5.6%, +30% on the ratio); the other ten parameter
+groups and the three conventions together move it about -4%, and with every difference adopted the engine returns 22a's published ratio (1.7707 vs 1.7707). (4) The ordering sell > rent > occupy holds in 15 of 17 stresses; it fails under Treasuries-only reinvestment (selling beats renting in 0 of 25
 historical windows with Treasuries, 25 of 25 with equities) and ties at 6.1% a year home-price growth. The historical after-tax equity return (approximation, F-A8) ranged 4.7%-8.5% over 25 windows; none earned less than 4.5%, 5 of 25 earned less than 5.6%.
 
 **Irregularities (details and official links on `referee-abae/discrepancies.html`).**
@@ -1111,7 +1113,7 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **Privacy results (counts only).** `scripts/privacy_scan.py`: 0 findings repo-wide including `referee-abae/`; `scripts/verify_safe.py`: PASS. `crosscheck.py` over published trees:
 `public-safe` 11 pages / 80 rows / all official links, no place names; `desk-22a32b17` 12 / 303 / all official, **two county names, household anchors at $10**, no city names;
-`swan-3a49` 6 / 282 / all official; `referee-abae` 7 / 186 / all official. Across all four: no ZIP-like token, no address/parcel/e-mail/phone shapes, no past-year dollar rows
+`swan-3a49` 6 / 282 / all official; `referee-abae` 7 / 190 / all official. Across all four: no ZIP-like token, no address/parcel/e-mail/phone shapes, no past-year dollar rows
 (the shape of an assessment/tax history table), no superseded official figure presented as current.
 
 **Requests (not acted on; other sessions' files).**

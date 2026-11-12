@@ -41,8 +41,12 @@ def load_desk22():
     return mod
 
 
-def params_from_22a(m, insurance):
-    """Map the second desk's parameters onto the reference engine. Anchors are used in memory only."""
+def params_from_22a(m, insurance, own_conventions=True):
+    """Map the second desk's parameters onto the reference engine. Anchors are used in memory only.
+
+    own_conventions=True also adopts that desk's three modelling conventions (year-end compounding of yearly flows,
+    1.5% growth of parcel charges, suspended passive losses valued at the ordinary rate at sale); False keeps the
+    reference engine's defaults, which follow the first desk."""
     P = m.DEFAULT_PARAMS
     return E.Params(
         v0=P.a_fmv_2026, taxable0=P.a_fbyv_2026, fixed=P.a_direct_charges_2026, insurance=insurance, water=P.a_water_2026,
@@ -50,7 +54,8 @@ def params_from_22a(m, insurance):
         g=P.home_growth_a, infl=P.inflation, cap=P.prop13_cap, rate=P.a_ad_valorem_rate, allowance0=P.prop19_allowance_2026,
         ag=P.prop19_allowance_growth, nem_sunset=P.a_nem_sunset_year, rent_g=P.a_rent_growth, vac=0.05, mgmt=0.07,
         bldg=P.building_share_a, life=27.5, sell=P.a_sell_cost_rate, r=P.equity_after_tax, t_ord=P.rental_effective_tax_rate,
-        t_cg=P.ltcg_combined_rate, t_rec=P.recapture_combined_rate, s121=P.sec121_exclusion, h=25)
+        t_cg=P.ltcg_combined_rate, t_rec=P.recapture_combined_rate, s121=P.sec121_exclusion, h=25,
+        **(dict(fixed_g=0.015, flow_timing="end", loss_mode="shield") if own_conventions else {}))
 
 
 def params_from_desk(d):

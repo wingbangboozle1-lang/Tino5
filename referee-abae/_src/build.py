@@ -144,20 +144,45 @@ def page_traceability(a):
     sec22 = ""
     if a.get("rep22"):
         r22 = a["rep22"]
-        t4 = table(["Transfer year", "Sell path: reference engine vs desk", "Rent path: reference engine vs desk", "Occupy path: reference engine vs desk", "Official source"],
-                   [[f"{x['T']}", td_num(f"{x['s3'] * 100:+.1f}%"), td_num(f"{x['s2'] * 100:+.1f}%"), td_num(f"{x['s1'] * 100:+.1f}%"), links(["lta25009", "rp2635"])] for x in r22])
+        pc1 = lambda v: td_num(f"{v * 100:+.1f}%")
+        t4 = table(["Transfer year", "Sell path", "Rent path", "Occupy path", "Sell path ", "Rent path ", "Occupy path ", "Official source"],
+                   [[f"{x['T']}", pc1(x['own']['s3']), pc1(x['own']['s2']), pc1(x['own']['s1']), pc1(x['dflt']['s3']), pc1(x['dflt']['s2']), pc1(x['dflt']['s1']), links(["lta25009", "rp2635"])] for x in r22])
         g = a["groups22"]
-        t5 = table(["Assumption that differs", "From the first desk to the second", "Effect on Sell \u00f7 Rent when changed alone", "Official source"],
-                   [[esc(x["name"]), esc(x["change"]), td_num(f"{x['s3_s2_pct'] * 100:+.1f}%"),
-                     links(["rp2635", "ftb26"] if "Tax" in x["name"] or "exclusion" in x["name"] else (["fred_a", "fhfa"] if "growth" in x["name"] else (["tsp", "erp56"] if "return" in x["name"] else ["lta25009"])))] for x in g]
-                  + [[esc("All differences together"), esc("first desk's parameters replaced by the second's"), td_num(f"{rx(a['all22']['s3_s2'])} against {rx(a['their22']['their_s3_s2'])} published by the second desk"), links(["tsp", "erp56"])]])
+
+        SRC22 = {
+            "Home-price growth": ["fred_a", "fhfa"],
+            "After-tax return on reinvested proceeds": ["tsp", "erp56"],
+            "Selling cost": ["tc701"],
+            "Tax rates on rent and depreciation recapture": ["rp2635", "ftb26"],
+            "Prop 19 allowance growth": ["lta25009"],
+            "Rent level and vacancy plus management": ["hud_fmr"],
+            "Insurance, maintenance, solar-credit end year": ["cdi", "cdi_eq"],
+            "Building share of basis for depreciation": ["tc704", "p527"],
+            "Home-sale exclusion on exit": ["tc701"],
+            "Tax rate and parcel charges": ["county_rates"],
+            "Convention: when a year's cash flow starts earning the return": ["tsp"],
+            "Convention: growth of direct parcel charges": ["county_rates"],
+            "Convention: passive losses on the rental path": ["tc425"],
+        }
+
+        def srcs(x):
+            return links(SRC22[x["name"]])
+
+        t5 = table(["Difference between the desks", "From the first desk to the second", "Effect on Sell \u00f7 Rent when changed alone", "Official source"],
+                   [[esc(x["name"]), esc(x["change"]), td_num(f"{x['s3_s2_pct'] * 100:+.1f}%"), srcs(x)] for x in g]
+                   + [[esc("All parameter differences together"), esc("the first desk's parameters replaced by the second's, conventions unchanged"),
+                       td_num(f"{rx(a['all22_params']['s3_s2'])}"), links(["tsp", "erp56"])],
+                      [esc("All parameter and convention differences together"), esc("the engine fully on the second desk's inputs and conventions"),
+                       td_num(f"{a['all22']['s3_s2']:.4f} against {a['their22']['their_s3_s2']:.4f} published by the second desk"), links(["tsp", "erp56"])]])
         sec22 = f"""<h2>A second decision desk (22a32b17), run through the same engine</h2>
 <p>A second session published its own desk with its own model. The reference engine was fed that desk's parameters (read in memory from its model file) and its three paths compared with the desk's published ones.
-The sell path matches to rounding. The rent path is about 1% lower and the occupy path about 4% lower in the engine, because the second desk also includes effects on Property B (owner-occupancy changes there) that the reference engine omits.</p>
+Columns 2 to 4 use that desk's three modelling conventions, which the engine offers as options (see the third table). Columns 5 to 7 use the engine's defaults, which follow the first desk.
+The sell and rent paths then match exactly; the occupy path is within {max(abs(x['own']['s1']) for x in r22) * 100:.1f}%, the residue being the owner-occupancy effect on the other property that the engine does not model.
+Under the first desk's conventions the occupy path would be about {abs(r22[1]['dflt']['s1']) * 100:.0f}% off and the rent path about {abs(r22[1]['dflt']['s2']) * 100:.0f}% off, so the conventions are not a detail.</p>
 {t4}
-<p>The two desks reach different headline levels for the same decision. Replacing the first desk's parameters with the second's, one group at a time, shows why:</p>
+<p>The two desks reach different headline levels for the same decision. Replacing the first desk's inputs with the second's, one group at a time, shows why. Every difference is listed; with all of them adopted the engine's ratio equals the second desk's published ratio.</p>
 {t5}
-<p>One assumption, the after-tax return on the reinvested proceeds, explains almost all of the gap. Everything else together moves the ratio by a few percent.</p>"""
+<p>One assumption, the after-tax return on the reinvested proceeds, explains almost all of the gap. All the other parameter groups and the three conventions together move the ratio by about {a['others22_pct'] * 100:+.0f}% from that point.</p>"""
     body = f"""<div class="note"><strong>What agreement means.</strong> The reference engine was written after the desk's model had been read, so
 C1 and C2 show that the stated mechanics give the stated numbers (replication). They do not validate the mechanics. Independence comes from
 C3&ndash;C7, from the constants register, and from the stress tests and historical windows on the next pages.</div>
@@ -319,7 +344,7 @@ def page_discrepancies(a):
          f"The projection table grows water costs 3.0% a year; the decision model grows them with inflation at 2.5%. Aligning them moves the sell-over-rent ratio from {rx(base['s3_s2'])} to {rx(wat['s3_s2'])} and changes no ordering. Both rates are above the CBO and SSA baselines.",
          links(["cbo", "ssa"])],
         ["X12", badge("warn", "medium"), "Two published desks, two headline levels",
-         f"For the same decision the first desk shows Sell \u00f7 Rent of {rx(base['s3_s2'])} and the second {rx(a['their22']['their_s3_s2']) if a.get('their22') else 'n/a'}. Both rank Sell > Rent > Occupy and both show Treasuries-only losing to renting. The levels differ because of one assumption (after-tax return 4.5% against 5.6%, worth about {pc(a['groups22'][1]['s3_s2_pct'], 0) if a.get('groups22') else 'n/a'} on the ratio). History (approximation, see Baselines) puts both assumptions in the lower part of the 25-year record: {a['eq_after_tax']['below_desk']} of 25 windows earned less than 4.5% after tax and {a['eq_after_tax']['below_22a']} of 25 earned less than 5.6%. A forward-looking return is a judgement for the owner or the integration session; nothing here verifies either figure. The integration session should show one set of assumptions or both as a range, not two unexplained levels.",
+         f"For the same decision the first desk shows Sell \u00f7 Rent of {rx(base['s3_s2'])} and the second {rx(a['their22']['their_s3_s2']) if a.get('their22') else 'n/a'}. Both rank Sell > Rent > Occupy and both show Treasuries-only losing to renting. The levels differ because of one assumption (after-tax return 4.5% against 5.6%, worth about {pc(a['groups22'][1]['s3_s2_pct'], 0) if a.get('groups22') else 'n/a'} on the ratio); every other difference, including three modelling conventions, nets to about {pc(a['others22_pct'], 0) if a.get('others22_pct') is not None else 'n/a'} from there, and with all of them adopted the engine reproduces the second desk's ratio. History (approximation, see Baselines) puts both assumptions in the lower part of the 25-year record: {a['eq_after_tax']['below_desk']} of 25 windows earned less than 4.5% after tax and {a['eq_after_tax']['below_22a']} of 25 earned less than 5.6%. A forward-looking return is a judgement for the owner or the integration session; nothing here verifies either figure. The integration session should show one set of assumptions or both as a range, not two unexplained levels.",
          links(["tsp", "erp56", "cbo"])],
         ["X13", badge("info", "low"), "Property B's yearly property tax appears as two figures about 4% apart inside the second desk",
          "The model value includes the statutory $7,000 homeowners' exemption (the owner-occupied case); the other figure leaves it out. The properties page's printed arithmetic also uses a fixed-charge amount that differs from the model parameter and from the same desk's own flag F-01, so that line does not reproduce from the model. The pages do not say which scenario each figure belongs to. Owner of desk-22a32b17 to label or align them.",
@@ -379,7 +404,7 @@ def page_index(a):
     rows = [
         ["Published desk figures re-derived", f"{rep.get('row_ok', 0)} of {len(rep.get('row_checks', []))} reproduced within $10 (replication, not independent validation)", '<a href="traceability.html">Desk check</a>', links(["lta25009", "rp2635"])],
         ["Official constants register", f"{n_const} figures: {n_open} read in the official source, {n_sec} secondary-only", '<a href="constants.html">Official constants</a>', links(["ir2026133", "lta25009"])],
-        ["Second desk (22a32b17) reproduced with the same engine", (f"sell path matches to rounding, rent path within {abs(a['rep22'][1]['s2']) * 100:.0f}%, occupy path within {abs(a['rep22'][1]['s1']) * 100:.0f}% (it also models Property B effects); the gap between the two desks' headline ratios ({rx(a['base'][2045]['s3_s2'])} against {rx(a['their22']['their_s3_s2'])}) is almost entirely the after-tax return assumption (4.5% against 5.6%)") if a.get("rep22") else "second desk not present in this checkout", '<a href="traceability.html">Desk check</a>', links(["tsp", "erp56"])],
+        ["Second desk (22a32b17) reproduced with the same engine", (f"sell and rent paths exact and occupy path within {max(abs(x['own']['s1']) for x in a['rep22']) * 100:.1f}% once the engine adopts that desk's three modelling conventions; ({abs(a['rep22'][1]['dflt']['s1']) * 100:.0f}% apart on the occupy path without them). The gap between the two desks' headline ratios ({rx(a['base'][2045]['s3_s2'])} against {rx(a['their22']['their_s3_s2'])}) is almost entirely the after-tax return assumption (4.5% against 5.6%)") if a.get("rep22") else "second desk not present in this checkout", '<a href="traceability.html">Desk check</a>', links(["tsp", "erp56"])],
         ["Statutory figures shown by the unpublished desk", f"{n_d} compared: {n_match} match, {n_d - n_match} mismatch (X04, X05)", '<a href="traceability.html">Desk check</a>', links(["rp2632", "irs_new"])],
         ["Ordering under the desk's own assumptions", ("Sell &gt; Rent &gt; Occupy in all three transfer windows; Sell &divide; Rent " + rx(rng['s3_s2'][0]) + "&ndash;" + rx(rng['s3_s2'][1])) if rng else "not computed", '<a href="robustness.html">Robustness</a>', links(["lta25009", "cbo"])],
         ["Stress tests", f"{n_keep} of {max(len(scen) - 1, 0)} stresses keep the ordering; it fails or sits at break-even under {len(flips)} (Treasuries only; growth at the 6.1% break-even)", '<a href="robustness.html">Robustness</a>', links(["cbo", "fhfa"])],

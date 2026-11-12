@@ -77,6 +77,13 @@ class Params:
     #   "hold_all"      : nothing is liquidated; no terminal tax on any path (heir's own heirs get a new basis)
     terminal: str = "desk"
     water_g: float = -1.0            # water-cost growth; negative means "same as infl"
+    fixed_g: float = -1.0            # growth of direct parcel charges; negative means "same as infl"
+    # when each year's cash flow is compounded: "start" = full h-i years (the first desk), "end" = h-i-1 (the second desk)
+    flow_timing: str = "start"
+    # suspended passive losses on the rental path:
+    #   "carry"  : used against later years' rental income, then netted against recapture first and the rest of the gain at the sale (the first desk)
+    #   "shield" : not used in the interim; at the sale the tax is reduced by (total losses x ordinary rate), floored at zero (the second desk)
+    loss_mode: str = "carry"
 
 
 def fmv(p, year):
@@ -131,7 +138,13 @@ def run(p, T=2045):
     lim = allowance(p, T)
     assess_occ = prop19_taxable(f_val, tx_pre, lim) if p.prop19 else f_val
     assess_rent = f_val
-    fixed_T = p.fixed * (1 + p.infl) ** n
+    if p.flow_timing not in ("start", "end"):
+        raise ValueError("flow_timing must be 'start' or 'end'")
+    if p.loss_mode not in ("carry", "shield"):
+        raise ValueError("loss_mode must be 'carry' or 'shield'")
+    fg = p.infl if p.fixed_g < 0 else p.fixed_g
+    lag = 1 if p.flow_timing == "end" else 0
+    fixed_T = p.fixed * (1 + fg) ** n
     out = {"T": T, "end": T + p.h, "fmv_T": f_val, "taxable_pre": tx_pre, "allowance": lim,
            "assess_occ": assess_occ, "assess_rent": assess_rent}
 
@@ -140,11 +153,11 @@ def run(p, T=2045):
     s1_flows = 0.0
     for i in range(p.h):
         yr = T + i
-        tax = adv0 * (1 + p.cap) ** i + fixed_T * (1 + p.infl) ** i
+        tax = adv0 * (1 + p.cap) ** i + fixed_T * (1 + fg) ** i
         u3 = 0.0
         if p.unit3_net > 0:
             u3 = p.unit3_net * (1 + p.rent_g_b) ** (yr - BASE) * (1 - p.t_ord)
-        s1_flows += (tax + _carry(p, yr) - u3) * (1 + p.r) ** (p.h - i)
+        s1_flows += (tax + _carry(p, yr) - u3) * (1 + p.r) ** (p.h - i - lag)
     end_val = f_val * (1 + p.g) ** p.h
     net_sale = end_val * (1 - p.sell)
     raw_gain = max(net_sale - f_val, 0.0)
@@ -162,7 +175,7 @@ def run(p, T=2045):
     for i in range(p.h):
         yr = T + i
         rent = p.rent0 * (1 + p.rent_g) ** (yr - BASE)
-        tax = adv0r * (1 + p.cap) ** i + fixed_T * (1 + p.infl) ** i
+        tax = adv0r * (1 + p.cap) ** i + fixed_T * (1 + fg) ** i
         opex = _carry(p, yr, occupied_costs=False) + rent * (p.vac + p.mgmt)
         pre = rent - tax - opex
         d = dep if i < int(p.life) else 0.0
@@ -172,18 +185,21 @@ def run(p, T=2045):
             susp += -net
             inc_tax = 0.0
         else:
-            used = min(net, susp)
+            used = min(net, susp) if p.loss_mode == "carry" else 0.0
             susp -= used
             inc_tax = (net - used) * p.t_ord
-        s2_flows += (pre - inc_tax) * (1 + p.r) ** (p.h - i)
-        s2_pre += pre * (1 + p.r) ** (p.h - i)
+        s2_flows += (pre - inc_tax) * (1 + p.r) ** (p.h - i - lag)
+        s2_pre += pre * (1 + p.r) ** (p.h - i - lag)
     adj_basis = f_val - accum
     gain = max(net_sale - adj_basis, 0.0)
     recap = min(accum, gain)
     capg = max(gain - recap, 0.0)
-    s_on_rec = min(susp, recap)
-    s_on_cg = min(susp - s_on_rec, capg)
-    tax_end = (recap - s_on_rec) * p.t_rec + (capg - s_on_cg) * p.t_cg
+    if p.loss_mode == "carry":
+        s_on_rec = min(susp, recap)
+        s_on_cg = min(susp - s_on_rec, capg)
+        tax_end = (recap - s_on_rec) * p.t_rec + (capg - s_on_cg) * p.t_cg
+    else:
+        tax_end = max(recap * p.t_rec + capg * p.t_cg - susp * p.t_ord, 0.0)
     if p.terminal == "hold_all":
         tax_end = 0.0
     out["tax_rent_y1"] = adv0r + fixed_T
