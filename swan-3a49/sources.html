@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sources and method · Uneven-economy replay</title>
+<style>
+:root{--ink:#1c2430;--mute:#5a6675;--line:#d9dee5;--bg:#f6f7f9;--card:#fff;--accent:#1f5f8b;--warn:#8a4b00;--warnbg:#fff6e5}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header,main,footer{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding-top:22px}
+.kicker{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+h1{font-size:28px;line-height:1.2;margin:6px 0 10px}
+h2{font-size:20px;margin:34px 0 8px}
+h3{font-size:16px;margin:22px 0 6px}
+p{margin:8px 0}
+.lede{font-size:17px;max-width:70ch}
+nav{display:flex;flex-wrap:wrap;gap:6px 8px;margin:14px 0 6px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav a{padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--accent);font-size:14px}
+nav a.on{background:var(--accent);color:#fff}
+nav a.back{margin-left:auto;color:var(--mute)}
+a{color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card .big{font-size:26px;font-weight:650;line-height:1.15;margin:2px 0 4px}
+.card .lab{font-size:13px;color:var(--mute)}
+.card .src{font-size:12px;margin-top:6px}
+.note{background:var(--warnbg);border-left:4px solid #d08a1f;padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;color:#4a3200}
+.plain{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0}
+.scroll{overflow-x:auto;margin:10px 0 6px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#eef1f5;font-weight:600;font-size:13px}
+tbody tr:last-child td{border-bottom:0}
+table.num td:not(:first-child):not(:last-child){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.num th:not(:first-child):not(:last-child){text-align:right}
+td:last-child{font-size:12.5px;min-width:150px}
+.rng{color:var(--mute);font-size:12.5px;white-space:nowrap}
+.neg{color:#a11}
+.stat{white-space:nowrap}
+.small{font-size:13px;color:var(--mute)}
+ul{padding-left:20px;margin:8px 0}
+li{margin:4px 0}
+footer{margin-top:40px;padding-top:14px;padding-bottom:40px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+</style></head><body>
+<header><div class="kicker">Estate decision desk · black-swan section · public · anonymized</div>
+<h1>Sources and method</h1><nav><a href="index.html">Overview</a><a href="replay.html">Replay results</a><a href="paths.html">Year by year</a><a href="baseline.html">Baseline</a><a href="sources.html" class="on">Sources and method</a><a href="flagged.html">Flagged for review</a><a class="back" href="../public-safe/index.html">Main dashboard</a></nav></header>
+<main>
+<p class="lede">Every number in this section comes from the series and rules below. The series files are in the repository so the arithmetic can be re-run.</p>
+<h2>Series</h2>
+<div class="scroll"><table class=""><thead><tr>
+<th>Series</th>
+<th>Publisher</th>
+<th>What is used</th>
+<th>Years</th>
+<th>File</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr><td>House price index, all transactions: Property A metro area, Property B metro division, California</td><td>Federal Housing Finance Agency, served by the Federal Reserve Bank of St. Louis</td><td>Fourth-quarter level; change from one year to the next</td><td>1976 to 2025</td><td><a href="data/fred_hpi_annual.csv">fred_hpi_annual.csv</a></td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>Consumer price index, all urban consumers, U.S. city average</td><td>Bureau of Labor Statistics, served by the Federal Reserve Bank of St. Louis</td><td>Annual average; yearly change</td><td>1976 to 2025</td><td><a href="data/fred_cpi_rates_annual.csv">fred_cpi_rates_annual.csv</a></td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>Consumer price index for the San Francisco area: all items, and rent of primary residence</td><td>Bureau of Labor Statistics, served by the Federal Reserve Bank of St. Louis</td><td>Annual average; yearly change</td><td>1976 to 2025</td><td><a href="data/fred_cpi_rates_annual.csv">fred_cpi_rates_annual.csv</a></td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>3-month Treasury bill rate; 10-year Treasury yield</td><td>Federal Reserve Board, served by the Federal Reserve Bank of St. Louis</td><td>Annual average rate</td><td>1977 to 2025</td><td><a href="data/fred_cpi_rates_annual.csv">fred_cpi_rates_annual.csv</a></td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+<tr><td>S&amp;P composite index, end of year; dividend-price ratio</td><td>Council of Economic Advisers, Economic Report of the President 2026</td><td>Price change plus dividend yield</td><td>1976 to 2025</td><td><a href="data/erp2026_sp500.csv">erp2026_sp500.csv</a></td><td><a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table55.pdf">ERP 2026 B-55</a> · <a href="https://www.govinfo.gov/content/pkg/ERP-2026/pdf/ERP-2026-table56.pdf">B-56</a></td></tr>
+<tr><td>Prop 13 inflation factors</td><td>California State Board of Equalization</td><td>Factor for the roll year that starts in the replayed year</td><td>1977-78 to 2025-26</td><td><a href="data/boe_lta2026_002_factors.csv">boe_lta2026_002_factors.csv</a></td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26002.pdf">BOE LTA 2026/002</a></td></tr>
+</tbody></table></div>
+<h2>Rules</h2>
+<div class="scroll"><table class=""><thead><tr>
+<th>Rule</th>
+<th>How the replay applies it</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr><td>Base year value rises by an inflation factor of at most 2% a year</td><td>The actual factor published for each replayed year</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26002.pdf">BOE LTA 2026/002</a></td></tr>
+<tr><td>The assessor enrols the lower of factored base year value and market value on 1 January</td><td>Market value on 1 January is taken as the previous year-end index level</td><td><a href="https://www.boe.ca.gov/proptaxes/decline-in-value/">BOE decline in value</a></td></tr>
+<tr><td>Family-home transfer: value cap is the factored base year value plus <span class="stat">$1,044,586</span> (16 February 2025 to 15 February 2027); the heir must make it a principal residence within one year</td><td>Excess of market value over the cap is added to taxable value</td><td><a href="https://www.boe.ca.gov/pdf/pub801.pdf">BOE Prop 19 fact sheet</a> · <a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE LTA 2025/009</a></td></tr>
+<tr><td>The amount is adjusted every other 16 February by the California house price index change for the prior calendar year</td><td>Adjusted in 2029, 2031 and so on by the replayed California index change of the year before</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE LTA 2025/009</a></td></tr>
+<tr><td>The homeowners' exemption takes $7,000 off taxable value for an owner-occupied home</td><td>Not applied; too small to change any figure shown</td><td><a href="https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm">BOE homeowners&#x27; exemption</a></td></tr>
+<tr><td>Federal basic exclusion amount is <span class="stat">$15,000,000</span> for 2026, indexed after 2026 from a 2025 base</td><td>Indexed by replayed consumer prices, one year behind</td><td><a href="https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm">P.L. 119-21 sec. 70106</a> · <a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax">IRS estate tax</a></td></tr>
+<tr><td>Inherited property generally takes a basis equal to fair market value at the date of death</td><td>Not modelled; the comparison is before income tax</td><td><a href="https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances">IRS inherited property FAQ</a></td></tr>
+<tr><td>Covered rental units: allowed yearly increase is 60% of the area consumer price change (1.6% from 1 March 2026)</td><td>60% of the replayed area price change each year</td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">SF Rent Board</a></td></tr>
+<tr><td>Property B's county secured rate for fiscal year 2026-27 is 1.18162182%</td><td>Not used in the replay; tax is shown at the 1% basic rate</td><td><a href="https://sftreasurer.org/property/secured-property-taxes">SF Treasurer</a></td></tr>
+</tbody></table></div>
+<h2>Method</h2>
+<div class="plain"><ul>
+<li>There are 49 recorded years with every series available: 1977 to 2025.</li>
+<li>A path is those 49 years laid over 2027 to 2075 in their recorded order, starting from one chosen year and continuing from 2025 back to 1977 when the record runs out. There are 49 paths, one for each starting year.</li>
+<li>Every path contains the same years, so every path has the same average. Only the order differs. That isolates the effect of timing.</li>
+<li>All series for a given year stay together. A year of high inflation keeps its own house prices, interest rates and stock returns.</li>
+<li>Transfers are placed at the end of 2040, 2045 or 2050. The comparison period is the 25 years after.</li>
+<li>"Recorded order only" results leave out any window that crosses the join from 2025 back to 1977.</li>
+<li>2026 itself is not replayed. Levels start from 2026 and the first replayed year is 2027.</li>
+</ul></div>
+<h2>Checks run by the build</h2>
+<div class="plain"><ul>
+<li>Each published factor equals the lower of 2% and the published California price change, except the 1983-84 row, which the Board lists as 1%.</li>
+<li>Every table row carries an official source link. Every dollar figure is a multiple of $10 unless it is a statutory amount shown as published.</li>
+<li>No page contains a name, address, parcel number, postal code or city name for either property.</li>
+</ul></div>
+<h2 id="correction">Correction on record</h2>
+<p>The data files were typed from the text of the official pages, because the build machine cannot download them directly. They are transcriptions, not downloads.</p>
+<p>A first version of the series file was committed with a header saying every value had been copied from the cited pages. That was not true: the pages were not at hand when it was written and most values had been entered from memory. The file was withdrawn before anything was built from it. The pages were then fetched again and the withdrawn values were compared one by one with the official figures. Three differed:</p>
+<div class="scroll"><table class=""><thead><tr>
+<th>Series</th>
+<th>Year</th>
+<th>Official response</th>
+<th>Withdrawn file had</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr><td>House price index, Property A metro</td><td>1975</td><td>blank</td><td>19.14</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>House price index, Property B metro</td><td>1975</td><td>blank</td><td>19.28</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=ATNHPIUS41940Q,ATNHPIUS41884Q,CASTHPI&amp;fq=Annual,Annual,Annual&amp;fam=eop,eop,eop">FHFA house price index (FRED)</a></td></tr>
+<tr><td>Consumer price index, U.S. city average</td><td>2025</td><td>321.943</td><td>321.9</td><td><a href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS,CUURA422SA0,CUURA422SEHA,GS10,TB3MS&amp;fq=Annual,Annual,Annual,Annual,Annual&amp;fam=avg,avg,avg,avg,avg">BLS CPI and Treasury rates (FRED)</a></td></tr>
+</tbody></table></div>
+<p class="small">None of the three is used by the replay in its withdrawn form: 1975 is outside the replayed years, and the 2025 figure now comes from the official response.</p>
+</main>
+<footer><p><strong>Not advice.</strong> This is arithmetic on published historical series. It is not a forecast and not legal, tax or investment advice.</p>
+<p><strong>Privacy.</strong> No household figure is used or shown. Results are per dollar, per $1,000,000, or for round reference home sizes. Property A is the inherited home; Property B is the home already owned.</p>
+<p>Sources retrieved 12 November 2026. Built by <code>swan-3a49/build.py</code> from the series files listed under <a href="sources.html">Sources and method</a>.</p></footer>
+</body></html>
