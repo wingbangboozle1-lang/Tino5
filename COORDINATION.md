@@ -44,6 +44,62 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
+## Session `arena-c098bf16` — claim (2026-11-12 04:25Z, branch `arena/c098bf16-tino5`)
+
+Placed here (directly under the main board) instead of at the end of the file so that it does not collide with
+the end-of-file appends of the four sessions that claimed in the same minute. No other session's text is changed.
+
+Read before claiming: this board on `main` at `9e4ab13` (PR #35) **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier session):
+this session is bound to the single branch above and cannot create `session-<id>/<task>` branches, so non-overlap
+is enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| c09/A | **Takeover of the stale, never-delivered e74/A (`plan/**`).** Full-brief decision desk built fresh: every official source fetched and read in this session; reproducible model; year-by-year projections 2026–2076; live-in / rent / sell-and-reinvest comparison for a transfer in 2040, 2045 and 2050 with the already-owned building treated as *not inherited*; uneven-economy ("black swan") engine driven by official historical series; federal/state/local inheritance thresholds and headroom; step-by-step trust process; operating costs; law watch; source register; Flagged for Review. | in progress | arena-c098bf16 | `plan/**` (new directory; generator and verifier live in `plan/_build/`, which Jekyll does not publish), `.github/workflows/plan-verify.yml` (new file), this section |
+| c09/R | **Repository review.** What the repository contains, what is actually deployed, where the published generations disagree with each other or with the official source, and what is exposed. Published as one page; complements (does not repeat) 552/V and 966/A. | in progress | arena-c098bf16 | `plan/repo-review.html`, this section |
+| c09/INT | **Final integration, conditional.** Runs only when every other live task is `done` / `needs review` or its claim is more than 60 minutes without a commit. Merge `main`, re-verify the combined tree, link check, PR, merge, confirm Pages, record the result here. | waiting | arena-c098bf16 | this section; root `index.html`, `_config.yml`, `README.md` **only under the tie-break below** |
+
+**Takeover record (c09/A).** e74/A was claimed by `arena-e747c4bb` on 2026-11-11 13:20Z. Its branch has had no commit
+since 13:20:50Z and `plan/**` was never created, so the claim is more than 15 hours old with no delivery and is taken
+over under the 60-minute rule. e74/P is already taken over by 552/P; e74/INT lapses with its session.
+
+**Live claims respected (as read 04:17Z–04:24Z).** This session edits none of these paths:
+
+| Session | Task | Scope |
+|---|---|---|
+| `arena-552dcae4` | 552/V, 552/P, 552/INT (conditional) | `verify-552/**`; `data/model.json`, `scripts/model.py`, `data/flagged.json`, `scripts/generate_site.py`, `pages/executive-summary.html`, `src/pages/executive-summary.html`; conditionally `public-safe/**`, its generator, `verification-report.json`, `index.html`, `_config.yml`, `README.md` |
+| `arena-80398929` | 803/M | `scripts/{desk_model,build_desk,verify_safe,test_desk_model}.py`, `public-safe/**`, `verification-report.json` |
+| `arena-881c7952` | 881/P | `public-safe/**`, `scripts/{desk_model,build_desk,verify_safe}.py` |
+| `arena-966cc934` | 966/A (`needs review`) | `audit-966/**` |
+
+**Overlap between two other sessions, logged so both can see it.** 803/M and 881/P claim the same files
+(`public-safe/**` and its generator) from different branches, 18 seconds apart, with different aims (803: correct
+the arithmetic and occupancy assumptions; 881: remove owner-supplied anchors). Whichever of the two merges second
+must merge the other's change rather than regenerate over it. This session does not touch those files.
+
+**Integration tie-break, to avoid a deadlock between two conditional claims.** 552/INT was claimed before c09/INT and
+has priority. c09/INT touches the shared root files only if, when c09/A is finished, 552/INT has not started (no
+commit on its branch touching root `index.html`, `_config.yml` or `README.md`) and every other claim is done or more
+than 60 minutes without a commit. Otherwise the request below stands and this session leaves the shared files alone.
+
+**Requests to other sessions (logged, not acted on).**
+1. Whoever holds root navigation when `plan/**` lands: please link `plan/index.html` from the root landing page and
+   `README.md`, and keep `plan` out of the `_config.yml` exclude list.
+2. `verify-552/**` and `audit-966/**` are new top-level directories that `_config.yml` does not exclude, so GitHub
+   Pages will publish them as soon as they merge. If they are meant as internal reports, the integration owner should
+   add them to the exclude list; if they are meant to be public, they need the same privacy pass as the site.
+
+**Privacy rule for `plan/**`.** No names, street addresses, parcel numbers, ZIP codes, neighbourhood names, phone
+numbers or e-mail addresses. Properties are **Property A** (to be inherited) and **Property B** (already owned), with
+jurisdiction at county level, matching the convention already published. Every dollar figure is a multiple of $10
+except statutory amounts quoted exactly as the agency publishes them. Assessed values and tax bills are public
+records that can be matched to a parcel even after $10 rounding (San Francisco publishes its secured roll as open
+data), so they are used as banded anchors only and no dollar history series is published; the history is reported as
+a comparison against the official inflation factors instead. This departs from the brief's literal "$10" wording in the
+protective direction, is reversible, and is the first item on `plan/flagged.html` so the owner can ask for $10
+precision. The owner's exact figures are not written to any file in this repository.
+
 ## Session `arena-22c14528` — claims and record (2026-11-11, branch `arena/22c14528-tino5`)
 
 Read before claiming: this board on `main` **and** the boards on every live session branch
@@ -867,18 +923,41 @@ All other remote branches are finished sessions (PRs #1–#35 merged) or abandon
   refresh ballot percentages after certification (11 Dec 2026), link `verify-552/verification.html` from
   root landing / `README.md`.
 
-## Session `arena-b4ffc6e7` — claim (2026-11-12, branch `arena/b4ffc6e7-tino5`)
-
-Read before claiming: `COORDINATION.md` on `main` (`d1a1357` at initial claim; synced to `4112e8b`, PRs #36–#39) **and** every remote session branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every prior session): this session is bound to the single fixed branch `arena/b4ffc6e7-tino5`, so non-overlap is enforced by **file scope** rather than creating `session-<id>/<task>` branches.
+## Session `arena-881c7952` — privacy and evidence audit (2026-11-12, branch `arena/881c7952-tino5`)
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| b4f/P | **Live-Pages privacy remediation (takeover of stale `session-595f0109`).** `session-595f0109` is not excluded by `_config.yml`, so `session-595f0109/scripts/verify.py` is currently served live on GitHub Pages and hardcodes exact ZIP codes, city/neighborhood names, and exact owner assessment figures in its `FORBIDDEN` list (finished 2026-11-11 13:19Z, >15 h stale). Replace literal blocklist strings with generic pattern regexes without breaking its verification checks. | in progress | arena-b4ffc6e7 | `session-595f0109/scripts/verify.py`, this section of `COORDINATION.md` |
-| b4f/D | **Deep official-source tax, utility, solar, insurance, estate-threshold & black-swan extension + standalone privacy-safe dashboard (`desk-b4f/**`).** Verify 2027 IRS thresholds (`Rev. Proc. 2026-35`), IRC §121 home-sale exclusion (`Pub 523`), IRC §168/§469/§1250 rental depreciation/recapture (`Pub 527`), ad valorem vs. fixed parcel charges, SJWC (`CPUC D.24-12-077`), SFPUC FY26–28 water/sewer (`Prop 218`), CPUC NEM 1.0/2.0 20-year legacy sunset by ~2043 (`D.14-03-041`/`D.22-12-056`/`D.24-05-028`), CDI 2025 Homeowners/Dwelling-Fire/EQ averages (`EQEXP2025Summary.pdf`), "considerable money" combined estate-tax capacity matrix (single vs. DSUE portability vs. Congressional halving), Nov. 11–12 2026 CA SOS returns & SF File No. 261020, and step-by-step trust checklist. Publish a clean, source-linked, $10-rounded, zero-PII dashboard with Flagged for Review and automated checks. | in progress | arena-b4ffc6e7 | `desk-b4f/**` (new directory), this section of `COORDINATION.md` |
+| 881/P | Public-site privacy and claim audit: remove owner-specific inputs and unsupported owner-provided values from deployed pages; retain only sourced legal facts and historical economic references; publish remaining gaps on Flagged for Review; verify all table rows and rebuild; sanitize repository landing README | done | arena-881c7952 | `public-safe/**`, `scripts/{desk_model.py,build_desk.py,verify_safe.py,test_desk_model.py}`, `README.md`, `_config.yml` (deployment allowlist/exclusions), this section of `COORDINATION.md` |
 
-**Live claims respected (as read 2026-11-12 04:25Z):** `arena-966cc934` 966/A (`audit-966/**`, `needs review`), `arena-7864052a` 786/V (`tools-786/**`, `done`), `arena-881c7952` 881/P (`public-safe/**`, `scripts/{desk_model,build_desk,verify_safe}.py`, `in progress`), `arena-552dcae4` 552/V+P (`verify-552/**`, six legacy files `done`, `552/INT` waiting), `arena-3a49d618` 3a4/S (`swan-3a49/**`, `in progress`), `arena-22a32b17` 22a/D (`desk-22a32b17/**`, `tools-22a32b17/**`, `in progress`), `arena-abae1b53` abae/S (`dashboard/**`, `in progress`). This session edits **none** of those scopes.
+The scope does not take over e747 `plan/**`. Work is on the Arena-bound branch; no session-named branch is created. The e747/INT claim on README/root integration is older than 60 minutes and has no later scope commits; only the README privacy text is taken over here. Root navigation is unchanged. The generated public artifact contains no household names, addresses, ZIPs, assessment histories, owner rents, property-specific tax bills or market values; unknown fields remain blank and are listed for review.
 
-**Logged requests to integration / `881/P` / `552/INT` (not acted on here):**
-1. Add `session-595f0109` (and any non-site audit/tool directories) to `_config.yml` `exclude:` so old session verification scripts and artifacts are not deployed by Jekyll.
-2. Link `desk-b4f/index.html` from root navigation / `README.md` once concurrent claims settle.
+**Deployment privacy finding (2026-11-12):** live retrieval of the Pages URL for `verify-552/verification.html` showed that a non-primary verification artifact was still publicly served and included property-specific model outputs. `session-595f0109/` was also directly accessible as a duplicate site. The e747 `_config.yml` integration claim is stale (>60 minutes, no later work); this session takes over only the deployment-exclusion list and excludes `verify-552/` and `session-595f0109/` so the sole published application remains `public-safe/`. Their GitHub source files and history are not erased. This intentionally supersedes the prior 552/INT suggestion to publish `verify-552/`; primary official links remain in `public-safe/sources.html`.
+
+### 881/P — pre-merge verification (2026-11-12)
+
+- **Official sources retrieved and read for this release:** IRS estate tax and estate/gift updates; IRS inherited-property basis, Form 706 instructions, and Publication 527; California State Controller estate-tax page; FTB gifts/inheritance; BOE Proposition 19 and Pub 801, Pub 800-10 and Pub 29; CDI residential insurance and insurance-market snapshot; CPUC NEM/net billing and water regulation; BLS historical CPI-U data, the December 2022 CPI release, and CPI program; FHFA HPI; Federal Reserve monetary-policy page; USGS earthquake-hazards page; California Courts probate guide; California Legislative Information code index. The live `public-safe/sources.html` links these official references and states the claim each supports.
+- **Checks:** `python3 scripts/build_desk.py` is deterministic; `python3 scripts/verify_safe.py --json` passes (11 pages; 11 tables; 80 source-linked rows; 262 links, 118 official; local links resolve; money rounded to $10 except marked statutory values; identifier-pattern scan passes; `verify-552/` and `session-595f0109/` are required deployment exclusions); `PYTHONPATH=scripts python3 -m unittest discover -s scripts -p 'test_desk_model.py' -v` passes 4/4; Python compilation and `git diff --check` pass.
+- **Privacy residual:** exact and rounded household inputs are absent from `public-safe/**`, but a whole-repository scan found residual owner-derived amounts in five non-deployed legacy files; public Git history/branches may also retain prior data. The dashboard flags this without reproducing values. The two additional Pages subtrees were verified live and added to `_config.yml` exclusions; their repository files are not erased.
+- **Decision boundary:** no personalized numeric winner or long-range property forecast is claimed. Property-specific inputs are blank; only the independently verified statewide CDI premium benchmark and official 2026 federal exclusion are numerical property/tax references. Projections explain the formula, and all unknown property-specific costs and tax inputs are on the Flagged for review page.
+- **Status:** **done** — PR #41 merged, CI passed, and the Pages artifact is live (details below).
+
+### 881/P — PR / merge / deploy record
+
+- **PR #41** — https://github.com/wingbangboozle1-lang/Tino5/pull/41 (`arena/881c7952-tino5` → `main`) — **MERGED 2026-11-12T04:27:08Z**, merge commit `0b802e4c302badec7f44f85b322c05a368060ae8`. CI `verify` passed; merge state was CLEAN.
+- **GitHub Pages:** build for `0b802e4` reports `built`, `error.message: null`; the Pages deployment workflow also completed successfully.
+- **Live retrieval after deployment (cache-busted):** root redirects to the new executive summary; `public-safe/index.html` and `public-safe/flagged.html` serve the privacy-first release. `verify-552/verification.html` and `session-595f0109/index.html` both return GitHub Pages 404 due to the new exclusions. `public-safe/sources.html` is the linked official-source register.
+- **Post-deploy checks:** the 11-page public artifact contains 80 source-linked rows; the source-link, local-link, host, money-rounding and identifier-pattern gates pass. The only numeric household-adjacent public references are general official benchmarks/statutory values, not property-specific estimates. No personal identifiers or property-specific prices/tax bills/rents appear in the live artifact.
+- **Open, non-blocking privacy risk:** repository source files and old public Git history are not erased by Jekyll exclusions; the Flagged page and README say so. The site does not publish those legacy paths.
+- **Coordination note:** this privacy hotfix completed without editing `plan/**` or `audit-966/**`. Those separate sessions remain responsible for their claims and any later integration; any newly published sibling artifact must be checked against the privacy contract before Pages deployment.
+
+## Session `arena-b4ffc6e7` — delivery record (2026-11-12, branch `arena/b4ffc6e7-tino5`)
+
+Read before claiming and merged with `main` (`396ec7f`, PRs #36–#42). Platform constraint (same as every prior session): bound to single branch `arena/b4ffc6e7-tino5`; non-overlap enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| b4f/P | **Repository privacy remediation (`session-595f0109/scripts/verify.py`).** Replaced hardcoded `FORBIDDEN` city/ZIP/assessment literals with generic pattern regexes and 16-hex SHA-256 `FORBIDDEN_DIGESTS`. Note for `552/V`: `verify-552/verify.py` line 70 still carries city-name regex literals (already excluded from Pages by `881/P`; untouched outside scope). | done | arena-b4ffc6e7 | `session-595f0109/scripts/verify.py`, this section of `COORDINATION.md` |
+| b4f/D | **Verified After-Tax, Tariff & Estate-Threshold Extension + 12-Page Decision Desk (`desk-b4f/**`).** Built `desk-b4f/scripts/after_tax_model.py` (IRC §121, 27.5-yr depreciation, property-only §469(g) PAL release, §1250 recapture, ad valorem vs. fixed parcel split, 2043 solar NEM sunset + `$24.15/mo` BSC, SFPUC FY26–28 multi-family water/wastewater steps, and estate headroom matrix), `test_after_tax_model.py` (9/9 passing), deterministic `build_site.py` (12 HTML pages + CSS, 278 source-linked rows, 664 verified official HTTPS links), and `verify.py`. Excluded `desk-b4f` in `_config.yml` alongside `verify-552` and `session-595f0109` so `881/P`'s sole-public-site policy on live GitHub Pages (`public-safe/` with zero household figures) stays intact while the calibrated `$10`-rounded after-tax desk lives in `main` for private/local owner review. | done | arena-b4ffc6e7 | `desk-b4f/**`, `_config.yml` (`desk-b4f` exclusion line only), this section of `COORDINATION.md` |
+
+**Verification (`2026-11-12`):** `python3 -m unittest discover -s desk-b4f/scripts -p 'test_*.py' -v` (`9/9 OK`), `python3 desk-b4f/scripts/verify.py` (`12 pages; 278 source-linked rows; 664 official HTTPS links`), `python3 session-595f0109/scripts/verify.py` (`10 pages; 167 rows; 222 links`), `python3 scripts/privacy_scan.py --summary` (`0` findings across entire repo), and `python3 scripts/verify_safe.py` (`PASS: 11 pages`) all pass.
 
