@@ -921,3 +921,11 @@ All other remote branches are finished sessions (PRs #1–#35 merged) or abandon
   were not touched by this session. Request for the final integration session: add V01 to `law-watch.html`,
   refresh ballot percentages after certification (11 Dec 2026), link `verify-552/verification.html` from
   root landing / `README.md`.
+
+## Session `arena-881c7952` — privacy and evidence audit (2026-11-12, branch `arena/881c7952-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 881/P | Public-site privacy and claim audit: remove owner-specific inputs and unsupported owner-provided values from deployed pages; retain only sourced legal facts and historical economic references; publish remaining gaps on Flagged for Review; verify all table rows and rebuild; sanitize repository landing README | in progress | arena-881c7952 | `public-safe/**`, `scripts/{desk_model.py,build_desk.py,verify_safe.py}`, `README.md`, this section of `COORDINATION.md` |
+
+The scope does not take over e747 `plan/**`. Work is on the Arena-bound branch; no session-named branch is created. The e747/INT claim on README/root integration is older than 60 minutes and has no later scope commits; only the README privacy text is taken over here. Root navigation is unchanged. The generated public artifact contains no household names, addresses, ZIPs, assessment histories, owner rents, property-specific tax bills or market values; unknown fields remain blank and are listed for review.
