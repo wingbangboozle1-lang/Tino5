@@ -53,7 +53,7 @@ c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 betw
 |----|------|--------|---------|-----------|
 | 3f2/S | Independent decision site: landing page + category subpages (executive summary, property facts, tax & inheritance thresholds, projections 2026–2050, scenarios live/rent/sell, black-swan scenarios, trust inheritance process, questions & information gaps, suggestions awaiting approval, law watch, source register, flagged for review). Every table row carries an official source link or is marked unverified and blank. Owner figures rounded to $10, no addresses, names, parcel or account numbers, ZIP codes or city names. | done (commit `185a532`) | arena-3f269806 | `tino5-3f269806/**` (new directory; generator and verifier in `tino5-3f269806/_src/**`, which Jekyll does not publish) and this section only |
 | 3f2/V | Line-by-line source verification of every row; irregularities logged in `tino5-3f269806/flagged.html` and in the log below. | done (verifier PASS; 2 open source items, see record) | arena-3f269806 | `tino5-3f269806/**`, this section only |
-| 3f2/INT | Conditional integration (PR to `main`, merge, Pages check). Runs only after the remaining INT claims are done, withdrawn, or lapsed. **Blocked at 2026-11-13 06:47Z by live integration claims 12d/I, 092/I, e86/INT, 7b/INT and t24/INT (remote commits 06:35–06:43Z).** Shared root files (`index.html`, `_config.yml`, `README.md`) are **not** edited by this session; the new site is linked from its own path. | waiting | arena-3f269806 | this section only |
+| 3f2/INT | Conditional integration (PR to `main`, merge, Pages check). Runs only after the remaining INT claims are done, withdrawn, or lapsed. **done** 2026-11-13 (after 08:15Z): [PR #62](https://github.com/wingbangboozle1-lang/Tino5/pull/62) merged to `main` at `52ab3d2`; Pages deploy succeeded; live pages checked. Shared root files (`index.html`, `_config.yml`, `README.md`) are **not** edited by this session; the new site is linked from its own path. | waiting | arena-3f269806 | this section only |
 
 ### 3f2/S + 3f2/V — completion record (arena-3f269806, 2026-11-13)
 
@@ -62,6 +62,15 @@ c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 betw
 - **Found and fixed in review (before publication):** (1) owner tax-history tables for both properties had been published on the property-facts page; removed, and the verifier now fails if those values reappear. (2) Property A water row linked to an SJ Water rate PDF that does not apply to either property; it now links to SFPUC with a note that it is the general schedule only. (3) Three wording errors (an unsourced "fastest-growing" claim, a "repealed" claim for the 2025 law, a CPI sentence) corrected. (4) CPI December values 1972–1982 checked line by line against BLS table chunk 0: all match.
 - **Open source items (not hidden; labelled on the pages):** S22 (congress.gov bill text) and S25–S27 (county and city assessor and tax-collector home pages) were **not opened**; they are linked only as "check here" pages, and any row citing them says so. S20 is a non-applicable rate case and is not cited by any value. S23 is a secondary law-firm source and is labelled secondary. Owner-supplied values (market and assessed values, rent, utilities, insurance, solar credit) are shown with "owner input - unverified" status and no official confirmation.
 - **Irregularities logged for other owners (flag F09):** `desk-b4f/estate-tax.html` shows the 2026 estates-and-trusts capital-gains figure as $16,200 against $16,250 in IRS Rev. Proc. 2025-32 (already logged as X04); another page shows the closing-letter fee rising from $67 against IRS $56 to $76 (X05). Logged, not edited.
+
+### 3f2/INT — PR / merge / deploy record (arena-3f269806, 2026-11-13)
+
+- **Wait:** integration was held while integration claims were live. 7b/INT completed (PR #61) and e86/INT completed (PR #57). 12d/I (last commit 07:14Z), 092/I (last commit 07:05Z) and t24/INT (last commit 06:47Z) passed the 60-minute no-commit rule. Integration then ran. 12d/I and 092/I still show "in progress" on the board; their PRs #56 and #55 are already on `main`, and this session did not change their files.
+- **Merge:** `origin/main` merged into `arena/3f269806-tino5`. The one COORDINATION conflict was resolved by keeping both sides. Only one line of a shared script changed: `scripts/verify_safe.py` `PUBLISHED_DESKS` now includes `tino5-3f269806`, which the publication gate requires for a new top-level desk. `_config.yml` was not edited (the site is not excluded).
+- **Checks before merge:** `tino5-3f269806/_src/verify.py` PASS (13 pages, 226 rows, 567 links, $10 rounding, no identifier patterns); `scripts/verify_safe.py` exit 0 (13 pages, 15 tables, 125 rows, 379 links); `scripts/check_landing.py` exit 0; `review-092b` unit tests OK; `scripts/test_model_v5.py` OK; `scripts/verify_desk_v5.py` PASS. A rewritten tracked report (`desk/data/desk-verification-report.json`) was restored and not committed.
+- **PR:** [PR #62](https://github.com/wingbangboozle1-lang/Tino5/pull/62), merged with a merge commit to `main` at `52ab3d2`. Workflow "Verify published artifact" and "pages build and deployment" both completed with success on `main`.
+- **Live check:** `https://wingbangboozle1-lang.github.io/Tino5/tino5-3f269806/` returns the landing page; `flagged.html` renders; `assets/style.css` is served. Tables load with their source links.
+- **Still open, not blocking (logged as flags):** F04 insurance and F05 water provider for A; F06 solar credit; F07 2027+ exclusion; S22 and S25–S27 not opened; owner figures unverified; flags F09 for other sessions' desks (X04, X05).
 
 ### 3f2/INT — status
 
@@ -1752,3 +1761,24 @@ exclusion; `/referee-abae/index.html` serves the cross-check; `/research/verific
 and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions effective on the
 live site). Flagged items remain published on each desk's Flagged page and did not block the
 merge. This record lands in a record-only follow-up PR (single-branch rule).
+
+## Session `arena-5e7d4570` — claim (2026-11-13 11:50Z, branch `arena/5e7d4570-tino5`, base `52ab3d2` = PR #62)
+
+Read before claiming: this board on `main` at `52ab3d2` (PR #62) **and** every remote session
+branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as
+every earlier session): this session is bound to the single branch above and cannot create
+`session-<id>/<task>` branches, so non-overlap is enforced by **file scope**. Claim liveness
+checked at claim time: the newest remote commit is `origin/arena/3f269806-tino5` at 08:17Z —
+more than 60 minutes old — so every prior claim is `done`, `needs review`, or lapsed. No live
+claim touches the scope below.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 5e7/INT | **Final integration pass on the post-#62 tree.** (a) Carry the stranded record commits `9209ecb` + `9df55a6` (3f2/INT PR #62 merge, CI, Pages and live-check record) from `origin/arena/3f269806-tino5` into this board — no other session's text changed. (b) Close the navigation gap PR #62 left: `tino5-3f269806/` is in `PUBLISHED_DESKS` and live but has no card on the root hub and no line in the README site map; add both (root `index.html`, `README.md` only). (c) Run the full verification battery line by line on the combined tree (`verify_safe`, `check_landing`, `privacy_scan`, `verify_desk_v5` + model tests, `review-092b`, `desk-e86`, `decision-ad038`, `referee-abae`, `tino5-3f269806` verifiers, `verify.mjs`), re-check the live site including that every excluded directory still 404s. (d) PR → merge → confirm GitHub Pages deploy → record here. Flagged irregularities do not block the merge. | **in progress** | arena-5e7d4570 (`arena/5e7d4570-tino5`) | this section; root `index.html`, `README.md`, `_config.yml` only if the gate requires it |
+
+**Privacy contract for this session's edits (highest priority per the brief).** The hub and
+README edits add links and descriptions only: no owner figure, no address, no ZIP, no city or
+neighbourhood name, no parcel or account identifier, no name or contact detail. Properties stay
+**Property A** (future trust inheritance) and **Property B** (already owned). No new dollar
+figure is introduced by this session; existing figures stay where their own desks' verifiers
+already checked them.
