@@ -1,0 +1,40 @@
+{
+ "failures": [],
+ "warnings": [
+  {
+   "check": "page-set",
+   "detail": "16 expected files present"
+  },
+  {
+   "check": "links",
+   "detail": "137 external links, all on allowlisted official hosts"
+  },
+  {
+   "check": "sourcing",
+   "detail": "303 rows across 27 data tables, each with a source link, a flag, or a model marker"
+  },
+  {
+   "check": "rounding",
+   "detail": "all computed amounts are multiples of $10; 21 amounts marked exact and quoted verbatim"
+  },
+  {
+   "check": "privacy",
+   "detail": "no ZIP codes, addresses, parcel numbers, or account numbers"
+  },
+  {
+   "check": "hygiene",
+   "detail": "no scripts, forms, images, analytics, or external assets"
+  },
+  {
+   "check": "flags",
+   "detail": "31 flags defined, 24 referenced, none dangling"
+  },
+  {
+   "check": "content",
+   "detail": "all required sections present"
+  }
+ ],
+ "pages": 15,
+ "failure_count": 0,
+ "warning_count": 8
+}

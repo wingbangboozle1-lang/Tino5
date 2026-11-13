@@ -1196,6 +1196,122 @@ Non-overlap note: prior claiming sessions on `public-safe/**` and its builder (8
 
 Privacy rule for this scope: Property A / Property B placeholders only; county-level jurisdiction; no names, addresses, parcel numbers, ZIP codes, city names, owner-supplied assessment/tax histories, rents, or exact property values; every dollar figure a multiple of $10 except statutory amounts quoted exactly as published; model outputs labelled assumption/derived with method and inputs shown; every table row carries an official source link or is left blank and flagged.
 
+### ad0 — PR / merge / deploy record (arena-ad038e83)
+
+- **PR #53** (`arena/ad038e83-tino5` → `main`): merged with a merge commit at **`02a2deb68f570dfb7e3a047864b13a9502e01b01`** on 2026-11-13 06:52 UTC (`gh pr merge 53 --merge`). Verify (CI, "Verify curated public artifact") on the PR and on `main`: **success**. Pages "pages build and deployment" for `02a2deb`: **success**; `gh api repos/.../pages/builds/latest` reports `built` at `02a2deb`. Live root `https://wingbangboozle1-lang.github.io/Tino5/` shows the new hub, with the curated dashboard linked.
+- **Merge conflict (COORDINATION.md)** against `main` at `01d86d2` (PR #51, fe08d8f1): resolved by keeping both sides in full; no other session's text changed.
+- **Fail-closed rule:** the first merged run of `scripts/verify_safe.py` failed on `decision-ad038` (not in `DEPLOYMENT_EXCLUSIONS`). Resolved by excluding it (`verify_safe.py` and `_config.yml`), which keeps the rule intact. Publishing the decision desk on Pages needs an owner decision (see the desk's flagged list).
+- **Not done (flagged, owner decision):** publication of `decision-ad038/` on Pages; deletion or redaction of owner figures in earlier git history, branches and closed PR diffs; privacy boundary on earlier desks (X14).
+- **Verification of the merged site:** CI verify PASS (13 pages; 120 source-linked rows). `decision-ad038/_src/verify_site.py` NO ERRORS (194 rows; 78 amounts). `referee-abae/_src/crosscheck.py` exit 0.
+## Session `arena-092bb01c` — claim & takeover record (2026-11-13 06:40Z, branch `arena/092bb01c-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48 merged 2026-11-12 05:24Z) **and** every remote branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, 39 branches listed). Platform constraint (same as every earlier
+session): this session is bound to the fixed branch `arena/092bb01c-tino5` and cannot create `session-<id>/<task>` branches,
+so non-overlap is enforced by **file scope**.
+
+**Staleness finding (basis for the takeover).** The newest commit on *any* remote branch is `origin/arena/abae1b53-tino5`
+at 2026-11-12 05:23:15Z; `origin/main` last moved at 2026-11-12 05:24Z. It is now 2026-11-13 06:40Z — every outstanding
+claim below is **more than 25 hours without a commit**, i.e. far past the 60-minute rule. Two of the five published desks
+were still unmerged or unlinked, and three conditional integration claims (`552/INT`, `c09/INT`, `abae/INT`) were deadlocked
+behind that 60-minute test. This session therefore (a) takes over the integration role, (b) claims a new, non-overlapping
+directory, and (c) does **not** edit any other session's published directory — those stay exactly as merged.
+
+Lapsed claims taken over here (listed for the record, no file of theirs is modified): `c09/A`+`c09/R`+`c09/INT`
+(`plan/**` never created — second failure of that scope, after e74/A), `552/INT`, `3a4/INT`, `22a/INT`, `abae/INT`,
+`966/A` (`needs review`, `audit-966/**`), `803/M`, `881/P`, `b4f/P` (`session-595f0109/scripts/verify.py`).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 092/H | **Decision hub: executive summary, open-question register, suggestions register, black-swan synthesis, step-by-step process, discrepancy log.** One small site rooted at `review-092b/`, reusing (not re-deriving) the numbers already published by the two live desks, with every row carrying an official source link. Generator + verifier + tests in `review-092b/_src/` (Jekyll does not publish `_`-prefixed directories). | in progress | arena-092bb01c | `review-092b/**` (new directory) |
+| 092/I | **Integration:** root landing page as a category hub, `_config.yml` exclusion review, `README.md`, add the hub verifier to CI, PR to `main`, merge, confirm GitHub Pages, record the result. Taken over from the three lapsed `*/INT` claims under the tie-break already written into this board (earliest claim first — all have now lapsed). | in progress | arena-092bb01c | root `index.html`, `_config.yml`, `README.md`, `.github/workflows/**`, this section |
+
+**Privacy contract for `review-092b/**`.** Property A / Property B only; jurisdiction named at county level; **no** ZIP codes,
+street addresses, parcel/APN or account numbers, names, phone or e-mail. No year-by-year assessment or tax-bill history is
+published (a rounded series is still a fingerprint against open assessor rolls) — history is reported only as a comparison
+against the official statutorily published inflation factor. Dollar figures are nearest-$10 except statutory/agency amounts
+quoted exactly and marked. Values that cannot be confirmed from an official source stay blank (`—`) and are listed on
+`review-092b/flagged.html`. Privacy-scan results are reported as counts, never values.
+
+**Requests logged, not acted on.** None outstanding: every other claim has lapsed, so this session is the only live writer.
+
+### 092/H — completed (2026-11-13)
+
+Built `review-092b/`: 11 pages, 256 table rows, all source-linked; `_src/{sources,engine,build,verify,test_review_092b}.py`.
+Pages: index (executive summary), questions (13-item register, Q-01…Q-13, each with the decision it blocks),
+suggestions (11-item review board, S-01…S-11, accept/modify/reject, nothing implemented), projections (2026–2076
+cost table + sensitivity), decision (three-path comparison at 2040/2045/2050), black-swans (5 regimes computed from
+CPI-U and FHFA HPI), inheritance (10-step process with deadlines), costs (inheritance/estate/property/disposition tax),
+repo-review (R-01…R-07), flagged (F-01…F-12), sources (43-document register with what was read from each).
+
+Model results (2045 transfer, 25-year horizon): occupy $11,026,930 · rent $20,950,750 · sell $23,522,680. Break-evens:
+house growth 4.60%/yr, after-tax reinvestment return 4.39%. Full set in `review-092b/summary.json`.
+
+Two arithmetic defects were found and fixed **before** publication rather than shipped: a stress test that applied a
+two-year price fall across 25 years, and negative money rendering as `$-59,572,310`. Both now have regression tests.
+
+Source changes vs. the earlier sweep: `WILL5000IND` unavailable (not used); `USSTHPI` read in full; the H15 Treasury
+CSV returned HTTP 500 (no Treasury-return series used); the CDI residential guide URL cited by older desks returns a
+document-not-found page and is **not** used, but the CDI Sustainable Insurance Strategy market snapshot **was** read —
+statewide average homeowner premium $1,571 vs. national $1,512 — so insurance is now benchmarked rather than wholly
+blank.
+
+**Owner decision surfaced, not taken:** `desk-22a32b17/` publishes household dollar levels and city names on a live
+page while the newer release withholds them. This session did not edit or exclude it. Recorded as R-02 / F-12 and on
+the flagged page.
+
+### 092/I — completed (2026-11-13), reconciled with the fail-closed rule on `main`
+
+`main` moved twice while this section was being written (PR #51, PR #53). The newer of the two established a
+**fail-closed publication rule** in `scripts/verify_safe.py`: every visible top-level directory except `public-safe/`
+must appear in `DEPLOYMENT_EXCLUSIONS`, and `_config.yml` must exclude it too. This session's first landing page linked
+directly to four top-level desks, which would have defeated that rule on the public site. Reconciled as follows, with
+no check relaxed:
+
+- `review-092b` added to `DEPLOYMENT_EXCLUSIONS` and to `_config.yml`. The desk is complete and verified but **not
+  published**; publishing it is an owner decision, the same status `decision-ad038/` already has.
+- Root `index.html` keeps the hub structure, but links only to `public-safe/`. The two unpublished desks
+  (`review-092b/`, `decision-ad038/`) are described in a table on the hub rather than linked, so the description is
+  available and the exclusion is not defeated.
+
+Root `index.html` therefore still replaces the meta-refresh redirect with a category hub, and states why each desk
+ranks where it does. `_config.yml` gained `_src` (so `review-092b/_src` is not published). `README.md`
+gained the decision-desk section, build/verify commands, and the flagged departure from the literal $10 rule. CI now
+also rebuilds `review-092b/`, runs its verifier and its 25 regression tests, and checks that every landing-page link
+resolves. `public-safe/` verifier still passes unchanged. No other session's published directory was modified;
+`referee-abae/_src` regenerates `baselines.html` on import, and that incidental diff was reverted, not committed.
+
+## Session `arena-12dfd47a` — claim (2026-11-13, branch `arena/12dfd47a-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48, merged 2026-11-12 14:24Z) and every remote
+session branch. **Every earlier claim is now stale**: the most recent commit on any other session branch is
+`abae/R` at 2026-11-12 05:23Z, i.e. more than 24 hours old with no push, and no earlier INT task ever ran.
+Under the 60-minute rule this session takes over the integration role and records the handoff here.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 12d/A | **Decision desk v5 — the brief's requirements, published with numbers.** Owner-directed build: a single dashboard site with executive summary, requirement traceability, a Questions/Information/Answers register, an occupy/rent/sell decision analysis with a stated recommendation and its reasoning, year-by-year 2026–2076 projections, operating costs, a black-swan / uneven-economy section, inheritance thresholds and headroom, a step-by-step trust process, law watch, a **Suggestions** section (proposals to review and choose from *before* implementing), Flagged for Review, a source register, methodology, and a repository review. Dollar figures rounded to $10; no names, addresses, parcel identifiers or ZIP codes. | in progress | arena-12dfd47a | `desk/**` (new), `scripts/{model_v5,build_desk_v5,verify_desk_v5,test_model_v5}.py` (new), `.github/workflows/desk-verify.yml` (new), this section |
+| 12d/I | **Integration + publish (takeover).** Point the published site at the new desk, prune the deployment to the new desk only, re-verify the combined tree, PR → `main`, merge, confirm Pages, record PR and deploy here. | in progress | arena-12dfd47a | root `index.html`, `_config.yml`, `README.md`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md` |
+
+**Why a new directory instead of editing `public-safe/**`.** `public-safe/**` and its generator are the
+deliverable of sessions 803/881/552 and pass their own verifier; this session does not edit them. The new
+`desk/**` artifact replaces it as the *published* site (integration scope above) but the old artifact is left
+in the tree, unmodified, so its verification record stays reproducible.
+
+**Owner decision recorded, superseding the earlier landing-page reading (referee X14 / README caveat).** The
+brief asks for costs, numbers, projections and a reasoned recommendation, rounded to $10 so they cannot be
+traced. Earlier generations responded by publishing almost no numbers, which does not answer the brief.
+This build publishes rounded figures, labelled `assumption` / `derived` / `verified`, with every row source
+linked. It publishes **no** assessment-history or tax-bill-history series at any precision (those are public
+records that can be matched to a parcel and reverse-engineered through the published annual percentage
+changes the brief supplied), and no ZIP code, street address, parcel number, name, e-mail or phone number.
+
+**Privacy contract for `desk/**`.** Property A = the future trust inheritance; Property B = already owned by
+the inheritor. Jurisdiction is named at county level only (Santa Clara County / San Francisco County) because
+the tax rules are county-specific. Every dollar amount is a multiple of $10 except statutory or agency
+figures printed exactly as published (marked `exact`). Uncertain values are blank and listed on
+`desk/flagged.html`. Human tasks the owner must do are marked `owner action`, never guessed.
+
 ## Session `arena-7b137345` — claim (2026-11-13 06:41Z, branch `arena/7b137345-tino5`)
 
 Read before claiming: this board on `main` at `b3924d1` (PR #48) **and** every remote session branch

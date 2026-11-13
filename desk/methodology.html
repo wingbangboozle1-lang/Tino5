@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Methodology &middot; estate decision desk</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Estate decision desk</a>
+  <span class="asof">Figures as of 13 November 2026 &middot; all amounts rounded to the nearest $10</span>
+</header>
+<nav class="side">
+<a href="index.html">Overview</a>
+<a href="executive-summary.html">Executive summary</a>
+<a href="decision.html">The decision</a>
+<a href="questions.html">Open questions</a>
+<a href="projections.html">Projections</a>
+<a href="costs.html">Carrying costs</a>
+<a href="estate-tax.html">Inheritance tax</a>
+<a href="process.html">Trust process</a>
+<a href="black-swans.html">Black swans</a>
+<a href="law-watch.html">Law watch</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged for review</a>
+<a href="sources.html">Sources</a>
+<a href="methodology.html" class="here">Methodology</a>
+<a href="repo-review.html">Repo review</a>
+</nav>
+<main>
+<h1>Methodology</h1>
+<p class="standfirst">Every input, every assumption, and every accounting decision, so the numbers can be reproduced or refuted.</p>
+
+<p>This page exists so every number on the site can be reproduced, attacked, or corrected. The
+model is a single Python file with no dependencies, and all of its inputs are printed below.</p>
+
+<h2>The three classes of input</h2>
+<table><thead><tr><th>Class</th><th>Meaning</th><th>How it is treated</th></tr></thead><tbody>
+<tr><td><strong>Verified</strong></td><td>A figure published by an official source</td>
+<td>Quoted exactly, cited, and marked exact</td></tr>
+<tr><td><strong>Owner-supplied</strong></td><td>A figure the owner reported</td>
+<td>Used as a band, rounded, and marked owner-derived</td></tr>
+<tr><td><strong>Assumption</strong></td><td>A modelling choice</td>
+<td>Published in full below so it can be changed</td></tr>
+</tbody></table>
+
+<h2>Verified constants</h2>
+<table class="">
+<caption>Quoted from the sources listed on the Sources page.</caption>
+<thead><tr><th>Constant</th><th>Value</th><th>Source</th></tr></thead><tbody>
+<tr><td>ab1482 cap</td><td>0.05</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>ab1482 sunset</td><td>2,030</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>annual gift exclusion 2027</td><td>20,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>cdi cea avg</td><td>1,440.1</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>cdi dwelling fire avg</td><td>1,701.6</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>cdi homeowners avg</td><td>2,340</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>cpi 1998</td><td>163</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>cpi 2023</td><td>304.7</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>cpi long run</td><td>0.02</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>estate exclusion 2026</td><td>15,000,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>estate exclusion 2027</td><td>15,480,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>estate top rate</td><td>0.4</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>fhfa peak 2007</td><td>225</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>fhfa trough 2011</td><td>178.6</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>fhfa us hpi aug2026</td><td>444.61</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>fhfa yoy aug2026</td><td>0.024</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>form706 extension months</td><td>6</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>form706 months</td><td>9</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>homeowners exemption</td><td>7,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>mortgage 30y</td><td>0.0711</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>niit rate</td><td>0.038</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>niit threshold single</td><td>200,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>prop13 annual cap</td><td>0.02</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>prop19 cap addition</td><td>1,044,586</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>prop19 claim years</td><td>3</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>prop19 homeowner claim months</td><td>12</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>s121 joint</td><td>500,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>s121 single</td><td>250,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>sc county transfer tax</td><td>0.0011</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>sf rent increase 2026</td><td>0.016</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>sf secured rate</td><td>0.0118162</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>sf small estate</td><td>166,250</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>sf transfer tax mid</td><td>0.0075</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>treasury 10y</td><td>0.051</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>trustee notice days</td><td>60</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>us index growth 1991 2026</td><td>0.0428</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+</tbody></table>
+
+<h2>Assumptions</h2>
+<table class="">
+<caption>These are choices, not facts. Each is a place where a reasonable person could choose differently.</caption>
+<thead><tr><th>Assumption</th><th>Value</th><th>Source</th></tr></thead><tbody>
+<tr><td>depr years</td><td>27.5</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>end year</td><td>2,076</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>expense growth</td><td>0.02</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>fixed charge growth</td><td>0.02</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>gross rent yield high</td><td>0.03</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>gross rent yield low</td><td>0.018</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>home growth</td><td>0.035</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>insurance growth</td><td>0.04</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>invest pre tax</td><td>0.051</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>invest tax drag</td><td>0.33</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>land share</td><td>0.25</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>ltcg rate</td><td>0.243</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>maint pct A</td><td>0.01</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>maint pct B</td><td>0.012</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>management</td><td>0.06</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>niit rate total</td><td>0.038</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>ordinary rate</td><td>0.33</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>rent growth</td><td>0.02</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>rent target month</td><td>5,200</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>s121 exclusion</td><td>250,000</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>selling cost</td><td>0.06</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>unrecaptured rate</td><td>0.343</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+<tr><td>vacancy</td><td>0.04</td><td class="src"><a href="flagged.html#M01"><span class="flag" title="unverified">FLAG</span> M01</a></td></tr>
+</tbody></table>
+
+<h2>Three accounting decisions that matter</h2>
+<ol>
+<li><strong>The sell path carries none of the house's costs.</strong> Selling means the house is
+gone, so its property tax, insurance, utilities, and maintenance are all zero. Charging them while
+also crediting the invested proceeds double-counts.</li>
+<li><strong>The move-in path credits the unit vacated at the other house.</strong> Moving into the
+inherited house frees the unit the heir currently occupies, so it becomes rentable. It is priced at
+the per-unit rent the owner reports, which is an owner figure rather than a market rent.</li>
+<li><strong>Property tax is split in two.</strong> The ad valorem part tracks the assessed value at
+the county's published composite rate. Fixed charges, which are bonds and parcel taxes, do not track
+value and are grown at inflation instead. Treating a blended effective rate as if it were all ad
+valorem would compound the fixed charges every year.</li>
+</ol>
+
+<h2>What the model does not do</h2>
+<table><thead><tr><th>Not modelled</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Bracket-by-bracket tax</td><td>One combined marginal rate is applied every year. A real
+computation moves through brackets and could differ materially in the transfer year.</td></tr>
+<tr><td>State and federal interaction on the sale</td><td>The state treatment of capital gains is a
+flat add-on to the federal rate.</td></tr>
+<tr><td>Refinancing or leverage</td><td>Neither house carries a mortgage in the model. A mortgage
+would change the return on equity substantially.</td></tr>
+<tr><td>Probate</td><td>The model assumes the trust works. The process page prices the
+alternative.</td></tr>
+<tr><td>The other house's own appreciation as a decision variable</td><td>It is held in every path,
+so it cancels out of the comparison rather than being valued.</td></tr>
+<tr><td>Sequence of returns in the sell path</td><td>The reinvestment return is a constant. A real
+portfolio has a path, and the path matters.</td></tr>
+<tr><td>Mid-year conventions in depreciation</td><td>Depreciation is taken for whole recovery years
+only. A mid-month convention would shift the first and last year by a fraction of a year, which is
+immaterial against the other assumptions.</td></tr>
+</tbody></table>
+
+<h2>Reproducing the numbers</h2>
+<pre><code>python3 scripts/model_v5.py         # writes desk/data/model-v5.json
+python3 -m unittest discover -s scripts -p 'test_model_v5.py'
+python3 scripts/build_desk_v5.py    # writes desk/*.html
+python3 scripts/verify_desk_v5.py   # structural, sourcing, privacy checks</code></pre>
+<p>The model is deterministic. Running it twice produces byte-identical output, and the test suite
+pins every arithmetic relationship that a published figure depends on.</p>
+
+<h2>Rounding policy</h2>
+<p>Money is rounded to the nearest $10 at the point of output, after all arithmetic. Statutory
+amounts, rates, and thresholds are <em>not</em> rounded, because they are fixed by law and rounding
+them would misstate them. Rounded figures are labelled as rounded wherever they appear.</p>
+
+<h2>Privacy policy</h2>
+<p>Nothing on this site identifies a person, an address, a parcel, or a ZIP code. The two properties
+are Property A and Property B. A county or a city is named only where a rate or a procedure is local,
+because that is the level at which the source is published. No figure here is precise enough to be
+matched to a specific bill, and the build's checker fails if one becomes so.</p>
+
+<footer>
+<p>This desk is a research aid. It is not legal, tax, investment, or appraisal advice.
+Every figure is either cited to an official source, or labelled as model output, or left blank
+and listed on <a href="flagged.html">Flagged for review</a>. Amounts are rounded to the nearest
+$10 so that no figure can be matched back to a specific bill.</p>
+<p><a href="methodology.html">How these numbers were produced</a> &middot;
+<a href="sources.html">All sources</a> &middot;
+<a href="repo-review.html">Line-by-line review notes</a></p>
+</footer>
+</main>
+</body>
+</html>
