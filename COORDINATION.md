@@ -1128,3 +1128,13 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
 No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.
+
+## Session `arena-fe08d8f1-tino5` — claim (2026-11-13, branch `arena/fe08d8f1-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| f08/S1 | Complete the deployed decision desk: executive summary with verified details, a dedicated suggestions-review section, a Q&A list (questions / information / answers needed before deciding), black-swan 50-year uneven-economy projections, rounded-number live/rent/sell analysis, inheritance-threshold research, step-by-step trust process, line-by-line verification against official sources, and GitHub Pages deploy + PR + merge | in progress | arena-fe08d8f1-tino5 | `public-safe/**`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `verification-report.json`, this section of `COORDINATION.md` |
+
+Non-overlap note: prior claiming sessions on `public-safe/**` and its builder (803/M, 881/P) are `done`; this session enhances the deployed artifact as the active integration session and does not touch other sessions' non-overlapping directories (`audited-v4/`, `docs/`, `desk-*/`, `swan-3a49/`, `referee-abae/`, `session-*/`, `verify-552/`, `archive/`, `mine/`, `plan/`).
+
+Privacy rule for this scope: Property A / Property B placeholders only; county-level jurisdiction; no names, addresses, parcel numbers, ZIP codes, city names, owner-supplied assessment/tax histories, rents, or exact property values; every dollar figure a multiple of $10 except statutory amounts quoted exactly as published; model outputs labelled assumption/derived with method and inputs shown; every table row carries an official source link or is left blank and flagged.
