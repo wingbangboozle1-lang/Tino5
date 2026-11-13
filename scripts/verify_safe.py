@@ -35,10 +35,15 @@ DEPLOYMENT_EXCLUSIONS = {
 # run under the owner's brief ("clear numbers and projections ... rounded to the nearest $10").
 # Removing an entry from this set unpublishes the directory (it must then also return to
 # DEPLOYMENT_EXCLUSIONS and to the Jekyll exclude list in _config.yml).
+# desk-d75 approved by the d75/INT run (owner brief, item by item; recorded 13 Nov 2026).
 # verify-476 added by the 476/INT integration run (2026-11-13): the independent
 # line-by-line verification register (arena-47685795). decision added by the 1ec/INT
 # integration run (2026-11-13): the consolidated 16-page decision site (arena-1ec4b5b0).
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86", "tino5-3f269806", "verify-476", "decision"}
+# The d75/INT merge of origin/main kept all three additions in one set: a second assignment
+# here would silently replace the first, and the directory it dropped would fail the
+# fail-closed rule below.
+PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
+                  "tino5-3f269806", "verify-476", "decision", "desk-d75"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",

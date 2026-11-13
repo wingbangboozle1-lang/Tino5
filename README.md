@@ -8,6 +8,7 @@ inherited and the other is not.
 [`desk/`](desk/index.html) (the numeric decision desk, 2026–2076, $10 rounding),
 [`public-safe/`](public-safe/index.html) (the privacy-first curated dashboard, no household
 figures), [`desk-e86/`](desk-e86/index.html) (46-question decision-readiness register),
+[`desk-d75/`](desk-d75/index.html) (the owner brief as a 26-item requirement register, with the pages that answer it),
 [`review-092b/`](review-092b/index.html) (question/suggestion hub), [`decision-ad038/`](decision-ad038/index.html)
 (indexed projections and law), [`swan-3a49/`](swan-3a49/index.html) (uneven-economy replay),
 [`referee-abae/`](referee-abae/index.html) (independent cross-check),
@@ -71,6 +72,9 @@ python3 scripts/check_landing.py                              # hub links resolv
 python3 scripts/privacy_scan.py --summary                     # identifier scan
 python3 review-092b/_src/verify.py                            # decision hub contract
 python3 desk-e86/verify.py                                    # readiness desk contract
+python3 desk-d75/_src/build.py                                # regenerate the owner-brief desk
+python3 desk-d75/_src/verify.py                               # its contract: privacy, links, rounding, coverage
+python3 -m unittest discover -s desk-d75/_src -p "test_*.py"  # its engine and privacy tests
 python3 decision-ad038/_src/verify_site.py                    # indexed desk contract
 python3 referee-abae/_src/crosscheck.py                       # independent cross-check
 ```
