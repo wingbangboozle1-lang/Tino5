@@ -11,6 +11,7 @@ Semantic truth of each cited page was checked by reading the page; see public-sa
 
 Run: python3 scripts/verify_safe.py
 """
+from datetime import date
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlparse
@@ -22,8 +23,8 @@ CONFIG = Path("_config.yml")
 DEPLOYMENT_EXCLUSIONS = {"verify-552", "session-595f0109"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
-    "black-swans.html", "tax.html", "process.html", "law-watch.html", "flagged.html",
-    "sources.html",
+    "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
+    "qa.html", "flagged.html", "sources.html",
 }
 ALLOWED_HOSTS = {
     "www.irs.gov", "www.sco.ca.gov", "www.ftb.ca.gov",
@@ -153,7 +154,7 @@ print(summary)
 
 if "--json" in __import__("sys").argv:
     report = {
-        "generated": "2026-11-12",
+        "generated": date.today().isoformat(),
         "artifact": "public-safe/",
         "pages": pages,
         "counts": stats,
