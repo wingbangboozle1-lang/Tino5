@@ -27,10 +27,10 @@ code{background:#eef3f7;padding:1px 4px;border-radius:4px}
 <header><h1>Estate decision desks</h1></header>
 <main>
 <p>This is the hub for the published pages. One dashboard is live on this site
-(<code>public-safe/</code>). Two further desks are complete and verified in the repository but are not
-published, because the repository's fail-closed deployment rule allows only <code>public-safe/</code>
-until the owner approves publication (see the README). Owner-supplied dollar figures are kept off the
-published pages.</p>
+(<code>public-safe/</code>). Three further desks are complete and verified in the repository but are
+not published, because the repository's fail-closed deployment rule allows only
+<code>public-safe/</code> until the owner approves publication (see the README). Owner-supplied
+dollar figures are kept off the published pages.</p>
 
 <div class="grid">
 <a class="card" href="public-safe/index.html"><b>Curated dashboard — live</b><span>Privacy-first dashboard: decision, projections, costs, black swans, tax, process, law watch, suggestions, questions, flagged, sources</span></a>
@@ -48,8 +48,8 @@ computed from CPI-U and the FHFA house-price index; a ten-step trust process; an
 source register.</td>
 <td>Complete, generated from a reproducible model, structural verifier and 25 regression tests
 passing.</td>
-<td rowspan="2">The repo rule in <code>scripts/verify_safe.py</code> permits only
-<code>public-safe/</code> to be a publishable top-level directory. Both desks are therefore listed
+<td rowspan="3">The repo rule in <code>scripts/verify_safe.py</code> permits only
+<code>public-safe/</code> to be a publishable top-level directory. All three desks are therefore listed
 in the deployment exclusions. Publishing either needs an owner decision to add it as a reviewed
 publishable directory. This hub does not link into them, because that link would defeat the
 exclusion.</td></tr>
@@ -57,6 +57,13 @@ exclusion.</td></tr>
 <td>A twelve-page desk with a dashboard, law page and assumptions page; publishes indexed figures
 rather than absolute owner dollar amounts.</td>
 <td>Complete and verified.</td></tr>
+<tr><td><code>desk/</code> — decision desk v5</td>
+<td>The fullest version: fifteen pages, with a year-by-year 2026&ndash;2076 projection, a
+seven-scenario stress set, a step-by-step trust process with its deadlines, a separate suggestions
+page for choosing a path, and every table row source-linked or explicitly flagged. Its figures are
+rounded to the nearest $10.</td>
+<td>Complete: 20 model regression tests and an eight-check structural, sourcing, rounding and
+privacy verifier passing.</td></tr>
 </tbody>
 </table>
 

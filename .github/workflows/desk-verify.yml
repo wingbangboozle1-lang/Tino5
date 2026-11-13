@@ -1,0 +1,56 @@
+name: desk-verify
+
+on:
+  push:
+    branches: [main]
+    paths: ["desk/**", "scripts/model_v5.py", "scripts/build_desk_v5.py",
+            "scripts/verify_desk_v5.py", "scripts/test_model_v5.py",
+            ".github/workflows/desk-verify.yml"]
+  pull_request:
+    paths: ["desk/**", "scripts/model_v5.py", "scripts/build_desk_v5.py",
+            "scripts/verify_desk_v5.py", "scripts/test_model_v5.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Model regression tests
+        run: python3 -m unittest discover -s scripts -p "test_model_v5.py" -v
+
+      - name: Model is deterministic
+        run: |
+          python3 scripts/model_v5.py
+          cp desk/data/model-v5.json /tmp/model-a.json
+          python3 scripts/model_v5.py
+          diff -q /tmp/model-a.json desk/data/model-v5.json
+
+      - name: Build the desk
+        run: python3 scripts/build_desk_v5.py
+
+      - name: Generated pages are current
+        run: |
+          if ! git diff --quiet -- desk; then
+            echo "::error::desk/ is stale. Re-run scripts/build_desk_v5.py and commit the result."
+            git --no-pager diff --stat -- desk
+            exit 1
+          fi
+
+      - name: Verify the desk contract
+        run: python3 scripts/verify_desk_v5.py --json
+
+      - name: Upload the verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: desk-verification-report
+          path: desk-verification-report.json
+          if-no-files-found: ignore
