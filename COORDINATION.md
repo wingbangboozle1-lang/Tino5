@@ -1716,3 +1716,16 @@ review, as instructed. GitHub Pages source `main:/`, build on `01d86d2` status `
 none; live pages confirmed by direct retrieval: `/public-safe/index.html`,
 `/public-safe/suggestions.html`, `/public-safe/qa.html`. Flagged irregularities remain published
 on `public-safe/flagged.html` and do not block the merge.
+
+**7b/INT PR / merge / deploy record.** PR [#60](https://github.com/wingbangboozle1-lang/Tino5/pull/60)
+(`arena/7b137345-tino5` → `main`) — CI on the PR: `verify` pass (runs 43389543777 /
+4338954380) — **MERGED** as `da7fa34463b1de399594d8c56fc15ad360b7dc69` without waiting for
+review, as instructed. Post-merge runs on `main` (43389710086 / 43389710047 / 43389709024):
+**all success**. GitHub Pages: status **`built`**, no error, source `main:/`. Live retrieval
+confirmed 2026-11-13 08:00Z: root hub serves the categorized landing with all seven published
+cards; `/desk/index.html` serves the numeric desk (headline figures at $10);
+`/public-safe/qa.html` serves Q-1…Q-13 including the new DE-300 and NEM rows and the 2027
+exclusion; `/referee-abae/index.html` serves the cross-check; `/research/verification-log.md`
+and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions effective on the
+live site). Flagged items remain published on each desk's Flagged page and did not block the
+merge. This record lands in a record-only follow-up PR (single-branch rule).
