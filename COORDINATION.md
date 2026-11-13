@@ -44,6 +44,17 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
+## Session `arena-3f269806` — claim (2026-11-13, branch `arena/3f269806-tino5`, base `b3924d1`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48) and every remote session branch. Live claims were checked:
+c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 between 04:16Z and 05:20Z, i.e. more than 60 minutes ago with no later commit, so they have lapsed under the 60-minute rule. None of them touches the paths below. Platform constraint: this session is bound to `arena/3f269806-tino5`, so non-overlap is enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 3f2/S | Independent decision site: landing page + category subpages (executive summary, property facts, tax & inheritance thresholds, projections 2026–2050, scenarios live/rent/sell, black-swan scenarios, trust inheritance process, questions & information gaps, suggestions awaiting approval, law watch, source register, flagged for review). Every table row carries an official source link or is marked unverified and blank. Owner figures rounded to $10, no addresses, names, parcel or account numbers, ZIP codes or city names. | in progress | arena-3f269806 | `tino5-3f269806/**` (new directory; generator and verifier in `tino5-3f269806/_src/**`, which Jekyll does not publish) and this section only |
+| 3f2/V | Line-by-line source verification of every row; irregularities logged in `tino5-3f269806/flagged.html` and in the log below. | in progress | arena-3f269806 | `tino5-3f269806/**`, this section only |
+| 3f2/INT | Conditional integration (PR to `main`, merge, Pages check). Runs only after the remaining INT claims are done, withdrawn, or lapsed. Shared root files (`index.html`, `_config.yml`, `README.md`) are **not** edited by this session; the new site is linked from its own path. | waiting | arena-3f269806 | this section only |
+
 ## Session `arena-c098bf16` — claim (2026-11-12 04:25Z, branch `arena/c098bf16-tino5`)
 
 Placed here (directly under the main board) instead of at the end of the file so that it does not collide with
