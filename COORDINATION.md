@@ -1782,3 +1782,109 @@ neighbourhood name, no parcel or account identifier, no name or contact detail. 
 **Property A** (future trust inheritance) and **Property B** (already owned). No new dollar
 figure is introduced by this session; existing figures stay where their own desks' verifiers
 already checked them.
+
+### 5e7/INT — completion record (arena-5e7d4570, 2026-11-13)
+
+**Conditions checked before running:** the newest remote commit before this session's claim was
+`origin/arena/3f269806-tino5` at 08:17Z — more than 60 minutes old — so every prior claim was
+`done`, `needs review`, or lapsed. No live claim touched this session's scope. Base: `52ab3d2`
+(PR #62).
+
+**What was delivered.**
+1. **Stranded record carried.** The 3f2/INT PR #62 merge / CI / Pages / live-check record that
+   sat unmerged on `origin/arena/3f269806-tino5` (`9209ecb` + `9df55a6`) applied verbatim to
+   this board (10 insertions, 1 deletion in their own section only; no other session's text
+   changed).
+2. **Navigation gap closed.** `tino5-3f269806/` was in `PUBLISHED_DESKS` and live after #62 but
+   had no card on the root hub and no line in the README site map, because PR #62's session
+   could not edit the shared root files. Added one card to `index.html` ("Start here") and one
+   entry to the `README.md` site map — links and prose only: no dollar figure, no identifier,
+   no address, no ZIP, no name.
+3. **Full verification battery on the final tree — all exit 0:**
+
+   | Check | Result |
+   |---|---|
+   | `scripts/verify_safe.py` | PASS — 13 pages, 15 tables, 125 source-linked rows, 379 links (183 official), $10 rounding, no identifier patterns |
+   | `scripts/check_landing.py` | 10/10 targets resolve |
+   | `scripts/privacy_scan.py --summary` | 0 findings |
+   | `scripts/verify_desk_v5.py` | PASSED — 9 checks |
+   | `scripts/test_model_v5.py` | OK (20 tests); model byte-identical across two runs (deterministic) |
+   | `scripts/test_desk_model.py` | OK (4 tests) |
+   | `tino5-3f269806/_src/verify.py` | PASS — 13 pages, 226 rows, 567 links |
+   | `review-092b/_src/verify.py` + its unit tests | PASS — 256 rows; tests OK |
+   | `desk-e86/verify.py` | PASS — 5 pages, 142 rows |
+   | `decision-ad038/_src/verify_site.py` | NO ERRORS — 194 rows |
+   | `referee-abae/_src/crosscheck.py` | exit 0 |
+   | `node scripts/verify.mjs` | errors: 0 (53 pre-existing warnings, preserved legacy pages citing sources outside the registry) |
+   | rebuilds of `desk/`, `public-safe/`, `review-092b/` | no diff — generated pages current |
+   | `git diff --check` | clean |
+
+4. **Independent line-by-line re-verification of the decision-critical figures** — each figure
+   below was fetched and read in this session on the official source, and matched the figure
+   published on the desks:
+
+   | Figure | Official source (link for manual review) | Result |
+   |---|---|---|
+   | 2026 federal basic exclusion $15,000,000 (P.L. 119-21) | https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax | confirmed |
+   | 2027 federal basic exclusion $15,480,000 | https://www.irs.gov/pub/irs-drop/rp-26-35.pdf (Rev. Proc. 2026-35, §3.44) | confirmed |
+   | Estate tax closing-letter fee $56 → $76, eff. 26 Oct 2026 (T.D. 10055) | https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax | confirmed |
+   | Prop 19 add-on $1,044,586 for transfers 16 Feb 2025 – 15 Feb 2027; next adjustment Feb 2027 (FHFA CA HPI +2.15%) | https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf | confirmed |
+   | SF secured property tax rate FY 2026-27 = 1.18162182% | https://sftreasurer.org/property/secured-property-taxes | confirmed |
+   | CA probate thresholds, deaths on/after 1 Apr 2025: $208,850 / $750,000 / $107,900 / $69,625; next adjustment 1 Apr 2028 | https://www.courts.ca.gov/documents/de300.pdf (Judicial Council DE-300, Rev. 28 Apr 2025) | confirmed |
+   | Prop 13: 1% + voter-approved bonds; 2% annual cap; reassessment only on change of ownership or new construction; homeowners' exemption claim dates | https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf (BOE Pub. 29, Mar 2025) | confirmed |
+   | Prop 19: principal residence of transferor and transferee; cap = taxable value + $1,000,000 (biennially adjusted); homeowners' exemption within 1 year; exclusion claim within 3 years or before transfer to a third party | https://www.boe.ca.gov/prop19/ | confirmed |
+
+5. **Live-site checks after the merge** (see PR record below): root hub serves the new
+   `tino5-3f269806` card; `/tino5-3f269806/`, `/desk/`, `/public-safe/flagged.html` all serve;
+   excluded paths return 404 (`desk-b4f/`, `docs/`, `research/`, `archive/`, `README.md`,
+   `COORDINATION.md`, `session-2f7b1b3f/`, `analysis/`, `audited-v4/`, `scripts/` directory,
+   `scripts/generate_site.py`, `desk-22a32b17/flagged.html` — all checked after the deploy).
+
+**Irregularities found and flagged (do not block the merge).**
+- **GitHub Pages edge anomaly (content not exposed):** a subset of excluded-path requests
+  returns GitHub's generic unicorn error page instead of a 404 — reproducibly
+  `/desk-22a32b17/index.html`, `/desk-22a32b17/properties-and-tax.html`,
+  `/desk-22a32b17/style.css`, `/scripts/verify.py` — while sibling paths in the same excluded
+  directories (`/desk-22a32b17/flagged.html`, `/scripts/`, `/scripts/generate_site.py`) return
+  clean 404s, and GitHub status reports Pages operational. **No repository content was returned
+  for any excluded path in any check (~25 requests); only GitHub's generic error page or the
+  Pages 404 page was ever served.** The local fail-closed gate (`verify_safe.py`) proves both
+  directories are in `DEPLOYMENT_EXCLUSIONS` and in the Jekyll exclude list, so the artifact
+  cannot contain them. Flagged for a re-check after the next deploy; if it persists, it is a
+  GitHub-side cache/edge item to raise with GitHub, not a repository defect.
+- **Cross-desk stale gap:** `tino5-3f269806/flagged.html` F07 says the 2027+ federal exclusion
+  "was not found in the sources read". It is confirmed as **$15,480,000** (Rev. Proc. 2026-35
+  §3.44, link above) and is already carried on `public-safe/qa.html` and `desk/questions.html`.
+  Not edited here (another session's finished desk); closable by its owner with the source above.
+- **Re-identification note (owner decision):** `tino5-3f269806/` publishes three single-year
+  owner anchors rounded to $10 (market value A, market value B, assessed value A 2026), labelled
+  `owner input - unverified`. The brief asks for numbers at $10 rounding; county assessor rolls
+  are public and indexed, so a single rounded assessed value can still be searched. Other desks
+  omit the anchors entirely (the stricter protective choice). Both conventions are published and
+  flagged; switching `tino5-3f269806/` to the stricter convention is a one-row-per-anchor edit if
+  the owner prefers it. This session did not change another desk's content.
+- **Standing items unchanged:** `desk-22a32b17/` stays excluded (Prop 19 cap overstated ~3×, X13);
+  `desk-b4f/` stays excluded (X04 $16,200 vs $16,250; X05 closing-letter fee); owner-action items
+  (public git history holding earlier full-precision figures; repository visibility) remain owner
+  decisions. Flagged irregularities are published on each desk's Flagged page and did not block
+  the merge.
+
+**PR / merge / deploy record (5e7/INT).**
+- **PR:** [#63](https://github.com/wingbangboozle1-lang/Tino5/pull/63)
+  (`arena/5e7d4570-tino5` → `main`), created 2026-11-13; CI check `verify`
+  (workflow "Verify published artifact") **passed** on the PR; `mergeStateStatus: CLEAN`.
+- **Merge:** **MERGED** 2026-11-13T12:00:47Z, merge commit
+  `727a5dcb36354526e9ab00e49290e927518d2f22` on `main`, without waiting for review, as
+  instructed.
+- **CI on `main`:** `Verify published artifact` (run 43421612550) → **success**;
+  `pages build and deployment` (run 43421611514) → **success**.
+- **Pages:** build on `727a5dc` → status **`built`**, `error: null`, updated
+  2026-11-13T12:01:20Z; source `main:/`.
+- **Live retrieval confirmed after the deploy:** root hub serves the categorized landing with
+  the new "Independent decision site (row-by-row verified)" card under "Start here";
+  `/tino5-3f269806/index.html`, `/desk/index.html` and `/public-safe/flagged.html` serve their
+  content; excluded paths as listed above return 404 (with the unicorn anomaly noted and
+  content non-exposure verified).
+- This completion record is published by record-only follow-up PR
+  [#64](https://github.com/wingbangboozle1-lang/Tino5/pull/64) (single-branch rule). #64
+  changes only this file, which `_config.yml` excludes from Pages.
