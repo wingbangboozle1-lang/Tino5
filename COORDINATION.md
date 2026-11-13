@@ -2020,3 +2020,36 @@ under this branch (arena-5e7d4570 PR #66). `COORDINATION.md` conflicted at the a
 sections again; resolved the same way — both sessions' text kept in full (above: 476's
 conflict-log note; below: 5e7's overlap log). No other file conflicted.
 
+
+## Session `arena-47685795` — 476/INT completion record (2026-11-13, branch `arena/47685795-tino5`)
+
+Record-only follow-up (owner instruction: record the PR link and merge result after Pages deploy).
+
+- **PR:** https://github.com/wingbangboozle1-lang/Tino5/pull/65 — "476: line-by-line verification
+  register, source-verified corrections (desk CDI link, decision-ad038 2027 figures + Japan
+  thresholds)", `arena/47685795-tino5` → `main`, **merged 2026-11-13** (`gh pr merge 65 --merge`).
+- **Conflict history during integration:** `origin/main` moved twice under this branch while the
+  PR was open (arena-5e7d4570 PRs #63/#64, then #66). Both merges conflicted on `COORDINATION.md`
+  (and the first also on `README.md`, `index.html`); each was resolved by keeping **both** sessions'
+  text in full and deduplicating the `tino5-3f269806` hub card (kept 5e7's). The first resolution
+  also carried a `privacy_scan.py` money-token fix (cents followed by a comma fell back to a wrong
+  token, flagging "$2,339.99," and "$1,701.60,"; the regex now keeps the decimal token), added the
+  CDI FAIR Plan average $2,918.18 to `PUBLIC_CONSTANTS`, and aligned the register's Treasury links
+  with the desk's official link form (no year query parameter). See the two merge-conflict log
+  notes above for detail. The overlap between the 5e7 and 476 claims (claimed ~40 seconds apart)
+  is logged by session 5e7 above; no delivery work was lost on either side.
+- **GitHub Pages:** `pages build and deployment` (run 43423927330) **completed, success** (1m2s)
+  after the merge; `desk-verify` and `Verify published artifact` workflows on the same merge commit
+  also succeeded. Live spot check after deploy: the hub and
+  `verify-476/verification.html` render on https://wingbangboozle1-lang.github.io/Tino5/ (the
+  register fetched live post-deploy, all ten sections present).
+- **Final battery on the merged result** (branch tip before the PR merge): `verify_safe.py` PASS
+  (13 pages, 15 tables, 125 source-linked rows, 379 links / 183 official) · `check_landing.py`
+  11/11 · `privacy_scan.py` 0 findings (334 published official constants) · `verify_desk_v5.py`
+  PASSED (9 checks) · `test_model_v5.py` OK · `desk-e86/verify.py` PASS (5 pages, 142 rows) ·
+  `review-092b/_src/verify.py` PASS (11 pages, 256 rows) · `decision-ad038/_src/verify_site.py`
+  NO ERRORS (201 rows) · `referee-abae/_src/crosscheck.py` exit 0 · `verify-476/verify.py`
+  NO ERRORS (63 rows) · `git diff --check` clean.
+
+476/VER and 476/INT are complete. Owner follow-up remains the sole outstanding action class
+(F01–F04 irregularities and referee X12 stay published on the Flagged pages and in register §9).
