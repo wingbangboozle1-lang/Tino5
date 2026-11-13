@@ -1,6 +1,8 @@
 title: Estate decision desk
 plugins: []
 exclude:
+  - "_src"
+  - "review-092b"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

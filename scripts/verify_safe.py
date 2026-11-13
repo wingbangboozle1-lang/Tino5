@@ -21,7 +21,8 @@ import re
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
 DEPLOYMENT_EXCLUSIONS = {
-    "verify-552", "session-595f0109", "decision-ad038", "desk-22a32b17", "tools-22a32b17",
+    "review-092b", "verify-552", "session-595f0109", "decision-ad038", "desk-22a32b17",
+    "tools-22a32b17",
     "swan-3a49", "referee-abae", "desk-b4f", "docs", "archive", "audited-v4",
     "data", "analysis", "assets", "model", "pages", "research", "scripts",
     "session-2f7b1b3f", "mine", "src",
@@ -117,7 +118,9 @@ config_text = CONFIG.read_text() if CONFIG.exists() else ""
 for directory in DEPLOYMENT_EXCLUSIONS:
     if not re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
         errors.append(f"_config.yml: required deployment exclusion missing for {directory}")
-# Fail closed: only public-safe/ may be a publishable top-level directory.
+# Fail closed: only public-safe/ may be a publishable top-level directory. A desk that is
+# complete and verified but not yet published on Pages is listed here until the owner
+# approves publication; review-092b/ (the decision hub) is in that state.
 # Hidden infrastructure directories are ignored by Jekyll and are intentionally skipped.
 visible_dirs = {p.name for p in Path(".").iterdir() if p.is_dir() and not p.name.startswith(".")}
 for directory in visible_dirs - {"public-safe"}:
