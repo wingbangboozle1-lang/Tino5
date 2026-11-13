@@ -86,7 +86,7 @@ S = {
  "sfgov_fees": ("SF.gov, fees to record a document (transfer tax rates)",
    "https://www.sf.gov/reports--march-2024--fees-record-document-san-francisco"),
  "cdi": ("CA Department of Insurance, 2025 residential premium report",
-   "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res-homeowners/upload/EQEXP2025Summary.pdf"),
+   "https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf"),
  "cpuc_nem": ("CPUC, net energy metering",
    "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/net-energy-metering"),
  "sjwc": ("San Jose Water Company, tariff AL-628-A",
@@ -643,7 +643,7 @@ charges grown at inflation</td>
 <td><a href="https://www.sccgov.org/sites/dtt/pd/Documents/tax-rate-book-2025-2026.pdf">County rate book</a></td></tr>
 <tr><td>Insurance</td><td>Owner estimate grown above inflation, because California premiums have
 been repricing</td>
-<td><a href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res-homeowners/upload/EQEXP2025Summary.pdf">CDI</a></td></tr>
+<td><a href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf">CDI</a></td></tr>
 <tr><td>Water and power</td><td>Owner estimate grown at inflation; the electricity line is
 negative because of a solar credit</td>
 <td><a href="https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/net-energy-metering">CPUC</a></td></tr>
@@ -1221,7 +1221,7 @@ regulatory environment determines whether cover is available at all, and at what
 <td><a href="https://sftreasurer.org/property/secured-property-taxes">City treasurer</a></td>
 <td>Annually, in the autumn</td></tr>
 <tr><td>Insurance market condition</td>
-<td><a href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res-homeowners/upload/EQEXP2025Summary.pdf">Department of Insurance</a></td>
+<td><a href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf">Department of Insurance</a></td>
 <td>Annually</td></tr>
 </tbody></table>
 """
