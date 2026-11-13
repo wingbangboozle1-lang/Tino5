@@ -40,6 +40,7 @@ SOURCES = {
 NAV = [
     ("index.html", "Dashboard"), ("decision.html", "Decision"),
     ("suggestions.html", "Suggestions"),
+    ("questions-answers.html", "Questions & answers"),
     ("projections.html", "Projections"), ("properties.html", "Properties"),
     ("costs.html", "Costs"), ("black-swans.html", "Black swans"),
     ("tax.html", "Inheritance & tax"), ("process.html", "Step by step"),

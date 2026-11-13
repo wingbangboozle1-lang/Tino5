@@ -26,7 +26,8 @@ DEPLOYMENT_EXCLUSIONS = {
     "session-2f7b1b3f", "mine", "src",
 }
 EXPECTED_PAGES = {
-    "index.html", "decision.html", "suggestions.html", "projections.html", "properties.html", "costs.html",
+    "index.html", "decision.html", "suggestions.html", "questions-answers.html",
+    "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "flagged.html",
     "sources.html",
 }

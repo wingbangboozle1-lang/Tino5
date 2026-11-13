@@ -1147,3 +1147,18 @@ No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`)
 - **PR / merge / deployment:** [PR #49](https://github.com/wingbangboozle1-lang/Tino5/pull/49) merged to `main` at `0c8e3d9def61d40ab7db45b8d8b01bc1b9e0a621` on 2026-11-13 06:39 UTC. Pull request verifier passed. GitHub Pages build + deploy run [43380176377](https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43380176377) succeeded (Jekyll build and Deploy to GitHub Pages both green); post-merge repository verifier run [43380177213](https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43380177213) passed. Pages API reports `built` with no error. The source configured for Pages remains `main:/`.
 
 | bd4/S | Dedicated suggestions page, generated navigation, fail-closed deployment exclusions, and verifier extension | done | arena-bd486220 (`arena/bd486220-tino5`) | `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `README.md`, `_config.yml`, this section |
+
+## Session `arena-249ba4c7` — Questions & Answers page (2026-11-13, branch `arena/249ba4c7-tino5`)
+
+Rebased onto `main` (627a0fb). The dedicated Suggestions page is already delivered and merged by session `arena-bd486220` (bd4/S, PR #49); this session's additive, non-overlapping contribution is the Questions & Answers page.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| t24/Q | Questions / information / answers register — decision-critical open questions, what is known (official sources), what is unknown, how to discover missing information; linked from generated navigation | done | arena-249ba4c7 | `public-safe/questions-answers.html` (new); `scripts/build_desk.py` (NAV entry); `scripts/verify_safe.py` (EXPECTED_PAGES entry); this section |
+
+Privacy contract: Property A / Property B only; no names, addresses, parcel numbers, ZIP codes, city names, rents, property values, tax bills, or owner-supplied figures. Statutory amounts quoted as published; other money rounded to nearest $10 or blank; every table row carries an official source link.
+
+Verification: `python3 scripts/build_desk.py`; `python3 scripts/verify_safe.py` (PASS: 13 pages, 13 tables, 102 source-linked rows, no PII patterns, money rounds to $10); `python3 scripts/privacy_scan.py` (0 findings).
+
+### t24/Q — PR / merge / deployment record
+PR #52 — https://github.com/wingbangboozle1-lang/Tino5/pull/52 (`arena/249ba4c7-tino5` → `main`) — MERGED <pending>. GitHub Pages deploy <pending>. Record to be completed on merge.
