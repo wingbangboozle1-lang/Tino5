@@ -41,6 +41,9 @@ TEXT_SUFFIXES = {".html", ".htm", ".md", ".json", ".js", ".mjs", ".py", ".css", 
 PUBLIC_CONSTANTS = {
     "1,044,586",   # BOE: Prop 19 adjusted amount, 16 Feb 2025 - 15 Feb 2027
     "1,022,600",   # BOE: Prop 19 adjusted amount, 16 Feb 2023 - 15 Feb 2025
+    "69,625", "107,900", "208,850",  # Judicial Council DE-300 probate thresholds (deaths on/after 1 Apr 2025)
+    "661,375", "75,197",            # IRS 2027 / FTB 2026 published bracket thresholds as cited
+    "1,440.11",                     # published utility/tariff figure as cited by the desk verifier
     "1,571", "1,512", "1,655", "1,737", "1,702", "1,701.60", "2,339.99",  # insurance averages as cited
     "768,213", "1,536,426",                                              # FTB bracket thresholds as cited
     "4,688", "3,697", "4,832",                                           # HUD fair market rents as cited

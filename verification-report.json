@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12",
+  "generated": "2026-11-13",
   "artifact": "public-safe/",
   "pages": [
     "black-swans.html",
@@ -11,14 +11,16 @@
     "process.html",
     "projections.html",
     "properties.html",
+    "qa.html",
     "sources.html",
+    "suggestions.html",
     "tax.html"
   ],
   "counts": {
-    "rows": 80,
-    "links": 262,
-    "tables": 11,
-    "external": 118
+    "rows": 120,
+    "links": 366,
+    "tables": 15,
+    "external": 170
   },
   "checks": {
     "page_set_exact": true,
@@ -35,6 +37,7 @@
     "https://boe.ca.gov/pdf/pub800-10.pdf",
     "https://leginfo.legislature.ca.gov/faces/codes.xhtml",
     "https://selfhelp.courts.ca.gov/probate",
+    "https://sftreasurer.org/property/secured-property-taxes",
     "https://www.bls.gov/cpi/",
     "https://www.bls.gov/cpi/tables/supplemental-files/historical-cpi-u-202402.pdf",
     "https://www.bls.gov/news.release/archives/cpi_01122023.htm",
@@ -52,7 +55,9 @@
     "https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax",
     "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances",
     "https://www.irs.gov/instructions/i706",
+    "https://www.irs.gov/publications/p523",
     "https://www.irs.gov/publications/p527",
+    "https://www.irs.gov/publications/p551",
     "https://www.sco.ca.gov/ardtax_estate_tax.html",
     "https://www.usgs.gov/programs/earthquake-hazards"
   ]

@@ -11,6 +11,7 @@ Semantic truth of each cited page was checked by reading the page; see public-sa
 
 Run: python3 scripts/verify_safe.py
 """
+from datetime import date
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlparse
@@ -19,11 +20,26 @@ import re
 
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
-DEPLOYMENT_EXCLUSIONS = {"verify-552", "session-595f0109"}
+DEPLOYMENT_EXCLUSIONS = {
+    # Excluded from Pages. Adding a directory here excludes it; it does not publish it.
+    # desk-22a32b17 stays excluded until its Proposition 19 cap error is corrected (the
+    # exclusion protects assessed value only up to $1,044,586, not the whole gap — see the
+    # delivery record of arena-12dfd47a and referee X13); desk-b4f stays excluded until
+    # X04/X05 are corrected.
+    "verify-552", "session-595f0109", "desk-22a32b17", "tools-22a32b17",
+    "desk-b4f", "docs", "archive", "audited-v4",
+    "data", "analysis", "assets", "model", "pages", "research", "scripts",
+    "session-2f7b1b3f", "mine", "src",
+}
+# Approved for publication alongside public-safe/. Recorded here by the 7b/INT integration
+# run under the owner's brief ("clear numbers and projections ... rounded to the nearest $10").
+# Removing an entry from this set unpublishes the directory (it must then also return to
+# DEPLOYMENT_EXCLUSIONS and to the Jekyll exclude list in _config.yml).
+PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
-    "black-swans.html", "tax.html", "process.html", "law-watch.html", "flagged.html",
-    "sources.html",
+    "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
+    "qa.html", "flagged.html", "sources.html",
 }
 ALLOWED_HOSTS = {
     "www.irs.gov", "www.sco.ca.gov", "www.ftb.ca.gov",
@@ -32,6 +48,8 @@ ALLOWED_HOSTS = {
     "www.insurance.ca.gov", "selfhelp.courts.ca.gov", "leginfo.legislature.ca.gov",
     "www.cpuc.ca.gov", "electionresults.sos.ca.gov", "www.bls.gov", "www.fhfa.gov",
     "www.federalreserve.gov", "www.usgs.gov",
+    # Judicial Council of California — DE-300 probate thresholds (7b/INT gap fix).
+    "courts.ca.gov", "www.courts.ca.gov",
 }
 # Structural personal-data patterns only. No real identifier is stored in this file.
 PII = [
@@ -111,6 +129,19 @@ config_text = CONFIG.read_text() if CONFIG.exists() else ""
 for directory in DEPLOYMENT_EXCLUSIONS:
     if not re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
         errors.append(f"_config.yml: required deployment exclusion missing for {directory}")
+# Fail closed: every visible top-level directory except public-safe/ must either be
+# explicitly approved in PUBLISHED_DESKS or be listed in DEPLOYMENT_EXCLUSIONS (both here
+# and in the Jekyll exclude list). Hidden infrastructure directories are ignored by Jekyll
+# and are intentionally skipped.
+visible_dirs = {p.name for p in Path(".").iterdir() if p.is_dir() and not p.name.startswith(".")}
+for directory in visible_dirs - {"public-safe"} - PUBLISHED_DESKS:
+    if directory not in DEPLOYMENT_EXCLUSIONS:
+        errors.append(f"_config.yml / verifier: unreviewed top-level directory is not excluded: {directory}")
+for directory in PUBLISHED_DESKS & visible_dirs:
+    if directory in DEPLOYMENT_EXCLUSIONS:
+        errors.append(f"verifier: published directory still listed in DEPLOYMENT_EXCLUSIONS: {directory}")
+    if re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
+        errors.append(f"_config.yml: published directory is still excluded by Jekyll: {directory}")
 if set(pages) != EXPECTED_PAGES:
     errors.append(f"page set mismatch: missing {EXPECTED_PAGES - set(pages)}, extra {set(pages) - EXPECTED_PAGES}")
 
@@ -153,7 +184,7 @@ print(summary)
 
 if "--json" in __import__("sys").argv:
     report = {
-        "generated": "2026-11-12",
+        "generated": date.today().isoformat(),
         "artifact": "public-safe/",
         "pages": pages,
         "counts": stats,

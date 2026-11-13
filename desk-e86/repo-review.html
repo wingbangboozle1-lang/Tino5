@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Repository review — what is deployed, how it was verified, what is flagged</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <h1>Repository review</h1>
+  <div class="tag">Session e86 · reviewed 13 November 2026 · every claim below was re-run or re-read in this session · links for manual review</div>
+</header>
+<nav class="sections" aria-label="Sections">
+  <a href="index.html">Summary</a>
+  <a href="questions.html">Questions to answer</a>
+  <a href="suggestions.html">Suggestions</a>
+  <a aria-current="page" href="repo-review.html">Repo review</a>
+  <a href="flagged.html">Flagged for review</a>
+</nav>
+<main>
+
+<p class="lede">A line-by-line map of the repository and its GitHub Pages deployment: what each directory is,
+whether it is actually served to visitors, which verifier guards it, and where the open irregularities live.
+This complements — does not duplicate — the numeric desks' own audits
+(<a href="../desk-22a32b17/repo-audit.html">desk audit</a>, <a href="../referee-abae/index.html">referee</a>).</p>
+
+<h3>1 · What is on the live site (GitHub Pages, source: <code>main</code>, path <code>/</code>, status <code>built</code>)</h3>
+<table class="data">
+<thead><tr><th style="width:22%">Directory / page</th><th style="width:32%">What it is</th><th style="width:9%">Deployed?</th><th style="width:17%">Guarding verifier</th><th>State as reviewed 13 Nov 2026</th></tr></thead>
+<tbody>
+<tr><td><code>index.html</code> (root)</td><td>Category landing page: cards to every published desk, organised by category</td><td><span class="badge b-ok">yes</span></td><td class="src"><code>desk-e86/verify.py</code> (link check) · repo-wide internal-link scan</td><td>Rebuilt by this session's integration (was a silent redirect); broken internal links on the published tree: <b>0</b> after this desk was added. <a href="../index.html">Open the landing</a></td></tr>
+<tr><td><code>public-safe/</code></td><td>Canonical privacy-first dashboard — 11 pages (summary, decision, projections, properties, costs, black swans, tax, process, law watch, flagged, sources)</td><td><span class="badge b-ok">yes</span></td><td class="src"><code>scripts/verify_safe.py</code> · <code>scripts/privacy_scan.py</code></td><td>PASS today: 11 pages, 80 source-linked rows, 262 links (118 official), money rounds to $10, no identifier patterns. Known gap: federal figures are 2026-only (flagged F-15). <a href="../public-safe/index.html">Open</a></td></tr>
+<tr><td><code>desk-22a32b17/</code></td><td>Numeric decision desk — 12 pages of year-by-year 2026–2076 projections, scenario matrix, regime stresses, with owner anchors at $10 rounding</td><td><span class="badge b-ok">yes</span></td><td class="src"><code>tools-22a32b17/verify_desk_22a.py</code> · referee crosscheck</td><td>Crosscheck today: 12 pages, 303 rows, 303 official links, 0 rows without official links, 0 stale constants, no city names. Open: F-16, F-17. <a href="../desk-22a32b17/index.html">Open</a></td></tr>
+<tr><td><code>swan-3a49/</code></td><td>Uneven-economy replay — 6 pages; 49 recorded historical orderings replayed across 2027–2075 from official FRED/BLS/ERP series</td><td><span class="badge b-ok">yes</span></td><td class="src">self-checking <code>build.py</code> · referee crosscheck</td><td>Crosscheck today: 6 pages, 282 rows, 282 official links, 0 no-link rows, history rows: 0 past-year owner dollars. <a href="../swan-3a49/index.html">Open</a></td></tr>
+<tr><td><code>referee-abae/</code></td><td>Independent numeric referee — 7 pages; re-derives the desks, checks statutory constants, stress-tests conclusions, publishes the discrepancy log</td><td><span class="badge b-ok">yes</span></td><td class="src">29 unit tests + <code>crosscheck.py</code></td><td>Crosscheck today: 7 pages, 191 rows, 191 official links; its open items X02–X15 are carried into this desk's <a href="flagged.html">flagged page</a>. <a href="../referee-abae/index.html">Open</a></td></tr>
+<tr><td><code>desk-e86/</code> (this section)</td><td>Executive summary, question register (46 items), suggestions with options to choose, this review, flagged page</td><td><span class="badge b-ok">yes</span></td><td class="src"><code>desk-e86/verify.py</code> · <code>scripts/privacy_scan.py</code> · referee crosscheck</td><td>Rows: 140+, every row carries a link; owners' figures at $10; no identifiers. (Counts: see section 2.) <a class="src" href="index.html">Open this section</a></td></tr>
+<tr><td><code>tools-22a32b17/</code></td><td>Python generators/verifiers for the numeric desk</td><td><span class="badge b-ok">excluded at integration</span></td><td class="src">n/a (static exclusion)</td><td>Irregularity <b>F-21</b> found by this review and <b>fixed the same day</b>: <code>tools-22a32b17</code> added to the Jekyll exclude list in <code>_config.yml</code> — no longer downloaded from the site. See <a href="flagged.html">flagged F-21</a>.</td></tr>
+</tbody>
+</table>
+
+<h3>2 · What exists in the repository but is deliberately not served</h3>
+<table class="data">
+<thead><tr><th style="width:24%">Directory</th><th style="width:44%">What it holds</th><th>Serving status / note</th></tr></thead>
+<tbody>
+<tr><td><code>desk-b4f/</code></td><td>Earlier after-tax desk (12 pages, 278 rows) — excluded from Pages since its own session</td><td>Not deployed. Holds referee findings X04/X05 (flagged F-19, non-public). <span class="badge b-internal">internal</span> <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/tree/main/desk-b4f">repo: desk-b4f</a></td></tr>
+<tr><td><code>docs/</code></td><td>Earlier independent dashboard (13 pages, 326 rows) from session 91a4a9f9</td><td>Not deployed; preserved for history. <span class="badge b-internal">internal</span> <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/tree/main/docs">repo: docs</a></td></tr>
+<tr><td><code>pages/</code>, <code>src/</code>, <code>assets/</code>, <code>data/</code>, <code>scripts/</code>, <code>model/</code>, <code>research/</code>, <code>analysis/</code>, <code>mine/</code></td><td>Generators, datasets, research notes and legacy page sources from earlier sessions</td><td>Excluded in <code>_config.yml</code>. <span class="badge b-internal">internal</span> <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/_config.yml">repo: _config.yml</a></td></tr>
+<tr><td><code>session-2f7b1b3f/</code>, <code>session-595f0109/</code>, <code>verify-552/</code>, <code>archive/</code>, <code>audited-v4/</code></td><td>Session-scoped builds, verifiers and archived earlier sites</td><td>Excluded in <code>_config.yml</code>. <span class="badge b-internal">internal</span> <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/tree/main/session-2f7b1b3f">repo: session-2f7b1b3f</a></td></tr>
+<tr><td><code>COORDINATION.md</code>, <code>README.md</code>, <code>verification-report.json</code></td><td>Task board, project readme, older verification report</td><td>Excluded from the site (repo-only). <span class="badge b-internal">internal</span> <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/COORDINATION.md">repo: COORDINATION.md</a></td></tr>
+<tr><td><code>_*-prefixed directories</code> (e.g. <code>referee-abae/_src/</code>)</td><td>Generators, checks and tests</td><td>Skipped by Jekyll automatically. <span class="badge b-internal">internal</span> <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/tree/main/referee-abae/_src">repo: referee-abae/_src</a></td></tr>
+</tbody>
+</table>
+
+<h3>3 · Verification re-run in this session (13 November 2026)</h3>
+<table class="data">
+<thead><tr><th style="width:26%">Check</th><th style="width:34%">Command</th><th style="width:14%">Result</th><th>Scope &amp; evidence</th></tr></thead>
+<tbody>
+<tr><td>Repository-wide privacy scan (money rounding + identifier shapes across every tracked text file)</td><td><code>python3 scripts/privacy_scan.py</code></td><td><span class="badge b-ok">0 findings</span></td><td class="src">All 241 tracked files scanned (204 published official constants recognised as public, not owner data). Includes this desk's files after staging. <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/scripts/privacy_scan.py">repo: privacy_scan.py</a></td></tr>
+<tr><td>Structural verifier for the canonical dashboard</td><td><code>python3 scripts/verify_safe.py</code></td><td><span class="badge b-ok">PASS</span></td><td class="src">11 pages · 11 tables · 80 source-linked rows · 262 links (118 official hosts) · internal targets resolve · money rounds to $10 · no personal-identifier patterns. <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/scripts/verify_safe.py">repo: verify_safe.py</a></td></tr>
+<tr><td>Cross-tree referee check over every published directory</td><td><code>python3 referee-abae/_src/crosscheck.py</code></td><td><span class="badge b-ok">exit 0</span></td><td class="src">Per-tree results (pages / rows / official-linked rows): public-safe 11/80/80 · desk-22a32b17 12/303/303 · swan-3a49 6/282/282 · referee-abae 7/191/191 · desk-e86 5 pages / 141 rows / 93 rows with official links / 37 flagged-or-proposal rows carrying only internal links (counted as "no official link" by this tool by design — every such row is a flagged/derived/proposal row, permitted by the brief). <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/referee-abae/_src/crosscheck.py">repo: crosscheck.py</a></td></tr>
+<tr><td>This desk's verifier (row links, host allowlist, $10 rounding, identifier patterns, internal targets)</td><td><code>python3 desk-e86/verify.py</code></td><td><span class="badge b-ok">PASS</span></td><td class="src">5 pages · 141 data rows · 139 official host links + 102 internal row links · every row linked · external hosts restricted to the allowlist of official publishers · no ZIP/city/e-mail/phone/parcel/street pattern · statutory section tokens only in section context. <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/desk-e86/verify.py">repo: desk-e86/verify.py</a></td></tr>
+<tr><td>Published-tree internal link scan (all 41 HTML files served by Pages)</td><td><code>re.findall(href=…) → file existence</code> (inline scan, this session)</td><td><span class="badge b-ok">0 broken</span></td><td class="src">After adding this desk, every relative link on every published page resolves; links to excluded repo files (<code>*.md</code>) are prohibited by <code>desk-e86/verify.py</code> so the live site never 404s on a repo file. <a class="src" href="index.html">the 41 served pages start here</a></td></tr>
+<tr><td>External source reading (the substance behind every "verified" badge)</td><td>Page fetches of each cited URL (see register rows on this page and on <a href="questions.html">questions</a>)</td><td><span class="badge b-ok">28 documents read</span></td><td class="src">IRS (9): estate-tax, what's-new, IR-2026-133, gifts/inheritances FAQ, Topic 409, Pub 523, Pub 527, Form 706 instructions, filing-estate-and-gift context · BOE (10): Prop 19 page + FAQ, LTA 2025/009, LTA 2022/012, LTA 2025/015, NR 25-02, Pub 800-1, Pub 800-10, Pub 801, homeowners' exemption · State Controller (1) · Judicial Council DE-300 (1) · SF Treasurer (1) · SF Rent Board via sf.gov (1) · CDI (2) · CBO (1) · California Legislature AB 1482 (1) · HUD FMR (1). Two candidate BOE URLs returned 404 during research and were replaced by working official URLs (no dead links published). <a class="src" href="questions.html">per-row source register</a></td></tr>
+</tbody>
+</table>
+
+<h3>4 · Repo and process irregularities found in this review</h3>
+<table class="data">
+<thead><tr><th style="width:8%">ID</th><th style="width:38%">Finding</th><th style="width:10%">Severity</th><th>Evidence &amp; suggested handling</th></tr></thead>
+<tbody>
+<tr><td>R-01</td><td><code>tools-22a32b17/</code> is not in the Jekyll exclude list, so generator scripts are served as raw static files on the public site</td><td><span class="badge b-flag">low</span></td><td class="src">Evidence: <code>_config.yml</code> excludes <code>desk-b4f</code> etc. but not <code>tools-22a32b17</code>. Handling: <b>done</b> — excluded in <code>_config.yml</code> during this integration — see <a href="flagged.html">F-21</a>.</td></tr>
+<tr><td>R-02</td><td>Five integration claims on the task board had stalled &gt;60 minutes with no commits (552/c09/22a/3a4/abae INT), plus an unfinished repo-review claim (c09/R) — the brief's takeover rule was triggered and recorded <i>before</i> any work began</td><td><span class="badge b-flag">low</span></td><td class="src">Evidence: last remote commits before takeover were 2026-11-12 05:23Z or older; takeover recorded in the session claim. Handling: none needed — logged as <a href="flagged.html">F-20</a>.</td></tr>
+<tr><td>R-03</td><td>Live law/tax pages pre-date the IRS 5 Nov 2026 release (2027 figures absent) — still true after re-check today</td><td><span class="badge b-flag">medium</span></td><td class="src">Evidence: <a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IR-2026-133</a> vs <a href="../public-safe/law-watch.html">live law watch</a>. Handling: suggestion <a href="suggestions.html">S-02</a>; flagged as F-15.</td></tr>
+<tr><td>R-04</td><td>Two numeric desks publish two different headline levels (return assumptions 4.5% vs 5.6%) and two different Property B yearly-tax figures — unresolved owner decisions</td><td><span class="badge b-flag">high</span></td><td class="src">Evidence: <a href="../referee-abae/discrepancies.html">referee X12 / X13</a>. Handling: suggestions <a href="suggestions.html">S-03, S-04</a>; flagged F-16, F-17.</td></tr>
+<tr><td>R-05</td><td>Privacy boundary is drawn differently across published trees (identical dollar facts, different visibility rules)</td><td><span class="badge b-flag">medium</span></td><td class="src">Evidence: <a href="../referee-abae/discrepancies.html">referee X14</a>. Handling: option list on <a href="suggestions.html">S-01</a> (this session recommends option B: identifiers never, owner money at $10 on decision pages only); flagged F-18.</td></tr>
+<tr><td>R-06</td><td>Non-deployed directories still contain figure errors (trust ceiling $16,200 vs $16,250; closing-letter fee story; stale $184,500 small-estate limit)</td><td><span class="badge b-flag">low</span></td><td class="src">Evidence: <a href="../referee-abae/discrepancies.html">X04, X05, X07</a>; correct values: <a href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS ($76 fee)</a>, <a href="https://courts.ca.gov/sites/default/files/courts/default/2024-11/de300.pdf">DE-300 ($208,850)</a>. Handling: suggestion <a href="suggestions.html">S-05</a>; flagged F-19.</td></tr>
+<tr><td>R-08</td><td>The referee's 29-test suite is environment-sensitive: on a clean checkout whose git HEAD differs from the commit stamp embedded in its <code>baselines.html</code> golden file, one test fails and rewrites that file (regenerated stamp followed HEAD instead of the recorded 99f4bee value)</td><td><span class="badge b-flag">low</span></td><td class="src">Reproduced twice on this branch (1 failure → file restored with <code>git checkout</code>; second run passes only while the rewritten stamp stays dirty). Not a data error — the other 28 checks and all numeric content passed. Owner action: let the test strip HEAD stamps before comparing; their file was <b>not</b> edited by this session. Command: <code>python3 -m unittest discover -s referee-abae/_src</code> · suite owner: <a href="../referee-abae/index.html">referee section</a></td></tr>
+<tr><td>R-07</td><td>Repository is public and its history is not scrubbed: excluded files and old commits may retain earlier owner-derived figures; Jekyll exclusion hides files from the site but not from Git history</td><td><span class="badge b-flag">medium</span></td><td class="src">Evidence: stated in <code>README.md</code> (repo) and re-confirmed by today's <code>privacy_scan</code> (0 findings in the <i>current tree</i> only). Handling: owner decision — repo visibility or history rewrite; outside any agent's authority. Recorded here for review. <a class="src" href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/README.md">repo: README (caveat section)</a></td></tr>
+</tbody>
+</table>
+
+<h3>5 · How to repeat this review manually</h3>
+<ul class="tight">
+<li>Open the live landing: <a href="../index.html">this site's root page</a> — every published desk is one click away.</li>
+<li>Run the three gates locally: <code>python3 scripts/privacy_scan.py</code> · <code>python3 scripts/verify_safe.py</code> · <code>python3 desk-e86/verify.py</code> (and <code>python3 referee-abae/_src/crosscheck.py</code> for the cross-tree view).</li>
+<li>Spot-check any "verified" badge by opening its source link in the row — all were read on 13 November 2026; re-read them if the page has been updated since.</li>
+<li>Compare claims across desks with the referee's log: <a href="../referee-abae/discrepancies.html">discrepancies</a> · <a href="../referee-abae/traceability.html">brief-to-page traceability</a>.</li>
+<li>For anything unresolved, the single intake list is the <a href="flagged.html">flagged page</a>; the single decision list is the <a href="suggestions.html">suggestions page</a>.</li>
+</ul>
+
+</main>
+<footer class="site">
+  desk-e86 · session arena-e86df670 · built 13 November 2026 · official sources read on the build date ·
+  owner figures rounded to the nearest $10 · no names, addresses, parcel numbers or ZIP codes ·
+  not legal, tax or investment advice — re-verify the law in the transfer year.
+</footer>
+</body>
+</html>

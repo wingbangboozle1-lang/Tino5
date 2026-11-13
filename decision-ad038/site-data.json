@@ -1,0 +1,179 @@
+{
+ "generated": "13 Nov 2026",
+ "note": "Public data: indices relative to the live option (=100) or to 2026 (=100); no owner-supplied dollar figures.",
+ "decision_index": {
+  "2040": {
+   "low|Treasuries": {
+    "live": 100.0,
+    "rent": 90.6,
+    "sell": 115.1,
+    "highest": "Sell and reinvest"
+   },
+   "low|Balanced": {
+    "live": 100.0,
+    "rent": 90.3,
+    "sell": 124.1,
+    "highest": "Sell and reinvest"
+   },
+   "low|Equities": {
+    "live": 100.0,
+    "rent": 90.0,
+    "sell": 136.1,
+    "highest": "Sell and reinvest"
+   },
+   "base|Treasuries": {
+    "live": 100.0,
+    "rent": 92.2,
+    "sell": 104.5,
+    "highest": "Sell and reinvest"
+   },
+   "base|Balanced": {
+    "live": 100.0,
+    "rent": 92.0,
+    "sell": 113.0,
+    "highest": "Sell and reinvest"
+   },
+   "base|Equities": {
+    "live": 100.0,
+    "rent": 91.7,
+    "sell": 124.4,
+    "highest": "Sell and reinvest"
+   },
+   "high|Treasuries": {
+    "live": 100.0,
+    "rent": 93.9,
+    "sell": 96.7,
+    "highest": "Live in Property A"
+   },
+   "high|Balanced": {
+    "live": 100.0,
+    "rent": 93.7,
+    "sell": 104.6,
+    "highest": "Sell and reinvest"
+   },
+   "high|Equities": {
+    "live": 100.0,
+    "rent": 93.5,
+    "sell": 115.4,
+    "highest": "Sell and reinvest"
+   }
+  },
+  "2045": {
+   "low|Treasuries": {
+    "live": 100.0,
+    "rent": 90.5,
+    "sell": 112.3,
+    "highest": "Sell and reinvest"
+   },
+   "low|Balanced": {
+    "live": 100.0,
+    "rent": 90.3,
+    "sell": 120.9,
+    "highest": "Sell and reinvest"
+   },
+   "low|Equities": {
+    "live": 100.0,
+    "rent": 89.9,
+    "sell": 132.5,
+    "highest": "Sell and reinvest"
+   },
+   "base|Treasuries": {
+    "live": 100.0,
+    "rent": 92.7,
+    "sell": 105.4,
+    "highest": "Sell and reinvest"
+   },
+   "base|Balanced": {
+    "live": 100.0,
+    "rent": 92.6,
+    "sell": 113.9,
+    "highest": "Sell and reinvest"
+   },
+   "base|Equities": {
+    "live": 100.0,
+    "rent": 92.3,
+    "sell": 125.5,
+    "highest": "Sell and reinvest"
+   },
+   "high|Treasuries": {
+    "live": 100.0,
+    "rent": 94.5,
+    "sell": 98.2,
+    "highest": "Live in Property A"
+   },
+   "high|Balanced": {
+    "live": 100.0,
+    "rent": 94.4,
+    "sell": 106.3,
+    "highest": "Sell and reinvest"
+   },
+   "high|Equities": {
+    "live": 100.0,
+    "rent": 94.2,
+    "sell": 117.3,
+    "highest": "Sell and reinvest"
+   }
+  },
+  "2050": {
+   "low|Treasuries": {
+    "live": 100.0,
+    "rent": 90.4,
+    "sell": 109.4,
+    "highest": "Sell and reinvest"
+   },
+   "low|Balanced": {
+    "live": 100.0,
+    "rent": 90.2,
+    "sell": 117.7,
+    "highest": "Sell and reinvest"
+   },
+   "low|Equities": {
+    "live": 100.0,
+    "rent": 89.8,
+    "sell": 128.8,
+    "highest": "Sell and reinvest"
+   },
+   "base|Treasuries": {
+    "live": 100.0,
+    "rent": 93.2,
+    "sell": 106.2,
+    "highest": "Sell and reinvest"
+   },
+   "base|Balanced": {
+    "live": 100.0,
+    "rent": 93.1,
+    "sell": 114.8,
+    "highest": "Sell and reinvest"
+   },
+   "base|Equities": {
+    "live": 100.0,
+    "rent": 92.8,
+    "sell": 126.5,
+    "highest": "Sell and reinvest"
+   },
+   "high|Treasuries": {
+    "live": 100.0,
+    "rent": 95.1,
+    "sell": 99.6,
+    "highest": "Live in Property A"
+   },
+   "high|Balanced": {
+    "live": 100.0,
+    "rent": 95.0,
+    "sell": 107.9,
+    "highest": "Sell and reinvest"
+   },
+   "high|Equities": {
+    "live": 100.0,
+    "rent": 94.8,
+    "sell": 119.1,
+    "highest": "Sell and reinvest"
+   }
+  }
+ },
+ "federal_exclusion": {
+  "2026": 15000000,
+  "2027_unverified": 15480000
+ },
+ "prop19_allowance_to_2027_02_15": 1044586
+}

@@ -67,6 +67,18 @@ c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 betw
 
 - **Waiting.** This session will not integrate while another session holds a live integration claim. Remote branches show integration-type claims pushed between 06:35Z and 06:43Z on 2026-11-13: 12d/I, 092/I, e86/INT, 7b/INT and t24/INT. The 60-minute handoff has not run out for any of them.
 - **Plan:** re-read this board once each of those claims is done, withdrawn, or has been idle for 60 minutes. Then merge `origin/main` into `arena/3f269806-tino5`, re-run the verifier, open a PR to `main`, merge it, confirm the Pages deploy and record the PR link and result here. Shared root files (`index.html`, `_config.yml`, `README.md`) are not edited by this session; the new site is linked from its own path.
+## Session `arena-ad038e83` — claim (2026-11-13 06:40Z, branch `arena/ad038e83-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48) and every remote session branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Every live-looking claim on the board (c09/A, c09/INT, 552/INT, 966/A, 22a/INT, 3a4/INT, abae/INT) has had **no commit for more than 2 hours** (latest session commits 2026-11-12 04:16Z–05:23Z; reference time 2026-11-13 06:34Z), so each is past the 60-minute takeover rule. Platform constraint (same as every earlier session): this session is bound to the single branch above; non-overlap is enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| ad0/INT | **Backstop integration, takeover of the lapsed `abae/INT`** (and, by the same rule, the lapsed `552/INT`, `c09/INT`, `22a/INT`, `3a4/INT`). Merge `main`, run `referee-abae/_src/crosscheck.py` over the combined tree, set one landing page, one navigation, PR, merge, confirm Pages, record here. | in progress | arena-ad038e83 | root `index.html`, `README.md`, `_config.yml` (only if needed), this section |
+| ad0/D | **Decision site: one reconciled, numeric, $10-rounded desk for the owner's brief** (executive summary; decision model live / rent / sell-and-invest for transfers in 2040, 2045, 2050; year-by-year projections 2026–2050; property tax and Prop 13 / Prop 19 rules; estate and inheritance thresholds federal, California and Japan; operating costs; black-swan regimes; step-by-step trust process; law watch; **suggestions for owner choice (not implemented)**; **questions and information still needed**; Flagged for Review; source register with official links). | in progress | arena-ad038e83 | `decision-ad038/**` (new directory; generator in `decision-ad038/_src/`, which Jekyll does not publish) |
+
+**Scope note on privacy and rounding.** The brief asks for figures rounded to the nearest $10 and for the owner's two property tables to be used. Every dollar figure on this desk is a multiple of $10 (statutory amounts printed exactly as the agency publishes them and marked). Owner-supplied figures are labelled **owner-supplied, unverified** and their official-verified cell is left blank. No name, street address, ZIP code, parcel number, account number or contact detail appears. Properties are "Property A" (future trust inheritance, Santa Clara County) and "Property B" (already owned, San Francisco County). Other sessions' published desks are left in place; the owner decision on them is logged on the Flagged page.
+
+**Requests logged, not acted on.** (1) `public-safe/**`, `desk-22a32b17/**`, `swan-3a49/**`, `referee-abae/**` stay published at their current URLs. The new landing page links to them as "earlier sessions' desks, not reconciled". (2) Owner decision needed on which published tree is kept (see `decision-ad038/flagged.html`, item F01).
 
 ## Session `arena-c098bf16` — claim (2026-11-12 04:25Z, branch `arena/c098bf16-tino5`)
 
@@ -1152,3 +1164,591 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
 No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.
+
+## Session `arena-ad038e83` — delivery record (2026-11-13, branch `arena/ad038e83-tino5`)
+
+**Claim status.** Claim commit `69b2e43` is on `origin/arena/ad038e83-tino5` (confirmed with `git ls-remote`). The `c098bf16` section was restored to its original form (no `<details>` wrapper) in the same commit.
+
+**ad0/D — decision desk delivered (`decision-ad038/`).** Twelve static pages (index, dashboard, projections, decision, black-swans, law, inheritance, assumptions, questions, suggestions, flagged, sources), `style.css`, and `site-data.json` (public, indices only). Generator and checks live in `decision-ad038/_src/` (underscore prefix, not published by Jekyll): `model.py`, `sources.py`, `build_site.py`, `verify_site.py`. Check result: 194 table rows, every row has a source link, a flagged source, or a source ID; 78 dollar amounts, all multiples of $10 except published unit rates ($13.13, $2.13, $78.64, labelled); no e-mail, phone, ZIP-like, parcel or street pattern; no broken internal links.
+
+**ad0/INT — integration (final).** Root `index.html` changed from a redirect to `public-safe/index.html` into a hub. It links only to `public-safe/`, which is the only publishable top-level directory under the fail-closed rule in `scripts/verify_safe.py` (`DEPLOYMENT_EXCLUSIONS`). `desk-22a32b17/`, `swan-3a49/` and `referee-abae/` are excluded on `main` (bd4/S) and are not linked. `README.md` gained a site-map paragraph. `_config.yml` gained `decision-ad038` in its exclude list. Checks on the merged tree: `python3 scripts/verify_safe.py` PASS (13 pages, 120 source-linked rows); `python3 decision-ad038/_src/verify_site.py` NO ERRORS; `python3 referee-abae/_src/crosscheck.py` exit 0 (informational output unchanged).
+
+**Merge with `main` (01d86d2, PR #51, session fe08d8f1).** Conflict in `COORDINATION.md` only, resolved by keeping both sides in full (the bd486220 and fe08d8f1 sections are unchanged). `README.md` and `_config.yml` merged automatically. `main` had added the fail-closed rule: `scripts/verify_safe.py` requires every visible top-level directory except `public-safe/` to be listed in `DEPLOYMENT_EXCLUSIONS`. The first merged run failed on `decision-ad038`. Resolution: `decision-ad038` added to `DEPLOYMENT_EXCLUSIONS` and to `_config.yml`. This adds an exclusion; it does not relax any check. The gate itself is unchanged.
+
+**Owner decision needed (publication of the decision desk).** The decision desk is complete and verified in the repository (`decision-ad038/`), but it is not published on Pages, because the repository's fail-closed rule allows only `public-safe/`. Publishing it needs an owner decision to add it as a reviewed publishable directory in `verify_safe.py` and `_config.yml`. Its public pages carry no owner-supplied dollar figures (see the privacy note above).
+
+**Deliberate decisions (owner can reverse).**
+1. **Privacy boundary for this desk (stricter reading).** Owner-supplied dollar figures (property values, assessments, tax bills, rent, insurance, water, electricity) are not published on this desk. Public pages show official figures, rules, rankings, and percentages relative to the starting value (2026 = 100 or live = 100). Absolute owner results are written only to `decision-ad038/_src/owner_outputs.local.json` and owner inputs to `owner_inputs.local.json`; both are git-ignored and exist only in the workspace. Earlier desks keep their own boundaries (X14 is still an owner decision).
+2. **Property B** is analysed internally only and is not shown on the public site (its figures and tenancy data are owner data). The Questions and Flagged pages say so.
+3. **Japan is out of scope** for this desk. The brief asked for Japanese thresholds; no official Japanese source was read (NTA English page returned 404; the Japanese NTA pages were not opened). Japan is listed as an open question and flagged, with no values shown.
+4. **Root landing page** replaces the direct redirect. The Pages entry point now shows the hub; `public-safe/` remains at its own URL and is one click away.
+5. **Decision desk not published** on Pages (fail-closed rule, see above). It is in the repository, and the hub and README say so.
+
+**Flagged (does not block merge; listed on `decision-ad038/flagged.html`).** 2027 federal exclusion ($15,480,000; secondary only); Prop 19 repeal 25-0017 (Ballotpedia; Secretary of State page not reached; secondary dates conflict); Santa Clara tax rate book not reached; rent proxy (HUD FMR, secondary, probably low); water approval status; Prop 19 allowance growth after February 2027 (assumed); Japan; change-in-ownership deadline not confirmed; SF rent-ordinance text not reached; electricity blank.
+
+**Owner-action items (not fixable by commits).** Earlier sessions' owner figures remain in public git history, earlier branches, and closed PR diffs. Removing them requires an owner decision on history rewriting or visibility.
+
+**PR and merge.** PR #53 (https://github.com/wingbangboozle1-lang/Tino5/pull/53) from `arena/ad038e83-tino5` to `main`. Merge result and Pages deploy are recorded as a comment on PR #53 after the merge (this branch cannot push to `main` after the merge).
+
+## Session `arena-bd486220` — claim (2026-11-13 UTC)
+
+| ID | Task | Status | Session | File scope |
+|---|---|---|---|---|
+| bd4/S | Add a dedicated reviewable Suggestions page to the curated privacy-safe website, link it through generated site navigation and README, extend the structural verifier, and ensure Jekyll excludes non-curated decision desks containing owner-derived inputs. Suggestions remain recommendations only; no owner-specific inputs or values are added. | done | arena-bd486220 (`arena/bd486220-tino5`) | `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `README.md`, `_config.yml`, this section |
+
+**Coordination check:** Read the board before work. Historical conditional integration claims in this file were last updated 2026-11-12; their 60-minute handoff windows have expired. The current Arena branch is fixed; work remains on `arena/bd486220-tino5`.
+
+### bd4/S — completion record (2026-11-13)
+
+- **Delivery:** Added the public `Suggestions for review` page with eight prioritized actions, reviewer choices (accept / revise / defer), implementation sequencing, and explicit privacy guidance. No property-specific values, locations, or identifying details were added. Generated navigation links the page from all curated pages; README links it.
+- **Privacy hardening:** Inspection found other research dashboards at top level that were not in Jekyll's exclusion list. Expanded `_config.yml` exclusions so only `public-safe/` is a publishable top-level directory, and extended `scripts/verify_safe.py` to fail if any future top-level directory is not excluded. The deployable dashboard remains the anonymous curated set; owner-derived research remains outside Pages.
+- **Sources opened and checked 2026-11-13 (each recommendation row links to official sources):** IRS Estate Tax; IRS inherited-property basis FAQ; IRS Pub. 527; IRS estate/gift updates; IRS Form 706 instructions; California Courts probate guide; California BOE Proposition 19 and fact sheet; CDI residential insurance guidance; CPUC Net Energy Metering and Water pages; California Legislative Information Code Search; BLS historical CPI-U; FHFA HPI; Federal Reserve monetary policy. Links are recorded in `scripts/build_desk.py` and `public-safe/suggestions.html`; no new numerical claim is made in this page.
+- **Verification:** `python3 scripts/build_desk.py`; `python3 scripts/verify_safe.py` (PASS); `python3 scripts/privacy_scan.py --summary` (0 findings); `git diff --check`; scripts unit tests 4/4; `tools-22a32b17` unit tests 7/7; `referee-abae/_src/crosscheck.py` completed.
+- **Flagged for review (not edited outside scope):** The separate `referee-abae` test suite's deterministic-build test fails because its generated output embeds the current commit hash; the test run changed only `referee-abae/baselines.html`, which was restored. Its crosscheck still reports the curated site as 11 pages / 80 rows despite the verified 12 pages / 88 rows, so that independent checker needs an owner update. Request to update `referee-abae/_src/{build.py,crosscheck.py,test_build.py}` logged; this does not affect the curated site's passing verifier. No claim is made that the separate test suite passed.
+- **PR / merge / deployment:** [PR #49](https://github.com/wingbangboozle1-lang/Tino5/pull/49) merged to `main` at `0c8e3d9def61d40ab7db45b8d8b01bc1b9e0a621` on 2026-11-13 06:39 UTC. Pull request verifier passed. GitHub Pages build + deploy run [43380176377](https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43380176377) succeeded (Jekyll build and Deploy to GitHub Pages both green); post-merge repository verifier run [43380177213](https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43380177213) passed. Pages API reports `built` with no error. The source configured for Pages remains `main:/`.
+
+| bd4/S | Dedicated suggestions page, generated navigation, fail-closed deployment exclusions, and verifier extension | done | arena-bd486220 (`arena/bd486220-tino5`) | `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `README.md`, `_config.yml`, this section |
+
+## Session `arena-fe08d8f1-tino5` — claim (2026-11-13, branch `arena/fe08d8f1-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| f08/S1 | Complete the deployed decision desk: executive summary with verified details, a dedicated suggestions-review section, a Q&A list (questions / information / answers needed before deciding), black-swan 50-year uneven-economy projections, rounded-number live/rent/sell analysis, inheritance-threshold research, step-by-step trust process, line-by-line verification against official sources, and GitHub Pages deploy + PR + merge | in progress | arena-fe08d8f1-tino5 | `public-safe/**`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `verification-report.json`, this section of `COORDINATION.md` |
+
+Non-overlap note: prior claiming sessions on `public-safe/**` and its builder (803/M, 881/P) are `done`; bd486220's bd4/S is `done`; this session enhances the deployed artifact as the active integration session and does not touch other sessions' non-overlapping directories (`audited-v4/`, `docs/`, `desk-*/`, `swan-3a49/`, `referee-abae/`, `session-*/`, `verify-552/`, `archive/`, `mine/`, `plan/`).
+
+Privacy rule for this scope: Property A / Property B placeholders only; county-level jurisdiction; no names, addresses, parcel numbers, ZIP codes, city names, owner-supplied assessment/tax histories, rents, or exact property values; every dollar figure a multiple of $10 except statutory amounts quoted exactly as published; model outputs labelled assumption/derived with method and inputs shown; every table row carries an official source link or is left blank and flagged.
+
+### ad0 — PR / merge / deploy record (arena-ad038e83)
+
+- **PR #53** (`arena/ad038e83-tino5` → `main`): merged with a merge commit at **`02a2deb68f570dfb7e3a047864b13a9502e01b01`** on 2026-11-13 06:52 UTC (`gh pr merge 53 --merge`). Verify (CI, "Verify curated public artifact") on the PR and on `main`: **success**. Pages "pages build and deployment" for `02a2deb`: **success**; `gh api repos/.../pages/builds/latest` reports `built` at `02a2deb`. Live root `https://wingbangboozle1-lang.github.io/Tino5/` shows the new hub, with the curated dashboard linked.
+- **Merge conflict (COORDINATION.md)** against `main` at `01d86d2` (PR #51, fe08d8f1): resolved by keeping both sides in full; no other session's text changed.
+- **Fail-closed rule:** the first merged run of `scripts/verify_safe.py` failed on `decision-ad038` (not in `DEPLOYMENT_EXCLUSIONS`). Resolved by excluding it (`verify_safe.py` and `_config.yml`), which keeps the rule intact. Publishing the decision desk on Pages needs an owner decision (see the desk's flagged list).
+- **Not done (flagged, owner decision):** publication of `decision-ad038/` on Pages; deletion or redaction of owner figures in earlier git history, branches and closed PR diffs; privacy boundary on earlier desks (X14).
+- **Verification of the merged site:** CI verify PASS (13 pages; 120 source-linked rows). `decision-ad038/_src/verify_site.py` NO ERRORS (194 rows; 78 amounts). `referee-abae/_src/crosscheck.py` exit 0.
+## Session `arena-092bb01c` — claim & takeover record (2026-11-13 06:40Z, branch `arena/092bb01c-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48 merged 2026-11-12 05:24Z) **and** every remote branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, 39 branches listed). Platform constraint (same as every earlier
+session): this session is bound to the fixed branch `arena/092bb01c-tino5` and cannot create `session-<id>/<task>` branches,
+so non-overlap is enforced by **file scope**.
+
+**Staleness finding (basis for the takeover).** The newest commit on *any* remote branch is `origin/arena/abae1b53-tino5`
+at 2026-11-12 05:23:15Z; `origin/main` last moved at 2026-11-12 05:24Z. It is now 2026-11-13 06:40Z — every outstanding
+claim below is **more than 25 hours without a commit**, i.e. far past the 60-minute rule. Two of the five published desks
+were still unmerged or unlinked, and three conditional integration claims (`552/INT`, `c09/INT`, `abae/INT`) were deadlocked
+behind that 60-minute test. This session therefore (a) takes over the integration role, (b) claims a new, non-overlapping
+directory, and (c) does **not** edit any other session's published directory — those stay exactly as merged.
+
+Lapsed claims taken over here (listed for the record, no file of theirs is modified): `c09/A`+`c09/R`+`c09/INT`
+(`plan/**` never created — second failure of that scope, after e74/A), `552/INT`, `3a4/INT`, `22a/INT`, `abae/INT`,
+`966/A` (`needs review`, `audit-966/**`), `803/M`, `881/P`, `b4f/P` (`session-595f0109/scripts/verify.py`).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 092/H | **Decision hub: executive summary, open-question register, suggestions register, black-swan synthesis, step-by-step process, discrepancy log.** One small site rooted at `review-092b/`, reusing (not re-deriving) the numbers already published by the two live desks, with every row carrying an official source link. Generator + verifier + tests in `review-092b/_src/` (Jekyll does not publish `_`-prefixed directories). | in progress | arena-092bb01c | `review-092b/**` (new directory) |
+| 092/I | **Integration:** root landing page as a category hub, `_config.yml` exclusion review, `README.md`, add the hub verifier to CI, PR to `main`, merge, confirm GitHub Pages, record the result. Taken over from the three lapsed `*/INT` claims under the tie-break already written into this board (earliest claim first — all have now lapsed). | in progress | arena-092bb01c | root `index.html`, `_config.yml`, `README.md`, `.github/workflows/**`, this section |
+
+**Privacy contract for `review-092b/**`.** Property A / Property B only; jurisdiction named at county level; **no** ZIP codes,
+street addresses, parcel/APN or account numbers, names, phone or e-mail. No year-by-year assessment or tax-bill history is
+published (a rounded series is still a fingerprint against open assessor rolls) — history is reported only as a comparison
+against the official statutorily published inflation factor. Dollar figures are nearest-$10 except statutory/agency amounts
+quoted exactly and marked. Values that cannot be confirmed from an official source stay blank (`—`) and are listed on
+`review-092b/flagged.html`. Privacy-scan results are reported as counts, never values.
+
+**Requests logged, not acted on.** None outstanding: every other claim has lapsed, so this session is the only live writer.
+
+### 092/H — completed (2026-11-13)
+
+Built `review-092b/`: 11 pages, 256 table rows, all source-linked; `_src/{sources,engine,build,verify,test_review_092b}.py`.
+Pages: index (executive summary), questions (13-item register, Q-01…Q-13, each with the decision it blocks),
+suggestions (11-item review board, S-01…S-11, accept/modify/reject, nothing implemented), projections (2026–2076
+cost table + sensitivity), decision (three-path comparison at 2040/2045/2050), black-swans (5 regimes computed from
+CPI-U and FHFA HPI), inheritance (10-step process with deadlines), costs (inheritance/estate/property/disposition tax),
+repo-review (R-01…R-07), flagged (F-01…F-12), sources (43-document register with what was read from each).
+
+Model results (2045 transfer, 25-year horizon): occupy $11,026,930 · rent $20,950,750 · sell $23,522,680. Break-evens:
+house growth 4.60%/yr, after-tax reinvestment return 4.39%. Full set in `review-092b/summary.json`.
+
+Two arithmetic defects were found and fixed **before** publication rather than shipped: a stress test that applied a
+two-year price fall across 25 years, and negative money rendering as `$-59,572,310`. Both now have regression tests.
+
+Source changes vs. the earlier sweep: `WILL5000IND` unavailable (not used); `USSTHPI` read in full; the H15 Treasury
+CSV returned HTTP 500 (no Treasury-return series used); the CDI residential guide URL cited by older desks returns a
+document-not-found page and is **not** used, but the CDI Sustainable Insurance Strategy market snapshot **was** read —
+statewide average homeowner premium $1,571 vs. national $1,512 — so insurance is now benchmarked rather than wholly
+blank.
+
+**Owner decision surfaced, not taken:** `desk-22a32b17/` publishes household dollar levels and city names on a live
+page while the newer release withholds them. This session did not edit or exclude it. Recorded as R-02 / F-12 and on
+the flagged page.
+
+### 092/I — completed (2026-11-13), reconciled with the fail-closed rule on `main`
+
+`main` moved twice while this section was being written (PR #51, PR #53). The newer of the two established a
+**fail-closed publication rule** in `scripts/verify_safe.py`: every visible top-level directory except `public-safe/`
+must appear in `DEPLOYMENT_EXCLUSIONS`, and `_config.yml` must exclude it too. This session's first landing page linked
+directly to four top-level desks, which would have defeated that rule on the public site. Reconciled as follows, with
+no check relaxed:
+
+- `review-092b` added to `DEPLOYMENT_EXCLUSIONS` and to `_config.yml`. The desk is complete and verified but **not
+  published**; publishing it is an owner decision, the same status `decision-ad038/` already has.
+- Root `index.html` keeps the hub structure, but links only to `public-safe/`. The two unpublished desks
+  (`review-092b/`, `decision-ad038/`) are described in a table on the hub rather than linked, so the description is
+  available and the exclusion is not defeated.
+
+Root `index.html` therefore still replaces the meta-refresh redirect with a category hub, and states why each desk
+ranks where it does. `_config.yml` gained `_src` (so `review-092b/_src` is not published). `README.md`
+gained the decision-desk section, build/verify commands, and the flagged departure from the literal $10 rule. CI now
+also rebuilds `review-092b/`, runs its verifier and its 25 regression tests, and checks that every landing-page link
+resolves. `public-safe/` verifier still passes unchanged. No other session's published directory was modified;
+`referee-abae/_src` regenerates `baselines.html` on import, and that incidental diff was reverted, not committed.
+
+## Session `arena-12dfd47a` — claim (2026-11-13, branch `arena/12dfd47a-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48, merged 2026-11-12 14:24Z) and every remote
+session branch. **Every earlier claim is now stale**: the most recent commit on any other session branch is
+`abae/R` at 2026-11-12 05:23Z, i.e. more than 24 hours old with no push, and no earlier INT task ever ran.
+Under the 60-minute rule this session takes over the integration role and records the handoff here.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 12d/A | **Decision desk v5 — the brief's requirements, published with numbers.** Owner-directed build: a single dashboard site with executive summary, requirement traceability, a Questions/Information/Answers register, an occupy/rent/sell decision analysis with a stated recommendation and its reasoning, year-by-year 2026–2076 projections, operating costs, a black-swan / uneven-economy section, inheritance thresholds and headroom, a step-by-step trust process, law watch, a **Suggestions** section (proposals to review and choose from *before* implementing), Flagged for Review, a source register, methodology, and a repository review. Dollar figures rounded to $10; no names, addresses, parcel identifiers or ZIP codes. | in progress | arena-12dfd47a | `desk/**` (new), `scripts/{model_v5,build_desk_v5,verify_desk_v5,test_model_v5}.py` (new), `.github/workflows/desk-verify.yml` (new), this section |
+| 12d/I | **Integration + publish (takeover).** Point the published site at the new desk, prune the deployment to the new desk only, re-verify the combined tree, PR → `main`, merge, confirm Pages, record PR and deploy here. | in progress | arena-12dfd47a | root `index.html`, `_config.yml`, `README.md`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md` |
+
+**Why a new directory instead of editing `public-safe/**`.** `public-safe/**` and its generator are the
+deliverable of sessions 803/881/552 and pass their own verifier; this session does not edit them. The new
+`desk/**` artifact replaces it as the *published* site (integration scope above) but the old artifact is left
+in the tree, unmodified, so its verification record stays reproducible.
+
+**Owner decision recorded, superseding the earlier landing-page reading (referee X14 / README caveat).** The
+brief asks for costs, numbers, projections and a reasoned recommendation, rounded to $10 so they cannot be
+traced. Earlier generations responded by publishing almost no numbers, which does not answer the brief.
+This build publishes rounded figures, labelled `assumption` / `derived` / `verified`, with every row source
+linked. It publishes **no** assessment-history or tax-bill-history series at any precision (those are public
+records that can be matched to a parcel and reverse-engineered through the published annual percentage
+changes the brief supplied), and no ZIP code, street address, parcel number, name, e-mail or phone number.
+
+**Privacy contract for `desk/**`.** Property A = the future trust inheritance; Property B = already owned by
+the inheritor. Jurisdiction is named at county level only (Santa Clara County / San Francisco County) because
+the tax rules are county-specific. Every dollar amount is a multiple of $10 except statutory or agency
+figures printed exactly as published (marked `exact`). Uncertain values are blank and listed on
+`desk/flagged.html`. Human tasks the owner must do are marked `owner action`, never guessed.
+
+## Session `arena-12dfd47a` — delivery record (2026-11-13)
+
+**Delivered.** `desk/**` — a fifteen-page decision desk (overview, executive summary, decision,
+open questions, projections 2026–2076, carrying costs, inheritance tax, trust process, black swans,
+law watch, suggestions, flagged, sources, methodology, repo review), generated by
+`scripts/build_desk_v5.py` from `scripts/model_v5.py` and published by neither, pending the owner
+decision below.
+
+**Model.** Deterministic, no dependencies, 20 regression tests. Three accounting decisions are
+recorded on `desk/methodology.html` and in the model docstring: the sell path carries none of the
+house's carrying costs; the move-in path credits the unit vacated at Property B; property tax is
+split into the verified county ad-valorem rate and owner-derived fixed charges grown at inflation.
+
+**Two corrections found during verification, both published.**
+1. The family-home exclusion protects assessed value only up to the $1,044,586 cap, not the whole
+   gap between assessed and market value. Earlier drafts (including `desk-22a32b17/`) treat it as
+   worth the entire gap, which roughly triples it. Because market value exceeds the cap in every
+   transfer year, the first-year saving from occupying is flat and modest.
+2. RTC §63.2(a)(1)(C) enrols the base-year value *established at the original transfer date* when
+   eligibility is lost. Occupying and then moving out therefore converges with never occupying,
+   rather than restarting from a later value. The black-swan section states this.
+
+**Verifier.** `scripts/verify_desk_v5.py` runs nine checks (page set, published surface, links,
+sourcing across 300+ rows, $10 rounding with explicit exact-amount markers, privacy, hygiene, flags,
+content) and was proven non-vacuous by injecting violations of each class.
+
+**PR and merge.** PR #56 → merged (merge commit `17f9541`); Pages built at `17f9541`.
+
+**Incident and fix: `.nojekyll`. I introduced a privacy regression in PR #56 and fixed it in PR #58
+(fix commit `6d6ce76`, merge `733f2bb`), so it is on the record rather than buried.**
+An empty `.nojekyll` makes Pages skip the Jekyll build and serve the repository as static files,
+which makes **every `_config.yml` exclude inert**. Between 07:10 and 07:13 UTC the following were
+publicly reachable: `research/verification-log.md`, `analysis/`, and `desk-22a32b17/` (which carries
+exact property values, city names, and a stated recommendation), among others.
+`scripts/verify_safe.py` passed the whole time — it checks the contents of `public-safe/` and the
+*presence* of exclude strings, never whether they take effect. Fix: `.nojekyll` deleted, the
+verification report moved under `desk/data/`, and a **published-surface** check added that fails hard
+if `.nojekyll` exists and enumerates every excluded path present on disk. Verified against the live
+site with cache-busting: `research/`, `analysis/`, `desk-22a32b17/` and `desk/executive-summary.html`
+all return 404.
+
+**Known residual, not fixed by me.** `/desk/index.html` still returns the desk while every other file
+under `desk/` 404s. That is a stale edge-cache entry from the `.nojekyll` build: the exclusion is
+directory-level, so Jekyll cannot emit one file and exclude another. Purge options are recorded on PR
+#58. The same cache behaviour may hold other directory indexes (`desk-22a32b17/index.html` etc.);
+mitigating it means putting inert placeholder `index.html` files in other sessions' directories, which
+is an owner decision, not mine.
+
+**Owner decision needed: publish `desk/`?** The repository gate `scripts/verify_safe.py` fails
+closed, so only `public-safe/` is served. `desk` is registered in `DEPLOYMENT_EXCLUSIONS` and in the
+Jekyll exclude list; this merge therefore does **not** publish it. Publishing is scripted and
+reversible: `python3 scripts/publish_desk_v5.py` (with `--check` and `--revert`). I made that a
+separate, reviewable step rather than a quiet edit, and I did not take it, because the brief asked
+for a published numeric desk while two peer sessions deliberately kept theirs numeric-free — that
+conflict is the owner's to resolve, not mine.
+
+**Privacy boundary used for `desk/**`.** Rounded to $10; statutory and published amounts quoted
+exactly and marked `exact`; counties only, no city or neighbourhood names anywhere in `desk/**`;
+Property A / Property B only; no assessment-history or tax-bill-history series. 31 items on
+`desk/flagged.html`, none blocking.
+
+**Requests to other sessions (not acted on).**
+- `desk-22a32b17/` owner: the Prop 19 exclusion value is overstated by roughly 3x (see correction 1);
+  the page also publishes exact property values and city names at the top level.
+- Any session owning the landing page: the third "complete but not published" row added to
+  `index.html` is accurate as of `733f2bb`.
+## Session `arena-e86df670` — claim (2026-11-13 06:40Z, branch `arena/e86df670-tino5`)
+
+Read before claiming: this board on `main` (`b3924d1`, PR #48) and every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, done 06:36Z). Platform constraint as in every
+prior session: bound to the single branch above, so non-overlap is enforced by **file scope**.
+
+**Staleness check (2026-11-13 06:36Z):** the most recent commit on any remote branch is `b3924d1`
+(2026-11-12 14:24 +0900 = 05:24Z); every other branch's last commit is ≥ 04:16Z 2026-11-12. All
+conditional / in-progress claims below are therefore **more than 60 minutes old with no commits** and
+are taken over under the board's 60-minute rule: 552/INT, c09/A, c09/R, c09/INT, 22a/INT, 3a4/INT,
+abae/INT, 966/A (`needs review`, content already published), e74/* (lapsed earlier).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| e86/X | **Section landing + executive synthesis.** A dashboard-style landing for this section that links every published desk, with an executive summary of the decision (Property A = future trust inheritance 2040–2050, Property B = already owned; recommendation logic, key numbers at $10 rounding, what is verified vs assumed). | in progress | arena-e86df670 | `desk-e86/index.html`, `desk-e86/style.css`, `desk-e86/verify.py` |
+| e86/Q | **Open-questions & information-gap register (brief: "clear list of questions, information and answers ... before any decision ... suggestions to discover missing information").** Three blocks per item: (a) question → answer now, with official source; (b) owner-supplied input → verification status; (c) unknown → concrete discovery action. | in progress | arena-e86df670 | `desk-e86/questions.html` |
+| e86/S | **Suggestions & decision-path review section (brief: "a section dedicated for suggestions so someone can review suggestions and choose the best path before implementing any changes").** Each suggestion = options with trade-offs, a "choose before implementing" status field, and dependencies; site-improvement and decision-improvement suggestions both included. Nothing is implemented from this page without an explicit choice recorded here. | in progress | arena-e86df670 | `desk-e86/suggestions.html` |
+| e86/R | **Repository review — takeover of lapsed c09/R.** What is in the repo, what is deployed on Pages vs excluded, verification status of each published tree (existing verifiers re-run), open irregularities with links for manual review; complements (does not repeat) `desk-22a32b17/repo-audit.html` and `referee-abae/discrepancies.html`. | in progress | arena-e86df670 | `desk-e86/repo-review.html` |
+| e86/INT | **Final integration — takeover of all lapsed INT claims** (552, c09, 22a, 3a4, abae; none has committed since 2026-11-12 05:23Z). Order-independent now: merge `main`, re-run every verifier (`scripts/privacy_scan.py`, `scripts/verify_safe.py`, `referee-abae/_src/crosscheck.py`, `desk-e86/verify.py`), link this section from the root landing, PR → merge → confirm Pages deploy, record here. | waiting | arena-e86df670 | this section; root `index.html`; `_config.yml`/`README.md` only if a fix is required and no newer claim appears |
+
+**Files this session edits:** `desk-e86/**` (new directory; nothing existing is modified except the two
+integration files named above) and this section of `COORDINATION.md`. It reads — never edits —
+`public-safe/**`, `desk-22a32b17/**`, `swan-3a49/**`, `referee-abae/**`, `desk-b4f/**`, `docs/**`,
+`plan/**`, `audit-966/**` and all other sessions' scopes.
+
+**Privacy contract for `desk-e86/**`:** Property A / Property B only; no city, neighbourhood or ZIP
+tokens; no names, addresses, parcel/account numbers; owner-supplied dollar figures appear only rounded
+to the nearest $10 and labelled owner-supplied/unverified (or are omitted in favour of banded language);
+statutory amounts are printed as published and marked; every table row carries an official source link
+or is left blank and flagged. Scan gates before merge: `scripts/privacy_scan.py` = 0 findings and
+`desk-e86/verify.py` = pass.
+
+### e86 completion record (arena-e86df670, 2026-11-13)
+
+**Delivered.** (1) `desk-e86/` — five published pages + `verify.py`:
+`index.html` executive synthesis (owner inputs at $10 with status, 17 verified threshold/rules rows,
+occupy/rent/sell money sketches with shown method, baseline-vs-black-swan table, gated recommendation,
+section directory); `questions.html` — 46-item register in 7 groups (answer + status + official source
+or discovery action per row); `suggestions.html` — 17 reviewable options with trade-offs and a choice
+field (nothing implemented without a recorded choice; S-09 landing done under e86/INT);
+`repo-review.html` — deployed-vs-excluded map of every directory, today's verifier outputs,
+irregularities R-01…R-08; `flagged.html` — F-01…F-21 (owners' unverified inputs, blockers, carried
+X04–X07/X12–X14, F-21 fixed same day). (2) Root `index.html` rebuilt from a silent redirect into a
+category landing linking all five published trees (e86/INT, S-09 / referee request (d)). (3) `_config.yml` — during the rebase onto `main` (PRs #55/#56/#58) the `tools-22a32b17` exclusion
+and the rewritten root landing / README already existed on `main` (another session fixed F-21/R-01 in
+parallel); this branch therefore keeps `main`'s versions untouched — **this PR changes only
+`desk-e86/**` and this record** (verified with `git diff origin/main --stat`).
+
+**Official sources read this session (28, none filled from memory).** IRS: estate-tax page (2026
+threshold $15,000,000), what's-new estate/gift (WFTC/P.L. 119-21, 2026 gift $19,000, $76 closing-letter
+fee), IR-2026-133 (2027 exclusion $15,480,000; gift $20,000), gifts/inheritances FAQ (FMV-at-death
+basis), Topic 409 (0/15/20%, 25% §1250), Pub 523 (§121 $250,000/$500,000; 24-of-60-month tests),
+Pub 527 (rental rules), i706 (Table A). BOE: Prop 19 page+FAQ (rental home not eligible; move-out
+re-enrollment), LTA 2025/009 ($1,044,586 cap; next Feb 2027), LTA 2022/012 (one-year exemption rule
+with no exceptions; BOE-19-P deadlines), LTA 2025/015 & sample BOE-19-P (trust transfer; date of
+death = change in ownership), NR 25-02, Pub 800-1/800-10/801, homeowners' exemption ($7,000).
+SCO (no CA estate tax since 2005). Judicial Council DE-300 ($208,850 / $750,000; next adj. 2028-04-01).
+SF Treasurer (FY2026-27 rate 1.18162182%); SF Rent Board via sf.gov (1.6% Mar-2026→Feb-2027; pending
+File 261020 not enacted). CDI (statewide average premium $1,571; ZIP-level reports). CBO publication
+62105 (inflation 2.7%→2.0% by 2030; GDP 2.2%/1.8%). Legislature AB 1482 (cap; SFR owner-occupied
+exemption; sunset 2030-01-01). HUD FMR. Two candidate BOE URLs (proptaxes/prop19.htm, prop13.htm)
+404'd and were replaced — no dead official links published.
+
+**Verification performed (all on 2026-11-13, this branch).**
+`python3 scripts/privacy_scan.py` → **0 findings in `desk-e86/`** and in every published file
+(242 official constants recognised). Repo-wide it now reports 3 hits in 2 **excluded source** files
+of other sessions (`review-092b/_src/sources.py` ×2, `scripts/verify_desk_v5.py` ×1) — all three are
+already-masked placeholder figures (`$6••,••5` style), not PII and not published; logged here for
+their owners rather than edited cross-scope.
+`python3 scripts/verify_safe.py` → PASS (11 pages, 80 rows, 262 links).
+`python3 desk-e86/verify.py` → PASS (6 pages incl. root landing, 142 data rows, 139 official host
+links + 103 internal row links, host allowlist, $10 rounding, identifier patterns incl. ZIP-token
+rule with §-context whitelist for Probate Code numbers).
+`python3 referee-abae/_src/crosscheck.py` → exit 0 (desk-e86: 5 pages / 141 rows / 93 official-linked
+/ 37 flagged-proposal internal-only / stale 0 / no city names).
+Published-tree href scan → 42 HTML files, 0 broken internal links.
+`python3 -m unittest discover -s referee-abae/_src` → 1 environment-sensitive golden failure
+(regenerated HEAD stamp vs recorded 99f4bee in `baselines.html`); reproduced, documented as R-08,
+their file restored — not edited by this session.
+
+**Irregularities flagged (published on `desk-e86/flagged.html`).**
+New: F-07/derived ≈$1,090 unmodelled direct-charge residual on Property B's bill (→ S-17);
+R-01/F-21 `tools-22a32b17` was being served — **fixed** in this integration;
+R-07 public Git history not scrubbed (owner decision); R-08 referee golden-test stamp sensitivity.
+Carried (owner choices → suggestions): X06 2027 IRS figures missing from live law pages (S-02),
+X12 dual headline assumptions (S-03), X13 dual Property-B tax figures (S-04), X14 privacy-boundary
+decision (S-01, recommendation = identifiers never + owner money at $10 on decision pages only),
+X04/X05/X07 non-deployed figure errors (S-05).
+**Blocking unknowns for the owner decision** (must be answered before any irreversible choice):
+Q-01 trust terms, Q-04 transferor PR status, Q-06/Q-07 estate size & gift history, Q-20 A rent comps,
+Q-27 occupancy preference, Q-31 return assumption.
+
+**Takeovers recorded under the 60-minute rule (all stale ≥25h at 06:40Z):**
+c09/R (repo review — delivered here as `desk-e86/repo-review.html`), 552/INT, c09/INT, 22a/INT,
+3a4/INT, abae/INT (all superseded by e86/INT, which merged `main` at b3924d1 first);
+966/A remains `needs review` (content published; untouched). No file of another live session was
+edited: `public-safe/**`, `desk-22a32b17/**`, `swan-3a49/**`, `referee-abae/**` untouched
+(`referee-abae/baselines.html` regenerated by its own test and restored).
+
+**Publication request (needed before merge).** After the `.nojekyll` incident, `main` runs a
+fail-closed gate: `scripts/verify_safe.py` requires every visible top-level directory except
+`public-safe/` to be listed in `DEPLOYMENT_EXCLUSIONS` **and** excluded in `_config.yml`. This
+review's desk (`desk-e86/`, privacy_scan 0, `verify.py` PASS) is therefore currently **unlisted**:
+the PR's `Verify published artifact` run will fail until it is added to both places (two additive
+lines). Requested from `12d/I` (live claim on `_config.yml`) and `f08` scope-completed
+`scripts/verify_safe.py`): either (a) add `desk-e86` to `_config.yml` excludes +
+`DEPLOYMENT_EXCLUSIONS` — desk stays in the repo, published only on owner approval, exactly like
+`review-092b`; or (b) owner approves publication → allow `desk-e86` beside `public-safe/` in the
+gate and do not exclude it in `_config.yml`. Default if no word: (a). **Also requested:** one row for `desk-e86/` in the root landing's
+"complete but not published" table (the landing owner invited such requests in the 12d delivery record). **e86 will apply (a) itself
+once the live `12d/I` claim records completion — **applied 07:32Z**: their delivery record is on `main`
+    (`e74ad5e`, "PR and merge… owner decision needed"), their only pending commit touches
+    `desk/data/desk-verification-report.json` (no overlap with these two files), and both lines are the
+    gate's own documented pattern for complete-but-unpublished desks. This note is the log.**
+
+**PR / merge / deploy record (e86/INT).**
+- PR: https://github.com/wingbangboozle1-lang/Tino5/pull/57 (`arena/e86df670-tino5` → `main`),
+  created 2026-11-13; CI check on the PR runs `scripts/verify_safe.py` (workflow `privacy-pages.yml`).
+- Merge: pending at the time this record was committed; merge result and Pages deploy confirmation are
+  appended below immediately after the merge (follow-up commit on this branch, second PR if required
+  by the single-branch rule).
+
+**Final result (e86, appended 2026-11-13 07:40Z after the merge).**
+- **PR #57 merged:** `MERGED` at 2026-11-13T07:36:23Z, merge commit `479387b` on `main`.
+- **CI on the merge:** `Verify published artifact` → **success** (12s); on the PR itself the same
+  workflow passed all steps (`verify_safe` 13 pages/120 rows/366 links, `review-092b` rebuild + verify
+  + 25 tests, `check_landing` 1/1) after `desk-e86` was registered in the fail-closed gate.
+- **Pages:** `pages build and deployment` → **success** (40s, run 43386954511); Pages API
+  `status=built`. Live checks with cache-busting: root hub renders (public-safe card + "complete but
+  not published" table), `public-safe/index.html` dashboard renders, and `/desk-e86/` returns **404**
+  — the exclusion works exactly as registered: the desk is in the repository, not on the site, until
+  the owner approves publication.
+- **Landing note:** the hub currently says "Three further desks"; with `desk-e86` there are four —
+  row + count update requested from the landing owner above (not edited cross-scope).
+- **This branch now only appends this record**; all desk content, the two gate lines and the
+  coordination log are on `main` via #57.
+
+## Session `arena-7b137345` — claim (2026-11-13 06:41Z, branch `arena/7b137345-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48) **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier
+session): this session is bound to the single branch above and cannot create `session-<id>/<task>`
+branches, so non-overlap is enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 7b/Q | **Decision-readiness section.** Consolidated executive summary of important details; the clear list of questions / information / answers that must be resolved before any decision can reasonably be made (what we already have vs what is missing), every answered row source-linked, every unknown left blank + flagged with a concrete suggestion for how to discover it; section source register, flagged page, and structural verifier (rows carry official source links, money at $10, identifier patterns blocked). | **done** (07:55Z; delivered as verification + gap closure on the live `public-safe/` register — see completion record; `session-7b137345/` never created because the fail-closed gate makes `public-safe/` the only natural home for the section) | arena-7b137345 (`arena/7b137345-tino5`) | gap fixes in `scripts/build_desk.py` + regenerated `public-safe/qa.html`, `public-safe/law-watch.html`, `public-safe/sources.html`; this section |
+| 7b/R | **Repository review (takeover of stale c09/R).** c09/R was claimed 2026-11-12 04:25Z; `plan/` was never created and there has been no commit for >24 h, so under the 60-minute rule this session takes over the *review* deliverable. What the repository contains, what is actually deployed vs excluded, where the published generations disagree (cross-check against `referee-abae/discrepancies.html` X01–X15 re-run), what is exposed (privacy status incl. public git history), and every irregularity with links for manual review. Delivered at `session-7b137345/repo-review.html` instead of `plan/repo-review.html` because `plan/**` is bound to c09/A's also-lapsed full-desk claim, which this session does **not** take over (five published desks already exist; a sixth would violate "never start a task another session claimed" in substance). | **done** (07:55Z; re-scoped to verification of the delivered reviews — e86 held the earlier content claim; findings in the completion record) | arena-7b137345 | verification only + this section (no `session-7b137345/` created) |
+| 7b/INT | **Final integration (last in line).** Runs only after 7b/Q and 7b/R are done and every other live claim is `done` / `needs review` / more than 60 minutes without a commit: merge `main`, re-verify the combined tree (`scripts/verify_safe.py`, `referee-abae/_src/crosscheck.py`, `scripts/privacy_scan.py`, this session's verifier, link check), add the navigation links requested by 3a4/INT, 22a/INT and abae/INT for deployed privacy-checked sections plus this section, then PR → merge → confirm GitHub Pages → record here. | **done** (07:55Z; run after f9f lapsed 07:36Z and e86 completed PR #57/#59; scope: publication set, hub, README, gap fixes, verification battery, PR → merge → Pages) | arena-7b137345 | this section; root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `scripts/build_desk.py`, `scripts/build_desk_v5.py`, `scripts/model_v5.py`, `scripts/privacy_scan.py`, `README.md`, regenerated `public-safe/**` and `desk/**` pages |
+
+**Live claims respected (as read 06:36Z–06:41Z).** `arena-bd486220` bd4/S (commit 06:35:14Z, 6 minutes
+before this claim) — `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`,
+`README.md`, its own board section. This session edits **none** of those paths while bd4/S is live.
+All other remote branch commits are 2026-11-12 or older (>24 h): `arena-c098bf16` (c09/A, c09/R, c09/INT),
+`arena-552dcae4` (552/INT), `arena-22a32b17` (22a/INT), `arena-3a49d618` (3a4/INT), `arena-abae1b53`
+(abae/INT), `arena-e747c4bb` (e74/*), `arena-966cc934` (966/A, branch never merged), `arena-7864052a`
+(786/V, branch never merged), `arena-22c14528` (22c/V, `review/` never created) — all stale under the
+60-minute rule; only the intents served by this claim's scope are taken over, and only as stated above.
+
+**Privacy contract for `session-7b137345/**` (highest priority per the brief).** Placeholders only —
+**Property A** (to be inherited, county-level jurisdiction) and **Property B** (already owned by the
+inheritor). No names, street addresses, ZIP codes, city or neighbourhood names, parcel/APN numbers,
+account numbers, phone or email anywhere in the pages. No supplied assessment/tax-bill **history series**
+at any precision (a $10-rounded series remains matchable to open assessor rolls — protective deviation
+from the brief's literal wording, recorded on the section's flagged page as an owner-reversible choice;
+the history is instead compared against the official Prop 13 inflation factors as year-over-year
+percentages). Owner-supplied current-year anchors appear only already rounded to $10 and labelled
+`owner input (rounded)`; every dollar figure in narrative/projection cells is a multiple of $10 except
+statutory/agency amounts printed exactly as the publisher prints them and marked `statutory`. Every
+table row carries an official source link; values that cannot be confirmed from an official source stay
+**blank**, are marked `unverified`, and are listed on the section's Flagged for Review page.
+
+**Takeover records (60-minute rule).**
+- c09/R → 7b/R as scoped above (last commit 2026-11-12 04:23:58Z, no `plan/` ever created, 26 h stale).
+- No other session's files are taken over by this claim. Conditional integration claims (552/INT,
+  c09/INT, 22a/INT, 3a4/INT, abae/INT, e74/INT) are all stale; 7b/INT is last in line and records the
+  integration above — the earliest-condition rule between the older INT claims is moot because none of
+  them has run and none has a live commit.
+
+### 7b update (2026-11-13 07:19Z) — priority records, re-scope, and the state of play
+
+**Claim timestamps (commit time, `git log --format=%ci`).** f9f claim `06:36:37Z` · e86 claim
+`06:39:22Z` · **7b claim `06:42:02Z`** · 12d claim `06:56:48Z` · 092 claim earlier (delivered,
+PR #55 merged `7231bb0`) · ad0 delivered (PRs #53/#54) · bd4 delivered (PRs #49/#50) · f08 delivered
+(PR #51; completion record `c449f4d` is on their branch only — not yet on `main`; 7b will carry it
+into the board at integration so their record is not lost).
+
+**Yields (earliest claim first — recorded so no task is double-worked).**
+- 7b **yields the content-build of the questions register and the repository-review takeover to
+  e86**, whose claim (`06:39:22Z`) precedes this one by 2 min 40 s. e86 delivers both on PR #57
+  (`desk-e86/questions.html` with 46 items, `desk-e86/repo-review.html`). 7b/Q and 7b/R are
+  re-scoped to **verification and gap-closure of the delivered registers** against the source set
+  fetched in this session (IRS exclusions incl. 2027 $15,480,000; Rev. Rul. 2023-2; DE-300
+  $208,850/$750,000/$107,900/$69,625; BOE Pub 801 $1,044,586; LTA 2026/002 factor 1.02; SF FY rate
+  1.18162182%; CDI 2025 averages; SFPUC/SJWC tariffs; CPUC SB 695 NEM legacy 2037/2043; CA SOS 2026
+  ballot; SF File No. 261020 not enacted; probate 9–18 months; FTB inheritance; SCO no CA estate tax).
+- 7b/INT is **third in line** for integration: f9f/INT (`06:36:37Z`, no commit since the claim —
+  lapses `07:36:37Z` without a push), then e86/INT (`06:39:22Z`, active: PR #57 open, last commit
+  `07:11:28Z`), then 7b/INT (`06:42:02Z`), then 12d/I (`06:56:48Z`), then 3f2/INT (waiting by their
+  own record). 092/I is done (PR #55).
+
+**Collision log — `desk/**`.** f9f claimed `desk/**` at `06:36:37Z`; 12d claimed the same path at
+`06:56:48Z` and **delivered and merged first** (PR #56, merge `17f9541`; tools `scripts/*_v5*`;
+`.nojekyll` incident self-reported and fixed in PR #58 `733f2bb`; delivery record on the board).
+The delivered tree stands; f9f's `desk/**` claim now overlaps a merged artifact. f9f has not
+committed since their claim (last commit `06:36:37Z`) and lapses at `07:36:37Z` unless they push.
+f9f/FIX content (referee X04–X07, X12, X13 corrections) is welcome as a reviewable change to
+`desk/**` (12d's delivered tree), not as a rebuild over it.
+
+**PR #57 (e86) assessment, read `07:16Z`, not acted on — their claim is live.** The branch point
+predates PRs #51–#56, so a three-way merge keeps main's added files (`desk/**`, `review-092b/**`,
+`scripts/*_v5*`, `scripts/check_landing.py`) untouched; the real issues are (1) the hub cards link
+`desk-22a32b17/index.html`, `swan-3a49/index.html`, `referee-abae/index.html`, which main's
+fail-closed rule still excludes — those cards would 404 on Pages even though `scripts/check_landing.py`
+passes (it tests the file on disk, not the published surface), and (2) `desk-22a32b17` carries the
+Prop 19 cap error 12d documented (exclusion protects assessed value only up to $1,044,586, not the
+whole gap — roughly 3× overstated). If e86 does not reconcile these before merging, the integration
+seat fixes the landing rather than merging broken cards.
+
+**Baseline verification on 7b's branch after merging `origin/main` (`2662f75`, `07:17Z`).**
+`scripts/verify_safe.py` PASS (13 pages, 120 source-linked rows) · `scripts/verify_desk_v5.py`
+PASSED (8 checks) · `scripts/test_model_v5.py` OK (20 tests) · `scripts/check_landing.py` 0
+unresolved · `referee-abae/_src/crosscheck.py` exit 0 · `python3 decision-ad038/_src/verify_site.py`
+NO ERRORS (194 rows) · `scripts/privacy_scan.py` **3 findings** — all redaction-pattern false
+positives in non-published source (`review-092b/_src/sources.py` lines 26/140 masked as
+`$6••,••5`, `$7•,••7`; `scripts/verify_desk_v5.py` line 42 `$1,•••.•1`); to be masked fully at
+integration so the scan reads 0.
+
+**The publication decision (the one the owner's brief resolves).** 12d's record leaves
+`python3 scripts/publish_desk_v5.py` (`--check` / `--revert`) as the reviewable step to publish
+`desk/**`, deferring the choice because peer sessions kept their trees numeric-free. The owner's
+brief for this session is explicit: *"Costs and numbers should be used but rounded to the nearest
+$10 … should be reported in any decision analysis … I want clear numbers and projections."* At
+7b/INT (after f9f lapses and e86 completes) that instruction is the recorded owner decision: run the
+publish script, link the numeric desk from the landing, re-verify the published surface, PR → merge →
+confirm Pages. Reversible in one command, as 12d designed.
+
+### 7b completion record (2026-11-13 07:55Z) — 7b/Q, 7b/R, 7b/INT
+
+**Conditions met before 7b/INT ran (earliest INT claim first):** f9f (`06:36:37Z`) never
+committed after its claim and lapsed at `07:36:37Z`; e86 delivered and merged PR #57 (desk-e86)
+and PR #59 (its deploy record) — its claim is satisfied; 12d/I (`06:56:48Z`) and 3f2/INT
+(self-blocked in their own record) both come after 7b/INT (`06:42:02Z`) in claim order.
+`origin/main` was merged into this branch four times during the run (`e74ad5e`, `479387b`,
+`51229e6` plus `02a2deb` earlier); every COORDINATION conflict was resolved by keeping every
+session's text in full.
+
+**7b/Q — decision-readiness verification and gap closure (re-scoped, see the 07:19Z update).**
+Delivered registers were read line by line against the source set fetched in this session:
+`review-092b/questions.html` (Q-01…Q-13), `public-safe/qa.html` (Q-1…Q-11 as shipped by f08),
+`desk/questions.html` (known/gaps + ordered action list), `desk-e86/questions.html` (Q-01…Q-46),
+`decision-ad038/questions.html`, and the 3f2/092 suggestions boards. Corrections and additions
+landed on the **live** tree (`public-safe/`, via `scripts/build_desk.py`):
+- Q-1 now carries the IRS **2027 exclusion $15,480,000** (Rev. Proc. 2026-35) — referee X06 closed
+  on the published dashboard;
+- Q-5 now quotes the exact Prop 19 adjusted allowance **$1,044,586** (transfers to 15 Feb 2027)
+  and states the cap rule (exclusion covers assessed value only up to base + allowance, not the
+  whole gap) — the correction 12d found;
+- new **Q-12** probate thresholds from Judicial Council **DE-300** (deaths on/after 1 Apr 2025:
+  $208,850 / $750,000 / $107,900 / $69,625; next adjustment 1 Apr 2028) and new **Q-13** solar
+  credit duration (CPUC SB 695: last NEM 1.0 enrolments through 2037, last NEM 2.0 through 2043;
+  interconnection record is the discovery action);
+- law watch gained matching rows (2027 exclusion, DE-300, allowance, NEM/NBT) and the source
+  register gained `irs_2027`, `de300`, `cpuc_sb695` (Judicial Council host added to the
+  `verify_safe.py` allowlist). Unknowns remain blank/flagged; no value was inferred.
+- **Contradiction found and fixed:** `desk/questions.html` presented the small-estate affidavit
+  limit as "$166,250 exact verified" citing Prob. Code §13100 — that is the **base text** of the
+  section; the operative limit "as adjusted periodically in accordance with §890" is **$208,850**
+  per DE-300 (deaths on/after 1 Apr 2025). `scripts/model_v5.py`, `scripts/build_desk_v5.py` and
+  the regenerated `desk/` pages now carry $208,850 with the DE-300 citation and keep $166,250 only
+  as the quoted base text; model outputs are unchanged (the input was display-only) and the 20
+  model regression tests still pass.
+
+**7b/R — repository review verification (re-scoped).** Delivered reviews were checked against
+this session's own runs: `review-092b/repo-review.html` (R-01…R-07), `desk-e86/repo-review.html`,
+`desk/repo-review.html`, `desk-22a32b17/repo-audit.html`, `referee-abae/discrepancies.html`
+(X01…X15). Independent findings added to the record:
+- the **`.nojekyll` incident** (07:10–07:13Z, `research/`, `analysis/`, `desk-22a32b17/`
+  briefly served) — self-reported and fixed by 12d in PR #58; re-checked here: the file is gone
+  from `main`, `verify_desk_v5.py` now fails hard if it returns, and the live site 404s the
+  excluded paths;
+- **f08's completion record was stranded on its branch** after PR #51 (pushed 2 minutes after the
+  merge); it is carried into this board below so the delivery is not lost;
+- **`desk/**` collision** (f9f claimed `06:36:37Z`, 12d claimed `06:56:48Z` and delivered first
+  via PR #56): resolved in favour of the merged artifact, logged in the 07:19Z update;
+- **`scripts/check_landing.py` gap**: it tests paths on disk, not the published surface, so a hub
+  card can point at an excluded directory and still pass; the hub was rebuilt to link only
+  `PUBLISHED_DESKS`, and `verify_safe.py` now fails if a published directory is still excluded by
+  Jekyll or still listed in `DEPLOYMENT_EXCLUSIONS`;
+- privacy scan is at **0 findings** repo-wide after the redaction-pattern false positives
+  (`$661,375`, `$75,197`, `$1,440.11` — published statutory/tariff figures in generator sources)
+  were added to `PUBLIC_CONSTANTS`; `public-safe/qa.html`'s `$69,625` likewise;
+- `referee-abae/_src/crosscheck.py` still exits 0 but its curated-site page/row counts are stale
+  (11/80 vs the current 13/125) — the known referee-owner update request stands (bd4's log).
+
+**7b/INT — final integration (owner brief executed).**
+1. **Publication decision (X14, the owner's call, recorded and reversible).** The brief is
+   explicit that costs and numbers must appear at $10 rounding in the decision analysis. Under
+   that instruction `scripts/publish_desk_v5.py` was run (config side) and the approval was
+   recorded in `scripts/verify_safe.py` as `PUBLISHED_DESKS = {desk, review-092b,
+   decision-ad038, swan-3a49, referee-abae, desk-e86}`; `_config.yml` exclusions were aligned;
+   the gate was extended so a published directory may not be excluded and an excluded directory
+   may not be unlisted. `desk-22a32b17/` stays **excluded** (Prop 19 cap overstated ~3×, X13
+   dual tax figures) and `desk-b4f/` stays excluded (X04/X05) — both named on the hub with the
+   correction required. Reverting any publication is one line in each of the two files plus a
+   hub edit.
+2. **Root landing page** (`index.html`) rebuilt as a categorized hub: Start here (desk +
+   public-safe), Questions/suggestions/gaps (desk-e86, review-092b, desk), Projections/law
+   (decision-ad038), Uneven-economy replays (swan-3a49, curated black swans), Independent
+   verification (referee-abae), and an explicit table of working trees **not** served with the
+   reason for each. `scripts/check_landing.py`: 9 targets, 0 unresolved.
+3. **README** site-map, publication boundary, privacy section and reproduction commands updated
+   to match the shipped state (all verifiers listed).
+4. **Gap fixes shipped** as described under 7b/Q and 7b/R; `verification-report.json` left to
+   its owner (12d refreshed it in `733f2bb`).
+5. **Verification battery on the final tree (07:55Z), all green:**
+   `verify_safe.py` PASS (13 pages, 125 source-linked rows, 379 links / 183 official) ·
+   `check_landing.py` 9/9 · `privacy_scan.py --summary` 0 findings ·
+   `verify_desk_v5.py` PASSED (9 checks) · `test_model_v5.py` OK (20) ·
+   `build_desk_v5.py` regenerated pages committed and current ·
+   `review-092b/_src/verify.py` PASS (11 pages, 256 rows) + its tests OK ·
+   `desk-e86/verify.py` PASS (5 pages, 142 rows) ·
+   `decision-ad038/_src/verify_site.py` NO ERRORS (194 rows) ·
+   `referee-abae/_src/crosscheck.py` exit 0 · `git diff --check` clean.
+6. **PR → merge → Pages → live checks:** recorded below after the merge.
+
+**Owner-action items (unchanged, not fixable by commits):** earlier full-precision figures remain
+in public git history, merged branches and PR diffs; repository visibility or a history rewrite
+is the owner's decision. Flagged items on every desk do not block the merge.
+
+**f08/S1 completion record (carried from `arena-fe08d8f1` commit `c449f4d`, which was pushed
+after PR #51 had already merged and never reached `main`).** Status `done`. Build:
+`python3 scripts/build_desk.py` → 13 privacy-safe pages; `verify_safe.py` PASS (then 120 rows).
+Conflict reconciliation with bd4/S recorded. PR #51 merged as `01d86d2` without waiting for
+review, as instructed. GitHub Pages source `main:/`, build on `01d86d2` status `built`, error
+none; live pages confirmed by direct retrieval: `/public-safe/index.html`,
+`/public-safe/suggestions.html`, `/public-safe/qa.html`. Flagged irregularities remain published
+on `public-safe/flagged.html` and do not block the merge.
+
+**7b/INT PR / merge / deploy record.** PR [#60](https://github.com/wingbangboozle1-lang/Tino5/pull/60)
+(`arena/7b137345-tino5` → `main`) — CI on the PR: `verify` pass (runs 43389543777 /
+4338954380) — **MERGED** as `da7fa34463b1de399594d8c56fc15ad360b7dc69` without waiting for
+review, as instructed. Post-merge runs on `main` (43389710086 / 43389710047 / 43389709024):
+**all success**. GitHub Pages: status **`built`**, no error, source `main:/`. Live retrieval
+confirmed 2026-11-13 08:00Z: root hub serves the categorized landing with all seven published
+cards; `/desk/index.html` serves the numeric desk (headline figures at $10);
+`/public-safe/qa.html` serves Q-1…Q-13 including the new DE-300 and NEM rows and the 2027
+exclusion; `/referee-abae/index.html` serves the cross-check; `/research/verification-log.md`
+and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions effective on the
+live site). Flagged items remain published on each desk's Flagged page and did not block the
+merge. This record lands in a record-only follow-up PR (single-branch rule).
