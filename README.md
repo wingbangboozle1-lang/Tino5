@@ -10,8 +10,12 @@ inherited and the other is not.
 figures), [`desk-e86/`](desk-e86/index.html) (46-question decision-readiness register),
 [`desk-d75/`](desk-d75/index.html) (the owner brief as a 26-item requirement register, with the pages that answer it),
 [`review-092b/`](review-092b/index.html) (question/suggestion hub), [`decision-ad038/`](decision-ad038/index.html)
-(indexed projections and law), [`swan-3a49/`](swan-3a49/index.html) (uneven-economy replay) and
-[`referee-abae/`](referee-abae/index.html) (independent cross-check). The publication set is
+(indexed projections and law), [`swan-3a49/`](swan-3a49/index.html) (uneven-economy replay),
+[`referee-abae/`](referee-abae/index.html) (independent cross-check),
+[`tino5-3f269806/`](tino5-3f269806/index.html) (independent decision site — every row checked
+line by line against official sources) and [`verify-476/`](verify-476/index.html)
+(the 2026-11-13 line-by-line verification register: every decision-critical constant re-checked
+against its official source, with verdicts and corrections applied). The publication set is
 recorded in `PUBLISHED_DESKS` in [`scripts/verify_safe.py`](scripts/verify_safe.py); every other
 top-level directory is excluded from Pages by the fail-closed gate and by `_config.yml`.
 `desk-22a32b17/` stays excluded until its Proposition 19 cap error is corrected and `desk-b4f/`

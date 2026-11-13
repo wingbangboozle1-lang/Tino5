@@ -53,7 +53,7 @@ c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 betw
 |----|------|--------|---------|-----------|
 | 3f2/S | Independent decision site: landing page + category subpages (executive summary, property facts, tax & inheritance thresholds, projections 2026–2050, scenarios live/rent/sell, black-swan scenarios, trust inheritance process, questions & information gaps, suggestions awaiting approval, law watch, source register, flagged for review). Every table row carries an official source link or is marked unverified and blank. Owner figures rounded to $10, no addresses, names, parcel or account numbers, ZIP codes or city names. | done (commit `185a532`) | arena-3f269806 | `tino5-3f269806/**` (new directory; generator and verifier in `tino5-3f269806/_src/**`, which Jekyll does not publish) and this section only |
 | 3f2/V | Line-by-line source verification of every row; irregularities logged in `tino5-3f269806/flagged.html` and in the log below. | done (verifier PASS; 2 open source items, see record) | arena-3f269806 | `tino5-3f269806/**`, this section only |
-| 3f2/INT | Conditional integration (PR to `main`, merge, Pages check). Runs only after the remaining INT claims are done, withdrawn, or lapsed. **Blocked at 2026-11-13 06:47Z by live integration claims 12d/I, 092/I, e86/INT, 7b/INT and t24/INT (remote commits 06:35–06:43Z).** Shared root files (`index.html`, `_config.yml`, `README.md`) are **not** edited by this session; the new site is linked from its own path. | waiting | arena-3f269806 | this section only |
+| 3f2/INT | Conditional integration (PR to `main`, merge, Pages check). Runs only after the remaining INT claims are done, withdrawn, or lapsed. **done** 2026-11-13 (after 08:15Z): [PR #62](https://github.com/wingbangboozle1-lang/Tino5/pull/62) merged to `main` at `52ab3d2`; Pages deploy succeeded; live pages checked. Shared root files (`index.html`, `_config.yml`, `README.md`) are **not** edited by this session; the new site is linked from its own path. | waiting | arena-3f269806 | this section only |
 
 ### 3f2/S + 3f2/V — completion record (arena-3f269806, 2026-11-13)
 
@@ -62,6 +62,15 @@ c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 betw
 - **Found and fixed in review (before publication):** (1) owner tax-history tables for both properties had been published on the property-facts page; removed, and the verifier now fails if those values reappear. (2) Property A water row linked to an SJ Water rate PDF that does not apply to either property; it now links to SFPUC with a note that it is the general schedule only. (3) Three wording errors (an unsourced "fastest-growing" claim, a "repealed" claim for the 2025 law, a CPI sentence) corrected. (4) CPI December values 1972–1982 checked line by line against BLS table chunk 0: all match.
 - **Open source items (not hidden; labelled on the pages):** S22 (congress.gov bill text) and S25–S27 (county and city assessor and tax-collector home pages) were **not opened**; they are linked only as "check here" pages, and any row citing them says so. S20 is a non-applicable rate case and is not cited by any value. S23 is a secondary law-firm source and is labelled secondary. Owner-supplied values (market and assessed values, rent, utilities, insurance, solar credit) are shown with "owner input - unverified" status and no official confirmation.
 - **Irregularities logged for other owners (flag F09):** `desk-b4f/estate-tax.html` shows the 2026 estates-and-trusts capital-gains figure as $16,200 against $16,250 in IRS Rev. Proc. 2025-32 (already logged as X04); another page shows the closing-letter fee rising from $67 against IRS $56 to $76 (X05). Logged, not edited.
+
+### 3f2/INT — PR / merge / deploy record (arena-3f269806, 2026-11-13)
+
+- **Wait:** integration was held while integration claims were live. 7b/INT completed (PR #61) and e86/INT completed (PR #57). 12d/I (last commit 07:14Z), 092/I (last commit 07:05Z) and t24/INT (last commit 06:47Z) passed the 60-minute no-commit rule. Integration then ran. 12d/I and 092/I still show "in progress" on the board; their PRs #56 and #55 are already on `main`, and this session did not change their files.
+- **Merge:** `origin/main` merged into `arena/3f269806-tino5`. The one COORDINATION conflict was resolved by keeping both sides. Only one line of a shared script changed: `scripts/verify_safe.py` `PUBLISHED_DESKS` now includes `tino5-3f269806`, which the publication gate requires for a new top-level desk. `_config.yml` was not edited (the site is not excluded).
+- **Checks before merge:** `tino5-3f269806/_src/verify.py` PASS (13 pages, 226 rows, 567 links, $10 rounding, no identifier patterns); `scripts/verify_safe.py` exit 0 (13 pages, 15 tables, 125 rows, 379 links); `scripts/check_landing.py` exit 0; `review-092b` unit tests OK; `scripts/test_model_v5.py` OK; `scripts/verify_desk_v5.py` PASS. A rewritten tracked report (`desk/data/desk-verification-report.json`) was restored and not committed.
+- **PR:** [PR #62](https://github.com/wingbangboozle1-lang/Tino5/pull/62), merged with a merge commit to `main` at `52ab3d2`. Workflow "Verify published artifact" and "pages build and deployment" both completed with success on `main`.
+- **Live check:** `https://wingbangboozle1-lang.github.io/Tino5/tino5-3f269806/` returns the landing page; `flagged.html` renders; `assets/style.css` is served. Tables load with their source links.
+- **Still open, not blocking (logged as flags):** F04 insurance and F05 water provider for A; F06 solar credit; F07 2027+ exclusion; S22 and S25–S27 not opened; owner figures unverified; flags F09 for other sessions' desks (X04, X05).
 
 ### 3f2/INT — status
 
@@ -1753,6 +1762,7 @@ and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions eff
 live site). Flagged items remain published on each desk's Flagged page and did not block the
 merge. This record lands in a record-only follow-up PR (single-branch rule).
 
+<<<<<<< HEAD
 ## Session `arena-d75e2754` — claim (2026-11-13 08:35Z, branch `arena/d75e2754-tino5`, base `52ab3d2`)
 
 Board read at claim time: `origin` shows **only `main`** (`git branch -r` → `origin/HEAD`, `origin/main`); no other
@@ -1840,3 +1850,440 @@ explicitly that `desk-d75/_src` is not a page; and `.github/workflows/privacy-pa
 verifies, tests and staleness-checks this desk on every push and PR, in the same shape as `review-092b`.
 No page set was added to `EXPECTED_PAGES`, which describes `public-safe/` only - the new desk is a
 sibling tree with its own verifier.
+=======
+## Session `arena-47685795` — claim (2026-11-13 11:50Z, branch `arena/47685795-tino5`, base `52ab3d2` = main after PR #62)
+
+Read before claiming: this board in full and `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`.
+Reference time 2026-11-13 11:46Z. Every prior claim is **more than 60 minutes old without a commit**
+(latest remote commits: `arena/3f269806-tino5` 08:17Z, `main` 08:15Z; all other session branches
+07:38Z or earlier), so every open claim (`ad0/INT`, `ad0/D`, `3f2/INT`, `c09/*`, `22c/V`, `P1`,
+`b1a/T16`, `8d/T20–T22`, `e74/*`, `552/*`, `3a4/INT`, `22a/INT`, `abae/INT`, `f08/S1`, `092/H`,
+`092/I`, `12d/A`, `12d/I`, `e86/*`) has lapsed under the 60-minute rule. Platform constraint
+(same as every earlier session): this session is bound to the single branch above and enforces
+non-overlap by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 476/VER | **Line-by-line re-verification of the PUBLISHED surface against official primary sources, fetched live in this session.** Every decision-critical constant on the published desks (`desk/`, `public-safe/`, `desk-e86/`, `review-092b/`, `decision-ad038/`, `swan-3a49/`, `referee-abae/`) checked against the official document named in its own source link: federal estate/gift figures (IRS estate-tax page, Rev. Proc. 2026-35, Rev. Proc. 2025-32), Prop 19 amounts and rules (BOE LTA 2025/009, LTA 2026/026, Prop 19 page), Prop 13 (BOE / Cal. Const. art. XIII A), California estate/inheritance tax status (FTB), probate thresholds (Judicial Council DE-300), step-up in basis (IRC §1014 / IRS Pub. 559), Japan inheritance-tax exemption (National Tax Agency), US–Japan estate/gift treaty (IRS treaty page), water and insurance context (SFPUC; CDI). Contradictions fixed in the published trees (lapsed owner scopes taken over, logged below), unverifiable values left blank and flagged. Output: `verify-476/**` (new directory) verification register + summary, linked from the hub. | in progress | arena-47685795 | `verify-476/**` (new), corrective edits in `desk/**`, `public-safe/**`, `desk-e86/**`, `review-092b/**`, `decision-ad038/**`, `swan-3a49/**`, `referee-abae/**` (lapsed scopes, takeover logged), this section |
+| 476/INT | **Final integration.** All other claims lapsed (see above). Merge `origin/main`, run the full verifier battery (`scripts/verify_safe.py`, `scripts/check_landing.py`, `scripts/privacy_scan.py`, `scripts/verify_desk_v5.py`, `scripts/test_model_v5.py`, `desk-e86/verify.py`, `review-092b/_src/verify.py`, `decision-ad038/_src/verify_site.py`, `referee-abae/_src/crosscheck.py`, `verify-476/verify.py`), confirm no broken links on the published surface, add the 476 register to the landing hub, PR to `main`, merge without waiting for approval (owner instruction), confirm GitHub Pages deploys, record PR + deploy result here. | in progress | arena-47685795 | root `index.html`, `_config.yml`, `README.md` (integration seat), `.github/workflows/**` if needed, this section |
+
+**Takeover log.** Corrective edits under 476/VER touch file scopes whose owning claims lapsed
+(>60 min without commits): `desk/**` (12d/A), `public-safe/**` (8d/T20–21, b1a/T16, f08/S1),
+`desk-e86/**` (e86/X–R), `review-092b/**` (092/H), `decision-ad038/**` (ad0/D),
+`swan-3a49/**` (3a4), `referee-abae/**` (abae). Every change is a source-verified correction and
+is recorded in `verify-476/verification.html` and the completion record below.
+
+**Privacy and rounding rules in force for 476 work:** no names, street addresses, ZIP codes,
+parcel or account numbers anywhere on published pages; owner figures labelled owner-supplied,
+unverified; every money figure a multiple of $10 except exact statutory amounts quoted as
+published (marked `statutory`).
+
+### 476/VER — completion record (arena-47685795, 2026-11-13)
+
+**Delivered: `verify-476/` (published, linked from the hub)** — one verification register
+(`verify-476/verification.html`) plus `verify-476/verify.py` (structural gate: row-level source
+links, privacy patterns, $10 rounding with a statutory allowlist) and a small index. Every
+decision-critical constant on the published surface was re-checked against the official document
+named in its own source link; each document in the register's section 10 was fetched and read in
+this session. Verdicts are CONFIRMED / CORRECTED / OPEN / referee-confirmed, with the link for
+manual review in every row.
+
+**Sources read live in this session (official/primary):** IRS estate-tax threshold page; IRS
+What's-new (P.L. 119-21 $15,000,000 for 2026; T.D. 10055 closing-letter fee $56 → $76);
+Rev. Proc. 2026-35 PDF §§3.44/3.46 ($15,480,000; $20,000; $201,000); IRS estate & gift treaty
+table (US–Japan treaty in force); IRS Pub. 559 (opened); BOE Prop 19 page; BOE LTA 2025/009
+($1,044,586, transfers 16 Feb 2025 – 15 Feb 2027; next adjustment Feb 2027); BOE change-in-
+ownership FAQ (150-day death report); State Controller California Estate Tax (no return for
+deaths on/after 1 Jan 2005); FTB SB 378 analysis (pick-up tax zero; CA estate-tax bills recur);
+Judicial Council DE-300 ($208,850 / $750,000 / $107,900 / $69,625; next 1 Apr 2028); leginfo
+Civ. Code 1947.12 (5%+CPI/10% cap; repealed 1 Jan 2030); SF Treasurer (1.18162182% FY2026-27);
+Santa Clara Clerk-Recorder (transfer tax $0.55/$500; $1.65/$500 in three other cities); CPUC
+(net billing from 15 Apr 2023, D.22-12-056); US Treasury daily par yield curve XML (2026-11-12:
+10-yr 5.10%, 20-yr 5.48%, 30-yr 5.43%); CDI 2025 residential premium data call (homeowners
+$2,339.99, dwelling fire $1,701.60, homeowners EQ $1,440.11, FAIR Plan dwelling fire $2,918.18);
+Japan NTA Tax Answer No.4102 (basic deduction ¥30,000,000 + ¥6,000,000 per statutory heir;
+10-month deadline; scope table) and the NTA official pamphlet (10%–55% rate table).
+
+**Verification findings (all recorded with links in the register):**
+- The numeric desk's 5.10% risk-free anchor **matches** the official Treasury curve for
+  2026-11-12, the day before its figures date. No model input needed changing.
+- All three CDI averages used by the model match the agency PDF exactly. The owner's $1,500/yr
+  insurance estimates remain below every published benchmark (referee X10 re-confirmed).
+- Prop 19 ($1,044,586; cap rule; filing periods), the federal 2026/2027 figures, the Prop 13
+  factor chain, DE-300 limits, the SF secured rate, the county transfer tax, the AB 1482 sunset
+  and the California "no estate tax" position all match their official documents.
+
+**Corrections applied (C1–C5, takeover of lapsed scopes logged in the claim above; generators
+and published pages changed together so rebuilds reproduce the fixes; no model output, owner
+figure or assumption altered):**
+- **C1** `desk/**` — the CDI source link returned 404; repointed to the live
+  `insurance.ca.gov/0400-news/.../EQEXP2025Summary.pdf` in `scripts/build_desk_v5.py`, pages
+  regenerated, `verify_desk_v5.py` PASSED (9 checks), `test_model_v5.py` OK (20 tests).
+- **C2** `decision-ad038/**` — the 2027 federal exclusion row said "unverified" and linked a page
+  it had not opened; Rev. Proc. 2026-35 read and linked, row upgraded to Published.
+- **C3** `decision-ad038/**` — "Japan out of scope; no verified threshold" replaced by a six-row
+  verified Japan table (NTA No.4102 + US–Japan treaty listing), with the heir-residence question
+  kept open on the questions/suggestions pages.
+- **C4** `decision-ad038/inheritance.html` — change-in-ownership deadline upgraded from
+  "unverified" to the verified BOE rule (150 days without probate; with the inventory and
+  appraisal if probated).
+- **C5** `decision-ad038/sources.html` + `_src/sources.py` — S23/S26/S27 links repointed to the
+  exact documents; S12/S15/S22 upgraded SEARCHED/SECONDARY/NONE → FETCHED after being read.
+
+**Irregularities found and flagged (not fixed — published as OPEN in the register):** the
+regional water-utility tariff PDF (AL-628-A) does not render for automated readers and which
+utility serves Property A is unconfirmed without an address; the Property B tax bill still
+implies 2.14% against the published 1.18162182% rate (desk F01); insurance declaration pages
+still missing (F03/F04); FHFA/PMMS/CBO/SSA series were not re-pulled this session and their
+rows say so; referee X12 (two desks, two reinvestment assumptions) stays an owner-choice item,
+now bounded by the verified 5.10% risk-free anchor.
+
+**Checks run after the edits (all green):** `scripts/verify_safe.py` PASS (13 pages, 125
+source-linked rows, 379 links) · `scripts/check_landing.py` 11/11 · `scripts/privacy_scan.py
+--summary` 0 findings · `scripts/verify_desk_v5.py` PASSED (9) · `scripts/test_model_v5.py` OK ·
+`desk-e86/verify.py` PASS (5 pages, 142 rows) · `review-092b/_src/verify.py` PASS (11 pages,
+256 rows) · `decision-ad038/_src/verify_site.py` NO ERRORS (201 rows) ·
+`referee-abae/_src/crosscheck.py` exit 0 · `verify-476/verify.py` NO ERRORS (63 rows) ·
+`git diff --check` clean.
+
+### 476/INT — status
+
+In progress. The battery is green on this branch. Next: PR to `main`, merge without waiting for
+approval (owner instruction), confirm the GitHub Pages deploy, then a record-only commit on this
+branch carrying the PR link and deploy result.
+
+## Session `arena-5e7d4570` — claim (2026-11-13 11:50Z, branch `arena/5e7d4570-tino5`, base `52ab3d2` = PR #62)
+
+Read before claiming: this board on `main` at `52ab3d2` (PR #62) **and** every remote session
+branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as
+every earlier session): this session is bound to the single branch above and cannot create
+`session-<id>/<task>` branches, so non-overlap is enforced by **file scope**. Claim liveness
+checked at claim time: the newest remote commit is `origin/arena/3f269806-tino5` at 08:17Z —
+more than 60 minutes old — so every prior claim is `done`, `needs review`, or lapsed. No live
+claim touches the scope below.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 5e7/INT | **Final integration pass on the post-#62 tree.** (a) Carry the stranded record commits `9209ecb` + `9df55a6` (3f2/INT PR #62 merge, CI, Pages and live-check record) from `origin/arena/3f269806-tino5` into this board — no other session's text changed. (b) Close the navigation gap PR #62 left: `tino5-3f269806/` is in `PUBLISHED_DESKS` and live but has no card on the root hub and no line in the README site map; add both (root `index.html`, `README.md` only). (c) Run the full verification battery line by line on the combined tree (`verify_safe`, `check_landing`, `privacy_scan`, `verify_desk_v5` + model tests, `review-092b`, `desk-e86`, `decision-ad038`, `referee-abae`, `tino5-3f269806` verifiers, `verify.mjs`), re-check the live site including that every excluded directory still 404s. (d) PR → merge → confirm GitHub Pages deploy → record here. Flagged irregularities do not block the merge. | **done** (2026-11-13; PR [#63](https://github.com/wingbangboozle1-lang/Tino5/pull/63) merged `727a5dc`, record PR [#64](https://github.com/wingbangboozle1-lang/Tino5/pull/64) merged `da4a00b`; both CI runs success; Pages `built` twice; live checks confirmed — see completion record below) | arena-5e7d4570 (`arena/5e7d4570-tino5`) | this section; root `index.html`, `README.md`, `_config.yml` only if the gate requires it |
+
+**Privacy contract for this session's edits (highest priority per the brief).** The hub and
+README edits add links and descriptions only: no owner figure, no address, no ZIP, no city or
+neighbourhood name, no parcel or account identifier, no name or contact detail. Properties stay
+**Property A** (future trust inheritance) and **Property B** (already owned). No new dollar
+figure is introduced by this session; existing figures stay where their own desks' verifiers
+already checked them.
+
+### 5e7/INT — completion record (arena-5e7d4570, 2026-11-13)
+
+**Conditions checked before running:** the newest remote commit before this session's claim was
+`origin/arena/3f269806-tino5` at 08:17Z — more than 60 minutes old — so every prior claim was
+`done`, `needs review`, or lapsed. No live claim touched this session's scope. Base: `52ab3d2`
+(PR #62).
+
+**What was delivered.**
+1. **Stranded record carried.** The 3f2/INT PR #62 merge / CI / Pages / live-check record that
+   sat unmerged on `origin/arena/3f269806-tino5` (`9209ecb` + `9df55a6`) applied verbatim to
+   this board (10 insertions, 1 deletion in their own section only; no other session's text
+   changed).
+2. **Navigation gap closed.** `tino5-3f269806/` was in `PUBLISHED_DESKS` and live after #62 but
+   had no card on the root hub and no line in the README site map, because PR #62's session
+   could not edit the shared root files. Added one card to `index.html` ("Start here") and one
+   entry to the `README.md` site map — links and prose only: no dollar figure, no identifier,
+   no address, no ZIP, no name.
+3. **Full verification battery on the final tree — all exit 0:**
+
+   | Check | Result |
+   |---|---|
+   | `scripts/verify_safe.py` | PASS — 13 pages, 15 tables, 125 source-linked rows, 379 links (183 official), $10 rounding, no identifier patterns |
+   | `scripts/check_landing.py` | 10/10 targets resolve |
+   | `scripts/privacy_scan.py --summary` | 0 findings |
+   | `scripts/verify_desk_v5.py` | PASSED — 9 checks |
+   | `scripts/test_model_v5.py` | OK (20 tests); model byte-identical across two runs (deterministic) |
+   | `scripts/test_desk_model.py` | OK (4 tests) |
+   | `tino5-3f269806/_src/verify.py` | PASS — 13 pages, 226 rows, 567 links |
+   | `review-092b/_src/verify.py` + its unit tests | PASS — 256 rows; tests OK |
+   | `desk-e86/verify.py` | PASS — 5 pages, 142 rows |
+   | `decision-ad038/_src/verify_site.py` | NO ERRORS — 194 rows |
+   | `referee-abae/_src/crosscheck.py` | exit 0 |
+   | `node scripts/verify.mjs` | errors: 0 (53 pre-existing warnings, preserved legacy pages citing sources outside the registry) |
+   | rebuilds of `desk/`, `public-safe/`, `review-092b/` | no diff — generated pages current |
+   | `git diff --check` | clean |
+
+4. **Independent line-by-line re-verification of the decision-critical figures** — each figure
+   below was fetched and read in this session on the official source, and matched the figure
+   published on the desks:
+
+   | Figure | Official source (link for manual review) | Result |
+   |---|---|---|
+   | 2026 federal basic exclusion $15,000,000 (P.L. 119-21) | https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax | confirmed |
+   | 2027 federal basic exclusion $15,480,000 | https://www.irs.gov/pub/irs-drop/rp-26-35.pdf (Rev. Proc. 2026-35, §3.44) | confirmed |
+   | Estate tax closing-letter fee $56 → $76, eff. 26 Oct 2026 (T.D. 10055) | https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax | confirmed |
+   | Prop 19 add-on $1,044,586 for transfers 16 Feb 2025 – 15 Feb 2027; next adjustment Feb 2027 (FHFA CA HPI +2.15%) | https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf | confirmed |
+   | SF secured property tax rate FY 2026-27 = 1.18162182% | https://sftreasurer.org/property/secured-property-taxes | confirmed |
+   | CA probate thresholds, deaths on/after 1 Apr 2025: $208,850 / $750,000 / $107,900 / $69,625; next adjustment 1 Apr 2028 | https://www.courts.ca.gov/documents/de300.pdf (Judicial Council DE-300, Rev. 28 Apr 2025) | confirmed |
+   | Prop 13: 1% + voter-approved bonds; 2% annual cap; reassessment only on change of ownership or new construction; homeowners' exemption claim dates | https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf (BOE Pub. 29, Mar 2025) | confirmed |
+   | Prop 19: principal residence of transferor and transferee; cap = taxable value + $1,000,000 (biennially adjusted); homeowners' exemption within 1 year; exclusion claim within 3 years or before transfer to a third party | https://www.boe.ca.gov/prop19/ | confirmed |
+
+5. **Live-site checks after the merge** (see PR record below): root hub serves the new
+   `tino5-3f269806` card; `/tino5-3f269806/`, `/desk/`, `/public-safe/flagged.html` all serve;
+   excluded paths return 404 (`desk-b4f/`, `docs/`, `research/`, `archive/`, `README.md`,
+   `COORDINATION.md`, `session-2f7b1b3f/`, `analysis/`, `audited-v4/`, `scripts/` directory,
+   `scripts/generate_site.py`, `desk-22a32b17/flagged.html` — all checked after the deploy).
+
+**Irregularities found and flagged (do not block the merge).**
+- **GitHub Pages edge anomaly (content not exposed):** a subset of excluded-path requests
+  returns GitHub's generic unicorn error page instead of a 404 — reproducibly
+  `/desk-22a32b17/index.html`, `/desk-22a32b17/properties-and-tax.html`,
+  `/desk-22a32b17/style.css`, `/scripts/verify.py` — while sibling paths in the same excluded
+  directories (`/desk-22a32b17/flagged.html`, `/scripts/`, `/scripts/generate_site.py`) return
+  clean 404s, and GitHub status reports Pages operational. **No repository content was returned
+  for any excluded path in any check (~25 requests); only GitHub's generic error page or the
+  Pages 404 page was ever served.** The local fail-closed gate (`verify_safe.py`) proves both
+  directories are in `DEPLOYMENT_EXCLUSIONS` and in the Jekyll exclude list, so the artifact
+  cannot contain them. Flagged for a re-check after the next deploy; if it persists, it is a
+  GitHub-side cache/edge item to raise with GitHub, not a repository defect.
+- **Cross-desk stale gap:** `tino5-3f269806/flagged.html` F07 says the 2027+ federal exclusion
+  "was not found in the sources read". It is confirmed as **$15,480,000** (Rev. Proc. 2026-35
+  §3.44, link above) and is already carried on `public-safe/qa.html` and `desk/questions.html`.
+  Not edited here (another session's finished desk); closable by its owner with the source above.
+- **Re-identification note (owner decision):** `tino5-3f269806/` publishes three single-year
+  owner anchors rounded to $10 (market value A, market value B, assessed value A 2026), labelled
+  `owner input - unverified`. The brief asks for numbers at $10 rounding; county assessor rolls
+  are public and indexed, so a single rounded assessed value can still be searched. Other desks
+  omit the anchors entirely (the stricter protective choice). Both conventions are published and
+  flagged; switching `tino5-3f269806/` to the stricter convention is a one-row-per-anchor edit if
+  the owner prefers it. This session did not change another desk's content.
+- **Standing items unchanged:** `desk-22a32b17/` stays excluded (Prop 19 cap overstated ~3×, X13);
+  `desk-b4f/` stays excluded (X04 $16,200 vs $16,250; X05 closing-letter fee); owner-action items
+  (public git history holding earlier full-precision figures; repository visibility) remain owner
+  decisions. Flagged irregularities are published on each desk's Flagged page and did not block
+  the merge.
+
+**PR / merge / deploy record (5e7/INT).**
+- **PR:** [#63](https://github.com/wingbangboozle1-lang/Tino5/pull/63)
+  (`arena/5e7d4570-tino5` → `main`), created 2026-11-13; CI check `verify`
+  (workflow "Verify published artifact") **passed** on the PR; `mergeStateStatus: CLEAN`.
+- **Merge:** **MERGED** 2026-11-13T12:00:47Z, merge commit
+  `727a5dcb36354526e9ab00e49290e927518d2f22` on `main`, without waiting for review, as
+  instructed.
+- **CI on `main`:** `Verify published artifact` (run 43421612550) → **success**;
+  `pages build and deployment` (run 43421611514) → **success**.
+- **Pages:** build on `727a5dc` → status **`built`**, `error: null`, updated
+  2026-11-13T12:01:20Z; source `main:/`.
+- **Live retrieval confirmed after the deploy:** root hub serves the categorized landing with
+  the new "Independent decision site (row-by-row verified)" card under "Start here";
+  `/tino5-3f269806/index.html`, `/desk/index.html` and `/public-safe/flagged.html` serve their
+  content; excluded paths as listed above return 404 (with the unicorn anomaly noted and
+  content non-exposure verified).
+- This completion record is published by record-only follow-up PR
+  [#64](https://github.com/wingbangboozle1-lang/Tino5/pull/64) (single-branch rule). #64
+  changes only this file, which `_config.yml` excludes from Pages.
+
+**Merge-conflict log (arena-47685795, 2026-11-13).** `origin/main` moved under this branch
+(arena-5e7d4570 merged PRs #63/#64 while session 476 was working). The three-way merge of
+`COORDINATION.md`, `README.md` and `index.html` was resolved by keeping **both** sessions' text
+in full: COORDINATION carries 476's records and 5e7's records; the README site map lists every
+published desk once; the root hub kept 5e7's "Independent decision site (row-by-row verified)"
+card and dropped 476's duplicate card for the same directory. No line of either session's
+delivery record was discarded. 5e7's hub/README navigation fix (tino5-3f269806) and 476's
+verify-476 registration both stand.
+
+
+**Simultaneous-claim overlap log (5e7 ↔ 476).** Session `arena-47685795` committed its claim
+(`3f9cdb4`, 476/VER + 476/INT) at **11:48:55Z**; this session committed its claim (`2efbcbe`,
+5e7/INT) at **11:49:35Z** — 40 seconds later. Neither claim was visible to the other at claim
+time: this session's last `git fetch` ran at ~11:45Z (before 476's branch existed on the
+remote), and the liveness check then showed only `origin/arena/3f269806-tino5` at 08:17Z as the
+newest remote commit. Process note for future sessions: re-fetch immediately before pushing a
+claim, not only before writing it. Both claims were recorded in good faith; scopes overlap only
+on the integration seat (root `index.html`, `README.md`, `COORDINATION.md`). This session's
+integration (PR #63) merged first (12:00:47Z); 476's PR #65 was opened at 12:10:49Z from base
+`52ab3d2` and is now `CONFLICTING` against `main` solely because of #63/#64. **Resolution
+responsibility: PR #65's owner (476, live — last commit 12:10:22Z) resolves by merging
+`origin/main` and keeping both sessions' text and cards (one `tino5-3f269806` card already on
+the hub from #63, plus their `verify-476` card; both COORDINATION sections kept verbatim).**
+This session does not touch PR #65 or 476's scope. Flagged for visibility; does not block.
+
+**Second merge-conflict resolution (arena-47685795, 2026-11-13).** `origin/main` moved again
+under this branch (arena-5e7d4570 PR #66). `COORDINATION.md` conflicted at the appended end
+sections again; resolved the same way — both sessions' text kept in full (above: 476's
+conflict-log note; below: 5e7's overlap log). No other file conflicted.
+
+
+## Session `arena-47685795` — 476/INT completion record (2026-11-13, branch `arena/47685795-tino5`)
+
+Record-only follow-up (owner instruction: record the PR link and merge result after Pages deploy).
+
+- **PR:** https://github.com/wingbangboozle1-lang/Tino5/pull/65 — "476: line-by-line verification
+  register, source-verified corrections (desk CDI link, decision-ad038 2027 figures + Japan
+  thresholds)", `arena/47685795-tino5` → `main`, **merged 2026-11-13** (`gh pr merge 65 --merge`).
+- **Conflict history during integration:** `origin/main` moved twice under this branch while the
+  PR was open (arena-5e7d4570 PRs #63/#64, then #66). Both merges conflicted on `COORDINATION.md`
+  (and the first also on `README.md`, `index.html`); each was resolved by keeping **both** sessions'
+  text in full and deduplicating the `tino5-3f269806` hub card (kept 5e7's). The first resolution
+  also carried a `privacy_scan.py` money-token fix (cents followed by a comma fell back to a wrong
+  token, flagging "$2,339.99," and "$1,701.60,"; the regex now keeps the decimal token), added the
+  CDI FAIR Plan average $2,918.18 to `PUBLIC_CONSTANTS`, and aligned the register's Treasury links
+  with the desk's official link form (no year query parameter). See the two merge-conflict log
+  notes above for detail. The overlap between the 5e7 and 476 claims (claimed ~40 seconds apart)
+  is logged by session 5e7 above; no delivery work was lost on either side.
+- **GitHub Pages:** `pages build and deployment` (run 43423927330) **completed, success** (1m2s)
+  after the merge; `desk-verify` and `Verify published artifact` workflows on the same merge commit
+  also succeeded. Live spot check after deploy: the hub and
+  `verify-476/verification.html` render on https://wingbangboozle1-lang.github.io/Tino5/ (the
+  register fetched live post-deploy, all ten sections present).
+- **Final battery on the merged result** (branch tip before the PR merge): `verify_safe.py` PASS
+  (13 pages, 15 tables, 125 source-linked rows, 379 links / 183 official) · `check_landing.py`
+  11/11 · `privacy_scan.py` 0 findings (334 published official constants) · `verify_desk_v5.py`
+  PASSED (9 checks) · `test_model_v5.py` OK · `desk-e86/verify.py` PASS (5 pages, 142 rows) ·
+  `review-092b/_src/verify.py` PASS (11 pages, 256 rows) · `decision-ad038/_src/verify_site.py`
+  NO ERRORS (201 rows) · `referee-abae/_src/crosscheck.py` exit 0 · `verify-476/verify.py`
+  NO ERRORS (63 rows) · `git diff --check` clean.
+
+476/VER and 476/INT are complete. Owner follow-up remains the sole outstanding action class
+(F01–F04 irregularities and referee X12 stay published on the Flagged pages and in register §9).
+---
+
+## Session `arena-1ec4b5b0` — claim (2026-11-13, branch `arena/1ec4b5b0-tino5`, base `52ab3d2`)
+
+Read before claiming: this board on `main` at `52ab3d2`, and every remote session branch.
+`git fetch --all --prune` at 2026-11-13 11:45Z returns **only `origin/main`** — every other
+session branch has been deleted, so no other session holds a live claim and the 60-minute
+handoff rule has run out for all of them. I am the only live session, so the integration task
+is mine.
+
+Owner brief for this session (verbatim intent): executive summary; a dedicated **suggestions**
+section for review-before-implementation; a clear list of questions / information / answers
+that must be resolved before any decision, with suggestions for discovering the missing
+information; anonymised placeholders, no personal information on the published site; money
+rounded to $10; a dedicated **black-swan** section that mimics real, uneven 50-year economic
+conditions (growth and inflation are never constant); projections by year for value, property
+tax and assessed value; step-by-step inheritance process; 2040–2050 trust transfer window;
+federal / state / local law changes under discussion; and the estate-tax threshold question
+for an inheritance that includes a considerable amount of money.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 1ec/S | Consolidated decision site (`decision/`): landing page + category subpages — executive summary, property facts, property tax & assessed value projections, inheritance & estate tax thresholds, operating costs, scenarios (occupy / rent / sell-and-reinvest), black-swan regimes, step-by-step trust inheritance process, questions & information gaps, suggestions awaiting approval, law watch, source register, flagged for review, methodology. Every table row carries an official source link or is blank + marked unverified. Money rounded to $10. No names, addresses, APNs, parcel or account numbers; county-level geography only. | in progress | arena-1ec4b5b0 | `decision/**`, this section only |
+| 1ec/V | Line-by-line source verification; internal link check; $10-rounding check; PII scan. Irregularities logged on `decision/flagged.html` and in this record. | in progress | arena-1ec4b5b0 | `decision/**`, this section only |
+| 1ec/INT | Integration: merge `origin/main`, re-verify, PR to `main`, merge without waiting, confirm the Pages deploy, record the PR link. | waiting on 1ec/S and 1ec/V | arena-1ec4b5b0 | `index.html`, `COORDINATION.md`, this section only |
+
+Non-overlap: `decision/` is a new directory. Shared root files (`index.html`, `_config.yml`,
+`README.md`) are edited only at 1ec/INT, after 1ec/S and 1ec/V are done. No other session's
+files are edited.
+
+---
+
+## Session `arena-1ec4b5b0` — 1ec/S and 1ec/V completion record (2026-11-13)
+
+**1ec/S — COMPLETE.** `decision/` is a 16-page consolidated site generated by
+`decision/_src/build.py` from four modules (`sources.py`, `model.py`, `pages.py`,
+`verify.py`) plus `test_model.py`. Pages: landing, executive summary, properties,
+property tax, inheritance & estate tax, running costs, projections (2026–2076),
+options compared, black swans, transfer process, questions & gaps, suggestions,
+law watch, sources, flagged, methodology.
+
+Headline figures (2045 transfer, 5% discount, 7% portfolio return, 4% price growth,
+3% inflation, housing credited at market rent so the three options are like-for-like):
+occupy **$6,258,610**, rent out **$4,807,930**, sell and reinvest **$8,226,790**.
+Break-evens: portfolio return **4.15%** vs renting, **5.64%** vs occupying; gross
+rental yield **4.76%**; price growth **6.17%** vs renting, **5.38%** vs occupying.
+Property A bill **$7,350** today → **$65,890** with the Prop 19 exclusion claimed
+(taxable **$4,932,740**) or **$87,250** without it (taxable **$6,531,230**).
+
+**1ec/V — COMPLETE.** `decision/_src/verify.py` passes: 16 pages, **356 table rows**,
+1,447 links, 32 registered sources (4 marked not-opened). Every row either links to an
+official host or carries an in-row "No official source — <reason>" marker; **51 rows**
+are in that second class (owner records, modelling assumptions, values withheld) and
+the verifier counts and reports them. Money rounds to $10 across every page. No
+personal-identifier pattern. `scripts/privacy_scan.py` (repo-wide) reports **0
+findings**. `python3 -m unittest discover -s decision/_src` → **24 tests OK**.
+`scripts/verify_safe.py` and `scripts/check_landing.py` still pass on the merged tree.
+
+Sources verified this session (all read, all linked from `decision/sources.html`):
+IRS estate tax page, Rev. Proc. 2026-35 (2027 = $15,480,000; gift exclusion $20,000),
+Rev. Proc. 2025-32, Topic 409, NIIT Q&A, Pub 551 (12/2025) and its PDF, Form 706
+instructions (linked, not opened); CRS IF12846 and P.L. 119-21; BOE Pub 29, Prop 19
+page, Pub 800-1 and LTA 2025/009 (**$1,044,586**, 16 Feb 2025 – 15 Feb 2027); Santa
+Clara Assessor Prop 19 pages; SF Treasurer & Tax Collector (**FY2026-27 secured rate
+1.18162182%**); FTB 2025 rate schedules (1%–12.3%); R&TC 13301 (California cannot
+impose a gift, inheritance, succession, legacy, income or estate tax on a transfer at
+death); Civil Code 1947.12; Probate Code 16061.7 / 16062 / 13100; CA SOS qualified
+measures and results portal; BLS CPI home page and historical CPI-U table; FHFA HPI;
+SFPUC rates; CDI residential insurance study and market-share report.
+
+Corrections and irregularities found and recorded on `decision/flagged.html` (F01–F15):
+
+* **F08/F09** — the San Francisco bill ($114,250 assessed × 1.18162182% ≈ $1,350) is
+  about **$1,090 a year short** of the reported bill of $2,440. The residual is carried
+  as a flat unexplained charge, not allocated to a parcel tax. Property A's effective
+  rate (**1.34%**) is derived from the owner's own bill ÷ assessed value; Santa Clara
+  County has hundreds of tax rate areas so no published rate can be quoted.
+* **F12** — the 1% California surcharge over $1,000,000 that produces the 13.3% top
+  rate is **not** on the FTB 2025 rate schedules, which stop at 12.3%. The 37.1%
+  combined capital-gains figure therefore rests on an unconfirmed input.
+* **F10** — a reported 2026 Treasury proposal capping the §1014 step-up at $3,000,000
+  could not be found on the Federal Register, Treasury or the IRS Bulletin. No value is
+  asserted; law-watch carries it as unconfirmed.
+* **F11** — November 3, 2026 California results are **uncertified** until December 2026.
+  Measure descriptions now quote the Secretary of State titles verbatim; the $361,000 /
+  $721,000 (Prop 3) and 5% / $1 billion (Prop 40) details come only from secondary
+  coverage and are labelled as such. **No split-roll or Proposition 13 measure
+  qualified for that ballot** (confirmed against the SOS list).
+* **F15** — earlier generations published unrounded figures that remain in public git
+  history; no commit can remove them. Owner decision.
+* Model correction made during verification: the Prop 19 allowance was being indexed
+  annually from 2025. It is adjusted **biennially**, so the model now holds $1,044,586
+  exactly for 2025 and 2026 and steps one two-year adjustment at a time.
+* `estate_exemption_projection()` took its indexation rate as the first positional
+  argument, so a call like `estate_exemption_projection(2026)` produced a nonsense
+  figure. A guard now rejects any rate outside 0–25%, and the regression tests cover it.
+
+**1ec/INT — in progress:** root `index.html` gained a card for the new site;
+`_config.yml` excludes `decision/_src` (and `decision/_src/**`) so the generator is not
+published while `decision/` itself is; `scripts/verify_safe.py` lists `decision` in
+`PUBLISHED_DESKS` (it fails closed on unreviewed top-level directories);
+`scripts/privacy_scan.py` gained the two FTB bracket thresholds as official constants;
+`.github/workflows/privacy-pages.yml` now rebuilds, verifies and unit-tests `decision/`
+on every push and pull request to `main`.
+
+---
+
+## Session `arena-1ec4b5b0` — 1ec/INT completion record (2026-11-13 12:35Z)
+
+**1ec/INT — COMPLETE. PR [#68](https://github.com/wingbangboozle1-lang/Tino5/pull/68)
+merged as `e33124ed2b83fbadf392bdfefbcaca8379a5c48a` without waiting for review, as
+instructed.** Record-only follow-up (single-branch rule): this text lands in a second PR.
+
+Rebase onto `origin/main` before opening the PR resolved two conflicts, both additive:
+`COORDINATION.md` (session `arena-47685795` had claimed and completed while this session
+was running — its block is preserved in full above) and `scripts/verify_safe.py`, where
+`verify-476` and `decision` had both been appended to `PUBLISHED_DESKS`. No other session's
+work was altered; `decision/` is a new directory and no other session touched it.
+
+The branch had been pushed once before the rebase, so the follow-up push used
+`--force-with-lease` against `90cbb3c`. No other session had written to this branch.
+
+Post-merge checks on `main` at `e33124e`:
+`decision/_src/verify.py` PASS (16 pages, 356 rows, 1,447 links, 51 rows declared
+unsourceable) · `scripts/verify_safe.py` PASS · `scripts/check_landing.py` PASS (12
+targets, 0 unresolved) · `python3 -m unittest discover -s decision/_src` 24 tests OK ·
+`scripts/privacy_scan.py` 0 findings repo-wide · PR check run 43426055902 verify **pass**.
+
+GitHub Pages: status **`built`**, no error, source `main:/`, build commit `e33124e`.
+Live retrieval confirmed 2026-11-13 12:35Z:
+`https://wingbangboozle1-lang.github.io/Tino5/decision/index.html` serves the landing page
+with all six KPIs and all sixteen nav cards; `decision/suggestions.html` serves S01–S15 all
+marked PROPOSED; `decision/flagged.html` serves F01–F15 with blank value cells; the root hub
+serves the new "Consolidated decision site" card. `decision/_src/build.py` returns **404** on
+the live site, so the generator, the model and the source register code are not published.
+
+Flagged items F01–F15 remain published on `decision/flagged.html` and did not block the merge.
+The two items that no commit can fix — F15 (earlier full-precision figures remain in public
+git history) and F11 (November 3, 2026 results uncertified until December 2026) — are owner
+and calendar actions respectively.
+
+**Owner follow-up is the only outstanding action class.** Fifteen suggestions on
+`decision/suggestions.html` are PROPOSED and none is implemented; each needs an accept,
+modify or reject decision recorded against its number before anything changes.
+>>>>>>> origin/main

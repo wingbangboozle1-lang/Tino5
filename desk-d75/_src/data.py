@@ -755,6 +755,18 @@ SUGGESTIONS = [
          why="the ranking of paths flips with the reinvestment rate and the growth rate; a headline number "
              "without the grid invites a decision on a fragile point estimate",
          benefit="better decisions", effort="one table", risk="none", status="awaiting owner"),
+    dict(id="S19", kind="site", title="Extend the site's privacy gate from one tree to all of them",
+         why="the only repo-wide gate, `scripts/verify_safe.py`, reads `public-safe/`; every other published tree is "
+             "checked by its own verifier, or by nobody, which is how the same rule produced one tree with zero "
+             "locality words on the live site and another with 267 (flagged G16)",
+         benefit="one boundary enforced on every push: the scan in `desk-d75/_src/verify.py` - visible text of "
+                 "every page, token list plus the postcode pattern, link labels included - lifted into the shared "
+                 "verifier and run over every directory in the publication set, so no future desk can publish an "
+                 "identifying pairing by accident",
+         effort="small; the check already exists and only its scope changes",
+         risk="trees that name localities today would fail until each author anonymises, so this needs either a "
+              "grandfather list or a deadline - the owner's call, which is why it is a suggestion and not a change",
+         status="awaiting owner"),
     dict(id="S18", kind="action", title="Decide the tax year of the sale, not just the sale",
          why="the exclusion, the bracket and the net investment income tax all turn on the year and the "
              "heir's other income; selling in a year with a large other gain is measurably worse",
@@ -864,6 +876,20 @@ FLAGS = [
          action="read the act's estate-tax section and the then-current section 1014 in the year of death; if they "
                 "have moved, the sell and rent paths must be re-priced",
          src=["irs_rp2635", "congress_bills"], status="open - one reading away from closing"),
+    dict(id="G16", severity="material", item="Locality words are on other published trees, and no gate looks at them",
+         detail="the site's privacy gate, `scripts/verify_safe.py`, reads `public-safe/` only. The sibling trees are "
+                "governed by their own verifiers, and the results differ widely: on the deployed site today this "
+                "desk shows 0 locality words in visible text, the referee tree 0, while the consolidated decision "
+                "site names the two counties or cities 267 times across sixteen pages, the earlier independent desk "
+                "37, the numeric desk 16, the decision hub 37, the indexed desk 18 and the readiness desk 7. Most "
+                "of those are the name of a public agency or of a large consolidated city-county, which narrows "
+                "very little; the pairing that matters is a city name next to the facts that distinguish a "
+                "household, which is what the hub's own card used to do for another desk - that card is anonymised "
+                "in this change and the desk's own pages were left as their author wrote them.",
+         action="each tree's owner should decide whether its county and city words are load-bearing for a reader "
+                "checking a citation; this desk's answer is that they are not, and its pages carry no city name "
+                "outside a link target",
+         src=[], status="open - reported, not edited, because they are other sessions' files"),
     dict(id="G15", severity="info", item="The published numeric desk's committed verification report says it failed",
          detail="`desk/data/desk-verification-report.json` in the repository records one failure, a hygiene check "
                 "against an external asset on two of its pages. Re-running that desk's own verifier in this session "

@@ -11,6 +11,9 @@ exclude:
   # a desk's generator is working material, not a page: it names the index series and the
   # owner-supplied inputs. Jekyll already skips every _-prefixed directory; this states it.
   - "desk-d75/_src"
+  - "desk-d75/_src/**"
+  - "decision/_src"
+  - "decision/_src/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

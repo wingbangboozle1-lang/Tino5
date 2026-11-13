@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Overview &middot; Inheritance decision desk</title>
+<style>
+:root{--ink:#16202e;--mut:#5d6b7f;--line:#dfe5ee;--bg:#f6f8fb;--card:#fff;
+--blue:#1f4e79;--blue-l:#eaf1f8;--amber:#8a5a00;--amber-l:#fdf3e2;--red:#8c2f2f;
+--red-l:#fbecec;--green:#1d6b45;--green-l:#e9f5ee;--grey:#5b6474;--grey-l:#eef1f5}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--blue)}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 20px;position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:1280px;margin:auto}
+header h1{font-size:17px;margin:0;color:var(--blue);white-space:nowrap}
+nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav a{font-size:12.5px;padding:5px 9px;border-radius:6px;color:var(--mut);text-decoration:none;white-space:nowrap}
+nav a:hover{background:var(--blue-l);color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1280px;margin:auto;padding:22px 20px 70px}
+h2.kick{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 4px}
+h1.pt{font-size:26px;margin:0 0 8px;color:var(--blue)}
+h2{font-size:18px;margin:30px 0 8px;color:var(--blue);border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:15px;margin:20px 0 6px}
+p{max-width:88ch}
+.lead{font-size:15.5px;color:#2a3646}
+.muted{color:var(--mut);font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:15px;color:var(--blue)}
+.card p{margin:6px 0 0;font-size:14px}
+.card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.card li{margin:4px 0}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:9px;
+margin:12px 0 22px;padding:4px 0 0}
+.tf{padding:8px 10px}
+.tf input{width:100%;max-width:340px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;font:inherit}
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{background:var(--blue-l);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+font-weight:600;color:#1b3d5c;white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid #eef1f6;vertical-align:top}
+table.data tbody tr:hover{background:#fafcff}
+td.t-ver{background:#fbfefc}td.t-own{background:#fffdf7}td.t-der{background:#fafcff}
+td.t-asm{background:#f8f9fb}td.t-unv{background:var(--red-l)}
+td.t-rep{background:var(--amber-l)}td.t-lab{font-weight:600;color:#22303f}
+.blank{color:var(--red);font-style:italic;font-size:12.5px}
+.nosrc{display:inline-block;margin-top:3px;color:var(--red);font-size:11.5px;font-style:italic;background:var(--red-l);border-radius:3px;padding:1px 5px}
+.src{display:inline-block;font-size:11px;text-decoration:none;background:var(--grey-l);color:#3a4658;
+border-radius:4px;padding:1px 6px;margin:2px 3px 0 0;border:1px solid #e0e6ef}
+.src:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tag{display:inline-block;font-size:10.5px;border-radius:4px;padding:1px 5px;margin:2px 3px 0 0;
+border:1px solid transparent}
+.t-open{background:#f3e8fb;color:#5b2b7a;border-color:#e3d0f0}
+.tnote{font-size:12.5px;color:var(--mut);padding:2px 12px 12px;margin:0}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin:8px 0 14px;align-items:center}
+.legend span{padding:2px 8px;border-radius:5px;border:1px solid var(--line)}
+.lg-ver{background:#fbfefc}.lg-own{background:#fffdf7}.lg-der{background:#fafcff}
+.lg-asm{background:#f8f9fb}.lg-unv{background:var(--red-l);color:var(--red)}
+.lg-rep{background:var(--amber-l);color:var(--amber)}
+.banner{background:#fff8e8;border:1px solid #f0d9a8;border-left:4px solid #d99b1c;border-radius:8px;
+padding:11px 14px;margin:16px 0;font-size:13.5px}
+.banner.red{background:var(--red-l);border-color:#eecccc;border-left-color:#c05555}
+.banner.blue{background:var(--blue-l);border-color:#cfe0ee;border-left-color:var(--blue)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:14px 0 6px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+.kpi .v{font-size:21px;font-weight:650;color:var(--blue);line-height:1.2}
+.kpi .l{font-size:12px;color:var(--mut);margin-top:3px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:0 0 16px 44px;border-left:2px solid var(--line);margin-left:14px}
+ol.steps>li::before{content:counter(s);position:absolute;left:-15px;top:-2px;width:28px;height:28px;
+border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:600;
+display:flex;align-items:center;justify-content:center}
+ol.steps>li:last-child{border-left-color:transparent}
+ol.steps h4{margin:2px 0 4px;font-size:14.5px}
+ol.steps p{margin:3px 0;font-size:13.5px}
+.q{border-left:3px solid var(--blue);padding-left:12px;margin:18px 0}
+.q .qq{font-weight:600}
+.chk{font-weight:600;color:var(--green)}
+footer{max-width:1280px;margin:auto;padding:20px;border-top:1px solid var(--line);
+color:var(--mut);font-size:12.5px}
+@media(max-width:900px){nav{display:none}h1.pt{font-size:22px}}
+</style></head><body>
+<header><div class="wrap"><h1>Inheritance decision desk</h1><nav><a href="index.html" class="on">Overview</a><a href="executive-summary.html">Executive summary</a><a href="properties.html">Properties</a><a href="property-tax.html">Property tax</a><a href="inheritance-tax.html">Inheritance &amp; estate tax</a><a href="operating-costs.html">Running costs</a><a href="projections.html">Projections</a><a href="scenarios.html">Options compared</a><a href="black-swan.html">Black swans</a><a href="process.html">Transfer process</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="law-watch.html">Law watch</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a><a href="methodology.html">Method &amp; privacy</a></nav></div></header>
+<main>
+<p class="kick">Start here</p><h1 class="pt">Overview</h1>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel or account number appears anywhere on this site. Properties are identified only as Property A (Santa Clara County, to be inherited through a trust) and Property B (San Francisco, already owned). All money is rounded to the nearest $10 so published figures cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nothing.</div><div class="kpis"><div class="kpi"><div class="v">$7,350</div><div class="l">Property A bill today (2026)</div></div><div class="kpi"><div class="v">$65,890</div><div class="l">Property A bill after a 2045 transfer, exclusion claimed</div></div><div class="kpi"><div class="v">$87,250</div><div class="l">Property A bill after a 2045 transfer, no exclusion</div></div><div class="kpi"><div class="v">$15,000,000</div><div class="l">Federal estate tax threshold, death in 2026</div></div><div class="kpi"><div class="v">None</div><div class="l">California estate or inheritance tax</div></div><div class="kpi"><div class="v">4.15%</div><div class="l">Portfolio return at which selling stops beating renting</div></div></div><p class="lead">Two properties, one decision. Property A is in Santa Clara County and is expected to pass through a family trust somewhere in the 2040&ndash;2050 window. Property B is in San Francisco and is already owned; it has three units, two of them let. The question is whether to live in Property A, let it, or sell it and reinvest.</p><div class="banner blue"><b>The finding that drives everything else.</b> California assessment is acquisition-based, so today's bill reflects a base year value set decades ago. The moment ownership changes the property is reassessed. Even with the Proposition 19 parent-child exclusion claimed in full, the bill multiplies; without it, it multiplies again. Every other line in this analysis is an order of magnitude smaller.</div><h2>Where to go</h2><div class='grid'><a class="card" href="executive-summary.html"><h3>Executive summary</h3><p>The six findings that matter, the three options side by side, and the size of the property tax jump on transfer.</p></a><a class="card" href="properties.html"><h3>Properties</h3><p>What is known about Property A and Property B, and exactly which figures are owner estimates with no official source.</p></a><a class="card" href="property-tax.html"><h3>Property tax</h3><p>Proposition 13 and Proposition 19 as they apply here, the assessment rules, and the deadlines that carry the money.</p></a><a class="card" href="inheritance-tax.html"><h3>Inheritance &amp; estate tax</h3><p>California imposes none. The federal threshold, what is indexed, and how the exemption projects forward to 2050.</p></a><a class="card" href="operating-costs.html"><h3>Running costs</h3><p>Water, electricity, insurance and maintenance for both properties, and which of them are guesses.</p></a><a class="card" href="projections.html"><h3>Projections</h3><p>Year by year to 2076: market value, assessed value, the property tax bill, and what the bill becomes if the property changes hands in that year.</p></a><a class="card" href="scenarios.html"><h3>Options compared</h3><p>Occupy, rent out, or sell and reinvest &mdash; with the break-even rates at which the ranking flips.</p></a><a class="card" href="black-swan.html"><h3>Black swans</h3><p>Eight regimes built on real historical inflation and price behaviour, because growth and inflation are never constant over fifty years.</p></a><a class="card" href="process.html"><h3>Transfer process</h3><p>Step by step through a trust inheritance in California, with the form and the clock for each step.</p></a><a class="card" href="questions.html"><h3>Questions &amp; gaps</h3><p>Twenty-six questions. Each says what is known, what is missing, what decision it blocks, and how to find the answer.</p></a><a class="card" href="suggestions.html"><h3>Suggestions</h3><p>Fifteen suggestions, none implemented. Each is here for review and a decision before anything changes.</p></a><a class="card" href="law-watch.html"><h3>Law watch</h3><p>What is actually pending in Congress and on California ballots that could move these numbers before 2050.</p></a><a class="card" href="sources.html"><h3>Sources</h3><p>Every official document read for this site, what each one evidences, and which were located but not opened.</p></a><a class="card" href="flagged.html"><h3>Flagged</h3><p>Everything that could not be confirmed, everything that looks wrong, and the one item that is not fixable by a commit.</p></a><a class="card" href="methodology.html"><h3>Method &amp; privacy</h3><p>Every assumption in one table, how the model works, and exactly what was done to keep personal information off the site.</p></a></div><h2>How to read the tables</h2><div class="legend"><b style="font-size:12px">Cell key:</b><span class="lg-ver">verified &mdash; read from an official source</span><span class="lg-own">owner input &mdash; no official source exists</span><span class="lg-der">derived &mdash; computed from the inputs shown</span><span class="lg-asm">assumption &mdash; chosen here, listed on the method page</span><span class="lg-rep">reported &mdash; pending official confirmation</span><span class="lg-unv">unverified &mdash; value withheld</span></div><p class="muted">Every row links to the official publication it was read from. Where a value could not be confirmed, the cell is blank and marked unverified rather than filled with an estimate. Money is rounded to the nearest $10.</p>
+</main>
+<footer>Not tax, legal or investment advice. Figures are rounded to the nearest $10 and every
+table row links to the official source it was read from; rows that could not be confirmed carry a
+blank value and an unverified marker. Rules and thresholds change &mdash; re-check the current law
+before acting.</footer>
+<script>
+function filterRows(el,id){
+  var q=el.value.toLowerCase(),t=document.getElementById(id);
+  if(!t)return;
+  var rows=t.querySelectorAll('tbody tr');
+  for(var i=0;i<rows.length;i++){
+    var txt=rows[i].textContent.toLowerCase();
+    rows[i].style.display = txt.indexOf(q)>-1 ? '' : 'none';
+  }
+}
+</script></body></html>
