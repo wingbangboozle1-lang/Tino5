@@ -1779,3 +1779,77 @@ is recorded in `verify-476/verification.html` and the completion record below.
 parcel or account numbers anywhere on published pages; owner figures labelled owner-supplied,
 unverified; every money figure a multiple of $10 except exact statutory amounts quoted as
 published (marked `statutory`).
+
+### 476/VER — completion record (arena-47685795, 2026-11-13)
+
+**Delivered: `verify-476/` (published, linked from the hub)** — one verification register
+(`verify-476/verification.html`) plus `verify-476/verify.py` (structural gate: row-level source
+links, privacy patterns, $10 rounding with a statutory allowlist) and a small index. Every
+decision-critical constant on the published surface was re-checked against the official document
+named in its own source link; each document in the register's section 10 was fetched and read in
+this session. Verdicts are CONFIRMED / CORRECTED / OPEN / referee-confirmed, with the link for
+manual review in every row.
+
+**Sources read live in this session (official/primary):** IRS estate-tax threshold page; IRS
+What's-new (P.L. 119-21 $15,000,000 for 2026; T.D. 10055 closing-letter fee $56 → $76);
+Rev. Proc. 2026-35 PDF §§3.44/3.46 ($15,480,000; $20,000; $201,000); IRS estate & gift treaty
+table (US–Japan treaty in force); IRS Pub. 559 (opened); BOE Prop 19 page; BOE LTA 2025/009
+($1,044,586, transfers 16 Feb 2025 – 15 Feb 2027; next adjustment Feb 2027); BOE change-in-
+ownership FAQ (150-day death report); State Controller California Estate Tax (no return for
+deaths on/after 1 Jan 2005); FTB SB 378 analysis (pick-up tax zero; CA estate-tax bills recur);
+Judicial Council DE-300 ($208,850 / $750,000 / $107,900 / $69,625; next 1 Apr 2028); leginfo
+Civ. Code 1947.12 (5%+CPI/10% cap; repealed 1 Jan 2030); SF Treasurer (1.18162182% FY2026-27);
+Santa Clara Clerk-Recorder (transfer tax $0.55/$500; $1.65/$500 in three other cities); CPUC
+(net billing from 15 Apr 2023, D.22-12-056); US Treasury daily par yield curve XML (2026-11-12:
+10-yr 5.10%, 20-yr 5.48%, 30-yr 5.43%); CDI 2025 residential premium data call (homeowners
+$2,339.99, dwelling fire $1,701.60, homeowners EQ $1,440.11, FAIR Plan dwelling fire $2,918.18);
+Japan NTA Tax Answer No.4102 (basic deduction ¥30,000,000 + ¥6,000,000 per statutory heir;
+10-month deadline; scope table) and the NTA official pamphlet (10%–55% rate table).
+
+**Verification findings (all recorded with links in the register):**
+- The numeric desk's 5.10% risk-free anchor **matches** the official Treasury curve for
+  2026-11-12, the day before its figures date. No model input needed changing.
+- All three CDI averages used by the model match the agency PDF exactly. The owner's $1,500/yr
+  insurance estimates remain below every published benchmark (referee X10 re-confirmed).
+- Prop 19 ($1,044,586; cap rule; filing periods), the federal 2026/2027 figures, the Prop 13
+  factor chain, DE-300 limits, the SF secured rate, the county transfer tax, the AB 1482 sunset
+  and the California "no estate tax" position all match their official documents.
+
+**Corrections applied (C1–C5, takeover of lapsed scopes logged in the claim above; generators
+and published pages changed together so rebuilds reproduce the fixes; no model output, owner
+figure or assumption altered):**
+- **C1** `desk/**` — the CDI source link returned 404; repointed to the live
+  `insurance.ca.gov/0400-news/.../EQEXP2025Summary.pdf` in `scripts/build_desk_v5.py`, pages
+  regenerated, `verify_desk_v5.py` PASSED (9 checks), `test_model_v5.py` OK (20 tests).
+- **C2** `decision-ad038/**` — the 2027 federal exclusion row said "unverified" and linked a page
+  it had not opened; Rev. Proc. 2026-35 read and linked, row upgraded to Published.
+- **C3** `decision-ad038/**` — "Japan out of scope; no verified threshold" replaced by a six-row
+  verified Japan table (NTA No.4102 + US–Japan treaty listing), with the heir-residence question
+  kept open on the questions/suggestions pages.
+- **C4** `decision-ad038/inheritance.html` — change-in-ownership deadline upgraded from
+  "unverified" to the verified BOE rule (150 days without probate; with the inventory and
+  appraisal if probated).
+- **C5** `decision-ad038/sources.html` + `_src/sources.py` — S23/S26/S27 links repointed to the
+  exact documents; S12/S15/S22 upgraded SEARCHED/SECONDARY/NONE → FETCHED after being read.
+
+**Irregularities found and flagged (not fixed — published as OPEN in the register):** the
+regional water-utility tariff PDF (AL-628-A) does not render for automated readers and which
+utility serves Property A is unconfirmed without an address; the Property B tax bill still
+implies 2.14% against the published 1.18162182% rate (desk F01); insurance declaration pages
+still missing (F03/F04); FHFA/PMMS/CBO/SSA series were not re-pulled this session and their
+rows say so; referee X12 (two desks, two reinvestment assumptions) stays an owner-choice item,
+now bounded by the verified 5.10% risk-free anchor.
+
+**Checks run after the edits (all green):** `scripts/verify_safe.py` PASS (13 pages, 125
+source-linked rows, 379 links) · `scripts/check_landing.py` 11/11 · `scripts/privacy_scan.py
+--summary` 0 findings · `scripts/verify_desk_v5.py` PASSED (9) · `scripts/test_model_v5.py` OK ·
+`desk-e86/verify.py` PASS (5 pages, 142 rows) · `review-092b/_src/verify.py` PASS (11 pages,
+256 rows) · `decision-ad038/_src/verify_site.py` NO ERRORS (201 rows) ·
+`referee-abae/_src/crosscheck.py` exit 0 · `verify-476/verify.py` NO ERRORS (63 rows) ·
+`git diff --check` clean.
+
+### 476/INT — status
+
+In progress. The battery is green on this branch. Next: PR to `main`, merge without waiting for
+approval (owner instruction), confirm the GitHub Pages deploy, then a record-only commit on this
+branch carrying the PR link and deploy result.
