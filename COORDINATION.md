@@ -1280,3 +1280,34 @@ gained the decision-desk section, build/verify commands, and the flagged departu
 also rebuilds `review-092b/`, runs its verifier and its 25 regression tests, and checks that every landing-page link
 resolves. `public-safe/` verifier still passes unchanged. No other session's published directory was modified;
 `referee-abae/_src` regenerates `baselines.html` on import, and that incidental diff was reverted, not committed.
+
+## Session `arena-12dfd47a` — claim (2026-11-13, branch `arena/12dfd47a-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48, merged 2026-11-12 14:24Z) and every remote
+session branch. **Every earlier claim is now stale**: the most recent commit on any other session branch is
+`abae/R` at 2026-11-12 05:23Z, i.e. more than 24 hours old with no push, and no earlier INT task ever ran.
+Under the 60-minute rule this session takes over the integration role and records the handoff here.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 12d/A | **Decision desk v5 — the brief's requirements, published with numbers.** Owner-directed build: a single dashboard site with executive summary, requirement traceability, a Questions/Information/Answers register, an occupy/rent/sell decision analysis with a stated recommendation and its reasoning, year-by-year 2026–2076 projections, operating costs, a black-swan / uneven-economy section, inheritance thresholds and headroom, a step-by-step trust process, law watch, a **Suggestions** section (proposals to review and choose from *before* implementing), Flagged for Review, a source register, methodology, and a repository review. Dollar figures rounded to $10; no names, addresses, parcel identifiers or ZIP codes. | in progress | arena-12dfd47a | `desk/**` (new), `scripts/{model_v5,build_desk_v5,verify_desk_v5,test_model_v5}.py` (new), `.github/workflows/desk-verify.yml` (new), this section |
+| 12d/I | **Integration + publish (takeover).** Point the published site at the new desk, prune the deployment to the new desk only, re-verify the combined tree, PR → `main`, merge, confirm Pages, record PR and deploy here. | in progress | arena-12dfd47a | root `index.html`, `_config.yml`, `README.md`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md` |
+
+**Why a new directory instead of editing `public-safe/**`.** `public-safe/**` and its generator are the
+deliverable of sessions 803/881/552 and pass their own verifier; this session does not edit them. The new
+`desk/**` artifact replaces it as the *published* site (integration scope above) but the old artifact is left
+in the tree, unmodified, so its verification record stays reproducible.
+
+**Owner decision recorded, superseding the earlier landing-page reading (referee X14 / README caveat).** The
+brief asks for costs, numbers, projections and a reasoned recommendation, rounded to $10 so they cannot be
+traced. Earlier generations responded by publishing almost no numbers, which does not answer the brief.
+This build publishes rounded figures, labelled `assumption` / `derived` / `verified`, with every row source
+linked. It publishes **no** assessment-history or tax-bill-history series at any precision (those are public
+records that can be matched to a parcel and reverse-engineered through the published annual percentage
+changes the brief supplied), and no ZIP code, street address, parcel number, name, e-mail or phone number.
+
+**Privacy contract for `desk/**`.** Property A = the future trust inheritance; Property B = already owned by
+the inheritor. Jurisdiction is named at county level only (Santa Clara County / San Francisco County) because
+the tax rules are county-specific. Every dollar amount is a multiple of $10 except statutory or agency
+figures printed exactly as published (marked `exact`). Uncertain values are blank and listed on
+`desk/flagged.html`. Human tasks the owner must do are marked `owner action`, never guessed.
