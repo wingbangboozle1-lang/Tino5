@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Flagged &middot; Inheritance decision desk</title>
+<style>
+:root{--ink:#16202e;--mut:#5d6b7f;--line:#dfe5ee;--bg:#f6f8fb;--card:#fff;
+--blue:#1f4e79;--blue-l:#eaf1f8;--amber:#8a5a00;--amber-l:#fdf3e2;--red:#8c2f2f;
+--red-l:#fbecec;--green:#1d6b45;--green-l:#e9f5ee;--grey:#5b6474;--grey-l:#eef1f5}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--blue)}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 20px;position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:1280px;margin:auto}
+header h1{font-size:17px;margin:0;color:var(--blue);white-space:nowrap}
+nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav a{font-size:12.5px;padding:5px 9px;border-radius:6px;color:var(--mut);text-decoration:none;white-space:nowrap}
+nav a:hover{background:var(--blue-l);color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1280px;margin:auto;padding:22px 20px 70px}
+h2.kick{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 4px}
+h1.pt{font-size:26px;margin:0 0 8px;color:var(--blue)}
+h2{font-size:18px;margin:30px 0 8px;color:var(--blue);border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:15px;margin:20px 0 6px}
+p{max-width:88ch}
+.lead{font-size:15.5px;color:#2a3646}
+.muted{color:var(--mut);font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:15px;color:var(--blue)}
+.card p{margin:6px 0 0;font-size:14px}
+.card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.card li{margin:4px 0}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:9px;
+margin:12px 0 22px;padding:4px 0 0}
+.tf{padding:8px 10px}
+.tf input{width:100%;max-width:340px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;font:inherit}
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{background:var(--blue-l);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+font-weight:600;color:#1b3d5c;white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid #eef1f6;vertical-align:top}
+table.data tbody tr:hover{background:#fafcff}
+td.t-ver{background:#fbfefc}td.t-own{background:#fffdf7}td.t-der{background:#fafcff}
+td.t-asm{background:#f8f9fb}td.t-unv{background:var(--red-l)}
+td.t-rep{background:var(--amber-l)}td.t-lab{font-weight:600;color:#22303f}
+.blank{color:var(--red);font-style:italic;font-size:12.5px}
+.nosrc{display:inline-block;margin-top:3px;color:var(--red);font-size:11.5px;font-style:italic;background:var(--red-l);border-radius:3px;padding:1px 5px}
+.src{display:inline-block;font-size:11px;text-decoration:none;background:var(--grey-l);color:#3a4658;
+border-radius:4px;padding:1px 6px;margin:2px 3px 0 0;border:1px solid #e0e6ef}
+.src:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tag{display:inline-block;font-size:10.5px;border-radius:4px;padding:1px 5px;margin:2px 3px 0 0;
+border:1px solid transparent}
+.t-open{background:#f3e8fb;color:#5b2b7a;border-color:#e3d0f0}
+.tnote{font-size:12.5px;color:var(--mut);padding:2px 12px 12px;margin:0}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin:8px 0 14px;align-items:center}
+.legend span{padding:2px 8px;border-radius:5px;border:1px solid var(--line)}
+.lg-ver{background:#fbfefc}.lg-own{background:#fffdf7}.lg-der{background:#fafcff}
+.lg-asm{background:#f8f9fb}.lg-unv{background:var(--red-l);color:var(--red)}
+.lg-rep{background:var(--amber-l);color:var(--amber)}
+.banner{background:#fff8e8;border:1px solid #f0d9a8;border-left:4px solid #d99b1c;border-radius:8px;
+padding:11px 14px;margin:16px 0;font-size:13.5px}
+.banner.red{background:var(--red-l);border-color:#eecccc;border-left-color:#c05555}
+.banner.blue{background:var(--blue-l);border-color:#cfe0ee;border-left-color:var(--blue)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:14px 0 6px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+.kpi .v{font-size:21px;font-weight:650;color:var(--blue);line-height:1.2}
+.kpi .l{font-size:12px;color:var(--mut);margin-top:3px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:0 0 16px 44px;border-left:2px solid var(--line);margin-left:14px}
+ol.steps>li::before{content:counter(s);position:absolute;left:-15px;top:-2px;width:28px;height:28px;
+border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:600;
+display:flex;align-items:center;justify-content:center}
+ol.steps>li:last-child{border-left-color:transparent}
+ol.steps h4{margin:2px 0 4px;font-size:14.5px}
+ol.steps p{margin:3px 0;font-size:13.5px}
+.q{border-left:3px solid var(--blue);padding-left:12px;margin:18px 0}
+.q .qq{font-weight:600}
+.chk{font-weight:600;color:var(--green)}
+footer{max-width:1280px;margin:auto;padding:20px;border-top:1px solid var(--line);
+color:var(--mut);font-size:12.5px}
+@media(max-width:900px){nav{display:none}h1.pt{font-size:22px}}
+</style></head><body>
+<header><div class="wrap"><h1>Inheritance decision desk</h1><nav><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="properties.html">Properties</a><a href="property-tax.html">Property tax</a><a href="inheritance-tax.html">Inheritance &amp; estate tax</a><a href="operating-costs.html">Running costs</a><a href="projections.html">Projections</a><a href="scenarios.html">Options compared</a><a href="black-swan.html">Black swans</a><a href="process.html">Transfer process</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="law-watch.html">Law watch</a><a href="sources.html">Sources</a><a href="flagged.html" class="on">Flagged</a><a href="methodology.html">Method &amp; privacy</a></nav></div></header>
+<main>
+<p class="kick">Unverified and irregular</p><h1 class="pt">Flagged</h1>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel or account number appears anywhere on this site. Properties are identified only as Property A (Santa Clara County, to be inherited through a trust) and Property B (San Francisco, already owned). All money is rounded to the nearest $10 so published figures cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nothing.</div><p class='lead'>Everything that could not be confirmed, everything that looks wrong, and one item that no commit can fix. Where a value could not be verified it has been left blank rather than filled in with a plausible number.</p><div class="legend"><b style="font-size:12px">Cell key:</b><span class="lg-ver">verified &mdash; read from an official source</span><span class="lg-own">owner input &mdash; no official source exists</span><span class="lg-der">derived &mdash; computed from the inputs shown</span><span class="lg-asm">assumption &mdash; chosen here, listed on the method page</span><span class="lg-rep">reported &mdash; pending official confirmation</span><span class="lg-unv">unverified &mdash; value withheld</span></div><div class="tblwrap"><div class="tf"><input type="search" placeholder="Filter this table&hellip;" oninput="filterRows(this,'flag')"></div><table class="data" id="flag"><thead><tr><th>#</th><th>Item</th><th>What is wrong or missing</th><th>Value withheld</th><th>How to close it</th></tr></thead><tbody><tr data-i="0"><td class="t-lab">F01</td><td class="t-lab">Home insurance, Property A</td><td class="t-unv">The only figure is an owner estimate of about $1,500 a year. No quote, and no figure read from the California Department of Insurance ZIP-level data.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Get two quotes and pull the CDI Part II file for the ZIP<br><a class="src" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/" target="_blank" rel="noopener noreferrer" title="Residential Property Insurance Report">California Department of Insurance</a></td></tr><tr data-i="1"><td class="t-lab">F02</td><td class="t-lab">Home insurance, Property B</td><td class="t-unv">Owner estimate only. A three-unit let property needs a landlord policy, which is priced differently from an owner-occupied policy.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Two quotes for a dwelling-fire or landlord policy with loss of rents<br><a class="src" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/" target="_blank" rel="noopener noreferrer" title="Residential Property Insurance Report">California Department of Insurance</a></td></tr><tr data-i="2"><td class="t-lab">F03</td><td class="t-lab">Property A maintenance</td><td class="t-unv">Described as lighter than Property B, with no figure. Modelled at 1.0% of market value with a 0.5%-1.5% band.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Whole-house inspection and sewer scope while the property is occupied<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="3"><td class="t-lab">F04</td><td class="t-lab">Property B maintenance</td><td class="t-unv">No figure supplied at all.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Three years of actual spend, then a capital plan<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="4"><td class="t-lab">F05</td><td class="t-lab">Solar tariff on Property A</td><td class="t-unv">The reported credit of $10-$20 a month is owner input. Which net metering or net billing tariff the system is on, and when the enrolment ends, is unknown.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Pull the interconnection agreement and twelve months of statements<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="5"><td class="t-lab">F06</td><td class="t-lab">Market rent for Property A</td><td class="t-unv">No comparable supplied. This is the single largest unknown on the options page; renting only ties selling at a gross yield of about 4.76%.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Three written rental opinions from agents who manage single-family lets in the same Santa Clara County submarket<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="6"><td class="t-lab">F07</td><td class="t-lab">Market rent for the San Francisco unit</td><td class="t-unv">Never stated. It sets the cash cost of choosing to occupy Property A.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Two rental opinions for the exact unit<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="7"><td class="t-lab">F08</td><td class="t-lab">San Francisco bill exceeds assessed value times the official rate</td><td class="t-der">Assessed value of $114,250 at the official FY2026-27 rate of 1.18162182 percent gives about $1,350, against a reported bill of about $2,440. The residual of about $1,090 a year is carried flat as an unexplained charge.<br><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">City and County of San Francisco, Office of the Treasurer &amp; Tax Collector</a></td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Download the current secured bill and match each line<br><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">City and County of San Francisco, Office of the Treasurer &amp; Tax Collector</a></td></tr><tr data-i="8"><td class="t-lab">F09</td><td class="t-lab">Property A effective tax rate is derived, not published</td><td class="t-der">The rate of 1.34% is the owner's own bill divided by the owner's own assessed value. Santa Clara County has hundreds of tax rate areas, so no published rate can be quoted for the parcel. The rate is stable across the owner's history, which helps, but it is not an official number.<br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Read the rate printed on the current bill and replace it<br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td></tr><tr data-i="9"><td class="t-lab">F10</td><td class="t-lab">A $3,000,000 cap on the step-up in basis</td><td class="t-unv">Secondary commentary describes a 2026 Treasury proposal to cap the step-up. It could not be found on the Federal Register, on Treasury's site, or in the IRS Internal Revenue Bulletin during this pass. No value is asserted and no weight is given to it.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Search the Federal Register for a notice of proposed rulemaking under section 1014; until one is produced, ignore the claim<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="10"><td class="t-lab">F11</td><td class="t-lab">California 2026 ballot measure results</td><td class="t-rep">Measure titles come from the Secretary of State, but the results are from the count and are certified in December 2026. The results portal is scripted and could not be read as text.<br><a class="src" href="https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures" target="_blank" rel="noopener noreferrer" title="Qualified Statewide Ballot Measures (November 3, 2026 and future statewide ballots)">California Secretary of State</a></td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Re-read the Secretary of State results portal after certification<br><a class="src" href="https://electionresults.sos.ca.gov/" target="_blank" rel="noopener noreferrer" title="Statewide election results portal">California Secretary of State</a> <span class="tag t-open">not opened</span></td></tr><tr data-i="11"><td class="t-lab">F12</td><td class="t-lab">The 1% California surcharge over $1,000,000</td><td class="t-asm">The FTB 2025 rate schedules stop at 12.3%. The additional 1% that produces the 13.3% top rate is applied here as an assumption, not read from an FTB document.<br><a class="src" href="https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf" target="_blank" rel="noopener noreferrer" title="2025 California Tax Rate Schedules (Form 540)">California Franchise Tax Board</a></td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Confirm on the FTB site<br><a class="src" href="https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf" target="_blank" rel="noopener noreferrer" title="2025 California Tax Rate Schedules (Form 540)">California Franchise Tax Board</a></td></tr><tr data-i="12"><td class="t-lab">F13</td><td class="t-lab">Property A and Property B year built</td><td class="t-unv">Not supplied. For Property B it decides whether the local rent ordinance applies on top of the statewide cap.<br><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1947.12" target="_blank" rel="noopener noreferrer" title="Civil Code section 1947.12 (statewide rent cap, AB 1482)">California Legislative Information</a></td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Assessor property characteristics record and original building permit</td></tr><tr data-i="13"><td class="t-lab">F14</td><td class="t-lab">Size of the rest of the estate</td><td class="t-unv">No estimate supplied, so nothing can be said about whether the federal estate tax threshold will be approached.<br><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" target="_blank" rel="noopener noreferrer" title="Estate tax (filing threshold for year of death, 2011-2026)">IRS</a></td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">A confidential schedule for the estate attorney, never published<br><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" target="_blank" rel="noopener noreferrer" title="Estate tax (filing threshold for year of death, 2011-2026)">IRS</a></td></tr><tr data-i="14"><td class="t-lab">F15</td><td class="t-lab">Earlier full-precision figures remain in public git history</td><td class="t-unv">Rounding to $10 protects everything published from this branch forward. Earlier generations of this project, merged branches and pull request diffs contain unrounded figures. No commit can remove them.</td><td class="t-unv"><span class="blank">&mdash; unverified, value withheld</span></td><td class="t-unv">Owner action only: change repository visibility or rewrite the history<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr></tbody></table><p class="tnote">Nothing on this list blocks the site or the analysis. Each item is published rather than hidden so it can be worked through in the open.</p></div><div class="banner red"><b>F15 is not fixable from here.</b> Rounding to $10 protects everything published going forward, but earlier unrounded figures remain in this repository's public history, in merged branches and in pull request diffs. Making the repository private, or rewriting its history, is your decision and yours alone.</div>
+</main>
+<footer>Not tax, legal or investment advice. Figures are rounded to the nearest $10 and every
+table row links to the official source it was read from; rows that could not be confirmed carry a
+blank value and an unverified marker. Rules and thresholds change &mdash; re-check the current law
+before acting.</footer>
+<script>
+function filterRows(el,id){
+  var q=el.value.toLowerCase(),t=document.getElementById(id);
+  if(!t)return;
+  var rows=t.querySelectorAll('tbody tr');
+  for(var i=0;i<rows.length;i++){
+    var txt=rows[i].textContent.toLowerCase();
+    rows[i].style.display = txt.indexOf(q)>-1 ? '' : 'none';
+  }
+}
+</script></body></html>

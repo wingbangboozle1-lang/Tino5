@@ -8,6 +8,8 @@ plugins: []
 # repository, so anything that must not be public has to be deleted, not merely excluded.
 exclude:
   - "_src"
+  - "decision/_src"
+  - "decision/_src/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

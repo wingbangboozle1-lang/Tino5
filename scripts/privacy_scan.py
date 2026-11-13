@@ -40,6 +40,7 @@ TEXT_SUFFIXES = {".html", ".htm", ".md", ".json", ".js", ".mjs", ".py", ".css", 
 # Amounts the repository cites as published official figures. Public information, not owner data.
 PUBLIC_CONSTANTS = {
     "1,044,586",   # BOE: Prop 19 adjusted amount, 16 Feb 2025 - 15 Feb 2027
+    "742,953", "1,485,906",   # FTB 2025 tax rate schedules: 12.3% bracket thresholds, single / joint
     "1,022,600",   # BOE: Prop 19 adjusted amount, 16 Feb 2023 - 15 Feb 2025
     "69,625", "107,900", "208,850",  # Judicial Council DE-300 probate thresholds (deaths on/after 1 Apr 2025)
     "661,375", "75,197",            # IRS 2027 / FTB 2026 published bracket thresholds as cited

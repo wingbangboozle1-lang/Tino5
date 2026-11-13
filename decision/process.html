@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Transfer process &middot; Inheritance decision desk</title>
+<style>
+:root{--ink:#16202e;--mut:#5d6b7f;--line:#dfe5ee;--bg:#f6f8fb;--card:#fff;
+--blue:#1f4e79;--blue-l:#eaf1f8;--amber:#8a5a00;--amber-l:#fdf3e2;--red:#8c2f2f;
+--red-l:#fbecec;--green:#1d6b45;--green-l:#e9f5ee;--grey:#5b6474;--grey-l:#eef1f5}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--blue)}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 20px;position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:1280px;margin:auto}
+header h1{font-size:17px;margin:0;color:var(--blue);white-space:nowrap}
+nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav a{font-size:12.5px;padding:5px 9px;border-radius:6px;color:var(--mut);text-decoration:none;white-space:nowrap}
+nav a:hover{background:var(--blue-l);color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1280px;margin:auto;padding:22px 20px 70px}
+h2.kick{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 4px}
+h1.pt{font-size:26px;margin:0 0 8px;color:var(--blue)}
+h2{font-size:18px;margin:30px 0 8px;color:var(--blue);border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:15px;margin:20px 0 6px}
+p{max-width:88ch}
+.lead{font-size:15.5px;color:#2a3646}
+.muted{color:var(--mut);font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:15px;color:var(--blue)}
+.card p{margin:6px 0 0;font-size:14px}
+.card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.card li{margin:4px 0}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:9px;
+margin:12px 0 22px;padding:4px 0 0}
+.tf{padding:8px 10px}
+.tf input{width:100%;max-width:340px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;font:inherit}
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{background:var(--blue-l);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+font-weight:600;color:#1b3d5c;white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid #eef1f6;vertical-align:top}
+table.data tbody tr:hover{background:#fafcff}
+td.t-ver{background:#fbfefc}td.t-own{background:#fffdf7}td.t-der{background:#fafcff}
+td.t-asm{background:#f8f9fb}td.t-unv{background:var(--red-l)}
+td.t-rep{background:var(--amber-l)}td.t-lab{font-weight:600;color:#22303f}
+.blank{color:var(--red);font-style:italic;font-size:12.5px}
+.nosrc{display:inline-block;margin-top:3px;color:var(--red);font-size:11.5px;font-style:italic;background:var(--red-l);border-radius:3px;padding:1px 5px}
+.src{display:inline-block;font-size:11px;text-decoration:none;background:var(--grey-l);color:#3a4658;
+border-radius:4px;padding:1px 6px;margin:2px 3px 0 0;border:1px solid #e0e6ef}
+.src:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tag{display:inline-block;font-size:10.5px;border-radius:4px;padding:1px 5px;margin:2px 3px 0 0;
+border:1px solid transparent}
+.t-open{background:#f3e8fb;color:#5b2b7a;border-color:#e3d0f0}
+.tnote{font-size:12.5px;color:var(--mut);padding:2px 12px 12px;margin:0}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin:8px 0 14px;align-items:center}
+.legend span{padding:2px 8px;border-radius:5px;border:1px solid var(--line)}
+.lg-ver{background:#fbfefc}.lg-own{background:#fffdf7}.lg-der{background:#fafcff}
+.lg-asm{background:#f8f9fb}.lg-unv{background:var(--red-l);color:var(--red)}
+.lg-rep{background:var(--amber-l);color:var(--amber)}
+.banner{background:#fff8e8;border:1px solid #f0d9a8;border-left:4px solid #d99b1c;border-radius:8px;
+padding:11px 14px;margin:16px 0;font-size:13.5px}
+.banner.red{background:var(--red-l);border-color:#eecccc;border-left-color:#c05555}
+.banner.blue{background:var(--blue-l);border-color:#cfe0ee;border-left-color:var(--blue)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:14px 0 6px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+.kpi .v{font-size:21px;font-weight:650;color:var(--blue);line-height:1.2}
+.kpi .l{font-size:12px;color:var(--mut);margin-top:3px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:0 0 16px 44px;border-left:2px solid var(--line);margin-left:14px}
+ol.steps>li::before{content:counter(s);position:absolute;left:-15px;top:-2px;width:28px;height:28px;
+border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:600;
+display:flex;align-items:center;justify-content:center}
+ol.steps>li:last-child{border-left-color:transparent}
+ol.steps h4{margin:2px 0 4px;font-size:14.5px}
+ol.steps p{margin:3px 0;font-size:13.5px}
+.q{border-left:3px solid var(--blue);padding-left:12px;margin:18px 0}
+.q .qq{font-weight:600}
+.chk{font-weight:600;color:var(--green)}
+footer{max-width:1280px;margin:auto;padding:20px;border-top:1px solid var(--line);
+color:var(--mut);font-size:12.5px}
+@media(max-width:900px){nav{display:none}h1.pt{font-size:22px}}
+</style></head><body>
+<header><div class="wrap"><h1>Inheritance decision desk</h1><nav><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="properties.html">Properties</a><a href="property-tax.html">Property tax</a><a href="inheritance-tax.html">Inheritance &amp; estate tax</a><a href="operating-costs.html">Running costs</a><a href="projections.html">Projections</a><a href="scenarios.html">Options compared</a><a href="black-swan.html">Black swans</a><a href="process.html" class="on">Transfer process</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="law-watch.html">Law watch</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a><a href="methodology.html">Method &amp; privacy</a></nav></div></header>
+<main>
+<p class="kick">How a trust inheritance actually runs</p><h1 class="pt">Transfer process</h1>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel or account number appears anywhere on this site. Properties are identified only as Property A (Santa Clara County, to be inherited through a trust) and Property B (San Francisco, already owned). All money is rounded to the nearest $10 so published figures cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nothing.</div><p class='lead'>A trust inheritance in California, step by step, with the form and the deadline for each step. This is the sequence, not legal advice.</p><h2>Before the transfer &mdash; while the settlor is alive</h2><ol class='steps'><li><h4>Confirm the property is titled in the trust</h4><p>A transfer of a home into a revocable trust where the settlor remains the beneficiary is excluded from reassessment, so it does not reset the property tax base. If the deed into the trust was never recorded, the remedy later is a court petition, not a form.</p></li><li><h4>Establish whether Property A is the settlor's principal residence</h4><p>The Proposition 19 exclusion requires the home to have been the transferor's principal residence. If the settlor has already moved out, the exclusion may be unavailable.</p><a class="src" href="https://www.boe.ca.gov/pdf/pub800-1.pdf" target="_blank" rel="noopener noreferrer" title="Taxpayers&#x27; Rights Advocate Information Sheet - Property Tax Savings: Transfers Between Parents and Children">California State Board of Equalization</a> <a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 - Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a></li><li><h4>Diary the two clocks</h4><p>The homeowners' or disabled veterans' exemption is due within one year of the transfer; the BOE-19-P claim within three years of it, or before any transfer to a third party, whichever comes first.</p><p class='muted'><b>Clock:</b> 1 year and 3 years from the transfer date</p><a class="src" href="https://www.boe.ca.gov/pdf/pub800-1.pdf" target="_blank" rel="noopener noreferrer" title="Taxpayers&#x27; Rights Advocate Information Sheet - Property Tax Savings: Transfers Between Parents and Children">California State Board of Equalization</a> <a class="src" href="https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2" target="_blank" rel="noopener noreferrer" title="Parent-Child Transfer (Proposition 19)">County of Santa Clara, Office of the Assessor</a></li><li><h4>Decide the occupancy question in principle</h4><p>The exclusion requires the home to become the transferee's principal residence within one year and to stay that way. This is a household decision with a tax consequence of tens of thousands of dollars a year, so it should not be made in the grief of the moment.</p><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 - Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a></li></ol><h2>At and immediately after the transfer</h2><ol class='steps'><li><h4>The trustee serves the statutory notification</h4><p>Within 60 days of the settlor's death the trustee must serve a notification on every beneficiary of the trust and every heir of the deceased settlor. The duty is the continuing or successor trustee's, and any one co-trustee may serve it.</p><p class='muted'><b>Clock:</b> 60 days</p><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&amp;sectionNum=16061.7" target="_blank" rel="noopener noreferrer" title="Probate Code section 16061.7 - trustee&#x27;s duty to notify on irrevocability">California Legislative Information</a></li><li><h4>Determine the date-of-death value</h4><p>This single figure does three jobs: it is the new basis for income tax, it is the value reported for estate tax if a return is due, and it is the amount the county will use on reassessment if no exclusion is claimed. Use a qualified appraisal.</p><a class="src" href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener noreferrer" title="Publication 551 (12/2025), Basis of Assets">IRS</a></li><li><h4>Work out whether a federal estate tax return is due</h4><p>California imposes nothing. Federally, a return is required only if the gross estate increased by adjusted taxable gifts exceeds the filing threshold for the year of death: $15,000,000 for 2026 and $15,480,000 for 2027.</p><p class='muted'><b>Clock:</b> 9 months after death, extendable</p><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" target="_blank" rel="noopener noreferrer" title="Estate tax (filing threshold for year of death, 2011-2026)">IRS</a> <a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer" title="Rev. Proc. 2026-35, 2027 inflation adjusted items">IRS</a> <a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&amp;sectionNum=13301" target="_blank" rel="noopener noreferrer" title="Revenue and Taxation Code section 13301">California Legislative Information</a></li><li><h4>File the homeowners' or disabled veterans' exemption</h4><p>Required within one year of the transfer to receive the Proposition 19 exclusion as of the date of transfer. A BOE-19-P claim cannot be filed before this exemption claim.</p><p class='muted'><b>Clock:</b> 1 year</p><a class="src" href="https://www.boe.ca.gov/pdf/pub800-1.pdf" target="_blank" rel="noopener noreferrer" title="Taxpayers&#x27; Rights Advocate Information Sheet - Property Tax Savings: Transfers Between Parents and Children">California State Board of Equalization</a></li><li><h4>Move in, if the exclusion is being claimed</h4><p>The transferee must live in the home as a principal residence within one year and keep living there. If the property later stops being anyone's principal residence it is reassessed to its inherited market value, adjusted by the inflation factor.</p><p class='muted'><b>Clock:</b> 1 year, then continuously</p><a class="src" href="https://www.boe.ca.gov/pdf/pub800-1.pdf" target="_blank" rel="noopener noreferrer" title="Taxpayers&#x27; Rights Advocate Information Sheet - Property Tax Savings: Transfers Between Parents and Children">California State Board of Equalization</a> <a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 - Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a></li><li><h4>File BOE-19-P with the Santa Clara County Assessor</h4><p>The claim form for the parent-child reassessment exclusion, filed with the assessor of the county where the property sits, not with the Board of Equalization.</p><p class='muted'><b>Clock:</b> 3 years</p><a class="src" href="https://www.boe.ca.gov/pdf/pub800-1.pdf" target="_blank" rel="noopener noreferrer" title="Taxpayers&#x27; Rights Advocate Information Sheet - Property Tax Savings: Transfers Between Parents and Children">California State Board of Equalization</a> <a class="src" href="https://asr.santaclaracounty.gov/tax-savings/transferring-your-assessed-value/parent-to-child-2" target="_blank" rel="noopener noreferrer" title="Parent-Child Transfer (Proposition 19)">County of Santa Clara, Office of the Assessor</a> <a class="src" href="https://asr.santaclaracounty.gov/downloads" target="_blank" rel="noopener noreferrer" title="Downloads - Proposition 19 claim forms">County of Santa Clara, Office of the Assessor</a></li><li><h4>Expect a supplemental or escape assessment</h4><p>On a change in ownership the assessor reappraises and issues a supplemental bill for the difference, prorated for the part of the fiscal year remaining. If the new value is determined late, an escape assessment follows instead.</p><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">City and County of San Francisco, Office of the Treasurer &amp; Tax Collector</a></li></ol><h2>After the transfer &mdash; the ongoing position</h2><ol class='steps'><li><h4>Keep occupying, or lose the exclusion</h4><p>At least one eligible transferee must continually live in the property for the exclusion to survive. This is a permanent condition, not a one-year test.</p><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 - Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a></li><li><h4>If the property is let instead</h4><p>The exclusion does not apply to a rental transfer. The property is reassessed to full market value, rental income becomes taxable, depreciation begins over 27.5 years, and the statewide rent cap of 5% plus inflation, subject to a 10% ceiling, governs increases.</p><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 - Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a> <a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1947.12" target="_blank" rel="noopener noreferrer" title="Civil Code section 1947.12 (statewide rent cap, AB 1482)">California Legislative Information</a> <a class="src" href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener noreferrer" title="Topic no. 409, Capital gains and losses">IRS</a></li><li><h4>If the property is sold</h4><p>Basis is market value at death, so a sale soon after the transfer realises almost no gain. Hold it for two of the five years before selling and up to $250,000, or $500,000 filing jointly, of gain is excluded; that exclusion also removes the gain from the net investment income tax.</p><a class="src" href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener noreferrer" title="Publication 551 (12/2025), Basis of Assets">IRS</a> <a class="src" href="https://www.irs.gov/newsroom/questions-and-answers-on-the-net-investment-income-tax" target="_blank" rel="noopener noreferrer" title="Questions and Answers on the Net Investment Income Tax">IRS</a></li><li><h4>Re-run this analysis each year</h4><p>The break-even thresholds move with the market, and the law-watch items move with Congress and the California ballot. An annual re-read is the cheapest insurance available.</p><p class='muted'><b>Clock:</b> Annually</p></li></ol><div class="banner red"><b>The two dates that carry money.</b> One year for the homeowners' exemption and for moving in. Three years for the BOE-19-P claim. Both run from the date of transfer, not from the date anyone gets around to it. Late is not fatal &mdash; a late exemption claim moves the start of the exclusion forward &mdash; but it costs the back years.</div>
+</main>
+<footer>Not tax, legal or investment advice. Figures are rounded to the nearest $10 and every
+table row links to the official source it was read from; rows that could not be confirmed carry a
+blank value and an unverified marker. Rules and thresholds change &mdash; re-check the current law
+before acting.</footer>
+<script>
+function filterRows(el,id){
+  var q=el.value.toLowerCase(),t=document.getElementById(id);
+  if(!t)return;
+  var rows=t.querySelectorAll('tbody tr');
+  for(var i=0;i<rows.length;i++){
+    var txt=rows[i].textContent.toLowerCase();
+    rows[i].style.display = txt.indexOf(q)>-1 ? '' : 'none';
+  }
+}
+</script></body></html>
