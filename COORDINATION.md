@@ -1128,3 +1128,22 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
 No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.
+
+## Session `arena-bd486220` — claim (2026-11-13 UTC)
+
+| ID | Task | Status | Session | File scope |
+|---|---|---|---|---|
+| bd4/S | Add a dedicated reviewable Suggestions page to the curated privacy-safe website, link it through generated site navigation and README, extend the structural verifier, and ensure Jekyll excludes non-curated decision desks containing owner-derived inputs. Suggestions remain recommendations only; no owner-specific inputs or values are added. | done | arena-bd486220 (`arena/bd486220-tino5`) | `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `README.md`, `_config.yml`, this section |
+
+**Coordination check:** Read the board before work. Historical conditional integration claims in this file were last updated 2026-11-12; their 60-minute handoff windows have expired. The current Arena branch is fixed; work remains on `arena/bd486220-tino5`.
+
+### bd4/S — completion record (2026-11-13)
+
+- **Delivery:** Added the public `Suggestions for review` page with eight prioritized actions, reviewer choices (accept / revise / defer), implementation sequencing, and explicit privacy guidance. No property-specific values, locations, or identifying details were added. Generated navigation links the page from all curated pages; README links it.
+- **Privacy hardening:** Inspection found other research dashboards at top level that were not in Jekyll's exclusion list. Expanded `_config.yml` exclusions so only `public-safe/` is a publishable top-level directory, and extended `scripts/verify_safe.py` to fail if any future top-level directory is not excluded. The deployable dashboard remains the anonymous 12-page curated set; owner-derived research remains outside Pages.
+- **Sources opened and checked 2026-11-13 (each recommendation row links to official sources):** IRS Estate Tax; IRS inherited-property basis FAQ; IRS Pub. 527; IRS estate/gift updates; IRS Form 706 instructions; California Courts probate guide; California BOE Proposition 19 and fact sheet; CDI residential insurance guidance; CPUC Net Energy Metering and Water pages; California Legislative Information Code Search; BLS historical CPI-U; FHFA HPI; Federal Reserve monetary policy. Links are recorded in `scripts/build_desk.py` and `public-safe/suggestions.html`; no new numerical claim is made in this page.
+- **Verification:** `python3 scripts/build_desk.py`; `python3 scripts/verify_safe.py` (PASS: 12 pages, 12 tables, 88 source-linked rows, local links resolve, allowed external hosts, money rounding and identifier checks); `python3 scripts/privacy_scan.py --summary` (0 findings); `git diff --check`; scripts unit tests 4/4; `tools-22a32b17` unit tests 7/7; `referee-abae/_src/crosscheck.py` completed.
+- **Flagged for review (not edited outside scope):** The separate `referee-abae` test suite's deterministic-build test fails because its generated output embeds the current commit hash; the test run changed only `referee-abae/baselines.html`, which was restored. Its crosscheck still reports the curated site as 11 pages / 80 rows despite the verified 12 pages / 88 rows, so that independent checker needs an owner update. Request to update `referee-abae/_src/{build.py,crosscheck.py,test_build.py}` logged; this does not affect the curated site's passing verifier. No claim is made that the separate test suite passed.
+- **Deployment verification:** Pending PR merge and Pages rebuild; record below after deployment is confirmed.
+
+| bd4/S | Dedicated suggestions page, generated navigation, fail-closed deployment exclusions, and verifier extension | done | arena-bd486220 (`arena/bd486220-tino5`) | `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `README.md`, `_config.yml`, this section |
