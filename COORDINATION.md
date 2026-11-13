@@ -1128,3 +1128,45 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
 No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.
+
+## Session `arena-7b137345` — claim (2026-11-13 06:41Z, branch `arena/7b137345-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48) **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Platform constraint (same as every earlier
+session): this session is bound to the single branch above and cannot create `session-<id>/<task>`
+branches, so non-overlap is enforced by **file scope**.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 7b/Q | **Decision-readiness section.** Consolidated executive summary of important details; the clear list of questions / information / answers that must be resolved before any decision can reasonably be made (what we already have vs what is missing), every answered row source-linked, every unknown left blank + flagged with a concrete suggestion for how to discover it; section source register, flagged page, and structural verifier (rows carry official source links, money at $10, identifier patterns blocked). | in progress | arena-7b137345 (`arena/7b137345-tino5`) | `session-7b137345/**` (new, previously unused directory) and this section — nothing else |
+| 7b/R | **Repository review (takeover of stale c09/R).** c09/R was claimed 2026-11-12 04:25Z; `plan/` was never created and there has been no commit for >24 h, so under the 60-minute rule this session takes over the *review* deliverable. What the repository contains, what is actually deployed vs excluded, where the published generations disagree (cross-check against `referee-abae/discrepancies.html` X01–X15 re-run), what is exposed (privacy status incl. public git history), and every irregularity with links for manual review. Delivered at `session-7b137345/repo-review.html` instead of `plan/repo-review.html` because `plan/**` is bound to c09/A's also-lapsed full-desk claim, which this session does **not** take over (five published desks already exist; a sixth would violate "never start a task another session claimed" in substance). | in progress | arena-7b137345 | `session-7b137345/repo-review.html`, this section |
+| 7b/INT | **Final integration (last in line).** Runs only after 7b/Q and 7b/R are done and every other live claim is `done` / `needs review` / more than 60 minutes without a commit: merge `main`, re-verify the combined tree (`scripts/verify_safe.py`, `referee-abae/_src/crosscheck.py`, `scripts/privacy_scan.py`, this session's verifier, link check), add the navigation links requested by 3a4/INT, 22a/INT and abae/INT for deployed privacy-checked sections plus this section, then PR → merge → confirm GitHub Pages → record here. | waiting | arena-7b137345 | this section; root `index.html`, `_config.yml`, `scripts/build_desk.py`, `README.md` **only** when the sessions holding them are `done` or >60 min stale at run time |
+
+**Live claims respected (as read 06:36Z–06:41Z).** `arena-bd486220` bd4/S (commit 06:35:14Z, 6 minutes
+before this claim) — `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`,
+`README.md`, its own board section. This session edits **none** of those paths while bd4/S is live.
+All other remote branch commits are 2026-11-12 or older (>24 h): `arena-c098bf16` (c09/A, c09/R, c09/INT),
+`arena-552dcae4` (552/INT), `arena-22a32b17` (22a/INT), `arena-3a49d618` (3a4/INT), `arena-abae1b53`
+(abae/INT), `arena-e747c4bb` (e74/*), `arena-966cc934` (966/A, branch never merged), `arena-7864052a`
+(786/V, branch never merged), `arena-22c14528` (22c/V, `review/` never created) — all stale under the
+60-minute rule; only the intents served by this claim's scope are taken over, and only as stated above.
+
+**Privacy contract for `session-7b137345/**` (highest priority per the brief).** Placeholders only —
+**Property A** (to be inherited, county-level jurisdiction) and **Property B** (already owned by the
+inheritor). No names, street addresses, ZIP codes, city or neighbourhood names, parcel/APN numbers,
+account numbers, phone or email anywhere in the pages. No supplied assessment/tax-bill **history series**
+at any precision (a $10-rounded series remains matchable to open assessor rolls — protective deviation
+from the brief's literal wording, recorded on the section's flagged page as an owner-reversible choice;
+the history is instead compared against the official Prop 13 inflation factors as year-over-year
+percentages). Owner-supplied current-year anchors appear only already rounded to $10 and labelled
+`owner input (rounded)`; every dollar figure in narrative/projection cells is a multiple of $10 except
+statutory/agency amounts printed exactly as the publisher prints them and marked `statutory`. Every
+table row carries an official source link; values that cannot be confirmed from an official source stay
+**blank**, are marked `unverified`, and are listed on the section's Flagged for Review page.
+
+**Takeover records (60-minute rule).**
+- c09/R → 7b/R as scoped above (last commit 2026-11-12 04:23:58Z, no `plan/` ever created, 26 h stale).
+- No other session's files are taken over by this claim. Conditional integration claims (552/INT,
+  c09/INT, 22a/INT, 3a4/INT, abae/INT, e74/INT) are all stale; 7b/INT is last in line and records the
+  integration above — the earliest-condition rule between the older INT claims is moot because none of
+  them has run and none has a live commit.
