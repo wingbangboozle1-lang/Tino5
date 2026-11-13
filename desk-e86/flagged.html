@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Flagged for review — unverified values and open irregularities</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <h1>Flagged for review</h1>
+  <div class="tag">Session e86 · open items as of 13 November 2026 · flagged items do not block publication — they wait for the owner's review</div>
+</header>
+<nav class="sections" aria-label="Sections">
+  <a href="index.html">Summary</a>
+  <a href="questions.html">Questions to answer</a>
+  <a href="suggestions.html">Suggestions</a>
+  <a href="repo-review.html">Repo review</a>
+  <a aria-current="page" href="flagged.html">Flagged for review</a>
+</nav>
+<main>
+
+<p class="lede">Every value on this site that could not be confirmed against an official source is listed here with
+the reason, the official place the answer must come from, and the matching suggestion. Severity:
+<b>blocker</b> = a decision made now would be guesswork · <b>high</b> = materially changes the money ·
+<b>medium</b> = affects a published figure or consistency · <b>low</b> = hygiene.</p>
+
+<h3>Unverified owner inputs and information gaps (this session)</h3>
+<table class="data">
+<thead><tr><th style="width:6%">ID</th><th style="width:24%">Item</th><th style="width:26%">Why unresolved</th><th style="width:8%">Severity</th><th style="width:19%">Official evidence / discovery source</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>F-01</td><td class="num">Property A market estimate $3,100,000 and Property B estimate $1,800,000</td><td>Owner-supplied estimates; no public record can be matched to this household without exposing identity.</td><td><span class="badge b-flag">blocker</span></td><td class="src">Date-of-death value must come from the executor's valuation / USPAP appraisal. <a href="https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances">IRS · basis FAQ</a></td><td>→ <a href="suggestions.html">S-14</a></td></tr>
+<tr><td>F-02</td><td class="num">Assessment and tax-history figures (A: $550,540 / $7,210; B: $114,250 / $2,440, rounded)</td><td>Private bill/roll facts. Rounded to $10 per the brief so they cannot be matched to a published record by search.</td><td><span class="badge b-flag">high</span></td><td class="src">Confirm on the bills themselves; assessment rules: <a href="https://boe.ca.gov/pdf/pub800-10.pdf">BOE · Pub. 800-10</a> · B rate: <a href="https://sftreasurer.org/property/secured-property-taxes">SF Treasurer</a></td><td>→ <a href="questions.html">Q-10 to Q-12</a></td></tr>
+<tr><td>F-03</td><td class="num">Household utilities and solar (A water $100–$150/mo, solar credit $10–$20/mo, B water $330–$400/mo, B power $30–$70/mo); solar tariff and ownership unknown</td><td>No official source publishes one household's bills or equipment contract; tariff name is on the utility statement only.</td><td><span class="badge b-flag">medium</span></td><td class="src">Tariff framework and official cost pages: <a href="../public-safe/costs.html">published costs page</a> · regulator: <a href="https://www.cpuc.ca.gov/">CPUC</a></td><td>→ <a href="questions.html">Q-16 to Q-18</a> · <a href="suggestions.html">S-15</a></td></tr>
+<tr><td>F-04</td><td class="num">Insurance premiums (both properties' $1,500-per-year figures)</td><td>Owner guesses, not quotes. Official data gives a statewide average ($1,571) and ZIP-level exposure reports — never a quote for a specific address, and no landlord-policy average at all.</td><td><span class="badge b-flag">high</span></td><td class="src"><a href="https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.Cfm">CDI · benchmark</a> · <a href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/">CDI · ZIP-level reports</a></td><td>→ <a href="suggestions.html">S-08</a></td></tr>
+<tr><td>F-05</td><td>Repair and maintenance reserves — no numeric value anywhere</td><td>Owner's statement is qualitative ("less than Property B"); future repairs cannot be sourced officially.</td><td><span class="badge b-flag">medium</span></td><td class="src">Actionable via estimates; deduction rules: <a href="https://www.irs.gov/publications/p527">IRS · Pub. 527</a></td><td>→ <a href="questions.html">Q-21</a></td></tr>
+<tr><td>F-06</td><td>Selling costs for Property A — cell intentionally blank in every model</td><td>No official source publishes agent commissions or typical closing costs; inventing a percentage would violate the no-inference rule.</td><td><span class="badge b-flag">high</span></td><td class="src">Action: written net-sheets; transfer-tax framework: <a href="../public-safe/tax.html">published tax page</a></td><td>→ <a href="questions.html">Q-23</a></td></tr>
+<tr><td>F-07</td><td class="num">Property B bill residual: $2,440 bill vs ≈ $1,350 rate × assessment ⇒ ≈ $1,090 of other charges</td><td>Derived, not yet matched line-by-line to parcel/direct assessments on the actual bill.</td><td><span class="badge b-flag">medium</span></td><td class="src"><a href="https://sftreasurer.org/property/secured-property-taxes">SF Treasurer · rate</a> · <a href="https://sftreasurer.org/property/parcel-tax-exemptions-and-special-assessments">SF Treasurer · parcel taxes</a></td><td>→ <a href="suggestions.html">S-17</a></td></tr>
+<tr><td>F-08</td><td>Property A's full tax-rate-area rate (base + direct charges)</td><td>Publishing a local rate table alongside these rounded figures would narrow the location; obtain it privately from the bill.</td><td><span class="badge b-flag">medium</span></td><td class="src">State framework: <a href="https://boe.ca.gov/pdf/pub800-10.pdf">BOE · Pub. 800-10</a> (1% + voter-approved debt)</td><td>→ <a href="questions.html">Q-12</a></td></tr>
+<tr><td>F-09</td><td class="num">Estate size and gift history — the "considerable money" is unquantified</td><td>Blocks any conclusion about the $15,000,000 (2026) / $15,480,000 (2027) federal threshold; headroom of $10,100,000 shown on the summary holds only if nothing else exists.</td><td><span class="badge b-flag">blocker</span></td><td class="src"><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax">IRS · filing thresholds</a></td><td>→ <a href="questions.html">Q-06, Q-07</a> · <a href="suggestions.html">S-11</a></td></tr>
+<tr><td>F-10</td><td>Property A market rent — cell intentionally blank</td><td>No comparable collected; the model refuses to guess.</td><td><span class="badge b-flag">high</span></td><td class="src"><a href="https://www.huduser.gov/portal/datasets/fmr.html">HUD · Fair Market Rents</a> + professional BPO</td><td>→ <a href="questions.html">Q-20</a> · <a href="suggestions.html">S-15</a></td></tr>
+<tr><td>F-11</td><td>Local rent ordinance for Property A's city</td><td>The city is not named on this site (it would identify the property), so its ordinance page cannot be linked; the state baseline (AB 1482) is verified instead.</td><td><span class="badge b-flag">medium</span></td><td class="src"><a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201920200AB1482&amp;search_keywords=rent+cap">AB 1482 text</a> · local text from the property's own file</td><td>→ <a href="questions.html">Q-19</a></td></tr>
+<tr><td>F-12</td><td>Occupancy preference (live in A vs not) and its lifestyle value</td><td>A human decision, not a fact — until it is made, no path can be ranked for this household.</td><td><span class="badge b-flag">blocker</span></td><td class="src">Tax consequence quantified from: <a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE · LTA 2025/009</a></td><td>→ <a href="questions.html">Q-27, Q-28</a> · <a href="suggestions.html">S-13</a></td></tr>
+<tr><td>F-13</td><td>Transfer window 2040–2050 (owner statement)</td><td>All thresholds are year-specific; every figure past 2027 is an unknown future adjustment, not a projection presented as fact.</td><td><span class="badge b-flag">high</span></td><td class="src">Update cadence: <a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS · annual adjustments</a> · <a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE · biennial cap</a></td><td>→ <a href="questions.html">Q-03, Q-36, Q-37</a></td></tr>
+<tr><td>F-14</td><td>Trust instrument terms (existence, funding, beneficiaries)</td><td>Not in the project; decides probate vs. trust administration and the exclusion mechanics for co-heirs.</td><td><span class="badge b-flag">blocker</span></td><td class="src"><a href="https://selfhelp.courts.ca.gov/">California Courts · self-help</a></td><td>→ <a href="questions.html">Q-01, Q-02, Q-43</a> · <a href="suggestions.html">S-12</a></td></tr>
+</tbody>
+</table>
+
+<h3>Carried-forward irregularities in the published trees (evidence from earlier sessions, re-checked today)</h3>
+<table class="data">
+<thead><tr><th style="width:6%">ID</th><th style="width:24%">Item</th><th style="width:26%">Status as found today</th><th style="width:8%">Severity</th><th style="width:19%">Evidence</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>F-15</td><td>Live tax/law pages list 2026 federal figures only (referee X06)</td><td>Still true on 13 Nov 2026: the IRS published 2027 amounts on 5 Nov 2026 ($15,480,000 exclusion; $20,000 gift annual) but the deployed pages were built earlier.</td><td><span class="badge b-flag">medium</span></td><td class="src"><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS · IR-2026-133</a> · current page: <a href="../public-safe/law-watch.html">law watch</a> · <a href="../referee-abae/discrepancies.html">X06</a></td><td>→ <a href="suggestions.html">S-02</a></td></tr>
+<tr><td>F-16</td><td>Numeric desk shows two different yearly tax figures for Property B (referee X13, ≈4% apart)</td><td>Unreconciled: one includes the $7,000 homeowners' exemption, the other leaves it out.</td><td><span class="badge b-flag">medium</span></td><td class="src"><a href="../referee-abae/discrepancies.html">X13</a> · <a href="https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm">BOE · exemption</a></td><td>→ <a href="suggestions.html">S-04</a></td></tr>
+<tr><td>F-17</td><td>Two desks, two headline levels (referee X12: 4.5% vs 5.6% after-tax return)</td><td>Both still published; neither is labelled as the chosen assumption.</td><td><span class="badge b-flag">high</span></td><td class="src"><a href="../referee-abae/discrepancies.html">X12</a> · <a href="../referee-abae/baselines.html">baseline comparison</a></td><td>→ <a href="suggestions.html">S-03</a></td></tr>
+<tr><td>F-18</td><td>Published trees draw the privacy line differently (referee X14)</td><td>Re-read of the brief on 13 Nov 2026: anonymisation is the highest priority <i>and</i> $10-rounded numbers must appear in decision analysis — recommendation recorded as option B on S-01; still an owner choice.</td><td><span class="badge b-flag">medium</span></td><td class="src"><a href="../referee-abae/discrepancies.html">X14</a> · <a href="repo-review.html">this session's privacy posture</a></td><td>→ <a href="suggestions.html">S-01</a></td></tr>
+<tr><td>F-19</td><td>Figure errors in non-deployed directories (referee X04 $16,200 vs $16,250; X05 closing-letter fee story; X07 stale $184,500 small-estate limit)</td><td>Present in repository branches excluded from GitHub Pages — nothing public is wrong; repository hygiene only.</td><td><span class="badge b-flag">low</span></td><td class="src"><a href="../referee-abae/discrepancies.html">X04, X05, X07</a> · current law: <a href="https://courts.ca.gov/sites/default/files/courts/default/2024-11/de300.pdf">DE-300 ($208,850)</a> · <a href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS ($76 fee)</a></td><td>→ <a href="suggestions.html">S-05</a></td></tr>
+<tr><td>F-20</td><td>Coordination board showed five stalled integration claims when this session started (552/c09/22a/3a4/abae INT never ran; 966/A left at "needs review")</td><td>Takeover recorded in COORDINATION.md under the 60-minute rule before any work began; no other session's files were edited by this session except the claimed root landing.</td><td><span class="badge b-flag">low</span></td><td class="src">Process evidence: repository task board + this section's claim log · prior audit: <a href="../referee-abae/traceability.html">referee traceability</a></td><td>Handled in integration</td></tr>
+<tr><td>F-21</td><td><code>tools-22a32b17/</code> generator scripts are deployed on the public site (directory missing from the Jekyll exclude list)</td><td>Raw Python source files are served as static downloads; harmless but unintended, and inconsistent with every other tooling directory being excluded.</td><td><span class="badge b-flag">low</span></td><td class="src">Evidence: <code>_config.yml</code> exclude list (repository file, not published) — compare with excluded <code>scripts/</code> and <code>desk-b4f/</code>; manual check: <a href="repo-review.html">repo review R-01</a></td><td>Add one exclusion line at next integration (owner/integrator action)</td></tr>
+</tbody>
+</table>
+
+<div class="note"><b>What "flagged" means here.</b> None of the above stops the site from being published — that is
+the brief's rule. It does mean: do not quote any amber/red figure externally, do not treat the
+occupy/rent/sell ranking as final, and re-run the verification set after each review round:
+<code>python3 desk-e86/verify.py</code>, <code>python3 scripts/privacy_scan.py</code>,
+<code>python3 scripts/verify_safe.py</code>.</div>
+
+</main>
+<footer class="site">
+  desk-e86 · session arena-e86df670 · built 13 November 2026 · official sources read on the build date ·
+  owner figures rounded to the nearest $10 · no names, addresses, parcel numbers or ZIP codes ·
+  not legal, tax or investment advice — re-verify the law in the transfer year.
+</footer>
+</body>
+</html>
