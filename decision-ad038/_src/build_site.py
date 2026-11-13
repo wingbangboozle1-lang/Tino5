@@ -163,7 +163,7 @@ site["index.html"] = page("index.html", "Estate decision analysis: Property A an
 rows = [
     ["Federal estate tax basic exclusion, 2026", usd(m.FED_EXCL_2026), "Published (IRS)", srcs("S01")],
     ["Federal estate tax basic exclusion, 2027", usd(m.FED_EXCL_2027), "Published (IRS Rev. Proc. 2026-35)", srcs("S02")],
-    ["California estate tax (deaths on/after 1 Jan 2005)", "No state estate or inheritance tax", "Searched (State Controller)", srcs("S22")],
+    ["California estate tax (deaths on/after 1 Jan 2005)", "No state estate or inheritance tax", "Published (State Controller)", srcs("S22")],
     ["Prop 19 parent-child transfer amount (16 Feb 2025 to 15 Feb 2027)", usd(m.PROP19_ALLOW_2025), "Published (BOE, shown rounded)", srcs("S03")],
     ["2026-27 Prop 13 inflation factor", "1.02", "Published (BOE)", srcs("S04")],
     ["SF secured property tax rate, FY 2026-27", "1.18162182%", "Searched (SF Treasurer)", srcs("S12")],

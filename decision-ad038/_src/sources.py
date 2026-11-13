@@ -51,7 +51,7 @@ SOURCES = {
     "S21": dict(title="Ballotpedia - Initiative 25-0017 (Prop 19 repeal): not on the ballot; failed to qualify", publisher="Ballotpedia",
                 url="https://ballotpedia.org/California_Changes_to_Tax_Assessment_on_Inherited_Homes_Initiative_(2026)", status="FETCHED"),
     "S22": dict(title="California State Controller - California Estate Tax (no return for deaths on/after 1 Jan 2005)", publisher="California State Controller's Office",
-                url="https://www.sco.ca.gov/ardtax_estate_tax.html", status="SEARCHED"),
+                url="https://www.sco.ca.gov/ardtax_estate_tax.html", status="FETCHED"),
     "S23": dict(title="CA Department of Insurance - 2025 residential premium data call summary (homeowners avg $2,340; dwelling fire $1,700; homeowners earthquake $1,440 per policy, rounded to $10)", publisher="California Department of Insurance",
                 url="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0300-earthquake-study/upload/EQEXP2025Summary.pdf", status="FETCHED"),
     "S24": dict(title="Santa Clara County Assessor / Tax Collector - tax rate tables (not reached)", publisher="County of Santa Clara",
