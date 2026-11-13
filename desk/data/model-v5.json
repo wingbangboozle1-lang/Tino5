@@ -148,14 +148,14 @@
     "cumulative_cash_flow": -3830890,
     "terminal_sale_price": 17313270,
     "terminal_selling_costs": 1038800,
-    "terminal_gain": 2566340,
-    "depreciation_taken": 3763460,
-    "suspended_passive_loss": 4926720,
+    "terminal_gain": 3866450,
+    "depreciation_taken": 3695040,
+    "suspended_passive_loss": 3695040,
     "s121_excluded": 0,
-    "terminal_recapture_tax": 880260,
-    "terminal_capital_gain_tax": 880260,
-    "terminal_niit": 0,
-    "terminal_net_worth": 8903560,
+    "terminal_recapture_tax": 1267400,
+    "terminal_capital_gain_tax": 1309050,
+    "terminal_niit": 6510,
+    "terminal_net_worth": 8468260,
     "reinvested_cash_flow": -6490660
    },
    "sell": {
@@ -229,14 +229,14 @@
     "cumulative_cash_flow": -3955650,
     "terminal_sale_price": 17313270,
     "terminal_selling_costs": 1038800,
-    "terminal_gain": 806210,
-    "depreciation_taken": 4469820,
-    "suspended_passive_loss": 5038700,
+    "terminal_gain": 1537630,
+    "depreciation_taken": 4388550,
+    "suspended_passive_loss": 4388550,
     "s121_excluded": 0,
-    "terminal_recapture_tax": 276530,
-    "terminal_capital_gain_tax": 276530,
+    "terminal_recapture_tax": 527410,
+    "terminal_capital_gain_tax": 527410,
     "terminal_niit": 0,
-    "terminal_net_worth": 9712760,
+    "terminal_net_worth": 9461890,
     "reinvested_cash_flow": -6285180
    },
    "sell": {
@@ -346,19 +346,22 @@
  "breakevens": {
   "2040": {
    "transfer_year": 2040,
-   "breakeven_monthly_rent": 12210,
+   "breakeven_monthly_rent": 12670,
+   "breakeven_home_growth": 0.05554,
    "rent_target": 5200,
    "sell_terminal_net_worth": 15811170
   },
   "2045": {
    "transfer_year": 2045,
-   "breakeven_monthly_rent": 13450,
+   "breakeven_monthly_rent": 13810,
+   "breakeven_home_growth": 0.05769,
    "rent_target": 5200,
    "sell_terminal_net_worth": 15874720
   },
   "2050": {
    "transfer_year": 2050,
    "breakeven_monthly_rent": 15140,
+   "breakeven_home_growth": 0.05996,
    "rent_target": 5200,
    "sell_terminal_net_worth": 15938530
   }
@@ -367,110 +370,135 @@
   {
    "id": "S1",
    "name": "1970s stagflation replay",
-   "anchor": "BLS CPI-U: +13.3% in the 12 months to Dec 1979, +13.5% for calendar 1980.",
-   "effect": "Prop 13's 2% cap makes the property tax a shrinking real cost, but every operating line and the discount rate rise. Holding wins on tax, loses on cost.",
+   "anchor": "BLS CPI-U: +13.3% in the 12 months to December 1979, and +13.5% for calendar 1980.",
+   "effect": "The 2% assessment cap makes the property tax a shrinking real cost while every operating line and the discount rate rise. Holding wins on tax and loses on cost.",
    "home_growth": 0.045,
    "insurance_growth": 0.09,
    "rent_growth": 0.06,
    "transfer_fmv": 7154370,
-   "tax_year1_occupy": 71580,
-   "tax_year1_reassessed": 83660,
-   "prop19_value_year1": 12080,
-   "annual_holding_cost_year30": 422750,
+   "tax_year1": 71580,
+   "tax_year30": 127180,
+   "tax_year1_if_reassessed": 83660,
+   "annual_holding_cost_year30": 418380,
    "fmv_at_horizon": 28001170,
-   "sell_now_then_invest": 19056760,
-   "hold_then_sell": 26321100,
-   "verdict": "holding wins"
+   "sell_now_then_invest": 11194730,
+   "hold_then_sell": 13780010,
+   "verdict": "holding wins",
+   "occupies": true
   },
   {
    "id": "S2",
    "name": "2006-2011 housing bust replay",
-   "anchor": "FHFA purchase-only national index fell about 21% from the 2007 peak to Feb 2011.",
-   "effect": "A forced sale at the wrong moment is the largest single risk in the sell path; a long hold can wait out the trough, a sale cannot.",
+   "anchor": "The national purchase-only house price index fell about 21% from its 2007 peak to February 2011.",
+   "effect": "A forced sale at the wrong moment is the largest single risk in the sell path. A long hold can wait out a trough. A sale cannot.",
    "home_growth": -0.008,
    "insurance_growth": 0.03,
    "rent_growth": 0.01,
    "transfer_fmv": 2661240,
-   "tax_year1_occupy": 19960,
-   "tax_year1_reassessed": 32040,
-   "prop19_value_year1": 12080,
-   "annual_holding_cost_year30": 62940,
+   "tax_year1": 19960,
+   "tax_year30": 35510,
+   "tax_year1_if_reassessed": 32040,
+   "annual_holding_cost_year30": 61670,
    "fmv_at_horizon": 2074650,
-   "sell_now_then_invest": 7088610,
-   "hold_then_sell": 1950170,
-   "verdict": "selling wins"
+   "sell_now_then_invest": 3287440,
+   "hold_then_sell": -935450,
+   "verdict": "selling wins",
+   "occupies": true
   },
   {
    "id": "S3",
    "name": "2022-style inflation shock",
-   "anchor": "BLS CPI-U: +8.0% for calendar 2022 while the FHFA index gained only 2.7%.",
-   "effect": "Real house prices fall. Rent rises faster than the AB 1482 cap allows the landlord to capture if the tenancy is protected and the cap is binding.",
+   "anchor": "BLS CPI-U: +8.0% for calendar 2022 while the house price index gained only about 2.7%.",
+   "effect": "Real house prices fall. Rents rise faster than the statutory cap allows a landlord to capture, which is the one condition under which renting out is not dominated.",
    "home_growth": 0.01,
    "insurance_growth": 0.15,
    "rent_growth": 0.045,
    "transfer_fmv": 3745140,
-   "tax_year1_occupy": 32410,
-   "tax_year1_reassessed": 44500,
-   "prop19_value_year1": 12080,
-   "annual_holding_cost_year30": 220660,
+   "tax_year1": 32410,
+   "tax_year30": 57630,
+   "tax_year1_if_reassessed": 44500,
+   "annual_holding_cost_year30": 210110,
    "fmv_at_horizon": 5098360,
-   "sell_now_then_invest": 9975750,
-   "hold_then_sell": 4792460,
-   "verdict": "selling wins"
+   "sell_now_then_invest": 3751980,
+   "hold_then_sell": -794710,
+   "verdict": "selling wins",
+   "occupies": true
   },
   {
    "id": "S4",
    "name": "High-rate, low-growth decade",
-   "anchor": "10-year Treasury par yield 5.10% on 12 Nov 2026 (US Treasury).",
-   "effect": "A high risk-free rate raises the bar every illiquid asset must clear and compresses house prices through cap-rate repricing.",
+   "anchor": "Ten-year Treasury par yield of 5.10% on 12 November 2026.",
+   "effect": "A high risk-free rate raises the bar every illiquid asset must clear, and compresses house prices through cap-rate repricing.",
    "home_growth": 0.015,
    "insurance_growth": 0.04,
    "rent_growth": 0.015,
    "transfer_fmv": 4113550,
-   "tax_year1_occupy": 36650,
-   "tax_year1_reassessed": 48730,
-   "prop19_value_year1": 12080,
-   "annual_holding_cost_year30": 138110,
+   "tax_year1": 36650,
+   "tax_year30": 65140,
+   "tax_year1_if_reassessed": 48730,
+   "annual_holding_cost_year30": 136030,
    "fmv_at_horizon": 6526250,
-   "sell_now_then_invest": 10957070,
-   "hold_then_sell": 6134680,
-   "verdict": "selling wins"
+   "sell_now_then_invest": 6897490,
+   "hold_then_sell": 686780,
+   "verdict": "selling wins",
+   "occupies": true
   },
   {
    "id": "S5",
    "name": "Insurance-market contraction",
-   "anchor": "CDI 2025: homeowners' premium $2,340/policy, plus $1,440 earthquake; dwelling fire $1,702. The FAIR Plan writes 24% of dwelling-fire policies.",
-   "effect": "The owner's $1,500 assumption is already below the statewide average, so a shock lands on an under-budgeted line.",
+   "anchor": "Regulator's 2025 data call: homeowners' premium about $2,340 a policy, plus about $1,440 of earthquake cover, with dwelling-fire cover at about $1,700.",
+   "effect": "Both houses are budgeted at premiums below the statewide average, so a repricing lands on a line that is already understated.",
    "home_growth": 0.03,
    "insurance_growth": 0.2,
    "rent_growth": 0.025,
    "transfer_fmv": 5435870,
-   "tax_year1_occupy": 51840,
-   "tax_year1_reassessed": 63920,
-   "prop19_value_year1": 12080,
-   "annual_holding_cost_year30": 606050,
+   "tax_year1": 51840,
+   "tax_year30": 92120,
+   "tax_year1_if_reassessed": 63920,
+   "annual_holding_cost_year30": 582130,
    "fmv_at_horizon": 13590110,
-   "sell_now_then_invest": 14479270,
-   "hold_then_sell": 12774700,
-   "verdict": "selling wins"
+   "sell_now_then_invest": 9827050,
+   "hold_then_sell": 2179580,
+   "verdict": "selling wins",
+   "occupies": true
   },
   {
    "id": "S6",
-   "name": "Prop 19 exclusion lost",
-   "anchor": "RTC 63.2(a)(1)(B): the exclusion is removed when the transferee is no longer eligible for the homeowners' or disabled veterans' exemption.",
-   "effect": "Moving out, or renting A long-term, forfeits the exclusion and restores the full factored base year value. This is the most expensive mistake available.",
+   "name": "Exclusion claimed, then lost",
+   "anchor": "RTC s.63.2(a)(1)(B) removes the exclusion on the date the transferee stops being eligible for the homeowners' exemption, and enrolls a new base-year value from the following lien date.",
+   "effect": "The heir claims the exclusion, then moves out after eight years. The tax reverts to market value for the remaining term. This is the most expensive mistake that is entirely within the heir's control.",
    "home_growth": 0.035,
    "insurance_growth": 0.04,
    "rent_growth": 0.02,
    "transfer_fmv": 5959750,
-   "tax_year1_occupy": 69940,
-   "tax_year1_reassessed": 69940,
-   "prop19_value_year1": 0,
-   "annual_holding_cost_year30": 301320,
+   "tax_year1": 57860,
+   "tax_year30": 124200,
+   "tax_year1_if_reassessed": 69940,
+   "annual_holding_cost_year30": 298200,
    "fmv_at_horizon": 17313270,
-   "sell_now_then_invest": 15874720,
-   "hold_then_sell": 16274480,
-   "verdict": "holding wins"
+   "sell_now_then_invest": 11532330,
+   "hold_then_sell": 6313340,
+   "verdict": "selling wins",
+   "occupies": true
+  },
+  {
+   "id": "S7",
+   "name": "Rented from the outset",
+   "anchor": "RTC s.63.2(a)(1): no exclusion is available unless the property becomes the transferee's principal residence and the claim is filed.",
+   "effect": "The house is let instead of occupied, so the exclusion never applies and the property is reassessed at full cash value from the transfer date.",
+   "home_growth": 0.035,
+   "insurance_growth": 0.04,
+   "rent_growth": 0.02,
+   "transfer_fmv": 5959750,
+   "tax_year1": 69940,
+   "tax_year30": 124200,
+   "tax_year1_if_reassessed": 69940,
+   "annual_holding_cost_year30": 298200,
+   "fmv_at_horizon": 17313270,
+   "sell_now_then_invest": 11532330,
+   "hold_then_sell": 6061000,
+   "verdict": "selling wins",
+   "occupies": false
   }
  ],
  "b_ledger": {
@@ -597,7 +625,7 @@
    "home_growth": 0.035,
    "invest_pre_tax": 0.035,
    "occupy": 8695940,
-   "rent": 9952860,
+   "rent": 9517550,
    "sell": 10865590
   },
   {
@@ -605,7 +633,7 @@
    "home_growth": 0.035,
    "invest_pre_tax": 0.051,
    "occupy": 7849020,
-   "rent": 8903560,
+   "rent": 8468260,
    "sell": 15811170
   },
   {
@@ -613,7 +641,7 @@
    "home_growth": 0.035,
    "invest_pre_tax": 0.065,
    "occupy": 6928090,
-   "rent": 7760050,
+   "rent": 7324740,
    "sell": 21884260
   },
   {
@@ -621,7 +649,7 @@
    "home_growth": 0.05,
    "invest_pre_tax": 0.035,
    "occupy": 17270010,
-   "rent": 18945600,
+   "rent": 18503930,
    "sell": 13290410
   },
   {
@@ -629,7 +657,7 @@
    "home_growth": 0.05,
    "invest_pre_tax": 0.051,
    "occupy": 15775670,
-   "rent": 17248870,
+   "rent": 16807200,
    "sell": 19339690
   },
   {
@@ -637,7 +665,7 @@
    "home_growth": 0.05,
    "invest_pre_tax": 0.065,
    "occupy": 14162590,
-   "rent": 15413220,
+   "rent": 14971550,
    "sell": 26768080
   },
   {
@@ -669,7 +697,7 @@
    "home_growth": 0.035,
    "invest_pre_tax": 0.035,
    "occupy": 9140990,
-   "rent": 10605360,
+   "rent": 10354490,
    "sell": 11492690
   },
   {
@@ -677,7 +705,7 @@
    "home_growth": 0.035,
    "invest_pre_tax": 0.051,
    "occupy": 8441510,
-   "rent": 9712760,
+   "rent": 9461890,
    "sell": 15874720
   },
   {
@@ -685,7 +713,7 @@
    "home_growth": 0.035,
    "invest_pre_tax": 0.065,
    "occupy": 7703990,
-   "rent": 8770050,
+   "rent": 8519170,
    "sell": 21002320
   },
   {
@@ -693,7 +721,7 @@
    "home_growth": 0.05,
    "invest_pre_tax": 0.035,
    "occupy": 17787910,
-   "rent": 19778070,
+   "rent": 19514550,
    "sell": 15106080
   },
   {
@@ -701,7 +729,7 @@
    "home_growth": 0.05,
    "invest_pre_tax": 0.051,
    "occupy": 16484410,
-   "rent": 18281450,
+   "rent": 18017920,
    "sell": 20865860
   },
   {
@@ -709,7 +737,7 @@
    "home_growth": 0.05,
    "invest_pre_tax": 0.065,
    "occupy": 15116550,
-   "rent": 16708400,
+   "rent": 16444870,
    "sell": 27605610
   },
   {
@@ -1701,9 +1729,9 @@
      "gross_rent": 106510,
      "vacancy": 4260,
      "management": 6390,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -137970
     },
     {
@@ -1717,9 +1745,9 @@
      "gross_rent": 108640,
      "vacancy": 4350,
      "management": 6520,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -142730
     },
     {
@@ -1733,9 +1761,9 @@
      "gross_rent": 110810,
      "vacancy": 4430,
      "management": 6650,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -147640
     },
     {
@@ -1749,9 +1777,9 @@
      "gross_rent": 113030,
      "vacancy": 4520,
      "management": 6780,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -152730
     },
     {
@@ -1765,9 +1793,9 @@
      "gross_rent": 115290,
      "vacancy": 4610,
      "management": 6920,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -157990
     },
     {
@@ -1781,9 +1809,9 @@
      "gross_rent": 117600,
      "vacancy": 4700,
      "management": 7060,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -163440
     },
     {
@@ -1797,9 +1825,9 @@
      "gross_rent": 119950,
      "vacancy": 4800,
      "management": 7200,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -169080
     },
     {
@@ -1813,9 +1841,9 @@
      "gross_rent": 122350,
      "vacancy": 4890,
      "management": 7340,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -174910
     },
     {
@@ -1829,9 +1857,9 @@
      "gross_rent": 124790,
      "vacancy": 4990,
      "management": 7490,
-     "depreciation": 136850,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 136850,
+     "suspended_loss_added": 0,
      "net_cash_flow": -180950
     }
    ],
@@ -3156,9 +3184,9 @@
      "gross_rent": 106510,
      "vacancy": 4260,
      "management": 6390,
-     "depreciation": 162540,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 162540,
+     "suspended_loss_added": 0,
      "net_cash_flow": -180280
     },
     {
@@ -3172,9 +3200,9 @@
      "gross_rent": 108640,
      "vacancy": 4350,
      "management": 6520,
-     "depreciation": 162540,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 162540,
+     "suspended_loss_added": 0,
      "net_cash_flow": -186240
     },
     {
@@ -3188,9 +3216,9 @@
      "gross_rent": 110810,
      "vacancy": 4430,
      "management": 6650,
-     "depreciation": 162540,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 162540,
+     "suspended_loss_added": 0,
      "net_cash_flow": -192400
     },
     {
@@ -3204,9 +3232,9 @@
      "gross_rent": 113030,
      "vacancy": 4520,
      "management": 6780,
-     "depreciation": 162540,
+     "depreciation": 0,
      "income_tax": 0,
-     "suspended_loss_added": 162540,
+     "suspended_loss_added": 0,
      "net_cash_flow": -198760
     }
    ],

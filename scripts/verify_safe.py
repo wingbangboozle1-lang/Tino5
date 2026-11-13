@@ -21,8 +21,10 @@ import re
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
 DEPLOYMENT_EXCLUSIONS = {
-    "review-092b", "verify-552", "session-595f0109", "decision-ad038", "desk-22a32b17",
-    "tools-22a32b17",
+    # Complete and verified, awaiting an owner decision on publication, because this gate allows
+    # only public-safe/ to be served. Adding a directory here excludes it; it does not publish it.
+    "review-092b", "decision-ad038", "desk",
+    "verify-552", "session-595f0109", "desk-22a32b17", "tools-22a32b17",
     "swan-3a49", "referee-abae", "desk-b4f", "docs", "archive", "audited-v4",
     "data", "analysis", "assets", "model", "pages", "research", "scripts",
     "session-2f7b1b3f", "mine", "src",

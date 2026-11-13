@@ -213,6 +213,7 @@ def run_path(path: str, transfer: int, rent_month: float | None = None,
     n_years = A["end_year"] - transfer
     improve_dep = fmv0 * (1 - A["land_share"])     # fixed: depreciation uses basis
     annual_dep = improve_dep / A["depr_years"]
+    dep_years = int(A["depr_years"])     # 27 full years at one 27.5-year line, then it stops
     rows = []
     after_tax_invest = A["invest_pre_tax"] * (1 - A["invest_tax_drag"])
     portfolio = fmv0 * (1 - A["selling_cost"]) if path == "sell" else 0.0
@@ -231,16 +232,19 @@ def run_path(path: str, transfer: int, rent_month: float | None = None,
                "insurance": ins, "utilities": util, "maintenance": maint}
 
         if path == "rent":
+            # depreciation stops when the recovery period is exhausted
+            # whole recovery years only: the 0.5 in 27.5 does not buy an extra full year
+            dep_this_year = annual_dep if i < int(dep_years) else 0.0
             gross = growth(rent_month * 12, A["rent_growth"], i)
             vac, mgmt = gross * A["vacancy"], gross * A["management"]
             net_pre = gross - vac - mgmt - tax - ins - util - maint
             row.update({"gross_rent": gross, "vacancy": vac, "management": mgmt,
-                        "depreciation": annual_dep})
+                        "depreciation": dep_this_year})
             # a rental loss is passive: it is suspended, not deducted against other income
-            income_tax = max(0.0, net_pre - annual_dep) * A["ordinary_rate"]
-            suspended_loss += max(0.0, annual_dep - max(0.0, net_pre))
-            row.update({"income_tax": income_tax, "suspended_loss_added":
-                        max(0.0, annual_dep - max(0.0, net_pre)),
+            income_tax = max(0.0, net_pre - dep_this_year) * A["ordinary_rate"]
+            added = max(0.0, dep_this_year - max(0.0, net_pre))
+            suspended_loss += added
+            row.update({"income_tax": income_tax, "suspended_loss_added": added,
                         "net_cash_flow": net_pre - income_tax})
             housing_source = "rents elsewhere or lives in Property B's own unit"
         elif path == "occupy":
@@ -285,7 +289,7 @@ def run_path(path: str, transfer: int, rent_month: float | None = None,
         })
     else:
         sold = fmv_end * (1 - A["selling_cost"])
-        claimed = annual_dep * min(n_years, A["depr_years"]) if path == "rent" else 0.0
+        claimed = sum(r["depreciation"] for r in rows) if path == "rent" else 0.0
         # IRS Topic 425: on disposition of the entire interest, suspended passive losses
         # are fully deductible, so they reduce the gain before the rate is applied.
         gain = sold - basis - claimed - (suspended_loss if path == "rent" else 0.0)
@@ -316,15 +320,34 @@ def run_path(path: str, transfer: int, rent_month: float | None = None,
 
 
 def breakeven(transfer: int) -> dict:
+    """The two break-evens that decide the answer.
+
+    rent_growth: the rent at which renting out ties selling and reinvesting.
+    home_growth: the appreciation rate at which holding (occupying) ties selling. Both paths are
+    re-run at each trial growth rate, because the sell proceeds depend on it too.
+    """
     sell = run_path("sell", transfer)["terminal_net_worth"]
-    lo, hi = 500.0, 40_000.0
-    for _ in range(70):
+    lo, hi = 500.0, 60_000.0
+    for _ in range(60):
         mid = (lo + hi) / 2
         if run_path("rent", transfer, rent_month=mid)["terminal_net_worth"] < sell:
             lo = mid
         else:
             hi = mid
-    return {"transfer_year": transfer, "breakeven_monthly_rent": r10((lo + hi) / 2),
+    rent_be = (lo + hi) / 2
+
+    lo_g, hi_g = 0.0, 0.15
+    for _ in range(60):
+        mid = (lo_g + hi_g) / 2
+        hold = run_path("occupy", transfer, g=mid)["terminal_net_worth"]
+        sell_g = run_path("sell", transfer, g=mid)["terminal_net_worth"]
+        if hold < sell_g:
+            lo_g = mid
+        else:
+            hi_g = mid
+    return {"transfer_year": transfer,
+            "breakeven_monthly_rent": r10(rent_be),
+            "breakeven_home_growth": round((lo_g + hi_g) / 2, 5),
             "rent_target": A["rent_target_month"],
             "sell_terminal_net_worth": sell}
 
@@ -335,73 +358,120 @@ def breakeven(transfer: int) -> dict:
 SWANS = [
     {"id": "S1", "name": "1970s stagflation replay", "home_growth": 0.045,
      "insurance_growth": 0.090, "rent_growth": 0.060, "occupy_ok": True,
-     "anchor": "BLS CPI-U: +13.3% in the 12 months to Dec 1979, +13.5% for calendar 1980.",
-     "effect": "Prop 13's 2% cap makes the property tax a shrinking real cost, but every "
-               "operating line and the discount rate rise. Holding wins on tax, loses on cost."},
+     "anchor": "BLS CPI-U: +13.3% in the 12 months to December 1979, and +13.5% for calendar 1980.",
+     "effect": "The 2% assessment cap makes the property tax a shrinking real cost while every "
+               "operating line and the discount rate rise. Holding wins on tax and loses on cost."},
     {"id": "S2", "name": "2006-2011 housing bust replay", "home_growth": -0.008,
      "insurance_growth": 0.030, "rent_growth": 0.010, "occupy_ok": True,
-     "anchor": "FHFA purchase-only national index fell about 21% from the 2007 peak to Feb 2011.",
-     "effect": "A forced sale at the wrong moment is the largest single risk in the sell path; "
-               "a long hold can wait out the trough, a sale cannot."},
+     "anchor": "The national purchase-only house price index fell about 21% from its 2007 peak to "
+               "February 2011.",
+     "effect": "A forced sale at the wrong moment is the largest single risk in the sell path. A "
+               "long hold can wait out a trough. A sale cannot."},
     {"id": "S3", "name": "2022-style inflation shock", "home_growth": 0.010,
      "insurance_growth": 0.150, "rent_growth": 0.045, "occupy_ok": True,
-     "anchor": "BLS CPI-U: +8.0% for calendar 2022 while the FHFA index gained only 2.7%.",
-     "effect": "Real house prices fall. Rent rises faster than the AB 1482 cap allows the "
-               "landlord to capture if the tenancy is protected and the cap is binding."},
+     "anchor": "BLS CPI-U: +8.0% for calendar 2022 while the house price index gained only about "
+               "2.7%.",
+     "effect": "Real house prices fall. Rents rise faster than the statutory cap allows a landlord "
+               "to capture, which is the one condition under which renting out is not dominated."},
     {"id": "S4", "name": "High-rate, low-growth decade", "home_growth": 0.015,
      "insurance_growth": 0.040, "rent_growth": 0.015, "occupy_ok": True,
-     "anchor": "10-year Treasury par yield 5.10% on 12 Nov 2026 (US Treasury).",
-     "effect": "A high risk-free rate raises the bar every illiquid asset must clear and "
-               "compresses house prices through cap-rate repricing."},
+     "anchor": "Ten-year Treasury par yield of 5.10% on 12 November 2026.",
+     "effect": "A high risk-free rate raises the bar every illiquid asset must clear, and compresses "
+               "house prices through cap-rate repricing."},
     {"id": "S5", "name": "Insurance-market contraction", "home_growth": 0.030,
      "insurance_growth": 0.200, "rent_growth": 0.025, "occupy_ok": True,
-     "anchor": "CDI 2025: homeowners' premium $2,340/policy, plus $1,440 earthquake; "
-               "dwelling fire $1,702. The FAIR Plan writes 24% of dwelling-fire policies.",
-     "effect": "The owner's $1,500 assumption is already below the statewide average, so a "
-               "shock lands on an under-budgeted line."},
-    {"id": "S6", "name": "Prop 19 exclusion lost", "home_growth": 0.035,
+     "anchor": "Regulator's 2025 data call: homeowners' premium about $2,340 a policy, plus about "
+               "$1,440 of earthquake cover, with dwelling-fire cover at about $1,700.",
+     "effect": "Both houses are budgeted at premiums below the statewide average, so a repricing "
+               "lands on a line that is already understated."},
+    {"id": "S6", "name": "Exclusion claimed, then lost", "home_growth": 0.035,
+     "insurance_growth": 0.040, "rent_growth": 0.020, "occupy_ok": True, "lose_exclusion_at": 8,
+     "anchor": "RTC s.63.2(a)(1)(B) removes the exclusion on the date the transferee stops being "
+               "eligible for the homeowners' exemption, and enrolls a new base-year value from the "
+               "following lien date.",
+     "effect": "The heir claims the exclusion, then moves out after eight years. The tax reverts "
+               "to market value for the remaining term. This is the most expensive mistake that is "
+               "entirely within the heir's control."},
+    {"id": "S7", "name": "Rented from the outset", "home_growth": 0.035,
      "insurance_growth": 0.040, "rent_growth": 0.020, "occupy_ok": False,
-     "anchor": "RTC 63.2(a)(1)(B): the exclusion is removed when the transferee is no longer "
-               "eligible for the homeowners' or disabled veterans' exemption.",
-     "effect": "Moving out, or renting A long-term, forfeits the exclusion and restores the "
-               "full factored base year value. This is the most expensive mistake available."},
+     "anchor": "RTC s.63.2(a)(1): no exclusion is available unless the property becomes the "
+               "transferee's principal residence and the claim is filed.",
+     "effect": "The house is let instead of occupied, so the exclusion never applies and the "
+               "property is reassessed at full cash value from the transfer date."},
 ]
 
 
-def run_swan(swan: dict, transfer: int) -> dict:
+def _swan_costs(swan: dict, transfer: int) -> dict:
+    """Holding cost and terminal value for one stress path, with one defensible convention.
+
+    A renter must pay rent, so the sell path's occupant is charged rent equal to the rent the
+    house itself could earn. Without that, the comparison credits the seller with both the
+    investment return and free housing.
+    """
     g = swan["home_growth"]
     st = a_state_at_transfer(transfer, g)
-    ok = swan["occupy_ok"]
     n = A["end_year"] - transfer
     off = transfer - 2026
-    tax_occ = (a_property_tax(a_taxable_value(transfer, True, g), True, off)
-               if ok else a_property_tax(st["fmv"], False, off))
-    tax_assessed = a_property_tax(st["fmv"], False, off)
-    fmv_end = growth(st["fmv"], g, n)
+    lose_at = swan.get("lose_exclusion_at")
+    occupy_ok = swan.get("occupy_ok", True)
+    market_base = a_property_tax(st["fmv"], False, off)
+    cash = 0.0
+    pool = 0.0
     at = A["invest_pre_tax"] * (1 - A["invest_tax_drag"])
-    sell_now = st["fmv"] * (1 - A["selling_cost"])
-    # the operating line, year 30, under this scenario's insurance path
-    op30 = (growth(O["A_insurance_year"], swan["insurance_growth"], 30)
-            + (growth(O["A_water_month"], swan["insurance_growth"] * 0.5, 30)
-               - growth(abs(O["A_elec_month"]), swan["insurance_growth"] * 0.5, 30)) * 12
-            + growth(st["fmv"], g, 30) * A["maint_pct_A"]
-            + a_property_tax(growth(a_taxable_value(transfer, True, g) if ok else st["fmv"],
-                                    V["prop13_annual_cap"], 30), ok, off + 30))
+    portfolio = st["fmv"] * (1 - A["selling_cost"])
+    tax_series = []
+    for i in range(n):
+        mv = growth(st["fmv"], g, i)
+        if occupy_ok and (lose_at is None or i < lose_at):
+            tv = growth(a_taxable_value(transfer, True, g), V["prop13_annual_cap"], i)
+            tax = a_property_tax(tv, True, off + i)
+        else:
+            # RTC 63.2(a)(1)(C): on loss of eligibility the assessor enrols the base-year value
+            # "established as of the change in ownership date", adjusted annually since then. It
+            # is the transfer-date value, not a later re-derivation, so a house that is occupied
+            # and then vacated converges with one that was never occupied.
+            tv = growth(st["fmv"], V["prop13_annual_cap"], i)
+            tax = a_property_tax(tv, False, off + i)
+        tax_series.append(tax)
+        ins = growth(O["A_insurance_year"], swan["insurance_growth"], i)
+        util = (growth(O["A_water_month"], swan["rent_growth"] * 0.5, i)
+                - growth(abs(O["A_elec_month"]), swan["rent_growth"] * 0.5, i)) * 12
+        maint = mv * A["maint_pct_A"]
+        rent = growth(A["rent_target_month"], swan["rent_growth"], i) * 12
+        pool = pool * (1 + at) - (tax + ins + util + maint)
+        cash += -(tax + ins + util + maint)
+        portfolio = portfolio * (1 + at) - rent
+    return {"st": st, "n": n, "pool": pool, "cash": cash, "portfolio": portfolio,
+            "tax_year1": tax_series[0], "tax_year30": tax_series[min(29, n - 1)],
+            "op_year30": (growth(O["A_insurance_year"], swan["insurance_growth"], 30)
+                          + (growth(O["A_water_month"], swan["rent_growth"] * 0.5, 30)
+                             - growth(abs(O["A_elec_month"]), swan["rent_growth"] * 0.5, 30)) * 12
+                          + growth(st["fmv"], g, 30) * A["maint_pct_A"]
+                          + tax_series[min(29, n - 1)])}
+
+
+def run_swan(swan: dict, transfer: int) -> dict:
+    c = _swan_costs(swan, transfer)
+    st, n = c["st"], c["n"]
+    fmv_end = growth(st["fmv"], swan["home_growth"], n)
+    hold = fmv_end * (1 - A["selling_cost"]) + c["pool"]
+    sell = c["portfolio"]
     return {
         "id": swan["id"], "name": swan["name"], "anchor": swan["anchor"],
         "effect": swan["effect"],
-        "home_growth": g, "insurance_growth": swan["insurance_growth"],
+        "home_growth": swan["home_growth"],
+        "insurance_growth": swan["insurance_growth"],
         "rent_growth": swan["rent_growth"],
         "transfer_fmv": r10(st["fmv"]),
-        "tax_year1_occupy": r10(tax_occ),
-        "tax_year1_reassessed": r10(tax_assessed),
-        "prop19_value_year1": r10(tax_assessed - tax_occ),
-        "annual_holding_cost_year30": r10(op30),
+        "tax_year1": r10(c["tax_year1"]),
+        "tax_year30": r10(c["tax_year30"]),
+        "tax_year1_if_reassessed": r10(a_property_tax(st["fmv"], False, transfer - 2026)),
+        "annual_holding_cost_year30": r10(c["op_year30"]),
         "fmv_at_horizon": r10(fmv_end),
-        "sell_now_then_invest": r10(sell_now * (1 + at) ** n),
-        "hold_then_sell": r10(fmv_end * (1 - A["selling_cost"])),
-        "verdict": ("holding wins" if fmv_end * (1 - A["selling_cost"]) > sell_now * (1 + at) ** n
-                    else "selling wins"),
+        "sell_now_then_invest": r10(sell),
+        "hold_then_sell": r10(hold),
+        "verdict": "holding wins" if hold > sell else "selling wins",
+        "occupies": bool(swan.get("occupy_ok", True)),
     }
 
 

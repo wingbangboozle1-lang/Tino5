@@ -1,5 +1,10 @@
 title: Estate decision desk
 plugins: []
+# desk/ is excluded until the owner approves publishing it: the repository gate in
+# scripts/verify_safe.py is fail-closed and allows only public-safe/ to be served.
+# Everything else here is working material: research notes, superseded desks, generated data,
+# and scripts. Excluding a path hides it from the built site; it does not remove it from the
+# repository, so anything that must not be public has to be deleted, not merely excluded.
 exclude:
   - "_src"
   - "review-092b"
@@ -10,20 +15,21 @@ exclude:
   - "assets"
   - "audited-v4"
   - "data"
-  - "docs"
   - "decision-ad038"
-  - "desk-b4f"
   - "desk-22a32b17"
-  - "tools-22a32b17"
-  - "swan-3a49"
-  - "referee-abae"
+  - "desk-b4f"
+  - "desk"
+  - "docs"
   - "mine"
   - "model"
   - "pages"
+  - "referee-abae"
   - "research"
   - "scripts"
   - "session-2f7b1b3f"
   - "session-595f0109"
-  - "verify-552"
   - "src"
+  - "swan-3a49"
+  - "tools-22a32b17"
+  - "verify-552"
   - "verification-report.json"

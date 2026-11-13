@@ -63,7 +63,7 @@ class TestPaths(unittest.TestCase):
         r = m.run_path("rent", 2045)
         basis = r["transfer_fmv"] * (1 - m.A["land_share"])
         per_year = basis / m.A["depr_years"]
-        expected = per_year * min(r["years"], m.A["depr_years"])
+        expected = per_year * min(r["years"], int(m.A["depr_years"]))
         self.assertAlmostEqual(r["depreciation_taken"], m.r10(expected), delta=30)
 
     def test_terminal_net_worth_is_sale_less_tax(self):
@@ -76,6 +76,32 @@ class TestPaths(unittest.TestCase):
     def test_s121_exclusion_applies_only_to_occupancy(self):
         self.assertEqual(m.run_path("rent", 2045)["s121_excluded"], 0)
         self.assertGreater(m.run_path("occupy", 2040)["s121_excluded"], 0)
+
+
+class TestSwans(unittest.TestCase):
+    def test_every_swan_produces_a_verdict(self):
+        for swan in m.SWANS:
+            r = m.run_swan(swan, 2045)
+            self.assertIn(r["verdict"], ("holding wins", "selling wins"))
+
+    def test_losing_the_exclusion_raises_the_tax(self):
+        """S6 holds and then loses the exclusion; S7 never had it. By year 30 both are being
+        taxed on market value, so the two must converge, and S6 must be worse than never moving."""
+        lost = m.run_swan([x for x in m.SWANS if x["id"] == "S6"][0], 2045)
+        never = m.run_swan([x for x in m.SWANS if x["id"] == "S7"][0], 2045)
+        self.assertLess(lost["tax_year1"], never["tax_year1"])
+        # occupying for eight years is still worth something, so the lost-and-then-moved case
+        # must beat never occupying by roughly the present value of those eight years
+        self.assertGreater(lost["hold_then_sell"], never["hold_then_sell"])
+        # by year 30 both are taxed on the same transfer-date base, so they converge
+        self.assertAlmostEqual(lost["tax_year30"], never["tax_year30"],
+                               delta=never["tax_year30"] * 0.02)
+        # and occupying for eight years must still beat never occupying
+        self.assertGreater(lost["hold_then_sell"], never["hold_then_sell"])
+
+    def test_a_bust_reverses_the_ranking(self):
+        bust = m.run_swan([x for x in m.SWANS if x["id"] == "S2"][0], 2045)
+        self.assertEqual(bust["verdict"], "selling wins")
 
 
 class TestB(unittest.TestCase):
