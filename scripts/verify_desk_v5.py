@@ -36,7 +36,8 @@ from build_desk_v5 import ALLOWED_HOSTS  # single source of truth for cited host
 # Statutory amounts and published rates that are quoted exactly and must NOT be rounded.
 EXACT_ALLOWED = {
     "$15,000,000", "$15,480,000", "$1,044,586", "$7,000", "$250,000", "$500,000",
-    "$200,000", "$166,250", "$20,000", "$100,000", "$800,000", "$9,000,000",
+    "$200,000", "$166,250", "$208,850", "$750,000", "$107,900", "$69,625",
+    "$20,000", "$100,000", "$800,000", "$9,000,000",
     "$25,000,000", "$166,250.", "$0.55", "$1.65", "$3.75", "$11.25", "$2.50", "$3.40",
     "$27.50", "$30.00", "$1,090", "$1,350", "$2,440", "$114,250", "$4.9692", "$78.64",
     "$2,339.99", "$1,701.60", "$1,440.11", "$3,780", "$3,000", "$1,500", "$5,200",
@@ -83,13 +84,19 @@ def published_surface(pages, warn, fail):
              ".nojekyll exists: it disables Jekyll, so every _config.yml exclude is inert and "
              "research/, analysis/, and the older desks become publicly reachable")
     on_disk = [e for e in excluded if (ROOT / e).exists()]
-    required = {"research", "analysis", "desk", "desk-22a32b17", "COORDINATION.md", "scratch"}
+    # desk/ is intentionally published (PUBLISHED_DESKS in scripts/verify_safe.py, owner
+    # brief 7b/INT); it must therefore NOT appear in the Jekyll exclude list. Everything
+    # else in this set must stay excluded while it exists on disk.
+    required = {"research", "analysis", "desk-22a32b17", "COORDINATION.md", "scratch"}
     absent = sorted(a for a in required if a not in excluded and (ROOT / a).exists())
     if absent:
         fail("published-surface", f"present on disk but not excluded from the site: {absent}")
+    if "desk" in excluded:
+        fail("published-surface", "desk/ is listed as published in scripts/verify_safe.py "
+             "PUBLISHED_DESKS but is still excluded by Jekyll in _config.yml")
     warn("published-surface",
-         f"Jekyll build is active and {len(on_disk)} excluded paths are honoured; only "
-         f"public-safe/ is served")
+         f"Jekyll build is active and {len(on_disk)} excluded paths are honoured; the "
+         f"approved desks and public-safe/ are served")
 
 
 def check_page_set(pages, warn, fail):
@@ -222,7 +229,7 @@ def check_hygiene(pages, warn, fail):
             problems.append((name, "form tag"))
         if re.search(r'(?:src|href)="(?:https?:)?//(?!.*(?:irs|leginfo|sco|ftb|boe|dof|sccgov|'
                      r'santaclaracounty|sftreasurer|sf\.gov|insurance|cpuc|sjwater|sfpuc|'
-                     r'treasury|freddiemac|fhfa|bls|cbo|census|sos)\.)', text):
+                     r'treasury|freddiemac|fhfa|bls|cbo|census|sos|courts)\.)', text):
             problems.append((name, "external asset"))
         if re.search(r'<img\b', text, re.I):
             problems.append((name, "image"))

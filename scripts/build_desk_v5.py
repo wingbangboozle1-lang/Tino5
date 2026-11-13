@@ -69,8 +69,10 @@ S = {
    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=11911"),
  "civ_1947_12": ("Civil Code s.1947.12 (state rent cap)",
    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12"),
- "prob_13100": ("Probate Code s.13100 (small-estate affidavit)",
-   "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=13100"),
+    "prob_13100": ("Probate Code s.13100 (small-estate affidavit)",
+                   "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=13100"),
+    "de300": ("Judicial Council · Form DE-300 (probate thresholds, deaths on or after 1 Apr 2025)",
+              "https://www.courts.ca.gov/documents/de300.pdf"),
  "prob_16061_7": ("Probate Code s.16061.7 (trustee notification)",
    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=16061.7"),
  "prob_10810": ("Probate Code s.10810 (statutory probate fees)",
@@ -116,6 +118,7 @@ ALLOWED_HOSTS = {
     "www.insurance.ca.gov", "www.cpuc.ca.gov", "www.sjwater.com", "www.sfpuc.gov",
     "home.treasury.gov", "www.freddiemac.com", "www.fhfa.gov", "www.bls.gov",
     "www.cbo.gov", "www.census.gov", "www.sos.ca.gov",
+    "courts.ca.gov", "www.courts.ca.gov",   # Judicial Council DE-300 (7b/INT gap fix)
 }
 
 
@@ -1240,7 +1243,8 @@ KNOWN = [
     ("City secured rate, FY2026-27, for the already-owned house", "1.18162182%", "sft_secured"),
     ("Home-sale exclusion, single filer", "$250,000", "irs_701"),
     ("Net investment income tax threshold and rate", "3.8% above $200,000", "irs_559"),
-    ("Small-estate affidavit limit", "$166,250", "prob_13100"),
+    ("Small-estate affidavit limit (DE-300 schedule; Prob. Code s.13100 base text is $166,250 as adjusted under s.890)",
+     "$208,850", "de300"),
     ("Trustee notification deadline", "60 days", "prob_16061_7"),
     ("Federal estate-tax return deadline", "9 months, plus 6 on extension", "irs_706"),
     ("Documentary transfer tax, county base rate", "$0.55 per $500", "rtc_11911"),

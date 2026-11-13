@@ -1,17 +1,26 @@
 {
- "failures": [],
+ "failures": [
+  {
+   "check": "hygiene",
+   "detail": "[('questions.html', 'external asset'), ('sources.html', 'external asset')]"
+  }
+ ],
  "warnings": [
   {
    "check": "page-set",
    "detail": "16 expected files present"
   },
   {
+   "check": "published-surface",
+   "detail": "Jekyll build is active and 21 excluded paths are honoured; the approved desks and public-safe/ are served"
+  },
+  {
    "check": "links",
-   "detail": "137 external links, all on allowlisted official hosts"
+   "detail": "138 external links, all on allowlisted official hosts"
   },
   {
    "check": "sourcing",
-   "detail": "303 rows across 27 data tables, each with a source link, a flag, or a model marker"
+   "detail": "304 rows across 27 data tables, each with a source link, a flag, or a model marker"
   },
   {
    "check": "rounding",
@@ -35,6 +44,6 @@
   }
  ],
  "pages": 15,
- "failure_count": 0,
- "warning_count": 8
+ "failure_count": 1,
+ "warning_count": 9
 }
