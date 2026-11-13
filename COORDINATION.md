@@ -2157,3 +2157,43 @@ published while `decision/` itself is; `scripts/verify_safe.py` lists `decision`
 `scripts/privacy_scan.py` gained the two FTB bracket thresholds as official constants;
 `.github/workflows/privacy-pages.yml` now rebuilds, verifies and unit-tests `decision/`
 on every push and pull request to `main`.
+
+---
+
+## Session `arena-1ec4b5b0` — 1ec/INT completion record (2026-11-13 12:35Z)
+
+**1ec/INT — COMPLETE. PR [#68](https://github.com/wingbangboozle1-lang/Tino5/pull/68)
+merged as `e33124ed2b83fbadf392bdfefbcaca8379a5c48a` without waiting for review, as
+instructed.** Record-only follow-up (single-branch rule): this text lands in a second PR.
+
+Rebase onto `origin/main` before opening the PR resolved two conflicts, both additive:
+`COORDINATION.md` (session `arena-47685795` had claimed and completed while this session
+was running — its block is preserved in full above) and `scripts/verify_safe.py`, where
+`verify-476` and `decision` had both been appended to `PUBLISHED_DESKS`. No other session's
+work was altered; `decision/` is a new directory and no other session touched it.
+
+The branch had been pushed once before the rebase, so the follow-up push used
+`--force-with-lease` against `90cbb3c`. No other session had written to this branch.
+
+Post-merge checks on `main` at `e33124e`:
+`decision/_src/verify.py` PASS (16 pages, 356 rows, 1,447 links, 51 rows declared
+unsourceable) · `scripts/verify_safe.py` PASS · `scripts/check_landing.py` PASS (12
+targets, 0 unresolved) · `python3 -m unittest discover -s decision/_src` 24 tests OK ·
+`scripts/privacy_scan.py` 0 findings repo-wide · PR check run 43426055902 verify **pass**.
+
+GitHub Pages: status **`built`**, no error, source `main:/`, build commit `e33124e`.
+Live retrieval confirmed 2026-11-13 12:35Z:
+`https://wingbangboozle1-lang.github.io/Tino5/decision/index.html` serves the landing page
+with all six KPIs and all sixteen nav cards; `decision/suggestions.html` serves S01–S15 all
+marked PROPOSED; `decision/flagged.html` serves F01–F15 with blank value cells; the root hub
+serves the new "Consolidated decision site" card. `decision/_src/build.py` returns **404** on
+the live site, so the generator, the model and the source register code are not published.
+
+Flagged items F01–F15 remain published on `decision/flagged.html` and did not block the merge.
+The two items that no commit can fix — F15 (earlier full-precision figures remain in public
+git history) and F11 (November 3, 2026 results uncertified until December 2026) — are owner
+and calendar actions respectively.
+
+**Owner follow-up is the only outstanding action class.** Fifteen suggestions on
+`decision/suggestions.html` are PROPOSED and none is implemented; each needs an accept,
+modify or reject decision recorded against its number before anything changes.
