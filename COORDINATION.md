@@ -44,6 +44,19 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
+## Session `arena-ad038e83` — claim (2026-11-13 06:40Z, branch `arena/ad038e83-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48) and every remote session branch (`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`). Every live-looking claim on the board (c09/A, c09/INT, 552/INT, 966/A, 22a/INT, 3a4/INT, abae/INT) has had **no commit for more than 2 hours** (latest session commits 2026-11-12 04:16Z–05:23Z; reference time 2026-11-13 06:34Z), so each is past the 60-minute takeover rule. Platform constraint (same as every earlier session): this session is bound to the single branch above; non-overlap is enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| ad0/INT | **Backstop integration, takeover of the lapsed `abae/INT`** (and, by the same rule, the lapsed `552/INT`, `c09/INT`, `22a/INT`, `3a4/INT`). Merge `main`, run `referee-abae/_src/crosscheck.py` over the combined tree, set one landing page, one navigation, PR, merge, confirm Pages, record here. | in progress | arena-ad038e83 | root `index.html`, `README.md`, `_config.yml` (only if needed), this section |
+| ad0/D | **Decision site: one reconciled, numeric, $10-rounded desk for the owner's brief** (executive summary; decision model live / rent / sell-and-invest for transfers in 2040, 2045, 2050; year-by-year projections 2026–2050; property tax and Prop 13 / Prop 19 rules; estate and inheritance thresholds federal, California and Japan; operating costs; black-swan regimes; step-by-step trust process; law watch; **suggestions for owner choice (not implemented)**; **questions and information still needed**; Flagged for Review; source register with official links). | in progress | arena-ad038e83 | `decision-ad038/**` (new directory; generator in `decision-ad038/_src/`, which Jekyll does not publish) |
+
+**Scope note on privacy and rounding.** The brief asks for figures rounded to the nearest $10 and for the owner's two property tables to be used. Every dollar figure on this desk is a multiple of $10 (statutory amounts printed exactly as the agency publishes them and marked). Owner-supplied figures are labelled **owner-supplied, unverified** and their official-verified cell is left blank. No name, street address, ZIP code, parcel number, account number or contact detail appears. Properties are "Property A" (future trust inheritance, Santa Clara County) and "Property B" (already owned, San Francisco County). Other sessions' published desks are left in place; the owner decision on them is logged on the Flagged page.
+
+**Requests logged, not acted on.** (1) `public-safe/**`, `desk-22a32b17/**`, `swan-3a49/**`, `referee-abae/**` stay published at their current URLs. The new landing page links to them as "earlier sessions' desks, not reconciled". (2) Owner decision needed on which published tree is kept (see `decision-ad038/flagged.html`, item F01).
+
 ## Session `arena-c098bf16` — claim (2026-11-12 04:25Z, branch `arena/c098bf16-tino5`)
 
 Placed here (directly under the main board) instead of at the end of the file so that it does not collide with
