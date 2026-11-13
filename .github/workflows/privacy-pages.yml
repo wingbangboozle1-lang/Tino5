@@ -23,5 +23,11 @@ jobs:
           python review-092b/_src/verify.py
       - name: Decision desk regression tests
         run: python -m unittest discover -s review-092b/_src -p "test_*.py" -v
+      - name: Consolidated decision site (decision/) \u2014 rebuild, then verify
+        run: |
+          python decision/_src/build.py
+          python decision/_src/verify.py
+      - name: Consolidated decision site \u2014 model regression tests
+        run: python -m unittest discover -s decision/_src -p "test_*.py" -v
       - name: Landing page links resolve
         run: python scripts/check_landing.py

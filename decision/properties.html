@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Properties &middot; Inheritance decision desk</title>
+<style>
+:root{--ink:#16202e;--mut:#5d6b7f;--line:#dfe5ee;--bg:#f6f8fb;--card:#fff;
+--blue:#1f4e79;--blue-l:#eaf1f8;--amber:#8a5a00;--amber-l:#fdf3e2;--red:#8c2f2f;
+--red-l:#fbecec;--green:#1d6b45;--green-l:#e9f5ee;--grey:#5b6474;--grey-l:#eef1f5}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--blue)}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 20px;position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:1280px;margin:auto}
+header h1{font-size:17px;margin:0;color:var(--blue);white-space:nowrap}
+nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav a{font-size:12.5px;padding:5px 9px;border-radius:6px;color:var(--mut);text-decoration:none;white-space:nowrap}
+nav a:hover{background:var(--blue-l);color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1280px;margin:auto;padding:22px 20px 70px}
+h2.kick{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 4px}
+h1.pt{font-size:26px;margin:0 0 8px;color:var(--blue)}
+h2{font-size:18px;margin:30px 0 8px;color:var(--blue);border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:15px;margin:20px 0 6px}
+p{max-width:88ch}
+.lead{font-size:15.5px;color:#2a3646}
+.muted{color:var(--mut);font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:15px;color:var(--blue)}
+.card p{margin:6px 0 0;font-size:14px}
+.card ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.card li{margin:4px 0}
+.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:9px;
+margin:12px 0 22px;padding:4px 0 0}
+.tf{padding:8px 10px}
+.tf input{width:100%;max-width:340px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;font:inherit}
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{background:var(--blue-l);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+font-weight:600;color:#1b3d5c;white-space:nowrap}
+table.data td{padding:8px 10px;border-bottom:1px solid #eef1f6;vertical-align:top}
+table.data tbody tr:hover{background:#fafcff}
+td.t-ver{background:#fbfefc}td.t-own{background:#fffdf7}td.t-der{background:#fafcff}
+td.t-asm{background:#f8f9fb}td.t-unv{background:var(--red-l)}
+td.t-rep{background:var(--amber-l)}td.t-lab{font-weight:600;color:#22303f}
+.blank{color:var(--red);font-style:italic;font-size:12.5px}
+.nosrc{display:inline-block;margin-top:3px;color:var(--red);font-size:11.5px;font-style:italic;background:var(--red-l);border-radius:3px;padding:1px 5px}
+.src{display:inline-block;font-size:11px;text-decoration:none;background:var(--grey-l);color:#3a4658;
+border-radius:4px;padding:1px 6px;margin:2px 3px 0 0;border:1px solid #e0e6ef}
+.src:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tag{display:inline-block;font-size:10.5px;border-radius:4px;padding:1px 5px;margin:2px 3px 0 0;
+border:1px solid transparent}
+.t-open{background:#f3e8fb;color:#5b2b7a;border-color:#e3d0f0}
+.tnote{font-size:12.5px;color:var(--mut);padding:2px 12px 12px;margin:0}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin:8px 0 14px;align-items:center}
+.legend span{padding:2px 8px;border-radius:5px;border:1px solid var(--line)}
+.lg-ver{background:#fbfefc}.lg-own{background:#fffdf7}.lg-der{background:#fafcff}
+.lg-asm{background:#f8f9fb}.lg-unv{background:var(--red-l);color:var(--red)}
+.lg-rep{background:var(--amber-l);color:var(--amber)}
+.banner{background:#fff8e8;border:1px solid #f0d9a8;border-left:4px solid #d99b1c;border-radius:8px;
+padding:11px 14px;margin:16px 0;font-size:13.5px}
+.banner.red{background:var(--red-l);border-color:#eecccc;border-left-color:#c05555}
+.banner.blue{background:var(--blue-l);border-color:#cfe0ee;border-left-color:var(--blue)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:14px 0 6px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+.kpi .v{font-size:21px;font-weight:650;color:var(--blue);line-height:1.2}
+.kpi .l{font-size:12px;color:var(--mut);margin-top:3px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+ol.steps>li{counter-increment:s;position:relative;padding:0 0 16px 44px;border-left:2px solid var(--line);margin-left:14px}
+ol.steps>li::before{content:counter(s);position:absolute;left:-15px;top:-2px;width:28px;height:28px;
+border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:600;
+display:flex;align-items:center;justify-content:center}
+ol.steps>li:last-child{border-left-color:transparent}
+ol.steps h4{margin:2px 0 4px;font-size:14.5px}
+ol.steps p{margin:3px 0;font-size:13.5px}
+.q{border-left:3px solid var(--blue);padding-left:12px;margin:18px 0}
+.q .qq{font-weight:600}
+.chk{font-weight:600;color:var(--green)}
+footer{max-width:1280px;margin:auto;padding:20px;border-top:1px solid var(--line);
+color:var(--mut);font-size:12.5px}
+@media(max-width:900px){nav{display:none}h1.pt{font-size:22px}}
+</style></head><body>
+<header><div class="wrap"><h1>Inheritance decision desk</h1><nav><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="properties.html" class="on">Properties</a><a href="property-tax.html">Property tax</a><a href="inheritance-tax.html">Inheritance &amp; estate tax</a><a href="operating-costs.html">Running costs</a><a href="projections.html">Projections</a><a href="scenarios.html">Options compared</a><a href="black-swan.html">Black swans</a><a href="process.html">Transfer process</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="law-watch.html">Law watch</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a><a href="methodology.html">Method &amp; privacy</a></nav></div></header>
+<main>
+<p class="kick">What is known and what is guessed</p><h1 class="pt">Properties</h1>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel or account number appears anywhere on this site. Properties are identified only as Property A (Santa Clara County, to be inherited through a trust) and Property B (San Francisco, already owned). All money is rounded to the nearest $10 so published figures cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nothing.</div><p class='lead'>What is known about each property, stated so that the difference between a fact and a guess is visible in every row.</p><div class="legend"><b style="font-size:12px">Cell key:</b><span class="lg-ver">verified &mdash; read from an official source</span><span class="lg-own">owner input &mdash; no official source exists</span><span class="lg-der">derived &mdash; computed from the inputs shown</span><span class="lg-asm">assumption &mdash; chosen here, listed on the method page</span><span class="lg-rep">reported &mdash; pending official confirmation</span><span class="lg-unv">unverified &mdash; value withheld</span></div><div class="tblwrap"><div class="tf"><input type="search" placeholder="Filter this table&hellip;" oninput="filterRows(this,'facts')"></div><table class="data" id="facts"><thead><tr><th>Item</th><th>Property A &amp;mdash; Santa Clara County (inherited)</th><th>Property B &amp;mdash; San Francisco (already owned)</th></tr></thead><tbody><tr data-i="0"><td class="t-lab">Role in the decision</td><td class="t-own">To be inherited through a family trust, expected 2040&ndash;2050</td><td class="t-own">Already owned; lived in; two of three units let<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="1"><td class="t-lab">Estimated market value, November 2026</td><td class="t-own">$3,100,000</td><td class="t-own">$1,800,000<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="2"><td class="t-lab">Last reported assessed value</td><td class="t-own">$550,540</td><td class="t-own">$114,250<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="3"><td class="t-lab">Last reported annual property tax bill</td><td class="t-own">$7,210</td><td class="t-own">$2,440<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="4"><td class="t-lab">Livable units</td><td class="t-unv">Not stated</td><td class="t-own">3<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="5"><td class="t-lab">Units currently let</td><td class="t-own">0 &mdash; owner-occupied</td><td class="t-own">2<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="6"><td class="t-lab">Current rent</td><td class="t-own">None</td><td class="t-own">$7,150 a month, about $85,800 a year<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="7"><td class="t-lab">Water</td><td class="t-own">$100 to $150 a month (owner range); $130 used as the planning figure</td><td class="t-own">$330 to $400 a month for all three units (owner range); $370 used<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="8"><td class="t-lab">Electricity</td><td class="t-own">Rooftop solar normally produces a credit of about $10 to $20 a month; $10 a month used as the planning figure</td><td class="t-own">$30 to $70 a month (owner range); $50 used<br><span class='nosrc'>No official source &mdash; owner record only, not independently verifiable from any public source</span></td></tr><tr data-i="9"><td class="t-lab">Water and sewer rates</td><td class="t-unv">Not the public utility that serves San Francisco; rate schedule not retrieved</td><td class="t-ver">Served by the San Francisco Public Utilities Commission; official 2026-27 schedules published<br><a class="src" href="https://www.sfpuc.gov/accounts-services/water-power-and-sewer-rates" target="_blank" rel="noopener noreferrer" title="Water, power and sewer rate schedules">San Francisco Public Utilities Commission</a></td></tr><tr data-i="10"><td class="t-lab">Home insurance</td><td class="t-unv">$1,500 a year &mdash; owner estimate, no quotation obtained</td><td class="t-unv">$1,500 a year &mdash; owner estimate, no quotation obtained<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="11"><td class="t-lab">Insurance data that does exist officially</td><td class="t-ver">California Department of Insurance publishes ZIP-level residential insurance data under Insurance Code section 929<br><a class="src" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/" target="_blank" rel="noopener noreferrer" title="Residential Property Insurance Report">California Department of Insurance</a></td><td class="t-ver">Same official source applies<br><a class="src" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/" target="_blank" rel="noopener noreferrer" title="Residential Property Insurance Report">California Department of Insurance</a></td></tr><tr data-i="12"><td class="t-lab">Maintenance</td><td class="t-unv">Described by the owner as lighter than Property B; no figure supplied</td><td class="t-unv">No figure supplied<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="13"><td class="t-lab">Solar tariff</td><td class="t-unv">Not stated &mdash; which tariff the system is on, and when the enrolment ends, is unknown</td><td class="t-lab">n/a<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr><tr data-i="14"><td class="t-lab">Year built</td><td class="t-unv">Not supplied</td><td class="t-unv">Not supplied &mdash; decides whether the local rent ordinance applies<br><span class='nosrc'>No official source &mdash; value withheld, could not be confirmed against any official publication</span></td></tr></tbody></table><p class="tnote">Every figure in this table is either owner input or explicitly unverified. Nothing here was read from a public record, which is deliberate: assessed values and tax bills are searchable, so only rounded figures appear and they are never combined with an address, parcel number or name.</p></div><h2>Rates used</h2><div class="tblwrap"><div class="tf"><input type="search" placeholder="Filter this table&hellip;" oninput="filterRows(this,'rates')"></div><table class="data" id="rates"><thead><tr><th>Property</th><th>Rate used</th><th>What it is</th><th>Status</th></tr></thead><tbody><tr data-i="0"><td class="t-lab">Property A</td><td class="t-der">1.34%</td><td class="t-der">The owner's 2025 bill divided by the owner's 2025 assessed value. It bundles the 1% Proposition 13 levy with voter-approved debt and any parcel charges. Santa Clara County has hundreds of tax rate areas, so no single published rate can be quoted for the parcel.<br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td><td class="t-der">Derived from owner input</td></tr><tr data-i="1"><td class="t-lab">Property B &mdash; ad valorem</td><td class="t-ver">1.18162182%<br><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">City and County of San Francisco, Office of the Treasurer &amp; Tax Collector</a></td><td class="t-ver">The City and County of San Francisco secured property tax rate for Fiscal Year 2026-27, published by the Treasurer &amp; Tax Collector.<br><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">City and County of San Francisco, Office of the Treasurer &amp; Tax Collector</a></td><td class="t-ver">Verified</td></tr><tr data-i="2"><td class="t-lab">Property B &mdash; other charges</td><td class="t-der">$1,090</td><td class="t-der">A year of charge that is not explained by the official rate. The owner's 2025 bill less assessed value times 1.18162182 percent leaves about $1,090 a year. It is carried as a flat charge because its nature is unknown.<br><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">City and County of San Francisco, Office of the Treasurer &amp; Tax Collector</a></td><td class="t-der">Derived &mdash; reconcile against the bill</td></tr></tbody></table><p class="tnote">The Property A rate is the weakest link in the projections. It is stable across the owner's own history (roughly 1.33% to 1.41% every year from 2014 to 2025), which is reassuring, but it should be replaced with the rate printed on the actual bill.</p></div><div class="banner red"><b>The single most valuable thing you can do with this page.</b> Replace the four unverified cells &mdash; insurance on both properties, the solar tariff, and Property A maintenance &mdash; with real documents. They are the only inputs on this site that are pure guesswork, and two of them feed every projection that follows.</div>
+</main>
+<footer>Not tax, legal or investment advice. Figures are rounded to the nearest $10 and every
+table row links to the official source it was read from; rows that could not be confirmed carry a
+blank value and an unverified marker. Rules and thresholds change &mdash; re-check the current law
+before acting.</footer>
+<script>
+function filterRows(el,id){
+  var q=el.value.toLowerCase(),t=document.getElementById(id);
+  if(!t)return;
+  var rows=t.querySelectorAll('tbody tr');
+  for(var i=0;i<rows.length;i++){
+    var txt=rows[i].textContent.toLowerCase();
+    rows[i].style.display = txt.indexOf(q)>-1 ? '' : 'none';
+  }
+}
+</script></body></html>
