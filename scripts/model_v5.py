@@ -62,7 +62,7 @@ V = {
     "niit_rate": 0.038,
     "s121_single": 250_000,                   # IRS Topic 701
     "s121_joint": 500_000,
-    "sf_small_estate": 166_250,               # Prob. Code 13100 (as amended through 1/1/2025)
+    "sf_small_estate": 208_850,              # Prob. Code 13100 as adjusted under 890 — DE-300, deaths on/after 1 Apr 2025 (base text 166,250)
     "form706_months": 9,                      # Form 706 instructions
     "form706_extension_months": 6,
     "trustee_notice_days": 60,                # Prob. Code 16061.7(f)
