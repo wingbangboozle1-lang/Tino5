@@ -260,7 +260,7 @@ def build():
         dict(cells=["Property B: rent, two rented units (per month)", M(B_RENT_MO), "Owner input; rent-control and lease terms not checked (flag F12)"], st="owner", src=["S13"]),
         dict(cells=["Property B: water, three units (per month, midpoint)", M(B_WATER_MO), "Owner range $330-$400; SFPUC rate schedule not extracted"], st="owner", src=["S19"]),
         dict(cells=["Property B: electricity (per month, midpoint)", M(B_ELEC_MO), "Owner range $30-$70; provider and tariff not verified"], st="owner", src=["S19"]),
-        dict(cells=["Property A: water (per month, midpoint)", M(A_WATER_MO), "Owner range $100-$150; provider not confirmed (F05)"], st="owner", src=["S20"]),
+        dict(cells=["Property A: water (per month, midpoint)", M(A_WATER_MO), "Owner range $100-$150; provider not confirmed; SFPUC (linked) serves Property B, not A (F05)"], st="owner", src=["S19"]),
         dict(cells=["Property A: electricity and solar credit", "$0 net (base)", "Owner reports a credit of about $10-$20 a month; not verifiable without 12 months of PG&E statements (F06)"], st="unverified", src=["S16"]),
         dict(cells=["Homeowners insurance, A and B (per year, each)", M(A_INS), "Owner estimate. CDI does not publish a per-property average on the page we read (F04)"], st="unverified", src=["S17", "S18"]),
         dict(cells=["Maintenance, A", "0.5% of value a year", "Assumption; no source. Owner said it is lower than B."], st="assume", src=["S08"]),
