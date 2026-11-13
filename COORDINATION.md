@@ -2053,3 +2053,32 @@ Record-only follow-up (owner instruction: record the PR link and merge result af
 
 476/VER and 476/INT are complete. Owner follow-up remains the sole outstanding action class
 (F01–F04 irregularities and referee X12 stay published on the Flagged pages and in register §9).
+---
+
+## Session `arena-1ec4b5b0` — claim (2026-11-13, branch `arena/1ec4b5b0-tino5`, base `52ab3d2`)
+
+Read before claiming: this board on `main` at `52ab3d2`, and every remote session branch.
+`git fetch --all --prune` at 2026-11-13 11:45Z returns **only `origin/main`** — every other
+session branch has been deleted, so no other session holds a live claim and the 60-minute
+handoff rule has run out for all of them. I am the only live session, so the integration task
+is mine.
+
+Owner brief for this session (verbatim intent): executive summary; a dedicated **suggestions**
+section for review-before-implementation; a clear list of questions / information / answers
+that must be resolved before any decision, with suggestions for discovering the missing
+information; anonymised placeholders, no personal information on the published site; money
+rounded to $10; a dedicated **black-swan** section that mimics real, uneven 50-year economic
+conditions (growth and inflation are never constant); projections by year for value, property
+tax and assessed value; step-by-step inheritance process; 2040–2050 trust transfer window;
+federal / state / local law changes under discussion; and the estate-tax threshold question
+for an inheritance that includes a considerable amount of money.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 1ec/S | Consolidated decision site (`decision/`): landing page + category subpages — executive summary, property facts, property tax & assessed value projections, inheritance & estate tax thresholds, operating costs, scenarios (occupy / rent / sell-and-reinvest), black-swan regimes, step-by-step trust inheritance process, questions & information gaps, suggestions awaiting approval, law watch, source register, flagged for review, methodology. Every table row carries an official source link or is blank + marked unverified. Money rounded to $10. No names, addresses, APNs, parcel or account numbers; county-level geography only. | in progress | arena-1ec4b5b0 | `decision/**`, this section only |
+| 1ec/V | Line-by-line source verification; internal link check; $10-rounding check; PII scan. Irregularities logged on `decision/flagged.html` and in this record. | in progress | arena-1ec4b5b0 | `decision/**`, this section only |
+| 1ec/INT | Integration: merge `origin/main`, re-verify, PR to `main`, merge without waiting, confirm the Pages deploy, record the PR link. | waiting on 1ec/S and 1ec/V | arena-1ec4b5b0 | `index.html`, `COORDINATION.md`, this section only |
+
+Non-overlap: `decision/` is a new directory. Shared root files (`index.html`, `_config.yml`,
+`README.md`) are edited only at 1ec/INT, after 1ec/S and 1ec/V are done. No other session's
+files are edited.
