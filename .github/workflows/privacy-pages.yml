@@ -23,5 +23,18 @@ jobs:
           python review-092b/_src/verify.py
       - name: Decision desk regression tests
         run: python -m unittest discover -s review-092b/_src -p "test_*.py" -v
+      - name: Owner-brief desk (desk-d75/) — rebuild, then verify
+        run: |
+          python desk-d75/_src/build.py
+          python desk-d75/_src/verify.py
+      - name: Owner-brief desk regression tests
+        run: python -m unittest discover -s desk-d75/_src -p "test_*.py" -v
+      - name: Owner-brief desk generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-d75; then
+            echo "::error::desk-d75/ is stale. Re-run desk-d75/_src/build.py and commit the result."
+            git --no-pager diff --stat -- desk-d75
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py

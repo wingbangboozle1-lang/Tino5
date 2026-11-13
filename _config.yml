@@ -8,6 +8,9 @@ plugins: []
 # repository, so anything that must not be public has to be deleted, not merely excluded.
 exclude:
   - "_src"
+  # a desk's generator is working material, not a page: it names the index series and the
+  # owner-supplied inputs. Jekyll already skips every _-prefixed directory; this states it.
+  - "desk-d75/_src"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"
