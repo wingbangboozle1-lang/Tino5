@@ -45,6 +45,7 @@ PUBLIC_CONSTANTS = {
     "661,375", "75,197",            # IRS 2027 / FTB 2026 published bracket thresholds as cited
     "1,440.11",                     # published utility/tariff figure as cited by the desk verifier
     "1,571", "1,512", "1,655", "1,737", "1,702", "1,701.60", "2,339.99",  # insurance averages as cited
+    "2,918.18",                     # CDI FAIR Plan dwelling-fire average (2025 data call) as cited
     "768,213", "1,536,426",                                              # FTB bracket thresholds as cited
     "4,688", "3,697", "4,832",                                           # HUD fair market rents as cited
     "8,245", "24,733", "5,497",                                          # SF Rent Board relocation amounts as cited
@@ -57,7 +58,7 @@ MONEY_KEY = re.compile(r"(tax|assess|value|rent|price|premium|cost|bill|income|a
 # keys that hold statutory or official figures rather than owner data
 OFFICIAL_KEY = re.compile(r"(exclusion|exemption|threshold|limit|cap|bracket|allowance|statut|fmr|official)", re.I)
 
-RE_MONEY = re.compile(r"\$\s?(\d{1,3}(?:,\d{3})+|\d{3,})(\.\d{1,2})?(?![\d,])(?!\s?(?:million|billion|trillion|[MBKk]\b))")
+RE_MONEY = re.compile(r"\$\s?(\d{1,3}(?:,\d{3})+|\d{3,})(?:(\.\d{1,2})(?!\d)|(?![.,]\d))(?!\s?(?:million|billion|trillion|[MBKk]\b))")
 RE_KV = re.compile(r"""(?:["']([A-Za-z_][\w\-]*)["']\s*:|\b([A-Za-z_]\w*)\s*=)\s*(-?\d{4,9})(?![\d.\w])""")
 RE_EMAIL = re.compile(r"\b[\w.+-]+@[\w-]+(?:\.[\w-]+)+\b")
 RE_PHONE = re.compile(r"(?<![\d.\-/])(?:\+?1[\s.-])?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}(?![\d-])")
