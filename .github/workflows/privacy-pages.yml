@@ -24,12 +24,4 @@ jobs:
       - name: Decision desk regression tests
         run: python -m unittest discover -s review-092b/_src -p "test_*.py" -v
       - name: Landing page links resolve
-        run: python - <<'PY'
-          import re, sys
-          from pathlib import Path
-          html = Path("index.html").read_text()
-          bad = [t for t in re.findall(r'(?:href|src)="([^"#]+)"', html)
-                 if not t.startswith("http") and not Path(t).exists()]
-          print("broken landing-page targets:", bad)
-          sys.exit(1 if bad else 0)
-          PY
+        run: python scripts/check_landing.py
