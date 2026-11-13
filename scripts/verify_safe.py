@@ -35,7 +35,9 @@ DEPLOYMENT_EXCLUSIONS = {
 # run under the owner's brief ("clear numbers and projections ... rounded to the nearest $10").
 # Removing an entry from this set unpublishes the directory (it must then also return to
 # DEPLOYMENT_EXCLUSIONS and to the Jekyll exclude list in _config.yml).
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86", "tino5-3f269806"}
+# verify-476 added by the 476/INT integration run (2026-11-13): the independent
+# line-by-line verification register (arena-47685795).
+PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86", "tino5-3f269806", "verify-476"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",

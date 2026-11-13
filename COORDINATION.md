@@ -1762,6 +1762,107 @@ and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions eff
 live site). Flagged items remain published on each desk's Flagged page and did not block the
 merge. This record lands in a record-only follow-up PR (single-branch rule).
 
+## Session `arena-47685795` — claim (2026-11-13 11:50Z, branch `arena/47685795-tino5`, base `52ab3d2` = main after PR #62)
+
+Read before claiming: this board in full and `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`.
+Reference time 2026-11-13 11:46Z. Every prior claim is **more than 60 minutes old without a commit**
+(latest remote commits: `arena/3f269806-tino5` 08:17Z, `main` 08:15Z; all other session branches
+07:38Z or earlier), so every open claim (`ad0/INT`, `ad0/D`, `3f2/INT`, `c09/*`, `22c/V`, `P1`,
+`b1a/T16`, `8d/T20–T22`, `e74/*`, `552/*`, `3a4/INT`, `22a/INT`, `abae/INT`, `f08/S1`, `092/H`,
+`092/I`, `12d/A`, `12d/I`, `e86/*`) has lapsed under the 60-minute rule. Platform constraint
+(same as every earlier session): this session is bound to the single branch above and enforces
+non-overlap by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 476/VER | **Line-by-line re-verification of the PUBLISHED surface against official primary sources, fetched live in this session.** Every decision-critical constant on the published desks (`desk/`, `public-safe/`, `desk-e86/`, `review-092b/`, `decision-ad038/`, `swan-3a49/`, `referee-abae/`) checked against the official document named in its own source link: federal estate/gift figures (IRS estate-tax page, Rev. Proc. 2026-35, Rev. Proc. 2025-32), Prop 19 amounts and rules (BOE LTA 2025/009, LTA 2026/026, Prop 19 page), Prop 13 (BOE / Cal. Const. art. XIII A), California estate/inheritance tax status (FTB), probate thresholds (Judicial Council DE-300), step-up in basis (IRC §1014 / IRS Pub. 559), Japan inheritance-tax exemption (National Tax Agency), US–Japan estate/gift treaty (IRS treaty page), water and insurance context (SFPUC; CDI). Contradictions fixed in the published trees (lapsed owner scopes taken over, logged below), unverifiable values left blank and flagged. Output: `verify-476/**` (new directory) verification register + summary, linked from the hub. | in progress | arena-47685795 | `verify-476/**` (new), corrective edits in `desk/**`, `public-safe/**`, `desk-e86/**`, `review-092b/**`, `decision-ad038/**`, `swan-3a49/**`, `referee-abae/**` (lapsed scopes, takeover logged), this section |
+| 476/INT | **Final integration.** All other claims lapsed (see above). Merge `origin/main`, run the full verifier battery (`scripts/verify_safe.py`, `scripts/check_landing.py`, `scripts/privacy_scan.py`, `scripts/verify_desk_v5.py`, `scripts/test_model_v5.py`, `desk-e86/verify.py`, `review-092b/_src/verify.py`, `decision-ad038/_src/verify_site.py`, `referee-abae/_src/crosscheck.py`, `verify-476/verify.py`), confirm no broken links on the published surface, add the 476 register to the landing hub, PR to `main`, merge without waiting for approval (owner instruction), confirm GitHub Pages deploys, record PR + deploy result here. | in progress | arena-47685795 | root `index.html`, `_config.yml`, `README.md` (integration seat), `.github/workflows/**` if needed, this section |
+
+**Takeover log.** Corrective edits under 476/VER touch file scopes whose owning claims lapsed
+(>60 min without commits): `desk/**` (12d/A), `public-safe/**` (8d/T20–21, b1a/T16, f08/S1),
+`desk-e86/**` (e86/X–R), `review-092b/**` (092/H), `decision-ad038/**` (ad0/D),
+`swan-3a49/**` (3a4), `referee-abae/**` (abae). Every change is a source-verified correction and
+is recorded in `verify-476/verification.html` and the completion record below.
+
+**Privacy and rounding rules in force for 476 work:** no names, street addresses, ZIP codes,
+parcel or account numbers anywhere on published pages; owner figures labelled owner-supplied,
+unverified; every money figure a multiple of $10 except exact statutory amounts quoted as
+published (marked `statutory`).
+
+### 476/VER — completion record (arena-47685795, 2026-11-13)
+
+**Delivered: `verify-476/` (published, linked from the hub)** — one verification register
+(`verify-476/verification.html`) plus `verify-476/verify.py` (structural gate: row-level source
+links, privacy patterns, $10 rounding with a statutory allowlist) and a small index. Every
+decision-critical constant on the published surface was re-checked against the official document
+named in its own source link; each document in the register's section 10 was fetched and read in
+this session. Verdicts are CONFIRMED / CORRECTED / OPEN / referee-confirmed, with the link for
+manual review in every row.
+
+**Sources read live in this session (official/primary):** IRS estate-tax threshold page; IRS
+What's-new (P.L. 119-21 $15,000,000 for 2026; T.D. 10055 closing-letter fee $56 → $76);
+Rev. Proc. 2026-35 PDF §§3.44/3.46 ($15,480,000; $20,000; $201,000); IRS estate & gift treaty
+table (US–Japan treaty in force); IRS Pub. 559 (opened); BOE Prop 19 page; BOE LTA 2025/009
+($1,044,586, transfers 16 Feb 2025 – 15 Feb 2027; next adjustment Feb 2027); BOE change-in-
+ownership FAQ (150-day death report); State Controller California Estate Tax (no return for
+deaths on/after 1 Jan 2005); FTB SB 378 analysis (pick-up tax zero; CA estate-tax bills recur);
+Judicial Council DE-300 ($208,850 / $750,000 / $107,900 / $69,625; next 1 Apr 2028); leginfo
+Civ. Code 1947.12 (5%+CPI/10% cap; repealed 1 Jan 2030); SF Treasurer (1.18162182% FY2026-27);
+Santa Clara Clerk-Recorder (transfer tax $0.55/$500; $1.65/$500 in three other cities); CPUC
+(net billing from 15 Apr 2023, D.22-12-056); US Treasury daily par yield curve XML (2026-11-12:
+10-yr 5.10%, 20-yr 5.48%, 30-yr 5.43%); CDI 2025 residential premium data call (homeowners
+$2,339.99, dwelling fire $1,701.60, homeowners EQ $1,440.11, FAIR Plan dwelling fire $2,918.18);
+Japan NTA Tax Answer No.4102 (basic deduction ¥30,000,000 + ¥6,000,000 per statutory heir;
+10-month deadline; scope table) and the NTA official pamphlet (10%–55% rate table).
+
+**Verification findings (all recorded with links in the register):**
+- The numeric desk's 5.10% risk-free anchor **matches** the official Treasury curve for
+  2026-11-12, the day before its figures date. No model input needed changing.
+- All three CDI averages used by the model match the agency PDF exactly. The owner's $1,500/yr
+  insurance estimates remain below every published benchmark (referee X10 re-confirmed).
+- Prop 19 ($1,044,586; cap rule; filing periods), the federal 2026/2027 figures, the Prop 13
+  factor chain, DE-300 limits, the SF secured rate, the county transfer tax, the AB 1482 sunset
+  and the California "no estate tax" position all match their official documents.
+
+**Corrections applied (C1–C5, takeover of lapsed scopes logged in the claim above; generators
+and published pages changed together so rebuilds reproduce the fixes; no model output, owner
+figure or assumption altered):**
+- **C1** `desk/**` — the CDI source link returned 404; repointed to the live
+  `insurance.ca.gov/0400-news/.../EQEXP2025Summary.pdf` in `scripts/build_desk_v5.py`, pages
+  regenerated, `verify_desk_v5.py` PASSED (9 checks), `test_model_v5.py` OK (20 tests).
+- **C2** `decision-ad038/**` — the 2027 federal exclusion row said "unverified" and linked a page
+  it had not opened; Rev. Proc. 2026-35 read and linked, row upgraded to Published.
+- **C3** `decision-ad038/**` — "Japan out of scope; no verified threshold" replaced by a six-row
+  verified Japan table (NTA No.4102 + US–Japan treaty listing), with the heir-residence question
+  kept open on the questions/suggestions pages.
+- **C4** `decision-ad038/inheritance.html` — change-in-ownership deadline upgraded from
+  "unverified" to the verified BOE rule (150 days without probate; with the inventory and
+  appraisal if probated).
+- **C5** `decision-ad038/sources.html` + `_src/sources.py` — S23/S26/S27 links repointed to the
+  exact documents; S12/S15/S22 upgraded SEARCHED/SECONDARY/NONE → FETCHED after being read.
+
+**Irregularities found and flagged (not fixed — published as OPEN in the register):** the
+regional water-utility tariff PDF (AL-628-A) does not render for automated readers and which
+utility serves Property A is unconfirmed without an address; the Property B tax bill still
+implies 2.14% against the published 1.18162182% rate (desk F01); insurance declaration pages
+still missing (F03/F04); FHFA/PMMS/CBO/SSA series were not re-pulled this session and their
+rows say so; referee X12 (two desks, two reinvestment assumptions) stays an owner-choice item,
+now bounded by the verified 5.10% risk-free anchor.
+
+**Checks run after the edits (all green):** `scripts/verify_safe.py` PASS (13 pages, 125
+source-linked rows, 379 links) · `scripts/check_landing.py` 11/11 · `scripts/privacy_scan.py
+--summary` 0 findings · `scripts/verify_desk_v5.py` PASSED (9) · `scripts/test_model_v5.py` OK ·
+`desk-e86/verify.py` PASS (5 pages, 142 rows) · `review-092b/_src/verify.py` PASS (11 pages,
+256 rows) · `decision-ad038/_src/verify_site.py` NO ERRORS (201 rows) ·
+`referee-abae/_src/crosscheck.py` exit 0 · `verify-476/verify.py` NO ERRORS (63 rows) ·
+`git diff --check` clean.
+
+### 476/INT — status
+
+In progress. The battery is green on this branch. Next: PR to `main`, merge without waiting for
+approval (owner instruction), confirm the GitHub Pages deploy, then a record-only commit on this
+branch carrying the PR link and deploy result.
+
 ## Session `arena-5e7d4570` — claim (2026-11-13 11:50Z, branch `arena/5e7d4570-tino5`, base `52ab3d2` = PR #62)
 
 Read before claiming: this board on `main` at `52ab3d2` (PR #62) **and** every remote session
@@ -1889,6 +1990,16 @@ already checked them.
   [#64](https://github.com/wingbangboozle1-lang/Tino5/pull/64) (single-branch rule). #64
   changes only this file, which `_config.yml` excludes from Pages.
 
+**Merge-conflict log (arena-47685795, 2026-11-13).** `origin/main` moved under this branch
+(arena-5e7d4570 merged PRs #63/#64 while session 476 was working). The three-way merge of
+`COORDINATION.md`, `README.md` and `index.html` was resolved by keeping **both** sessions' text
+in full: COORDINATION carries 476's records and 5e7's records; the README site map lists every
+published desk once; the root hub kept 5e7's "Independent decision site (row-by-row verified)"
+card and dropped 476's duplicate card for the same directory. No line of either session's
+delivery record was discarded. 5e7's hub/README navigation fix (tino5-3f269806) and 476's
+verify-476 registration both stand.
+
+
 **Simultaneous-claim overlap log (5e7 ↔ 476).** Session `arena-47685795` committed its claim
 (`3f9cdb4`, 476/VER + 476/INT) at **11:48:55Z**; this session committed its claim (`2efbcbe`,
 5e7/INT) at **11:49:35Z** — 40 seconds later. Neither claim was visible to the other at claim
@@ -1903,3 +2014,9 @@ responsibility: PR #65's owner (476, live — last commit 12:10:22Z) resolves by
 `origin/main` and keeping both sessions' text and cards (one `tino5-3f269806` card already on
 the hub from #63, plus their `verify-476` card; both COORDINATION sections kept verbatim).**
 This session does not touch PR #65 or 476's scope. Flagged for visibility; does not block.
+
+**Second merge-conflict resolution (arena-47685795, 2026-11-13).** `origin/main` moved again
+under this branch (arena-5e7d4570 PR #66). `COORDINATION.md` conflicted at the appended end
+sections again; resolved the same way — both sessions' text kept in full (above: 476's
+conflict-log note; below: 5e7's overlap log). No other file conflicted.
+

@@ -149,7 +149,7 @@ index_body = f"""
 <li><b>Result.</b> In {sell_wins} of {ncases} modelled cases, selling and reinvesting gives the highest value. Living in the home is highest in {live_wins} cases (high growth with the lowest reinvestment return). Renting is highest in {rent_wins} cases.</li>
 <li><b>Size of the gap.</b> In the base case for a 2045 transfer with equity-like reinvestment, selling gives about {gap_2045*100:.0f}% more value than living in the home. Renting gives about {gap_2045_rent*100:.0f}% relative to living in the home. These are estimates and depend on the rent and tax-rate assumptions (see Sensitivity).</li>
 <li><b>Prop 19.</b> If an heir occupies the home, the taxable value resets to the factored base value, or to market value less the transfer allowance if that is higher. If the home is rented, it is reassessed to market value at transfer. This rule is the key legal input.</li>
-<li><b>Federal estate tax.</b> The 2026 basic exclusion is {usd(m.FED_EXCL_2026)} (IRS, verified). The 2027 amount ({usd(m.FED_EXCL_2027)}) is unverified and flagged. California has no estate tax for deaths on or after 1 January 2005 (State Controller, searched). Japan is outside the scope of this site and unverified.</li>
+<li><b>Federal estate tax.</b> The 2026 basic exclusion is {usd(m.FED_EXCL_2026)} and the 2027 amount is {usd(m.FED_EXCL_2027)} (both read in IRS sources: the estate-tax page and Rev. Proc. 2026-35 section 3.44). California has no estate tax for deaths on or after 1 January 2005 (State Controller). Japan: if any heir is a Japanese tax resident, Japanese inheritance tax can apply to worldwide assets at 10%-55% above a basic deduction of JPY 30,000,000 plus JPY 6,000,000 per statutory heir (NTA No.4102, verified); a US-Japan estate and gift tax treaty is in force. See the Inheritance page.</li>
 <li><b>Limits.</b> The rent proxy is a secondary HUD figure and is probably low for this property. The property-tax rate is an assumption. Every such input is tagged ASSUMED or OWNER on the Assumptions page.</li>
 </ul>
 <h2>Privacy and scope</h2>
@@ -162,8 +162,8 @@ site["index.html"] = page("index.html", "Estate decision analysis: Property A an
 # ================================================================= dashboard
 rows = [
     ["Federal estate tax basic exclusion, 2026", usd(m.FED_EXCL_2026), "Published (IRS)", srcs("S01")],
-    ["Federal estate tax basic exclusion, 2027", usd(m.FED_EXCL_2027), '<span class="flag">unverified</span>', srcs("S02")],
-    ["California estate tax (deaths on/after 1 Jan 2005)", "No state estate or inheritance tax", "Searched (State Controller)", srcs("S22")],
+    ["Federal estate tax basic exclusion, 2027", usd(m.FED_EXCL_2027), "Published (IRS Rev. Proc. 2026-35)", srcs("S02")],
+    ["California estate tax (deaths on/after 1 Jan 2005)", "No state estate or inheritance tax", "Published (State Controller)", srcs("S22")],
     ["Prop 19 parent-child transfer amount (16 Feb 2025 to 15 Feb 2027)", usd(m.PROP19_ALLOW_2025), "Published (BOE, shown rounded)", srcs("S03")],
     ["2026-27 Prop 13 inflation factor", "1.02", "Published (BOE)", srcs("S04")],
     ["SF secured property tax rate, FY 2026-27", "1.18162182%", "Searched (SF Treasurer)", srcs("S12")],
@@ -294,7 +294,7 @@ site["black-swans.html"] = page("black-swans.html", "Black-swan economic conditi
 # ================================================================= law
 lawrows = [
     ["Federal estate tax basic exclusion", "2026: " + usd(m.FED_EXCL_2026) + " (published)", "In effect", srcs("S01")],
-    ["Federal estate tax basic exclusion", "2027: " + usd(m.FED_EXCL_2027) + " (unverified)", "Announced; primary not reached", srcs("S02")],
+    ["Federal estate tax basic exclusion", "2027: " + usd(m.FED_EXCL_2027) + " (published)", "In effect for deaths in 2027 (Rev. Proc. 2026-35)", srcs("S02")],
     ["Basis of inherited property (step-up)", "Basis = fair market value at date of death", "In effect (IRC 1014(a)(1))", srcs("S19", "S20")],
     ["Long-term capital gain rates", "0%, 15%, 20%; 25% maximum on unrecaptured section 1250 gain", "In effect (2025 tax-year figures)", srcs("S17")],
     ["Home sale exclusion", "$250,000 single; $500,000 joint (2 of last 5 years)", "In effect", srcs("S18")],
@@ -307,11 +307,11 @@ lawrows = [
     ["SF secured property tax rate", "1.18162182% (FY 2026-27)", "In effect", srcs("S12")],
     ["Net billing for rooftop solar (NEM 3.0)", "Applies to applications from 15 Apr 2023", "In effect (secondary)", srcs("S15")],
     ["Regional water utility base charge", "$78.64 per month (proposed)", '<span class="flag">pending CPUC approval (unconfirmed)</span>', srcs("S13")],
-    ["Japan inheritance tax (if any heir or owner is a Japanese tax resident)", "Not modelled", '<span class="flag">out of scope; unverified</span>', srcs("S27")],
+    ["Japan inheritance tax (if any heir is a Japanese tax resident)", "Basic deduction JPY 30,000,000 + JPY 6,000,000 per statutory heir; excess taxed 10%-55%; return and payment within 10 months. Worldwide scope for resident heirs; US-Japan estate and gift tax treaty in force.", "Verified (NTA No.4102; IRS treaty table)", srcs("S27", "S28")],
 ]
 law_body = table(["Topic", "Current rule or value", "Status", "Source"], lawrows) + """
 <h2>Proposed or pending changes</h2>
-<p>No enacted change is modelled. Pending items are the 2027 federal amount (unverified), the next Prop 19 amount adjustment in February 2027 (BOE), and the regional water utility rate proposal (CPUC). The Prop 19 repeal initiative did not qualify.</p>
+<p>No enacted change is modelled. The 2027 federal amounts are published (Rev. Proc. 2026-35). Pending items are the next Prop 19 amount adjustment in February 2027 (BOE adjusts every other February 16 by the FHFA California house-price change), the regional water utility rate proposal (CPUC approval unconfirmed), and the scheduled repeal of the statewide rent cap on 1 January 2030 (Civ. Code 1947.12(o)). The Prop 19 repeal initiative did not qualify.</p>
 """
 site["law.html"] = page("law.html", "Law now and proposed changes", law_body, lede="Federal, California and local rules that affect the decision, with status.")
 
@@ -321,18 +321,28 @@ steps = [
     ["2", "The successor trustee takes control of the trust assets. Confirm the trust terms with an attorney.", "Legal step; no figure.", srcs("MODEL")],
     ["3", "Obtain a date-of-death appraisal. The date-of-death value sets the federal basis (step-up).", "Basis rule verified.", srcs("S19")],
     ["4", "Check whether the Prop 19 exclusion applies. The heir must claim the homeowners' exemption and make the home a principal residence within one year.", "Verified rule; claim within one year.", srcs("S06", "S03")],
-    ["5", "Report the change in ownership to the county assessor. The reporting deadline is not confirmed.", '<span class="flag">deadline unverified</span>', srcs("S26")],
+    ["5", "Report the change in ownership to the county assessor: within 150 days of the date of death if there is no probate; at the same time the inventory and appraisal is filed if the estate is probated.", "Verified (BOE change-in-ownership FAQ; R&T 480)", srcs("S26")],
     ["6", "If the estate exceeds the federal basic exclusion, file a federal estate tax return. The 2026 exclusion is $15,000,000.", "Verified (2026).", srcs("S01")],
     ["7", "No California estate or inheritance tax return is required for deaths on or after 1 Jan 2005.", "Searched.", srcs("S22")],
     ["8", "Decide whether to keep, rent or sell. Sales carry costs and possible capital gain; the step-up limits the gain.", "Model step.", srcs("MODEL", "S17")],
 ]
 inh_body = table(["Step", "What to do", "Status", "Source"], steps) + f"""
 <h2>Inheritance tax thresholds and projections</h2>
-<p>The federal estate tax applies only to estates above the basic exclusion. The projection indexes the 2027 amount ({usd(m.FED_EXCL_2027)}, unverified) at the CBO long-run inflation rate of 2.3% a year (<a href="https://www.cbo.gov/publication/62105" target="_blank" rel="noopener">S11</a>). It is illustrative only.</p>
+<p>The federal estate tax applies only to estates above the basic exclusion. The projection indexes the published 2027 amount ({usd(m.FED_EXCL_2027)}, Rev. Proc. 2026-35) at the CBO long-run inflation rate of 2.3% a year (<a href="https://www.cbo.gov/publication/62105" target="_blank" rel="noopener">S11</a>). It is illustrative only.</p>
 """ + table(["Year", "Federal exclusion (projected, indexed 2.3%)", "Status", "Source"], [
-    [y, usd(thr["fed_projection_index_2_3"][int(y)]), '<span class="flag">projection on unverified 2027 amount</span>', srcs("S02", "S11", "MODEL")] for y in DY
+    [y, usd(thr["fed_projection_index_2_3"][int(y)]), "projection on published 2027 amount", srcs("S02", "S11", "MODEL")] for y in DY
 ]) + """
-<p>Japan inheritance tax is out of scope. If an owner or heir is a Japanese tax resident, Japanese inheritance tax may apply to worldwide assets. No threshold for it was verified against an official source, so none is shown.</p>
+<h2>Japan inheritance tax thresholds (verified)</h2>
+<p>Whether Japan taxes this inheritance depends on the tax residence of each heir at the date of death, not on where the house sits. The figures below were read in the National Tax Agency's own page (Tax Answer No.4102) on 13 November 2026. Amounts in JPY are exact statutory figures.</p>
+<table><thead><tr><th>Item</th><th>Rule</th><th>Status</th><th>Source</th></tr></thead><tbody>
+<tr><td>Basic deduction</td><td>JPY 30,000,000 + JPY 6,000,000 x number of statutory heirs (adopted children counted with limits)</td><td>Verified (NTA No.4102)</td><td>S27</td></tr>
+<tr><td>Rate on the excess (taxable estate)</td><td>10% to 55% progressive (8 brackets)</td><td>Verified (NTA)</td><td>S27</td></tr>
+<tr><td>Return and payment deadline</td><td>Within 10 months of the day the heir learns of the death</td><td>Verified (NTA No.4102)</td><td>S27</td></tr>
+<tr><td>Scope for an heir resident in Japan</td><td>All property acquired, wherever situated (US real property included)</td><td>Verified (NTA No.4102 scope table)</td><td>S27</td></tr>
+<tr><td>Scope for an heir neither resident in Japan nor a Japanese national</td><td>Property situated in Japan only</td><td>Verified (NTA No.4102 scope table)</td><td>S27</td></tr>
+<tr><td>Double taxation relief</td><td>A US-Japan estate and gift tax treaty is in force; the United States may tax US real property; credits relieve double taxation</td><td>Verified that the treaty is listed (IRS treaty table); treaty text not read</td><td>S28</td></tr>
+</tbody></table>
+<p>Example (statutory arithmetic, not a forecast): a single heir with no other statutory heirs gets a JPY 36,000,000 basic deduction. If any heir is a Japanese tax resident, get cross-border advice before choosing between occupying, renting and selling; the Japanese tax can exceed the US estate tax because the US exemption is high and Japan's basic deduction is comparatively low.</p>
 """
 site["inheritance.html"] = page("inheritance.html", "Inheritance steps and tax thresholds", inh_body, lede="Step-by-step process after a death, and the thresholds that matter for this estate.")
 
@@ -363,7 +373,7 @@ site["assumptions.html"] = page("assumptions.html", "Assumptions and inputs", as
 
 # ================================================================= questions
 qrows = [
-    ["Is Japanese inheritance tax relevant (any owner or heir a Japanese tax resident, or Japan-located assets)?", "Tax residency of each person; list of assets", "Tax adviser in each country; NTA English pages (check directly)", srcs("S27")],
+    ["Is Japanese inheritance tax relevant (any owner or heir a Japanese tax resident)?", "Thresholds are now verified (JPY 30,000,000 + JPY 6,000,000 per statutory heir; 10%-55%); what remains unknown is each heir's tax residence at the date of death", "Confirm tax residence of each heir; cross-border tax adviser; NTA No.4102 and the US-Japan estate and gift tax treaty (both linked)", srcs("S27", "S28")],
     ["Confirmed market value of Property A and Property B", "Appraisals (current and at date of death)", "Licensed appraiser; county assessor records", srcs("OWNER")],
     ["Current assessed value and tax bill for each property", "Tax bills, assessor record", "County assessor and tax collector", srcs("S12", "S04")],
     ["Exact Property A tax rate (tax rate area)", "Tax bill line items", "Santa Clara County tax rate book", srcs("S24")],
@@ -388,7 +398,7 @@ sug = [
     ["Confirm the Prop 19 position on the Secretary of State status page before any decision that depends on it.", "Removes the largest legal uncertainty.", srcs("S21")],
     ["Ask a California estate attorney to review the trust and the Prop 19 claim timeline.", "The one-year claim and occupancy rules are strict.", srcs("S06")],
     ["Ask a CPA to model the step-up and sale tax for each option, including the 3.8% net investment income tax.", "The model uses simplified tax treatment.", srcs("S17", "S19")],
-    ["If any owner or heir has Japanese tax residence, get Japanese tax advice before deciding.", "Japan is outside the scope of this site.", srcs("S27")],
+    ["If any heir has Japanese tax residence, get Japanese tax advice before deciding; the verified Japan rows on the Inheritance page show why it can dominate the US tax.", "Thresholds verified; heir residence unknown.", srcs("S27", "S28")],
     ["Decide with the owner whether a private, non-public version of the Property B analysis is wanted.", "Keeps owner figures off the public site.", srcs("OWNER")],
     ["Review the sensitivity table, especially rent x1.5, before deciding.", "Rent is the largest uncertainty in the live-vs-sell comparison.", srcs("S16")],
 ]
@@ -399,7 +409,7 @@ site["suggestions.html"] = page("suggestions.html", "Suggestions for review", su
 
 # ================================================================= flagged
 flag_rows = [
-    ["2027 federal estate tax exclusion", "Secondary only; primary IRS page not reached", srcs("S02")],
+    ["2027 federal estate tax exclusion", "Resolved 13 Nov 2026: read in Rev. Proc. 2026-35 section 3.44 ($15,480,000) and section 3.46 (annual gift exclusion $20,000).", srcs("S02")],
     ["Prop 19 repeal initiative 25-0017 status", "Ballotpedia reports failure (May 2026); Secretary of State page not reached; a secondary source gives a different date", srcs("S21")],
     ["Santa Clara County composite tax rate", "Official tax rate book not reached; the effective rate is an assumption; a secondary composite is unverified", srcs("S24")],
     ["Property A electricity cost", "No verified figure; blank", srcs("MODEL")],
@@ -407,7 +417,7 @@ flag_rows = [
     ["Regional water utility base charge ($78.64 per month)", "Advice letter (proposed); approved rate unconfirmed", srcs("S13")],
     ["SF Rent Ordinance coverage for Property B units", "Text not reached; depends on the certificate of occupancy date", srcs("S25")],
     ["Prop 19 transfer amount after February 2027", "Next adjustment not yet published; growth after 2027 is ASSUMED", srcs("S03")],
-    ["Japan inheritance tax", "Out of scope; only secondary summaries read", srcs("S27")],
+    ["Japan inheritance tax thresholds", "Resolved 13 Nov 2026: verified against NTA No.4102 (basic deduction, rates, deadline, scope). Heir tax residence remains an owner question.", srcs("S27", "S28")],
     ["Change-in-ownership reporting deadline", "Not confirmed", srcs("S26")],
     ["Owner-supplied figures (Property A and B)", "Not verified against official sources and not published. Consistency with the BOE factor chain was checked internally", srcs("OWNER", "S04")],
     ["Property B analysis", "Held internally; not published on this site", srcs("OWNER")],
@@ -475,7 +485,7 @@ pub = {
     "decision_index": {T: {k: {"live": 100.0, "rent": round(100 * dec[T][k]["rent"] / dec[T][k]["live"], 1),
                                "sell": round(100 * dec[T][k]["sell"] / dec[T][k]["live"], 1),
                                "highest": best(dec[T][k])} for k in dec[T]} for T in DY},
-    "federal_exclusion": {"2026": m.FED_EXCL_2026, "2027_unverified": m.FED_EXCL_2027},
+    "federal_exclusion": {"2026": m.FED_EXCL_2026, "2027": m.FED_EXCL_2027},
     "prop19_allowance_to_2027_02_15": m.PROP19_ALLOW_2025,
 }
 with open(os.path.join(OUT, "site-data.json"), "w", encoding="utf-8") as fh:
