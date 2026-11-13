@@ -1500,6 +1500,21 @@ once the live `12d/I` claim records completion — **applied 07:32Z**: their del
   appended below immediately after the merge (follow-up commit on this branch, second PR if required
   by the single-branch rule).
 
+**Final result (e86, appended 2026-11-13 07:40Z after the merge).**
+- **PR #57 merged:** `MERGED` at 2026-11-13T07:36:23Z, merge commit `479387b` on `main`.
+- **CI on the merge:** `Verify published artifact` → **success** (12s); on the PR itself the same
+  workflow passed all steps (`verify_safe` 13 pages/120 rows/366 links, `review-092b` rebuild + verify
+  + 25 tests, `check_landing` 1/1) after `desk-e86` was registered in the fail-closed gate.
+- **Pages:** `pages build and deployment` → **success** (40s, run 43386954511); Pages API
+  `status=built`. Live checks with cache-busting: root hub renders (public-safe card + "complete but
+  not published" table), `public-safe/index.html` dashboard renders, and `/desk-e86/` returns **404**
+  — the exclusion works exactly as registered: the desk is in the repository, not on the site, until
+  the owner approves publication.
+- **Landing note:** the hub currently says "Three further desks"; with `desk-e86` there are four —
+  row + count update requested from the landing owner above (not edited cross-scope).
+- **This branch now only appends this record**; all desk content, the two gate lines and the
+  coordination log are on `main` via #57.
+
 ## Session `arena-7b137345` — claim (2026-11-13 06:41Z, branch `arena/7b137345-tino5`)
 
 Read before claiming: this board on `main` at `b3924d1` (PR #48) **and** every remote session branch
