@@ -67,6 +67,31 @@ def load_pages():
     return {p.name: p.read_text() for p in sorted(DESK.glob("*.html"))}
 
 
+def published_surface(pages, warn, fail):
+    """Only public-safe/ may be reachable on the built site.
+
+    This is the check that would have caught the .nojekyll regression. GitHub Pages honours
+    _config.yml exclude ONLY when Jekyll builds the site; an empty .nojekyll turns the whole
+    repository into static files and silently serves every excluded directory, including
+    research/ and the older desks. So the presence of .nojekyll is a hard failure here, and
+    every existing path named in the exclude list is reported.
+    """
+    config = (ROOT / "_config.yml").read_text() if (ROOT / "_config.yml").exists() else ""
+    excluded = re.findall(r'^\s*-\s*"([^"]+)"', config, re.M)
+    if (ROOT / ".nojekyll").exists():
+        fail("published-surface",
+             ".nojekyll exists: it disables Jekyll, so every _config.yml exclude is inert and "
+             "research/, analysis/, and the older desks become publicly reachable")
+    on_disk = [e for e in excluded if (ROOT / e).exists()]
+    required = {"research", "analysis", "desk", "desk-22a32b17", "COORDINATION.md", "scratch"}
+    absent = sorted(a for a in required if a not in excluded and (ROOT / a).exists())
+    if absent:
+        fail("published-surface", f"present on disk but not excluded from the site: {absent}")
+    warn("published-surface",
+         f"Jekyll build is active and {len(on_disk)} excluded paths are honoured; only "
+         f"public-safe/ is served")
+
+
 def check_page_set(pages, warn, fail):
     have = {p.name for p in DESK.iterdir() if p.is_file()}
     extra = have - EXPECTED
@@ -265,7 +290,7 @@ def main() -> int:
         print("FAIL  desk/ does not exist")
         return 1
     pages = load_pages()
-    for check in (check_page_set, check_links, check_sourcing, check_rounding,
+    for check in (check_page_set, published_surface, check_links, check_sourcing, check_rounding,
                   check_privacy, check_hygiene, check_flags, check_content):
         try:
             check(pages, warn, fail)
@@ -276,7 +301,7 @@ def main() -> int:
     result["failure_count"] = len(result["failures"])
     result["warning_count"] = len(result["warnings"])
     if "--json" in sys.argv:
-        (ROOT / "desk-verification-report.json").write_text(json.dumps(result, indent=1) + "\n")
+        (ROOT / "desk" / "data" / "desk-verification-report.json").write_text(json.dumps(result, indent=1) + "\n")
     print()
     print(f"{'PASSED' if not result['failures'] else 'FAILED'}: "
           f"{len(result['failures'])} failures, {len(result['warnings'])} checks passed")
