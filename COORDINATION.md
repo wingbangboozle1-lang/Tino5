@@ -1442,7 +1442,11 @@ exemption; sunset 2030-01-01). HUD FMR. Two candidate BOE URLs (proptaxes/prop19
 404'd and were replaced — no dead official links published.
 
 **Verification performed (all on 2026-11-13, this branch).**
-`python3 scripts/privacy_scan.py` → 0 findings repo-wide (204 official constants recognised).
+`python3 scripts/privacy_scan.py` → **0 findings in `desk-e86/`** and in every published file
+(242 official constants recognised). Repo-wide it now reports 3 hits in 2 **excluded source** files
+of other sessions (`review-092b/_src/sources.py` ×2, `scripts/verify_desk_v5.py` ×1) — all three are
+already-masked placeholder figures (`$6••,••5` style), not PII and not published; logged here for
+their owners rather than edited cross-scope.
 `python3 scripts/verify_safe.py` → PASS (11 pages, 80 rows, 262 links).
 `python3 desk-e86/verify.py` → PASS (6 pages incl. root landing, 142 data rows, 139 official host
 links + 103 internal row links, host allowlist, $10 rounding, identifier patterns incl. ZIP-token
@@ -1482,8 +1486,12 @@ lines). Requested from `12d/I` (live claim on `_config.yml`) and `f08` scope-com
 `scripts/verify_safe.py`): either (a) add `desk-e86` to `_config.yml` excludes +
 `DEPLOYMENT_EXCLUSIONS` — desk stays in the repo, published only on owner approval, exactly like
 `review-092b`; or (b) owner approves publication → allow `desk-e86` beside `public-safe/` in the
-gate and do not exclude it in `_config.yml`. Default if no word: (a). **e86 will apply (a) itself
-once the live `12d/I` claim records completion or lapses (>60 min), with this note as the log.**
+gate and do not exclude it in `_config.yml`. Default if no word: (a). **Also requested:** one row for `desk-e86/` in the root landing's
+"complete but not published" table (the landing owner invited such requests in the 12d delivery record). **e86 will apply (a) itself
+once the live `12d/I` claim records completion — **applied 07:32Z**: their delivery record is on `main`
+    (`e74ad5e`, "PR and merge… owner decision needed"), their only pending commit touches
+    `desk/data/desk-verification-report.json` (no overlap with these two files), and both lines are the
+    gate's own documented pattern for complete-but-unpublished desks. This note is the log.**
 
 **PR / merge / deploy record (e86/INT).**
 - PR: https://github.com/wingbangboozle1-lang/Tino5/pull/57 (`arena/e86df670-tino5` → `main`),
