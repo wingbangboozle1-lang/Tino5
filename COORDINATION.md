@@ -1353,3 +1353,61 @@ table row carries an official source link; values that cannot be confirmed from 
   c09/INT, 22a/INT, 3a4/INT, abae/INT, e74/INT) are all stale; 7b/INT is last in line and records the
   integration above — the earliest-condition rule between the older INT claims is moot because none of
   them has run and none has a live commit.
+
+### 7b update (2026-11-13 07:19Z) — priority records, re-scope, and the state of play
+
+**Claim timestamps (commit time, `git log --format=%ci`).** f9f claim `06:36:37Z` · e86 claim
+`06:39:22Z` · **7b claim `06:42:02Z`** · 12d claim `06:56:48Z` · 092 claim earlier (delivered,
+PR #55 merged `7231bb0`) · ad0 delivered (PRs #53/#54) · bd4 delivered (PRs #49/#50) · f08 delivered
+(PR #51; completion record `c449f4d` is on their branch only — not yet on `main`; 7b will carry it
+into the board at integration so their record is not lost).
+
+**Yields (earliest claim first — recorded so no task is double-worked).**
+- 7b **yields the content-build of the questions register and the repository-review takeover to
+  e86**, whose claim (`06:39:22Z`) precedes this one by 2 min 40 s. e86 delivers both on PR #57
+  (`desk-e86/questions.html` with 46 items, `desk-e86/repo-review.html`). 7b/Q and 7b/R are
+  re-scoped to **verification and gap-closure of the delivered registers** against the source set
+  fetched in this session (IRS exclusions incl. 2027 $15,480,000; Rev. Rul. 2023-2; DE-300
+  $208,850/$750,000/$107,900/$69,625; BOE Pub 801 $1,044,586; LTA 2026/002 factor 1.02; SF FY rate
+  1.18162182%; CDI 2025 averages; SFPUC/SJWC tariffs; CPUC SB 695 NEM legacy 2037/2043; CA SOS 2026
+  ballot; SF File No. 261020 not enacted; probate 9–18 months; FTB inheritance; SCO no CA estate tax).
+- 7b/INT is **third in line** for integration: f9f/INT (`06:36:37Z`, no commit since the claim —
+  lapses `07:36:37Z` without a push), then e86/INT (`06:39:22Z`, active: PR #57 open, last commit
+  `07:11:28Z`), then 7b/INT (`06:42:02Z`), then 12d/I (`06:56:48Z`), then 3f2/INT (waiting by their
+  own record). 092/I is done (PR #55).
+
+**Collision log — `desk/**`.** f9f claimed `desk/**` at `06:36:37Z`; 12d claimed the same path at
+`06:56:48Z` and **delivered and merged first** (PR #56, merge `17f9541`; tools `scripts/*_v5*`;
+`.nojekyll` incident self-reported and fixed in PR #58 `733f2bb`; delivery record on the board).
+The delivered tree stands; f9f's `desk/**` claim now overlaps a merged artifact. f9f has not
+committed since their claim (last commit `06:36:37Z`) and lapses at `07:36:37Z` unless they push.
+f9f/FIX content (referee X04–X07, X12, X13 corrections) is welcome as a reviewable change to
+`desk/**` (12d's delivered tree), not as a rebuild over it.
+
+**PR #57 (e86) assessment, read `07:16Z`, not acted on — their claim is live.** The branch point
+predates PRs #51–#56, so a three-way merge keeps main's added files (`desk/**`, `review-092b/**`,
+`scripts/*_v5*`, `scripts/check_landing.py`) untouched; the real issues are (1) the hub cards link
+`desk-22a32b17/index.html`, `swan-3a49/index.html`, `referee-abae/index.html`, which main's
+fail-closed rule still excludes — those cards would 404 on Pages even though `scripts/check_landing.py`
+passes (it tests the file on disk, not the published surface), and (2) `desk-22a32b17` carries the
+Prop 19 cap error 12d documented (exclusion protects assessed value only up to $1,044,586, not the
+whole gap — roughly 3× overstated). If e86 does not reconcile these before merging, the integration
+seat fixes the landing rather than merging broken cards.
+
+**Baseline verification on 7b's branch after merging `origin/main` (`2662f75`, `07:17Z`).**
+`scripts/verify_safe.py` PASS (13 pages, 120 source-linked rows) · `scripts/verify_desk_v5.py`
+PASSED (8 checks) · `scripts/test_model_v5.py` OK (20 tests) · `scripts/check_landing.py` 0
+unresolved · `referee-abae/_src/crosscheck.py` exit 0 · `python3 decision-ad038/_src/verify_site.py`
+NO ERRORS (194 rows) · `scripts/privacy_scan.py` **3 findings** — all redaction-pattern false
+positives in non-published source (`review-092b/_src/sources.py` lines 26/140 masked as
+`$6••,••5`, `$7•,••7`; `scripts/verify_desk_v5.py` line 42 `$1,•••.•1`); to be masked fully at
+integration so the scan reads 0.
+
+**The publication decision (the one the owner's brief resolves).** 12d's record leaves
+`python3 scripts/publish_desk_v5.py` (`--check` / `--revert`) as the reviewable step to publish
+`desk/**`, deferring the choice because peer sessions kept their trees numeric-free. The owner's
+brief for this session is explicit: *"Costs and numbers should be used but rounded to the nearest
+$10 … should be reported in any decision analysis … I want clear numbers and projections."* At
+7b/INT (after f9f lapses and e86 completes) that instruction is the recorded owner decision: run the
+publish script, link the numeric desk from the landing, re-verify the published surface, PR → merge →
+confirm Pages. Reversible in one command, as 12d designed.
