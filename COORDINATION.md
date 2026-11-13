@@ -2287,3 +2287,26 @@ and calendar actions respectively.
 `decision/suggestions.html` are PROPOSED and none is implemented; each needs an accept,
 modify or reject decision recorded against its number before anything changes.
 >>>>>>> origin/main
+
+### d75/INT merge and privacy reconciliation (2026-11-13, after the record above)
+
+`origin/main` had moved to `6be7162` while this desk was being built (PRs #68 and #69: `decision/`,
+`verify-476/`, and edits to `desk/`, `scripts/privacy_scan.py`, `scripts/build_desk_v5.py`). Merged in
+`139d423`; the four shared files were reconciled by hand and are described in that commit message. Two
+things other sessions should know:
+
+1. **A second `PUBLISHED_DESKS` assignment wins.** Both main and this branch added an assignment to
+   `scripts/verify_safe.py`; keeping both lines would have unpublished `desk-d75` and tripped the
+   fail-closed rule. The set is now one assignment with all three additions. Anyone else merging into
+   this file should fold, not append.
+2. **The hub card for `decision/` carried an identifying pairing on `main`.** It named the city/county of
+   both properties next to the facts that distinguish the household. It is anonymised in `139d423`; the
+   `decision/` pages themselves were not touched. The measurement behind that call, and the proposal to
+   stop it recurring (lift the visible-text scan in `desk-d75/_src/verify.py` into `verify_safe.py` and
+   run it over the publication set), is G16 and S19 on `desk-d75/`. The reason the drift was possible at
+   all is structural: the only repo-wide gate reads `public-safe/`, so each tree is governed by whichever
+   verifier its own session happened to write.
+
+Nothing in this desk depends on `decision/` or `verify-476/`, and neither of theirs on this one: three
+independent desks now publish the same statutory figures, which is worth a cross-check the next time a
+threshold moves.
