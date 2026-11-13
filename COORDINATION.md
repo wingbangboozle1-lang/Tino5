@@ -1752,3 +1752,30 @@ exclusion; `/referee-abae/index.html` serves the cross-check; `/research/verific
 and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions effective on the
 live site). Flagged items remain published on each desk's Flagged page and did not block the
 merge. This record lands in a record-only follow-up PR (single-branch rule).
+
+## Session `arena-47685795` — claim (2026-11-13 11:50Z, branch `arena/47685795-tino5`, base `52ab3d2` = main after PR #62)
+
+Read before claiming: this board in full and `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`.
+Reference time 2026-11-13 11:46Z. Every prior claim is **more than 60 minutes old without a commit**
+(latest remote commits: `arena/3f269806-tino5` 08:17Z, `main` 08:15Z; all other session branches
+07:38Z or earlier), so every open claim (`ad0/INT`, `ad0/D`, `3f2/INT`, `c09/*`, `22c/V`, `P1`,
+`b1a/T16`, `8d/T20–T22`, `e74/*`, `552/*`, `3a4/INT`, `22a/INT`, `abae/INT`, `f08/S1`, `092/H`,
+`092/I`, `12d/A`, `12d/I`, `e86/*`) has lapsed under the 60-minute rule. Platform constraint
+(same as every earlier session): this session is bound to the single branch above and enforces
+non-overlap by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 476/VER | **Line-by-line re-verification of the PUBLISHED surface against official primary sources, fetched live in this session.** Every decision-critical constant on the published desks (`desk/`, `public-safe/`, `desk-e86/`, `review-092b/`, `decision-ad038/`, `swan-3a49/`, `referee-abae/`) checked against the official document named in its own source link: federal estate/gift figures (IRS estate-tax page, Rev. Proc. 2026-35, Rev. Proc. 2025-32), Prop 19 amounts and rules (BOE LTA 2025/009, LTA 2026/026, Prop 19 page), Prop 13 (BOE / Cal. Const. art. XIII A), California estate/inheritance tax status (FTB), probate thresholds (Judicial Council DE-300), step-up in basis (IRC §1014 / IRS Pub. 559), Japan inheritance-tax exemption (National Tax Agency), US–Japan estate/gift treaty (IRS treaty page), water and insurance context (SFPUC; CDI). Contradictions fixed in the published trees (lapsed owner scopes taken over, logged below), unverifiable values left blank and flagged. Output: `verify-476/**` (new directory) verification register + summary, linked from the hub. | in progress | arena-47685795 | `verify-476/**` (new), corrective edits in `desk/**`, `public-safe/**`, `desk-e86/**`, `review-092b/**`, `decision-ad038/**`, `swan-3a49/**`, `referee-abae/**` (lapsed scopes, takeover logged), this section |
+| 476/INT | **Final integration.** All other claims lapsed (see above). Merge `origin/main`, run the full verifier battery (`scripts/verify_safe.py`, `scripts/check_landing.py`, `scripts/privacy_scan.py`, `scripts/verify_desk_v5.py`, `scripts/test_model_v5.py`, `desk-e86/verify.py`, `review-092b/_src/verify.py`, `decision-ad038/_src/verify_site.py`, `referee-abae/_src/crosscheck.py`, `verify-476/verify.py`), confirm no broken links on the published surface, add the 476 register to the landing hub, PR to `main`, merge without waiting for approval (owner instruction), confirm GitHub Pages deploys, record PR + deploy result here. | in progress | arena-47685795 | root `index.html`, `_config.yml`, `README.md` (integration seat), `.github/workflows/**` if needed, this section |
+
+**Takeover log.** Corrective edits under 476/VER touch file scopes whose owning claims lapsed
+(>60 min without commits): `desk/**` (12d/A), `public-safe/**` (8d/T20–21, b1a/T16, f08/S1),
+`desk-e86/**` (e86/X–R), `review-092b/**` (092/H), `decision-ad038/**` (ad0/D),
+`swan-3a49/**` (3a4), `referee-abae/**` (abae). Every change is a source-verified correction and
+is recorded in `verify-476/verification.html` and the completion record below.
+
+**Privacy and rounding rules in force for 476 work:** no names, street addresses, ZIP codes,
+parcel or account numbers anywhere on published pages; owner figures labelled owner-supplied,
+unverified; every money figure a multiple of $10 except exact statutory amounts quoted as
+published (marked `statutory`).
