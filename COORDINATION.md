@@ -1128,3 +1128,11 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
 No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.
+
+## Session `arena-bd486220` — claim (2026-11-13 UTC)
+
+| ID | Task | Status | Session | File scope |
+|---|---|---|---|---|
+| bd4/S | Add a dedicated reviewable Suggestions page to the curated privacy-safe website, link it through generated site navigation and README, and extend the structural verifier. Suggestions remain recommendations only; no owner-specific inputs or values are added. | in progress | arena-bd486220 (`arena/bd486220-tino5`) | `public-safe/suggestions.html`, `scripts/build_desk.py`, `scripts/verify_safe.py`, `README.md`, this section |
+
+**Coordination check:** Read the board before work. Historical conditional integration claims in this file were last updated 2026-11-12; this task is limited to a new page and its generator/verifier/navigation documentation. No other session's claimed paths are being edited. The current Arena branch is fixed; work remains on `arena/bd486220-tino5`.
