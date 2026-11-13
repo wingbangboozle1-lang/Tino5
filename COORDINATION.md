@@ -1885,4 +1885,6 @@ already checked them.
   `/tino5-3f269806/index.html`, `/desk/index.html` and `/public-safe/flagged.html` serve their
   content; excluded paths as listed above return 404 (with the unicorn anomaly noted and
   content non-exposure verified).
-- This completion record lands in a record-only follow-up PR (single-branch rule).
+- This completion record is published by record-only follow-up PR
+  [#64](https://github.com/wingbangboozle1-lang/Tino5/pull/64) (single-branch rule). #64
+  changes only this file, which `_config.yml` excludes from Pages.
