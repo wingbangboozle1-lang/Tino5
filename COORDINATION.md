@@ -1141,3 +1141,23 @@ Process: X01 decision numbers live only off-site vs the brief; X09 `verify_safe.
 
 **abae/INT: not run.** Earlier INT claims have not lapsed: 3a4/INT and 22a/INT last committed 04:43Z/04:50Z (< 60 min); 552/INT and c09/INT wait on 966/A (last commit 04:16Z) and c09/A (04:23Z).
 No shared file (`_config.yml`, `public-safe/**`, `README.md`, root `index.html`) was touched.
+
+## Session `arena-ad038e83` — delivery record (2026-11-13, branch `arena/ad038e83-tino5`)
+
+**Claim status.** Claim commit `69b2e43` is on `origin/arena/ad038e83-tino5` (confirmed with `git ls-remote`). The `c098bf16` section was restored to its original form (no `<details>` wrapper) in the same commit.
+
+**ad0/D — decision desk delivered (`decision-ad038/`).** Twelve static pages (index, dashboard, projections, decision, black-swans, law, inheritance, assumptions, questions, suggestions, flagged, sources), `style.css`, and `site-data.json` (public, indices only). Generator and checks live in `decision-ad038/_src/` (underscore prefix, not published by Jekyll): `model.py`, `sources.py`, `build_site.py`, `verify_site.py`. Check result: 194 table rows, every row has a source link, a flagged source, or a source ID; 78 dollar amounts, all multiples of $10 except published unit rates ($13.13, $2.13, $78.64, labelled); no e-mail, phone, ZIP-like, parcel or street pattern; no broken internal links.
+
+**ad0/INT — integration.** Root `index.html` changed from a redirect to `public-safe/index.html` into a hub that links to `public-safe/`, `decision-ad038/`, `desk-22a32b17/`, `swan-3a49/`, `referee-abae/`. `README.md` gained a site-map line. `_config.yml` not changed (the new generator folder is underscore-prefixed). Checks: `python3 scripts/verify_safe.py` PASS (11 pages; unchanged). `python3 referee-abae/_src/crosscheck.py` ran; it printed existing cross-desk mismatches (for example, K19 small-estate limit and K22 CDI average on earlier desks). Those are logged already and were not changed here.
+
+**Deliberate decisions (owner can reverse).**
+1. **Privacy boundary for this desk (stricter reading).** Owner-supplied dollar figures (property values, assessments, tax bills, rent, insurance, water, electricity) are not published on this desk. Public pages show official figures, rules, rankings, and percentages relative to the starting value (2026 = 100 or live = 100). Absolute owner results are written only to `decision-ad038/_src/owner_outputs.local.json` and owner inputs to `owner_inputs.local.json`; both are git-ignored and exist only in the workspace. Earlier desks keep their own boundaries (X14 is still an owner decision).
+2. **Property B** is analysed internally only and is not shown on the public site (its figures and tenancy data are owner data). The Questions and Flagged pages say so.
+3. **Japan is out of scope** for this desk. The brief asked for Japanese thresholds; no official Japanese source was read (NTA English page returned 404; the Japanese NTA pages were not opened). Japan is listed as an open question and flagged, with no values shown.
+4. **Root landing page** replaces the direct redirect. The Pages entry point now shows the hub; `public-safe/` remains at its own URL and is one click away.
+
+**Flagged (does not block merge; listed on `decision-ad038/flagged.html`).** 2027 federal exclusion ($15,480,000; secondary only); Prop 19 repeal 25-0017 (Ballotpedia; Secretary of State page not reached; secondary dates conflict); Santa Clara tax rate book not reached; rent proxy (HUD FMR, secondary, probably low); water approval status; Prop 19 allowance growth after February 2027 (assumed); Japan; change-in-ownership deadline not confirmed; SF rent-ordinance text not reached; electricity blank.
+
+**Owner-action items (not fixable by commits).** Earlier sessions' owner figures remain in public git history, earlier branches, and closed PR diffs. Removing them requires an owner decision on history rewriting or visibility.
+
+**PR and merge.** PR to `main` from `arena/ad038e83-tino5`: PR number and link are recorded in the pull-request body and in a comment on the PR (see PR record below once the PR is open). Merge and Pages deploy are confirmed with `gh run list` and `gh api repos/wingbangboozle1-lang/Tino5/pages`; the merge result is posted as a PR comment because this branch cannot push to `main` after the merge.
