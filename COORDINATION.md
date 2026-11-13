@@ -44,6 +44,39 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
+## Session `arena-f9fbb1f0` — claim + integration (2026-11-13 06:45Z, branch `arena/f9fbb1f0-tino5`)
+
+Platform constraint (same as every earlier session): bound to the single branch above; non-overlap enforced by
+**file scope**, not branch scope.
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48) **and** every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, done at 06:40Z on 2026-11-13). **Every prior claim has
+lapsed**: the newest commit on any session branch is `arena/22a32b17-tino5` at 2026-11-12 04:51Z, ~26 hours old, and
+PRs #36–#48 are all MERGED. No session branch has an open PR. This session therefore acts under the takeover/60-minute
+rule and takes the integration seat that 552/INT, c09/INT, 22a/INT, 3a4/INT and abae/INT all left conditional and
+never ran. Nothing published by another session is deleted; legacy trees are preserved.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| f9f/SITE | **Single primary decision dashboard (`desk/**`)** that satisfies the owner's brief literally, replacing the current split between a number-free public shell (`public-safe/**`) and three sibling desks that disagree on headline levels (referee X12/X14). Pages: executive summary · questions & information gaps · suggestions & change control · properties & assessed value · property tax & Prop 19 · operating costs (insurance, water, electricity/solar, maintenance) · 50-year projections · uneven-economy / black-swan replay · inheritance & estate tax headroom · trust process step by step · law watch · decision matrix (occupy / rent / sell-and-reinvest) · sources · flagged for review. Every table row carries an official source link or is left blank + flagged. Money rounded to the nearest $10. Generator and verifier live in `desk/_build/**` (Jekyll does not publish `_`-prefixed dirs). | in progress | arena-f9fbb1f0 | `desk/**` (new directory) |
+| f9f/INT | **Navigation + publish boundary.** Root `index.html` → `desk/index.html`; `_config.yml` exclude list so exactly one tree is published as the primary dashboard, siblings linked not hidden; `README.md` rewritten to match. | in progress | arena-f9fbb1f0 | root `index.html`, `_config.yml`, `README.md` |
+| f9f/FIX | **Carry the referee's confirmed corrections into the published dashboard** (X04 trust capital-gain ceiling, X05 closing-letter fee, X06 IRS 2027 figures, X07 small-estate affidavit limit, X13 Property B tax line, X12 one set of assumptions) rather than editing other sessions' generated HTML. Corrections land in `desk/**`; the source desks of the errors are left intact and the fix is recorded here. | in progress | arena-f9fbb1f0 | `desk/**` |
+
+**Boundary decision this session makes, and why (owner can reverse it in one line).** The brief asks twice for
+"*clear numbers and projections*" with amounts rounded to the nearest $10 so they cannot be matched to a public
+record, and separately asks that *personal identifiers* never appear. `881/P` read the privacy rule as "no household
+figures at all" and stripped `public-safe/**`; that satisfies the identifier rule but not the numeric one, which is
+why the published dashboard could not answer the brief's central question. This session publishes the $10-rounded
+numeric analysis (identifiers still absent: no names, streets, parcels, accounts, ZIPs) and puts the residual
+traceability risk — assessed values and tax bills are public records that $10 rounding does **not** fully anonymise
+— as the first item on `desk/flagged.html`, with a one-line switch to band them.
+
+**Requests to the repository owner (logged, not acted on).** 1. Owner-supplied figures at full precision remain in
+Git history, in the 37 merged session branches and in PR diffs #1–#48; no commit removes them. If that matters, the
+history/visibility decision is the owner's, not an agent's. 2. `scripts/verify_safe.py` is the CI gate for
+`public-safe/**` only; `desk/**` gets its own verifier (`desk/_build/verify_desk.py`) and this session does not edit
+shared scripts.
+
 ## Session `arena-c098bf16` — claim (2026-11-12 04:25Z, branch `arena/c098bf16-tino5`)
 
 Placed here (directly under the main board) instead of at the end of the file so that it does not collide with
