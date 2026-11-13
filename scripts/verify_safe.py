@@ -20,7 +20,12 @@ import re
 
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
-DEPLOYMENT_EXCLUSIONS = {"verify-552", "session-595f0109"}
+DEPLOYMENT_EXCLUSIONS = {
+    "verify-552", "session-595f0109", "desk-22a32b17", "tools-22a32b17",
+    "swan-3a49", "referee-abae", "desk-b4f", "docs", "archive", "audited-v4",
+    "data", "analysis", "assets", "model", "pages", "research", "scripts",
+    "session-2f7b1b3f", "mine", "src",
+}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -112,6 +117,12 @@ config_text = CONFIG.read_text() if CONFIG.exists() else ""
 for directory in DEPLOYMENT_EXCLUSIONS:
     if not re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
         errors.append(f"_config.yml: required deployment exclusion missing for {directory}")
+# Fail closed: only public-safe/ may be a publishable top-level directory.
+# Hidden infrastructure directories are ignored by Jekyll and are intentionally skipped.
+visible_dirs = {p.name for p in Path(".").iterdir() if p.is_dir() and not p.name.startswith(".")}
+for directory in visible_dirs - {"public-safe"}:
+    if directory not in DEPLOYMENT_EXCLUSIONS:
+        errors.append(f"_config.yml / verifier: unreviewed top-level directory is not excluded: {directory}")
 if set(pages) != EXPECTED_PAGES:
     errors.append(f"page set mismatch: missing {EXPECTED_PAGES - set(pages)}, extra {set(pages) - EXPECTED_PAGES}")
 
