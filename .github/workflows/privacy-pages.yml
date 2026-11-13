@@ -1,4 +1,5 @@
-name: Verify curated public artifact
+name: Verify published artifact
+
 on:
   push:
     branches: [main]
@@ -14,4 +15,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python scripts/verify_safe.py
+      - name: Earlier release (public-safe/)
+        run: python scripts/verify_safe.py
+      - name: Decision desk (review-092b/) — rebuild, then verify
+        run: |
+          python review-092b/_src/build.py
+          python review-092b/_src/verify.py
+      - name: Decision desk regression tests
+        run: python -m unittest discover -s review-092b/_src -p "test_*.py" -v
+      - name: Landing page links resolve
+        run: python - <<'PY'
+          import re, sys
+          from pathlib import Path
+          html = Path("index.html").read_text()
+          bad = [t for t in re.findall(r'(?:href|src)="([^"#]+)"', html)
+                 if not t.startswith("http") and not Path(t).exists()]
+          print("broken landing-page targets:", bad)
+          sys.exit(1 if bad else 0)
+          PY

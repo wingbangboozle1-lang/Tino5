@@ -39,3 +39,51 @@ python3 scripts/verify_safe.py
 ```
 
 The structural verifier checks the 12-page artifact, table-row source links, internal links, allowed external hosts, deployment exclusions, money rounding, and common personal-identifier patterns. It does not prove a cited source supports a claim; sources are separately reviewed and linked beside each row.
+
+The structural verifier checks the 11-page artifact, table-row source links, internal links, allowed external hosts, money rounding, and common personal-identifier patterns. It does not prove a cited source supports a claim; sources are separately reviewed and linked beside each row.
+
+## Decision desk (`review-092b/`)
+
+Eleven pages, generated from a deterministic model, checked by a structural verifier. **Not yet
+published:** the fail-closed rule in `scripts/verify_safe.py` permits only `public-safe/` to be a
+publishable top-level directory, so `review-092b` is listed in the deployment exclusions and the root
+hub does not link into it. Publishing it needs an owner decision to add it as a reviewed publishable
+directory (add it to `DEPLOYMENT_EXCLUSIONS`'s exception and remove it from `_config.yml`).
+
+```bash
+python3 review-092b/_src/build.py                              # rebuild review-092b/
+python3 review-092b/_src/verify.py                             # structural gate
+python3 -m unittest discover -s review-092b/_src -p "test_*.py" # regression tests
+```
+
+- [Executive summary](review-092b/index.html)
+- [Questions that must be answered first](review-092b/questions.html)
+- [Suggestions, for review before any change](review-092b/suggestions.html)
+- [Projections, cost by cost, year by year](review-092b/projections.html)
+- [Occupy, rent, or sell](review-092b/decision.html)
+- [Black swans and uneven economies](review-092b/black-swans.html)
+- [How inheriting through a trust works](review-092b/inheritance.html)
+- [Inheritance tax, property tax and carrying costs](review-092b/costs.html)
+- [Repository review and irregularities](review-092b/repo-review.html)
+- [Flagged for review](review-092b/flagged.html)
+- [Official source register](review-092b/sources.html)
+
+`review-092b/summary.json` holds the model's published outputs. `_src/` is excluded from the
+published site by `_config.yml` (matched as `_src`).
+
+### What the verifier enforces
+
+Every table body row must carry a link that traces the claim — an official document for a factual
+row, a repository path for a row about the repository. Every external link must be `https` on a
+publisher host listed in `_src/sources.py`. Every internal link must resolve. Every dollar amount in
+prose must be a multiple of $10, except statutory or agency figures wrapped in
+`<span class="stat">`, which are quoted exactly as published. No e-mail, phone, ZIP, street address,
+parcel token or city name may appear. No scripts, forms, iframes or remote assets.
+
+### Departure from the owner's literal instruction, flagged for review
+
+The owner asked for all figures rounded to the nearest $10. In this desk that rule is applied in the
+protective direction: the two 2026 roll values are published rounded, but the multi-year assessment
+and tax histories are **not published at all**, at any rounding. A rounded series is still a unique
+fingerprint against the county's open roll data. The departure is recorded on the flagged page for
+the owner to accept or reverse.

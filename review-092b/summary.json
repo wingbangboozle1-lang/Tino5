@@ -1,0 +1,102 @@
+{
+  "generated": "2026-11-13",
+  "pages": 11,
+  "official_sources": 43,
+  "assumptions": 25,
+  "blank_inputs": 2,
+  "transfer_2045": {
+    "year": 2045,
+    "fmv": 6531230,
+    "fbyv": 802030,
+    "allowance": 1778340,
+    "cap": 2580370,
+    "excess": 3950860,
+    "p1_taxable": 4752890,
+    "p1_tax": 63370,
+    "p2_taxable": 6531230,
+    "p2_tax": 87210,
+    "tax_gap": 23840,
+    "transfer_tax": 14370,
+    "sell_cost": 359220,
+    "net_sale": 6172010,
+    "gain_over_basis": 0,
+    "cap_gain_tax_if_sold_at_transfer": 0
+  },
+  "wealth_2045_plus_25": {
+    "P1": 11026930,
+    "P2": 20950750,
+    "P3": 23522680
+  },
+  "regimes": [
+    {
+      "code": "S1",
+      "name": "Stagflation: prices double while the house crawls",
+      "window": "Oct 1973\u2013Oct 1982 / 1979Q4\u20131982Q3",
+      "cpi_window": "Oct 1973\u2013Oct 1982",
+      "hpi_window": "1979Q4\u20131982Q3",
+      "cpi": 115.35,
+      "hpi": 8.74,
+      "real": -49.5,
+      "cpi_ann": 8.9,
+      "hpi_ann": 3.09,
+      "episode_years": 9,
+      "note": "CPI spans the whole 1973\u20131982 decade; the housing leg is 1979Q4\u20131982Q3 because that is when nominal house prices stalled, and it is the only housing number in the series with a real fall while inflation ran double digits."
+    },
+    {
+      "code": "S2",
+      "name": "Housing bust: six years of falling nominal values",
+      "window": "Jan 2006\u2013Jan 2012 / 2006Q1\u20132012Q1",
+      "cpi_window": "Jan 2006\u2013Jan 2012",
+      "hpi_window": "2006Q1\u20132012Q1",
+      "cpi": 14.3,
+      "hpi": -15.93,
+      "real": -26.45,
+      "cpi_ann": 2.25,
+      "hpi_ann": -2.85,
+      "episode_years": 6,
+      "note": "The national index falls 15.9% while the CPI rises 14.3%: about a quarter of the real value is gone in six years, and it took until 2016 to regain the nominal peak."
+    },
+    {
+      "code": "S3",
+      "name": "Rate shock: +400 basis points in nine months",
+      "window": "Jan 2022\u2013Jan 2023 / 2022Q2\u20132023Q1",
+      "cpi_window": "Jan 2022\u2013Jan 2023",
+      "hpi_window": "2022Q2\u20132023Q1",
+      "cpi": 6.41,
+      "hpi": 1.02,
+      "real": -5.07,
+      "cpi_ann": 6.41,
+      "hpi_ann": 1.36,
+      "episode_years": 1,
+      "note": "The federal funds target went from 0.25\u20130.50% on 17 March 2022 to 4.25\u20134.50% on 15 December 2022 (fed-open-market). Nationally, house prices did not fall \u2014 the shock hit affordability, not prices."
+    },
+    {
+      "code": "S4",
+      "name": "Demand collapse and deflation month",
+      "window": "Apr 2020\u2013Jan 2021 / 2020Q1\u20132026Q1",
+      "cpi_window": "Apr 2020\u2013Jan 2021",
+      "hpi_window": "2020Q1\u20132026Q1",
+      "cpi": 2.03,
+      "hpi": 58.75,
+      "real": 55.59,
+      "cpi_ann": 2.71,
+      "hpi_ann": 8.01,
+      "episode_years": 6,
+      "note": "April 2020 CPI was 0.1% below a year earlier (bls-cpi-historical) while the housing index went on to gain 58.7% in six years. A cash-flow shock and an asset-price shock are different events and must be modelled separately."
+    },
+    {
+      "code": "S5",
+      "name": "The live one: a disinflation that has not arrived",
+      "window": "Jan 2021\u2013Oct 2026 / 2020Q1\u20132026Q2",
+      "cpi_window": "Jan 2021\u2013Oct 2026",
+      "hpi_window": "2020Q1\u20132026Q2",
+      "cpi": 29.03,
+      "hpi": 60.46,
+      "real": 24.36,
+      "cpi_ann": 4.53,
+      "hpi_ann": 7.86,
+      "episode_years": 6,
+      "note": "CBO's February 2026 baseline had PCE inflation at 2.7% for 2026 and 2.0% from 2030 (cbo-outlook-2026). CPI-U was 3.7% higher y/y in September 2026 and 3.4% higher in October, and on 17 September 2026 the FOMC raised the target range 25 bp \u2014 the first increase after three 2025 cuts (fed-open-market, bls-cpi-historical)."
+    }
+  ]
+}

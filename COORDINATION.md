@@ -1234,3 +1234,49 @@ quoted exactly and marked. Values that cannot be confirmed from an official sour
 `review-092b/flagged.html`. Privacy-scan results are reported as counts, never values.
 
 **Requests logged, not acted on.** None outstanding: every other claim has lapsed, so this session is the only live writer.
+
+### 092/H — completed (2026-11-13)
+
+Built `review-092b/`: 11 pages, 256 table rows, all source-linked; `_src/{sources,engine,build,verify,test_review_092b}.py`.
+Pages: index (executive summary), questions (13-item register, Q-01…Q-13, each with the decision it blocks),
+suggestions (11-item review board, S-01…S-11, accept/modify/reject, nothing implemented), projections (2026–2076
+cost table + sensitivity), decision (three-path comparison at 2040/2045/2050), black-swans (5 regimes computed from
+CPI-U and FHFA HPI), inheritance (10-step process with deadlines), costs (inheritance/estate/property/disposition tax),
+repo-review (R-01…R-07), flagged (F-01…F-12), sources (43-document register with what was read from each).
+
+Model results (2045 transfer, 25-year horizon): occupy $11,026,930 · rent $20,950,750 · sell $23,522,680. Break-evens:
+house growth 4.60%/yr, after-tax reinvestment return 4.39%. Full set in `review-092b/summary.json`.
+
+Two arithmetic defects were found and fixed **before** publication rather than shipped: a stress test that applied a
+two-year price fall across 25 years, and negative money rendering as `$-59,572,310`. Both now have regression tests.
+
+Source changes vs. the earlier sweep: `WILL5000IND` unavailable (not used); `USSTHPI` read in full; the H15 Treasury
+CSV returned HTTP 500 (no Treasury-return series used); the CDI residential guide URL cited by older desks returns a
+document-not-found page and is **not** used, but the CDI Sustainable Insurance Strategy market snapshot **was** read —
+statewide average homeowner premium $1,571 vs. national $1,512 — so insurance is now benchmarked rather than wholly
+blank.
+
+**Owner decision surfaced, not taken:** `desk-22a32b17/` publishes household dollar levels and city names on a live
+page while the newer release withholds them. This session did not edit or exclude it. Recorded as R-02 / F-12 and on
+the flagged page.
+
+### 092/I — completed (2026-11-13), reconciled with the fail-closed rule on `main`
+
+`main` moved twice while this section was being written (PR #51, PR #53). The newer of the two established a
+**fail-closed publication rule** in `scripts/verify_safe.py`: every visible top-level directory except `public-safe/`
+must appear in `DEPLOYMENT_EXCLUSIONS`, and `_config.yml` must exclude it too. This session's first landing page linked
+directly to four top-level desks, which would have defeated that rule on the public site. Reconciled as follows, with
+no check relaxed:
+
+- `review-092b` added to `DEPLOYMENT_EXCLUSIONS` and to `_config.yml`. The desk is complete and verified but **not
+  published**; publishing it is an owner decision, the same status `decision-ad038/` already has.
+- Root `index.html` keeps the hub structure, but links only to `public-safe/`. The two unpublished desks
+  (`review-092b/`, `decision-ad038/`) are described in a table on the hub rather than linked, so the description is
+  available and the exclusion is not defeated.
+
+Root `index.html` therefore still replaces the meta-refresh redirect with a category hub, and states why each desk
+ranks where it does. `_config.yml` gained `_src` (so `review-092b/_src` is not published). `README.md`
+gained the decision-desk section, build/verify commands, and the flagged departure from the literal $10 rule. CI now
+also rebuilds `review-092b/`, runs its verifier and its 25 regression tests, and checks that every landing-page link
+resolves. `public-safe/` verifier still passes unchanged. No other session's published directory was modified;
+`referee-abae/_src` regenerates `baselines.html` on import, and that incidental diff was reverted, not committed.
