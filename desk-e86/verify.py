@@ -29,7 +29,7 @@ from urllib.parse import urlparse
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 
-PAGES = ["index.html", "questions.html", "suggestions.html", "repo-review.html", "flagged.html"]
+PAGES = ["../index.html", "index.html", "questions.html", "suggestions.html", "repo-review.html", "flagged.html"]
 
 ALLOWED_HOSTS = {
     "www.irs.gov", "irs.gov",

@@ -1409,3 +1409,65 @@ to the nearest $10 and labelled owner-supplied/unverified (or are omitted in fav
 statutory amounts are printed as published and marked; every table row carries an official source link
 or is left blank and flagged. Scan gates before merge: `scripts/privacy_scan.py` = 0 findings and
 `desk-e86/verify.py` = pass.
+
+### e86 completion record (arena-e86df670, 2026-11-13)
+
+**Delivered.** (1) `desk-e86/` — five published pages + `verify.py`:
+`index.html` executive synthesis (owner inputs at $10 with status, 17 verified threshold/rules rows,
+occupy/rent/sell money sketches with shown method, baseline-vs-black-swan table, gated recommendation,
+section directory); `questions.html` — 46-item register in 7 groups (answer + status + official source
+or discovery action per row); `suggestions.html` — 17 reviewable options with trade-offs and a choice
+field (nothing implemented without a recorded choice; S-09 landing done under e86/INT);
+`repo-review.html` — deployed-vs-excluded map of every directory, today's verifier outputs,
+irregularities R-01…R-08; `flagged.html` — F-01…F-21 (owners' unverified inputs, blockers, carried
+X04–X07/X12–X14, F-21 fixed same day). (2) Root `index.html` rebuilt from a silent redirect into a
+category landing linking all five published trees (e86/INT, S-09 / referee request (d)). (3) `_config.yml`:
+added `tools-22a32b17` to `exclude` (fixes this review's F-21/R-01; no page linked to it — checked).
+(4) `README.md`: landing description + review-cycle links + verify command.
+
+**Official sources read this session (28, none filled from memory).** IRS: estate-tax page (2026
+threshold $15,000,000), what's-new estate/gift (WFTC/P.L. 119-21, 2026 gift $19,000, $76 closing-letter
+fee), IR-2026-133 (2027 exclusion $15,480,000; gift $20,000), gifts/inheritances FAQ (FMV-at-death
+basis), Topic 409 (0/15/20%, 25% §1250), Pub 523 (§121 $250,000/$500,000; 24-of-60-month tests),
+Pub 527 (rental rules), i706 (Table A). BOE: Prop 19 page+FAQ (rental home not eligible; move-out
+re-enrollment), LTA 2025/009 ($1,044,586 cap; next Feb 2027), LTA 2022/012 (one-year exemption rule
+with no exceptions; BOE-19-P deadlines), LTA 2025/015 & sample BOE-19-P (trust transfer; date of
+death = change in ownership), NR 25-02, Pub 800-1/800-10/801, homeowners' exemption ($7,000).
+SCO (no CA estate tax since 2005). Judicial Council DE-300 ($208,850 / $750,000; next adj. 2028-04-01).
+SF Treasurer (FY2026-27 rate 1.18162182%); SF Rent Board via sf.gov (1.6% Mar-2026→Feb-2027; pending
+File 261020 not enacted). CDI (statewide average premium $1,571; ZIP-level reports). CBO publication
+62105 (inflation 2.7%→2.0% by 2030; GDP 2.2%/1.8%). Legislature AB 1482 (cap; SFR owner-occupied
+exemption; sunset 2030-01-01). HUD FMR. Two candidate BOE URLs (proptaxes/prop19.htm, prop13.htm)
+404'd and were replaced — no dead official links published.
+
+**Verification performed (all on 2026-11-13, this branch).**
+`python3 scripts/privacy_scan.py` → 0 findings repo-wide (204 official constants recognised).
+`python3 scripts/verify_safe.py` → PASS (11 pages, 80 rows, 262 links).
+`python3 desk-e86/verify.py` → PASS (6 pages incl. root landing, 142 data rows, 139 official host
+links + 103 internal row links, host allowlist, $10 rounding, identifier patterns incl. ZIP-token
+rule with §-context whitelist for Probate Code numbers).
+`python3 referee-abae/_src/crosscheck.py` → exit 0 (desk-e86: 5 pages / 141 rows / 93 official-linked
+/ 37 flagged-proposal internal-only / stale 0 / no city names).
+Published-tree href scan → 42 HTML files, 0 broken internal links.
+`python3 -m unittest discover -s referee-abae/_src` → 1 environment-sensitive golden failure
+(regenerated HEAD stamp vs recorded 99f4bee in `baselines.html`); reproduced, documented as R-08,
+their file restored — not edited by this session.
+
+**Irregularities flagged (published on `desk-e86/flagged.html`).**
+New: F-07/derived ≈$1,090 unmodelled direct-charge residual on Property B's bill (→ S-17);
+R-01/F-21 `tools-22a32b17` was being served — **fixed** in this integration;
+R-07 public Git history not scrubbed (owner decision); R-08 referee golden-test stamp sensitivity.
+Carried (owner choices → suggestions): X06 2027 IRS figures missing from live law pages (S-02),
+X12 dual headline assumptions (S-03), X13 dual Property-B tax figures (S-04), X14 privacy-boundary
+decision (S-01, recommendation = identifiers never + owner money at $10 on decision pages only),
+X04/X05/X07 non-deployed figure errors (S-05).
+**Blocking unknowns for the owner decision** (must be answered before any irreversible choice):
+Q-01 trust terms, Q-04 transferor PR status, Q-06/Q-07 estate size & gift history, Q-20 A rent comps,
+Q-27 occupancy preference, Q-31 return assumption.
+
+**Takeovers recorded under the 60-minute rule (all stale ≥25h at 06:40Z):**
+c09/R (repo review — delivered here as `desk-e86/repo-review.html`), 552/INT, c09/INT, 22a/INT,
+3a4/INT, abae/INT (all superseded by e86/INT, which merged `main` at b3924d1 first);
+966/A remains `needs review` (content published; untouched). No file of another live session was
+edited: `public-safe/**`, `desk-22a32b17/**`, `swan-3a49/**`, `referee-abae/**` untouched
+(`referee-abae/baselines.html` regenerated by its own test and restored).
