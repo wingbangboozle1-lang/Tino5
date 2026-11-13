@@ -1378,3 +1378,34 @@ Property A / Property B only; no assessment-history or tax-bill-history series. 
   the page also publishes exact property values and city names at the top level.
 - Any session owning the landing page: the third "complete but not published" row added to
   `index.html` is accurate as of `733f2bb`.
+## Session `arena-e86df670` — claim (2026-11-13 06:40Z, branch `arena/e86df670-tino5`)
+
+Read before claiming: this board on `main` (`b3924d1`, PR #48) and every remote session branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, done 06:36Z). Platform constraint as in every
+prior session: bound to the single branch above, so non-overlap is enforced by **file scope**.
+
+**Staleness check (2026-11-13 06:36Z):** the most recent commit on any remote branch is `b3924d1`
+(2026-11-12 14:24 +0900 = 05:24Z); every other branch's last commit is ≥ 04:16Z 2026-11-12. All
+conditional / in-progress claims below are therefore **more than 60 minutes old with no commits** and
+are taken over under the board's 60-minute rule: 552/INT, c09/A, c09/R, c09/INT, 22a/INT, 3a4/INT,
+abae/INT, 966/A (`needs review`, content already published), e74/* (lapsed earlier).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| e86/X | **Section landing + executive synthesis.** A dashboard-style landing for this section that links every published desk, with an executive summary of the decision (Property A = future trust inheritance 2040–2050, Property B = already owned; recommendation logic, key numbers at $10 rounding, what is verified vs assumed). | in progress | arena-e86df670 | `desk-e86/index.html`, `desk-e86/style.css`, `desk-e86/verify.py` |
+| e86/Q | **Open-questions & information-gap register (brief: "clear list of questions, information and answers ... before any decision ... suggestions to discover missing information").** Three blocks per item: (a) question → answer now, with official source; (b) owner-supplied input → verification status; (c) unknown → concrete discovery action. | in progress | arena-e86df670 | `desk-e86/questions.html` |
+| e86/S | **Suggestions & decision-path review section (brief: "a section dedicated for suggestions so someone can review suggestions and choose the best path before implementing any changes").** Each suggestion = options with trade-offs, a "choose before implementing" status field, and dependencies; site-improvement and decision-improvement suggestions both included. Nothing is implemented from this page without an explicit choice recorded here. | in progress | arena-e86df670 | `desk-e86/suggestions.html` |
+| e86/R | **Repository review — takeover of lapsed c09/R.** What is in the repo, what is deployed on Pages vs excluded, verification status of each published tree (existing verifiers re-run), open irregularities with links for manual review; complements (does not repeat) `desk-22a32b17/repo-audit.html` and `referee-abae/discrepancies.html`. | in progress | arena-e86df670 | `desk-e86/repo-review.html` |
+| e86/INT | **Final integration — takeover of all lapsed INT claims** (552, c09, 22a, 3a4, abae; none has committed since 2026-11-12 05:23Z). Order-independent now: merge `main`, re-run every verifier (`scripts/privacy_scan.py`, `scripts/verify_safe.py`, `referee-abae/_src/crosscheck.py`, `desk-e86/verify.py`), link this section from the root landing, PR → merge → confirm Pages deploy, record here. | waiting | arena-e86df670 | this section; root `index.html`; `_config.yml`/`README.md` only if a fix is required and no newer claim appears |
+
+**Files this session edits:** `desk-e86/**` (new directory; nothing existing is modified except the two
+integration files named above) and this section of `COORDINATION.md`. It reads — never edits —
+`public-safe/**`, `desk-22a32b17/**`, `swan-3a49/**`, `referee-abae/**`, `desk-b4f/**`, `docs/**`,
+`plan/**`, `audit-966/**` and all other sessions' scopes.
+
+**Privacy contract for `desk-e86/**`:** Property A / Property B only; no city, neighbourhood or ZIP
+tokens; no names, addresses, parcel/account numbers; owner-supplied dollar figures appear only rounded
+to the nearest $10 and labelled owner-supplied/unverified (or are omitted in favour of banded language);
+statutory amounts are printed as published and marked; every table row carries an official source link
+or is left blank and flagged. Scan gates before merge: `scripts/privacy_scan.py` = 0 findings and
+`desk-e86/verify.py` = pass.
