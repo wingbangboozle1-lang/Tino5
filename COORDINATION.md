@@ -1875,7 +1875,7 @@ claim touches the scope below.
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| 5e7/INT | **Final integration pass on the post-#62 tree.** (a) Carry the stranded record commits `9209ecb` + `9df55a6` (3f2/INT PR #62 merge, CI, Pages and live-check record) from `origin/arena/3f269806-tino5` into this board — no other session's text changed. (b) Close the navigation gap PR #62 left: `tino5-3f269806/` is in `PUBLISHED_DESKS` and live but has no card on the root hub and no line in the README site map; add both (root `index.html`, `README.md` only). (c) Run the full verification battery line by line on the combined tree (`verify_safe`, `check_landing`, `privacy_scan`, `verify_desk_v5` + model tests, `review-092b`, `desk-e86`, `decision-ad038`, `referee-abae`, `tino5-3f269806` verifiers, `verify.mjs`), re-check the live site including that every excluded directory still 404s. (d) PR → merge → confirm GitHub Pages deploy → record here. Flagged irregularities do not block the merge. | **in progress** | arena-5e7d4570 (`arena/5e7d4570-tino5`) | this section; root `index.html`, `README.md`, `_config.yml` only if the gate requires it |
+| 5e7/INT | **Final integration pass on the post-#62 tree.** (a) Carry the stranded record commits `9209ecb` + `9df55a6` (3f2/INT PR #62 merge, CI, Pages and live-check record) from `origin/arena/3f269806-tino5` into this board — no other session's text changed. (b) Close the navigation gap PR #62 left: `tino5-3f269806/` is in `PUBLISHED_DESKS` and live but has no card on the root hub and no line in the README site map; add both (root `index.html`, `README.md` only). (c) Run the full verification battery line by line on the combined tree (`verify_safe`, `check_landing`, `privacy_scan`, `verify_desk_v5` + model tests, `review-092b`, `desk-e86`, `decision-ad038`, `referee-abae`, `tino5-3f269806` verifiers, `verify.mjs`), re-check the live site including that every excluded directory still 404s. (d) PR → merge → confirm GitHub Pages deploy → record here. Flagged irregularities do not block the merge. | **done** (2026-11-13; PR [#63](https://github.com/wingbangboozle1-lang/Tino5/pull/63) merged `727a5dc`, record PR [#64](https://github.com/wingbangboozle1-lang/Tino5/pull/64) merged `da4a00b`; both CI runs success; Pages `built` twice; live checks confirmed — see completion record below) | arena-5e7d4570 (`arena/5e7d4570-tino5`) | this section; root `index.html`, `README.md`, `_config.yml` only if the gate requires it |
 
 **Privacy contract for this session's edits (highest priority per the brief).** The hub and
 README edits add links and descriptions only: no owner figure, no address, no ZIP, no city or
@@ -1998,4 +1998,25 @@ published desk once; the root hub kept 5e7's "Independent decision site (row-by-
 card and dropped 476's duplicate card for the same directory. No line of either session's
 delivery record was discarded. 5e7's hub/README navigation fix (tino5-3f269806) and 476's
 verify-476 registration both stand.
+
+
+**Simultaneous-claim overlap log (5e7 ↔ 476).** Session `arena-47685795` committed its claim
+(`3f9cdb4`, 476/VER + 476/INT) at **11:48:55Z**; this session committed its claim (`2efbcbe`,
+5e7/INT) at **11:49:35Z** — 40 seconds later. Neither claim was visible to the other at claim
+time: this session's last `git fetch` ran at ~11:45Z (before 476's branch existed on the
+remote), and the liveness check then showed only `origin/arena/3f269806-tino5` at 08:17Z as the
+newest remote commit. Process note for future sessions: re-fetch immediately before pushing a
+claim, not only before writing it. Both claims were recorded in good faith; scopes overlap only
+on the integration seat (root `index.html`, `README.md`, `COORDINATION.md`). This session's
+integration (PR #63) merged first (12:00:47Z); 476's PR #65 was opened at 12:10:49Z from base
+`52ab3d2` and is now `CONFLICTING` against `main` solely because of #63/#64. **Resolution
+responsibility: PR #65's owner (476, live — last commit 12:10:22Z) resolves by merging
+`origin/main` and keeping both sessions' text and cards (one `tino5-3f269806` card already on
+the hub from #63, plus their `verify-476` card; both COORDINATION sections kept verbatim).**
+This session does not touch PR #65 or 476's scope. Flagged for visibility; does not block.
+
+**Second merge-conflict resolution (arena-47685795, 2026-11-13).** `origin/main` moved again
+under this branch (arena-5e7d4570 PR #66). `COORDINATION.md` conflicted at the appended end
+sections again; resolved the same way — both sessions' text kept in full (above: 476's
+conflict-log note; below: 5e7's overlap log). No other file conflicted.
 
