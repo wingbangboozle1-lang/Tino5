@@ -36,7 +36,7 @@ central repository finding.</p>
 <tr><td>R-01</td><td>Two live dashboards give materially different answers to the same question.</td><td><span class="tag tag-priority-high">priority-high</span></td><td>This site does not add a third unverifiable set of numbers. It reuses the other desks as cross-checks and publishes its own reproducible model, so every figure here traces to a line of code and a source link.</td><td><a href="../desk-22a32b17/index.html">desk</a></td></tr>
 <tr><td>R-02</td><td>desk-22a32b17/ publishes household dollar levels on a public page while public-safe/ asserts that such figures are withheld.</td><td><span class="tag tag-priority-high">priority-high</span></td><td>Logged on the flagged page. This site publishes rounded anchors and no histories. Removing or excluding the other desk is an owner decision, not this session's.</td><td><a href="../public-safe/index.html">public-safe</a></td></tr>
 <tr><td>R-03</td><td>The coordination board contains claims of tasks marked done whose directories do not exist.</td><td><span class="tag tag-priority-medium">priority-medium</span></td><td>Recorded in the board's own session section; stale claims were taken over under the 60-minute rule after more than 25 hours without a commit.</td><td><a href="../COORDINATION.md">board</a></td></tr>
-<tr><td>R-04</td><td>The root landing page was an HTML meta-refresh redirect, not a landing page.</td><td><span class="tag tag-priority-medium">priority-medium</span></td><td>Replaced with a category hub that links every published tree, so nothing is unreachable.</td><td><a href="../index.html">hub</a></td></tr>
+<tr><td>R-04</td><td>The root landing page was an HTML meta-refresh redirect, not a landing page.</td><td><span class="tag tag-priority-medium">priority-medium</span></td><td>Replaced with a hub that routes readers by desk. Under the fail-closed rule merged to main while this desk was being built, only public-safe/ is a publishable directory, so the hub describes the unpublished desks in a table instead of linking into them.</td><td><a href="../index.html">hub</a></td></tr>
 <tr><td>R-05</td><td>Some citations in the older trees point at URLs that now return 404, including one insurance department guide page.</td><td><span class="tag tag-priority-medium">priority-medium</span></td><td>Every source used by this site was re-read in this session; the failed one is listed as unverified rather than cited as support.</td><td><a href="flagged.html">flags</a></td></tr>
 <tr><td>R-06</td><td>Several scripts under scripts/ write into directories owned by other sessions, so re-running them would overwrite published work.</td><td><span class="tag tag-priority-low">priority-low</span></td><td>This site has its own generator and verifier under review-092b/_src/ and writes only inside review-092b/.</td><td><a href="../scripts/">scripts</a></td></tr>
 <tr><td>R-07</td><td>Assessment and tax histories for both properties exist in the repository's data files at full precision.</td><td><span class="tag tag-priority-high">priority-high</span></td><td>Not republished here at any rounding. See Q-01 for why rounding a series does not protect it. Whether to remove them is an owner decision.</td><td><a href="questions.html">Q-01</a></td></tr>
@@ -49,7 +49,14 @@ outside this directory was modified except the shared coordination board, the ro
 <code>_config.yml</code> and the README, which this session claimed explicitly because every other
 outstanding claim had lapsed.</li>
 <li>Added a verification gate to the workflow so the site cannot be published if a table row loses
-its source link, a dollar figure stops rounding to $10, or a personal-identifier pattern appears.</li>
+its source link, a dollar figure stops rounding to $10, or a personal-identifier pattern appears.
+The gate runs on every push and pull request.</li>
+<li><b>Did not publish this desk.</b> While it was being built, main gained a fail-closed rule that
+only <code>public-safe/</code> may be a publishable top-level directory. This desk publishes rounded
+owner-supplied anchors ($10 rounding), which the live dashboard deliberately withholds entirely.
+Given that privacy is the owner's first constraint, this desk is listed in the deployment
+exclusions and the hub describes it rather than linking to it. Publishing it is a one-line change
+in two files, and it is recorded as an owner decision — F-13.</li>
 <li>Did not delete, rename or rewrite any other session's published directory.</li>
 <li>Corrected two arithmetic defects in this site's own first draft rather than shipping them: a
 black-swan stress test that applied a two-year price fall for twenty-five years, and money amounts

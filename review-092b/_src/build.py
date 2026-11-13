@@ -1189,8 +1189,10 @@ central repository finding.</p>
     "Recorded in the board's own session section; stale claims were taken over under the 60-minute "
     "rule after more than 25 hours without a commit.", '<a href="../COORDINATION.md">board</a>'],
    ["R-04", "The root landing page was an HTML meta-refresh redirect, not a landing page.",
-    badge("priority-medium"), "Replaced with a category hub that links every published tree, so "
-    "nothing is unreachable.", '<a href="../index.html">hub</a>'],
+    badge("priority-medium"), "Replaced with a hub that routes readers by desk. Under the "
+    "fail-closed rule merged to main while this desk was being built, only public-safe/ is a "
+    "publishable directory, so the hub describes the unpublished desks in a table instead of "
+    "linking into them.", '<a href="../index.html">hub</a>'],
    ["R-05", "Some citations in the older trees point at URLs that now return 404, including one "
     "insurance department guide page.", badge("priority-medium"),
     "Every source used by this site was re-read in this session; the failed one is listed as "
@@ -1212,7 +1214,14 @@ outside this directory was modified except the shared coordination board, the ro
 <code>_config.yml</code> and the README, which this session claimed explicitly because every other
 outstanding claim had lapsed.</li>
 <li>Added a verification gate to the workflow so the site cannot be published if a table row loses
-its source link, a dollar figure stops rounding to $10, or a personal-identifier pattern appears.</li>
+its source link, a dollar figure stops rounding to $10, or a personal-identifier pattern appears.
+The gate runs on every push and pull request.</li>
+<li><b>Did not publish this desk.</b> While it was being built, main gained a fail-closed rule that
+only <code>public-safe/</code> may be a publishable top-level directory. This desk publishes rounded
+owner-supplied anchors ($10 rounding), which the live dashboard deliberately withholds entirely.
+Given that privacy is the owner's first constraint, this desk is listed in the deployment
+exclusions and the hub describes it rather than linking to it. Publishing it is a one-line change
+in two files, and it is recorded as an owner decision — F-13.</li>
 <li>Did not delete, rename or rewrite any other session's published directory.</li>
 <li>Corrected two arithmetic defects in this site's own first draft rather than shipping them: a
 black-swan stress test that applied a two-year price fall for twenty-five years, and money amounts
@@ -1287,6 +1296,14 @@ FLAGS = [
      "Removing content from a page does not remove it from history.",
      "High", "Owner decision on repository visibility or history rewriting (Q-01).",
      "scc-assessor-booklet"),
+    ("F-13", "This desk is complete and verified but not published on the public site",
+     "Main carries a fail-closed deployment rule: only public-safe/ may be a publishable top-level "
+     "directory. This desk publishes owner-supplied anchors rounded to $10, which the live dashboard "
+     "withholds entirely. Publishing it therefore needs a decision that the rounded anchors are "
+     "safe to show, not just a technical change.",
+     "High", "Decide whether rounded anchors may appear publicly. If yes: remove \"review-092b\" "
+     "from DEPLOYMENT_EXCLUSIONS and from _config.yml, and add it to the allowed set in "
+     "scripts/verify_safe.py.", "ca-rtc-51"),
 ]
 
 
