@@ -1203,3 +1203,34 @@ Privacy rule for this scope: Property A / Property B placeholders only; county-l
 - **Fail-closed rule:** the first merged run of `scripts/verify_safe.py` failed on `decision-ad038` (not in `DEPLOYMENT_EXCLUSIONS`). Resolved by excluding it (`verify_safe.py` and `_config.yml`), which keeps the rule intact. Publishing the decision desk on Pages needs an owner decision (see the desk's flagged list).
 - **Not done (flagged, owner decision):** publication of `decision-ad038/` on Pages; deletion or redaction of owner figures in earlier git history, branches and closed PR diffs; privacy boundary on earlier desks (X14).
 - **Verification of the merged site:** CI verify PASS (13 pages; 120 source-linked rows). `decision-ad038/_src/verify_site.py` NO ERRORS (194 rows; 78 amounts). `referee-abae/_src/crosscheck.py` exit 0.
+## Session `arena-092bb01c` — claim & takeover record (2026-11-13 06:40Z, branch `arena/092bb01c-tino5`)
+
+Read before claiming: this board on `main` at `b3924d1` (PR #48 merged 2026-11-12 05:24Z) **and** every remote branch
+(`git fetch origin '+refs/heads/*:refs/remotes/origin/*'`, 39 branches listed). Platform constraint (same as every earlier
+session): this session is bound to the fixed branch `arena/092bb01c-tino5` and cannot create `session-<id>/<task>` branches,
+so non-overlap is enforced by **file scope**.
+
+**Staleness finding (basis for the takeover).** The newest commit on *any* remote branch is `origin/arena/abae1b53-tino5`
+at 2026-11-12 05:23:15Z; `origin/main` last moved at 2026-11-12 05:24Z. It is now 2026-11-13 06:40Z — every outstanding
+claim below is **more than 25 hours without a commit**, i.e. far past the 60-minute rule. Two of the five published desks
+were still unmerged or unlinked, and three conditional integration claims (`552/INT`, `c09/INT`, `abae/INT`) were deadlocked
+behind that 60-minute test. This session therefore (a) takes over the integration role, (b) claims a new, non-overlapping
+directory, and (c) does **not** edit any other session's published directory — those stay exactly as merged.
+
+Lapsed claims taken over here (listed for the record, no file of theirs is modified): `c09/A`+`c09/R`+`c09/INT`
+(`plan/**` never created — second failure of that scope, after e74/A), `552/INT`, `3a4/INT`, `22a/INT`, `abae/INT`,
+`966/A` (`needs review`, `audit-966/**`), `803/M`, `881/P`, `b4f/P` (`session-595f0109/scripts/verify.py`).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 092/H | **Decision hub: executive summary, open-question register, suggestions register, black-swan synthesis, step-by-step process, discrepancy log.** One small site rooted at `review-092b/`, reusing (not re-deriving) the numbers already published by the two live desks, with every row carrying an official source link. Generator + verifier + tests in `review-092b/_src/` (Jekyll does not publish `_`-prefixed directories). | in progress | arena-092bb01c | `review-092b/**` (new directory) |
+| 092/I | **Integration:** root landing page as a category hub, `_config.yml` exclusion review, `README.md`, add the hub verifier to CI, PR to `main`, merge, confirm GitHub Pages, record the result. Taken over from the three lapsed `*/INT` claims under the tie-break already written into this board (earliest claim first — all have now lapsed). | in progress | arena-092bb01c | root `index.html`, `_config.yml`, `README.md`, `.github/workflows/**`, this section |
+
+**Privacy contract for `review-092b/**`.** Property A / Property B only; jurisdiction named at county level; **no** ZIP codes,
+street addresses, parcel/APN or account numbers, names, phone or e-mail. No year-by-year assessment or tax-bill history is
+published (a rounded series is still a fingerprint against open assessor rolls) — history is reported only as a comparison
+against the official statutorily published inflation factor. Dollar figures are nearest-$10 except statutory/agency amounts
+quoted exactly and marked. Values that cannot be confirmed from an official source stay blank (`—`) and are listed on
+`review-092b/flagged.html`. Privacy-scan results are reported as counts, never values.
+
+**Requests logged, not acted on.** None outstanding: every other claim has lapsed, so this session is the only live writer.
