@@ -9,6 +9,7 @@ exclude:
   - "audited-v4"
   - "data"
   - "docs"
+  - "decision-ad038"
   - "desk-b4f"
   - "desk-22a32b17"
   - "tools-22a32b17"

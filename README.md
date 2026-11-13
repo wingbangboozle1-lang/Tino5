@@ -4,7 +4,9 @@ A source-linked decision framework for a future trust inheritance (Property A) a
 
 **Live site:** https://wingbangboozle1-lang.github.io/Tino5/
 
-The GitHub Pages landing page redirects to the curated dashboard at `public-safe/index.html`.
+**Site map:** the root [`index.html`](index.html) is the hub and links to the published curated dashboard at [`public-safe/index.html`](public-safe/index.html). The decision desk in [`decision-ad038/`](decision-ad038/index.html) is kept in the repository and is excluded from Pages until the owner approves publication (the verifier fails closed for every top-level directory except `public-safe/`).
+
+The GitHub Pages landing page is a hub that links to the published curated dashboard.
 
 ## Dashboard sections
 

@@ -21,7 +21,7 @@ import re
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
 DEPLOYMENT_EXCLUSIONS = {
-    "verify-552", "session-595f0109", "desk-22a32b17", "tools-22a32b17",
+    "verify-552", "session-595f0109", "decision-ad038", "desk-22a32b17", "tools-22a32b17",
     "swan-3a49", "referee-abae", "desk-b4f", "docs", "archive", "audited-v4",
     "data", "analysis", "assets", "model", "pages", "research", "scripts",
     "session-2f7b1b3f", "mine", "src",
