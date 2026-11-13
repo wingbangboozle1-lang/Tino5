@@ -6,6 +6,10 @@
    "detail": "16 expected files present"
   },
   {
+   "check": "published-surface",
+   "detail": "Jekyll build is active and 26 excluded paths are honoured; only public-safe/ is served"
+  },
+  {
    "check": "links",
    "detail": "137 external links, all on allowlisted official hosts"
   },
@@ -36,5 +40,5 @@
  ],
  "pages": 15,
  "failure_count": 0,
- "warning_count": 8
+ "warning_count": 9
 }
