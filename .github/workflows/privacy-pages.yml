@@ -59,6 +59,17 @@ jobs:
             git --no-pager diff --stat -- cbe
             exit 1
           fi
+      - name: Decision desk (desk-31cb5781/) — rebuild, then verify
+        run: |
+          python desk-31cb5781/_src/build.py
+          python desk-31cb5781/_src/verify.py
+      - name: Decision desk (desk-31cb5781/) generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-31cb5781; then
+            echo "::error::desk-31cb5781/ is stale. Re-run desk-31cb5781/_src/build.py and commit the result."
+            git --no-pager diff --stat -- desk-31cb5781
+            exit 1
+          fi
       - name: Phased-replay and attorney/CPA desk (phase-99220/) — rebuild, then verify
         run: |
           python phase-99220/_src/build.py

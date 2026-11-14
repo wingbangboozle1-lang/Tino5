@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<title>Black swan &amp; phased investing — Inheritance decision desk</title><link rel="stylesheet" href="assets/style.css"><script src="assets/app.js"></script></head><body>
+<header><div class="bar"><h1>Inheritance decision desk</h1><div class="sub">Property A (future trust inheritance) · Property B (already owned) · County level · No personal identifiers</div></div>
+<nav><span class="grp">Start</span><a href="executive-summary.html">Executive summary</a><a href="index.html">How to use this desk</a><span class="grp">Property A — to be inherited</span><a href="properties.html">Property facts</a><a href="property-tax.html">Property tax & assessment</a><a href="process.html">Step-by-step trust process</a><span class="grp">Property B — already owned</span><a href="properties.html">Property facts</a><a href="running-costs.html">Running costs</a><span class="grp">Taxes & inheritance</span><a href="inheritance-tax.html">Inheritance & estate tax</a><a href="law-watch.html">Law watch</a><span class="grp">Decision model</span><a href="scenarios.html">Scenarios: live / rent / sell</a><a href="black-swans.html">Black swan & phased investing</a><span class="grp">Timing & deadlines</span><a href="process.html">Deadlines timeline</a><span class="grp">Questions & gaps</span><a href="questions.html">Questions & information gaps</a><span class="grp">Owner input</span><a href="suggestions.html">Suggestions board</a><a href="glossary.html">Glossary</a><span class="grp">For advisers</span><a href="briefing-sheet.html">Attorney & CPA Briefing Sheet</a><span class="grp">Record</span><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="methodology.html">Methodology & privacy</a></nav></header>
+<main><div class="page-header"><h2>Black swan &amp; phased investing</h2><p class="dek">Uneven-economy stress reasoning, the phased-investing path, and reinvestment risk.</p></div>
+<h3>Uneven-economy (black swan) reasoning</h3>
+<p>Growth and inflation are never constant over 50 years. The desk models Property A under uneven regimes anchored to the real historical record (inflation and interest-rate cycles), not a single smooth line. See the cbe desk's block-resampled inflation paths (1914–2026 CPI-U) for the full engine.</p>
+
+<h3>Phased-investing path (sale proceeds)</h3>
+<p>If Property A is sold at inheritance, do <b>not</b> dump 100% of proceeds into equities on day one. Instead:</p>
+<ol>
+<li><b>Months 0–6:</b> Pay taxes, selling costs, and set aside an operating reserve.</li>
+<li><b>Months 6–36:</b> Park the balance in 3-month to 2-year U.S. Treasuries (liquid, ~{t3}–{t2}% yields per the Treasury curve).</li>
+<li><b>Months 36–60:</b> Phase into a diversified portfolio (e.g. 25% of the equity allocation per quarter over one year) so purchase is spread across market conditions.</li>
+</ol>
+<div class="calc">
+<h4>Phased-investing calculator</h4>
+<div class="row"><label>Sale proceeds ($)</label><input type="number" id="proceeds" value="3000000"><label>Treasury yield during hold (%)</label><input type="number" id"ty" value="3.7" step="0.1"><label>Hold months</label><input type="number" id="hold" value="30"></div>
+<div class="row"><button class="btn" onclick="calcPhase()">Compute phased result</button></div>
+<div class="row"><div id="pres" class="out"></div></div>
+</div>
+<p class="small">Treasury yields from the U.S. Treasury Daily Par Yield Curve (3-month and 2-year CMT). <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener">U.S. Department of the Treasury — Daily Treasury Par Yield Curve (constant-maturity Treasury rates; 3-month and 2-year used for the phased-investing path)</a></p>
+
+<h3>Softening 1929 / 2008 crash entry risk</h3>
+<div class="callout info"><b>A lump-sum equity purchase at a 1929- or 2008-style peak can take years to recover in real terms.</b> By holding in Treasuries for 24–36 months and phasing in, the heir buys across conditions: if a crash arrives during the hold, Treasuries preserve capital and the later equity purchases enter at lower prices. Reinvestment risk (the risk that rates fall while waiting, or that equities rally while in cash) is shown beside the headline — it is real, but smaller than the risk of a single bad lump-sum entry.</div>
+
+<h3>Reinvestment risk beside the headline</h3>
+<table>
+<thead><tr><th>Risk</th><th>What it means</th><th>Mitigation in this desk</th></tr></thead>
+<tbody>
+<tr><td>Equity entry risk</td><td>Buying stocks at a peak before a 1929/2008-style drawdown</td><td>Phased-investing path: Treasuries first, then DCA into stocks<span class="tag unverified">unverified</span></td></td></tr>
+<tr><td>Reinvestment (rate) risk</td><td>Treasury yields fall while waiting; cash earns less than expected</td><td>Ladder 3M–2Y maturities; accept lower but known return during hold<span class="tag unverified">unverified</span></td></td></tr>
+<tr><td>Equity rally risk</td><td>Stocks rise while proceeds sit in cash; "cash drag"</td><td>Time-boxed hold (24–36 months), then full phase-in regardless of level<span class="tag unverified">unverified</span></td></td></tr>
+<tr><td>Inflation risk</td><td>Cash/Treasury returns trail inflation during the hold</td><td>Short maturities preserve purchasing power; phase into equities (inflation hedge)<span class="tag unverified">unverified</span></td></td></tr>
+</tbody>
+</table>
+
+<div class="foot no-print"><b>Not tax, legal or investment advice.</b> Figures are planning estimates based on the sources named in each row. Statutory amounts are quoted as published; all other money rounded to the nearest $10. Re-check the then-current law before acting. <a href="sources.html">Source register</a> · <a href="flagged.html">Flagged for review</a> · <a href="methodology.html">Methodology &amp; privacy</a></div></main>
+</body></html>
