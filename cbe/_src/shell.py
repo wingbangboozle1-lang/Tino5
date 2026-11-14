@@ -1,40 +1,50 @@
 # -*- coding: utf-8 -*-
 """Shared HTML shell, styles and table helpers for the owner-brief desk.
 
-The published artifact is static HTML and CSS only. There is no JavaScript, no external
-font, image or style reference, no form and no analytics: a page that cannot run code and
-cannot call out cannot leak what it is displaying. The verifier enforces that.
+The published artifact is static HTML/CSS plus one repository-local calculator script on
+the black-swan page. That script has no network, tracking or browser-storage behavior; no
+third-party assets or analytics are used, and the verifier enforces this boundary.
 """
 
 from html import escape
 
 PAGES = [
-    ("index.html", "Overview", "Where each question is answered"),
+    ("index.html", "Overview", "What is known, what would change the answer, and where to start"),
     ("executive-summary.html", "Executive summary", "The decision, the numbers behind it, and what is still unknown"),
+    ("brief.html", "Attorney & CPA brief", "One-page print-ready transfer, tax and decision checklist"),
     ("properties.html", "The two properties", "What is known, what is owner input, and what is missing"),
     ("property-tax.html", "Property tax", "Proposition 13, Proposition 19 and the assessed value after transfer"),
     ("inheritance-tax.html", "Inheritance and estate tax", "Federal thresholds, California's prohibition, and basis"),
     ("running-costs.html", "Running costs", "Insurance, water, power, maintenance, and what they cost over time"),
     ("projections.html", "Projections 2026-2076", "Value, assessed value, tax and costs, year by year"),
-    ("options.html", "The three options", "Occupy, let, or sell and reinvest, with break-evens"),
+    ("options.html", "Options & mixed paths", "Occupy, let, sell, or combine the paths with break-evens"),
     ("phased-investing.html", "Phased investing", "Treasury parking and staged stock entry stress test"),
-    ("black-swan.html", "Black swans", "Real inflation history replayed across fifty uneven years"),
-    ("process.html", "The transfer, step by step", "What actually happens when the trust property passes"),
-    ("questions.html", "Questions and gaps", "What must be answered before a decision is reasonable"),
-    ("suggestions.html", "Suggestions", "Proposed only. Nothing here has been implemented"),
+    ("black-swan.html", "Black swans & phased investing", "Stress equity-entry timing while rolling short Treasuries"),
+    ("process.html", "Transfer timeline", "Steps, deadlines, and who to contact"),
+    ("questions.html", "Questions & gaps", "What must be answered before a decision is reasonable"),
+    ("suggestions.html", "Suggestions for review", "Proposed improvements, for accept / modify / reject"),
     ("law-watch.html", "Law watch", "Rules in force, rules that moved, and rules under discussion"),
     ("repo-review.html", "Repository review", "What is in the repository and what was found in it"),
-    ("sources.html", "Sources", "Every official document this desk read"),
+    ("sources.html", "Source register", "Every official document this desk read"),
     ("flagged.html", "Flagged for review", "Irregularities and unverified items, with the source links"),
-    ("methodology.html", "Method and privacy", "How every number was produced and what is kept off this site"),
+    ("methodology.html", "Method & privacy", "How every number was produced and what is kept off this site"),
+    ("glossary.html", "Glossary", "Plain-language definitions of decision and tax terms"),
 ]
 
+NAV_GROUPS = [
+    ("Start here", ("index.html", "executive-summary.html", "brief.html")),
+    ("Property & tax", ("properties.html", "property-tax.html", "inheritance-tax.html", "running-costs.html", "projections.html")),
+    ("Decision paths", ("options.html", "phased-investing.html", "black-swan.html", "process.html", "questions.html")),
+    ("Review & references", ("suggestions.html", "law-watch.html", "repo-review.html", "sources.html", "flagged.html", "methodology.html", "glossary.html")),
+]
+
+
 PRIVACY = (
-    "<b>Privacy.</b> No name, street address, parcel identifier, account number, postcode or "
-    "city appears anywhere on this site. The two properties are called Property A and Property B. "
-    "Every dollar figure is rounded to the nearest $10 so that a published number cannot be "
-    "matched back to a public record. Statutory amounts are quoted exactly as published because "
-    "they are statewide constants and identify nobody."
+    "<b>Privacy.</b> Current pages omit names, street addresses, parcel/account identifiers, postcodes "
+    "and city names; the properties are called Property A and Property B. Owner-specific money figures "
+    "on current pages are rounded to the nearest $10, but rounding is not a guarantee of anonymity and does not "
+    "remove earlier versions from Git history. Statutory amounts may be quoted exactly as published. "
+    "See <a href=\"flagged.html\">Flagged for review</a> before treating the repository as fully scrubbed."
 )
 
 CSS = """
@@ -117,6 +127,34 @@ footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-
   .kpi .v{font-size:19px}
   table.data{font-size:12.4px}
 }
+nav.main details{display:inline-block;position:relative}
+nav.main summary{list-style:none;cursor:pointer;padding:9px 12px;color:#dce8f1;font-size:13px}
+nav.main summary::-webkit-details-marker{display:none}
+nav.main details[open]{background:#2a5f8f}
+nav.main details ul{display:block;position:absolute;z-index:5;min-width:235px;max-height:70vh;overflow:auto;top:100%;left:0;padding:5px 0;background:#fff;box-shadow:0 4px 14px #0003}
+nav.main details li{display:block}
+nav.main details a{color:var(--blue);padding:8px 12px;border:0}
+nav.main details a:hover,nav.main details a.on{color:#fff;background:#2a5f8f}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.control{background:#fff;border:1px solid var(--line);border-radius:7px;padding:10px}
+.control label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px}
+.control input{width:100%;padding:7px;border:1px solid #aeb9c6;border-radius:4px;font:inherit}
+.result{background:var(--green-lt);padding:12px;border-radius:7px;margin:10px 0;min-height:42px}
+@media print{
+  body{background:#fff;font-size:9pt;color:#000}
+  nav.main,header.top,footer,.no-print{display:none!important}
+  main{max-width:none;padding:0;margin:0}
+  .brief-sheet{font-size:8.5pt;line-height:1.25}
+  .brief-sheet h2{font-size:11pt;margin:8px 0 3px}
+  .brief-sheet h3{font-size:9pt;margin:5px 0 2px}
+  .brief-sheet p{margin:3px 0}
+  .brief-sheet .banner{margin:4px 0;padding:5px 7px}
+  .brief-sheet table.data{font-size:7.5pt}
+  .brief-sheet table.data td,.brief-sheet table.data th{padding:3px 4px}
+  .brief-sheet .tblwrap{margin:4px 0}
+  .brief-sheet a{color:#000;text-decoration:none}
+  @page{size:letter portrait;margin:0.35in}
+}
 """
 
 
@@ -153,9 +191,14 @@ def table(headers, rows, note=None, cls="data"):
 
 def page(title, nav_key, body, subtitle=None, extra_head=""):
     nav = []
-    for fn, label, _ in PAGES:
-        cls = ' class="on"' if fn == nav_key else ""
-        nav.append('<li><a%s href="%s">%s</a></li>' % (cls, fn, esc(label)))
+    labels = {fn: label for fn, label, _ in PAGES}
+    for group, members in NAV_GROUPS:
+        active = nav_key in members
+        nav.append('<li><details%s><summary>%s</summary><ul>' % (' open' if active else '', esc(group)))
+        for fn in members:
+            cls = ' class="on"' if fn == nav_key else ""
+            nav.append('<li><a%s href="%s">%s</a></li>' % (cls, fn, esc(labels[fn])))
+        nav.append('</ul></details></li>')
     return """<!doctype html>
 <html lang="en">
 <head>
