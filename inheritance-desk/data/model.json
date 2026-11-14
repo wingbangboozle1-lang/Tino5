@@ -1,0 +1,1544 @@
+{
+ "_meta": {
+  "horizon": "2026-2076",
+  "model": "monthly simulation; see methodology page",
+  "unit": "2026 dollars (CPI-deflated)"
+ },
+ "assumptions": {
+  "cap_growth": 0.02,
+  "composite_tax_rate": 0.012,
+  "equity_base": 0.06,
+  "equity_low": 0.03,
+  "equity_stag": 0.04,
+  "gain_tax_rate": 0.281,
+  "home_base": 0.02,
+  "home_low": 0.0,
+  "home_stag": 0.03,
+  "infl_base": 0.02,
+  "infl_low": 0.01,
+  "infl_stag": 0.05,
+  "insurance_extra_growth": 0.01,
+  "maintenance_rate": 0.002,
+  "park_rate": 0.0432,
+  "park_rate_low": 0.03,
+  "rent_gross_yield": 0.04,
+  "rent_vacancy_mgmt": 0.08,
+  "sale_cost": 0.06,
+  "solar_credit_month": 20,
+  "water_month": 130
+ },
+ "break_even_rent_yield_2040_base": 0.03536109295242906,
+ "cash_only_vs_rent_break_even_gross_yield_2040_base": 0.004638907047570957,
+ "constants": {
+  "CAP_GAINS_0_SINGLE": 49450,
+  "CAP_GAINS_15_SINGLE": 545500,
+  "CA_PROBATE_SMALL_EST": 208850,
+  "DOW_1929_DROP": 0.89,
+  "DOW_1929_MONTHS_TO_RECOVER": 268,
+  "DOW_1929_MONTHS_TO_TROUGH": 34,
+  "END_YEAR": 2076,
+  "FED_EXCLUSION_2026": 15000000,
+  "FED_INFLATION_GOAL": 0.02,
+  "GIFT_ANNUAL_EXCL_2026": 19000,
+  "HOME_2008_DROP": 0.3,
+  "HOME_2008_MONTHS": 36,
+  "NIIT_RATE": 0.038,
+  "NIIT_THRESH_SINGLE": 200000,
+  "PROP13_MAX_GROWTH": 0.02,
+  "PROP19_CAP_2025_27": 1044586,
+  "SEC121_EXCL_SINGLE": 250000,
+  "SP500_2008_DROP": 0.57,
+  "SP500_2008_MONTHS_TO_RECOVER": 48,
+  "SP500_2008_MONTHS_TO_TROUGH": 17,
+  "START_YEAR": 2026,
+  "TREASURY_2Y": 0.0488,
+  "TREASURY_3M": 0.0432
+ },
+ "first_year": {
+  "2040": {
+   "live": {
+    "carry": 9330.0,
+    "home_value": 3100000.0,
+    "prop_tax": 24640.0,
+    "rent_net": 115120.0,
+    "taxable_value": 2034520.0
+   },
+   "rent": {
+    "carry": 9330.0,
+    "home_value": 3100000.0,
+    "prop_tax": 37540.0,
+    "rent_net": 115120.0,
+    "taxable_value": 3100000.0
+   }
+  },
+  "2045": {
+   "live": {
+    "carry": 9420.0,
+    "home_value": 3100000.0,
+    "prop_tax": 24640.0,
+    "rent_net": 115120.0,
+    "taxable_value": 2034520.0
+   },
+   "rent": {
+    "carry": 9420.0,
+    "home_value": 3100000.0,
+    "prop_tax": 37540.0,
+    "rent_net": 115120.0,
+    "taxable_value": 3100000.0
+   }
+  },
+  "2050": {
+   "live": {
+    "carry": 9510.0,
+    "home_value": 3100000.0,
+    "prop_tax": 24640.0,
+    "rent_net": 115120.0,
+    "taxable_value": 2034520.0
+   },
+   "rent": {
+    "carry": 9510.0,
+    "home_value": 3100000.0,
+    "prop_tax": 37540.0,
+    "rent_net": 115120.0,
+    "taxable_value": 3100000.0
+   }
+  }
+ },
+ "grid": [
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "base",
+   "wealth": 7161050.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "base",
+   "wealth": 582050.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "rent",
+   "regime": "base",
+   "wealth": 6398070.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "base",
+   "wealth": 12056130.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "base",
+   "wealth": 11108250.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "base",
+   "wealth": 10766320.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "base",
+   "wealth": 7135420.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "base",
+   "wealth": 9687870.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "stagflation",
+   "wealth": 2311910.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "stagflation",
+   "wealth": 287760.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "rent",
+   "regime": "stagflation",
+   "wealth": 2137520.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "stagflation",
+   "wealth": 1563640.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "stagflation",
+   "wealth": 1592840.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "stagflation",
+   "wealth": 1603590.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "stagflation",
+   "wealth": 2306050.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "stagflation",
+   "wealth": 1796810.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "low_growth",
+   "wealth": 5864070.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "low_growth",
+   "wealth": -271520.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "rent",
+   "regime": "low_growth",
+   "wealth": 5320160.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "low_growth",
+   "wealth": 5228380.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "low_growth",
+   "wealth": 5687700.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "low_growth",
+   "wealth": 5858350.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "low_growth",
+   "wealth": 5864070.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "low_growth",
+   "wealth": 5809130.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "crash_2008",
+   "wealth": 4448910.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "crash_2008",
+   "wealth": -16200.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "rent",
+   "regime": "crash_2008",
+   "wealth": 4375240.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "crash_2008",
+   "wealth": 8792950.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "crash_2008",
+   "wealth": 17103920.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "crash_2008",
+   "wealth": 14225380.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "crash_2008",
+   "wealth": 4423280.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "crash_2008",
+   "wealth": 6428750.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "crash_1929",
+   "wealth": 4448910.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "crash_1929",
+   "wealth": -16200.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "rent",
+   "regime": "crash_1929",
+   "wealth": 4375240.0
+  },
+  {
+   "T": 2040,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "crash_1929",
+   "wealth": 2781910.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "crash_1929",
+   "wealth": 19861980.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "crash_1929",
+   "wealth": 24693950.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "crash_1929",
+   "wealth": 4423280.0
+  },
+  {
+   "T": 2040,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "crash_1929",
+   "wealth": 11030310.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "base",
+   "wealth": 6331840.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "base",
+   "wealth": 991570.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "rent",
+   "regime": "base",
+   "wealth": 5707690.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "base",
+   "wealth": 9946710.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "base",
+   "wealth": 9209930.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "base",
+   "wealth": 8944940.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "base",
+   "wealth": 6306210.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "base",
+   "wealth": 8094930.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "stagflation",
+   "wealth": 2078730.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "stagflation",
+   "wealth": 386900.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "rent",
+   "regime": "stagflation",
+   "wealth": 1936070.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "stagflation",
+   "wealth": 1489900.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "stagflation",
+   "wealth": 1515210.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "stagflation",
+   "wealth": 1524510.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "stagflation",
+   "wealth": 2072870.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "stagflation",
+   "wealth": 1697610.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "low_growth",
+   "wealth": 4984000.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "low_growth",
+   "wealth": 327090.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "rent",
+   "regime": "low_growth",
+   "wealth": 4451060.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "low_growth",
+   "wealth": 4510050.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "low_growth",
+   "wealth": 4862330.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "low_growth",
+   "wealth": 4992920.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "low_growth",
+   "wealth": 4984000.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "low_growth",
+   "wealth": 4939660.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "crash_2008",
+   "wealth": 4005800.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "crash_2008",
+   "wealth": 371130.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "rent",
+   "regime": "crash_2008",
+   "wealth": 3937820.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "crash_2008",
+   "wealth": 7254480.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "crash_2008",
+   "wealth": 14156560.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "crash_2008",
+   "wealth": 11798790.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "crash_2008",
+   "wealth": 3980170.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "crash_2008",
+   "wealth": 5371960.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "crash_1929",
+   "wealth": 4005800.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "crash_1929",
+   "wealth": 371130.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "rent",
+   "regime": "crash_1929",
+   "wealth": 3937820.0
+  },
+  {
+   "T": 2045,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "crash_1929",
+   "wealth": 2295170.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "crash_1929",
+   "wealth": 16432050.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "crash_1929",
+   "wealth": 20435710.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "crash_1929",
+   "wealth": 3980170.0
+  },
+  {
+   "T": 2045,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "crash_1929",
+   "wealth": 9168390.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "base",
+   "wealth": 5600870.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "base",
+   "wealth": 1367570.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "rent",
+   "regime": "base",
+   "wealth": 5100780.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "base",
+   "wealth": 8206370.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "base",
+   "wealth": 7638950.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "base",
+   "wealth": 7435620.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "base",
+   "wealth": 5575240.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "base",
+   "wealth": 6771060.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "stagflation",
+   "wealth": 1869150.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "stagflation",
+   "wealth": 489140.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "rent",
+   "regime": "stagflation",
+   "wealth": 1754850.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "stagflation",
+   "wealth": 1419630.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "stagflation",
+   "wealth": 1441390.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "stagflation",
+   "wealth": 1449360.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "stagflation",
+   "wealth": 1863290.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "stagflation",
+   "wealth": 1604040.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "low_growth",
+   "wealth": 4245200.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "low_growth",
+   "wealth": 785130.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "rent",
+   "regime": "low_growth",
+   "wealth": 3750710.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "low_growth",
+   "wealth": 3890410.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "low_growth",
+   "wealth": 4158730.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "low_growth",
+   "wealth": 4257930.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "low_growth",
+   "wealth": 4245200.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "low_growth",
+   "wealth": 4204260.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "crash_2008",
+   "wealth": 3619860.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "crash_2008",
+   "wealth": 727300.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "rent",
+   "regime": "crash_2008",
+   "wealth": 3556970.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "crash_2008",
+   "wealth": 5985190.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "crash_2008",
+   "wealth": 11720080.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "crash_2008",
+   "wealth": 9790140.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "crash_2008",
+   "wealth": 3594230.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "crash_2008",
+   "wealth": 4492640.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "live",
+   "regime": "crash_1929",
+   "wealth": 3619860.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": false
+   },
+   "option": "live",
+   "regime": "crash_1929",
+   "wealth": 727300.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "rent",
+   "regime": "crash_1929",
+   "wealth": 3556970.0
+  },
+  {
+   "T": 2050,
+   "kw": {},
+   "option": "sell_lump",
+   "regime": "crash_1929",
+   "wealth": 1893590.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 24
+   },
+   "option": "sell_phased",
+   "regime": "crash_1929",
+   "wealth": 13597430.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "park_months": 36
+   },
+   "option": "sell_phased",
+   "regime": "crash_1929",
+   "wealth": 16915880.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true
+   },
+   "option": "mixed_live_rent",
+   "regime": "crash_1929",
+   "wealth": 3594230.0
+  },
+  {
+   "T": 2050,
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "option": "mixed_live_sell",
+   "regime": "crash_1929",
+   "wealth": 7624830.0
+  }
+ ],
+ "options": [
+  {
+   "key": "live",
+   "kw": {
+    "avoid_rent": true
+   },
+   "label": "A. Live in it (move in within 1 year; Prop 19 applies; counts the rent you do not pay)",
+   "short": "Live in it"
+  },
+  {
+   "key": "live",
+   "kw": {
+    "avoid_rent": false
+   },
+   "label": "A0. Live in it, cash only (no credit for rent avoided)",
+   "short": "Live, cash only"
+  },
+  {
+   "key": "rent",
+   "kw": {},
+   "label": "B. Rent it out (no move-in; full reassessment)",
+   "short": "Rent it out"
+  },
+  {
+   "key": "sell_lump",
+   "kw": {},
+   "label": "C. Sell at transfer; invest all at once",
+   "short": "Sell, invest at once"
+  },
+  {
+   "key": "sell_phased",
+   "kw": {
+    "park_months": 24
+   },
+   "label": "D. Sell; park 24 months in T-bills; then phase into stocks over 12 months",
+   "short": "Sell, park 24m then phase"
+  },
+  {
+   "key": "sell_phased",
+   "kw": {
+    "park_months": 36
+   },
+   "label": "E. Sell; park 36 months in T-bills; then phase into stocks over 12 months",
+   "short": "Sell, park 36m then phase"
+  },
+  {
+   "key": "mixed_live_rent",
+   "kw": {
+    "avoid_rent": true
+   },
+   "label": "F. Mixed: live 1 year (keeps Prop 19), then rent it out",
+   "short": "Live 1 yr, then rent"
+  },
+  {
+   "key": "mixed_live_sell",
+   "kw": {
+    "avoid_rent": true,
+    "live_years": 10
+   },
+   "label": "G. Mixed: live 10 years, then sell and invest at once",
+   "short": "Live 10 yrs, then sell"
+  }
+ ],
+ "owner": {
+  "A_av_2025": 539740,
+  "A_fbyv_2026": 550540,
+  "A_fmv_2026": 3100000,
+  "A_tax_2025": 7210,
+  "B_av_2025": 114250,
+  "B_elec_month": 50,
+  "B_fmv_2026": 1800000,
+  "B_rent_month": 7150,
+  "B_tax_2025": 2440,
+  "B_water_month": 370,
+  "insurance_year": 1500
+ },
+ "regimes": [
+  {
+   "label": "Base: 2% inflation, 6% stocks, homes +2% a year",
+   "name": "base"
+  },
+  {
+   "label": "Stagflation: 5% inflation, 4% stocks, homes +3% a year",
+   "name": "stagflation"
+  },
+  {
+   "label": "Low growth: 1% inflation, 3% stocks, flat homes",
+   "name": "low_growth"
+  },
+  {
+   "label": "2008-style crash right after transfer (stocks -57%, homes -30%)",
+   "name": "crash_2008"
+  },
+  {
+   "label": "1929-style crash right after transfer (stocks -89%, about 22 years to recover)",
+   "name": "crash_1929"
+  }
+ ],
+ "reinvestment": {
+  "3.00": {
+   "base": {
+    "sell_lump": 12056130.0,
+    "sell_phased_24": 10741260.0,
+    "sell_phased_36": 10262980.0
+   },
+   "crash_1929": {
+    "sell_lump": 2781910.0,
+    "sell_phased_24": 19494990.0,
+    "sell_phased_36": 24190620.0
+   },
+   "crash_2008": {
+    "sell_lump": 8792950.0,
+    "sell_phased_24": 16736930.0,
+    "sell_phased_36": 13722050.0
+   },
+   "low_growth": {
+    "sell_lump": 5228380.0,
+    "sell_phased_24": 5228380.0,
+    "sell_phased_36": 5228380.0
+   },
+   "stagflation": {
+    "sell_lump": 1563640.0,
+    "sell_phased_24": 1496680.0,
+    "sell_phased_36": 1471710.0
+   }
+  },
+  "4.32": {
+   "base": {
+    "sell_lump": 12056130.0,
+    "sell_phased_24": 11108250.0,
+    "sell_phased_36": 10766320.0
+   },
+   "crash_1929": {
+    "sell_lump": 2781910.0,
+    "sell_phased_24": 19861980.0,
+    "sell_phased_36": 24693950.0
+   },
+   "crash_2008": {
+    "sell_lump": 8792950.0,
+    "sell_phased_24": 17103920.0,
+    "sell_phased_36": 14225380.0
+   },
+   "low_growth": {
+    "sell_lump": 5228380.0,
+    "sell_phased_24": 5687700.0,
+    "sell_phased_36": 5858350.0
+   },
+   "stagflation": {
+    "sell_lump": 1563640.0,
+    "sell_phased_24": 1592840.0,
+    "sell_phased_36": 1603590.0
+   }
+  }
+ },
+ "sens_tax_rate": {
+  "1.12": {
+   "live": 7254920.0,
+   "rate": 0.0112,
+   "rent": 6541090.0
+  },
+  "1.20": {
+   "live": 7161050.0,
+   "rate": 0.012,
+   "rent": 6398070.0
+  },
+  "1.24": {
+   "live": 7114120.0,
+   "rate": 0.0124,
+   "rent": 6326560.0
+  },
+  "owner_implied": {
+   "live": 7001690.0,
+   "rate": 0.013358283618038315,
+   "rent": 6155240.0
+  }
+ },
+ "trajectory": [
+  {
+   "av_pre": 550540.0,
+   "home": 3100000.0,
+   "tax_pre": 6610.0,
+   "year": 2026
+  },
+  {
+   "av_pre": 561550.0,
+   "home": 3162000.0,
+   "tax_pre": 6740.0,
+   "year": 2027
+  },
+  {
+   "av_pre": 572780.0,
+   "home": 3225240.0,
+   "tax_pre": 6870.0,
+   "year": 2028
+  },
+  {
+   "av_pre": 584240.0,
+   "home": 3289740.0,
+   "tax_pre": 7010.0,
+   "year": 2029
+  },
+  {
+   "av_pre": 595920.0,
+   "home": 3355540.0,
+   "tax_pre": 7150.0,
+   "year": 2030
+  },
+  {
+   "av_pre": 607840.0,
+   "home": 3422650.0,
+   "tax_pre": 7290.0,
+   "year": 2031
+  },
+  {
+   "av_pre": 620000.0,
+   "home": 3491100.0,
+   "tax_pre": 7440.0,
+   "year": 2032
+  },
+  {
+   "av_pre": 632400.0,
+   "home": 3560930.0,
+   "tax_pre": 7590.0,
+   "year": 2033
+  },
+  {
+   "av_pre": 645050.0,
+   "home": 3632140.0,
+   "tax_pre": 7740.0,
+   "year": 2034
+  },
+  {
+   "av_pre": 657950.0,
+   "home": 3704790.0,
+   "tax_pre": 7900.0,
+   "year": 2035
+  },
+  {
+   "av_pre": 671110.0,
+   "home": 3778880.0,
+   "tax_pre": 8050.0,
+   "year": 2036
+  },
+  {
+   "av_pre": 684530.0,
+   "home": 3854460.0,
+   "tax_pre": 8210.0,
+   "year": 2037
+  },
+  {
+   "av_pre": 698220.0,
+   "home": 3931550.0,
+   "tax_pre": 8380.0,
+   "year": 2038
+  },
+  {
+   "av_pre": 712180.0,
+   "home": 4010180.0,
+   "tax_pre": 8550.0,
+   "year": 2039
+  },
+  {
+   "av_live_2040": 2684510.0,
+   "av_pre": 726430.0,
+   "av_rent_2040": 4090380.0,
+   "home": 4090380.0,
+   "tax_live_2040": 32210.0,
+   "tax_pre": 8720.0,
+   "tax_rent_2040": 49080.0,
+   "year": 2040
+  },
+  {
+   "av_live_2040": 2738200.0,
+   "av_pre": 740950.0,
+   "av_rent_2040": 4172190.0,
+   "home": 4172190.0,
+   "tax_live_2040": 32860.0,
+   "tax_pre": 8890.0,
+   "tax_rent_2040": 50070.0,
+   "year": 2041
+  },
+  {
+   "av_live_2040": 2792960.0,
+   "av_pre": 755770.0,
+   "av_rent_2040": 4255640.0,
+   "home": 4255640.0,
+   "tax_live_2040": 33520.0,
+   "tax_pre": 9070.0,
+   "tax_rent_2040": 51070.0,
+   "year": 2042
+  },
+  {
+   "av_live_2040": 2848820.0,
+   "av_pre": 770890.0,
+   "av_rent_2040": 4340750.0,
+   "home": 4340750.0,
+   "tax_live_2040": 34190.0,
+   "tax_pre": 9250.0,
+   "tax_rent_2040": 52090.0,
+   "year": 2043
+  },
+  {
+   "av_live_2040": 2905800.0,
+   "av_pre": 786310.0,
+   "av_rent_2040": 4427560.0,
+   "home": 4427560.0,
+   "tax_live_2040": 34870.0,
+   "tax_pre": 9440.0,
+   "tax_rent_2040": 53130.0,
+   "year": 2044
+  },
+  {
+   "av_live_2040": 2963910.0,
+   "av_live_2045": 2963910.0,
+   "av_pre": 802030.0,
+   "av_rent_2040": 4516110.0,
+   "av_rent_2045": 4516110.0,
+   "home": 4516110.0,
+   "tax_live_2040": 35570.0,
+   "tax_live_2045": 35570.0,
+   "tax_pre": 9620.0,
+   "tax_rent_2040": 54190.0,
+   "tax_rent_2045": 54190.0,
+   "year": 2045
+  },
+  {
+   "av_live_2040": 3023190.0,
+   "av_live_2045": 3023190.0,
+   "av_pre": 818070.0,
+   "av_rent_2040": 4606440.0,
+   "av_rent_2045": 4606440.0,
+   "home": 4606440.0,
+   "tax_live_2040": 36280.0,
+   "tax_live_2045": 36280.0,
+   "tax_pre": 9820.0,
+   "tax_rent_2040": 55280.0,
+   "tax_rent_2045": 55280.0,
+   "year": 2046
+  },
+  {
+   "av_live_2040": 3083660.0,
+   "av_live_2045": 3083660.0,
+   "av_pre": 834430.0,
+   "av_rent_2040": 4698570.0,
+   "av_rent_2045": 4698570.0,
+   "home": 4698570.0,
+   "tax_live_2040": 37000.0,
+   "tax_live_2045": 37000.0,
+   "tax_pre": 10010.0,
+   "tax_rent_2040": 56380.0,
+   "tax_rent_2045": 56380.0,
+   "year": 2047
+  },
+  {
+   "av_live_2040": 3145330.0,
+   "av_live_2045": 3145330.0,
+   "av_pre": 851120.0,
+   "av_rent_2040": 4792540.0,
+   "av_rent_2045": 4792540.0,
+   "home": 4792540.0,
+   "tax_live_2040": 37740.0,
+   "tax_live_2045": 37740.0,
+   "tax_pre": 10210.0,
+   "tax_rent_2040": 57510.0,
+   "tax_rent_2045": 57510.0,
+   "year": 2048
+  },
+  {
+   "av_live_2040": 3208240.0,
+   "av_live_2045": 3208240.0,
+   "av_pre": 868150.0,
+   "av_rent_2040": 4888390.0,
+   "av_rent_2045": 4888390.0,
+   "home": 4888390.0,
+   "tax_live_2040": 38500.0,
+   "tax_live_2045": 38500.0,
+   "tax_pre": 10420.0,
+   "tax_rent_2040": 58660.0,
+   "tax_rent_2045": 58660.0,
+   "year": 2049
+  },
+  {
+   "av_live_2040": 3272400.0,
+   "av_live_2045": 3272400.0,
+   "av_live_2050": 3272400.0,
+   "av_pre": 885510.0,
+   "av_rent_2040": 4986160.0,
+   "av_rent_2045": 4986160.0,
+   "av_rent_2050": 4986160.0,
+   "home": 4986160.0,
+   "tax_live_2040": 39270.0,
+   "tax_live_2045": 39270.0,
+   "tax_live_2050": 39270.0,
+   "tax_pre": 10630.0,
+   "tax_rent_2040": 59830.0,
+   "tax_rent_2045": 59830.0,
+   "tax_rent_2050": 59830.0,
+   "year": 2050
+  }
+ ]
+}
