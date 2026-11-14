@@ -30,6 +30,7 @@ BUILD = [
     ("running-costs.html", pc.page_running_costs),
     ("projections.html", pc.page_projections),
     ("options.html", pc.page_options),
+    ("phased-investing.html", pe.page_phased_investing),
     ("black-swan.html", pe.page_black_swan),
     ("process.html", pe.page_process),
     ("questions.html", pe.page_questions),
