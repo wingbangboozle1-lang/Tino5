@@ -50,9 +50,13 @@ DEPLOYMENT_EXCLUSIONS = {
 # build.py / verify.py / test_model.py and the strictest verifier in this repository.
 # Folded into the same single set — a second assignment here would silently replace the
 # first, and every directory it dropped would then fail the fail-closed rule below.
+# desk-8be2 added by the 8be2/S run (session arena-8be27405, 2026-11-14): the independent
+# decision desk with the phased-investing black-swan path, what-if controls, one-page
+# printable Attorney & CPA briefing sheet and the full source-linked question/suggestion
+# register. Folded into the same single set.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
                   "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
-                  "inheritance-desk"}
+                  "inheritance-desk", "desk-8be2"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",

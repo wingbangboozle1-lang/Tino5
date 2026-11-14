@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Inheritance &amp; estate tax — Estate decision desk — Property A (inherited) & Property B (already owned)</title>
+<style>
+:root{--ink:#1c2430;--mute:#5a6675;--line:#d9dee5;--bg:#f2f4f8;--card:#ffffff;--accent:#1f5f8b;--accent2:#2e7d6b;--warn:#8a4b00;--warnbg:#fff7e6;--ok:#1e6b3a;--okbg:#eef7f0;}
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color: var(--ink); background: var(--bg); }
+header, main, footer, .section { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+header { padding: 18px 0 10px; border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 5; }
+.kicker { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--mute); margin: 0 0 4px; }
+h1 { font-size: 26px; line-height: 1.2; margin: 2px 0 8px; }
+h2 { font-size: 20px; margin: 30px 0 8px; }
+h3 { font-size: 16px; margin: 22px 0 6px; }
+p { margin: 8px 0 12px; }
+.lede { font-size: 17px; max-width: 72ch; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a.button { display: inline-block; padding: 6px 12px; border: 1px solid var(--accent); border-radius: 6px; text-decoration: none; color: var(--accent); font-size: 14px; margin-right: 6px; }
+a.button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.navwrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 8px 0; }
+.navwrap nav { display: flex; flex-wrap: wrap; gap: 5px 9px; margin: 6px 0 0; }
+.navwrap nav a { padding: 4px 9px; border-radius: 5px; text-decoration: none; color: var(--accent); font-size: 13.5px; border: 1px solid transparent; }
+.navwrap nav a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.navwrap .group { font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute); margin: 7px 0 2px 6px; font-weight: 700; }
+.navwrap .back { margin-left: auto; color: var(--mute); font-size: 13px; text-decoration: none; padding: 4px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 11px; margin: 13px 0 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 15px; }
+.card .big { font-size: 25px; font-weight: 700; line-height: 1.15; margin: 1px 0 3px; }
+.card .lab { font-size: 12.5px; color: var(--mute); line-height: 1.4; }
+.card .src { font-size: 11.5px; margin-top: 6px; color: var(--mute); }
+.note { background: var(--warnbg); border-left: 4px solid #d08a1f; padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 12px 0; color: #4a3200; font-size: 14px; }
+.okbox { background: var(--okbg); border-left: 4px solid var(--ok); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 12px 0; color: #1a4d2e; font-size: 14px; }
+.plain { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 12px 0; }
+.scroll { overflow-x: auto; margin: 10px 0 6px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin: 8px 0 12px; }
+th, td { padding: 6px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: #eef1f5; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; }
+tbody tr:last-child td { border-bottom: 0; }
+table.num td:not(:first-child):not(:last-child) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td:last-child, th:last-child { font-size: 12px; min-width: 150px; }
+.stat { white-space: nowrap; color: #334155; font-weight: 700; }
+.assump { color: #8a6d1d; }
+.unverified { color: #a1620a; font-style: italic; }
+.small { font-size: 13px; color: var(--mute); }
+ul { padding-left: 20px; margin: 8px 0 12px; }
+li { margin: 4px 0; }
+strong { color: #142130; }
+footer { margin: 30px 0 40px; padding: 14px 0 26px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--mute); }
+.printonly { display: none; }
+@media print {
+  body { background: #fff; color: #000; font-size: 13px; line-height: 1.4; }
+  header, .navwrap, .grid, .note.src-line, footer, a.button, .no-print { display: none !important; }
+  .printonly { display: block !important; }
+  main, header, main, footer { max-width: 100%; padding: 0; }
+  table { font-size: 11.5px; break-inside: auto; }
+  tr { break-inside: avoid; page-break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+  .stat { color: #000; }
+  .pagebreak { page-break-before: always; }
+}
+
+/* what-if calculator */
+.calc { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 12px 0; max-width: 700px; }
+.calc row { display: flex; gap: 10px 16px; margin: 8px 0; flex-wrap: wrap; align-items: center; }
+.calc label { font-size: 13px; color: var(--mute); min-width: 150px; }
+.calc input { padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; font: inherit; width: 150px; }
+.calc button { margin-top: 10px; }
+.out { margin-top: 8px; padding: 8px 12px; background: #eef1f5; border-radius: 6px; font-size: 14px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 9px; margin-right: 6px; }
+.tag.proposed { background: #fdecc8; color: #7a4d00; }
+.tag.accepted { background: #d9f7e6; color: #1f7a3d; }
+.tag.modified { background: #dbe7ff; color: #1d5e96; }
+.tag.rejected { background: #f4dede; color: #8a1f1f; }
+</style>
+</head>
+<body>
+<header><div class="kicker">Estate decision desk · public · anonymized · owner inputs unverified</div>
+<h1>Inheritance &amp; estate tax</h1><div class="navwrap"><nav><div class="group">Start</div><a href="index.html">Landing page</a><a href="executive-summary.html">Executive summary</a><div class="group">The properties</div><a href="properties.html">Property facts</a><a href="property-tax.html">Property tax &amp; assessment</a><a href="running-costs.html">Running costs</a><a href="projections.html">Projections 2026–2076</a><div class="group">Decide</div><a href="options.html">Live / rent / sell (+ mixed)</a><a href="black-swan.html">Black swan &amp; crash entry</a><a href="what-if.html">What-if controls</a><a href="briefing-sheet.html">Attorney &amp; CPA briefing sheet</a><div class="group">Process &amp; law</div><a href="process.html">Trust transfer &amp; deadlines</a><a href="inheritance-tax.html" on>Inheritance &amp; estate tax</a><a href="law-watch.html">Law watch</a><div class="group">Governance</div><a href="glossary.html">Glossary</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions board</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a><a href="privacy.html">Privacy</a><a class="back" href="index.html">← Landing</a></nav></div></header>
+<main><div class="note no-print"><strong>Not advice.</strong> Arithmetic on published law and data; it is not a forecast and not legal, tax or investment advice. No household figure is used or shown. Owner-supplied values are labelled “owner input — unverified” and are rounded to the nearest $10.</div>
+    <h2>Federal estate tax</h2>
+    <p>There is no federal inheritance tax on the heir; the estate tax (if any) is paid by the estate before distribution.</p>
+    <p class='small'>Statutory amounts are quoted verbatim and exempt from $10 rounding.</p><div class='scroll'><table><thead><tr><th>Item</th><th>Amount</th><th>Notes</th><th>Source</th></tr></thead><tbody><tr><td>Basic exclusion amount — deaths in 2026</td><td><span class="stat">$15,000,000</span></td><td>Per individual</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax">Internal Revenue Service — Estate Tax (filing threshold for year of death)</a></td></tr><tr><td>Basic exclusion amount — deaths in 2027</td><td><span class="stat">$15,480,000</span></td><td>Per individual (IRS IR-2026-133)</td><td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">Internal Revenue Service — IR-2026-133, 5 November 2026 — tax year 2027 inflation adjustments</a></td></tr><tr><td>Annual gift exclusion — 2026 / 2027</td><td><span class="stat">$19,000 / $20,000</span></td><td>Per recipient, per year</td><td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">Internal Revenue Service — IR-2026-133, 5 November 2026 — tax year 2027 inflation adjustments</a></td></tr><tr><td>Portability (unused exclusion to surviving spouse)</td><td>On timely filed Form 706</td><td>Election, not automatic</td><td><a href="https://www.irs.gov/forms-pubs/about-form-706">Internal Revenue Service — Form 706, United States Estate (and Generation-Skipping Transfer) Tax Return</a></td></tr><tr><td>Form 706 deadline</td><td>9 months after death (+ 6-month extension)</td><td>Filing rule</td><td><a href="https://www.irs.gov/forms-pubs/about-form-706">Internal Revenue Service — Form 706, United States Estate (and Generation-Skipping Transfer) Tax Return</a></td></tr><tr><td>Step-up in basis at death</td><td>Fair market value at death (or alternate date)</td><td>Little/no gain if sold soon after</td><td><a href="https://www.irs.gov/publications/p559">Internal Revenue Service — Publication 559, Survivors, Executors, and Administrators — basis of inherited property</a></td></tr></tbody></table></div>
+    <h2>California</h2>
+    <p>California imposes <strong>no state estate tax and no inheritance tax</strong>. Inherited assets are not taxable income to the
+    heir at the state level. Rent from inherited property and gain on a later sale are taxed (gain measured against the stepped-up
+    basis).</p>
+    <h2>Trust nuance</h2>
+    <p>A transfer through an inter vivos or testamentary trust can qualify for the Prop 19 parent-child exclusion (R&TC 63.2(e)(9));
+    an interest in a legal entity does not (63.2(e)(8)); and a claim under the section is not a public document (63.2(c)). Whether a
+    particular trust qualifies must be confirmed with an attorney — this desk states the rule, not a conclusion about your trust.</p>
+    <div class="note"><strong>Inheritance allowed before tax.</strong> For a 2026 death, roughly the first
+    <span class="stat">$15,000,000</span> per person is shielded from federal estate tax (amounts above are taxed at graduated federal rates up to 40%).
+    California adds nothing. If the estate (including Property A, Property B and the considerable cash inheritance described by the owner)
+    approaches or exceeds the exclusion, the estate should file Form 706 and consider portability — see an estate attorney and CPA.</div>
+    
+<footer><p><strong>Sources:</strong> official links on every table row; see <a href="sources.html">Sources</a> and <a href="methodology.html">Methodology</a>. Built 2026-11-14 by <code>desk-8be2/_src/build.py</code>. Generated pages are not advice.</p></footer>
+</body>
+</html>

@@ -85,5 +85,16 @@ jobs:
             git --no-pager diff --stat -- cbd
             exit 1
           fi
+      - name: Independent decision desk (desk-8be2/) — rebuild, then verify
+        run: |
+          python desk-8be2/_src/build.py
+          python desk-8be2/_src/verify.py
+      - name: Independent decision desk (desk-8be2/) generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-8be2; then
+            echo "::error::desk-8be2/ is stale. Re-run desk-8be2/_src/build.py and commit the result."
+            git --no-pager diff --stat -- desk-8be2
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py
