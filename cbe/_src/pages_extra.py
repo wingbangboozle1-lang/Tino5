@@ -25,6 +25,10 @@ _TAX_EXCL = _R["taxable_excluded"] * _RATE_A
 _TAX_FULL = _R["taxable_reassessed"] * _RATE_A
 _EXCL_SAVING = _TAX_FULL - _TAX_EXCL
 
+_REMOVE_GAP = (m.compare(lead_occupancy_years=3)["assessed_excluded"][-1]
+               - m.compare(lead_occupancy_years=3, removal_enrolls_capped_value=True)
+               ["assessed_excluded"][-1])
+
 _MC_OCCUPY = None
 _MC_RENT = None
 _REGIMES = None
@@ -298,8 +302,22 @@ _STEPS = [
          "be applied retrospectively once the property has been sold.",
          ["boe_prop19", "boe_lta2026_026"]),
         ("File the exclusion claim within three years",
-         "Or before the property is transferred to a third party, whichever is earlier.",
-         ["boe_prop19"]),
+         "The statute ends the window at whichever comes first of three years, a transfer to a "
+         "third party, and the date an eligible transferee no longer occupies the residence. A "
+         "claim is also treated as timely if it is filed within six months of the mailing of a "
+         "supplemental or escape assessment notice.",
+         ["leginfo_rtc63_2"]),
+        ("Answer any notice of potential eligibility within 45 days",
+         "If the assessor writes to say you may be eligible, a certified claim is due within 45 "
+         "days. The assessor may send a second notice giving 60 days. Miss both and a late claim "
+         "can carry a one-time processing fee of the lesser of the assessor's actual cost and "
+         "$175.",
+         ["leginfo_rtc63_2"]),
+        ("Note that the claim itself is confidential",
+         "A claim filed under this section is not a public document and is not open to public "
+         "inspection. Only the parties, their legal representatives, the trustees and the "
+         "executor or administrator may see it.",
+         ["leginfo_rtc63_2"]),
         ("Expect a supplemental or escape assessment",
          "After a change in ownership the assessor may issue a supplemental bill for the part of "
          "the year after the transfer, or an escape assessment if the value is determined late. "
@@ -1097,7 +1115,16 @@ def _flags():
          "principal residence, and that the new base year value is then enrolled from the transfer. "
          "It does not address a plan to occupy for a limited period.",
          "A California estates lawyer, on the facts", ["boe_lta2026_026"]),
-        ("F16", "Earlier unrounded figures in public git history", "Not fixable by a commit",
+        ("F16", "Which figure is enrolled if the transferee moves out", "Two readings",
+         "The statute says the base year value established at the change in ownership is enrolled, "
+         "adjusted annually, when the exclusion is removed. The Board's guidance reads that as the "
+         "market value at the transfer; subdivision (d) speaks instead of the new taxable value, "
+         "which is the capped figure. On these projections the two differ by %s of assessed value "
+         "by 2076, and by the whole of the benefit in between. Both are shown on the property tax "
+         "page. This desk does not choose between them." % M(_REMOVE_GAP),
+         "A California lawyer, or a written projection from the county assessor",
+         ["leginfo_rtc63_2", "boe_lta2026_026"]),
+        ("F17", "Earlier unrounded figures in public git history", "Not fixable by a commit",
          "Earlier generations of this repository published figures that were not rounded to $10. No "
          "later commit can remove them from the history of a public repository.",
          "Decide whether the repository should be private, or whether to rewrite its history", None),

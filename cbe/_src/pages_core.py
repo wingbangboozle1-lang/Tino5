@@ -398,13 +398,37 @@ def page_property_tax():
         (["Exclusion claim", "Within three years, or before transfer to a third party",
           pill("ver", "verified"), _src_cell(["boe_prop19"])], None),
         (["Does the exclusion survive if the transferee moves out?",
-          "No. It is removed, and the new base year value established at the transfer is then "
-          "enrolled, trended at 2% a year in the meantime", pill("ver", "verified"),
-          _src_cell(["boe_lta2026_026"])], "hi"),
-        (["Does a trust qualify?", "Yes. The trust is looked through to present beneficial ownership",
-          pill("ver", "verified"), _src_cell(["boe_lta2026_026"])], None),
-        (["Does a company or an LLC qualify?", "No. Property held by a legal entity is not eligible",
-          pill("ver", "verified"), _src_cell(["boe_lta2026_026"])], None),
+          "No. It is removed, and the base year value established at the change in ownership is then "
+          "enrolled, adjusted annually under Article XIII A Section 51(a)(1). Which figure that is "
+          "depends on how the statute is read: the guidance says the market value at the transfer; "
+          "subdivision (d) speaks of the new taxable value, which is the capped figure. The two are "
+          "shown side by side below and the difference is flagged.", pill("ver", "verified"),
+          _src_cell(["leginfo_rtc63_2", "boe_lta2026_026"])], "hi"),
+        (["Does a trust qualify?",
+          "Yes, and this is now confirmed by the statute itself and not only by guidance: transfer "
+          "includes a transfer of present beneficial ownership through an inter vivos or "
+          "testamentary trust", pill("ver", "verified"), _src_cell(["leginfo_rtc63_2"])], None),
+        (["Does a company or an LLC qualify?",
+          "No. Real property does not include any interest in a legal entity",
+          pill("ver", "verified"), _src_cell(["leginfo_rtc63_2"])], None),
+        (["How much land counts as the family home?",
+          "Only so much of the land as is a site of reasonable size for the residence",
+          pill("ver", "verified"), _src_cell(["leginfo_rtc63_2"])], None),
+        (["What exactly is the arithmetic of the cap?",
+          "New taxable value = the factored base year value, plus zero if market value is below that "
+          "value plus $1,000,000, and otherwise market value minus the two of them added together. "
+          "The $1,000,000 is the biennially adjusted amount, now $1,044,586.",
+          pill("ver", "verified"), _src_cell(["leginfo_rtc63_2", "boe_lta2025_009"])], "hi"),
+        (["Is the claim a public record?",
+          "No. A claim filed under this section is not a public document and is not subject to "
+          "public inspection, except by the parties, their legal representatives, the trustees and "
+          "the executor or administrator", pill("ver", "verified"),
+          _src_cell(["leginfo_rtc63_2"])], None),
+        (["Is the three-year claim window really three years?",
+          "It ends at whichever is earliest of three years, transfer to a third party, and the date "
+          "an eligible transferee no longer occupies the residence. A claim is also timely if filed "
+          "within six months of the mailing of a supplemental or escape assessment notice.",
+          pill("ver", "verified"), _src_cell(["leginfo_rtc63_2"])], None),
         (["A multi-unit property", "Each unit is a separate principal residence; each must qualify "
           "individually", pill("ver", "verified"), _src_cell(["boe_lta2026_026"])], None),
     ]
@@ -438,6 +462,40 @@ def page_property_tax():
                            "simply the market value less the allowance. The exclusion is therefore "
                            "worth the allowance and no more &mdash; it does not protect the whole of "
                            "the gap between assessed and market value."))
+
+    b.append("<h2>If you move out later: the two readings, side by side</h2>")
+    b.append('<p class="small">The statute says the exclusion is removed when an eligible '
+             'transferee is no longer eligible for the homeowner\'s or disabled veterans\' '
+             'exemption, and that the base year value established at the change in ownership is '
+             'then enrolled, adjusted annually. It does not say unambiguously which figure that '
+             'is. Both readings are computed here, on the assumption you move out three years '
+             'after the transfer, and the difference is carried as a flag rather than resolved '
+             'by this desk.</p>')
+    _left_a = m.compare(lead_occupancy_years=3)
+    _left_b = m.compare(lead_occupancy_years=3, removal_enrolls_capped_value=True)
+    _stay = _BASE
+    rem = []
+    for label, res, cls in (
+        ("Stay put for the whole period", _stay, "hi"),
+        ("Move out after three years, guidance reading", _left_a, None),
+        ("Move out after three years, capped reading", _left_b, None),
+    ):
+        rem.append(([label,
+                      ("num", M(res["assessed_excluded"][1] * _stay["rate_a"])),
+                      ("num", M(res["assessed_excluded"][-1])),
+                      ("num", M(res["assessed_excluded"][-1] * _stay["rate_a"])),
+                      pill("der", "derived"),
+                      _src_cell(["leginfo_rtc63_2", "boe_lta2026_026"],
+                                "the removal rule is statutory; which figure is enrolled is the "
+                                "point in dispute and is not settled by any source this desk read")],
+                     cls))
+    b.append(sh.table(["Path", ("num", "Bill in year one"), ("num", "Assessed value in 2076"),
+                       ("num", "Bill in 2076"), "Status", "Source"], rem,
+                      note="Under the guidance reading, moving out costs you the whole benefit of "
+                           "the exclusion from the date you leave: the assessed value snaps to what "
+                           "it would have been without the exclusion. Under the capped reading it "
+                           "costs nothing at all, which cannot be what the removal rule is for. "
+                           "Take the question to a California lawyer before planning around it."))
     return "Property tax", "".join(b)
 
 
@@ -764,15 +822,20 @@ def page_options():
                      ("num", M(d["assessed_excluded"][lead + 1] * d["rate_a"]) if lead else
                       M(_BASE["assessed_excluded"][1] * _BASE["rate_a"])),
                      pill("der", "derived"),
-                     _src_cell(["boe_lta2026_026"], "on removal the new base year value established at "
-                               "the transfer is enrolled, trended at 2% a year in the meantime")],
+                     _src_cell(["leginfo_rtc63_2", "boe_lta2026_026"],
+                               "on removal the base year value established at the change in "
+                               "ownership is enrolled, adjusted annually under Article XIII A "
+                               "Section 51(a)(1); the guidance reads that as the market value at "
+                               "the transfer, and the alternative reading is flagged")],
                     "hi" if lead == 0 else None))
     b.append(sh.table(["Years of genuine occupancy before moving out",
                        ("num", "Property tax in the year after the exclusion is lost"),
                        "Status", "Source"], var,
-                      note="The guidance says the exclusion is removed when the home stops being the "
-                           "transferee's principal residence, and that the new base year value "
-                           "established at the transfer is then enrolled. Whether a planned short "
-                           "occupancy satisfies the statute is a question for a California lawyer, not "
-                           "for this desk &mdash; it is logged on the questions page."))
+                      note="The statute removes the exclusion when an eligible transferee is no "
+                           "longer eligible for the homeowner's or disabled veterans' exemption, and "
+                           "the guidance says the home must be continually used as the family home. "
+                           "Whether a planned short occupancy satisfies it is a question for a "
+                           "California lawyer, not for this desk &mdash; it is logged on the "
+                           "questions page and flagged as F16. The two readings of what is then "
+                           "enrolled are shown side by side on the property tax page."))
     return "The three options", "".join(b)

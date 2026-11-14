@@ -156,6 +156,37 @@ SOURCES = [
         checked="Retrieved and read 2026-11-14. The Proposition 13 and disparities sections and the dates table were read.",
     ),
     dict(
+        id="leginfo_rtc63_2",
+        publisher="California Legislative Information",
+        title="Revenue and Taxation Code section 63.2 — exclusion of intergenerational transfers of a family home or family farm from change in ownership",
+        url="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2",
+        evidences=(
+            "The statute behind the Proposition 19 intergenerational exclusion, amended by Stats. 2025 "
+            "Ch. 539 Sec. 2 (SB 293), effective 1 January 2026. (a)(1)(A): the transfer must be of the "
+            "transferor's principal residence and become the principal residence of the transferee "
+            "within one year of the transfer. (a)(1)(B): the transferee must file for the homeowners' "
+            "or disabled veterans' exemption within a year, and the exclusion is removed on the date "
+            "an eligible transferee is no longer eligible for either exemption. (a)(1)(C): on removal, "
+            "the base year value established as of the change in ownership date, adjusted annually "
+            "under Article XIII A Section 51(a)(1), is enrolled. (d): the new taxable value is the "
+            "factored base year value plus zero if fair market value is below that value plus "
+            "$1,000,000, otherwise fair market value minus the sum of that value and $1,000,000. "
+            "(c): a claim filed under this section is not a public document and is not open to public "
+            "inspection. (e)(5): family home means a dwelling eligible for the homeowners' exemption "
+            "as a result of the transferor's ownership and occupation, and includes only so much of "
+            "the land as is a site of reasonable size for the residence. (e)(8): real property does "
+            "not include any interest in a legal entity. (e)(9): transfer includes a transfer of "
+            "present beneficial ownership through an inter vivos or testamentary trust. (f)(1)(A): "
+            "the claim is filed within three years, or before transfer to a third party, or before an "
+            "eligible transferee no longer occupies the residence, whichever is earliest. (f)(1)(B): "
+            "a claim is timely if filed within six months of the mailing of a supplemental or escape "
+            "assessment notice. (g): where the assessor sends a notice of potential eligibility the "
+            "certified claim is due in 45 days, extendable by a second notice to 60 days, and a late "
+            "claim may carry a one-time processing fee of the lesser of actual cost or $175."
+        ),
+        checked="Retrieved and read in full 2026-11-14: subdivisions (a) through (h) were read.",
+    ),
+    dict(
         id="boe_prop19",
         publisher="California State Board of Equalization",
         title="Proposition 19 — Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act",
@@ -486,6 +517,7 @@ STATUTORY_LITERALS = {
     "371,000",     # SOS voter guide, Proposition 3 income threshold
     "250,000",     # IRS, NIIT threshold, married filing jointly (also the section 121 exclusion)
     "67",           # IRS, estate tax closing letter user fee (TD 9957)
+    "175",          # R&TC 63.2(g)(2), maximum assessor processing fee on a late certified claim
     "200,000",     # IRS, NIIT threshold, single
     "19,000",      # IRS IR-2026-133, 2026 annual gift exclusion
     "20,000",      # IRS IR-2026-133, 2027 annual gift exclusion

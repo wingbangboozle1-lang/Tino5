@@ -297,6 +297,26 @@ class Model(unittest.TestCase):
         self.assertGreater(left["assessed_excluded"][-1],
                            self.r["assessed_excluded"][-1])
 
+    def test_leaving_reads_are_ordered_as_the_statute_and_guidance_imply(self):
+        """R&TC 63.2(a)(1)(C) enrolls the base year value established at the change in
+        ownership. The guidance reads that as market value; subdivision (d) speaks of the
+        new taxable value. The guidance reading must be at least as expensive as staying,
+        and the capped reading no more expensive than it."""
+        stay = m.compare()
+        guidance = m.compare(lead_occupancy_years=3)
+        capped = m.compare(lead_occupancy_years=3, removal_enrolls_capped_value=True)
+        self.assertGreater(guidance["assessed_excluded"][-1], stay["assessed_excluded"][-1])
+        self.assertLessEqual(capped["assessed_excluded"][-1],
+                             guidance["assessed_excluded"][-1] + 1e-6)
+
+    def test_a_longer_occupancy_never_raises_the_eventual_bill(self):
+        """Under either reading, occupying for longer before leaving cannot make the
+        eventual assessed value higher."""
+        for kw in ({}, {"removal_enrolls_capped_value": True}):
+            last = [m.compare(lead_occupancy_years=n, **kw)["assessed_excluded"][-1]
+                    for n in (1, 3, 5, 10)]
+            self.assertTrue(all(b <= a + 1e-6 for a, b in zip(last, last[1:])), kw)
+
     def test_the_transfer_year_moves_the_answer_but_not_the_ranking(self):
         gaps = [m.gap("occupy", "econ", transfer_year=y) for y in (2040, 2045, 2050)]
         self.assertTrue(all(g < 0 for g in gaps) or all(g > 0 for g in gaps))

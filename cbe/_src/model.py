@@ -346,7 +346,7 @@ def compare(transfer_year=None, horizon=None, price_growth=None, inflation=None,
             portfolio_return=None, gross_yield_a=None, rent_tax_rate=None,
             management=None, vacancy=None, maint_a=None, maint_b=None,
             discount_rate=None, selling_cost=None, tax_rate_override=None,
-            lead_occupancy_years=0, count_b_unit=True):
+            lead_occupancy_years=0, removal_enrolls_capped_value=False, count_b_unit=True):
     """
     Net present value, measured at the transfer year, of three ways to hold the home.
 
@@ -405,9 +405,17 @@ def compare(transfer_year=None, horizon=None, price_growth=None, inflation=None,
     if lead_occupancy_years:
         excl_part = assessed_path(taxable_excl, post_market[:lead_occupancy_years + 1],
                                   transfer_year)
-        # On removal the new base year value established at the transfer - the market value at
-        # that date - is enrolled, trended at 2% a year from the transfer date (LTA 2026/026 Q10).
-        trended_new_base = v_at_transfer * (1.0 + VERIFIED["prop13_factor"]) ** lead_occupancy_years
+        # On removal, R&TC 63.2(a)(1)(C) enrolls "the base year value established as of the
+        # change in ownership date to which the exclusion applied, adjusted annually in
+        # accordance with paragraph (1) of subdivision (a) of Section 51". A base year value on
+        # a change in ownership is the full cash value at that date (Section 110.1), which the
+        # Board's guidance reaches as well: the market value at the transfer, trended at 2% a
+        # year from the transfer. Subdivision (d) speaks instead of the "new taxable value",
+        # which is the capped figure, so the two readings differ. The market reading is used
+        # because it is the one the guidance states; the capped reading is cheaper and is
+        # exposed here and flagged on the site rather than hidden.
+        base_at_transfer = taxable_excl if removal_enrolls_capped_value else v_at_transfer
+        trended_new_base = base_at_transfer * (1.0 + VERIFIED["prop13_factor"]) ** lead_occupancy_years
         rest = assessed_path(trended_new_base, post_market[lead_occupancy_years:],
                              transfer_year + lead_occupancy_years)
         assessed_excl = excl_part + rest[1:]
