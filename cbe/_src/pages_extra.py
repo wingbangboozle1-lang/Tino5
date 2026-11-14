@@ -753,8 +753,9 @@ def page_suggestions():
           _src_cell(["boe_pub29"], "the publication explains the 1% ceiling and the 2% factor, but "
                     "no county rate is quoted here")], None),
         (["T02", "Retrieve the official ZIP-level insurance data and publish a range",
-          "Would replace both insurance estimates. Deliberately not done yet: ZIP-level data would "
-          "identify the area, though a statewide range would not and would still be useful.",
+          "Would replace both insurance estimates. The Department publishes the figures only as "
+          "spreadsheet files, which this desk did not retrieve; the ZIP-level file would also "
+          "identify the area, though a statewide figure would not.",
           pill("new", "PROPOSED"), _src_cell(["cdi_residential"])], None),
         (["T03", "Add the county assessor's own projection once it has been requested",
           "Turns the largest single projected number on the desk into a fact.",
@@ -1124,7 +1125,24 @@ def _flags():
          "page. This desk does not choose between them." % M(_REMOVE_GAP),
          "A California lawyer, or a written projection from the county assessor",
          ["leginfo_rtc63_2", "boe_lta2026_026"]),
-        ("F17", "Earlier unrounded figures in public git history", "Not fixable by a commit",
+        ("F17", "Whether the statewide rent cap applies to Property B", "Not determined",
+         "The cap is 5% plus the change in the regional cost of living, or 10%, whichever is "
+         "lower. The owner-occupied exemption is drafted for a property containing two separate "
+         "dwelling units; Property B has three. The single-family exemption needs a written "
+         "notice in the prescribed wording and an owner that is not a company. Which applies, if "
+         "any, depends on the building's configuration and on the tenancy dates, neither of which "
+         "was supplied.",
+         "The building record, the tenancy papers, and a local ordinance check",
+         ["leginfo_civ1947_12"]),
+        ("F18", "The rent index in the model is national, the statute uses a regional one",
+         "Simplification",
+         "The statute measures the cost-of-living change with the Consumer Price Index for All "
+         "Urban Consumers for the metropolitan area in which the property sits. This desk models "
+         "rent as tracking national inflation, which is simpler and can differ from the regional "
+         "index in either direction.",
+         "Retrieve the regional index and re-run; the desk does not name the area, so it is not "
+         "retrieved here", ["leginfo_civ1947_12", "bls_cpi_series"]),
+        ("F19", "Earlier unrounded figures in public git history", "Not fixable by a commit",
          "Earlier generations of this repository published figures that were not rounded to $10. No "
          "later commit can remove them from the history of a public repository.",
          "Decide whether the repository should be private, or whether to rewrite its history", None),

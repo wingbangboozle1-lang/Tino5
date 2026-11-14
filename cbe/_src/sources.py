@@ -412,15 +412,24 @@ SOURCES = [
         title="Residential Property Insurance Report",
         url="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/",
         evidences=(
-            "Part I: written premiums, exposures and average written premiums by policy form for "
-            "2008-2023. Part II: ZIP-code-level experience (coverage amounts, earned premiums, wildfire "
-            "risk, fire and smoke claims) for 2018-2023, produced under Insurance Code section 929. "
-            "Structures of 5 or more residential units are excluded because they are written under a "
-            "commercial policy."
+            "The Department's Residential Property Insurance Report covers fire and earthquake "
+            "perils on residential property. Part I collects written premiums, written exposures and "
+            "average written premiums for each policy form, stratified by amount of coverage, for "
+            "2008 to 2023. Part II collects policy-level data by ZIP code, including coverage "
+            "amounts, wildfire risk and fire and smoke losses, for 2018 to 2023, produced under "
+            "Insurance Code section 929. Structures of five or more residential units are excluded, "
+            "because they are written under a commercial policy; only the interior of a condominium "
+            "unit is reported, on an HO-6 or equivalent. The policy forms covered are Dwelling Fire "
+            "(both owner-occupied and tenant-occupied), Homeowners Multi-Peril, Mobile Homes, "
+            "Renters and Condominium Unit Owners. Part III counts fire and earthquake policies by "
+            "county."
         ),
         checked=(
-            "Retrieved and read 2026-11-14. The report index was read; the data files were not "
-            "downloaded, so no ZIP-level average premium is quoted anywhere on this desk."
+            "Retrieved and read 2026-11-14: the report index and the SB 824 Wildfire Risk "
+            "Information page were both read. The premium and exposure figures are published only "
+            "as spreadsheet files, which this desk did not retrieve, so no premium figure is "
+            "quoted from this source anywhere on the site. That is why both insurance figures "
+            "remain owner estimates and both are flagged."
         ),
     ),
     # --------------------------------------------------------------- elections
@@ -497,7 +506,7 @@ SOURCES = [
 
 # Sources referenced by a link but not opened in this session. Every row that leans on one of
 # these carries an explicit "not opened — check here" marker in the cell.
-NOT_OPENED = ["irs_rp2026_35", "irs_i706", "irs_p551", "boe_lta2021_054", "fhfa_hpi", "cdi_residential"]
+NOT_OPENED = ["irs_rp2026_35", "irs_i706", "irs_p551", "boe_lta2021_054", "fhfa_hpi"]
 
 # Statutory amounts quoted exactly as published. Statewide constants; they identify nothing,
 # so they are deliberately NOT rounded to $10. Everything else on the desk is rounded.

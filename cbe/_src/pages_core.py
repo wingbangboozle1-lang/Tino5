@@ -292,8 +292,8 @@ def page_properties():
         (["Year built", "Not supplied", "Not supplied", pill("unv", "unverified"),
           _src_cell(["leginfo_civ1947_12"], "the year built decides whether the statewide rent cap applies")], None),
         (["Whether the State rent cap applies if let",
-          "Likely exempt if it is a single dwelling on its own title, the owner is not a company, and "
-          "the statutory notice is given",
+          "Exempt if it is a single dwelling on its own title, the owner is not a company, and the "
+          "statutory notice is given",
           "Applies: the cap is 5% plus the cost-of-living change, or 10%, whichever is lower",
           pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], "hi"),
     ]
@@ -679,6 +679,70 @@ def page_running_costs():
           pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], None),
     ]
     b.append(sh.table(["Item", ("num", "Amount"), "Status", "Source"], rows3))
+
+    b.append("<h2>The rent cap, exactly as the statute states it</h2>")
+    b.append('<p class="small">This matters because Property B already has two of three units '
+             'let, and because the rental income it produces is one of the benefits of moving '
+             'into Property A. The rule is statewide; a local ordinance can be stricter and none '
+             'was retrieved.</p>')
+    cap = [
+        (["The ceiling",
+          "5% plus the percentage change in the cost of living, or 10%, whichever is lower, over "
+          "any twelve-month period", pill("ver", "verified"),
+          _src_cell(["leginfo_civ1947_12"])], "hi"),
+        (["How many increases", "No more than two in any twelve months", pill("ver", "verified"),
+          _src_cell(["leginfo_civ1947_12"])], None),
+        (["Which price index is used",
+          "The Consumer Price Index for All Urban Consumers for All Items for the metropolitan "
+          "area in which the property is located &mdash; a regional index, not the national one. "
+          "Where no metropolitan index is published, the California index published by the "
+          "Department of Industrial Relations is used instead.", pill("ver", "verified"),
+          _src_cell(["leginfo_civ1947_12"])], "hi"),
+        (["Which months the change is measured over",
+          "April to April, or March to March where no April figure is published. For an increase "
+          "taking effect on or after 1 August it is April of that year against April of the year "
+          "before; for one taking effect before 1 August it is April of the previous year against "
+          "April of the year before that.", pill("ver", "verified"),
+          _src_cell(["leginfo_civ1947_12"])], None),
+        (["Rounding", "The percentage change is rounded to the nearest one-tenth of one percent",
+          pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], None),
+        (["Notice of an increase", "Must be given to each tenant under Civil Code section 827",
+          pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], None),
+        (["Exemption: new buildings", "A certificate of occupancy issued within the previous "
+          "15 years", pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], None),
+        (["Exemption: a single-family home on its own title",
+          "Separately alienable from the title to any other dwelling unit, provided the tenant has "
+          "been given written notice in the prescribed statutory wording and the owner is not a "
+          "real estate investment trust, a corporation, or a limited liability company with a "
+          "corporate member", pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], None),
+        (["Exemption: an owner-occupied duplex",
+          "A property containing two separate dwelling units within a single structure, where the "
+          "owner occupied one of them as a principal residence at the beginning of the tenancy and "
+          "continues in occupancy, and neither unit is an accessory dwelling unit or a junior "
+          "accessory dwelling unit", pill("ver", "verified"),
+          _src_cell(["leginfo_civ1947_12"])], "hi"),
+        (["Does that duplex exemption cover Property B?",
+          "It is drafted for two units. Property B has three, so on the face of the statute the "
+          "exemption does not fit &mdash; but whether it does turns on how the units are "
+          "configured and on the tenancy dates, neither of which this desk knows. It is flagged "
+          "rather than assumed.",
+          pill("unv", "unverified"),
+          _src_cell(["leginfo_civ1947_12"], "the statute is drafted for two units; Property B's "
+                    "configuration was not supplied")], "hi"),
+        (["When the section applies from",
+          "All rent increases occurring on or after 15 March 2019, subject to the transitional "
+          "provisions", pill("ver", "verified"), _src_cell(["leginfo_civ1947_12"])], None),
+        (["Review date",
+          "The Legislative Analyst's Office must report to the Legislature on the effectiveness of "
+          "this section and section 1947.13 on or before 1 January 2030", pill("ver", "verified"),
+          _src_cell(["leginfo_civ1947_12"])], None),
+    ]
+    b.append(sh.table(["Provision", "What the statute says", "Status", "Source"], cap,
+                      note="The cap is a ceiling on increases, not a cap on rent. A tenancy that "
+                           "starts at market rent is unaffected until the first increase. This "
+                           "desk models rent as tracking general inflation, which is a national "
+                           "index; the statute uses a regional one, and that difference is "
+                           "flagged."))
     return "Running costs", "".join(b)
 
 
