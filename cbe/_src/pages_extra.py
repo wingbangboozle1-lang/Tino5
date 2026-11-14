@@ -66,6 +66,37 @@ def page_black_swan():
              'for the inflation path &mdash; persistence, shocks, long stretches of calm &mdash; and '
              'not a forecast.</div>')
 
+    # --------------------------------------------------------- local phased-investing tool
+    b.append("<h2>Phased investing: stress the first equity-entry years</h2>")
+    b.append('<p>Scenario to test: after inheritance and a sale, roll the sale proceeds through a short Treasury ladder spanning approximately 3 months to 2 years for 24–36 months, then phase into equities. Inputs below stay in this browser only; they are not submitted, saved, or sent anywhere. No cash, stock or crash return is prefilled because future yields and returns cannot be verified today.</p>')
+    b.append('<div class="banner warn"><b>Reinvestment risk beside the headline.</b> A Treasury maturing during the parking period must be reinvested at then-current rates; the future rate may be lower or higher than the yield entered. A Treasury maturity is not the same as a guaranteed reinvestment yield. Treasury publishes daily 3-month and 2-year par curve points (<a class="src" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener noreferrer">official Treasury curve</a>), but current rates do not establish the rate available in a future inheritance year.</div>')
+    b.append('<div class="controls" id="phase-calculator" aria-label="Private phased investing calculator">')
+    fields = [
+        ("phase-principal", "Sale proceeds available to invest ($)", "0.01", "0", "", ""),
+        ("phase-treasury", "Average annual Treasury yield during first 12 months (%)", "0.01", "-20", "100", ""),
+        ("phase-treasury-roll", "Treasury roll-over yield after month 12 (%) (blank = same as first year)", "0.01", "-20", "100", ""),
+        ("phase-equity", "Equity annualized total return (%)", "0.01", "-100", "100", ""),
+        ("phase-wait", "Treasury parking period (months; use 24–36)", "1", "24", "36", "30"),
+        ("phase-length", "Equity phase-in length after parking (months)", "1", "1", "120", "12"),
+        ("phase-horizon", "Comparison horizon from inheritance (years)", "1", "1", "100", "10"),
+        ("phase-s1-drop", "Depression-era stress: assumed immediate equity drop (%)", "0.1", "0", "100", ""),
+        ("phase-s1-month", "Depression-era stress: month of drop from inheritance", "1", "1", "1200", ""),
+        ("phase-s2-drop", "2008-style stress: assumed immediate equity drop (%)", "0.1", "0", "100", ""),
+        ("phase-s2-month", "2008-style stress: month of drop from inheritance", "1", "1", "1200", ""),
+    ]
+    for fid, label, step, minimum, maximum, value in fields:
+        attrs = ' type="number" step="%s" min="%s"' % (step, minimum)
+        if maximum:
+            attrs += ' max="%s"' % maximum
+        if value:
+            attrs += ' value="%s"' % value
+        b.append('<div class="control"><label for="%s">%s</label><input id="%s"%s></div>' % (fid, label, fid, attrs))
+    b.append('</div>')
+    b.append('<div class="result" id="phase-result" aria-live="polite">Enter the proceeds, Treasury yield, and equity return to calculate a no-crash comparison. Add a loss and month for either labeled stress case to test it. Output remains blank until the necessary inputs are entered.</div>')
+    b.append('<p class="small">Calculation: monthly compounding; immediate path buys equities at once; phased path holds cash for the selected parking period, applies one Treasury yield for months 1–12 and a separate roll-over yield thereafter (or repeats the first rate if left blank), then buys equities in equal monthly shares of remaining cash over the phase-in period. Each stress applies one instantaneous loss to the equity portion only. End values and drawdown are illustrative assumptions, not a historical back-test, forecast, or investment recommendation. Taxes, fees, inflation, changing rates, Treasury price fluctuations before maturity, and any recovery pattern are not modelled. To approximate a 1929-like or 2008-like entry shock, enter the adviser-selected loss and month explicitly; NBER recession dates describe the economy, not stock index returns. See <a href="glossary.html">glossary</a>.</p>')
+    b.append('<p class="small">Official historical anchors: NBER dates the 1929 business-cycle peak to August 1929 and trough to March 1933, and the later recession from December 2007 to June 2009. Those dates do not specify portfolio drawdown or the date an investor would have entered: <a class="src" href="https://www.nber.org/research/business-cycle-dating/business-cycle-dating-procedure-frequently-asked-questions" target="_blank" rel="noopener noreferrer">NBER cycle-date FAQ</a>; <a class="src" href="https://www.nber.org/news/business-cycle-dating-committee-announcement-september-20-2010" target="_blank" rel="noopener noreferrer">NBER 2009 trough announcement</a>.</p>')
+    b.append('<script src="assets/what-if.js" defer></script>')
+
     # ---------------------------------------------------------------- where we are
     b.append("<h2>Where inflation is right now</h2>")
     now = [
@@ -386,6 +417,17 @@ def page_process():
              'is the difference between a %s bill and a %s bill in the first full year, or %s a year, '
              'and it then compounds for as long as you hold the property.</div>'
              % (M(_TAX_EXCL), M(_TAX_FULL), M(_EXCL_SAVING)))
+    timeline = [
+        (["At death / trust becomes irrevocable", "Secure the date of death, trust instrument, title and trustee identity; arrange counsel/CPA review. This starts conditional deadlines.", pill("asm", "case-dependent"), _src_cell(["leginfo_prob16061_7", "irs_form706_instructions"])], None),
+        (["Within 60 days after the triggering notice event", "Trustee notice to beneficiaries may be required when the revocable trust becomes irrevocable; have counsel identify the exact trigger and recipients.", pill("ver", "statutory deadline"), _src_cell(["leginfo_prob16061_7"])], None),
+        (["Within 9 months after date of death, if Form 706 is required", "CPA/executor determines filing obligation and any portability election; estate/GST tax is generally due at this point. A filing extension does not itself extend payment.", pill("ver", "conditional deadline"), _src_cell(["irs_form706_instructions"])], "hi"),
+        (["Within 1 year after property transfer", "If relying on the Prop 19 parent-child exclusion, the eligible transferee must occupy the home as a principal residence and file the homeowners' exemption; verify the exact transfer and filing dates.", pill("ver", "eligibility deadline"), _src_cell(["leginfo_rtc63_2", "boe_lta2026_026"])], "hi"),
+        (["Within 3 years after transfer (or earlier triggering event)", "File the Prop 19 exclusion claim within the statutory period; do not wait for the outer deadline if a shorter event applies.", pill("ver", "claim deadline"), _src_cell(["leginfo_rtc63_2", "boe_prop19"])], None),
+        (["Before investing; recheck each maturity during the 24–36-month parking period", "Obtain current Treasury quotes and tax advice, set liquidity reserve and documented phase-in rules. This is a planning sequence, not a legal deadline or fixed yield.", pill("asm", "planning step"), _src_cell(["treasury_yield_curve"])], None),
+    ]
+    b.append("<h2>Deadline timeline at a glance</h2>")
+    b.append(sh.table(["When", "Action", "Status", "Official source"], timeline,
+                      note="Relative time periods depend on the applicable legal trigger, the actual instrument and the law in force at death. The IRS return deadline is conditional; this page does not decide whether a return is required."))
     n = 0
     for group, items in _STEPS:
         b.append("<h2>%s</h2>" % group)
@@ -1300,12 +1342,10 @@ def page_methodology():
           "exactly as published, because they are statewide constants that identify nobody.",
           pill("ver", "verified"),
           _src_cell(["boe_lta2025_009", "irs_estate_tax"])], None),
-        (["No scripts, no external assets, no forms, no analytics",
-          "The published pages are static HTML and CSS. A page that cannot run code and cannot call "
-          "out cannot leak what it displays, which is a stronger guarantee than redaction.",
+        (["One local-only calculator; no third-party code or tracking",
+          "Only the black-swan page loads a repository-local calculator script. It makes calculations in the browser, does not use network APIs, cookies, browser storage, analytics or remote assets, and does not send entered values. The verifier checks the allowlisted script and its source.",
           pill("ver", "verified"),
-          _src_cell(None, "enforced by this desk's verifier, which fails the build on a script tag, "
-                    "an external reference, a form or an iframe")], None),
+          _src_cell(None, "a design and security property enforced by the desk verifier")], None),
         (["Source links open in a new tab and carry no referrer",
           "The pages carry a no-referrer policy and the robots directives ask search engines not to "
           "index them or follow their links.",
@@ -1326,12 +1366,52 @@ def page_methodology():
     return "Method and privacy", "".join(b)
 
 
+# ----------------------------------------------------------------- 18. print briefing
+
+def page_brief():
+    b = ['<article class="brief-sheet">']
+    b.append('<p class="lead"><b>Attorney &amp; CPA Briefing Sheet</b> &mdash; anonymized planning brief. Print this page from the browser; no private identifiers or property address is required.</p>')
+    b.append('<div class="banner warn"><b>Decision frame.</b> Property A is expected to transfer to the inheritor through a trust around 2040–2050. Property B is already owned by the same inheritor and has existing rental units. Analyze Property A as a new inheritance while treating Property B as a continuing ownership, housing and rental-income baseline; do not conflate the two transfers.</div>')
+    b.append('<h2>Questions for counsel and tax adviser before choosing</h2>')
+    b.append('<ul class="tight"><li><b>Attorney:</b> review the trust instrument, title, trustee powers, beneficiaries, transfer date, debts/liens, residence eligibility and the exact one-year/three-year claim rules under California law.</li><li><b>CPA / estate tax:</b> inventory the entire gross estate, lifetime taxable gifts, prior gift/estate returns, marital deductions/portability, asset ownership and basis; determine whether an estate return, income-tax return or portability filing is required.</li><li><b>Property operations:</b> obtain written insurance quotes for an owner-occupied inherited home and a multi-unit rental; confirm lease terms, lawful unit status, actual rents, property tax components, water/power, repairs and reserve needs.</li><li><b>Investment decision:</b> compare verified net sale proceeds with hold/rent economics after tax, then test an optional 24–36-month Treasury ladder and staged equity purchases using several return, crash and future-yield assumptions.</li></ul>')
+    b.append('<h2>Time-sensitive items (relative to actual legal triggers)</h2>')
+    b.append('<p><b>60 days:</b> trustee notice duties may apply after a revocable trust becomes irrevocable. <b>9 months from death:</b> Form 706 filing and estate/GST tax are generally due if a return is required; an extension to file does not automatically extend payment. <b>1 year from transfer:</b> qualifying occupancy and homeowners exemption deadline relevant to the Prop 19 exclusion. <b>3 years from transfer (or earlier triggering event):</b> outer Prop 19 claim period. Have the attorney calendar exact dates from the governing documents and official rules.</p>')
+    b.append('<p class="small">Official references: <a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=16061.7.&lawCode=PROB" target="_blank" rel="noopener noreferrer">California Probate Code §16061.7</a>; <a class="src" href="https://www.irs.gov/pub/irs-pdf/i706.pdf" target="_blank" rel="noopener noreferrer">IRS Form 706 Instructions</a>; <a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=63.2.&lawCode=RTC" target="_blank" rel="noopener noreferrer">California Revenue &amp; Taxation Code §63.2</a>; <a class="src" href="https://www.boe.ca.gov/proptaxes/prop19.htm" target="_blank" rel="noopener noreferrer">California BOE Proposition 19 guidance</a>.</p>')
+    b.append('<h2>What is still unknown and must be obtained</h2>')
+    b.append('<p>Executed trust and deed; exact date and beneficiaries; whole-estate inventory and gift history; asset-by-asset basis records; mortgages and liens; county tax bills and rate-area charges; current unit leases and lawful status; independent rent appraisals; insurance bindable quotes; inspection and maintenance history; solar interconnection/credit terms; sale-cost estimates; and investment policy, liquidity needs and tax assumptions. Unknown values are intentionally blank on the decision desk until documented.</p>')
+    b.append('<h2>Decision to make only after the facts</h2>')
+    b.append('<p>Compare (A) occupy/claim if eligible, (B) rent/retain, (C) sell and reinvest, and (D) mixed paths such as retaining Property B while parking Property A sale proceeds in short Treasuries before a staged stock-market entry. No path is recommended as certain. Use the <a href="questions.html">questions register</a>, <a href="options.html">mixed-path comparison</a>, <a href="black-swan.html">stress tool</a>, and <a href="flagged.html">flagged items</a> as the working papers.</p>')
+    b.append('<p class="small">Planning brief only, not legal, tax, insurance or investment advice. Re-verify statutes and thresholds for the actual transfer year. All identifying details are omitted from this page.</p>')
+    b.append('</article>')
+    return "Attorney & CPA Briefing Sheet", "".join(b)
+
+
+# ----------------------------------------------------------------- 19. glossary
+
+def page_glossary():
+    entries = [
+        (["Assessed value / factored base-year value", "California property-tax value subject to statutory adjustment limits; not the same as a current market appraisal.", pill("ver", "defined by statute"), _src_cell(["boe_pub29"])], None),
+        (["Change in ownership", "A legal event that may cause reassessment; the trust and title details determine the actual treatment.", pill("ver", "defined by law"), _src_cell(["boe_pub29", "leginfo_rtc63_2"])], None),
+        (["Proposition 19 intergenerational exclusion", "A conditional exclusion from reassessment for specified transfers, with occupancy and filing requirements; not a permanent freeze of the entire tax bill.", pill("ver", "conditional"), _src_cell(["boe_prop19", "leginfo_rtc63_2"])], None),
+        (["Federal estate-tax basic exclusion", "The federal threshold/exclusion framework used to determine whether estate tax may be due; the whole estate, gifts and applicable elections matter, not just one house.", pill("ver", "annual law changes"), _src_cell(["irs_estate_tax"])], None),
+        (["Basis step-up", "General shorthand for basis rules on property acquired from a decedent; the actual basis and exceptions depend on ownership and transfer facts.", pill("ver", "fact-specific"), _src_cell(["irs_p551"])], None),
+        (["Treasury yield curve", "Published yields by maturity, including 3-month and 2-year points; a current curve does not promise the reinvestment rate available when a security matures later.", pill("ver", "market data"), _src_cell(["treasury_yield_curve"])], None),
+        (["Sequence / crash-entry risk", "The same long-term average return can produce a different outcome when a large fall happens before or after staged purchases. This tool uses an assumed single shock, not a historical equity series.", pill("asm", "model term"), _src_cell(None, "plain-language model definition; no return series or drawdown is asserted")], None),
+        (["Reinvestment risk", "The risk that cash from a maturing short Treasury must be rolled into a security with a different future yield; the future yield is unknown.", pill("asm", "model term"), _src_cell(["treasury_yield_curve"])], None),
+        (["Black swan", "A label for a severe, hard-to-predict event; this desk does not claim that a stress case forecasts an event or its market impact.", pill("asm", "not a legal category"), _src_cell(None, "plain-language definition; no forecast is asserted")], None),
+        (["Mixed path", "A strategy combining property occupancy/rental choices with liquidity reserves, Treasury holdings and/or staged market investment; feasibility and tax outcomes depend on facts.", pill("asm", "scenario label"), _src_cell(None, "a planning category, not a statutory term")], None),
+    ]
+    body = '<p class="lead">Plain-language terms used across the desk. A legal definition or tax treatment always takes precedence over this shorthand.</p>'
+    body += sh.table(["Term", "Meaning here", "Status", "Source"], entries)
+    body += '<div class="banner warn"><b>Important distinction:</b> recession dates, inflation history, and stock-market returns are different series. The black-swan tool uses NBER chronology only to identify economic episodes; shock magnitude and timing are explicit user assumptions, not facts inferred from those dates.</div>'
+    return "Glossary", body
+
+
 def page_phased_investing():
-    """Interactive, offline-only illustration; no network, storage, or personal data."""
-    body = '''<p class="lead">Test parking hypothetical sale proceeds in short Treasuries for 24–36 months, then phasing into stocks. This is an assumption-driven stress illustration, not a forecast or recommendation.</p>
-<div class="banner warn"><b>What would change the answer?</b> Net proceeds after taxes and costs; actual Treasury yields and reinvestment rates; investment allocation; spending needs; and market return sequence. Short maturities reduce price sensitivity if held to maturity, but rolling securities creates reinvestment risk.</div>
-<h2>What-if controls</h2><label>Illustrative proceeds ($) <input id="principal" type="number" min="0" step="10000" value="1000000"></label> <label>Annual Treasury yield assumption (%) <input id="yield" type="number" min="0" max="20" step="0.1" value="3"></label> <label>Phasing period <select id="months"><option value="24">24 months</option><option value="30" selected>30 months</option><option value="36">36 months</option></select></label> <label>Hypothetical equity decline (%) <input id="crash" type="number" min="0" max="80" step="1" value="40"></label> <button id="recalc" type="button">Recalculate</button>
-<h2>Illustration</h2><div class="tblwrap"><table class="data"><thead><tr><th>Case</th><th>End value</th><th>Interpretation</th></tr></thead><tbody id="rows"></tbody></table></div>
-<p>Equal monthly purchases, constant user-entered annual Treasury yield compounded monthly; no fees, taxes, inflation, dividends, or recovery. Each equity purchase is assumed to encounter the same hypothetical decline. A lump-sum investment is exposed to the decline immediately. This does not replay historical 1929 or 2008 returns.</p><h2>Risks beside the headline</h2><ul class="tight"><li><b>Reinvestment risk:</b> future maturities may only reinvest at lower yields; the fixed-yield control does not capture this, so it can overstate parking returns.</li><li><b>Opportunity cost:</b> rising markets during the delay can make phased investing lag lump-sum entry.</li><li><b>Sequence risk:</b> a decline after most tranches are invested can cause materially different losses.</li><li><b>Taxes/inflation:</b> nominal values omit both; verify treatment with a tax adviser.</li></ul><h2>Official sources</h2><ul class="tight"><li><a href="https://www.treasurydirect.gov/marketable-securities/treasury-bills/">TreasuryDirect — Treasury bills</a></li><li><a href="https://www.treasurydirect.gov/marketable-securities/treasury-notes/">TreasuryDirect — Treasury notes</a></li><li><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates">U.S. Treasury — yield curve rates</a></li><li><a href="https://www.irs.gov/taxtopics/tc403">IRS — interest received</a></li></ul>
-<script>"use strict";(()=>{const q=s=>document.querySelector(s);function run(){const p=Math.max(0,Number(q('#principal').value)||0),y=Math.max(0,Number(q('#yield').value)||0)/100,m=Number(q('#months').value),d=Math.min(80,Math.max(0,Number(q('#crash').value)||0))/100,fmt=n=>'$'+(Math.round(n/10)*10).toLocaleString('en-US');let phased=0;for(let i=0;i<m;i++)phased+=(p/m)*Math.pow(1+y,(m-i)/12)*(1-d);const lump=p*(1-d)*Math.pow(1+y,m/12);q('#rows').innerHTML='<tr><td>Lump sum</td><td>'+fmt(lump)+'</td><td>Whole amount experiences assumed decline</td></tr><tr><td>Equal monthly phases</td><td>'+fmt(phased)+'</td><td>Uninvested balance earns assumed Treasury yield</td></tr>'; }q('#recalc').addEventListener('click',run);run();})();</script>'''
-    return "Phased investing stress test", body
+    """Short landing page routing readers to the local Black Swans calculator."""
+    body = []
+    body.append('<p class="lead">A phased sale-proceeds path is available inside the <a href="black-swan.html#phase-calculator">Black swans &amp; phased investing page</a>: park proceeds in a rolling 3-month-to-2-year Treasury ladder for a user-selected 24–36 months, then phase purchases into equities.</p>')
+    body.append('<div class="banner warn"><b>What the model does and does not claim.</b> The calculator requires user-entered proceeds, Treasury yields, equity return and hypothetical crash magnitude/timing. It does not prefill unknown rates or treat recession dates as stock-market losses. The Treasury curve link describes current market observations, not a future inheritance-year yield.</div>')
+    body.append('<h2>Risks to compare</h2><ul class="tight"><li><b>Reinvestment risk:</b> each maturity may roll into a different yield.</li><li><b>Opportunity cost:</b> equities may rise during the parking period.</li><li><b>Sequence risk:</b> a fall before, during or after phasing changes which purchases experience it.</li><li><b>Tax and inflation drag:</b> not included in the local calculator; model with an adviser separately.</li></ul>')
+    body.append('<p class="small">Official rate series: %s. Historical economic dates: %s; dates do not provide market drawdowns.</p>' % (_src_cell(["treasury_yield_curve"]), _src_cell(["nber_cycle_faq", "nber_2009_trough"])))
+    return "Phased investing overview", "".join(body)

@@ -47,6 +47,13 @@ def page_index():
          "2027 official amount indexed at the 2.5% assumption"),
     ]
     body = []
+    body.append('<section class="banner red"><b>Privacy issue still open.</b> Current pages are anonymized and rounded, but earlier public Git commits may retain unrounded user-supplied property figures. Editing the current files does not erase historical versions. Repository-history cleanup is not completed in this task; review <a href="flagged.html">Flagged for review</a> and do not treat the repository as fully scrubbed.</section>')
+    body.append('<section class="banner warn" aria-labelledby="answer-changers"><b id="answer-changers">What would change the answer — start here.</b><ul class="tight">'
+                '<li><b>Whether the inheritor will genuinely occupy Property A within the statutory period:</b> this changes Prop 19 eligibility and materially changes the tax model. Confirm the trust terms and use plan with a California estate/property-tax attorney.</li>'
+                '<li><b>Net sale proceeds versus the after-tax return on a diversified portfolio:</b> replace the assumed price growth, portfolio return, sale costs, and taxes with written adviser inputs.</li>'
+                '<li><b>Actual rent, insurance, repairs, debt, and Property B unit/legal status:</b> obtain unit-specific quotes and a rental/inspection review; Property B is already owned and remains part of the household comparison.</li>'
+                '<li><b>Total taxable estate, ownership, lifetime gifts, and prior spouse portability:</b> have the CPA/estate attorney inventory the whole estate; the home alone does not determine federal estate-tax exposure.</li>'
+                '</ul><a href="questions.html">Open the full questions and discovery-actions register</a>.</section>')
     body.append('<p class="lead">Two properties, one decision. <b>Property A</b> is expected to pass '
                 'through a family trust some time between 2040 and 2050. <b>Property B</b> is already '
                 'owned, lived in, and has two of its three units let. This desk works out what each '
@@ -61,15 +68,19 @@ def page_index():
     body.append("<h2>Where to start</h2>")
     body.append(sh.cards([
         ("executive-summary.html", "Executive summary",
-         "The recommendation, the three numbers that decide it, and the five facts still missing."),
-        ("options.html", "The three options",
-         "Occupy, let, or sell and reinvest &mdash; with the break-even rent, growth rate and return."),
-        ("phased-investing.html", "Phased investing stress test",
-         "Compare lump-sum stock entry with 24–36 months in short Treasuries, followed by staged purchases."),
+         "The recommendation, its assumptions, reinvestment risk, and what would change the answer."),
+        ("brief.html", "Attorney & CPA briefing sheet",
+         "A one-page print-ready transfer, tax and discovery checklist."),
+        ("options.html", "Options and mixed paths",
+         "Occupy, let, sell, retain Property B, and test Treasury parking before phased investing."),
+        ("phased-investing.html", "Phased investing overview",
+         "Open the black-swan page for local controls, transparent assumptions and crash-entry comparisons."),
+        ("black-swan.html", "Black swans and phased investing",
+         "Historical macro context plus a private local calculator for crash-entry stress tests."),
         ("questions.html", "Questions and gaps",
-         "Every open question, what decision it blocks, and how to get the answer."),
-        ("suggestions.html", "Suggestions",
-         "Proposed changes to the plan and to this site. Nothing has been implemented."),
+         "Every open question, what decision it blocks, and how to discover the missing fact."),
+        ("suggestions.html", "Suggestions for review",
+         "Proposed changes for accept, modify or reject before implementation."),
     ]))
 
     body.append("<h2>Everything on this desk</h2>")
@@ -141,6 +152,8 @@ def page_executive_summary():
                   _src_cell(["leginfo_rtc13301"])], "hi"))
 
     b = []
+    b.append('<section class="banner warn"><b>What would change the answer.</b> Before acting, confirm (1) whether and when the beneficiary will occupy the inherited home, (2) the trust’s transfer terms and exact transfer date, (3) actual net sale proceeds and written rental / insurance / repair estimates, and (4) the whole taxable estate, lifetime gifts, and any portability election. These facts can change both tax eligibility and the keep/sell ranking. <a href="questions.html">See the discovery checklist</a>.</section>')
+    b.append('<div class="banner"><b>Reinvestment risk sits beside the sell headline.</b> Proceeds do not become a known stock-market return: equity prices can fall shortly after investment, and 3-month to 2-year Treasury maturities only postpone equity entry. Rolling maturities expose the investor to <b>reinvestment risk</b> because future yields are unknown. Test a range on the <a href="black-swan.html">phased-investing stress tool</a>; do not treat its user-entered scenarios as forecasts.</div>')
     b.append('<p class="lead">On the central assumptions, <b>selling Property A at the transfer and '
              'reinvesting the proceeds produces more wealth than keeping it</b> &mdash; by about '
              '%s in present value if you live in it, and %s if you let it. That result is <b>not '
@@ -904,4 +917,15 @@ def page_options():
                            "California lawyer, not for this desk &mdash; it is logged on the "
                            "questions page and flagged as F16. The two readings of what is then "
                            "enrolled are shown side by side on the property tax page."))
-    return "The three options", "".join(b)
+    b.append("<h2>Mixed paths to compare — not just three all-or-nothing choices</h2>")
+    mixed = [
+        (["Use the inherited home as the primary residence; retain Property B's existing rental units and, if suitable, rent the currently unused unit", "Residential use of A + continued B rental operation; separate accounting for each property", pill("asm", "scenario to price"), _src_cell(["boe_prop19", "leginfo_rtc63_2"])], None),
+        (["Occupy A to seek the family-home exclusion, then decide later whether to keep, rent or sell", "A staged decision, not an automatic promise of a three-year safe harbor. Continued eligibility and assessment consequences need written legal advice.", pill("unv", "legal review"), _src_cell(["boe_prop19", "leginfo_rtc63_2"])], "hi"),
+        (["Sell A, keep B and its rental income, park A's net proceeds in a rolling 3-month-to-2-year Treasury ladder, then phase into equities", "Combines property income already owned with a time-staged portfolio; test lower future Treasury yields, equity crash timing, sale taxes and liquidity needs.", pill("asm", "scenario to model"), _src_cell(["treasury_yield_curve", "nber_cycle_faq", "nber_2009_trough"])], None),
+        (["Sell A; reserve a user-set amount for tax, debt, repairs and liquidity; split the remainder among short Treasuries and diversified investments", "A cash-reserve + phased-investing path. The reserve is a user input, not a published guess; investment allocation and tax treatment need adviser review.", pill("asm", "scenario to model"), _src_cell(["treasury_yield_curve", "irs_estate_tax"])], None),
+        (["Keep A as a rental while retaining B as a primary/rental property", "Real-estate concentration and rental regulation/insurance risk remain in both properties; requires actual rent, repairs, insurance, vacancy and local-law inputs.", pill("asm", "scenario to price"), _src_cell(None, "property-specific rental economics are not established by a public official source")], None),
+    ]
+    b.append(sh.table(["Path", "What is mixed", "Status", "Source"], mixed,
+                      note="These are decision paths, not recommendations. Property B is already owned by the inheritor; its existing rent and operating exposure must be treated as a continuing baseline rather than as a second inheritance. Do not assume a partial physical sale is legally or economically possible."))
+    b.append('<div class="banner warn"><b>Choose based on your constraint, then price it.</b> Start with intended occupancy and liquidity needs; have the attorney confirm eligibility and the CPA calculate after-tax proceeds; then compare the property-specific break-even values against verified quotes. The phased investment path and its crash-entry risk controls are on the <a href="black-swan.html">black-swan page</a>.</div>')
+    return "Options and mixed paths", "".join(b)

@@ -3,9 +3,9 @@
 
 Run from anywhere:  python3 cbe/_src/build.py
 
-The published artifact is static HTML and CSS only. There is no JavaScript, no external
-font, image or style reference, no form and no analytics. verify.py enforces that, and
-build.py runs it before reporting success.
+The published artifact is static HTML/CSS plus one audited repository-local, privacy-local
+calculator script. No third-party code, network calls, browser storage or analytics are used.
+verify.py enforces the publication boundary, and build.py runs it before reporting success.
 """
 
 import os
@@ -24,6 +24,7 @@ import pages_extra as pe        # noqa: E402
 BUILD = [
     ("index.html", pc.page_index),
     ("executive-summary.html", pc.page_executive_summary),
+    ("brief.html", pe.page_brief),
     ("properties.html", pc.page_properties),
     ("property-tax.html", pc.page_property_tax),
     ("inheritance-tax.html", pc.page_inheritance_tax),
@@ -40,6 +41,7 @@ BUILD = [
     ("sources.html", pe.page_sources),
     ("flagged.html", pe.page_flagged),
     ("methodology.html", pe.page_methodology),
+    ("glossary.html", pe.page_glossary),
 ]
 
 
