@@ -2499,3 +2499,15 @@ Read before claiming: `origin/main` at `8adf72c` (PR #73) and the board above. N
 - **Not done in this session:** the Santa Clara assessor annual report and the SOS certified-measures list were linked but not opened line by line; no suggestion was implemented.
 - **PR:** [PR #80](https://github.com/wingbangboozle1-lang/Tino5/pull/80) (`arena/a2b1e45e-tino5` → `main`), opened 2026-11-14. Merge requested without waiting for owner review, as instructed; result recorded after merge and Pages check.
 - **Result:** PR #80 **MERGED** into `main` as `602f16b` (2026-11-14 22:20Z) without waiting for review. GitHub Pages build and deployment **success** on `602f16b`; the workflow "Verify published artifact" **success** on the same commit. Live check 2026-11-14: `https://wingbangboozle1-lang.github.io/Tino5/inheritance-desk/flagged.html` serves the Flagged for Review page with all rows, sources and flags. Status on the board: **done**; open flags F01–F13 do not block merge and are listed on the page.
+
+---
+
+## Session `arena-1e2e59cb` — follow-up claim (2026-11-14; branch rebased onto `main` after PRs #73–#80)
+
+The existing cbe page was extended after reviewing merged PRs #73–#80; the change preserves those desks and does not duplicate their separate directories.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| e2e/UX | Follow-up UX and private local phased-investing controls on the existing cbe desk; preserve the newly merged independent desks and avoid duplicate pages. | in progress | arena-1e2e59cb (`arena/1e2e59cb-tino5`) | `cbe/_src/{shell.py,pages_core.py,pages_extra.py,sources.py,verify.py,build.py}`, generated `cbe/*.html`, `cbe/assets/what-if.js`, this section |
+| e2e/VERIFY | Rebuild and run cbe checks/tests, verify privacy and source/assumption labeling, and record unresolved history issue. | pending e2e/UX | arena-1e2e59cb | same scoped files, this section |
+| e2e/INT | Integrate from this active branch only, PR to main, merge if checks pass, confirm Pages deployment and record result. | pending e2e/UX, e2e/VERIFY | arena-1e2e59cb | `COORDINATION.md` and required PR integration metadata only |
