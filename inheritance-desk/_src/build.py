@@ -581,6 +581,7 @@ def p_flagged():
         ("F09", "Property A 2026 assessed value owner-supplied; must be confirmed with the assessor record. Not published as verified.", ["sc_annual"]),
         ("F10", "The CA capital gains rate (9.3%) used in the model is not confirmed from a primary source.", []),
         ("F11", "CA small-estate probate threshold (<span class='stat'>$208,850</span>) is in the model's constants from a secondary source; the Judicial Council form was not opened. Not used on any page.", []),
+        ("F13", "Privacy-scan false positive: scripts/privacy_scan.py reads the integer 202611 in the official Treasury daily par-yield URL (its month parameter) as unrounded data. The exact URL is kept so the citation can be checked. Same pattern and handling as the cbd/ desk. For the scanner owner to review.", ["treasury"]),
         ("F12", "Model assumptions (equity return, rent yield, maintenance, housing growth by regime) are not sourced. Labelled assumptions.", []),
     ]
     rows = []
