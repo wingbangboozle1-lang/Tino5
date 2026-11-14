@@ -2464,8 +2464,95 @@ base for this work is `8adf72c`.
 | 1c/R | Review public trees and available commit history for privacy and consistency; record findings without editing another session's desk. | in progress | arena-1c52436d | this section only |
 | 1c/INT | After implementation and verification, integrate a clean root landing experience and privacy/build gates; create and merge a PR from this branch to `main`; confirm Pages deployment. Do not rewrite shared `main` history or push another branch. | waiting on 1c/S, 1c/V, 1c/R | arena-1c52436d | `index.html`, `_config.yml`, `.github/workflows/privacy-pages.yml`, `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `COORDINATION.md` |
 
-Non-overlap: the new implementation is limited to `cbe/**`; it may consume the existing
-ad49 calculator but will not alter its algorithm unless a reproducible defect is found.
-Shared integration files are held until 1c/INT. Full-history redaction remains an explicit
-repository-level risk: this session can sanitize new publications and document the remediation,
-but cannot force-rewrite `main` under the single-current-branch constraint.
+**Subsequent overlap and scope correction (2026-11-14).** This supersedes the earlier
+non-overlap statement above. After fetching every `origin/arena/*` branch and all 80 public
+GitHub pull-request head refs, this session found overlapping claims: `arena-534918d0`
+claims the historical replay and the same decision-workflow enhancements in `cbe/**`;
+`arena-1e2e59cb` claims a substantially overlapping UX/tool set; and `arena-c84be217`
+claims publication-surface privacy integration. To avoid duplicate or conflicting edits,
+this branch made no product changes to `cbe/**`, `_config.yml`, the root hub, or shared CI.
+The cbe feature implementation and root integration are therefore deferred here, not
+complete; this branch's distinct work is the independent source and privacy/history audit
+below. The claims on other branches are not yet verified as merged deliverables.
+
+**Fresh baseline checks (this branch, after PR #73).** `python3 cbe/_src/build.py` wrote
+18 pages; `python3 cbe/_src/verify.py` passed; the CBE unit suite passed all 84 tests;
+`python3 scripts/verify_safe.py` passed its 13-page / 125-row curated `public-safe/` set;
+`python3 scripts/check_landing.py` found 14 targets and 0 unresolved. The working-tree
+`python3 scripts/privacy_scan.py` reported 0 findings. These checks establish the current
+baseline only. `verify_safe.py` content-checks `public-safe/`, not every approved desk, and
+`privacy_scan.py` does not inspect Git history or detect unlabelled bare numbers or
+municipality names.
+
+**Independent publication/privacy audit.** At the time of this check, `review-092b/` was
+not excluded by Jekyll and was linked from the root hub. Its generated question page
+contains an exact owner-derived tax/assessment input pair in bare prose (values intentionally
+omitted here); the generic current-tree scanner does not recognize that form. Several other
+currently linked desk pages contain municipality-level property descriptions. These are
+privacy-review findings, not new inputs, and no underlying values or place names are repeated
+in this record. A zero result from `privacy_scan.py` is not a clearance of the full published
+surface. The live publication should be limited to a reviewed, anonymized desk, with the
+older paths excluded and removed from navigation until their content is safe. This branch
+did not modify those paths or the shared publish configuration.
+
+**History exposure assessment (read-only; no rewrite performed).** The local audit included
+144 fetched refs (the session branches plus all 80 PR head refs), 333 reachable commits, and
+1,192 candidate text blobs. A generic unrounded-money/data heuristic flagged 817 candidate
+matches across 65 distinct historical paths. This is a noisy screening count, not a count of
+private facts: it includes statutory/public figures, model data, and historic coordination
+text and needs manual classification. It does establish that a current-tree scan is not a
+history audit. A force-push of this session branch cannot remove objects still reachable
+from `main`, other branch heads, GitHub PR refs, forks, or existing clones; GitHub may also
+retain cached objects. A complete redaction would require a repository-wide coordinated
+rewrite and ref cleanup, followed by verification of GitHub's retained references. It was
+not attempted under the single-current-branch restriction; no sensitive raw values were
+copied into this record.
+
+**Official deadline/source confirmations for the outstanding briefing timeline (current
+law only; re-check well before the expected 2040–2050 transfer):**
+
+- California Probate Code §16061.7: for the specified trust events, the trustee must serve
+  notice within 60 days; when a revocable trust becomes irrevocable on a settlor's death,
+  notice goes to beneficiaries and heirs. The notice also warns of the 120-day trust-contest
+  period, or 60 days after delivery of the trust terms during that period, whichever is
+  later. [Official text](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=16061.7.).
+- California Revenue and Taxation Code §63.2: a qualifying family home may transfer through
+  an inter vivos or testamentary trust; the transferee must make it a principal residence
+  and claim the homeowners' or disabled-veterans' exemption within one year. The exclusion
+  claim generally has a three-year outside date, but must be filed sooner if the property is
+  transferred to a third party or the transferee stops occupying it; the statute also has a
+  six-month supplemental/escape-assessment notice rule. Late claims are generally prospective
+  from the claim year's lien date. Do not collapse the one-year occupancy/exemption test into
+  the separate claim-filing deadline. [Official text](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2.).
+- IRS estate-tax FAQ lists a **$15,000,000** Form 706 filing threshold for deaths in 2026;
+  it is not a forecast for 2040–2050, and the filing test also accounts for adjusted taxable
+  gifts and the specific exemption. IRS Form 706 instructions state the return is due nine months after death; Form
+  4768 may request an extension, and estate tax is ordinarily due on that same nine-month
+  date unless payment is extended. [IRS threshold FAQ](https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes)
+  · [Form 706 instructions](https://www.irs.gov/instructions/i706).
+- IRS Topic 403: Treasury interest is federally taxable and exempt from state and local
+  income taxes. This matters when comparing a Treasury parking yield with an after-tax
+  equity assumption. [Official text](https://www.irs.gov/taxtopics/tc403).
+- California BOE Publication 29 (March 2025) lists January 1 as the lien date, February 15
+  as the timely homeowners' exemption deadline, December 10 as the first secured-tax
+  installment deadline, and April 10 as the second. Confirm current county calendars and
+  later law before relying on these dates. [Official publication](https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf).
+
+**Additional CBE source follow-up (opened for this audit, not applied to `cbe/**` because
+of the overlapping claims).** The CBE verifier still reports five linked-but-not-opened
+register entries. This session opened the relevant portions of four: IRS Revenue Procedure
+2026-35 §3.44 confirms the 2027 basic estate-tax exclusion; the 2026 Form 706 instructions
+confirm the filing test, nine-month deadline, Form 4768 extension and portability timing;
+IRS Publication 551's *Inherited Property* and *Property Received from a Trust* sections
+confirm that basis depends on how the trust is classified and whether the property is
+included in the settlor's estate; and BOE LTA 2021/054 contains the adopted Property Tax
+Rule 462.520 and its original filing rules. For Property A, do not promise a uniform
+"step-up" without the trust instrument, tax classification and estate-inclusion analysis.
+The 2021 BOE rule is background; the current Revenue and Taxation Code controls. The FHFA
+HPI index page was read, but no underlying HPI dataset file was downloaded or independently
+checked; no value should be attributed to that dataset until verified. The source register
+still needs an owner-branch update, so the current verifier's five-item status is unchanged.
+
+Full-history redaction and publication cleanup remain repository-level risks outside the
+current branch's safe scope. This audit added only official-source notes; it added no direct
+identifier or owner-supplied exact value.
