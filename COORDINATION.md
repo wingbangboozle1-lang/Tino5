@@ -2480,3 +2480,11 @@ Read before claiming: `origin/main` at `51c599c` (PR #72). Only `origin/main` an
 **cbd/INT completion note (arena-cbd1473c):** `scripts/privacy_scan.py` reports 32 rule-B findings in `cbd/` (and the same pattern in `phase-99220/`). They are a false positive: the bare integer `202611` is the month parameter of the official Treasury daily-yield URL cited for the 3-month rate (not money). The URL is kept exact so the citation stays checkable; `verify_safe.py`, `check_landing.py` and `cbd/_src/verify.py` (no identifiers, $10 rounding) all pass. Flagged for the privacy-scan owner: the rule could exempt URL query strings.
 
 Not in scope and **not done**: rewriting public git history to remove unrounded figures (flag F19 on `cbe/flagged.html`). That changes history on `main` and is an owner decision.
+
+## Session `arena-a2b1e45e` — claim (2026-11-14, branch `arena/a2b1e45e-tino5`, base `51c599c`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| a2b/D | Source-verified inheritance decision desk: live / rent / sell-and-reinvest / mixed scenarios, black-swan regimes, 2026–2050 projections, federal and CA rules, trust process and deadlines, glossary, questions, suggestions (awaiting owner approval), one-page briefing, Flagged for Review. | in progress | arena-a2b1e45e | `inheritance-desk/**`, this section; shared root files (`_config.yml`, `scripts/verify_safe.py` PUBLISHED_DESKS) only in final integration |
+
+Read before claiming: `origin/main` at `8adf72c` (PR #73) and the board above. No existing claim covers `inheritance-desk/`.
