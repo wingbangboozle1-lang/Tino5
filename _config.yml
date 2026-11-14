@@ -16,6 +16,9 @@ exclude:
   - "decision/_src/**"
   - "cbe/_src"
   - "cbe/_src/**"
+  # desk-31cb5781 (session arena-31cb5781, 2026-11-14): generator/verifier are working material, not pages.
+  - "desk-31cb5781/_src"
+  - "desk-31cb5781/_src/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

@@ -2448,10 +2448,10 @@ root files permitted by the tie-break (all prior integrations complete).
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| 31cb/S | **Build the decision desk: clean landing page + category subpages (dashboard) covering executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance 2040–2050) and Property B (already owned) analysed separately, year-by-year projections 2026–2050/2076, property tax & assessed value, inheritance & estate tax thresholds, operating costs, step-by-step trust process with a deadlines timeline, black-swan regimes with a phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months), mixed paths (not only three pure choices), reinvestment risk beside the headline, what-if controls, one-page printable Attorney & CPA Briefing Sheet, suggestions board (PROPOSED; accept/modify/reject before implementing), questions & information gaps with discovery actions, law watch, source register, flagged for review.** Every table row carries an official source link or is blank + marked unverified; money rounded to nearest $10 except statutory amounts quoted exactly; no names, addresses, ZIP codes, parcel/account numbers. | in progress | arena-31cb5781 | `desk-31cb5781/**` (new directory; generator/verifier in `desk-31cb5781/_src/`, not published), this section only |
-| 31cb/V | **Line-by-line source verification of every row; irregularities logged on `desk-31cb5781/flagged.html`; privacy scan; model/regression checks.** | unclaimed | arena-31cb5781 | `desk-31cb5781/**`, this section only |
+| 31cb/S | **Build the decision desk: clean landing page + category subpages (dashboard) covering executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance 2040–2050) and Property B (already owned) analysed separately, year-by-year projections 2026–2050/2076, property tax & assessed value, inheritance & estate tax thresholds, operating costs, step-by-step trust process with a deadlines timeline, black-swan regimes with a phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months), mixed paths (not only three pure choices), reinvestment risk beside the headline, what-if controls, one-page printable Attorney & CPA Briefing Sheet, suggestions board (PROPOSED; accept/modify/reject before implementing), questions & information gaps with discovery actions, law watch, source register, flagged for review.** Every table row carries an official source link or is blank + marked unverified; money rounded to nearest $10 except statutory amounts quoted exactly; no names, addresses, ZIP codes, parcel/account numbers. | done | arena-31cb5781 | `desk-31cb5781/**` (new directory; generator/verifier in `desk-31cb5781/_src/`, not published), this section only |
+| 31cb/V | **Line-by-line source verification of every row; irregularities logged on `desk-31cb5781/flagged.html`; privacy scan; model/regression checks.** | done | arena-31cb5781 | `desk-31cb5781/**`, this section only |
 | 31cb/R | **Repository review: read the published trees, log irregularities for the owner, do not edit another session's files.** | unclaimed | arena-31cb5781 | this section only |
-| 31cb/INT | **Integration: merge `origin/main`, re-verify the combined tree, link check, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on 31cb/S and 31cb/V being `done` (all other claims already `done`/`needs review`/lapsed). | waiting | arena-31cb5781 | root `index.html`, `_config.yml`, `README.md` (only if needed), `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+| 31cb/INT | **Integration: merge `origin/main`, re-verify the combined tree, link check, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on 31cb/S and 31cb/V being `done` (all other claims already `done`/`needs review`/lapsed). | in progress | arena-31cb5781 | root `index.html`, `_config.yml`, `README.md` (only if needed), `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
 
 **Non-overlap:** `desk-31cb5781/` is a new directory. No other session's files are edited.
 `scripts/verify_safe.py` `PUBLISHED_DESKS` gets one folded assignment for `desk-31cb5781`;
@@ -2464,3 +2464,34 @@ level only — no ZIP, city, neighbourhood, street address, parcel or account nu
 Every dollar figure a multiple of $10 except statutory amounts quoted exactly as
 published and marked exact. Owner-supplied figures labelled "owner-supplied - unverified"
 with official-verified cell left blank. No real personal identifiers anywhere.
+
+### 31cb/S — completion record (arena-31cb5781, 2026-11-14)
+
+**Delivered: `desk-31cb5781/`** — 17 pages generated by `desk-31cb5781/_src/build.py` from a single
+source register. Landing dashboard with grouped menu and glossary; executive summary leading with
+"what would change the answer"; Property A (future trust inheritance, Santa Clara County) and
+Property B (already owned, San Francisco County) at county level only; property tax under Prop 13 /
+Prop 19 with the $1,044,586 (2025–2027) allowance; federal estate exclusion $15,000,000 / 40% and CA
+(no estate/inheritance tax); step-up in basis (§1014) and §121 exclusion; running costs; year-by-year
+projections 2026–2050/2076 at $10 rounding; scenarios live / rent / sell plus mixed paths; black-swan
+regimes with the phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months) and
+reinvestment risk; what-if calculator; step-by-step trust process with a deadlines timeline (Form 706
+9 months, BOE-19-P 3 years, occupancy 1 year); one-page printable Attorney & CPA Briefing Sheet;
+suggestions board (PROPOSED); questions & information gaps with discovery actions; law watch; source
+register; flagged for review; methodology & privacy.
+
+### 31cb/V — completion record (arena-31cb5781, 2026-11-14)
+
+**Verification:** `desk-31cb5781/_src/verify.py` — PASS: 17 pages, every data row carries an official
+source link or an explicit unverified/owner/assumption/exact tag; external hosts all on the official
+allowlist (irs.gov, boe.ca.gov, ftb.ca.gov, sjwater.com, sfpuc.gov, cpuc.ca.gov, home.treasury.gov,
+insurance.ca.gov, cfpnet.com, leginfo.legislature.ca.gov); internal links resolve; $10 rounding on model
+figures; PII scan clean (no ZIP, street address, parcel/account number, or personal identifier).
+Irregularities logged on `desk-31cb5781/flagged.html` (F01–F06). `scripts/verify_safe.py` PASS with
+`desk-31cb5781` folded into `PUBLISHED_DESKS`; `scripts/check_landing.py` 0 unresolved.
+
+**Owner-supplied figures (unverified anchors, not verified inputs):** Property A value $3,100,000;
+Property B value $1,800,000; Property B rent $7,150/mo; Cupertino water $100–$150/mo; solar credit
+$10–$20/mo; insurance ~$1,500/yr; SF water $330–$400/mo; SF electricity $30–$70/mo. These are labelled
+owner-supplied and left blank in official-verified cells.
+
