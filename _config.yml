@@ -16,6 +16,8 @@ exclude:
   - "decision/_src/**"
   - "cbe/_src"
   - "cbe/_src/**"
+  - "phase-99220/_src"
+  - "phase-99220/_src/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"
