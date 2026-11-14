@@ -2466,3 +2466,15 @@ Not done, and why (logged as flags on the desk): (1) the git-history scrub asked
 - BOE LTA 2024/052 chunk 3 unread; BOE-19-P claim deadline unconfirmed.
 - Unopened URLs (county contacts, insurance.ca.gov, sfpuc.org, ../cbe/repo-review.html) remain flagged in the sources register.
 - Integration PR: https://github.com/wingbangboozle1-lang/Tino5/pull/74 (merged to main).
+
+## Session `arena-cbd1473c` — claim (2026-11-14, branch `arena/cbd1473c-tino5`, base `51c599c`)
+
+Read before claiming: `origin/main` at `51c599c` (PR #72). Only `origin/main` and this branch exist remotely, so no other live session holds a claim. The existing `cbe/` desk (PR #71) was checked against this session's brief: it has **no** phased-investing path, **no** mixed paths, **no** first-screen "what would change the answer", **no** what-if controls, **no** glossary, **no** printable Attorney & CPA sheet and **no** timeline. Those gaps are the scope of this claim, **except** the phased-investing calculator: that was delivered on `main` by session `arena-ad490053` (`cbe/phased-investing.html`, merged in PR #73 at `8adf72c`) after this session's claim started, so this session does **not** build a second phased page. `cbd/` links to it and uses the same stated mechanics (3-month Treasury parking, equal monthly tranches) only inside the mixed-path arithmetic. `cbe/` is not edited.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| cbd/S | New desk `cbd/`: first-screen summary with what-would-change-the-answer and reinvestment risk beside the headline; phased-investing **link only** to `cbe/phased-investing.html` (not rebuilt); mixed paths (occupy / rent / sell, with phased and held variants); what-if controls; deadlines timeline; glossary; one-page Attorney & CPA sheet; questions and answers; suggestions (PROPOSED only); sources; flagged items. Money rounded to $10. No names, addresses, parcel numbers, ZIP codes or city names. | in progress | arena-cbd1473c | `cbd/**` (new directory), this section only |
+| cbd/V | Verification: row sourcing, host allowlist, internal links, $10 rounding, PII scan, Python-vs-JavaScript parity for the phased model, unit tests. | pending cbd/S | arena-cbd1473c | `cbd/**`, this section only |
+| cbd/INT | Integration: one folded `PUBLISHED_DESKS` entry, `_config.yml` exclusion for `cbd/_src`, workflow steps, one landing card; PR to `main`; merge; confirm Pages. | pending cbd/V | arena-cbd1473c | `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+Not in scope and **not done**: rewriting public git history to remove unrounded figures (flag F19 on `cbe/flagged.html`). That changes history on `main` and is an owner decision.
