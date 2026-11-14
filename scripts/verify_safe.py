@@ -55,7 +55,6 @@ DEPLOYMENT_EXCLUSIONS = {
 # printable Attorney & CPA briefing sheet and the full source-linked question/suggestion
 # register. Folded into the same single set.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
                   "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
                   "inheritance-desk", "desk-8be2"}
 EXPECTED_PAGES = {
