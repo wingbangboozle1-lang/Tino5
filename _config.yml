@@ -18,6 +18,8 @@ exclude:
   - "cbe/_src/**"
   - "phase-99220/_src"
   - "phase-99220/_src/**"
+  - "cbd/_src"
+  - "cbd/_src/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

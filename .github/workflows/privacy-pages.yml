@@ -68,5 +68,18 @@ jobs:
             git --no-pager diff --stat -- phase-99220
             exit 1
           fi
+      - name: Property decision desk (cbd/) — rebuild, then verify
+        run: |
+          python cbd/_src/build.py
+          python cbd/_src/verify.py
+      - name: Property decision desk (cbd/) — model regression tests
+        run: python -m unittest discover -s cbd/_src -p "test_*.py" -v
+      - name: Property decision desk (cbd/) generated pages are current
+        run: |
+          if ! git diff --quiet -- cbd; then
+            echo "::error::cbd/ is stale. Re-run cbd/_src/build.py and commit the result."
+            git --no-pager diff --stat -- cbd
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py
