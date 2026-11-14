@@ -43,7 +43,7 @@ DEPLOYMENT_EXCLUSIONS = {
 # here would silently replace the first, and the directory it dropped would fail the
 # fail-closed rule below.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-                  "tino5-3f269806", "verify-476", "decision", "desk-d75"}
+                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",

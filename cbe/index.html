@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Overview &mdash; Property decision desk</title>
+<style>
+:root{
+  --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
+  --blue:#1f4e79; --blue-lt:#eef3f7; --green:#1f6b3f; --green-lt:#e8f3ec;
+  --amber:#8a5a00; --amber-lt:#fdf3e0; --red:#9b2226; --red-lt:#fdecec;
+  --grey-lt:#eef0f3;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:0}
+.top-in{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:19px;color:var(--blue);letter-spacing:.01em}
+header.top .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main ul{max-width:1180px;margin:auto;padding:0 22px;list-style:none;display:flex;flex-wrap:wrap;gap:2px}
+nav.main a{display:block;padding:9px 11px;color:#dce8f1;text-decoration:none;font-size:13px;border-bottom:3px solid transparent}
+nav.main a:hover{background:#2a5f8f;color:#fff}
+nav.main a.on{background:#2a5f8f;border-bottom-color:#fff;color:#fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h2{font-size:19px;margin:30px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+p{margin:10px 0}
+.lead{font-size:15.5px;color:#2b3444}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);
+  padding:11px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.banner.green{background:var(--green-lt);border-color:#c9e3d2;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;
+  color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--blue);background:#fbfdff}
+.card b{color:var(--blue);font-size:14.5px}
+.card span{font-size:12.8px;color:var(--muted);line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px;border-top:1px dotted var(--line);padding-top:5px}
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 0 0;margin:14px 0;overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13.2px}
+table.data th{background:var(--blue-lt);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+  position:sticky;top:0;font-size:12.4px;color:#324a63;vertical-align:bottom}
+table.data td{padding:8px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.mark td{background:#fffdf5}
+tr.hi td{background:var(--blue-lt)}
+td.t-lab{font-weight:600;color:#2b3444}
+.tn{font-size:12.4px;color:var(--muted);padding:8px 12px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:12px;color:var(--muted)}
+.legend span{padding:2px 8px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.pill{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.p-ver{background:var(--green-lt);color:var(--green);border:1px solid #c9e3d2}
+.p-own{background:var(--grey-lt);color:#41505f;border:1px solid #dde1e7}
+.p-der{background:var(--blue-lt);color:var(--blue);border:1px solid #cfe0ec}
+.p-asm{background:var(--amber-lt);color:var(--amber);border:1px solid #f0dcb4}
+.p-unv{background:var(--red-lt);color:var(--red);border:1px solid #f3cfcf}
+.p-new{background:#eef0f3;color:#41505f;border:1px solid #dde1e7}
+.t-ver{background:#fafdfb}.t-own{}.t-der{}.t-asm{}.t-unv{background:#fffaf9}
+a.src{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6cc;font-size:12.4px;white-space:nowrap}
+a.src:hover{background:var(--blue-lt)}
+a.src:visited{color:#3b5f85}
+a{color:var(--blue)}
+.nosrc{display:block;font-size:11.5px;color:var(--amber);margin-top:3px}
+.small{font-size:12.6px;color:var(--muted)}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:5px 0}
+code{background:var(--blue-lt);padding:1px 5px;border-radius:4px;font-size:12.6px}
+footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-size:12.4px}
+.bar{height:9px;border-radius:5px;background:#e7ebf0;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.bar i.neg{background:var(--red)}
+@media (max-width:640px){
+  main{padding:16px 14px 50px}
+  .kpi .v{font-size:19px}
+  table.data{font-size:12.4px}
+}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="top-in">
+<h1>Property decision desk</h1>
+<div class="sub">Overview</div>
+</div></header>
+<nav class="main"><ul><li><a class="on" href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li><li><a href="options.html">The three options</a></li><li><a href="black-swan.html">Black swans</a></li><li><a href="process.html">The transfer, step by step</a></li><li><a href="questions.html">Questions and gaps</a></li><li><a href="suggestions.html">Suggestions</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Sources</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method and privacy</a></li></ul></nav>
+<main>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel identifier, account number, postcode or city appears anywhere on this site. The two properties are called Property A and Property B. Every dollar figure is rounded to the nearest $10 so that a published number cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nobody.</div>
+<p class="lead">Two properties, one decision. <b>Property A</b> is expected to pass through a family trust some time between 2040 and 2050. <b>Property B</b> is already owned, lived in, and has two of its three units let. This desk works out what each way of holding Property A is worth, where the numbers come from, and exactly which missing facts would change the answer.</p><div class="kpis"><div class="kpi"><div class="v">$6,531,230</div><div class="l">Property A, projected value at a 2045 transfer</div><div class="n">Owner value 2026 grown at the 4.0% assumption</div></div><div class="kpi"><div class="v">$67,320</div><div class="l">Property A tax bill in the first year after transfer</div><div class="n">With the Proposition 19 exclusion claimed</div></div><div class="kpi"><div class="v">$87,250</div><div class="l">The same bill if it is not claimed</div><div class="n">Full reassessment to market value</div></div><div class="kpi"><div class="v">5.58%</div><div class="l">Break-even house price growth</div><div class="n">Keeping wins only above this rate</div></div><div class="kpi"><div class="v">4.68%</div><div class="l">Break-even gross rental yield</div><div class="n">Keeping wins only above this yield</div></div><div class="kpi"><div class="v">$24,143,520</div><div class="l">Projected federal exclusion, 2045</div><div class="n">2027 official amount indexed at the 2.5% assumption</div></div></div><h2>Where to start</h2><div class="grid"><a class="card" href="executive-summary.html"><b>Executive summary</b><span>The recommendation, the three numbers that decide it, and the five facts still missing.</span></a><a class="card" href="options.html"><b>The three options</b><span>Occupy, let, or sell and reinvest &mdash; with the break-even rent, growth rate and return.</span></a><a class="card" href="questions.html"><b>Questions and gaps</b><span>Every open question, what decision it blocks, and how to get the answer.</span></a><a class="card" href="suggestions.html"><b>Suggestions</b><span>Proposed changes to the plan and to this site. Nothing has been implemented.</span></a></div><h2>Everything on this desk</h2><div class="grid"><a class="card" href="executive-summary.html"><b>Executive summary</b><span>The decision, the numbers behind it, and what is still unknown</span></a><a class="card" href="properties.html"><b>The two properties</b><span>What is known, what is owner input, and what is missing</span></a><a class="card" href="property-tax.html"><b>Property tax</b><span>Proposition 13, Proposition 19 and the assessed value after transfer</span></a><a class="card" href="inheritance-tax.html"><b>Inheritance and estate tax</b><span>Federal thresholds, California's prohibition, and basis</span></a><a class="card" href="running-costs.html"><b>Running costs</b><span>Insurance, water, power, maintenance, and what they cost over time</span></a><a class="card" href="projections.html"><b>Projections 2026-2076</b><span>Value, assessed value, tax and costs, year by year</span></a><a class="card" href="options.html"><b>The three options</b><span>Occupy, let, or sell and reinvest, with break-evens</span></a><a class="card" href="black-swan.html"><b>Black swans</b><span>Real inflation history replayed across fifty uneven years</span></a><a class="card" href="process.html"><b>The transfer, step by step</b><span>What actually happens when the trust property passes</span></a><a class="card" href="questions.html"><b>Questions and gaps</b><span>What must be answered before a decision is reasonable</span></a><a class="card" href="suggestions.html"><b>Suggestions</b><span>Proposed only. Nothing here has been implemented</span></a><a class="card" href="law-watch.html"><b>Law watch</b><span>Rules in force, rules that moved, and rules under discussion</span></a><a class="card" href="repo-review.html"><b>Repository review</b><span>What is in the repository and what was found in it</span></a><a class="card" href="sources.html"><b>Sources</b><span>Every official document this desk read</span></a><a class="card" href="flagged.html"><b>Flagged for review</b><span>Irregularities and unverified items, with the source links</span></a><a class="card" href="methodology.html"><b>Method and privacy</b><span>How every number was produced and what is kept off this site</span></a></div><h2>How to read a row</h2><div class="legend"><span><span class="pill p-ver">verified</span> read from an official source this session, linked on the row</span><span><span class="pill p-own">owner input</span> owner record &mdash; no official source exists for it</span><span><span class="pill p-der">derived</span> computed only from the inputs shown</span><span><span class="pill p-asm">assumption</span> an assumption, listed on the method page</span><span><span class="pill p-unv">unverified</span> unverified &mdash; the value is withheld or unknown</span></div><p class="small">A row marked <b>unverified</b> has a blank value cell. Nothing on this site fills a gap with an invented number: where a figure is needed but unknown, the model reports the <b>break-even</b> value of that figure instead, so you can compare it against a real quote.</p>
+</main>
+<footer>
+Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at
+the time of any transfer. Every figure on this site is either quoted from an official source
+linked on its row, or labelled as owner input, derived, or an assumption.
+</footer>
+</body>
+</html>

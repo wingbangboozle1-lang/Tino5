@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13",
+  "generated": "2026-11-14",
   "artifact": "public-safe/",
   "pages": [
     "black-swans.html",
@@ -17,10 +17,10 @@
     "tax.html"
   ],
   "counts": {
-    "rows": 120,
-    "links": 366,
+    "rows": 125,
+    "links": 379,
     "tables": 15,
-    "external": 170
+    "external": 183
   },
   "checks": {
     "page_set_exact": true,
@@ -44,6 +44,8 @@
     "https://www.boe.ca.gov/pdf/pub801.pdf",
     "https://www.boe.ca.gov/prop19/",
     "https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf",
+    "https://www.courts.ca.gov/documents/de300.pdf",
+    "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf",
     "https://www.cpuc.ca.gov/industries-and-topics/water",
     "https://www.cpuc.ca.gov/nem",
     "https://www.federalreserve.gov/monetarypolicy.htm",
@@ -55,6 +57,7 @@
     "https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax",
     "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances",
     "https://www.irs.gov/instructions/i706",
+    "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf",
     "https://www.irs.gov/publications/p523",
     "https://www.irs.gov/publications/p527",
     "https://www.irs.gov/publications/p551",

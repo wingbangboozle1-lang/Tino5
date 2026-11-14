@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>The transfer, step by step &mdash; Property decision desk</title>
+<style>
+:root{
+  --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
+  --blue:#1f4e79; --blue-lt:#eef3f7; --green:#1f6b3f; --green-lt:#e8f3ec;
+  --amber:#8a5a00; --amber-lt:#fdf3e0; --red:#9b2226; --red-lt:#fdecec;
+  --grey-lt:#eef0f3;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:0}
+.top-in{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:19px;color:var(--blue);letter-spacing:.01em}
+header.top .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main ul{max-width:1180px;margin:auto;padding:0 22px;list-style:none;display:flex;flex-wrap:wrap;gap:2px}
+nav.main a{display:block;padding:9px 11px;color:#dce8f1;text-decoration:none;font-size:13px;border-bottom:3px solid transparent}
+nav.main a:hover{background:#2a5f8f;color:#fff}
+nav.main a.on{background:#2a5f8f;border-bottom-color:#fff;color:#fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h2{font-size:19px;margin:30px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+p{margin:10px 0}
+.lead{font-size:15.5px;color:#2b3444}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);
+  padding:11px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.banner.green{background:var(--green-lt);border-color:#c9e3d2;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;
+  color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--blue);background:#fbfdff}
+.card b{color:var(--blue);font-size:14.5px}
+.card span{font-size:12.8px;color:var(--muted);line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px;border-top:1px dotted var(--line);padding-top:5px}
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 0 0;margin:14px 0;overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13.2px}
+table.data th{background:var(--blue-lt);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+  position:sticky;top:0;font-size:12.4px;color:#324a63;vertical-align:bottom}
+table.data td{padding:8px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.mark td{background:#fffdf5}
+tr.hi td{background:var(--blue-lt)}
+td.t-lab{font-weight:600;color:#2b3444}
+.tn{font-size:12.4px;color:var(--muted);padding:8px 12px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:12px;color:var(--muted)}
+.legend span{padding:2px 8px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.pill{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.p-ver{background:var(--green-lt);color:var(--green);border:1px solid #c9e3d2}
+.p-own{background:var(--grey-lt);color:#41505f;border:1px solid #dde1e7}
+.p-der{background:var(--blue-lt);color:var(--blue);border:1px solid #cfe0ec}
+.p-asm{background:var(--amber-lt);color:var(--amber);border:1px solid #f0dcb4}
+.p-unv{background:var(--red-lt);color:var(--red);border:1px solid #f3cfcf}
+.p-new{background:#eef0f3;color:#41505f;border:1px solid #dde1e7}
+.t-ver{background:#fafdfb}.t-own{}.t-der{}.t-asm{}.t-unv{background:#fffaf9}
+a.src{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6cc;font-size:12.4px;white-space:nowrap}
+a.src:hover{background:var(--blue-lt)}
+a.src:visited{color:#3b5f85}
+a{color:var(--blue)}
+.nosrc{display:block;font-size:11.5px;color:var(--amber);margin-top:3px}
+.small{font-size:12.6px;color:var(--muted)}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:5px 0}
+code{background:var(--blue-lt);padding:1px 5px;border-radius:4px;font-size:12.6px}
+footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-size:12.4px}
+.bar{height:9px;border-radius:5px;background:#e7ebf0;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.bar i.neg{background:var(--red)}
+@media (max-width:640px){
+  main{padding:16px 14px 50px}
+  .kpi .v{font-size:19px}
+  table.data{font-size:12.4px}
+}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="top-in">
+<h1>Property decision desk</h1>
+<div class="sub">The transfer, step by step</div>
+</div></header>
+<nav class="main"><ul><li><a href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li><li><a href="options.html">The three options</a></li><li><a href="black-swan.html">Black swans</a></li><li><a class="on" href="process.html">The transfer, step by step</a></li><li><a href="questions.html">Questions and gaps</a></li><li><a href="suggestions.html">Suggestions</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Sources</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method and privacy</a></li></ul></nav>
+<main>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel identifier, account number, postcode or city appears anywhere on this site. The two properties are called Property A and Property B. Every dollar figure is rounded to the nearest $10 so that a published number cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nobody.</div>
+<p class="lead">What actually happens when a property held in a family trust passes, in the order it happens, with the deadline for each step and the document that imposes it.</p><div class="banner warn"><b>Two dates decide the tax outcome.</b> You must <b>occupy the home within one year</b> of the transfer and <b>file the homeowner's exemption within one year</b>. Miss either one and the Proposition 19 exclusion is lost, and the assessed value resets to full market value &mdash; on the projections used here that is the difference between a $67,320 bill and a $87,250 bill in the first full year, or $19,930 a year, and it then compounds for as long as you hold the property.</div><h2>Before the transfer</h2><div class="tblwrap"><table class="data"><thead><tr><th>#</th><th>Step</th><th>Why it matters, and the deadline</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>1</td><td>Confirm the property is held in the trust, and that the trust is the kind the exclusion recognises</td><td>Transfers through a trust are eligible, because the trust is looked through to the present beneficial ownership. But an entity is not: property held by a legal person does not qualify, so the property must not have been moved into a company or a limited liability company.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>2</td><td>Keep it as the settlor's principal residence</td><td>The exclusion requires the home to be the principal residence of the transferor. A home that has become a rental does not qualify. Letting it out before the transfer would end the exclusion permanently, and nothing restores it.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 — Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a><br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>3</td><td>Do not transfer it into a legal entity</td><td>Moving the property into a company, including a single-member company, would make it ineligible for the exclusion and would also end the homeowner's exemption.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>4</td><td>Read the trust instrument with a California estates lawyer</td><td>Who the trustee is, who the beneficiaries and heirs are, and what the trustee may do determines everything that follows. This desk has not seen the instrument and cannot tell you what yours says.</td><td><span class="pill p-asm">action</span></td><td><span class="nosrc">No official source &mdash; no official source publishes a step like this; it is legal advice, and this desk has not seen the instrument</span></td></tr></tbody></table></div><h2>In the first sixty days</h2><div class="tblwrap"><table class="data"><thead><tr><th>#</th><th>Step</th><th>Why it matters, and the deadline</th><th>Status</th><th>Source</th></tr></thead><tbody><tr class="hi"><td>5</td><td>The trustee serves the statutory notification</td><td>Within 60 days of the death the trustee must serve a notification on every beneficiary of the trust and every heir of the deceased settlor, in the manner provided by Probate Code section 1215, to the last known address.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=16061.7" target="_blank" rel="noopener noreferrer" title="Probate Code section 16061.7 (trustee's notification on irrevocability)">California Legislative Information</a></td></tr><tr class="hi"><td>6</td><td>Obtain a date-of-death valuation</td><td>The value at the date of death sets the income tax basis of what is inherited, and it sets the new assessed value if the exclusion turns out not to apply. A valuation obtained later is harder to defend than one obtained at the time.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener noreferrer" title="Topic no. 409, Capital gains and losses">Internal Revenue Service</a><br><a class="src" href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener noreferrer" title="Publication 551 (12/2025), Basis of Assets">Internal Revenue Service</a></td></tr></tbody></table></div><h2>Property tax filings</h2><div class="tblwrap"><table class="data"><thead><tr><th>#</th><th>Step</th><th>Why it matters, and the deadline</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>7</td><td>Notify the county assessor of the change in ownership</td><td>A change in ownership statement is required, and the assessor then decides whether to reassess and to what value.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td></tr><tr><td>8</td><td>Move in within one year of the transfer</td><td>The law requires the transferee to occupy the family home within one year of the transfer for the exclusion to apply as of the date of transfer. This is the single most valuable date on this desk.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>9</td><td>File the homeowner's or disabled veterans' exemption within one year</td><td>Filed on the form the Board prescribes with the county assessor. The exclusion is not available without it, and if it is filed after the year has passed the exclusion cannot be applied retrospectively once the property has been sold.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 — Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a><br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>10</td><td>File the exclusion claim within three years</td><td>Or before the property is transferred to a third party, whichever is earlier.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 — Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a></td></tr><tr><td>11</td><td>Expect a supplemental or escape assessment</td><td>After a change in ownership the assessor may issue a supplemental bill for the part of the year after the transfer, or an escape assessment if the value is determined late. Budget for a one-off bill in the first year.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">Office of the Treasurer and Tax Collector</a></td></tr></tbody></table></div><h2>Federal filings</h2><div class="tblwrap"><table class="data"><thead><tr><th>#</th><th>Step</th><th>Why it matters, and the deadline</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>12</td><td>Work out whether an estate tax return is required</td><td>A return is required if the gross estate, increased by adjusted taxable gifts and with the specific gifts listed in the statute, exceeds the threshold for the year of death: $15,000,000 for 2026 and $15,480,000 for 2027. California imposes no estate tax at all, so this is the only death tax to consider.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" target="_blank" rel="noopener noreferrer" title="Estate tax (filing threshold for year of death)">Internal Revenue Service</a><br><a class="src" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" target="_blank" rel="noopener noreferrer" title="News release IR-2026-133, 5 November 2026 — tax year 2027 inflation adjustments">Internal Revenue Service</a><br><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=13301" target="_blank" rel="noopener noreferrer" title="Revenue and Taxation Code section 13301">California Legislative Information</a></td></tr><tr><td>13</td><td>File within nine months, or extend</td><td>The return is due nine months after the date of death. An automatic six-month extension of time to file is available on Form 4768 filed by the due date.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" target="_blank" rel="noopener noreferrer" title="Frequently asked questions on estate taxes">Internal Revenue Service</a></td></tr><tr><td>14</td><td>File even if no tax is due, if portability is wanted</td><td>A return must be filed to elect portability of a deceased spouse's unused exclusion, regardless of the size of the estate. Where no filing requirement existed, a simplified late election is available under the revenue procedure the Service issued for that purpose.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" target="_blank" rel="noopener noreferrer" title="Frequently asked questions on estate taxes">Internal Revenue Service</a></td></tr></tbody></table></div><h2>Afterwards</h2><div class="tblwrap"><table class="data"><thead><tr><th>#</th><th>Step</th><th>Why it matters, and the deadline</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>15</td><td>Tell the insurer</td><td>A change of ownership is a material change. An owner-occupier policy will not cover a let property, and a landlord policy will not cover an owner-occupier's contents. Sort this before the transfer completes, not after a claim.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/" target="_blank" rel="noopener noreferrer" title="Residential Property Insurance Report">California Department of Insurance</a></td></tr><tr><td>16</td><td>Transfer the utility accounts and check the rooftop solar tariff</td><td>The export tariff was enrolled by the previous account holder and may need to be re-enrolled under yours. This desk does not know which utility serves Property A, or what tariff the system is on.</td><td><span class="pill p-asm">action</span></td><td><span class="nosrc">No official source &mdash; the utility that serves Property A is not named on this site and no tariff was retrieved, so no official document can be linked</span></td></tr><tr><td>17</td><td>Diarise the two annual tax dates</td><td>Secured property tax installments are delinquent after 10 December and 10 April, and the penalty is 10% of the installment. Two dates a year, every year.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener noreferrer" title="Secured Property Taxes">Office of the Treasurer and Tax Collector</a></td></tr><tr><td>18</td><td>Keep the assessor's notices and the filed claims</td><td>If the exclusion is ever challenged, the notices and the filed claims are the evidence. Keep them with the trust documents.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr></tbody></table></div><div class="banner">Nothing on this page is legal advice. The trust instrument, the number of beneficiaries and the exact terms of the transfer can each change which of these steps applies to you. Take the instrument to a California estates lawyer before the transfer, not after it.</div>
+</main>
+<footer>
+Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at
+the time of any transfer. Every figure on this site is either quoted from an official source
+linked on its row, or labelled as owner input, derived, or an assumption.
+</footer>
+</body>
+</html>
