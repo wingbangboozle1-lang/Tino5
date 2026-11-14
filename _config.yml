@@ -20,6 +20,11 @@ exclude:
   - "phase-99220/_src/**"
   - "cbd/_src"
   - "cbd/_src/**"
+  # inheritance desk: generator and model are working material; owner input data is not published
+  - "inheritance-desk/_src"
+  - "inheritance-desk/_src/**"
+  - "inheritance-desk/data"
+  - "inheritance-desk/data/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

@@ -46,6 +46,10 @@ jobs:
         run: |
           python cbe/_src/build.py
           python cbe/_src/verify.py
+      - name: Inheritance decision desk (inheritance-desk/) — rebuild, then verify
+        run: |
+          python inheritance-desk/_src/build.py
+          python inheritance-desk/_src/verify.py
       - name: Owner-brief site (cbe/) — model regression tests
         run: python -m unittest discover -s cbe/_src -p "test_*.py" -v
       - name: Owner-brief site (cbe/) generated pages are current
