@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Executive summary &mdash; Property decision desk</title>
+<style>
+:root{
+  --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
+  --blue:#1f4e79; --blue-lt:#eef3f7; --green:#1f6b3f; --green-lt:#e8f3ec;
+  --amber:#8a5a00; --amber-lt:#fdf3e0; --red:#9b2226; --red-lt:#fdecec;
+  --grey-lt:#eef0f3;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:0}
+.top-in{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:19px;color:var(--blue);letter-spacing:.01em}
+header.top .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main ul{max-width:1180px;margin:auto;padding:0 22px;list-style:none;display:flex;flex-wrap:wrap;gap:2px}
+nav.main a{display:block;padding:9px 11px;color:#dce8f1;text-decoration:none;font-size:13px;border-bottom:3px solid transparent}
+nav.main a:hover{background:#2a5f8f;color:#fff}
+nav.main a.on{background:#2a5f8f;border-bottom-color:#fff;color:#fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h2{font-size:19px;margin:30px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+p{margin:10px 0}
+.lead{font-size:15.5px;color:#2b3444}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);
+  padding:11px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.banner.green{background:var(--green-lt);border-color:#c9e3d2;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;
+  color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--blue);background:#fbfdff}
+.card b{color:var(--blue);font-size:14.5px}
+.card span{font-size:12.8px;color:var(--muted);line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px;border-top:1px dotted var(--line);padding-top:5px}
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 0 0;margin:14px 0;overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13.2px}
+table.data th{background:var(--blue-lt);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+  position:sticky;top:0;font-size:12.4px;color:#324a63;vertical-align:bottom}
+table.data td{padding:8px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.mark td{background:#fffdf5}
+tr.hi td{background:var(--blue-lt)}
+td.t-lab{font-weight:600;color:#2b3444}
+.tn{font-size:12.4px;color:var(--muted);padding:8px 12px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:12px;color:var(--muted)}
+.legend span{padding:2px 8px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.pill{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.p-ver{background:var(--green-lt);color:var(--green);border:1px solid #c9e3d2}
+.p-own{background:var(--grey-lt);color:#41505f;border:1px solid #dde1e7}
+.p-der{background:var(--blue-lt);color:var(--blue);border:1px solid #cfe0ec}
+.p-asm{background:var(--amber-lt);color:var(--amber);border:1px solid #f0dcb4}
+.p-unv{background:var(--red-lt);color:var(--red);border:1px solid #f3cfcf}
+.p-new{background:#eef0f3;color:#41505f;border:1px solid #dde1e7}
+.t-ver{background:#fafdfb}.t-own{}.t-der{}.t-asm{}.t-unv{background:#fffaf9}
+a.src{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6cc;font-size:12.4px;white-space:nowrap}
+a.src:hover{background:var(--blue-lt)}
+a.src:visited{color:#3b5f85}
+a{color:var(--blue)}
+.nosrc{display:block;font-size:11.5px;color:var(--amber);margin-top:3px}
+.small{font-size:12.6px;color:var(--muted)}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:5px 0}
+code{background:var(--blue-lt);padding:1px 5px;border-radius:4px;font-size:12.6px}
+footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-size:12.4px}
+.bar{height:9px;border-radius:5px;background:#e7ebf0;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.bar i.neg{background:var(--red)}
+@media (max-width:640px){
+  main{padding:16px 14px 50px}
+  .kpi .v{font-size:19px}
+  table.data{font-size:12.4px}
+}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="top-in">
+<h1>Property decision desk</h1>
+<div class="sub">Executive summary</div>
+</div></header>
+<nav class="main"><ul><li><a href="index.html">Overview</a></li><li><a class="on" href="executive-summary.html">Executive summary</a></li><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li><li><a href="options.html">The three options</a></li><li><a href="black-swan.html">Black swans</a></li><li><a href="process.html">The transfer, step by step</a></li><li><a href="questions.html">Questions and gaps</a></li><li><a href="suggestions.html">Suggestions</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Sources</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method and privacy</a></li></ul></nav>
+<main>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel identifier, account number, postcode or city appears anywhere on this site. The two properties are called Property A and Property B. Every dollar figure is rounded to the nearest $10 so that a published number cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nobody.</div>
+<p class="lead">On the central assumptions, <b>selling Property A at the transfer and reinvesting the proceeds produces more wealth than keeping it</b> &mdash; by about $3,802,370 in present value if you live in it, and $3,883,440 if you let it. That result is <b>not robust</b>, and this page says precisely how fragile it is.</p><div class="banner warn"><b>Read this before the numbers.</b> The ranking between keeping and selling is decided by <i>one</i> thing: whether the house compounds faster than a diversified portfolio after tax. On the assumptions used here the house grows at 4.0% and the portfolio at 7.0% less a 0.6% tax drag. That 2.4 point gap, compounding for thirty-one years, is the whole of the $3,802,370 gap. Nothing else on this desk moves the answer as much. The break-even rows below exist so that you do not have to trust either number.</div><div class="banner"><b>The gap shrinks when the future stops being smooth.</b> The $3,802,370 above comes from a model in which inflation is a constant 3.0%. Replayed against real five-year stretches of the official inflation record, the median gap narrows to $327,960 and keeping wins outright in about 36% of the 1,200 paths &mdash; the middle half runs from &minus;$1,140,440 to $368,400. Decide on the break-evens below and on whether you want to live in the house, not on the headline gap. The <a href="black-swan.html">black-swan page</a> shows the whole distribution.</div><h2>The seven numbers that matter</h2><div class="tblwrap"><table class="data"><thead><tr><th>Item</th><th class="num">Value</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>Property A value at the transfer</td><td class="num">$6,531,230</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; owner 2026 value grown at the 4.0% assumption</span></td></tr><tr class="hi"><td>Taxable value with the exclusion claimed</td><td class="num">$5,039,310</td><td><span class="pill p-der">derived</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a><br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2025/009 — Intergenerational Transfer Exclusion, Adjustment of the $1 Million Amount (7 March 2025)">California State Board of Equalization</a></td></tr><tr><td>Taxable value if it is not claimed</td><td class="num">$6,531,230</td><td><span class="pill p-der">derived</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>First-year tax bill, exclusion claimed</td><td class="num">$67,320</td><td><span class="pill p-der">derived</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td></tr><tr><td>First-year tax bill, fully reassessed</td><td class="num">$87,250</td><td><span class="pill p-der">derived</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td></tr><tr class="hi"><td>What the exclusion is worth in year one</td><td class="num">$19,930</td><td><span class="pill p-der">derived</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2025/009 — Intergenerational Transfer Exclusion, Adjustment of the $1 Million Amount (7 March 2025)">California State Board of Equalization</a></td></tr><tr><td>Present value of occupying, less selling</td><td class="num">&minus;$3,802,370</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; model output; every input is labelled on the method page</span></td></tr><tr><td>Present value of letting, less selling</td><td class="num">&minus;$3,883,440</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; model output; every input is labelled on the method page</span></td></tr><tr><td>Present value of occupying, less letting</td><td class="num">$81,070</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; model output; every input is labelled on the method page</span></td></tr><tr class="hi"><td>Break-even gross rental yield, occupy vs sell</td><td class="num">4.68%</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even, so it does not depend on a rent assumption</span></td></tr><tr><td>Break-even gross rental yield, let vs sell</td><td class="num">5.99%</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even, so it does not depend on a rent assumption</span></td></tr><tr class="hi"><td>Break-even house price growth</td><td class="num">5.58%</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even, so it does not depend on the 4.0% assumption</span></td></tr><tr><td>Break-even portfolio return</td><td class="num">5.20%</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even, so it does not depend on the 7.0% assumption</span></td></tr><tr><td>Federal estate tax exclusion, 2045</td><td class="num">$24,143,520</td><td><span class="pill p-der">derived</span></td><td><a class="src" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" target="_blank" rel="noopener noreferrer" title="News release IR-2026-133, 5 November 2026 — tax year 2027 inflation adjustments">Internal Revenue Service</a></td></tr><tr class="hi"><td>California estate or inheritance tax</td><td>None</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=13301" target="_blank" rel="noopener noreferrer" title="Revenue and Taxation Code section 13301">California Legislative Information</a></td></tr></tbody></table><p class="tn">All money rounded to the nearest $10. Present values are measured at the transfer year, 2045, discounted at the 5.0% assumption, and all three options end with an unsold asset so that none is penalised for a tax the other avoids.</p></div><h2>What the recommendation is, stated plainly</h2><div class="banner green"><b>1. If you intend to live in Property A, occupy it &mdash; and claim the exclusion.</b> Occupying beats letting on the full economic comparison by $81,070, and it is the only route that keeps the assessed value below market value. Move in within one year of the transfer and file the homeowner's exemption within one year, or the exclusion is lost outright.</div><div class="banner"><b>2. If you will not live in it, the financial case favours selling over letting</b> on these assumptions, by $3,883,440 in present value. Letting only wins if the house can be let for more than 5.99% of its value a year, which is $32,620 a month at the projected 2045 value.</div><div class="banner"><b>3. The tax tail is large and it is not the one people expect.</b> The Proposition 19 exclusion does <i>not</i> freeze the tax bill. Because the projected market value at the transfer ($6,531,230) is far above the value cap ($2,293,960), the exclusion saves only the allowance itself &mdash; $1,491,930 of taxable value, worth $19,930 in the first year. The bill still jumps from roughly $7,210 today to about $67,320 after the transfer.</div><div class="banner"><b>4. The estate tax question is about the money, not the house.</b> California imposes no estate, inheritance, succession or legacy tax at all. The federal exclusion is $15,000,000 for 2026 and $15,480,000 for 2027, and is projected at $24,143,520 by 2045 on the assumptions used here. Property passing at death receives a step-up in basis, so the appreciation built up during the settlor's lifetime is not taxed as a capital gain.</div><h2>What would reverse the recommendation</h2><div class="tblwrap"><table class="data"><thead><tr><th>If this turns out to be true</th><th>The effect</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>House price growth above 5.58%</td><td>Keeping beats selling</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even computed by the model; the 4.0% assumption is not used</span></td></tr><tr><td>Portfolio return below 5.20% gross</td><td>Keeping beats selling</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even computed by the model; the 7.0% assumption is not used</span></td></tr><tr><td>Achievable gross rent above 4.68% of value</td><td>Occupying beats selling</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; break-even; compare against a real letting quote</span></td></tr><tr><td>No wish to live in Property A</td><td>The exclusion is unavailable and the bill rises by $19,930 a year</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 — Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a></td></tr><tr><td>A change to the step-up in basis at death</td><td>Selling during life becomes relatively better</td><td><span class="pill p-unv">unverified</span></td><td><span class="nosrc">No official source &mdash; no such change is in force; see the law watch page</span></td></tr><tr><td>A split-roll change to Proposition 13</td><td>The assessed value advantage of holding disappears</td><td><span class="pill p-unv">unverified</span></td><td><a class="src" href="https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures" target="_blank" rel="noopener noreferrer" title="Qualified Statewide Ballot Measures">California Secretary of State</a></td></tr></tbody></table></div><h2>The five facts that are still missing</h2><p class="small">These are the only inputs on this desk that are pure guesswork. Two of them feed every projection that follows. Each has a named way to close it on the <a href="questions.html">questions page</a>.</p><div class="tblwrap"><table class="data"><thead><tr><th>Missing fact</th><th>What is on file</th><th>What it blocks</th><th>How to close it</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>Market rent for Property A</td><td>Not supplied</td><td>Any keep-or-sell conclusion</td><td>Three written letting appraisals from agents who manage in the area</td><td><span class="pill p-unv">unverified</span></td><td><span class="nosrc">No official source &mdash; owner input missing; no official source exists for a rent</span></td></tr><tr><td>Insurance premium on both properties</td><td>$1,500 a year, owner estimate</td><td>Running cost projections</td><td>Two quotations per property, dwelling fire and landlord forms</td><td><span class="pill p-unv">unverified</span></td><td><a class="src" href="https://www.insurance.ca.gov/0400-news/0200-studies-reports/0250-homeowners-study/" target="_blank" rel="noopener noreferrer" title="Residential Property Insurance Report">California Department of Insurance</a></td></tr><tr><td>Maintenance and repair spend</td><td>No figure supplied</td><td>Running cost projections</td><td>Five years of the owner's own records, then a percentage of value</td><td><span class="pill p-unv">unverified</span></td><td><span class="nosrc">No official source &mdash; no official source exists for a household maintenance figure</span></td></tr><tr><td>The solar tariff on Property A</td><td>Not stated</td><td>Whether the power credit survives the transfer</td><td>The interconnection agreement and the utility's current net billing tariff</td><td><span class="pill p-unv">unverified</span></td><td><span class="nosrc">No official source &mdash; no official source; the utility that serves Property A is not named on this site</span></td></tr><tr><td>The terms of the trust</td><td>Not supplied</td><td>Whether the exclusion is even available</td><td>The trust instrument, read with a California estates lawyer</td><td><span class="pill p-unv">unverified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr></tbody></table></div>
+</main>
+<footer>
+Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at
+the time of any transfer. Every figure on this site is either quoted from an official source
+linked on its row, or labelled as owner input, derived, or an assumption.
+</footer>
+</body>
+</html>

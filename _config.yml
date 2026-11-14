@@ -14,6 +14,8 @@ exclude:
   - "desk-d75/_src/**"
   - "decision/_src"
   - "decision/_src/**"
+  - "cbe/_src"
+  - "cbe/_src/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"

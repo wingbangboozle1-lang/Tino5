@@ -42,5 +42,18 @@ jobs:
           python decision/_src/verify.py
       - name: Consolidated decision site \u2014 model regression tests
         run: python -m unittest discover -s decision/_src -p "test_*.py" -v
+      - name: Owner-brief site (cbe/) — rebuild, then verify
+        run: |
+          python cbe/_src/build.py
+          python cbe/_src/verify.py
+      - name: Owner-brief site (cbe/) — model regression tests
+        run: python -m unittest discover -s cbe/_src -p "test_*.py" -v
+      - name: Owner-brief site (cbe/) generated pages are current
+        run: |
+          if ! git diff --quiet -- cbe; then
+            echo "::error::cbe/ is stale. Re-run cbe/_src/build.py and commit the result."
+            git --no-pager diff --stat -- cbe
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py

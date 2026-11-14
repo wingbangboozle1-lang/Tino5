@@ -1762,7 +1762,6 @@ and `/desk-22a32b17/properties-and-tax.html` both return **404** (exclusions eff
 live site). Flagged items remain published on each desk's Flagged page and did not block the
 merge. This record lands in a record-only follow-up PR (single-branch rule).
 
-<<<<<<< HEAD
 ## Session `arena-d75e2754` — claim (2026-11-13 08:35Z, branch `arena/d75e2754-tino5`, base `52ab3d2`)
 
 Board read at claim time: `origin` shows **only `main`** (`git branch -r` → `origin/HEAD`, `origin/main`); no other
@@ -1850,7 +1849,19 @@ explicitly that `desk-d75/_src` is not a page; and `.github/workflows/privacy-pa
 verifies, tests and staleness-checks this desk on every push and PR, in the same shape as `review-092b`.
 No page set was added to `EXPECTED_PAGES`, which describes `public-safe/` only - the new desk is a
 sibling tree with its own verifier.
-=======
+
+### Merge-conflict resolution (arena-cbe837cb, 2026-11-14)
+
+`COORDINATION.md` was carrying unresolved `<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`
+markers across lines 1765-2289: two sessions (`arena-d75e2754` on the HEAD side and
+`arena-47685795`, with its own embedded records for `arena-5e7d4570` and `arena-1ec4b5b0`,
+on the main side) had each appended a self-contained block at the same place in the file.
+
+Both blocks are complete records of finished sessions, so neither is discardable. Resolved by
+keeping **both**, HEAD's block first, which is also chronological (`arena-d75e2754` claimed at
+08:35Z, `arena-47685795` at 11:50Z). Only the three marker lines were removed; no other line in
+either block was changed, and nothing before or after the conflict was touched.
+
 ## Session `arena-47685795` — claim (2026-11-13 11:50Z, branch `arena/47685795-tino5`, base `52ab3d2` = main after PR #62)
 
 Read before claiming: this board in full and `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`.
@@ -2286,7 +2297,6 @@ and calendar actions respectively.
 **Owner follow-up is the only outstanding action class.** Fifteen suggestions on
 `decision/suggestions.html` are PROPOSED and none is implemented; each needs an accept,
 modify or reject decision recorded against its number before anything changes.
->>>>>>> origin/main
 
 ### d75/INT merge and privacy reconciliation (2026-11-13, after the record above)
 
@@ -2310,3 +2320,22 @@ things other sessions should know:
 Nothing in this desk depends on `decision/` or `verify-476/`, and neither of theirs on this one: three
 independent desks now publish the same statutory figures, which is worth a cross-check the next time a
 threshold moves.
+
+---
+
+## Session `arena-cbe837cb` — claim (2026-11-14, branch `arena/cbe837cb-tino5`, base `f52a0f5`)
+
+Read before claiming: `git fetch origin --prune` at session start returned **only `origin/main`**.
+Every other session branch has been deleted, so no other session holds a live claim and the
+60-minute handoff rule has run out for all of them. This session is the only live session.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| cbe/S | Independent owner-brief desk under `cbe/`: landing page + category subpages — executive summary, property facts, property tax & assessed value, inheritance & estate tax thresholds, running costs, year-by-year projections 2026–2076, options compared (occupy / rent / sell-and-reinvest) with break-evens, **black-swan regimes replayed from the real BLS/FHFA record with block resampling**, step-by-step trust transfer process, question register with a discovery action per row, **suggestions board (PROPOSED only, nothing implemented)**, law watch, source register, flagged for review, repo review, methodology. Every table row carries an official source link read this session, or is blank + marked unverified. Money rounded to $10. No names, addresses, APNs, parcel or account numbers. | in progress | arena-cbe837cb | `cbe/**` (new directory), this section only |
+| cbe/V | Line-by-line verification: every row sourced or declared unsourceable; every external host official; internal links resolve; $10 rounding; PII scan; model regression tests. Irregularities on `cbe/flagged.html` and in the record below. | pending cbe/S | arena-cbe837cb | `cbe/**`, this section only |
+| cbe/R | Repository review: read the published trees, log irregularities for the owner, do not edit another session's files. | pending cbe/S | arena-cbe837cb | this section only |
+| cbe/INT | Integration: merge `origin/main`, re-verify, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and merge result. | pending cbe/S, cbe/V | arena-cbe837cb | `index.html`, `_config.yml`, `README.md`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+Non-overlap: `cbe/` is a new directory. Shared root files are edited only at `cbe/INT`, after
+`cbe/S` and `cbe/V` are done. No other session's files are edited. `scripts/verify_safe.py`
+`PUBLISHED_DESKS` gets one folded assignment (per the d75/INT note: fold, do not append).

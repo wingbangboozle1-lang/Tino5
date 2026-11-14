@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Repository review &mdash; Property decision desk</title>
+<style>
+:root{
+  --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
+  --blue:#1f4e79; --blue-lt:#eef3f7; --green:#1f6b3f; --green-lt:#e8f3ec;
+  --amber:#8a5a00; --amber-lt:#fdf3e0; --red:#9b2226; --red-lt:#fdecec;
+  --grey-lt:#eef0f3;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:0}
+.top-in{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:19px;color:var(--blue);letter-spacing:.01em}
+header.top .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main ul{max-width:1180px;margin:auto;padding:0 22px;list-style:none;display:flex;flex-wrap:wrap;gap:2px}
+nav.main a{display:block;padding:9px 11px;color:#dce8f1;text-decoration:none;font-size:13px;border-bottom:3px solid transparent}
+nav.main a:hover{background:#2a5f8f;color:#fff}
+nav.main a.on{background:#2a5f8f;border-bottom-color:#fff;color:#fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h2{font-size:19px;margin:30px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+p{margin:10px 0}
+.lead{font-size:15.5px;color:#2b3444}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);
+  padding:11px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.banner.green{background:var(--green-lt);border-color:#c9e3d2;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;
+  color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--blue);background:#fbfdff}
+.card b{color:var(--blue);font-size:14.5px}
+.card span{font-size:12.8px;color:var(--muted);line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px;border-top:1px dotted var(--line);padding-top:5px}
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 0 0;margin:14px 0;overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13.2px}
+table.data th{background:var(--blue-lt);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+  position:sticky;top:0;font-size:12.4px;color:#324a63;vertical-align:bottom}
+table.data td{padding:8px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.mark td{background:#fffdf5}
+tr.hi td{background:var(--blue-lt)}
+td.t-lab{font-weight:600;color:#2b3444}
+.tn{font-size:12.4px;color:var(--muted);padding:8px 12px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:12px;color:var(--muted)}
+.legend span{padding:2px 8px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.pill{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.p-ver{background:var(--green-lt);color:var(--green);border:1px solid #c9e3d2}
+.p-own{background:var(--grey-lt);color:#41505f;border:1px solid #dde1e7}
+.p-der{background:var(--blue-lt);color:var(--blue);border:1px solid #cfe0ec}
+.p-asm{background:var(--amber-lt);color:var(--amber);border:1px solid #f0dcb4}
+.p-unv{background:var(--red-lt);color:var(--red);border:1px solid #f3cfcf}
+.p-new{background:#eef0f3;color:#41505f;border:1px solid #dde1e7}
+.t-ver{background:#fafdfb}.t-own{}.t-der{}.t-asm{}.t-unv{background:#fffaf9}
+a.src{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6cc;font-size:12.4px;white-space:nowrap}
+a.src:hover{background:var(--blue-lt)}
+a.src:visited{color:#3b5f85}
+a{color:var(--blue)}
+.nosrc{display:block;font-size:11.5px;color:var(--amber);margin-top:3px}
+.small{font-size:12.6px;color:var(--muted)}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:5px 0}
+code{background:var(--blue-lt);padding:1px 5px;border-radius:4px;font-size:12.6px}
+footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-size:12.4px}
+.bar{height:9px;border-radius:5px;background:#e7ebf0;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.bar i.neg{background:var(--red)}
+@media (max-width:640px){
+  main{padding:16px 14px 50px}
+  .kpi .v{font-size:19px}
+  table.data{font-size:12.4px}
+}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="top-in">
+<h1>Property decision desk</h1>
+<div class="sub">Repository review</div>
+</div></header>
+<nav class="main"><ul><li><a href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li><li><a href="options.html">The three options</a></li><li><a href="black-swan.html">Black swans</a></li><li><a href="process.html">The transfer, step by step</a></li><li><a href="questions.html">Questions and gaps</a></li><li><a href="suggestions.html">Suggestions</a></li><li><a href="law-watch.html">Law watch</a></li><li><a class="on" href="repo-review.html">Repository review</a></li><li><a href="sources.html">Sources</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method and privacy</a></li></ul></nav>
+<main>
+<div class="banner"><b>Privacy.</b> No name, street address, parcel identifier, account number, postcode or city appears anywhere on this site. The two properties are called Property A and Property B. Every dollar figure is rounded to the nearest $10 so that a published number cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nobody.</div>
+<p class="lead">What is in this repository, what is published, and the irregularities found while reading it. Written so that you can check any of it yourself.</p><div class="tblwrap"><table class="data"><thead><tr><th>Area</th><th>What is there</th><th>Note</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>Published sites in this repository</td><td>Several independent decision desks, each with its own generator and its own verifier, plus a curated privacy-first dashboard and an independent verification register</td><td>Each desk keeps its own source register and its own flagged page. The figures have not been reconciled between them, so two desks can publish different headline numbers.</td><td><span class="pill p-ver">verified</span></td><td><span class="nosrc">No official source &mdash; observed by reading the repository; not a fact about the law and no official source applies</span></td></tr><tr><td>Coordination board</td><td>A shared task board at the repository root records who claimed what, with a session identifier and a file scope</td><td>Claims also carry a lapse rule, so an abandoned claim does not block a directory forever.</td><td><span class="pill p-ver">verified</span></td><td><span class="nosrc">No official source &mdash; observed by reading the repository</span></td></tr><tr><td>Publication boundary</td><td>A verifier fails the build if a top-level directory is neither approved for publication nor explicitly excluded</td><td>The rule is fail-closed: a new directory that nobody listed will break the build rather than quietly publish. This desk is added to the approved list at integration time.</td><td><span class="pill p-ver">verified</span></td><td><span class="nosrc">No official source &mdash; observed by reading the repository's verification script</span></td></tr><tr><td>Generated pages are committed and re-checked</td><td>Each desk's HTML is committed alongside its generator, and the build is re-run and re-verified in continuous integration, so a stale checked-in page fails the check</td><td>This desk follows the same pattern: the pages in this directory are generated, and the generator lives beside them but is not served.</td><td><span class="pill p-ver">verified</span></td><td><span class="nosrc">No official source &mdash; observed by reading the repository</span></td></tr></tbody></table></div><h2>Irregularities found in this repository</h2><p class="small">Nothing below was changed by this session: each item belongs to files this desk does not own. They are logged so that you can decide what to do about them.</p><div class="tblwrap"><table class="data"><thead><tr><th>ID</th><th>Irregularity</th><th>Detail</th><th>Owner action</th><th>Status</th><th>Source</th></tr></thead><tbody><tr class="hi"><td>R01</td><td>Earlier unrounded figures remain in public git history</td><td>Several earlier generations of this project published figures that were not rounded to $10. No later commit can remove them from the history of a public repository, and rewriting shared history has its own costs.</td><td>Read the history and decide whether the repository should be private, or whether the history should be rewritten and everyone re-cloned.</td><td><span class="pill p-unv">unverified</span></td><td><span class="nosrc">No official source &mdash; observed by reading the repository; no official source applies</span></td></tr><tr><td>R02</td><td>Published desks disagree with each other</td><td>Independent desks in the same repository publish different headline figures, because they chose different assumptions and none of them reconciled against the others.</td><td>Pick one desk as the reference, or add a page that reconciles them and explains why they differ.</td><td><span class="pill p-der">derived</span></td><td><span class="nosrc">No official source &mdash; observed by reading the repository</span></td></tr><tr class="hi"><td>R03</td><td>An earlier desk overstated the Proposition 19 saving</td><td>One earlier desk treated the exclusion as protecting the whole gap between assessed and market value. It protects only the allowance: once market value exceeds the cap, the new taxable value is the market value less the allowance, and everything above the cap is taxed. That desk is excluded from publication.</td><td>Confirm the correction against the guidance, then decide whether to reinstate or retire that desk.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2026/026 — Proposition 19 Intergenerational Transfer Exclusion Frequently Asked Questions and Answers (3 August 2026)">California State Board of Equalization</a></td></tr><tr><td>R04</td><td>An estate tax closing letter fee was reported inconsistently</td><td>An earlier page showed a fee that did not match the published figure. The official user fee for the letter is $67, effective 28 October 2021.</td><td>Correct the page, or leave it and rely on the flagged entry to warn a reader.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" target="_blank" rel="noopener noreferrer" title="Frequently asked questions on estate taxes">Internal Revenue Service</a></td></tr><tr class="hi"><td>R05</td><td>A 1% California surcharge was reported as unconfirmed</td><td>An earlier desk flagged that the 1% surcharge over $1,000,000 did not appear on the rate schedules. It does not: it is imposed by statute, not by the schedules, so looking for it there was always going to fail. The 13.3% top rate is confirmed from two official sources.</td><td>Close that flag. This desk treats the surcharge as resolved and uses 13.3%.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043" target="_blank" rel="noopener noreferrer" title="Revenue and Taxation Code section 17043">California Legislative Information</a><br><a class="src" href="https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf" target="_blank" rel="noopener noreferrer" title="2025 California Tax Rate Schedules (Form 540)">California Franchise Tax Board</a></td></tr><tr><td>R06</td><td>A Proposition 3 income threshold was reported from commentary</td><td>An earlier desk recorded the Proposition 3 threshold as $361,000 and labelled the source secondary. The Secretary of State's own voter guide says over $371,000.</td><td>Correct the figure on that desk and relabel the source as official.</td><td><span class="pill p-ver">verified</span></td><td><a class="src" href="https://voterguide.sos.ca.gov/propositions/3/index.htm" target="_blank" rel="noopener noreferrer" title="Official Voter Information Guide — Proposition 3 (3 November 2026)">California Secretary of State</a></td></tr><tr><td>R07</td><td>Owner tax histories have been published by earlier desks</td><td>Rounding to $10 makes a single figure hard to match to a record, but a thirteen-year series of assessed values is close to a fingerprint when it is combined with a county. This desk names no county and no city.</td><td>Decide whether any tax history should be published at all, on this desk or on the others.</td><td><span class="pill p-unv">unverified</span></td><td><span class="nosrc">No official source &mdash; a judgement about the repository, not a sourced fact</span></td></tr><tr><td>R08</td><td>Two source documents were linked but never opened</td><td>A revenue procedure and a Board of Equalization letter to assessors are cited in earlier registers but were never retrieved, so nothing on those desks rests on them. This desk records its own unopened links on the sources page rather than implying they were read.</td><td>Retrieve them, or drop the citations.</td><td><span class="pill p-unv">unverified</span></td><td><a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer" title="Revenue Procedure 2026-35 (tax year 2027 inflation adjustments)">Internal Revenue Service</a><br><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta21054.pdf" target="_blank" rel="noopener noreferrer" title="Letter To Assessors No. 2021/054 — Property Tax Rule 462.520, Exclusion from Change in Ownership: Intergenerational Transfers">California State Board of Equalization</a></td></tr></tbody></table></div>
+</main>
+<footer>
+Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at
+the time of any transfer. Every figure on this site is either quoted from an official source
+linked on its row, or labelled as owner input, derived, or an assumption.
+</footer>
+</body>
+</html>
