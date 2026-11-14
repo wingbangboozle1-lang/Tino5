@@ -17,6 +17,7 @@ PAGES = [
     ("running-costs.html", "Running costs", "Insurance, water, power, maintenance, and what they cost over time"),
     ("projections.html", "Projections 2026-2076", "Value, assessed value, tax and costs, year by year"),
     ("options.html", "The three options", "Occupy, let, or sell and reinvest, with break-evens"),
+    ("phased-investing.html", "Phased investing", "Treasury parking and staged stock entry stress test"),
     ("black-swan.html", "Black swans", "Real inflation history replayed across fifty uneven years"),
     ("process.html", "The transfer, step by step", "What actually happens when the trust property passes"),
     ("questions.html", "Questions and gaps", "What must be answered before a decision is reasonable"),

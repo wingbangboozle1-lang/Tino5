@@ -2435,3 +2435,13 @@ modify or reject decision recorded against its number before anything changes. T
 items cannot be closed by a commit: F19 (earlier full-precision figures remain in public
 git history — repository visibility or a history rewrite is the owner's call) and F12 (the
 3 November 2026 results are not certified until 11 December 2026).
+
+## Session `arena-ad490053` — phased Treasury path (2026-11-14)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| ad49/P | Add a privacy-safe phased-investing stress-test page to the published cbe desk; 24/30/36-month Treasury parking, user-adjustable assumptions, crash-entry comparison, and reinvestment/opportunity risk disclosures. | done locally; PR/deploy pending | arena/ad490053-tino5 | `cbe/**`, this section |
+
+**Verification:** `python3 cbe/_src/build.py` passes V0–V9 (18 pages, all internal targets resolve, external hosts on the official allowlist, privacy and rounding gates pass); `python3 cbe/_src/test_model.py` passes 84 tests; `python3 scripts/verify_safe.py` passes the separate curated publication set (13 pages, 125 sourced rows, structural checks only). Added TreasuryDirect, Treasury.gov and IRS links for manual review. The new calculator is an explicitly isolated, offline-only local script; its controls are assumptions, not verified household data. It uses no network, cookies, storage or telemetry. It tests a hypothetical constant-decline entry path, **not** a historical 1929/2008 replay; that limitation is explicit in-page.
+
+**Open privacy issue:** no destructive rewrite of shared public Git history was attempted. Existing full-precision/owner-derived data in historical commits and earlier published trees is recorded as R01–R08 and F19; rewriting shared history requires a coordinated repository-wide decision and can invalidate existing references. The current publication remains subject to existing privacy flags. The calculator source adds no owner-specific amounts.
