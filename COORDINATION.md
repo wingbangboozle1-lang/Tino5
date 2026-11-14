@@ -1852,72 +1852,7 @@ sibling tree with its own verifier.
 
 ### Merge-conflict resolution (arena-cbe837cb, 2026-11-14)
 
-`COORDINATION.md` was carrying unresolved `---
-
-## Session `arena-ad490053` — phased Treasury path (2026-11-14)
-
-| ID | Task | Status | Session | File scope |
-|----|------|--------|---------|-----------|
-| ad49/P | Add a privacy-safe phased-investing stress-test page to the published cbe desk; 24/30/36-month Treasury parking, user-adjustable assumptions, crash-entry comparison, and reinvestment/opportunity risk disclosures. | done locally; PR/deploy pending | arena/ad490053-tino5 | `cbe/**`, this section |
-
-**Verification:** `python3 cbe/_src/build.py` passes V0–V9 (18 pages, all internal targets resolve, external hosts on the official allowlist, privacy and rounding gates pass); `python3 cbe/_src/test_model.py` passes 84 tests; `python3 scripts/verify_safe.py` passes the separate curated publication set (13 pages, 125 sourced rows, structural checks only). Added TreasuryDirect, Treasury.gov and IRS links for manual review. The new calculator is an explicitly isolated, offline-only local script; its controls are assumptions, not verified household data. It uses no network, cookies, storage or telemetry. It tests a hypothetical constant-decline entry path, **not** a historical 1929/2008 replay; that limitation is explicit in-page.
-
-**Open privacy issue:** no destructive rewrite of shared public Git history was attempted. Existing full-precision/owner-derived data in historical commits and earlier published trees is recorded as R01–R08 and F19; rewriting shared history requires a coordinated repository-wide decision and can invalidate existing references. The current publication remains subject to existing privacy flags. The calculator source adds no owner-specific amounts.
-
-## Session `arena-99220bc7` — claim (2026-11-14, branch `arena/99220bc7-tino5`, base `51c599c`)
-
-Read before claiming: `git fetch origin --prune` returned only `origin/main` at `51c599c` (PR #72). No other session branch is live, so no claim is held by another session.
-
-Read after the rebase: `origin/main` moved to `8adf72c` (PR #73, `arena-ad490053`), which added a constant-decline phased-Treasury calculator to `cbe/`. That work is not duplicated here. This session's phased item is narrower and different in method: a replay of the official 1929 and 2008 equity drawdowns (endpoints from Federal Reserve History), separate from ad490053's hypothetical path. Owner brief items this session adds that the existing desks do not yet carry: that historical replay; mixed paths (live, then sell; rent, then sell; sell, then phase in); "what would change the answer" on the first screen; reinvestment risk beside the headline; what-if controls; a one-page printable Attorney & CPA briefing sheet; a deadline timeline; a grouped menu with a glossary; a suggestions board (proposed only); questions and information gaps; flagged items.
-
-| ID | Task | Status | Session | File scope |
-|----|------|--------|---------|-----------|
-| 992/S | New desk `phase-99220/`: landing page with "what would change the answer", reinvestment risk, what-if controls, mixed paths, timeline, printable attorney & CPA brief, glossary, questions, suggestions (PROPOSED only), flagged, sources. Reads the `cbe/_src` model read-only. | done — merged via PR #74 (https://github.com/wingbangboozle1-lang/Tino5/pull/74) | arena-99220bc7 | `phase-99220/**` (new directory) and this section only |
-| 992/P | Historical phased-entry replay: sale proceeds parked in 3M–2Y Treasuries for 24–36 months, then phased into equities, replayed against the official 1929 (Dow −89%, peak to trough 34 months) and 2008 (S&P 500 −57%, 17 months) drawdowns; a separate page in `phase-99220/`. Links to ad490053's calculator rather than copying it. | done — merged via PR #74 | arena-99220bc7 | `phase-99220/phased-replay.html` and this section only |
-| 992/V | Verification: every table row carries an official link or is blank and flagged; $10 rounding; privacy scan; internal links; model tests. | done — verify.py, 12 unit tests, verify_safe, privacy_scan, check_landing all pass; Pages build verified | arena-99220bc7 | `phase-99220/**`, this section only |
-| 992/INT | Integration: one `PUBLISHED_DESKS` assignment in `scripts/verify_safe.py`, one Jekyll exclude for `phase-99220/_src`, one workflow step. PR to `main`, merge, confirm Pages. | done — PR #74 merged; Pages build succeeded (https://github.com/wingbangboozle1-lang/Tino5/pull/74) | arena-99220bc7 | `scripts/verify_safe.py`, `_config.yml`, `.github/workflows/privacy-pages.yml`, `index.html` (one card), this section only |
-
-Not done, and why (logged as flags on the desk): (1) the git-history scrub asked for in the brief is a history rewrite of `main`; it is not performed in this session and needs the owner's decision; (2) root `index.html` hub card is not edited (the desk is linked from its own path, as earlier desks were); (3) home insurance, water and electricity for Property A and the San Francisco rate for Property B were not confirmed from an official source in this session and stay blank.
-
-### Flagged for Review (992/P, 992/V)
-- Form 706 due date and extension: IRS i706 later chunks not yet read; not stated as settled.
-- BOE LTA 2024/052 chunk 3 unread; BOE-19-P claim deadline unconfirmed.
-- Unopened URLs (county contacts, insurance.ca.gov, sfpuc.org, ../cbe/repo-review.html) remain flagged in the sources register.
-- Integration PR: https://github.com/wingbangboozle1-lang/Tino5/pull/74 (merged to main).
-
-## Session `arena-cbd1473c` — claim (2026-11-14, branch `arena/cbd1473c-tino5`, base `51c599c`)
-
-Read before claiming: `origin/main` at `51c599c` (PR #72). Only `origin/main` and this branch exist remotely, so no other live session holds a claim. The existing `cbe/` desk (PR #71) was checked against this session's brief: it has **no** phased-investing path, **no** mixed paths, **no** first-screen "what would change the answer", **no** what-if controls, **no** glossary, **no** printable Attorney & CPA sheet and **no** timeline. Those gaps are the scope of this claim, **except** the phased-investing calculator: that was delivered on `main` by session `arena-ad490053` (`cbe/phased-investing.html`, merged in PR #73 at `8adf72c`) after this session's claim started, so this session does **not** build a second phased page. `cbd/` links to it and uses the same stated mechanics (3-month Treasury parking, equal monthly tranches) only inside the mixed-path arithmetic. `cbe/` is not edited.
-
-| ID | Task | Status | Session | File scope |
-|----|------|--------|---------|-----------|
-| cbd/S | New desk `cbd/`: first-screen summary with what-would-change-the-answer and reinvestment risk beside the headline; phased-investing **link only** to `cbe/phased-investing.html` (not rebuilt); mixed paths (occupy / rent / sell, with phased and held variants); what-if controls; deadlines timeline; glossary; one-page Attorney & CPA sheet; questions and answers; suggestions (PROPOSED only); sources; flagged items. Money rounded to $10. No names, addresses, parcel numbers, ZIP codes or city names. | done (11 pages, verify PASS, 14 unit tests; PR #77) | arena-cbd1473c | `cbd/**` (new directory), this section only |
-| cbd/V | Verification: row sourcing, host allowlist, internal links, $10 rounding, PII scan, no-script rule (static what-if; no JavaScript parity needed), unit tests. | done | arena-cbd1473c | `cbd/**`, this section only |
-| cbd/INT | Integration (merged: PR #77, merge commit `85b97ab`; Pages built at `85b97ab`): `cbd` added to `PUBLISHED_DESKS` (not `EXPECTED_PAGES`, which covers `public-safe/` only), `_config.yml` exclusion for `cbd/_src`, workflow steps, one landing card; PR to `main`; merge; confirm Pages. Cross-session requests: none. | in progress | arena-cbd1473c | `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
-
-**cbd/INT completion note (arena-cbd1473c):** `scripts/privacy_scan.py` reports 32 rule-B findings in `cbd/` (and the same pattern in `phase-99220/`). They are a false positive: the bare integer `202611` is the month parameter of the official Treasury daily-yield URL cited for the 3-month rate (not money). The URL is kept exact so the citation stays checkable; `verify_safe.py`, `check_landing.py` and `cbd/_src/verify.py` (no identifiers, $10 rounding) all pass. Flagged for the privacy-scan owner: the rule could exempt URL query strings.
-
-Not in scope and **not done**: rewriting public git history to remove unrounded figures (flag F19 on `cbe/flagged.html`). That changes history on `main` and is an owner decision.
-
-## Session `arena-a2b1e45e` — claim (2026-11-14, branch `arena/a2b1e45e-tino5`, base `51c599c`)
-
-| ID | Task | Status | Session | File scope |
-|----|------|--------|---------|-----------|
-| a2b/D | Source-verified inheritance decision desk: live / rent / sell-and-reinvest / mixed scenarios, black-swan regimes, 2026–2050 projections, federal and CA rules, trust process and deadlines, glossary, questions, suggestions (awaiting owner approval), one-page briefing, Flagged for Review. | in progress | arena-a2b1e45e | `inheritance-desk/**`, this section; shared root files (`_config.yml`, `scripts/verify_safe.py` PUBLISHED_DESKS) only in final integration |
-
-Read before claiming: `origin/main` at `8adf72c` (PR #73) and the board above. No existing claim covers `inheritance-desk/`.
-
-### a2b/D — completion record (arena-a2b1e45e, 2026-11-14)
-
-- **Delivered:** `inheritance-desk/` (15 HTML pages: executive summary with "what would change the answer" on the first screen; federal and CA rules with official links; property inputs; scenarios for 8 options across 5 regimes at 2040/2045/2050 transfer; black-swan regimes and phased entry; projections 2026–2050; operating costs; trust process and deadline timeline; glossary; questions and information gaps; suggestions (proposed, none implemented); one-page Attorney & CPA briefing with print CSS; methodology; Flagged for Review). Generator `inheritance-desk/_src/build.py`, model `_src/model.py`, gate `_src/verify.py`. Data `data/model.json` is excluded from the site (holds owner input values).
-- **Model corrections made before publication:** (1) the first break-even figure (4.46%) was an artifact: live and rent options receive the same yield, so the bisection never crossed. Replaced with two valid break-evens: avoided-rent yield at which living equals renting (about 3.54%, base case) and the gross yield at which cash-only living (A0) equals renting (about 0.46%). (2) Water and solar inputs rounded to $10 ($130 and $20). (3) Money in `model.json` rounded to $10. (4) Live and rent options hold no stocks, so the 1929 and 2008 stock crashes do not change them; both crash columns use the 2008 housing proxy; stated on the page (F07).
-- **Checks run:** `python3 inheritance-desk/_src/build.py` then `python3 inheritance-desk/_src/verify.py` = PASS (15 pages; every table row has an official link, a blank value with a flag, or an explicit no-external-source marker; allowlisted hosts only; internal links resolve; money multiples of $10 except marked statutory amounts; no ZIP, street, city-name, e-mail, phone or parcel-style patterns; no owner prior-year assessment or tax figures published). `python3 scripts/verify_safe.py` = PASS. `python3 scripts/check_landing.py` = 0 unresolved. `scripts/privacy_scan.py` reports the Treasury URL false positive only (F13).
-- **Sources opened for this desk:** IRS estate-tax, Rev. Proc. 2025-32, what's-new, filing guide, Pub 551, Topics 409/559/701; RTC §51; BOE Prop 19 page and LTA 2025/009; SOS failed-to-qualify list (chunks 0–1); Fed History 1929 and Great Recession essays; Treasury daily par yield curve; Santa Clara County Tax Rate Book 2025–26 (chunk 0: 1% levy, installment dates).
-- **Open items (flagged, do not block merge):** F01 composite rate for the tax-rate area (from the owner's bill); F02 owner inputs unverified; F03 Prop 19 cap wording conflict between BOE pages; F04 Prop 19 repeal status not confirmed; F05 CA estate/inheritance tax primary check open; F06 CDI insurance and provider rates not confirmed; F07 crash-regime proxy and hindsight-dependent phased results; F08 history and archives carry identifiers and unrounded figures (not rewritten); F09 2026 assessed value to be confirmed; F10 CA capital-gains rate; F11 probate threshold secondary; F12 assumptions; F13 privacy-scan false positive.
-- **Not done in this session:** the Santa Clara assessor annual report and the SOS certified-measures list were linked but not opened line by line; no suggestion was implemented.
-- **PR:** [PR #80](https://github.com/wingbangboozle1-lang/Tino5/pull/80) (`arena/a2b1e45e-tino5` → `main`), opened 2026-11-14. Merge requested without waiting for owner review, as instructed; result recorded after merge and Pages check.
-
-<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`
+`COORDINATION.md` was carrying unresolved `<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`
 markers across lines 1765-2289: two sessions (`arena-d75e2754` on the HEAD side and
 `arena-47685795`, with its own embedded records for `arena-5e7d4570` and `arena-1ec4b5b0`,
 on the main side) had each appended a self-contained block at the same place in the file.
@@ -2501,22 +2436,106 @@ items cannot be closed by a commit: F19 (earlier full-precision figures remain i
 git history — repository visibility or a history rewrite is the owner's call) and F12 (the
 3 November 2026 results are not certified until 11 December 2026).
 
+## Session `arena-ad490053` — phased Treasury path (2026-11-14)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| ad49/P | Add a privacy-safe phased-investing stress-test page to the published cbe desk; 24/30/36-month Treasury parking, user-adjustable assumptions, crash-entry comparison, and reinvestment/opportunity risk disclosures. | done locally; PR/deploy pending | arena/ad490053-tino5 | `cbe/**`, this section |
+
+**Verification:** `python3 cbe/_src/build.py` passes V0–V9 (18 pages, all internal targets resolve, external hosts on the official allowlist, privacy and rounding gates pass); `python3 cbe/_src/test_model.py` passes 84 tests; `python3 scripts/verify_safe.py` passes the separate curated publication set (13 pages, 125 sourced rows, structural checks only). Added TreasuryDirect, Treasury.gov and IRS links for manual review. The new calculator is an explicitly isolated, offline-only local script; its controls are assumptions, not verified household data. It uses no network, cookies, storage or telemetry. It tests a hypothetical constant-decline entry path, **not** a historical 1929/2008 replay; that limitation is explicit in-page.
+
+**Open privacy issue:** no destructive rewrite of shared public Git history was attempted. Existing full-precision/owner-derived data in historical commits and earlier published trees is recorded as R01–R08 and F19; rewriting shared history requires a coordinated repository-wide decision and can invalidate existing references. The current publication remains subject to existing privacy flags. The calculator source adds no owner-specific amounts.
+
+## Session `arena-99220bc7` — claim (2026-11-14, branch `arena/99220bc7-tino5`, base `51c599c`)
+
+Read before claiming: `git fetch origin --prune` returned only `origin/main` at `51c599c` (PR #72). No other session branch is live, so no claim is held by another session.
+
+Read after the rebase: `origin/main` moved to `8adf72c` (PR #73, `arena-ad490053`), which added a constant-decline phased-Treasury calculator to `cbe/`. That work is not duplicated here. This session's phased item is narrower and different in method: a replay of the official 1929 and 2008 equity drawdowns (endpoints from Federal Reserve History), separate from ad490053's hypothetical path. Owner brief items this session adds that the existing desks do not yet carry: that historical replay; mixed paths (live, then sell; rent, then sell; sell, then phase in); "what would change the answer" on the first screen; reinvestment risk beside the headline; what-if controls; a one-page printable Attorney & CPA briefing sheet; a deadline timeline; a grouped menu with a glossary; a suggestions board (proposed only); questions and information gaps; flagged items.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 992/S | New desk `phase-99220/`: landing page with "what would change the answer", reinvestment risk, what-if controls, mixed paths, timeline, printable attorney & CPA brief, glossary, questions, suggestions (PROPOSED only), flagged, sources. Reads the `cbe/_src` model read-only. | done — merged via PR #74 (https://github.com/wingbangboozle1-lang/Tino5/pull/74) | arena-99220bc7 | `phase-99220/**` (new directory) and this section only |
+| 992/P | Historical phased-entry replay: sale proceeds parked in 3M–2Y Treasuries for 24–36 months, then phased into equities, replayed against the official 1929 (Dow −89%, peak to trough 34 months) and 2008 (S&P 500 −57%, 17 months) drawdowns; a separate page in `phase-99220/`. Links to ad490053's calculator rather than copying it. | done — merged via PR #74 | arena-99220bc7 | `phase-99220/phased-replay.html` and this section only |
+| 992/V | Verification: every table row carries an official link or is blank and flagged; $10 rounding; privacy scan; internal links; model tests. | done — verify.py, 12 unit tests, verify_safe, privacy_scan, check_landing all pass; Pages build verified | arena-99220bc7 | `phase-99220/**`, this section only |
+| 992/INT | Integration: one `PUBLISHED_DESKS` assignment in `scripts/verify_safe.py`, one Jekyll exclude for `phase-99220/_src`, one workflow step. PR to `main`, merge, confirm Pages. | done — PR #74 merged; Pages build succeeded (https://github.com/wingbangboozle1-lang/Tino5/pull/74) | arena-99220bc7 | `scripts/verify_safe.py`, `_config.yml`, `.github/workflows/privacy-pages.yml`, `index.html` (one card), this section only |
+
+Not done, and why (logged as flags on the desk): (1) the git-history scrub asked for in the brief is a history rewrite of `main`; it is not performed in this session and needs the owner's decision; (2) root `index.html` hub card is not edited (the desk is linked from its own path, as earlier desks were); (3) home insurance, water and electricity for Property A and the San Francisco rate for Property B were not confirmed from an official source in this session and stay blank.
+
+### Flagged for Review (992/P, 992/V)
+- Form 706 due date and extension: IRS i706 later chunks not yet read; not stated as settled.
+- BOE LTA 2024/052 chunk 3 unread; BOE-19-P claim deadline unconfirmed.
+- Unopened URLs (county contacts, insurance.ca.gov, sfpuc.org, ../cbe/repo-review.html) remain flagged in the sources register.
+- Integration PR: https://github.com/wingbangboozle1-lang/Tino5/pull/74 (merged to main).
+
+## Session `arena-cbd1473c` — claim (2026-11-14, branch `arena/cbd1473c-tino5`, base `51c599c`)
+
+Read before claiming: `origin/main` at `51c599c` (PR #72). Only `origin/main` and this branch exist remotely, so no other live session holds a claim. The existing `cbe/` desk (PR #71) was checked against this session's brief: it has **no** phased-investing path, **no** mixed paths, **no** first-screen "what would change the answer", **no** what-if controls, **no** glossary, **no** printable Attorney & CPA sheet and **no** timeline. Those gaps are the scope of this claim, **except** the phased-investing calculator: that was delivered on `main` by session `arena-ad490053` (`cbe/phased-investing.html`, merged in PR #73 at `8adf72c`) after this session's claim started, so this session does **not** build a second phased page. `cbd/` links to it and uses the same stated mechanics (3-month Treasury parking, equal monthly tranches) only inside the mixed-path arithmetic. `cbe/` is not edited.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| cbd/S | New desk `cbd/`: first-screen summary with what-would-change-the-answer and reinvestment risk beside the headline; phased-investing **link only** to `cbe/phased-investing.html` (not rebuilt); mixed paths (occupy / rent / sell, with phased and held variants); what-if controls; deadlines timeline; glossary; one-page Attorney & CPA sheet; questions and answers; suggestions (PROPOSED only); sources; flagged items. Money rounded to $10. No names, addresses, parcel numbers, ZIP codes or city names. | done (11 pages, verify PASS, 14 unit tests; PR #77) | arena-cbd1473c | `cbd/**` (new directory), this section only |
+| cbd/V | Verification: row sourcing, host allowlist, internal links, $10 rounding, PII scan, no-script rule (static what-if; no JavaScript parity needed), unit tests. | done | arena-cbd1473c | `cbd/**`, this section only |
+| cbd/INT | Integration (merged: PR #77, merge commit `85b97ab`; Pages built at `85b97ab`): `cbd` added to `PUBLISHED_DESKS` (not `EXPECTED_PAGES`, which covers `public-safe/` only), `_config.yml` exclusion for `cbd/_src`, workflow steps, one landing card; PR to `main`; merge; confirm Pages. Cross-session requests: none. | in progress | arena-cbd1473c | `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+**cbd/INT completion note (arena-cbd1473c):** `scripts/privacy_scan.py` reports 32 rule-B findings in `cbd/` (and the same pattern in `phase-99220/`). They are a false positive: the bare integer `202611` is the month parameter of the official Treasury daily-yield URL cited for the 3-month rate (not money). The URL is kept exact so the citation stays checkable; `verify_safe.py`, `check_landing.py` and `cbd/_src/verify.py` (no identifiers, $10 rounding) all pass. Flagged for the privacy-scan owner: the rule could exempt URL query strings.
+
+Not in scope and **not done**: rewriting public git history to remove unrounded figures (flag F19 on `cbe/flagged.html`). That changes history on `main` and is an owner decision.
+
+## Session `arena-a2b1e45e` — claim (2026-11-14, branch `arena/a2b1e45e-tino5`, base `51c599c`)
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| a2b/D | Source-verified inheritance decision desk: live / rent / sell-and-reinvest / mixed scenarios, black-swan regimes, 2026–2050 projections, federal and CA rules, trust process and deadlines, glossary, questions, suggestions (awaiting owner approval), one-page briefing, Flagged for Review. | in progress | arena-a2b1e45e | `inheritance-desk/**`, this section; shared root files (`_config.yml`, `scripts/verify_safe.py` PUBLISHED_DESKS) only in final integration |
+
+Read before claiming: `origin/main` at `8adf72c` (PR #73) and the board above. No existing claim covers `inheritance-desk/`.
+
+### a2b/D — completion record (arena-a2b1e45e, 2026-11-14)
+
+- **Delivered:** `inheritance-desk/` (15 HTML pages: executive summary with "what would change the answer" on the first screen; federal and CA rules with official links; property inputs; scenarios for 8 options across 5 regimes at 2040/2045/2050 transfer; black-swan regimes and phased entry; projections 2026–2050; operating costs; trust process and deadline timeline; glossary; questions and information gaps; suggestions (proposed, none implemented); one-page Attorney & CPA briefing with print CSS; methodology; Flagged for Review). Generator `inheritance-desk/_src/build.py`, model `_src/model.py`, gate `_src/verify.py`. Data `data/model.json` is excluded from the site (holds owner input values).
+- **Model corrections made before publication:** (1) the first break-even figure (4.46%) was an artifact: live and rent options receive the same yield, so the bisection never crossed. Replaced with two valid break-evens: avoided-rent yield at which living equals renting (about 3.54%, base case) and the gross yield at which cash-only living (A0) equals renting (about 0.46%). (2) Water and solar inputs rounded to $10 ($130 and $20). (3) Money in `model.json` rounded to $10. (4) Live and rent options hold no stocks, so the 1929 and 2008 stock crashes do not change them; both crash columns use the 2008 housing proxy; stated on the page (F07).
+- **Checks run:** `python3 inheritance-desk/_src/build.py` then `python3 inheritance-desk/_src/verify.py` = PASS (15 pages; every table row has an official link, a blank value with a flag, or an explicit no-external-source marker; allowlisted hosts only; internal links resolve; money multiples of $10 except marked statutory amounts; no ZIP, street, city-name, e-mail, phone or parcel-style patterns; no owner prior-year assessment or tax figures published). `python3 scripts/verify_safe.py` = PASS. `python3 scripts/check_landing.py` = 0 unresolved. `scripts/privacy_scan.py` reports the Treasury URL false positive only (F13).
+- **Sources opened for this desk:** IRS estate-tax, Rev. Proc. 2025-32, what's-new, filing guide, Pub 551, Topics 409/559/701; RTC §51; BOE Prop 19 page and LTA 2025/009; SOS failed-to-qualify list (chunks 0–1); Fed History 1929 and Great Recession essays; Treasury daily par yield curve; Santa Clara County Tax Rate Book 2025–26 (chunk 0: 1% levy, installment dates).
+- **Open items (flagged, do not block merge):** F01 composite rate for the tax-rate area (from the owner's bill); F02 owner inputs unverified; F03 Prop 19 cap wording conflict between BOE pages; F04 Prop 19 repeal status not confirmed; F05 CA estate/inheritance tax primary check open; F06 CDI insurance and provider rates not confirmed; F07 crash-regime proxy and hindsight-dependent phased results; F08 history and archives carry identifiers and unrounded figures (not rewritten); F09 2026 assessed value to be confirmed; F10 CA capital-gains rate; F11 probate threshold secondary; F12 assumptions; F13 privacy-scan false positive.
+- **Not done in this session:** the Santa Clara assessor annual report and the SOS certified-measures list were linked but not opened line by line; no suggestion was implemented.
+- **PR:** [PR #80](https://github.com/wingbangboozle1-lang/Tino5/pull/80) (`arena/a2b1e45e-tino5` → `main`), opened 2026-11-14. Merge requested without waiting for owner review, as instructed; result recorded after merge and Pages check.
+- **Result:** PR #80 **MERGED** into `main` as `602f16b` (2026-11-14 22:20Z) without waiting for review. GitHub Pages build and deployment **success** on `602f16b`; the workflow "Verify published artifact" **success** on the same commit. Live check 2026-11-14: `https://wingbangboozle1-lang.github.io/Tino5/inheritance-desk/flagged.html` serves the Flagged for Review page with all rows, sources and flags. Status on the board: **done**; open flags F01–F13 do not block merge and are listed on the page.
+
+---
+
+## Session `arena-1e2e59cb` — follow-up claim (2026-11-14; branch rebased onto `main` after PRs #73–#80)
+
+The existing cbe page was extended after reviewing merged PRs #73–#80; this preserves those desks and does not duplicate their separate directories.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| e2e/UX | Integrate a privacy-local decision-support follow-up into the existing cbe desk without duplicating the newly merged stress page; preserve added grouped navigation, questions, timeline, brief, glossary and mixed paths. | done (current feature commit pending) | arena-1e2e59cb (`arena/1e2e59cb-tino5`) | `cbe/_src/{shell.py,pages_core.py,pages_extra.py,sources.py,verify.py,build.py}`, generated `cbe/*.html`, `cbe/assets/what-if.js`, this section |
+| e2e/VERIFY | Rebuild and run cbe checks/tests, verify privacy and source/assumption labeling, document the physical-print limitation and unresolved history issue. | done (record below) | arena-1e2e59cb | same scoped files, this section |
+| e2e/INT | Integrate from this active branch only, PR to main, merge if checks pass, confirm Pages deployment and record result. | in progress | arena-1e2e59cb | `COORDINATION.md` and required PR integration metadata only |
+
+### e2e/UX + e2e/VERIFY — completion record (2026-11-14)
+
+- **Delivered:** grouped/collapsible category menu; new glossary; one-page print-styled Attorney & CPA Briefing Sheet; first-screen “what would change the answer” and a visible history/privacy warning; mixed paths explicitly treating Property B as already owned; deadline timeline; reinvestment-risk disclosure alongside the sale/reinvestment headline; local-only what-if calculator on Black Swans. The calculator compares immediate equity purchase with a 24–36 month Treasury parking period followed by a staged purchase, permits an optional changed yield after month 12, and exposes user-entered 1929/2008-style shock size and timing assumptions. It does not prefill unverified market inputs or claim that recession dates are equity returns. After PRs #73–#80 advanced `main` during this session, the branch was rebased and those desks preserved; the existing cbe phased entry routes users to the local-only Black Swans controls, avoiding duplicate hardcoded-default calculators.
+- **Primary sources added/read:** U.S. Treasury Daily Treasury Par Yield Curve Rates (official 3-month and 2-year points; no future yield is asserted): https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve . NBER Business Cycle Dating FAQ (1929 peak / 1933 trough; recession chronology is not an investment return series): https://www.nber.org/research/business-cycle-dating/business-cycle-dating-procedure-frequently-asked-questions . NBER 2007–2009 recession announcement: https://www.nber.org/news/business-cycle-dating-committee-announcement-september-20-2010 . IRS 2026 Form 706 Instructions (conditional nine-month filing/payment rule and filing extension): https://www.irs.gov/pub/irs-pdf/i706.pdf . IRS Publication 551 inherited-property section was retrieved and read; existing source-register record updated. Existing California Probate Code §16061.7, R&TC §63.2 and BOE Proposition 19 references support the trust/occupancy/claim timeline.
+- **Verification:** `python3 cbe/_src/build.py` PASS; `python3 cbe/_src/verify.py` PASS: 20 pages, 648 table rows checked, every row has an official link or explicit no-source marker, 696 external links, 460 internal links, 661 rounded money figures, 35 source records (4 intentionally listed as not opened). `python3 -m unittest discover -s cbe/_src -p 'test_*.py' -v`: 84 tests PASS. `python3 scripts/verify_safe.py` PASS; `python3 scripts/check_landing.py` PASS (16 targets, 0 unresolved); `python3 scripts/privacy_scan.py cbe/ --summary` PASS (0 findings in cbe). A repository-wide privacy scan is not clean: it reports 91 false-positive Treasury month-query findings in `cbd/` and `phase-99220/` (already logged by cbd/INT); no owner-data finding was observed there, but the scanner exits non-zero. `node --check cbe/assets/what-if.js` and a local Node smoke test with hypothetical inputs PASS; `git diff --check` PASS. The verifier statically rejects network, browser-storage, third-party and tracking APIs in the allowlisted local script. The one-page print CSS is present, but this environment has no browser/PDF renderer, so physical page count was not independently rendered.
+- **Privacy irregularity remains open and urgent (not solved by this PR):** this checkout is shallow (`git rev-parse --is-shallow-repository` = `true`) and earlier public commits may retain unrounded owner-provided tax/property values. The current branch cannot scrub those ancestor commits through a normal pull request, and this session did not rewrite or force-push shared `main`; current pages now say so prominently and link F19 / repository review. This is a limitation, not a claim that history is safe. The owner/repository maintainer must decide a coordinated history rewrite and repository-visibility response; a PR merge alone will not erase exposed history.
+
 ---
 
 ## Session `arena-31cb5781` — claim (2026-11-14, branch `arena/31cb5781-tino5`, base `51c599c`)
 
-All prior session claims on this board are either `done`, `needs review`, or idle beyond
-the 60-minute handoff; `arena-cbe837cb` merged to `main` at `51c599c` (PR #72). This
-session is the only live session. Non-overlap is enforced by file scope; this session
-edits only the paths in its claimed scope below plus, at integration time, the shared
-root files permitted by the tie-break (all prior integrations complete).
+During this session `origin/main` advanced with parallel inheritance desks
+(`cbd/` via PR #77, `phase-99220/` via PR #74, `inheritance-desk/` via PR #80, plus a
+phased-Treasury calculator in `cbe/` via PR #73 and cbe follow-ups via PRs #76/#81).
+Those desks cover the same feature family as this brief. This session delivers
+`desk-31cb5781/` as an additional, independently verified decision desk at a
+non-overlapping path; shared root files are folded alongside the other desks' entries.
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
 | 31cb/S | **Build the decision desk: clean landing page + category subpages (dashboard) covering executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance 2040–2050) and Property B (already owned) analysed separately, year-by-year projections 2026–2050/2076, property tax & assessed value, inheritance & estate tax thresholds, operating costs, step-by-step trust process with a deadlines timeline, black-swan regimes with a phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months), mixed paths (not only three pure choices), reinvestment risk beside the headline, what-if controls, one-page printable Attorney & CPA Briefing Sheet, suggestions board (PROPOSED; accept/modify/reject before implementing), questions & information gaps with discovery actions, law watch, source register, flagged for review.** Every table row carries an official source link or is blank + marked unverified; money rounded to nearest $10 except statutory amounts quoted exactly; no names, addresses, ZIP codes, parcel/account numbers. | done | arena-31cb5781 | `desk-31cb5781/**` (new directory; generator/verifier in `desk-31cb5781/_src/`, not published), this section only |
 | 31cb/V | **Line-by-line source verification of every row; irregularities logged on `desk-31cb5781/flagged.html`; privacy scan; model/regression checks.** | done | arena-31cb5781 | `desk-31cb5781/**`, this section only |
 | 31cb/R | **Repository review: read the published trees, log irregularities for the owner, do not edit another session's files.** | unclaimed | arena-31cb5781 | this section only |
-| 31cb/INT | **Integration: merge `origin/main`, re-verify the combined tree, link check, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on 31cb/S and 31cb/V being `done` (all other claims already `done`/`needs review`/lapsed). | in progress | arena-31cb5781 | root `index.html`, `_config.yml`, `README.md` (only if needed), `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+| 31cb/INT | **Integration: merge `origin/main`, re-verify the combined tree, link check, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on 31cb/S and 31cb/V being `done`. | in progress | arena-31cb5781 | root `index.html`, `_config.yml`, `README.md` (only if needed), `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
 
 **Non-overlap:** `desk-31cb5781/` is a new directory. No other session's files are edited.
 `scripts/verify_safe.py` `PUBLISHED_DESKS` gets one folded assignment for `desk-31cb5781`;
@@ -2539,24 +2558,21 @@ Property B (already owned, San Francisco County) at county level only; property 
 Prop 19 with the $1,044,586 (2025–2027) allowance; federal estate exclusion $15,000,000 / 40% and CA
 (no estate/inheritance tax); step-up in basis (§1014) and §121 exclusion; running costs; year-by-year
 projections 2026–2050/2076 at $10 rounding; scenarios live / rent / sell plus mixed paths; black-swan
-regimes with the phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months) and
-reinvestment risk; what-if calculator; step-by-step trust process with a deadlines timeline (Form 706
-9 months, BOE-19-P 3 years, occupancy 1 year); one-page printable Attorney & CPA Briefing Sheet;
-suggestions board (PROPOSED); questions & information gaps with discovery actions; law watch; source
-register; flagged for review; methodology & privacy.
+regimes with the phased-investing path (Treasuries 24–36 months) and reinvestment risk; what-if
+calculator; step-by-step trust process with a deadlines timeline (Form 706 9 months, BOE-19-P 3 years,
+occupancy 1 year); one-page printable Attorney & CPA Briefing Sheet; suggestions board (PROPOSED);
+questions & information gaps with discovery actions; law watch; source register; flagged for review;
+methodology & privacy.
 
 ### 31cb/V — completion record (arena-31cb5781, 2026-11-14)
 
 **Verification:** `desk-31cb5781/_src/verify.py` — PASS: 17 pages, every data row carries an official
 source link or an explicit unverified/owner/assumption/exact tag; external hosts all on the official
-allowlist (irs.gov, boe.ca.gov, ftb.ca.gov, sjwater.com, sfpuc.gov, cpuc.ca.gov, home.treasury.gov,
-insurance.ca.gov, cfpnet.com, leginfo.legislature.ca.gov); internal links resolve; $10 rounding on model
-figures; PII scan clean (no ZIP, street address, parcel/account number, or personal identifier).
-Irregularities logged on `desk-31cb5781/flagged.html` (F01–F06). `scripts/verify_safe.py` PASS with
-`desk-31cb5781` folded into `PUBLISHED_DESKS`; `scripts/check_landing.py` 0 unresolved.
+allowlist; internal links resolve; $10 rounding on model figures; PII scan clean. Irregularities logged
+on `desk-31cb5781/flagged.html` (F01–F06). `scripts/verify_safe.py` PASS with `desk-31cb5781` folded
+into `PUBLISHED_DESKS`; `scripts/check_landing.py` 0 unresolved.
 
 **Owner-supplied figures (unverified anchors, not verified inputs):** Property A value $3,100,000;
 Property B value $1,800,000; Property B rent $7,150/mo; Cupertino water $100–$150/mo; solar credit
 $10–$20/mo; insurance ~$1,500/yr; SF water $330–$400/mo; SF electricity $30–$70/mo. These are labelled
 owner-supplied and left blank in official-verified cells.
-
