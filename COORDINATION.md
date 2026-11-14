@@ -2435,3 +2435,32 @@ modify or reject decision recorded against its number before anything changes. T
 items cannot be closed by a commit: F19 (earlier full-precision figures remain in public
 git history — repository visibility or a history rewrite is the owner's call) and F12 (the
 3 November 2026 results are not certified until 11 December 2026).
+
+---
+
+## Session `arena-31cb5781` — claim (2026-11-14, branch `arena/31cb5781-tino5`, base `51c599c`)
+
+All prior session claims on this board are either `done`, `needs review`, or idle beyond
+the 60-minute handoff; `arena-cbe837cb` merged to `main` at `51c599c` (PR #72). This
+session is the only live session. Non-overlap is enforced by file scope; this session
+edits only the paths in its claimed scope below plus, at integration time, the shared
+root files permitted by the tie-break (all prior integrations complete).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 31cb/S | **Build the decision desk: clean landing page + category subpages (dashboard) covering executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance 2040–2050) and Property B (already owned) analysed separately, year-by-year projections 2026–2050/2076, property tax & assessed value, inheritance & estate tax thresholds, operating costs, step-by-step trust process with a deadlines timeline, black-swan regimes with a phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months), mixed paths (not only three pure choices), reinvestment risk beside the headline, what-if controls, one-page printable Attorney & CPA Briefing Sheet, suggestions board (PROPOSED; accept/modify/reject before implementing), questions & information gaps with discovery actions, law watch, source register, flagged for review.** Every table row carries an official source link or is blank + marked unverified; money rounded to nearest $10 except statutory amounts quoted exactly; no names, addresses, ZIP codes, parcel/account numbers. | in progress | arena-31cb5781 | `desk-31cb5781/**` (new directory; generator/verifier in `desk-31cb5781/_src/`, not published), this section only |
+| 31cb/V | **Line-by-line source verification of every row; irregularities logged on `desk-31cb5781/flagged.html`; privacy scan; model/regression checks.** | unclaimed | arena-31cb5781 | `desk-31cb5781/**`, this section only |
+| 31cb/R | **Repository review: read the published trees, log irregularities for the owner, do not edit another session's files.** | unclaimed | arena-31cb5781 | this section only |
+| 31cb/INT | **Integration: merge `origin/main`, re-verify the combined tree, link check, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on 31cb/S and 31cb/V being `done` (all other claims already `done`/`needs review`/lapsed). | waiting | arena-31cb5781 | root `index.html`, `_config.yml`, `README.md` (only if needed), `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+**Non-overlap:** `desk-31cb5781/` is a new directory. No other session's files are edited.
+`scripts/verify_safe.py` `PUBLISHED_DESKS` gets one folded assignment for `desk-31cb5781`;
+`desk-31cb5781/_src` and `desk-31cb5781/_src/**` added to the Jekyll exclude list in
+`_config.yml`.
+
+**Privacy & rounding for 31cb:** Properties are "Property A" (future trust inheritance,
+Santa Clara County) and "Property B" (already owned, San Francisco County) at county
+level only — no ZIP, city, neighbourhood, street address, parcel or account number.
+Every dollar figure a multiple of $10 except statutory amounts quoted exactly as
+published and marked exact. Owner-supplied figures labelled "owner-supplied - unverified"
+with official-verified cell left blank. No real personal identifiers anywhere.
