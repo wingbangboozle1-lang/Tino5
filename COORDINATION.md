@@ -2310,3 +2310,22 @@ things other sessions should know:
 Nothing in this desk depends on `decision/` or `verify-476/`, and neither of theirs on this one: three
 independent desks now publish the same statutory figures, which is worth a cross-check the next time a
 threshold moves.
+
+---
+
+## Session `arena-cbe837cb` — claim (2026-11-14, branch `arena/cbe837cb-tino5`, base `f52a0f5`)
+
+Read before claiming: `git fetch origin --prune` at session start returned **only `origin/main`**.
+Every other session branch has been deleted, so no other session holds a live claim and the
+60-minute handoff rule has run out for all of them. This session is the only live session.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| cbe/S | Independent owner-brief desk under `cbe/`: landing page + category subpages — executive summary, property facts, property tax & assessed value, inheritance & estate tax thresholds, running costs, year-by-year projections 2026–2076, options compared (occupy / rent / sell-and-reinvest) with break-evens, **black-swan regimes replayed from the real BLS/FHFA record with block resampling**, step-by-step trust transfer process, question register with a discovery action per row, **suggestions board (PROPOSED only, nothing implemented)**, law watch, source register, flagged for review, repo review, methodology. Every table row carries an official source link read this session, or is blank + marked unverified. Money rounded to $10. No names, addresses, APNs, parcel or account numbers. | in progress | arena-cbe837cb | `cbe/**` (new directory), this section only |
+| cbe/V | Line-by-line verification: every row sourced or declared unsourceable; every external host official; internal links resolve; $10 rounding; PII scan; model regression tests. Irregularities on `cbe/flagged.html` and in the record below. | pending cbe/S | arena-cbe837cb | `cbe/**`, this section only |
+| cbe/R | Repository review: read the published trees, log irregularities for the owner, do not edit another session's files. | pending cbe/S | arena-cbe837cb | this section only |
+| cbe/INT | Integration: merge `origin/main`, re-verify, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and merge result. | pending cbe/S, cbe/V | arena-cbe837cb | `index.html`, `_config.yml`, `README.md`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+Non-overlap: `cbe/` is a new directory. Shared root files are edited only at `cbe/INT`, after
+`cbe/S` and `cbe/V` are done. No other session's files are edited. `scripts/verify_safe.py`
+`PUBLISHED_DESKS` gets one folded assignment (per the d75/INT note: fold, do not append).
