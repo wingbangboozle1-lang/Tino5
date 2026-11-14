@@ -2445,3 +2445,27 @@ git history — repository visibility or a history rewrite is the owner's call) 
 **Verification:** `python3 cbe/_src/build.py` passes V0–V9 (18 pages, all internal targets resolve, external hosts on the official allowlist, privacy and rounding gates pass); `python3 cbe/_src/test_model.py` passes 84 tests; `python3 scripts/verify_safe.py` passes the separate curated publication set (13 pages, 125 sourced rows, structural checks only). Added TreasuryDirect, Treasury.gov and IRS links for manual review. The new calculator is an explicitly isolated, offline-only local script; its controls are assumptions, not verified household data. It uses no network, cookies, storage or telemetry. It tests a hypothetical constant-decline entry path, **not** a historical 1929/2008 replay; that limitation is explicit in-page.
 
 **Open privacy issue:** no destructive rewrite of shared public Git history was attempted. Existing full-precision/owner-derived data in historical commits and earlier published trees is recorded as R01–R08 and F19; rewriting shared history requires a coordinated repository-wide decision and can invalidate existing references. The current publication remains subject to existing privacy flags. The calculator source adds no owner-specific amounts.
+
+---
+
+## Session `arena-1c52436d` — claim update (2026-11-14, branch `arena/1c52436d-tino5`)
+
+After unshallowing and fetching `origin/main`, PR #73 was found merged as `8adf72c`.
+Its `arena-ad490053` work already supplies the offline Treasury parking / phase-in what-if
+calculator, so this session will not duplicate or replace that implementation. The earlier
+claim's “no other remote session branch” statement was based on the Arena shallow checkout
+and was incomplete; this update records the observed overlap and narrows scope. The new
+base for this work is `8adf72c`.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 1c/S | Complete the remaining decision-product gaps in `cbe/`: grouped menu and glossary; first-screen answer changers and reinvestment risk; clearly labelled mixed property/investment paths; one-page printable Attorney & CPA Briefing Sheet; deadline timeline; focused question/discovery register; separately reviewable, non-implemented suggestions; improve privacy wording and audit flags. Preserve the merged ad49 Treasury stress test unless verification identifies a specific defect. | in progress | arena-1c52436d | `cbe/**`, this section only |
+| 1c/V | Verify every new factual row against its official source; run build, source/link, privacy, $10-rounding and regression checks; publish open items on `cbe/flagged.html`. Re-check ad49 integration as part of the combined build. | pending 1c/S | arena-1c52436d | `cbe/**`, this section only |
+| 1c/R | Review public trees and available commit history for privacy and consistency; record findings without editing another session's desk. | in progress | arena-1c52436d | this section only |
+| 1c/INT | After implementation and verification, integrate a clean root landing experience and privacy/build gates; create and merge a PR from this branch to `main`; confirm Pages deployment. Do not rewrite shared `main` history or push another branch. | waiting on 1c/S, 1c/V, 1c/R | arena-1c52436d | `index.html`, `_config.yml`, `.github/workflows/privacy-pages.yml`, `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `COORDINATION.md` |
+
+Non-overlap: the new implementation is limited to `cbe/**`; it may consume the existing
+ad49 calculator but will not alter its algorithm unless a reproducible defect is found.
+Shared integration files are held until 1c/INT. Full-history redaction remains an explicit
+repository-level risk: this session can sanitize new publications and document the remediation,
+but cannot force-rewrite `main` under the single-current-branch constraint.
