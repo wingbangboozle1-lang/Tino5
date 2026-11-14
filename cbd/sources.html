@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><title>Sources &mdash; Property A and B decision desk</title><style>
+:root{--ink:#1b2330;--muted:#5b6474;--line:#dfe3ea;--bg:#f6f7f9;--card:#fff;--blue:#1f4e79;
+--blue-lt:#eef3f7;--amber:#8a5a00;--amber-lt:#fdf3e0;--red:#9b2226;--red-lt:#fdecec;--green:#1f6b3f}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.top-in .brand{font-weight:700;color:var(--blue);font-size:18px;text-decoration:none}
+.top-in .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main .in{max-width:1180px;margin:auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:4px 18px}
+nav.main .grp{padding:6px 0;}
+nav.main .grp b{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9fc0da;margin-top:4px}
+nav.main .grp a{display:inline-block;padding:3px 0;color:#e6eff6;text-decoration:none;font-size:13.5px;margin-right:12px}
+nav.main .grp a:hover{color:#fff;text-decoration:underline}
+nav.main .grp a.on{color:#fff;font-weight:700;border-bottom:2px solid #fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h1{font-size:24px;margin:6px 0 6px;color:var(--blue)}
+h2{font-size:18px;margin:26px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:18px 0 6px}
+p{margin:8px 0}
+.sub{color:#2b3444;font-size:15px}
+.small{font-size:13px;color:var(--muted)}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.privacy{background:#eef6ef;border:1px solid #c9e3d2;border-left:4px solid var(--green);padding:8px 12px;border-radius:6px;font-size:12.5px;margin:10px 0 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.hl{border-left:4px solid var(--blue)}
+.card.rr{border-left:4px solid var(--amber)}
+.card.wc{border-left:4px solid var(--red)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.grid4{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:14px 0}
+a.card{color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:4px}
+a.card:hover{border-color:var(--blue)}
+a.card b{color:var(--blue)}
+a.card span{font-size:13px;color:var(--muted)}
+.scroll{overflow-x:auto;margin:10px 0}
+table.t{border-collapse:collapse;width:100%;background:#fff;font-size:13.5px}
+table.t th,table.t td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.t th{background:#eef2f7;font-weight:600;color:#2a3a52}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.c{text-align:center}
+td.src{font-size:12px;color:#33405a}
+a{color:var(--blue)}
+.tag{display:inline-block;font-size:10.5px;background:#eef2f7;color:#2a3a52;border-radius:3px;padding:0 4px;margin-left:2px}
+.flag{background:var(--red-lt);color:var(--red);padding:0 4px;border-radius:3px;font-size:12px}
+.nosrc{color:#7a4b00;font-style:italic;font-size:12.5px}
+.timeline{margin:12px 0}
+.tick{display:flex;gap:12px;padding:6px 0;border-left:3px solid var(--blue);padding-left:12px;margin-left:6px}
+.tick .when{min-width:170px;font-weight:600;color:var(--blue)}
+ol.q li{margin:4px 0}
+footer{max-width:1180px;margin:auto;padding:0 22px 30px;font-size:12.5px;color:var(--muted)}
+/* one-page printable brief */
+.sheet{background:#fff;border:1px solid var(--line);padding:18px 22px}
+@page{size:letter;margin:0.5in}
+@media print{
+  header.top,nav.main,footer,.noprint{display:none!important}
+  body{background:#fff;font-size:10.5pt;line-height:1.3}
+  main{padding:0;max-width:none}
+  .sheet{border:none;padding:0}
+  h1{font-size:16pt;margin:0 0 4px}
+  h2,h3{font-size:11pt;margin:6px 0 3px}
+  table.t{font-size:9pt}
+  table.t th,table.t td{padding:2px 4px}
+  ol.q{margin:2px 0 2px 16px;padding:0}
+  ol.q li{margin:1px 0;font-size:9.5pt}
+  p,.small{margin:3px 0;font-size:9pt}
+  .sheet{page-break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+</style></head><body><header class="top"><div class="top-in"><a class="brand" href="index.html">Property A and B decision desk</a><span class="sub">Sell, let or live in it, and how to phase the money. Source-linked; placeholders only.</span></div></header><nav class="main" aria-label="Main"><div class="in"><div class="grp"><b>Decide</b><a href="index.html">Summary</a><a href="paths.html">Mixed paths</a><a href="phased.html">Phased entry test</a></div><div class="grp"><b>Plan</b><a href="timeline.html">Deadlines timeline</a><a href="questions.html">Questions and gaps</a></div><div class="grp"><b>Share</b><a href="brief.html">Attorney &amp; CPA sheet</a></div><div class="grp"><b>Reference</b><a href="glossary.html">Glossary</a><a href="sources.html" class="on">Sources</a><a href="method.html">Method</a></div><div class="grp"><b>Review</b><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a></div></div></nav><main><div class="privacy noprint">Privacy: Property A and Property B are placeholders. No names, addresses, parcel or account numbers, ZIP codes or city names appear on this desk. Money is rounded to the nearest $10. This desk is a decision aid, not advice.</div>
+<h1>Sources</h1>
+<p class="sub">Every source used on this desk. "Opened" means the text was read in this session. "Reused" means
+it was taken from the cbe/ register and has not been re-opened here; each reused source is flagged.</p>
+<div class="scroll"><table class="t"><thead><tr><th>Publisher</th><th>Title</th><th>What was read or how it is used</th><th>Supports</th></tr></thead><tbody><tr><td class=""><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611" rel="noopener noreferrer">U.S. Department of the Treasury</a> <span class="tag">opened</span></td><td class="">Daily Treasury Par Yield Curve Rates, November 2026</td><td class="">Retrieved 2026-11-14. Row for 11/13/2026: 3 Mo 4.32 percent; 2 Yr 4.88 percent.</td><td class="src">Treasury 3-month and 2-year yields, 13 Nov 2026</td></tr><tr><td class=""><a href="https://www.federalreservehistory.org/essays/stock-market-crash-of-1929" rel="noopener noreferrer">Federal Reserve History (Federal Reserve System)</a> <span class="tag">opened</span></td><td class="">Stock Market Crash of 1929</td><td class="">Retrieved 2026-11-14. Index peaked 3 Sep 1929 at 381.17; closed 8 Jul 1932 at 41.22, 89 percent below its peak. Did not regain the 1929 high until 23 Nov 1954. This is the Dow Jones Industrial Average, a price index without dividends.</td><td class="src">1929 peak and trough, 89 percent decline</td></tr><tr><td class=""><a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer">Federal Reserve History (Federal Reserve System)</a> <span class="tag">opened</span></td><td class="">The Great Recession (December 2007 to June 2009)</td><td class="">Retrieved 2026-11-14. The S&P 500 index fell 57 percent from its October 2007 peak to its trough in March 2009. A price index, not total return.</td><td class="src">2008 decline of 57 percent</td></tr><tr><td class=""><a href="https://www.irs.gov/taxtopics/tc701" rel="noopener noreferrer">Internal Revenue Service</a> <span class="tag">opened</span></td><td class="">Topic no. 701, Sale of your home</td><td class="">Retrieved 2026-11-14. Exclusion of up to $250,000 of gain, or $500,000 on a joint return. Ownership and use tests: 24 months of the last 5 years each.</td><td class="src">Home-sale exclusion, ownership and use tests</td></tr><tr><td class=""><a href="https://www.irs.gov/taxtopics/tc409" rel="noopener noreferrer">Internal Revenue Service</a> <span class="tag">opened</span></td><td class="">Topic no. 409, Capital gains and losses</td><td class="">Retrieved 2026-11-14. Net capital gains: 20 percent top rate for taxable income above the 15 percent thresholds. Unrecaptured section 1250 gain: maximum 25 percent. Thresholds quoted are for 2025.</td><td class="src">Capital gains rates, unrecaptured section 1250 gain</td></tr><tr><td class=""><a href="https://www.irs.gov/individuals/net-investment-income-tax" rel="noopener noreferrer">Internal Revenue Service</a> <span class="tag">opened</span></td><td class="">Net Investment Income Tax</td><td class="">Retrieved 2026-11-14. 3.8 percent tax on net investment income above $200,000 single. Includes interest, dividends and capital gains. Gain excluded under the home-sale rules is not net investment income.</td><td class="src">3.8 percent net investment income tax</td></tr><tr><td class=""><a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" rel="noopener noreferrer">Internal Revenue Service</a> <span class="tag">opened</span></td><td class="">Frequently asked questions on estate taxes</td><td class="">Retrieved 2026-11-14. Form 706 due nine months after the date of death; automatic six-month extension on Form 4768 filed by the due date. Filing threshold for a 2026 death: $15,000,000. Portability election requires a timely return.</td><td class="src">Form 706 due date, extension, threshold for 2026</td></tr><tr><td class=""><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer">California State Board of Equalization</a> <span class="tag">opened</span></td><td class="">Letter to Assessors 2026/026: Proposition 19 Intergenerational Transfer Exclusion, FAQ</td><td class="">Retrieved 2026-11-14, dated 3 August 2026. Family home and principal residence definitions; excluded amount is the factored base year value plus $1,000,000 (the value cap), adjusted every second February 16 from 2023; new base year value is enrolled if the exclusion is removed.</td><td class="src">Proposition 19 definitions and value cap</td></tr><tr><td class=""><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" rel="noopener noreferrer">California Legislative Information</a> <span class="tag">opened</span></td><td class="">Revenue and Taxation Code section 63.2</td><td class="">Retrieved 2026-11-14. (a)(1)(A): transferee must make the home a principal residence within one year. (a)(1)(B): file for the homeowners' or disabled veterans' exemption within a year. (f)(1)(A): claim within three years, or before a transfer to a third party, or when an eligible transferee stops occupying, whichever is earlier. (f)(1)(B): claim timely if filed within six months after a supplemental or escape assessment notice. (c): claim is not a public document. (e)(9): transfer through an inter vivos or testamentary trust counts as a transfer.</td><td class="src">Move-in, exemption and claim deadlines</td></tr><tr><td class=""><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043" rel="noopener noreferrer">California Legislative Information</a> <span class="tag">opened</span></td><td class="">Revenue and Taxation Code section 17043</td><td class="">Retrieved 2026-11-14. Additional 1 percent tax on taxable income above $1,000,000.</td><td class="src">1 percent additional tax above $1,000,000</td></tr><tr><td class=""><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" rel="noopener noreferrer">Internal Revenue Service</a> <span class="tag">reused, not re-opened</span></td><td class="">News release IR-2026-133, tax year 2027 inflation adjustments</td><td class="">REUSED from cbe/_src/sources.py (opened by session arena-cbe837cb). Top income rate 37 percent. Not re-opened in this session; listed on flagged.html.</td><td class="src">37 percent top rate (reused, not re-opened)</td></tr><tr><td class=""><a href="https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf" rel="noopener noreferrer">Franchise Tax Board (California)</a> <span class="tag">reused, not re-opened</span></td><td class="">2025 California tax rate schedules</td><td class="">REUSED from cbe/_src/sources.py (opened by session arena-cbe837cb). Top rate 12.3 percent. Not re-opened in this session; listed on flagged.html.</td><td class="src">12.3 percent top rate (reused, not re-opened)</td></tr><tr><td class=""><a href="../cbe/options.html" rel="noopener noreferrer">Owner-brief desk (this repository)</a> <span class="tag">internal</span></td><td class="">cbe/ owner-brief model and options page (read-only import)</td><td class="">Internal. Property values, rents, running costs and break-evens come from cbe/_src/model.py, which lists its own sources on cbe/sources.html.</td><td class="src"><span class="nosrc">No official source: internal page</span> Property values, rents, costs, break-evens (cbe desk)</td></tr><tr><td class=""><a href="../cbe/phased-investing.html" rel="noopener noreferrer">Owner-brief desk (this repository)</a> <span class="tag">internal</span></td><td class="">Phased investing stress test (cbe/phased-investing.html)</td><td class="">Internal. Built by session arena-ad490053 and merged on main. This desk links to it and does not rebuild it.</td><td class="src"><span class="nosrc">No official source: internal page</span> Phased-investing calculator (cbe desk)</td></tr></tbody></table></div>
+</main><footer>Generated by cbd/_src/build.py. Every figure is computed by desk_model.py and checked by verify.py. Sources: <a href="sources.html">sources</a> &middot; <a href="flagged.html">flagged for review</a> &middot; <a href="method.html">method</a> &middot; <a href="../index.html">hub</a></footer></body></html>

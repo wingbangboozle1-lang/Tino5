@@ -27,6 +27,8 @@ OFFICIAL_HOSTS = {
     "www.insurance.ca.gov",
     "www.congress.gov",
     "crsreports.congress.gov",
+    "www.treasurydirect.gov",
+    "home.treasury.gov",
 }
 
 SOURCES = [

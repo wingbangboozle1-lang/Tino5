@@ -64,6 +64,8 @@ def page_index():
          "The recommendation, the three numbers that decide it, and the five facts still missing."),
         ("options.html", "The three options",
          "Occupy, let, or sell and reinvest &mdash; with the break-even rent, growth rate and return."),
+        ("phased-investing.html", "Phased investing stress test",
+         "Compare lump-sum stock entry with 24–36 months in short Treasuries, followed by staged purchases."),
         ("questions.html", "Questions and gaps",
          "Every open question, what decision it blocks, and how to get the answer."),
         ("suggestions.html", "Suggestions",

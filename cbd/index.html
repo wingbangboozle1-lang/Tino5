@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><title>Summary &mdash; Property A and B decision desk</title><style>
+:root{--ink:#1b2330;--muted:#5b6474;--line:#dfe3ea;--bg:#f6f7f9;--card:#fff;--blue:#1f4e79;
+--blue-lt:#eef3f7;--amber:#8a5a00;--amber-lt:#fdf3e0;--red:#9b2226;--red-lt:#fdecec;--green:#1f6b3f}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.top-in .brand{font-weight:700;color:var(--blue);font-size:18px;text-decoration:none}
+.top-in .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main .in{max-width:1180px;margin:auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:4px 18px}
+nav.main .grp{padding:6px 0;}
+nav.main .grp b{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9fc0da;margin-top:4px}
+nav.main .grp a{display:inline-block;padding:3px 0;color:#e6eff6;text-decoration:none;font-size:13.5px;margin-right:12px}
+nav.main .grp a:hover{color:#fff;text-decoration:underline}
+nav.main .grp a.on{color:#fff;font-weight:700;border-bottom:2px solid #fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h1{font-size:24px;margin:6px 0 6px;color:var(--blue)}
+h2{font-size:18px;margin:26px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:18px 0 6px}
+p{margin:8px 0}
+.sub{color:#2b3444;font-size:15px}
+.small{font-size:13px;color:var(--muted)}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.privacy{background:#eef6ef;border:1px solid #c9e3d2;border-left:4px solid var(--green);padding:8px 12px;border-radius:6px;font-size:12.5px;margin:10px 0 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.hl{border-left:4px solid var(--blue)}
+.card.rr{border-left:4px solid var(--amber)}
+.card.wc{border-left:4px solid var(--red)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.grid4{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:14px 0}
+a.card{color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:4px}
+a.card:hover{border-color:var(--blue)}
+a.card b{color:var(--blue)}
+a.card span{font-size:13px;color:var(--muted)}
+.scroll{overflow-x:auto;margin:10px 0}
+table.t{border-collapse:collapse;width:100%;background:#fff;font-size:13.5px}
+table.t th,table.t td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.t th{background:#eef2f7;font-weight:600;color:#2a3a52}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.c{text-align:center}
+td.src{font-size:12px;color:#33405a}
+a{color:var(--blue)}
+.tag{display:inline-block;font-size:10.5px;background:#eef2f7;color:#2a3a52;border-radius:3px;padding:0 4px;margin-left:2px}
+.flag{background:var(--red-lt);color:var(--red);padding:0 4px;border-radius:3px;font-size:12px}
+.nosrc{color:#7a4b00;font-style:italic;font-size:12.5px}
+.timeline{margin:12px 0}
+.tick{display:flex;gap:12px;padding:6px 0;border-left:3px solid var(--blue);padding-left:12px;margin-left:6px}
+.tick .when{min-width:170px;font-weight:600;color:var(--blue)}
+ol.q li{margin:4px 0}
+footer{max-width:1180px;margin:auto;padding:0 22px 30px;font-size:12.5px;color:var(--muted)}
+/* one-page printable brief */
+.sheet{background:#fff;border:1px solid var(--line);padding:18px 22px}
+@page{size:letter;margin:0.5in}
+@media print{
+  header.top,nav.main,footer,.noprint{display:none!important}
+  body{background:#fff;font-size:10.5pt;line-height:1.3}
+  main{padding:0;max-width:none}
+  .sheet{border:none;padding:0}
+  h1{font-size:16pt;margin:0 0 4px}
+  h2,h3{font-size:11pt;margin:6px 0 3px}
+  table.t{font-size:9pt}
+  table.t th,table.t td{padding:2px 4px}
+  ol.q{margin:2px 0 2px 16px;padding:0}
+  ol.q li{margin:1px 0;font-size:9.5pt}
+  p,.small{margin:3px 0;font-size:9pt}
+  .sheet{page-break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+</style></head><body><header class="top"><div class="top-in"><a class="brand" href="index.html">Property A and B decision desk</a><span class="sub">Sell, let or live in it, and how to phase the money. Source-linked; placeholders only.</span></div></header><nav class="main" aria-label="Main"><div class="in"><div class="grp"><b>Decide</b><a href="index.html" class="on">Summary</a><a href="paths.html">Mixed paths</a><a href="phased.html">Phased entry test</a></div><div class="grp"><b>Plan</b><a href="timeline.html">Deadlines timeline</a><a href="questions.html">Questions and gaps</a></div><div class="grp"><b>Share</b><a href="brief.html">Attorney &amp; CPA sheet</a></div><div class="grp"><b>Reference</b><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="method.html">Method</a></div><div class="grp"><b>Review</b><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a></div></div></nav><main><div class="privacy noprint">Privacy: Property A and Property B are placeholders. No names, addresses, parcel or account numbers, ZIP codes or city names appear on this desk. Money is rounded to the nearest $10. This desk is a decision aid, not advice.</div>
+<section class="first">
+  <h1>Property A: sell, let or live in it, and how to phase in the money</h1>
+  <p class="sub">Summary for the owner, the attorney and the tax adviser. Figures in present value at the
+  2045 midpoint of the 2040 to 2050 transfer window, rounded to the nearest $10.</p>
+  <div class="split">
+    <div class="card hl">
+      <h2>Headline</h2>
+      <p class="lead">Under the base assumptions the sale path that scores highest is <b>C</b>: <b>$9,256,470</b> in present value at the transfer year (2045 midpoint), against <b>$2,834,850</b> for keeping the house and living in it. That ranking is the base case only. It changes if a deep fall in equities comes soon after the sale, which is the risk the phase-in is meant to cover.</p>
+      <p class="small">Cash basis, as in the owner-brief options page. Living in the house is shown at its cash value
+      only, so it looks worse than it is. The imputed rent is shown on the options page.</p>
+    </div>
+    <div class="card rr">
+      <h2>Reinvestment risk, beside the headline</h2>
+      <p>The sale proceeds are assumed to sit in 3-month Treasury bills at <b>4.32%</b> (Treasury,
+      13 November 2026), which is <b>2.56%</b> after federal tax at 37% and the 3.8% surcharge. Equity is
+      assumed at <b>6.40%</b> net. The gap between those two rates is the cost of waiting.</p>
+      <div class="scroll"><table class="t"><thead><tr><th>Phase-in path (transfer 2045, 31 years, per the paths table)</th><th>No shock</th><th>Cash rate down 1 point after 12 months</th><th>Down 2 points</th><th>Source</th></tr></thead><tbody><tr><td class="">D: sell, 24 months</td><td class="n">$8,798,250</td><td class="n">$8,775,530</td><td class="n">$8,759,670</td><td class="src"><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611" rel="noopener noreferrer">Treasury yields</a>; <span class="nosrc">model arithmetic, 1-point shock is a what-if</span></td></tr><tr><td class="">E: sell, 36 months</td><td class="n">$8,574,340</td><td class="n">$8,534,150</td><td class="n">$8,507,190</td><td class="src"><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611" rel="noopener noreferrer">Treasury yields</a>; <span class="nosrc">model arithmetic, 1-point shock is a what-if</span></td></tr></tbody></table></div>
+      <p class="small">If bill rates fall, the phase-in earns less while it waits. The loss is small, because the
+      money is parked for only 24 to 36 months.</p>
+    </div>
+  </div>
+
+  <div class="card wc">
+    <h2>What would change the answer</h2>
+    <ol><li><b>A market fall in the first 2 to 3 years after the sale.</b> A 2008-style fall at entry makes the 36-month phase-in (E) the best sale path, by $3,370,790 over the lump sum. A 1929-style fall makes letting the house (B) the best of all seven paths, because B has no equity exposure.</li><li><b>The price of the phase-in in a rising market.</b> In the base case the 36-month phase-in gives up $682,130 of present value against the lump sum (C). That is the premium paid for protection.</li><li><b>Portfolio return.</b> Living in the house beats selling only if the net portfolio return is below <b>5.20%</b> a year; letting it beats selling only below <b>5.15%</b> (cbe break-evens, econ basis).</li><li><b>Rent for Property A.</b> Letting beats selling only at a gross yield of at least <b>5.99%</b> (cbe, let versus sell; living in it, <b>4.68%</b>). No rent figure for Property A has been supplied or verified.</li><li><b>Price growth.</b> Living in the house beats selling only if house prices grow at least <b>5.58%</b> a year; letting it, at least <b>5.73%</b> (cbe break-evens).</li><li><b>Filing status for the home-sale exclusion.</b> A joint return doubles the exclusion from $250,000 to $500,000, which changes path F (live 5 years, then sell).</li><li><b>Whether the transfer is into the trust as the statute describes.</b> The exclusion depends on the trust and the principal-residence tests. This desk has not read the trust instrument.</li></ol>
+  </div>
+</section>
+
+<section>
+  <h2>Pick a path</h2>
+  <p>The table below has the seven paths, with a row-level source on each. The full table with
+  the stress columns is on <a href="paths.html">Mixed paths</a>. The phase-in mechanics are tested on
+  <a href="phased.html">the phased entry test</a>. The interactive calculator for the same mechanics is
+  <a href="../cbe/phased-investing.html">cbe/phased-investing.html</a>, built by another session.</p>
+  <div class="scroll"><table class="t"><thead><tr><th>Path</th><th>What it means</th><th>Base</th><th>2008-style fall at entry</th><th>1929-style fall at entry</th><th>Sources</th></tr></thead><tbody><tr><td class="c">A</td><td class="">Live in it, hold it</td><td class="n">$2,834,850</td><td class="n">$2,834,850</td><td class="n">$2,834,850</td><td class="src">No official source for owner property figures (flag F01); model arithmetic from cbe; rate rule: <a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer">BOE LTA 2026/026</a></td></tr><tr><td class="c">B</td><td class="">Let it out, hold it</td><td class="n">$5,373,030</td><td class="n">$5,373,030</td><td class="n">$5,373,030</td><td class="src">No official source for owner property figures (flag F01); model arithmetic from cbe</td></tr><tr><td class="c">C</td><td class="">Sell at transfer, one lump sum</td><td class="n">$9,256,470</td><td class="n">$3,645,410</td><td class="n">$854,090</td><td class="src"><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611" rel="noopener noreferrer">Treasury yields</a>, <a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer">Fed History</a></td></tr><tr><td class="c">D</td><td class="">Sell, phase in over 24 months</td><td class="n">$8,798,250</td><td class="n">$6,461,040</td><td class="n">$2,059,920</td><td class="src"><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611" rel="noopener noreferrer">Treasury yields</a>, <a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer">Fed History</a></td></tr><tr><td class="c">E</td><td class="">Sell, phase in over 36 months</td><td class="n">$8,574,340</td><td class="n">$7,016,200</td><td class="n">$3,398,430</td><td class="src"><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611" rel="noopener noreferrer">Treasury yields</a>, <a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer">Fed History</a></td></tr><tr><td class="c">F</td><td class="">Live 5 years, then sell and phase in over 36 months</td><td class="n">$6,995,570</td><td class="n">$5,652,930</td><td class="n">$2,535,520</td><td class="src"><a href="https://www.irs.gov/taxtopics/tc701" rel="noopener noreferrer">IRS Topic 701</a>, <a href="https://www.irs.gov/taxtopics/tc409" rel="noopener noreferrer">IRS Topic 409</a>, <a href="https://www.irs.gov/individuals/net-investment-income-tax" rel="noopener noreferrer">IRS NIIT</a></td></tr><tr><td class="c">G</td><td class="">Let 5 years, then sell and phase in over 24 months</td><td class="n">$7,088,050</td><td class="n">$5,211,630</td><td class="n">$1,678,220</td><td class="src"><a href="https://www.irs.gov/taxtopics/tc409" rel="noopener noreferrer">IRS Topic 409</a>, <a href="https://www.irs.gov/taxtopics/tc701" rel="noopener noreferrer">IRS Topic 701</a></td></tr></tbody></table></div>
+</section>
+
+<section class="grid4">
+  <a class="card" href="paths.html"><b>Mixed paths</b><span>Seven paths, three crash scenarios, three transfer years.</span></a>
+  <a class="card" href="phased.html"><b>Phased entry test</b><span>1929 and 2008 entry crashes, break-even trough levels.</span></a>
+  <a class="card" href="timeline.html"><b>Deadlines timeline</b><span>The dated steps, with the statute behind each.</span></a>
+  <a class="card" href="brief.html"><b>Attorney &amp; CPA sheet</b><span>One printable page for the two advisers.</span></a>
+</section>
+</main><footer>Generated by cbd/_src/build.py. Every figure is computed by desk_model.py and checked by verify.py. Sources: <a href="sources.html">sources</a> &middot; <a href="flagged.html">flagged for review</a> &middot; <a href="method.html">method</a> &middot; <a href="../index.html">hub</a></footer></body></html>

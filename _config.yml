@@ -19,6 +19,15 @@ exclude:
   # desk-31cb5781 (session arena-31cb5781, 2026-11-14): generator/verifier are working material, not pages.
   - "desk-31cb5781/_src"
   - "desk-31cb5781/_src/**"
+  - "phase-99220/_src"
+  - "phase-99220/_src/**"
+  - "cbd/_src"
+  - "cbd/_src/**"
+  # inheritance desk: generator and model are working material; owner input data is not published
+  - "inheritance-desk/_src"
+  - "inheritance-desk/_src/**"
+  - "inheritance-desk/data"
+  - "inheritance-desk/data/**"
   - "COORDINATION.md"
   - "README.md"
   - "analysis"
