@@ -470,7 +470,7 @@ def _questions():
          ["boe_pub29"]),
         ("What makes up the unexplained %s on Property B's bill?" % M(_B_RESIDUAL),
          "About %s of that bill is not explained by the official secured rate applied to the "
-         "assessed value" % P(_B_RESIDUAL / m.OWNER["b_bill_2025"]),
+         "assessed value" % P(_B_RESIDUAL / m.OWNER["b_bill_2025"], 0),
          "Flagged",
          "Read the itemised charges on the bill; parcel taxes and bond levies are not ad valorem",
          ["sftreasurer_secured"]),

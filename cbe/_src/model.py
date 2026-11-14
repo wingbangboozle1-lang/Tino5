@@ -169,7 +169,10 @@ ASSUMPTION_NOTES = [
     ("land_share", "20.0%",
      "Land as a share of value; only the improvement share is depreciable. Chosen, not appraised."),
     ("depreciation_years", "27.5",
-     "The federal straight-line recovery period for residential rental property."),
+     "The federal straight-line recovery period for residential rental property. It is carried as "
+     "an assumption rather than as a verified figure because no official source for it was "
+     "retrieved into this desk; it affects the letting option only, and only through the "
+     "depreciation shield."),
     ("selling_cost", "6.0%",
      "Commission, escrow, transfer charges and any city and county transfer tax on a sale."),
     ("maint_a / maint_b", "0.8% / 1.2% of value a year",
