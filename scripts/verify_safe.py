@@ -42,13 +42,16 @@ DEPLOYMENT_EXCLUSIONS = {
 # The d75/INT merge of origin/main kept all three additions in one set: a second assignment
 # here would silently replace the first, and the directory it dropped would fail the
 # fail-closed rule below.
+# cbd added by the cbd/S run (session arena-cbd1473c, 2026-11-14): the 11-page property
+# decision desk with mixed paths, phased-entry test, what-if table and one-page adviser sheet.
+# Folded into the same set above.
 # cbe added by the cbe/S run (session arena-cbe837cb, 2026-11-14): the 17-page property
 # decision desk, rebuilt end to end from one model and one source register, with its own
 # build.py / verify.py / test_model.py and the strictest verifier in this repository.
 # Folded into the same single set — a second assignment here would silently replace the
 # first, and every directory it dropped would then fail the fail-closed rule below.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220"}
+                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
