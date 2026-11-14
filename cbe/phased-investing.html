@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
-<title>Phased investing stress test &mdash; Property decision desk</title>
+<title>Phased investing overview &mdash; Property decision desk</title>
 <style>
 :root{
   --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
@@ -86,23 +86,46 @@ footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-
   .kpi .v{font-size:19px}
   table.data{font-size:12.4px}
 }
+nav.main details{display:inline-block;position:relative}
+nav.main summary{list-style:none;cursor:pointer;padding:9px 12px;color:#dce8f1;font-size:13px}
+nav.main summary::-webkit-details-marker{display:none}
+nav.main details[open]{background:#2a5f8f}
+nav.main details ul{display:block;position:absolute;z-index:5;min-width:235px;max-height:70vh;overflow:auto;top:100%;left:0;padding:5px 0;background:#fff;box-shadow:0 4px 14px #0003}
+nav.main details li{display:block}
+nav.main details a{color:var(--blue);padding:8px 12px;border:0}
+nav.main details a:hover,nav.main details a.on{color:#fff;background:#2a5f8f}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.control{background:#fff;border:1px solid var(--line);border-radius:7px;padding:10px}
+.control label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px}
+.control input{width:100%;padding:7px;border:1px solid #aeb9c6;border-radius:4px;font:inherit}
+.result{background:var(--green-lt);padding:12px;border-radius:7px;margin:10px 0;min-height:42px}
+@media print{
+  body{background:#fff;font-size:9pt;color:#000}
+  nav.main,header.top,footer,.no-print{display:none!important}
+  main{max-width:none;padding:0;margin:0}
+  .brief-sheet{font-size:8.5pt;line-height:1.25}
+  .brief-sheet h2{font-size:11pt;margin:8px 0 3px}
+  .brief-sheet h3{font-size:9pt;margin:5px 0 2px}
+  .brief-sheet p{margin:3px 0}
+  .brief-sheet .banner{margin:4px 0;padding:5px 7px}
+  .brief-sheet table.data{font-size:7.5pt}
+  .brief-sheet table.data td,.brief-sheet table.data th{padding:3px 4px}
+  .brief-sheet .tblwrap{margin:4px 0}
+  .brief-sheet a{color:#000;text-decoration:none}
+  @page{size:letter portrait;margin:0.35in}
+}
 </style>
 
 </head>
 <body>
 <header class="top"><div class="top-in">
 <h1>Property decision desk</h1>
-<div class="sub">Phased investing stress test</div>
+<div class="sub">Phased investing overview</div>
 </div></header>
-<nav class="main"><ul><li><a href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li><li><a href="options.html">The three options</a></li><li><a class="on" href="phased-investing.html">Phased investing</a></li><li><a href="black-swan.html">Black swans</a></li><li><a href="process.html">The transfer, step by step</a></li><li><a href="questions.html">Questions and gaps</a></li><li><a href="suggestions.html">Suggestions</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Sources</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method and privacy</a></li></ul></nav>
+<nav class="main"><ul><li><details><summary>Start here</summary><ul><li><a href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a href="brief.html">Attorney &amp; CPA brief</a></li></ul></details></li><li><details><summary>Property &amp; tax</summary><ul><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li></ul></details></li><li><details open><summary>Decision paths</summary><ul><li><a href="options.html">Options &amp; mixed paths</a></li><li><a class="on" href="phased-investing.html">Phased investing</a></li><li><a href="black-swan.html">Black swans &amp; phased investing</a></li><li><a href="process.html">Transfer timeline</a></li><li><a href="questions.html">Questions &amp; gaps</a></li></ul></details></li><li><details><summary>Review &amp; references</summary><ul><li><a href="suggestions.html">Suggestions for review</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Source register</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method &amp; privacy</a></li><li><a href="glossary.html">Glossary</a></li></ul></details></li></ul></nav>
 <main>
-<div class="banner"><b>Privacy.</b> No name, street address, parcel identifier, account number, postcode or city appears anywhere on this site. The two properties are called Property A and Property B. Every dollar figure is rounded to the nearest $10 so that a published number cannot be matched back to a public record. Statutory amounts are quoted exactly as published because they are statewide constants and identify nobody.</div>
-<p class="lead">Test parking hypothetical sale proceeds in short Treasuries for 24–36 months, then phasing into stocks. This is an assumption-driven stress illustration, not a forecast or recommendation.</p>
-<div class="banner warn"><b>What would change the answer?</b> Net proceeds after taxes and costs; actual Treasury yields and reinvestment rates; investment allocation; spending needs; and market return sequence. Short maturities reduce price sensitivity if held to maturity, but rolling securities creates reinvestment risk.</div>
-<h2>What-if controls</h2><label>Illustrative proceeds ($) <input id="principal" type="number" min="0" step="10000" value="1000000"></label> <label>Annual Treasury yield assumption (%) <input id="yield" type="number" min="0" max="20" step="0.1" value="3"></label> <label>Phasing period <select id="months"><option value="24">24 months</option><option value="30" selected>30 months</option><option value="36">36 months</option></select></label> <label>Hypothetical equity decline (%) <input id="crash" type="number" min="0" max="80" step="1" value="40"></label> <button id="recalc" type="button">Recalculate</button>
-<h2>Illustration</h2><div class="tblwrap"><table class="data"><thead><tr><th>Case</th><th>End value</th><th>Interpretation</th></tr></thead><tbody id="rows"></tbody></table></div>
-<p>Equal monthly purchases, constant user-entered annual Treasury yield compounded monthly; no fees, taxes, inflation, dividends, or recovery. Each equity purchase is assumed to encounter the same hypothetical decline. A lump-sum investment is exposed to the decline immediately. This does not replay historical 1929 or 2008 returns.</p><h2>Risks beside the headline</h2><ul class="tight"><li><b>Reinvestment risk:</b> future maturities may only reinvest at lower yields; the fixed-yield control does not capture this, so it can overstate parking returns.</li><li><b>Opportunity cost:</b> rising markets during the delay can make phased investing lag lump-sum entry.</li><li><b>Sequence risk:</b> a decline after most tranches are invested can cause materially different losses.</li><li><b>Taxes/inflation:</b> nominal values omit both; verify treatment with a tax adviser.</li></ul><h2>Official sources</h2><ul class="tight"><li><a href="https://www.treasurydirect.gov/marketable-securities/treasury-bills/">TreasuryDirect — Treasury bills</a></li><li><a href="https://www.treasurydirect.gov/marketable-securities/treasury-notes/">TreasuryDirect — Treasury notes</a></li><li><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates">U.S. Treasury — yield curve rates</a></li><li><a href="https://www.irs.gov/taxtopics/tc403">IRS — interest received</a></li></ul>
-<script>"use strict";(()=>{const q=s=>document.querySelector(s);function run(){const p=Math.max(0,Number(q('#principal').value)||0),y=Math.max(0,Number(q('#yield').value)||0)/100,m=Number(q('#months').value),d=Math.min(80,Math.max(0,Number(q('#crash').value)||0))/100,fmt=n=>'$'+(Math.round(n/10)*10).toLocaleString('en-US');let phased=0;for(let i=0;i<m;i++)phased+=(p/m)*Math.pow(1+y,(m-i)/12)*(1-d);const lump=p*(1-d)*Math.pow(1+y,m/12);q('#rows').innerHTML='<tr><td>Lump sum</td><td>'+fmt(lump)+'</td><td>Whole amount experiences assumed decline</td></tr><tr><td>Equal monthly phases</td><td>'+fmt(phased)+'</td><td>Uninvested balance earns assumed Treasury yield</td></tr>'; }q('#recalc').addEventListener('click',run);run();})();</script>
+<div class="banner"><b>Privacy.</b> Current pages omit names, street addresses, parcel/account identifiers, postcodes and city names; the properties are called Property A and Property B. Owner-specific money figures on current pages are rounded to the nearest $10, but rounding is not a guarantee of anonymity and does not remove earlier versions from Git history. Statutory amounts may be quoted exactly as published. See <a href="flagged.html">Flagged for review</a> before treating the repository as fully scrubbed.</div>
+<p class="lead">A phased sale-proceeds path is available inside the <a href="black-swan.html#phase-calculator">Black swans &amp; phased investing page</a>: park proceeds in a rolling 3-month-to-2-year Treasury ladder for a user-selected 24–36 months, then phase purchases into equities.</p><div class="banner warn"><b>What the model does and does not claim.</b> The calculator requires user-entered proceeds, Treasury yields, equity return and hypothetical crash magnitude/timing. It does not prefill unknown rates or treat recession dates as stock-market losses. The Treasury curve link describes current market observations, not a future inheritance-year yield.</div><h2>Risks to compare</h2><ul class="tight"><li><b>Reinvestment risk:</b> each maturity may roll into a different yield.</li><li><b>Opportunity cost:</b> equities may rise during the parking period.</li><li><b>Sequence risk:</b> a fall before, during or after phasing changes which purchases experience it.</li><li><b>Tax and inflation drag:</b> not included in the local calculator; model with an adviser separately.</li></ul><p class="small">Official rate series: <a class="src" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener noreferrer" title="Daily Treasury Par Yield Curve Rates">U.S. Department of the Treasury</a>. Historical economic dates: <a class="src" href="https://www.nber.org/research/business-cycle-dating/business-cycle-dating-procedure-frequently-asked-questions" target="_blank" rel="noopener noreferrer" title="Business Cycle Dating Procedure: Frequently Asked Questions">National Bureau of Economic Research</a><br><a class="src" href="https://www.nber.org/news/business-cycle-dating-committee-announcement-september-20-2010" target="_blank" rel="noopener noreferrer" title="Business Cycle Dating Committee Announcement, September 20, 2010">National Bureau of Economic Research</a>; dates do not provide market drawdowns.</p>
 </main>
 <footer>
 Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at

@@ -27,8 +27,8 @@ OFFICIAL_HOSTS = {
     "www.insurance.ca.gov",
     "www.congress.gov",
     "crsreports.congress.gov",
-    "www.treasurydirect.gov",
     "home.treasury.gov",
+    "www.nber.org",
 }
 
 SOURCES = [
@@ -136,9 +136,7 @@ SOURCES = [
             "acquired from a decedent and the fair market value definition."
         ),
         checked=(
-            "Retrieved 2026-11-14; the table of contents was read and the 'Basis Other Than Cost' "
-            "section located. The section text itself was NOT opened, so basis rules are cited here as "
-            "'check here' and the desk relies on Topic 409 and the IRS estate tax page for the figures it asserts."
+            "Retrieved and read 2026-11-14, including the inherited-property section: inherited basis is generally date-of-death fair market value, subject to listed alternatives and exceptions; actual basis is fact-specific."
         ),
     ),
     # ---------------------------------------------------- california: property tax
@@ -504,11 +502,59 @@ SOURCES = [
         ),
         checked="Retrieved and read 2026-11-14.",
     ),
+    dict(
+        id="irs_form706_instructions",
+        publisher="Internal Revenue Service",
+        title="Instructions for Form 706 (Rev. July 2026)",
+        url="https://www.irs.gov/pub/irs-pdf/i706.pdf",
+        evidences=(
+            "When a federal estate tax return is required, Form 706 is generally due within 9 months after "
+            "date of death. Form 4768 can request an automatic 6-month filing extension; tax payment is "
+            "generally due within 9 months unless a payment extension is granted. Confirm instructions "
+            "in force for the actual year of death."
+        ),
+        checked="Official IRS instructions located by official-site search 2026-11-14; deadline is presented as a conditional general rule, not a determination that filing is required.",
+    ),
+    dict(
+        id="treasury_yield_curve",
+        publisher="U.S. Department of the Treasury",
+        title="Daily Treasury Par Yield Curve Rates",
+        url="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+        evidences=(
+            "The Treasury publishes daily par yield curves with 3-month and 2-year constant-maturity "
+            "points. The curve is an indicative market-derived series, not a promise of future roll-over "
+            "rates. No future yield is asserted by this site."
+        ),
+        checked="Retrieved and read 2026-11-14; no yield value is asserted from this source.",
+    ),
+    dict(
+        id="nber_cycle_faq",
+        publisher="National Bureau of Economic Research",
+        title="Business Cycle Dating Procedure: Frequently Asked Questions",
+        url="https://www.nber.org/research/business-cycle-dating/business-cycle-dating-procedure-frequently-asked-questions",
+        evidences=(
+            "The NBER dates U.S. business-cycle peak and trough months using several economic indicators; "
+            "the series dates are not investment-return or equity-drawdown data. The FAQ identifies the "
+            "August 1929 peak and March 1933 trough and explains that NBER does not separately designate depressions."
+        ),
+        checked="Retrieved and read 2026-11-14.",
+    ),
+    dict(
+        id="nber_2009_trough",
+        publisher="National Bureau of Economic Research",
+        title="Business Cycle Dating Committee Announcement, September 20, 2010",
+        url="https://www.nber.org/news/business-cycle-dating-committee-announcement-september-20-2010",
+        evidences=(
+            "The NBER committee dated the recession peak to December 2007 and trough to June 2009; "
+            "this dates the contraction, not an equity market's loss or recovery."
+        ),
+        checked="Retrieved by official-site search result; the NBER FAQ was separately retrieved and read.",
+    ),
 ]
 
 # Sources referenced by a link but not opened in this session. Every row that leans on one of
 # these carries an explicit "not opened — check here" marker in the cell.
-NOT_OPENED = ["irs_rp2026_35", "irs_i706", "irs_p551", "boe_lta2021_054", "fhfa_hpi"]
+NOT_OPENED = ["irs_rp2026_35", "irs_i706", "boe_lta2021_054", "fhfa_hpi"]
 
 # Statutory amounts quoted exactly as published. Statewide constants; they identify nothing,
 # so they are deliberately NOT rounded to $10. Everything else on the desk is rounded.
