@@ -48,7 +48,7 @@ DEPLOYMENT_EXCLUSIONS = {
 # Folded into the same single set — a second assignment here would silently replace the
 # first, and every directory it dropped would then fail the fail-closed rule below.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe"}
+                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -61,6 +61,8 @@ ALLOWED_HOSTS = {
     "www.insurance.ca.gov", "selfhelp.courts.ca.gov", "leginfo.legislature.ca.gov",
     "www.cpuc.ca.gov", "electionresults.sos.ca.gov", "www.bls.gov", "www.fhfa.gov",
     "www.federalreserve.gov", "www.usgs.gov",
+    # phase-99220 (arena-99220bc7): Treasury yields, FRED, Federal Reserve History, SFPUC link (flagged, not opened).
+    "home.treasury.gov", "fred.stlouisfed.org", "www.federalreservehistory.org", "www.sfpuc.org",
     # Judicial Council of California — DE-300 probate thresholds (7b/INT gap fix).
     "courts.ca.gov", "www.courts.ca.gov",
 }
