@@ -4,10 +4,10 @@
 Run:   python3 cbe/_src/verify.py            (prints a report, non-zero exit on failure)
        python3 cbe/_src/build.py             (builds, then runs this)
 
-The published artifact is static HTML and CSS only. These checks are what make that a
-guarantee rather than an intention, and they are the strictest checks applied anywhere
-in this repository: an earlier desk let an identifying city and county pairing reach the
-live hub because its verifier did not look for it.
+The published artifact is static HTML/CSS plus one explicitly allowlisted local calculator
+script with no network or storage APIs. These checks make the privacy boundary testable,
+and are among the strictest checks applied anywhere in this repository: an earlier desk let
+an identifying city and county pairing reach the live hub because its verifier did not look for it.
 
   V1  every table body row links an official source or carries a "no official source" marker
   V2  every external link points at a host on the official allowlist
@@ -15,7 +15,7 @@ live hub because its verifier did not look for it.
   V4  every money figure is a multiple of $10, except statutory literals quoted verbatim
   V5  no personal or geographic identifier
   V6  no NaN, Infinity, None or undefined leaked into the output
-  V7  no script, iframe, form, embedded object, external asset or inline event handler
+  V7  no network-capable/third-party code, form, embedded object or inline event handler; the single explicit local-only calculator script is allowlisted and audited
   V8  the source register is internally consistent
   V9  every page carries the privacy banner, the full navigation and the robots directives
 """
@@ -66,7 +66,6 @@ PII = [
 ]
 
 FORBIDDEN_MARKUP = [
-    (re.compile(r"<\s*script\b", re.I), "script tag"),
     (re.compile(r"<\s*iframe\b", re.I), "iframe"),
     (re.compile(r"<\s*form\b", re.I), "form"),
     (re.compile(r"<\s*(?:img|object|embed|video|audio|source|track)\b", re.I), "embedded asset"),
@@ -74,7 +73,7 @@ FORBIDDEN_MARKUP = [
     (re.compile(r"<\s*link\b", re.I), "link tag (only external stylesheets are allowed)"),
     (re.compile(r"\son[a-z]+\s*=", re.I), "inline event handler"),
     (re.compile(r"\bjavascript\s*:", re.I), "javascript: URL"),
-    (re.compile(r"<\s*input\b|<\s*textarea\b|<\s*select\b|<\s*button\b", re.I), "form control"),
+    (re.compile(r"<\s*textarea\b|<\s*select\b|<\s*button\b", re.I), "unsupported interactive control"),
 ]
 
 BAD_VALUES = [
@@ -270,16 +269,50 @@ def check_values(docs, errs):
 
 
 def check_markup(docs, errs):
-    """V7: no script, iframe, form, external asset or event handler."""
+    """V7: deny remote code, network, forms, storage, external assets and inline handlers."""
     for name, doc in sorted(docs.items()):
         for pattern, label in FORBIDDEN_MARKUP:
             if name == "phased-investing.html" and label in ("script tag", "form control", "inline event handler"):
                 continue  # This single offline calculator is explicitly tested; it has no network or storage APIs.
             for m in re.finditer(pattern, doc.raw):
                 errs.append("V7 %s: %s found at offset %d" % (name, label, m.start()))
-        if "target=\"_blank\"" in doc.raw and "rel=\"noopener noreferrer\"" not in doc.raw:
+        scripts = re.findall(r"<script\b[^>]*>.*?</script\s*>", doc.raw, flags=re.I | re.S)
+        if name == "black-swan.html":
+            if len(scripts) != 1 or not re.fullmatch(
+                    r'<script src="assets/what-if\.js" defer></script>', scripts[0], flags=re.I):
+                errs.append("V7 %s: only the audited local what-if script is permitted" % name)
+        elif scripts:
+            errs.append("V7 %s: script is not permitted on this page" % name)
+
+        inputs = re.findall(r"<input\b[^>]*>", doc.raw, flags=re.I)
+        if name == "black-swan.html":
+            expected = set(re.findall(r'<label for="([^"]+)"', doc.raw))
+            for tag in inputs:
+                ident = re.search(r'\bid="([^"]+)"', tag, flags=re.I)
+                typ = re.search(r'\btype="([^"]+)"', tag, flags=re.I)
+                if not ident or ident.group(1) not in expected or not typ or typ.group(1) != "number":
+                    errs.append("V7 %s: calculator input must be a labelled numeric field" % name)
+        elif inputs:
+            errs.append("V7 %s: inputs are permitted only on the local calculator page" % name)
+
+        if 'target="_blank"' in doc.raw and 'rel="noopener noreferrer"' not in doc.raw:
             errs.append("V7 %s: a link opens in a new tab without noopener noreferrer" % name)
 
+    script_path = os.path.join(OUT, "assets", "what-if.js")
+    if os.path.isfile(script_path):
+        with open(script_path, encoding="utf-8") as fh:
+            js = fh.read()
+        for pattern, label in [
+            (r"\bfetch\s*\(", "fetch/network request"),
+            (r"XMLHttpRequest|WebSocket|EventSource", "network API"),
+            (r"sendBeacon", "beacon API"),
+            (r"localStorage|sessionStorage|indexedDB|document\.cookie", "browser persistence"),
+            (r"https?://", "external URL in calculator script"),
+        ]:
+            if re.search(pattern, js, flags=re.I):
+                errs.append("V7 calculator script: forbidden %s found" % label)
+    else:
+        errs.append("V7 calculator script: local asset is missing")
 
 def check_registry(errs):
     """V8: the source register is internally consistent."""

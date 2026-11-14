@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Glossary &mdash; Property decision desk</title>
+<style>
+:root{
+  --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
+  --blue:#1f4e79; --blue-lt:#eef3f7; --green:#1f6b3f; --green-lt:#e8f3ec;
+  --amber:#8a5a00; --amber-lt:#fdf3e0; --red:#9b2226; --red-lt:#fdecec;
+  --grey-lt:#eef0f3;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:0}
+.top-in{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:19px;color:var(--blue);letter-spacing:.01em}
+header.top .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main ul{max-width:1180px;margin:auto;padding:0 22px;list-style:none;display:flex;flex-wrap:wrap;gap:2px}
+nav.main a{display:block;padding:9px 11px;color:#dce8f1;text-decoration:none;font-size:13px;border-bottom:3px solid transparent}
+nav.main a:hover{background:#2a5f8f;color:#fff}
+nav.main a.on{background:#2a5f8f;border-bottom-color:#fff;color:#fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h2{font-size:19px;margin:30px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+p{margin:10px 0}
+.lead{font-size:15.5px;color:#2b3444}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);
+  padding:11px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.banner.green{background:var(--green-lt);border-color:#c9e3d2;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;
+  color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--blue);background:#fbfdff}
+.card b{color:var(--blue);font-size:14.5px}
+.card span{font-size:12.8px;color:var(--muted);line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px;border-top:1px dotted var(--line);padding-top:5px}
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 0 0;margin:14px 0;overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13.2px}
+table.data th{background:var(--blue-lt);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+  position:sticky;top:0;font-size:12.4px;color:#324a63;vertical-align:bottom}
+table.data td{padding:8px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.mark td{background:#fffdf5}
+tr.hi td{background:var(--blue-lt)}
+td.t-lab{font-weight:600;color:#2b3444}
+.tn{font-size:12.4px;color:var(--muted);padding:8px 12px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:12px;color:var(--muted)}
+.legend span{padding:2px 8px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.pill{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.p-ver{background:var(--green-lt);color:var(--green);border:1px solid #c9e3d2}
+.p-own{background:var(--grey-lt);color:#41505f;border:1px solid #dde1e7}
+.p-der{background:var(--blue-lt);color:var(--blue);border:1px solid #cfe0ec}
+.p-asm{background:var(--amber-lt);color:var(--amber);border:1px solid #f0dcb4}
+.p-unv{background:var(--red-lt);color:var(--red);border:1px solid #f3cfcf}
+.p-new{background:#eef0f3;color:#41505f;border:1px solid #dde1e7}
+.t-ver{background:#fafdfb}.t-own{}.t-der{}.t-asm{}.t-unv{background:#fffaf9}
+a.src{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6cc;font-size:12.4px;white-space:nowrap}
+a.src:hover{background:var(--blue-lt)}
+a.src:visited{color:#3b5f85}
+a{color:var(--blue)}
+.nosrc{display:block;font-size:11.5px;color:var(--amber);margin-top:3px}
+.small{font-size:12.6px;color:var(--muted)}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:5px 0}
+code{background:var(--blue-lt);padding:1px 5px;border-radius:4px;font-size:12.6px}
+footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-size:12.4px}
+.bar{height:9px;border-radius:5px;background:#e7ebf0;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.bar i.neg{background:var(--red)}
+@media (max-width:640px){
+  main{padding:16px 14px 50px}
+  .kpi .v{font-size:19px}
+  table.data{font-size:12.4px}
+}
+nav.main details{display:inline-block;position:relative}
+nav.main summary{list-style:none;cursor:pointer;padding:9px 12px;color:#dce8f1;font-size:13px}
+nav.main summary::-webkit-details-marker{display:none}
+nav.main details[open]{background:#2a5f8f}
+nav.main details ul{display:block;position:absolute;z-index:5;min-width:235px;max-height:70vh;overflow:auto;top:100%;left:0;padding:5px 0;background:#fff;box-shadow:0 4px 14px #0003}
+nav.main details li{display:block}
+nav.main details a{color:var(--blue);padding:8px 12px;border:0}
+nav.main details a:hover,nav.main details a.on{color:#fff;background:#2a5f8f}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.control{background:#fff;border:1px solid var(--line);border-radius:7px;padding:10px}
+.control label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px}
+.control input{width:100%;padding:7px;border:1px solid #aeb9c6;border-radius:4px;font:inherit}
+.result{background:var(--green-lt);padding:12px;border-radius:7px;margin:10px 0;min-height:42px}
+@media print{
+  body{background:#fff;font-size:9pt;color:#000}
+  nav.main,header.top,footer,.no-print{display:none!important}
+  main{max-width:none;padding:0;margin:0}
+  .brief-sheet{font-size:8.5pt;line-height:1.25}
+  .brief-sheet h2{font-size:11pt;margin:8px 0 3px}
+  .brief-sheet h3{font-size:9pt;margin:5px 0 2px}
+  .brief-sheet p{margin:3px 0}
+  .brief-sheet .banner{margin:4px 0;padding:5px 7px}
+  .brief-sheet table.data{font-size:7.5pt}
+  .brief-sheet table.data td,.brief-sheet table.data th{padding:3px 4px}
+  .brief-sheet .tblwrap{margin:4px 0}
+  .brief-sheet a{color:#000;text-decoration:none}
+  @page{size:letter portrait;margin:0.35in}
+}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="top-in">
+<h1>Property decision desk</h1>
+<div class="sub">Glossary</div>
+</div></header>
+<nav class="main"><ul><li><details><summary>Start here</summary><ul><li><a href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a href="brief.html">Attorney &amp; CPA brief</a></li></ul></details></li><li><details><summary>Property &amp; tax</summary><ul><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li></ul></details></li><li><details><summary>Decision paths</summary><ul><li><a href="options.html">Options &amp; mixed paths</a></li><li><a href="black-swan.html">Black swans &amp; phased investing</a></li><li><a href="process.html">Transfer timeline</a></li><li><a href="questions.html">Questions &amp; gaps</a></li></ul></details></li><li><details open><summary>Review &amp; references</summary><ul><li><a href="suggestions.html">Suggestions for review</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Source register</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method &amp; privacy</a></li><li><a class="on" href="glossary.html">Glossary</a></li></ul></details></li></ul></nav>
+<main>
+<div class="banner"><b>Privacy.</b> Current pages omit names, street addresses, parcel/account identifiers, postcodes and city names; the properties are called Property A and Property B. Owner-specific money figures on current pages are rounded to the nearest $10, but rounding is not a guarantee of anonymity and does not remove earlier versions from Git history. Statutory amounts may be quoted exactly as published. See <a href="flagged.html">Flagged for review</a> before treating the repository as fully scrubbed.</div>
+<p class="lead">Plain-language terms used across the desk. A legal definition or tax treatment always takes precedence over this shorthand.</p><div class="tblwrap"><table class="data"><thead><tr><th>Term</th><th>Meaning here</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>Assessed value / factored base-year value</td><td>California property-tax value subject to statutory adjustment limits; not the same as a current market appraisal.</td><td><span class="pill p-ver">defined by statute</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a></td></tr><tr><td>Change in ownership</td><td>A legal event that may cause reassessment; the trust and title details determine the actual treatment.</td><td><span class="pill p-ver">defined by law</span></td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/pub29.pdf" target="_blank" rel="noopener noreferrer" title="Publication 29, California Property Tax: An Overview (March 2025)">California State Board of Equalization</a><br><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" target="_blank" rel="noopener noreferrer" title="Revenue and Taxation Code section 63.2 — exclusion of intergenerational transfers of a family home or family farm from change in ownership">California Legislative Information</a></td></tr><tr><td>Proposition 19 intergenerational exclusion</td><td>A conditional exclusion from reassessment for specified transfers, with occupancy and filing requirements; not a permanent freeze of the entire tax bill.</td><td><span class="pill p-ver">conditional</span></td><td><a class="src" href="https://www.boe.ca.gov/prop19/" target="_blank" rel="noopener noreferrer" title="Proposition 19 — Home Protection for Seniors, Severely Disabled, Families, and Victims of Wildfire or Natural Disasters Act">California State Board of Equalization</a><br><a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" target="_blank" rel="noopener noreferrer" title="Revenue and Taxation Code section 63.2 — exclusion of intergenerational transfers of a family home or family farm from change in ownership">California Legislative Information</a></td></tr><tr><td>Federal estate-tax basic exclusion</td><td>The federal threshold/exclusion framework used to determine whether estate tax may be due; the whole estate, gifts and applicable elections matter, not just one house.</td><td><span class="pill p-ver">annual law changes</span></td><td><a class="src" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" target="_blank" rel="noopener noreferrer" title="Estate tax (filing threshold for year of death)">Internal Revenue Service</a></td></tr><tr><td>Basis step-up</td><td>General shorthand for basis rules on property acquired from a decedent; the actual basis and exceptions depend on ownership and transfer facts.</td><td><span class="pill p-ver">fact-specific</span></td><td><a class="src" href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener noreferrer" title="Publication 551 (12/2025), Basis of Assets">Internal Revenue Service</a></td></tr><tr><td>Treasury yield curve</td><td>Published yields by maturity, including 3-month and 2-year points; a current curve does not promise the reinvestment rate available when a security matures later.</td><td><span class="pill p-ver">market data</span></td><td><a class="src" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener noreferrer" title="Daily Treasury Par Yield Curve Rates">U.S. Department of the Treasury</a></td></tr><tr><td>Sequence / crash-entry risk</td><td>The same long-term average return can produce a different outcome when a large fall happens before or after staged purchases. This tool uses an assumed single shock, not a historical equity series.</td><td><span class="pill p-asm">model term</span></td><td><span class="nosrc">No official source &mdash; plain-language model definition; no return series or drawdown is asserted</span></td></tr><tr><td>Reinvestment risk</td><td>The risk that cash from a maturing short Treasury must be rolled into a security with a different future yield; the future yield is unknown.</td><td><span class="pill p-asm">model term</span></td><td><a class="src" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener noreferrer" title="Daily Treasury Par Yield Curve Rates">U.S. Department of the Treasury</a></td></tr><tr><td>Black swan</td><td>A label for a severe, hard-to-predict event; this desk does not claim that a stress case forecasts an event or its market impact.</td><td><span class="pill p-asm">not a legal category</span></td><td><span class="nosrc">No official source &mdash; plain-language definition; no forecast is asserted</span></td></tr><tr><td>Mixed path</td><td>A strategy combining property occupancy/rental choices with liquidity reserves, Treasury holdings and/or staged market investment; feasibility and tax outcomes depend on facts.</td><td><span class="pill p-asm">scenario label</span></td><td><span class="nosrc">No official source &mdash; a planning category, not a statutory term</span></td></tr></tbody></table></div><div class="banner warn"><b>Important distinction:</b> recession dates, inflation history, and stock-market returns are different series. The black-swan tool uses NBER chronology only to identify economic episodes; shock magnitude and timing are explicit user assumptions, not facts inferred from those dates.</div>
+</main>
+<footer>
+Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at
+the time of any transfer. Every figure on this site is either quoted from an official source
+linked on its row, or labelled as owner input, derived, or an assumption.
+</footer>
+</body>
+</html>

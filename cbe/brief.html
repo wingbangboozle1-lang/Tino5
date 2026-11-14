@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Attorney &amp; CPA Briefing Sheet &mdash; Property decision desk</title>
+<style>
+:root{
+  --ink:#1b2330; --muted:#5b6474; --line:#dfe3ea; --bg:#f6f7f9; --card:#ffffff;
+  --blue:#1f4e79; --blue-lt:#eef3f7; --green:#1f6b3f; --green-lt:#e8f3ec;
+  --amber:#8a5a00; --amber-lt:#fdf3e0; --red:#9b2226; --red-lt:#fdecec;
+  --grey-lt:#eef0f3;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--bg)}
+header.top{background:#fff;border-bottom:1px solid var(--line);padding:0}
+.top-in{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+header.top h1{margin:0;font-size:19px;color:var(--blue);letter-spacing:.01em}
+header.top .sub{font-size:13px;color:var(--muted)}
+nav.main{background:var(--blue)}
+nav.main ul{max-width:1180px;margin:auto;padding:0 22px;list-style:none;display:flex;flex-wrap:wrap;gap:2px}
+nav.main a{display:block;padding:9px 11px;color:#dce8f1;text-decoration:none;font-size:13px;border-bottom:3px solid transparent}
+nav.main a:hover{background:#2a5f8f;color:#fff}
+nav.main a.on{background:#2a5f8f;border-bottom-color:#fff;color:#fff}
+main{max-width:1180px;margin:auto;padding:22px 22px 70px}
+h2{font-size:19px;margin:30px 0 10px;color:var(--blue)}
+h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+p{margin:10px 0}
+.lead{font-size:15.5px;color:#2b3444}
+.banner{background:var(--blue-lt);border:1px solid #cfe0ec;border-left:4px solid var(--blue);
+  padding:11px 14px;border-radius:6px;font-size:13.5px;margin:14px 0}
+.banner.warn{background:var(--amber-lt);border-color:#f0dcb4;border-left-color:var(--amber)}
+.banner.red{background:var(--red-lt);border-color:#f3cfcf;border-left-color:var(--red)}
+.banner.green{background:var(--green-lt);border-color:#c9e3d2;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;
+  color:var(--ink);text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--blue);background:#fbfdff}
+.card b{color:var(--blue);font-size:14.5px}
+.card span{font-size:12.8px;color:var(--muted);line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:22px;font-weight:600;color:var(--blue);letter-spacing:-.01em}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi .n{font-size:11.5px;color:var(--muted);margin-top:5px;border-top:1px dotted var(--line);padding-top:5px}
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 0 0;margin:14px 0;overflow-x:auto}
+table.data{width:100%;border-collapse:collapse;font-size:13.2px}
+table.data th{background:var(--blue-lt);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);
+  position:sticky;top:0;font-size:12.4px;color:#324a63;vertical-align:bottom}
+table.data td{padding:8px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.mark td{background:#fffdf5}
+tr.hi td{background:var(--blue-lt)}
+td.t-lab{font-weight:600;color:#2b3444}
+.tn{font-size:12.4px;color:var(--muted);padding:8px 12px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:12px;color:var(--muted)}
+.legend span{padding:2px 8px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.pill{display:inline-block;padding:1px 7px;border-radius:9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.p-ver{background:var(--green-lt);color:var(--green);border:1px solid #c9e3d2}
+.p-own{background:var(--grey-lt);color:#41505f;border:1px solid #dde1e7}
+.p-der{background:var(--blue-lt);color:var(--blue);border:1px solid #cfe0ec}
+.p-asm{background:var(--amber-lt);color:var(--amber);border:1px solid #f0dcb4}
+.p-unv{background:var(--red-lt);color:var(--red);border:1px solid #f3cfcf}
+.p-new{background:#eef0f3;color:#41505f;border:1px solid #dde1e7}
+.t-ver{background:#fafdfb}.t-own{}.t-der{}.t-asm{}.t-unv{background:#fffaf9}
+a.src{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6cc;font-size:12.4px;white-space:nowrap}
+a.src:hover{background:var(--blue-lt)}
+a.src:visited{color:#3b5f85}
+a{color:var(--blue)}
+.nosrc{display:block;font-size:11.5px;color:var(--amber);margin-top:3px}
+.small{font-size:12.6px;color:var(--muted)}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:5px 0}
+code{background:var(--blue-lt);padding:1px 5px;border-radius:4px;font-size:12.6px}
+footer{max-width:1180px;margin:auto;padding:0 22px 40px;color:var(--muted);font-size:12.4px}
+.bar{height:9px;border-radius:5px;background:#e7ebf0;overflow:hidden;min-width:80px}
+.bar i{display:block;height:100%;background:var(--blue)}
+.bar i.neg{background:var(--red)}
+@media (max-width:640px){
+  main{padding:16px 14px 50px}
+  .kpi .v{font-size:19px}
+  table.data{font-size:12.4px}
+}
+nav.main details{display:inline-block;position:relative}
+nav.main summary{list-style:none;cursor:pointer;padding:9px 12px;color:#dce8f1;font-size:13px}
+nav.main summary::-webkit-details-marker{display:none}
+nav.main details[open]{background:#2a5f8f}
+nav.main details ul{display:block;position:absolute;z-index:5;min-width:235px;max-height:70vh;overflow:auto;top:100%;left:0;padding:5px 0;background:#fff;box-shadow:0 4px 14px #0003}
+nav.main details li{display:block}
+nav.main details a{color:var(--blue);padding:8px 12px;border:0}
+nav.main details a:hover,nav.main details a.on{color:#fff;background:#2a5f8f}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.control{background:#fff;border:1px solid var(--line);border-radius:7px;padding:10px}
+.control label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px}
+.control input{width:100%;padding:7px;border:1px solid #aeb9c6;border-radius:4px;font:inherit}
+.result{background:var(--green-lt);padding:12px;border-radius:7px;margin:10px 0;min-height:42px}
+@media print{
+  body{background:#fff;font-size:9pt;color:#000}
+  nav.main,header.top,footer,.no-print{display:none!important}
+  main{max-width:none;padding:0;margin:0}
+  .brief-sheet{font-size:8.5pt;line-height:1.25}
+  .brief-sheet h2{font-size:11pt;margin:8px 0 3px}
+  .brief-sheet h3{font-size:9pt;margin:5px 0 2px}
+  .brief-sheet p{margin:3px 0}
+  .brief-sheet .banner{margin:4px 0;padding:5px 7px}
+  .brief-sheet table.data{font-size:7.5pt}
+  .brief-sheet table.data td,.brief-sheet table.data th{padding:3px 4px}
+  .brief-sheet .tblwrap{margin:4px 0}
+  .brief-sheet a{color:#000;text-decoration:none}
+  @page{size:letter portrait;margin:0.35in}
+}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="top-in">
+<h1>Property decision desk</h1>
+<div class="sub">Attorney &amp; CPA Briefing Sheet</div>
+</div></header>
+<nav class="main"><ul><li><details open><summary>Start here</summary><ul><li><a href="index.html">Overview</a></li><li><a href="executive-summary.html">Executive summary</a></li><li><a class="on" href="brief.html">Attorney &amp; CPA brief</a></li></ul></details></li><li><details><summary>Property &amp; tax</summary><ul><li><a href="properties.html">The two properties</a></li><li><a href="property-tax.html">Property tax</a></li><li><a href="inheritance-tax.html">Inheritance and estate tax</a></li><li><a href="running-costs.html">Running costs</a></li><li><a href="projections.html">Projections 2026-2076</a></li></ul></details></li><li><details><summary>Decision paths</summary><ul><li><a href="options.html">Options &amp; mixed paths</a></li><li><a href="black-swan.html">Black swans &amp; phased investing</a></li><li><a href="process.html">Transfer timeline</a></li><li><a href="questions.html">Questions &amp; gaps</a></li></ul></details></li><li><details><summary>Review &amp; references</summary><ul><li><a href="suggestions.html">Suggestions for review</a></li><li><a href="law-watch.html">Law watch</a></li><li><a href="repo-review.html">Repository review</a></li><li><a href="sources.html">Source register</a></li><li><a href="flagged.html">Flagged for review</a></li><li><a href="methodology.html">Method &amp; privacy</a></li><li><a href="glossary.html">Glossary</a></li></ul></details></li></ul></nav>
+<main>
+<div class="banner"><b>Privacy.</b> Current pages omit names, street addresses, parcel/account identifiers, postcodes and city names; the properties are called Property A and Property B. Owner-specific money figures on current pages are rounded to the nearest $10, but rounding is not a guarantee of anonymity and does not remove earlier versions from Git history. Statutory amounts may be quoted exactly as published. See <a href="flagged.html">Flagged for review</a> before treating the repository as fully scrubbed.</div>
+<article class="brief-sheet"><p class="lead"><b>Attorney &amp; CPA Briefing Sheet</b> &mdash; anonymized planning brief. Print this page from the browser; no private identifiers or property address is required.</p><div class="banner warn"><b>Decision frame.</b> Property A is expected to transfer to the inheritor through a trust around 2040–2050. Property B is already owned by the same inheritor and has existing rental units. Analyze Property A as a new inheritance while treating Property B as a continuing ownership, housing and rental-income baseline; do not conflate the two transfers.</div><h2>Questions for counsel and tax adviser before choosing</h2><ul class="tight"><li><b>Attorney:</b> review the trust instrument, title, trustee powers, beneficiaries, transfer date, debts/liens, residence eligibility and the exact one-year/three-year claim rules under California law.</li><li><b>CPA / estate tax:</b> inventory the entire gross estate, lifetime taxable gifts, prior gift/estate returns, marital deductions/portability, asset ownership and basis; determine whether an estate return, income-tax return or portability filing is required.</li><li><b>Property operations:</b> obtain written insurance quotes for an owner-occupied inherited home and a multi-unit rental; confirm lease terms, lawful unit status, actual rents, property tax components, water/power, repairs and reserve needs.</li><li><b>Investment decision:</b> compare verified net sale proceeds with hold/rent economics after tax, then test an optional 24–36-month Treasury ladder and staged equity purchases using several return, crash and future-yield assumptions.</li></ul><h2>Time-sensitive items (relative to actual legal triggers)</h2><p><b>60 days:</b> trustee notice duties may apply after a revocable trust becomes irrevocable. <b>9 months from death:</b> Form 706 filing and estate/GST tax are generally due if a return is required; an extension to file does not automatically extend payment. <b>1 year from transfer:</b> qualifying occupancy and homeowners exemption deadline relevant to the Prop 19 exclusion. <b>3 years from transfer (or earlier triggering event):</b> outer Prop 19 claim period. Have the attorney calendar exact dates from the governing documents and official rules.</p><p class="small">Official references: <a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=16061.7.&lawCode=PROB" target="_blank" rel="noopener noreferrer">California Probate Code §16061.7</a>; <a class="src" href="https://www.irs.gov/pub/irs-pdf/i706.pdf" target="_blank" rel="noopener noreferrer">IRS Form 706 Instructions</a>; <a class="src" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=63.2.&lawCode=RTC" target="_blank" rel="noopener noreferrer">California Revenue &amp; Taxation Code §63.2</a>; <a class="src" href="https://www.boe.ca.gov/proptaxes/prop19.htm" target="_blank" rel="noopener noreferrer">California BOE Proposition 19 guidance</a>.</p><h2>What is still unknown and must be obtained</h2><p>Executed trust and deed; exact date and beneficiaries; whole-estate inventory and gift history; asset-by-asset basis records; mortgages and liens; county tax bills and rate-area charges; current unit leases and lawful status; independent rent appraisals; insurance bindable quotes; inspection and maintenance history; solar interconnection/credit terms; sale-cost estimates; and investment policy, liquidity needs and tax assumptions. Unknown values are intentionally blank on the decision desk until documented.</p><h2>Decision to make only after the facts</h2><p>Compare (A) occupy/claim if eligible, (B) rent/retain, (C) sell and reinvest, and (D) mixed paths such as retaining Property B while parking Property A sale proceeds in short Treasuries before a staged stock-market entry. No path is recommended as certain. Use the <a href="questions.html">questions register</a>, <a href="options.html">mixed-path comparison</a>, <a href="black-swan.html">stress tool</a>, and <a href="flagged.html">flagged items</a> as the working papers.</p><p class="small">Planning brief only, not legal, tax, insurance or investment advice. Re-verify statutes and thresholds for the actual transfer year. All identifying details are omitted from this page.</p></article>
+</main>
+<footer>
+Not tax, legal or investment advice. Rules and thresholds change; re-check the law in force at
+the time of any transfer. Every figure on this site is either quoted from an official source
+linked on its row, or labelled as owner input, derived, or an assumption.
+</footer>
+</body>
+</html>
