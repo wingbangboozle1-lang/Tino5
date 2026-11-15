@@ -1852,7 +1852,8 @@ sibling tree with its own verifier.
 
 ### Merge-conflict resolution (arena-cbe837cb, 2026-11-14)
 
-`COORDINATION.md` was carrying unresolved `<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`
+`COORDINATION.md` was carrying unresolved ` / `
+ / `>>>>>>> origin/main`
 markers across lines 1765-2289: two sessions (`arena-d75e2754` on the HEAD side and
 `arena-47685795`, with its own embedded records for `arena-5e7d4570` and `arena-1ec4b5b0`,
 on the main side) had each appended a self-contained block at the same place in the file.
@@ -2599,6 +2600,7 @@ owner-supplied and left blank in official-verified cells.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
 
+<<<<<<< HEAD
 ## Session `arena-d2664fd0` — claim (2026-11-15, branch `arena/d2664fd0-tino5`, base `85e3d47`)
 
 Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-overlap is enforced by file scope. `decision-d2664fd0/` is a new directory; no other session touches it.
@@ -2776,3 +2778,34 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
 - **Merge record:** (filled in after the PR is merged)
+=======
+---
+
+## Session `arena-03242c78` — claim (2026-11-15, branch `arena/03242c78-tino5`, base `85e3d47`)
+
+Read before claiming: `origin/main` at `a0f12e8` (PR #85) and every remote branch. Live claims at
+2026-11-15 11:46Z were: `arena/9af5443d` (desk-9af5443d, gap-filling desk, in progress),
+`arena/2d806354` (privacy-review-2d806354, privacy audit, in progress) and `arena/44bbafa4`
+(final integration pass, in progress; rebased onto `main` at `85e3d47`). None of them touches
+`desk-03242c78/`, which is a new directory, so non-overlap is enforced by file scope. Platform
+constraint: this session is bound to `arena/03242c78-tino5` and cannot create `session-<id>/<task>`
+branches.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 032/S | **Requirement-coverage decision desk `desk-03242c78/`.** Opens with "what would change the answer" and a **traceability matrix** that maps *every* line of the owner's requirement list to the page that answers it (answered / partial / open). Adds the items still missing from the merged desks: **ranges instead of round-number points**, **mixed paths beside the three pure choices**, **transfer-date-matched comparison (2040/2045/2050) with taxes, debt, occupancy change, capital cost and liquidity**, **imputed rent for the living paths**, **§121 primary-residence exclusion switched on for living-then-sell**, **Prop 19 allowance carried forward**, **transfer tax + recording fees priced into the sell path**, **Form 540 1% MHST + capital-gain treatment read from the official instructions**, **SF Proposition H modelled on its official terms**, **a phased-Treasury black-swan path (3M–2Y, 24–36 months) beside the headline with reinvestment risk**, **distribution chart**, **10-year maintenance & capital plan for both buildings**, **estate liquidity plan**, **deadlines as a timeline**, **grouped menu + glossary**, **questions / information-gaps register with a discovery action per row**, **suggestions board awaiting owner choice**, **decision-and-date log**, **one-page printable Attorney & CPA Briefing Sheet**, **law watch split enacted vs proposed**, **Flagged for Review** with source links. | in progress | arena-03242c78 | `desk-03242c78/**` (new directory; generator/verifier in `desk-03242c78/_src/`, not published), this section only |
+| 032/V | **Line-by-line verification:** every table row links an official source or is blank + marked unverified/owner/assumption/derived; official-host allowlist; internal links resolve; $10 rounding; no identifiers; rebuild determinism. Irregularities → `desk-03242c78/flagged.html`. | in progress | arena-03242c78 | `desk-03242c78/**`, this section only |
+| 032/INT | **Integration:** merge `origin/main`, re-run the whole verifier battery, add `desk-03242c78` to `PUBLISHED_DESKS`, `_config.yml` excludes for `_src`, the privacy workflow and the root hub, PR to `main`, merge without waiting, confirm Pages, record here. | in progress | arena-03242c78 | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
+
+**Privacy contract for 032.** Property A = future trust inheritance, Santa Clara County; Property B =
+already owned, San Francisco County; county level only. No city, neighbourhood, ZIP, street, parcel,
+account or personal name on any published page — the requirement to anonymise is treated as the
+highest priority. Every dollar figure published is a multiple of $10, except statutory amounts quoted
+exactly as the agency publishes them and marked *exact*. Owner-supplied figures are labelled
+**owner-supplied – unverified** with the official-verified cell left blank.
+
+**Git-history scrub (owner request "scrub pre-rounding history / keep repo privacy-first").** This
+session does **not** rewrite shared history: a `filter-repo` pass over `main` plus ~150 remote refs is
+destructive and would break other live sessions and open PRs. It ships the non-destructive half — a
+documented, copy-pasteable runbook plus an audit that reports *counts only*, never values — and keeps
+the exposure flagged. Recorded as flag H1 on `desk-03242c78/flagged.html`.
