@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Privacy exposure review</title>
+<style>
+:root{color-scheme:light;--ink:#172333;--muted:#526174;--line:#d8e0e9;--paper:#fff;--bg:#f3f6fa;--blue:#174d78;--red:#982d2d;--amber:#805500;--green:#17643c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#102b43;color:#fff;padding:28px max(20px,calc((100vw - 1050px)/2))}header h1{margin:0;font-size:clamp(1.7rem,4vw,2.35rem)}header p{max-width:850px;margin:.65rem 0 0;color:#dbe7f2}
+main{max-width:1050px;margin:auto;padding:24px 20px 60px}.alert,.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0}.alert{border-left:5px solid var(--red)}.alert strong{color:var(--red)}h2{font-size:1.25rem;margin:30px 0 10px}h3{font-size:1.02rem;margin:.2rem 0 .5rem}.muted{color:var(--muted)}.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.78rem;font-weight:700}.risk{background:#fff0ed;color:var(--red)}.open{background:#fff6db;color:var(--amber)}.done{background:#e7f5ec;color:var(--green)}
+table{width:100%;border-collapse:collapse;background:var(--paper);font-size:.92rem}th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eaf0f6}a{color:var(--blue);overflow-wrap:anywhere}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px}.metric{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px}.metric b{display:block;font-size:1.5rem;color:var(--blue)}.metric span{color:var(--muted);font-size:.9rem}.small{font-size:.88rem}ul{padding-left:1.25rem}.notice{border-left:4px solid #d5a300;padding:10px 14px;background:#fff9e7}.sources li{margin:.4rem 0}footer{border-top:1px solid var(--line);margin-top:32px;padding-top:18px;color:var(--muted);font-size:.88rem}@media print{body{background:white;font-size:11pt}header{background:white;color:var(--ink);padding:10px 0;border-bottom:2px solid var(--ink)}header p{color:var(--ink)}main{padding:10px 0}.panel,.alert,.metric{break-inside:avoid}a{color:inherit;text-decoration:underline}button{display:none}}
+</style>
+</head>
+<body>
+<header>
+<h1>Privacy exposure review</h1>
+<p>Repository and publication-surface audit · 15 November 2026 · values and personal identifiers intentionally omitted</p>
+</header>
+<main>
+<section class="alert">
+<strong>Highest-priority finding: the GitHub repository is public.</strong>
+The repository API reports public visibility, and GitHub Pages is configured from the default branch root. A noindex tag is not access control. Previously committed content may remain retrievable through history, branches, forks, cached pages, and pull-request references even if the current page is edited.
+<p class="small">I did not change repository visibility, disable Pages, or rewrite shared Git history: these actions can affect collaborators, detach forks, remove the requested public site, and invalidate existing refs. Containment is therefore not complete.</p>
+</section>
+
+<div class="grid" aria-label="Audit summary">
+<div class="metric"><b>Public</b><span>GitHub repository visibility confirmed through GitHub's repository API.</span></div>
+<div class="metric"><b>314</b><span>commits inspected on the fetched main history.</span></div>
+<div class="metric"><b>165</b><span>main-history commits matched a generic unrounded-number heuristic; a match is not proof of personal data.</span></div>
+<div class="metric"><b>0</b><span>email, phone, SSN-shape, parcel-shape, or street-address pattern hits in the scanned main history.</span></div>
+</div>
+
+<h2>What was checked</h2>
+<table>
+<thead><tr><th>Check</th><th>Result</th><th>Interpretation and evidence</th></tr></thead>
+<tbody>
+<tr><td>Repository visibility and Pages configuration</td><td><span class="tag risk">PUBLIC</span></td><td>GitHub API reports a public repository; Pages serves the default branch root. The site includes noindex/nofollow metadata, which does not prevent direct access. <a href="https://api.github.com/repos/wingbangboozle1-lang/Tino5">Repository API</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/settings/pages">Pages settings</a></td></tr>
+<tr><td>Current-tree number-format scan</td><td><span class="tag open">123 heuristic findings</span></td><td>The repository's generic scanner found unrounded money-like or money-keyed numeric literals in 30 tracked files (including the coordination log). This is a triage signal, not proof that each match is private: statutory/public figures and false positives can match. It does not detect owner figures already rounded to tens. <a href="../scripts/privacy_scan.py">Scanner implementation</a> · <a href="../COORDINATION.md">Prior review log</a></td></tr>
+<tr><td>Published decision desks</td><td><span class="tag risk">Needs containment</span></td><td>Four published desks contain the current scan's number-format findings. Their own structural/source verifiers pass, but those checks do not establish that every number is non-identifying. One verifier explicitly allows warnings for published amounts. <a href="../scripts/verify_safe.py">Publication-set and structural gate</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/blob/main/COORDINATION.md">Repository review records</a></td></tr>
+<tr><td>History scan</td><td><span class="tag open">Review required</span></td><td>Across 314 commits reachable from fetched main, a generic heuristic matched numeric formats in 165 commits and 74 paths. Matches include public/legal figures and other false positives; the scan does not label the amounts semantically and cannot by itself confirm what is owner-derived. No exact values are reproduced here. Method: <a href="../scripts/privacy_scan.py">generic scanner</a>, applied to text blobs reachable from <code>origin/main</code>.</td></tr>
+<tr><td>Identifier-pattern scan</td><td><span class="tag done">No pattern matches found</span></td><td>The scanner detected no email, phone, SSN-shaped, parcel-shaped, or street-address-shaped strings in the scanned main-history text. <a href="../scripts/privacy_scan.py">Pattern definitions</a>. This does not rule out names, locations, combinations of rounded facts, images, or data outside the scanner's patterns.</td></tr>
+<tr><td>Latest observed main checks</td><td><span class="tag done">Verified and built</span></td><td>The verification run for main commit <code>a0f12e8</code> failed because generated desk pages were stale; its Pages action completed successfully. Subsequent verification and Pages runs for <code>df4f961</code> and the latest main commit <code>18621da</code> both succeeded. The Pages API reports <code>built</code> for <code>18621da</code>. <a href="https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43710523336">Earlier failed verification</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43710523048">Earlier Pages run</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43710645195">Successful verification</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43710645020">Successful Pages run</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43710734485">Latest verification, successful</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/actions/runs/43710733872">Latest Pages run, successful</a></td></tr>
+</tbody>
+</table>
+<p class="notice small"><b>Privacy note:</b> counts above are audit metadata, not source amounts. The scan is conservative and incomplete. It is not a guarantee of anonymization, and nearest-$10 rounding alone cannot prevent re-identification from a combination of property, rent, tax, and timing details.</p>
+
+<h2>Containment options — not yet implemented</h2>
+<table>
+<thead><tr><th>Priority</th><th>Proposal</th><th>Trade-off / gate</th><th>Authoritative reference</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Temporarily make the repository private and suspend the public Pages site while exposure is assessed; do not place household figures in public branches or PRs.</td><td>Would interrupt the requested public site and can affect forks, collaborators, and publication availability. GitHub warns that visibility changes have consequences; this should be an explicit owner choice if public availability must be retained.</td><td><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility">GitHub: setting repository visibility</a></td></tr>
+<tr><td>2</td><td>Choose one approved public artifact with no household-specific values; remove other numeric desks and source inputs from the Pages allowlist and deployment output.</td><td>Requires a complete build/link check and confirmation that no alternate path, stale artifact, or downloadable file remains reachable. The current publication set contains multiple parallel desks.</td><td><a href="../scripts/verify_safe.py">Fail-closed publication gate</a> · <a href="https://github.com/wingbangboozle1-lang/Tino5/actions">GitHub Actions history</a></td></tr>
+<tr><td>3</td><td>If exact owner-derived data is confirmed in Git history, use a coordinated sensitive-data rewrite from a clean mirror, then verify every branch, tag, and ref and coordinate collaborator cleanup.</td><td>A normal edit or PR does not erase old commits. Rewriting shared history is disruptive, can invalidate signatures and references, and is incomplete while clones, forks, PR references, or cached views remain.</td><td><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository">GitHub: removing sensitive data from a repository</a></td></tr>
+<tr><td>4</td><td>After the rewrite, contact GitHub Support for affected cached views and PR references; audit clones/forks and require collaborators to re-clone or carefully rebase onto the cleaned history.</td><td>GitHub states that rewriting alone does not remove copies in clones/forks or cached views. Support action and collaborator coordination are separate steps.</td><td><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository#fully-removing-the-data-from-github">GitHub: fully removing data from GitHub</a></td></tr>
+<tr><td>5</td><td>Expand CI so every published tree is rebuilt and checked for identifier patterns, unapproved data fields, location specificity, and source/current-page consistency; fail closed on unexpected top-level directories.</td><td>Pattern scans need human review to distinguish public law from household inputs. Never commit a list of exact private values as a detection blacklist.</td><td><a href="../.github/workflows/privacy-pages.yml">Publication workflow</a> · <a href="../scripts/privacy_scan.py">Generic scan (no forbidden-value list)</a></td></tr>
+</tbody>
+</table>
+
+<h2>Actions taken in this audit</h2>
+<ul>
+<li>Reviewed the published-set policy and ran the repository's generic privacy scan, publication verifier, landing-link check, and focused verifiers for the relevant decision desks.</li>
+<li>Inspected the full locally fetched commit history using the scanner's generic patterns. No values or identifier tokens were printed in this report.</li>
+<li>Recorded a separate report in this isolated directory. No other session's site, source data, build, or publication settings were modified.</li>
+<li><b>Not completed:</b> repository lockdown, Pages suspension, deletion of exposed commits, GitHub Support purge, and confirmation that no fork/clone retains old content.</li>
+</ul>
+
+<h2>Sources and manual review</h2>
+<ul class="sources">
+<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository">GitHub Docs — removing sensitive data from a repository</a></li>
+<li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility">GitHub Docs — setting repository visibility</a></li>
+<li><a href="https://api.github.com/repos/wingbangboozle1-lang/Tino5">GitHub repository API — visibility metadata</a></li>
+<li><a href="https://github.com/wingbangboozle1-lang/Tino5/actions">GitHub Actions — build and deployment checks</a></li>
+<li><a href="../COORDINATION.md">Project coordination and prior repository-review findings</a></li>
+</ul>
+<footer>Audit scope is limited to Git-tracked text and the public settings/status checked on 15 November 2026. It is not a forensic examination of GitHub's server storage, forks, cached pages, private branches, images, binaries, logs, or external copies. This page itself contains no household-specific monetary figures or personal identifiers.</footer>
+</main>
+</body>
+</html>
