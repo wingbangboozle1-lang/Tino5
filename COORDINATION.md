@@ -2644,3 +2644,5 @@ owner-supplied and left blank in official-verified cells.
 
 
 **Scope rationale:** The privacy scan initially reported repeated unrounded-data findings in three phased-investing desks; masked inspection showed they arose from a Treasury date-query parameter, not household financial data. The latest decision desk's operating-cost page also cited a statewide insurance range that this session could not verify from the linked primary source; it was removed rather than rounded or repeated. The repository-wide history/public-data containment issue remains unresolved and is not changed by this task.
+
+**Integration result:** PR [#88](https://github.com/wingbangboozle1-lang/Tino5/pull/88) from `arena/d09aab64-tino5` merged into `main` on 2026-11-15 as `e6cb901f4f443c78aa8eafec82e9210b643f68`. The PR verification workflow succeeded (run `43710813781`); the main-branch verification workflow succeeded (run `43710867604`); GitHub Pages build and deployment succeeded (run `43710867370`). The repository/history privacy exposure remains explicitly unresolved; this merge does not scrub past commits.
