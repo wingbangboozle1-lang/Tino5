@@ -1852,7 +1852,8 @@ sibling tree with its own verifier.
 
 ### Merge-conflict resolution (arena-cbe837cb, 2026-11-14)
 
-`COORDINATION.md` was carrying unresolved `<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`
+`COORDINATION.md` was carrying unresolved ` / `
+ / `>>>>>>> origin/main`
 markers across lines 1765-2289: two sessions (`arena-d75e2754` on the HEAD side and
 `arena-47685795`, with its own embedded records for `arena-5e7d4570` and `arena-1ec4b5b0`,
 on the main side) had each appended a self-contained block at the same place in the file.
@@ -2599,6 +2600,7 @@ owner-supplied and left blank in official-verified cells.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
 
+<<<<<<< HEAD
 ## Session `arena-d2664fd0` — claim (2026-11-15, branch `arena/d2664fd0-tino5`, base `85e3d47`)
 
 Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-overlap is enforced by file scope. `decision-d2664fd0/` is a new directory; no other session touches it.
@@ -2776,3 +2778,92 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
 - **Merge record:** (filled in after the PR is merged)
+=======
+---
+
+## Session `arena-03242c78` — claim (2026-11-15, branch `arena/03242c78-tino5`, base `85e3d47`)
+
+Read before claiming: `origin/main` at `a0f12e8` (PR #85) and every remote branch. Live claims at
+2026-11-15 11:46Z were: `arena/9af5443d` (desk-9af5443d, gap-filling desk, in progress),
+`arena/2d806354` (privacy-review-2d806354, privacy audit, in progress) and `arena/44bbafa4`
+(final integration pass, in progress; rebased onto `main` at `85e3d47`). None of them touches
+`desk-03242c78/`, which is a new directory, so non-overlap is enforced by file scope. Platform
+constraint: this session is bound to `arena/03242c78-tino5` and cannot create `session-<id>/<task>`
+branches.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 032/S | **Requirement-coverage decision desk `desk-03242c78/`.** Opens with "what would change the answer" and a **traceability matrix** that maps *every* line of the owner's requirement list to the page that answers it (answered / partial / open). Adds the items still missing from the merged desks: **ranges instead of round-number points**, **mixed paths beside the three pure choices**, **transfer-date-matched comparison (2040/2045/2050) with taxes, debt, occupancy change, capital cost and liquidity**, **imputed rent for the living paths**, **§121 primary-residence exclusion switched on for living-then-sell**, **Prop 19 allowance carried forward**, **transfer tax + recording fees priced into the sell path**, **Form 540 1% MHST + capital-gain treatment read from the official instructions**, **SF Proposition H modelled on its official terms**, **a phased-Treasury black-swan path (3M–2Y, 24–36 months) beside the headline with reinvestment risk**, **distribution chart**, **10-year maintenance & capital plan for both buildings**, **estate liquidity plan**, **deadlines as a timeline**, **grouped menu + glossary**, **questions / information-gaps register with a discovery action per row**, **suggestions board awaiting owner choice**, **decision-and-date log**, **one-page printable Attorney & CPA Briefing Sheet**, **law watch split enacted vs proposed**, **Flagged for Review** with source links. | in progress | arena-03242c78 | `desk-03242c78/**` (new directory; generator/verifier in `desk-03242c78/_src/`, not published), this section only |
+| 032/V | **Line-by-line verification:** every table row links an official source or is blank + marked unverified/owner/assumption/derived; official-host allowlist; internal links resolve; $10 rounding; no identifiers; rebuild determinism. Irregularities → `desk-03242c78/flagged.html`. | in progress | arena-03242c78 | `desk-03242c78/**`, this section only |
+| 032/INT | **Integration:** merge `origin/main`, re-run the whole verifier battery, add `desk-03242c78` to `PUBLISHED_DESKS`, `_config.yml` excludes for `_src`, the privacy workflow and the root hub, PR to `main`, merge without waiting, confirm Pages, record here. | in progress | arena-03242c78 | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
+
+**Privacy contract for 032.** Property A = future trust inheritance, Santa Clara County; Property B =
+already owned, San Francisco County; county level only. No city, neighbourhood, ZIP, street, parcel,
+account or personal name on any published page — the requirement to anonymise is treated as the
+highest priority. Every dollar figure published is a multiple of $10, except statutory amounts quoted
+exactly as the agency publishes them and marked *exact*. Owner-supplied figures are labelled
+**owner-supplied – unverified** with the official-verified cell left blank.
+
+**Git-history scrub (owner request "scrub pre-rounding history / keep repo privacy-first").** This
+session does **not** rewrite shared history: a `filter-repo` pass over `main` plus ~150 remote refs is
+destructive and would break other live sessions and open PRs. It ships the non-destructive half — a
+documented, copy-pasteable runbook plus an audit that reports *counts only*, never values — and keeps
+the exposure flagged. Recorded as flag H1 on `desk-03242c78/flagged.html`.
+
+### 032/S and 032/V — completion record (arena-03242c78, 2026-11-15)
+
+**Built:** `desk-03242c78/`, 39 pages generated from one deterministic model
+(`_src/model.py` → `_src/model.json`) and one official source register (`_src/sources.py`, 44
+documents). Nothing outside the claim block was edited before integration.
+
+**What the desk actually adds to the merged desks** (the coverage gap I took, rather than
+another clone):
+
+- **RTC §63.2 quoted verbatim** (family home, occupancy within one year, exemption claim within
+  one year, exclusion revoked when eligibility ends, new taxable value = prior value + applicable
+  amount, 3-year claim backstop, trust transfers included under (e)(9)).
+- **Prop 19 applicable amount $1,044,586** for 16 Feb 2025 – 15 Feb 2027 from BOE **LTA 2025/009**
+  and NR 25-02 (CA HPI 2024 +2.15%); next adjustment 16 Feb 2027, projected forward and labelled.
+- **Measure H on its official terms**: the ordinance text was finally reached at
+  `media.api.sf.gov/documents/Legal_Text_3X0F1JU.pdf` (the `api.sf.gov` URLs still 500). Rate
+  schedule captured exactly — single-family $129 base + $0.42/sq ft 3,001–5,000 + $1.99 above
+  5,000; multifamily $249 + $0.195/sq ft above 5,000, cap $50,000; non-residential $799 base, cap
+  $400,000; mixed-use; unimproved $0/$392; 65+ exemption ($249 per qualifying unit); effective
+  1 Jul 2027 – 30 Jun 2042, CPI-indexed from FY2028-29. Result: H passed 74.40%, **I failed
+  51.66%** (so SF transfer-tax tiers are unchanged), J passed 80.88% — all flagged preliminary.
+- **Estate figures to the dollar** from the July 2026 Form 706 instructions and IR-2026-133:
+  2026 exclusion $15,000,000, credit $5,945,800; 2027 exclusion $15,480,000; special-use ceiling
+  $1,460,000; §6166 2% portion $1,940,000; §6662 20%/40%; Form 8971 30-day basis reports.
+- **Nine paths** (3 pure, 4 mixed, 2 phased) at 2040/2045/2050 with **shelter valued at market
+  rent on every path**, so no path receives free housing — this was the accounting fix that
+  changed the earlier desks' rankings.
+- **Crossovers**: living in A overtakes selling above **6.10%** house growth (2045) and wins below
+  **4.53%** equity return; both stable across all three transfer dates.
+- **Distribution grid** 5×5 (house 1.5–5.5%, equity 4.0–9.0%) per path, plus five regimes anchored
+  on measured BLS CPI and the Federal Reserve's own 1929/2008 histories.
+- Two one-page briefing sheets, a 12-entry deadline timeline, a five-year capital plan, a gap
+  register (18 questions with the document that closes each), a suggestions board, a decision log
+  and a **flagged** page with 12 internal issue IDs.
+
+**Recommendation published:** sell Property A at the transfer date; do not sell Property B; take
+the §121/Prop 19 occupancy route only on genuine intent to live there. The margin over living in
+A is ~$416,000 over twenty years at a 2045 transfer — inside the assumption error bars, and said
+so on the first screen.
+
+**Robustness (pinned by 21 regression tests):** letting A out never beats living in A in any
+regime or at any transfer date; selling B is never the best choice; sale at the transfer date
+realises no gain; the live-then-sell paths use §121; letting pays recapture.
+
+**Verification on the rebased branch:** desk verifier PASS (39 pages, 2,066 links, 472 table rows,
+1,401 dollar figures, 0 failures); `scripts/verify_safe.py` PASS; `scripts/check_landing.py`
+0 unresolved; `scripts/privacy_scan.py` **0 findings in `desk-03242c78/`**; model output is
+byte-identical across runs (stale-check safe); 21/21 unit tests pass.
+
+**Privacy decisions enforced in code:** the owner's year-by-year tax/assessed-value history is
+**not** in the repository at all — only the three-literal rate band it implies (1.323%–1.407%),
+pinned by a test that fails if the history reappears. Assessed values are rounded to $10,000 and
+$5,000 before they enter the model. Statutory amounts are emitted inside `<code class="stat">` so
+the repo's own publication gate can distinguish exact statute from unrounded money; every other
+dollar figure is a multiple of $10 and the build refuses otherwise.
+
+**Merge record:** (filled in after the PR is merged)

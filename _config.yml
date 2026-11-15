@@ -22,6 +22,10 @@ exclude:
   # decision-d2664fd0 (session arena-d2664fd0): consolidated decision desk; generator/verifier are working material.
   - "decision-d2664fd0/_src"
   - "decision-d2664fd0/_src/**"
+  # desk-03242c78 (session arena-03242c78, 2026-11-15): model, builder and verifier are
+  # working material. They contain the owner-supplied anchors before rounding.
+  - "desk-03242c78/_src"
+  - "desk-03242c78/_src/**"
   - "phase-99220/_src"
   - "phase-99220/_src/**"
   - "cbd/_src"

@@ -65,7 +65,8 @@ DEPLOYMENT_EXCLUSIONS = {
 # decision-and-date log. Folded into the same single set.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
                   "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
-                  "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-9af5443d"}
+                  "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0",
+                  "desk-9af5443d", "desk-03242c78"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -85,6 +86,9 @@ ALLOWED_HOSTS = {
     # desk-9af5443d (arena-9af5443d): Census ACS QuickFacts, SF Department of Elections,
     # SFMTA, NBER, San Jose Water, SFPUC, California FAIR Plan.
     "census.gov", "sfelections.org", "sfmta.com", "nber.org", "sjwater.com", "sfpuc.gov", "cfpnet.com",
+    # desk-03242c78 (session arena-03242c78): Measure H ordinance text is served from the
+    # media host; the Board of Equalization, Election Department, NBER, HUD and BLS hosts.
+    "media.api.sf.gov", "www.sfelections.org", "www.nber.org", "www.huduser.gov", "data.bls.gov",
 }
 # Structural personal-data patterns only. No real identifier is stored in this file.
 PII = [
