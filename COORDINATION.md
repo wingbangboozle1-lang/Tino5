@@ -2776,3 +2776,19 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
 - **Merge record:** (filled in after the PR is merged)
+
+
+
+## Session `arena-9436c01c` — privacy-first Pages integration claim (2026-11-15, branch `arena/9436c01c-tino5`, base `a0f12e8` = `main`)
+
+Read this board on the current `main` and checked remote refs before claiming. `origin/main` is the only remote branch; no other live branch/task is claimed. The current hub publishes many overlapping decision desks, and the 2026-11-15 repository review records prior owner-derived identifiers in repository history and city-name exposure on Pages. This session takes the final-integration scope after the existing desks are complete; it does not rewrite shared Git history or edit another desk's source/model.
+
+| ID | Task | Status | Session | File scope |
+|---|---|---|---|---|
+| 9436/INT | Privacy-first Pages consolidation: make the root landing page a concise category hub for the verified `cbe/` decision desk and `phase-99220/` historical crash-entry/what-if supplement (retain the rules-only `public-safe/` reference); unpublish duplicate desks with known privacy/verification drift; extend the publication gate to scan every live page for personal identifiers; update the README and Jekyll publication exclusions; run the selected desk verifiers, tests, link checks, PR and Pages deploy. No source/model inputs changed. | in progress | arena-9436c01c | `index.html`, `README.md`, `_config.yml`, `scripts/verify_safe.py`, `COORDINATION.md`, this section only |
+
+**Rebase coordination note (2026-11-15):** while the claim commit was being pushed, `origin/main` advanced from `a0f12e8` to `18621da` (PRs #86 and #87). The only conflict was at the end of this shared board. The upstream `arena-85deecfe` completion record and this claim are both preserved below; no source or site file was changed or discarded. Subsequent work uses `18621da` as the current base.
+
+**Rebase coordination note (2026-11-15):** while implementation was in progress, `origin/main` advanced from `18621da` to `7c0dea2` (PRs #88 and #89). The conflict was only at the end of `COORDINATION.md`; the completed `arena-d09aab64` privacy/rounding record and this integration claim are both retained. No upstream work was dropped. The implementation is rebased onto `7c0dea2`.
+
+**Rebase coordination note (2026-11-15):** while PR #91 was being prepared, `origin/main` advanced from `7c0dea2` to `56134ee` (PR #90, session `arena-9af5443d`). The only conflict was in this shared board. The complete 9af claim, verification and integration notes are preserved above, followed by this integration record. The new 9af desk contains requested FTB Form 540, local-measure and rent-comparable research; it will be retained in the curated Pages set and linked from the final hub. No upstream content was dropped. The current rebase base is `56134ee`.
