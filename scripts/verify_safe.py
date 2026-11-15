@@ -69,7 +69,9 @@ PII = [
     (r"\b\d{1,4}\s+(?:[A-Z][a-z]+\s){1,3}(?:Ave|Avenue|St|Street|Rd|Road|Blvd|Boulevard|Dr|Drive|Ct|Court|Ln|Lane|Way|Pl|Place|Ter|Terrace)\b",
      "street address"),
     (r"\b(?:APN|parcel\s+number)\s*[:#]?\s*(?:\d[\w-]{4,}|[A-Z0-9][A-Z0-9-]{5,})\b", "parcel identifier"),
-    (r"\bCupertino\b|\bSunnyvale\b|\bSan Jose\b|\bPalo Alto\b|\bSaratoga\b|\bLos Altos\b|\bOuter Sunset\b",
+    # Broad county references and official source titles are general jurisdiction context;
+    # a city/neighbourhood name used to locate either property is still rejected.
+    (r"\bCupertino\b|\bSunnyvale\b|\bSan Jose\b|\bPalo Alto\b|\bSaratoga\b|\bLos Altos\b|\bOuter Sunset\b|\bSan Francisco\b(?!\s+(?:County|Treasurer|secured))",
      "city or neighbourhood identifier"),
 ]
 
