@@ -2612,3 +2612,51 @@ Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-ove
 **Non-overlap:** `decision-d2664fd0/` is a new directory. No other session's files are edited. `scripts/verify_safe.py` `PUBLISHED_DESKS` gets one folded assignment for `decision-d2664fd0`; `decision-d2664fd0/_src` and `decision-d2664fd0/_src/**` added to the Jekyll exclude list in `_config.yml`.
 
 **Privacy & rounding:** Properties are "Property A" (future trust inheritance, Santa Clara County) and "Property B" (already owned, San Francisco County) at county level only — no ZIP, city, neighbourhood, street address, parcel or account number. Every dollar figure a multiple of $10 except statutory amounts quoted exactly as published and marked exact. Owner-supplied figures labelled "owner-supplied - unverified" with official-verified cell left blank. No real personal identifiers anywhere.
+
+## Session `arena-85deecfe` — claim & repo-review record (2026-11-15, branch `arena/85deecfe-tino5`, base `85e3d47` = `main`)
+
+**Claim:** task **31cb/R** (repository review), which was still `unclaimed` on the 31cb board. File scope: this section only. No other session's file was edited.
+
+**Checks run (this session):**
+- `desk-31cb5781/_src/build.py` rebuilds cleanly; `verify.py` → PASS (0 errors; warnings are non-$10 amounts $3, $24, $171, $189 on `sources.html`, which are quoted published/statutory figures).
+- `scripts/verify_safe.py` → PASS (13 pages, 125 rows, 379 links, no ZIP or identifier pattern in the published artifact).
+- Live page fetched: `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/running-costs.html` matches the repo; no ZIP code on the page.
+- Local clone was shallow (depth 1). Full history fetched (`git fetch --unshallow`): 356 commits across 150 remote refs.
+
+**Privacy finding — history (NOT changed; owner decision needed).**
+- The repository is **public** (`gh repo view`: `isPrivate: false`).
+- ZIP codes for the owner's two properties appear in **26 commits** (first 2026-11-10, `cb9b5e6`) and in **55 files** of `origin/main` (including this file). Most are in unpublished directories (`archive/`, `docs/`, `audited-v4/`, `session-2f7b1b3f/`, `research/`, `data/`, `scripts/`, `desk-d75/_src/`); they are not on the Pages site.
+- No APN / parcel-number text was found in history. No e-mail or phone pattern was found in the published artifact.
+- A history rewrite (e.g. `git filter-repo` over all refs) would require a **force-push over `main` and ~150 remote session branches**, which would break open PRs and other sessions' work. It was **not** done. Owner must choose: (a) rewrite history and force-push, (b) make the repo private, or (c) accept the exposure and only remove the files from the tree.
+
+**Irregularities logged for owner review (`desk-31cb5781/**` is owned by 31cb; not edited here):**
+- **I1 — placeholder values.** `running-costs.html`: maintenance & repair "$150–$300/yr placeholder" (Property A) and "$300–$600/yr placeholder" (Property B) have no source. Rule 2 requires blank + unverified.
+- **I2 — insurance range not traceable.** `running-costs.html` cites "CA statewide avg $1,324–$2,211/yr" to the CDI homepage. Secondary sources cite CDI figures of $1,571 (CDI Homeowners Insurance Market Snapshot, updated Feb 2026) and $2,339.99 (CDI 2025 data call). The cited range does not match either. The CDI page guessed for the snapshot returned 404; the primary document was not read. Range should be blank until checked.
+- **I3 — insurance inconsistency.** Property A "~$120/mo" vs "~$1,500/yr" (12 × $120 = $1,440). Both are owner estimates; no policy quote exists.
+- **I4 — city names on public pages.** "Cupertino" (flagged, glossary, questions, running-costs, sources) and "San Francisco" (glossary, methodology, properties, running-costs) appear on the Pages site. The 31cb claim says "county level only". Owner to decide whether to keep.
+- **I5 — provider assumption.** "San Jose Water serves Cupertino" is applied to Property A. The provider depends on the parcel and is unverified for that property.
+- **I6 — index-series research.** The owner's requested Form 540 / Prop H / Prop 19 items are covered by other desks; this session did not re-verify those rows.
+
+**Status:** 31cb/R → **done (log only).** I1–I5 need an owner decision or a 31cb follow-up. The history question is open and blocks any "scrubbed" claim.
+
+### arena-85deecfe — follow-up: failed "Verify published artifact" on merge commit `a0f12e8` (PR #85)
+
+- **Cause:** the `desk-8be2/_src/build.py` footer writes `Built <today's date>` into all 20 pages. The committed pages said `2026-11-14`; the freshness step ran on `2026-11-15` and failed. No content changed. The Pages deploy for `a0f12e8` succeeded; only the artifact-verify check failed.
+- **Fix:** regenerated `desk-8be2/**` with its own build script (the workflow's stated remedy). Verified: 0 changed lines other than the `Built` date; `verify.py` PASS (20 pages, 157 rows, 538 links). The other five build scripts in the workflow rebuilt with no diff.
+- **Irregularity I7 (open):** the date stamp makes this freshness check fail on any day after the last commit. Recommended fix: pin the build date to a value in source, or drop the date from the footer. Owner: session `arena-8be27405` (8be2 scope). Not changed here.
+- **Merge record (arena-85deecfe):** PR [#85](https://github.com/wingbangboozle1-lang/Tino5/pull/85) (COORDINATION review record) merged at `a0f12e8`; PR [#86](https://github.com/wingbangboozle1-lang/Tino5/pull/86) (desk-8be2 regeneration) merged at `df4f961`. On `df4f961`: "Verify published artifact" = success; "pages build and deployment" = success; live `https://wingbangboozle1-lang.github.io/Tino5/desk-8be2/black-swan.html` serves.
+- **Not done this session (needs owner decision):** scrub of the ZIP codes from git history (public repo; see the history finding above). Not rewritten; the decision is the owner's.
+## Session `arena-d09aab64` — privacy/rounding follow-up claim (2026-11-15, branch `arena/d09aab64-tino5`)
+
+| ID | Task | Status | Session | File scope |
+|---|---|---|---|---|
+| d09/PRIV | Contain privacy and rounding risks in the already-published artifacts: audit the privacy scanner's masked findings; eliminate confirmed false positives for Treasury date query parameters; remove the unsupported statewide insurance range from the 31cb desk (keep the owner estimate labelled unverified) and rebuild; rerun site, privacy, and internal link checks. Do not rewrite public Git history or alter another desk's content. | done (scope checks pass; residual repository/history exposures logged below) | arena-d09aab64 | `scripts/privacy_scan.py`, `desk-31cb5781/_src/build.py`, generated `desk-31cb5781/running-costs.html`, this section only |
+
+**Completion / verification (2026-11-15):** `python3 desk-31cb5781/_src/build.py` and its verifier pass (17 pages, 0 errors; legacy warnings are separately documented below); `scripts/verify_safe.py` passes (13 pages, 125 source-linked rows, link/rounding/identifier checks); `scripts/check_landing.py` reports 0 unresolved; the privacy scanner on `cbd/`, `phase-99220/`, `inheritance-desk/`, and `desk-31cb5781/` reports 0 findings. A regression test confirms Treasury date query keys are not treated as money, while a monthly property-tax key remains detectable. The unsupported statewide insurance range was removed from the 31cb operating-cost row; the only remaining value is explicitly owner-supplied/unverified, with the official California Department of Insurance reference retained for quote discovery. No new rates or premiums were inferred.
+
+**Outstanding / not represented as complete:** The full-repository privacy scan still identifies two unrounded monetary values in an earlier repository-review paragraph of `COORDINATION.md`; that text is outside the claimed scope and has not been changed. Request to the coordination owner: redact or round that audit prose, and ensure the flagged page reflects the unresolved issue. Separately, the earlier review confirmed the public repository's historical commits retain ZIP-code and pre-rounding material. This session did not rewrite Git history, force-push `main` or other session branches, or make the repository private. The current branch-only restriction prevents performing that cross-branch history rewrite here; a current-tree change alone cannot purge historical Git objects. Treat the repository/history exposure as unresolved and do not describe it as scrubbed.
+
+
+**Scope rationale:** The privacy scan initially reported repeated unrounded-data findings in three phased-investing desks; masked inspection showed they arose from a Treasury date-query parameter, not household financial data. The latest decision desk's operating-cost page also cited a statewide insurance range that this session could not verify from the linked primary source; it was removed rather than rounded or repeated. The repository-wide history/public-data containment issue remains unresolved and is not changed by this task.
+
+**Integration result:** PR [#88](https://github.com/wingbangboozle1-lang/Tino5/pull/88) from `arena/d09aab64-tino5` merged into `main` on 2026-11-15 as `e6cb901f4f443c78aa8eafec82e9210b643f68`. The PR verification workflow succeeded (run `43710813781`); the main-branch verification workflow succeeded (run `43710867604`); GitHub Pages build and deployment succeeded (run `43710867370`). The repository/history privacy exposure remains explicitly unresolved; this merge does not scrub past commits.
