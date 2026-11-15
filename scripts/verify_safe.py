@@ -58,9 +58,14 @@ DEPLOYMENT_EXCLUSIONS = {
 # decision desk with the phased-investing black-swan path, what-if controls, one-page
 # printable Attorney & CPA briefing sheet and the full source-linked question/suggestion
 # register. Folded into the same single set.
+# desk-9af5443d added by the 9af/INT integration run (session arena-9af5443d, 2026-11-15):
+# the gap-filling desk — Prop H with official terms (2024 and 2026), the Form 540 MHST
+# sensitivity read from the official FTB instructions, Census ACS rent comparables, the
+# five-year maintenance plan, the estate liquidity plan, a distribution chart and the
+# decision-and-date log. Folded into the same single set.
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
                   "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
-                  "inheritance-desk", "desk-8be2", "desk-31cb5781"}
+                  "inheritance-desk", "desk-8be2", "desk-31cb5781", "desk-9af5443d"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -77,6 +82,9 @@ ALLOWED_HOSTS = {
     "home.treasury.gov", "fred.stlouisfed.org", "www.federalreservehistory.org", "www.sfpuc.org",
     # Judicial Council of California — DE-300 probate thresholds (7b/INT gap fix).
     "courts.ca.gov", "www.courts.ca.gov",
+    # desk-9af5443d (arena-9af5443d): Census ACS QuickFacts, SF Department of Elections,
+    # SFMTA, NBER, San Jose Water, SFPUC, California FAIR Plan.
+    "census.gov", "sfelections.org", "sfmta.com", "nber.org", "sjwater.com", "sfpuc.gov", "cfpnet.com",
 }
 # Structural personal-data patterns only. No real identifier is stored in this file.
 PII = [

@@ -54,6 +54,9 @@ PUBLIC_CONSTANTS = {
     "9,999,999",                                                          # SF transfer-tax bracket bound
     "125.44", "131.12",                                                   # utility bill examples as cited
     "123,456",                                                            # synthetic rounding example (not a real value)
+    # desk-9af5443d (arena-9af5443d): Census ACS QuickFacts published figures and the IRS
+    # estates-and-trusts LTCG threshold cited in the flagged-review rows.
+    "2,857", "234,707", "3,500", "16,200", "16,250",
 }
 
 MONEY_KEY = re.compile(r"(tax|assess|value|rent|price|premium|cost|bill|income|av\b|fmv)", re.I)
