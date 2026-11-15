@@ -107,5 +107,16 @@ jobs:
             git --no-pager diff --stat -- desk-8be2
             exit 1
           fi
+      - name: Gap-filling decision desk (desk-9af5443d/) — rebuild, then verify
+        run: |
+          python desk-9af5443d/_src/build.py
+          python desk-9af5443d/_src/verify.py
+      - name: Gap-filling decision desk (desk-9af5443d/) generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-9af5443d; then
+            echo "::error::desk-9af5443d/ is stale. Re-run desk-9af5443d/_src/build.py and commit the result."
+            git --no-pager diff --stat -- desk-9af5443d
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py

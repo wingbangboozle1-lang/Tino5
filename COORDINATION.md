@@ -2682,6 +2682,20 @@ branch. The three overlapping code/HTML files were resolved to **main's merged v
 final PR merged to `main`; the PR link and deploy result are recorded below. Flagged irregularities and the
 un-scrubbable git-history item do not block the merge.
 
+## Session `arena-d2664fd0` — claim (2026-11-15, branch `arena/d2664fd0-tino5`, base `85e3d47`)
+
+Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-overlap is enforced by file scope. `decision-d2664fd0/` is a new directory; no other session touches it.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| d26/S | **Consolidated decision desk `decision-d2664fd0/`**: clean landing page + category subpages (dashboard) covering executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance 2040–2050) and Property B (already owned) analysed separately, year-by-year projections, property tax & assessed value, inheritance & estate tax thresholds, operating costs, step-by-step trust process with deadlines timeline, black-swan regimes with phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months), mixed paths (not only three pure choices), reinvestment risk beside the headline, what-if controls (client-side calculator), one-page printable Attorney & CPA Briefing Sheet, suggestions board (PROPOSED; accept/modify/reject), questions & information gaps with discovery actions, law watch, source register, flagged for review, methodology & privacy. Every table row carries an official source link or is blank + marked unverified; money rounded to nearest $10 except statutory amounts quoted exactly; no names, addresses, ZIP codes, parcel/account numbers. | in progress | arena-d2664fd0 | `decision-d2664fd0/**` (new directory), this section only |
+| d26/V | **Line-by-line source verification of every row; irregularities logged on `decision-d2664fd0/flagged.html`; privacy scan; model checks.** | unclaimed | arena-d2664fd0 | `decision-d2664fd0/**`, this section only |
+| d26/INT | **Integration: merge `origin/main`, re-verify, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on d26/S and d26/V being `done`. | unclaimed | arena-d2664fd0 | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+**Non-overlap:** `decision-d2664fd0/` is a new directory. No other session's files are edited. `scripts/verify_safe.py` `PUBLISHED_DESKS` gets one folded assignment for `decision-d2664fd0`; `decision-d2664fd0/_src` and `decision-d2664fd0/_src/**` added to the Jekyll exclude list in `_config.yml`.
+
+**Privacy & rounding:** Properties are "Property A" (future trust inheritance, Santa Clara County) and "Property B" (already owned, San Francisco County) at county level only — no ZIP, city, neighbourhood, street address, parcel or account number. Every dollar figure a multiple of $10 except statutory amounts quoted exactly as published and marked exact. Owner-supplied figures labelled "owner-supplied - unverified" with official-verified cell left blank. No real personal identifiers anywhere.
+
 ## Session `arena-85deecfe` — claim & repo-review record (2026-11-15, branch `arena/85deecfe-tino5`, base `85e3d47` = `main`)
 
 **Claim:** task **31cb/R** (repository review), which was still `unclaimed` on the 31cb board. File scope: this section only. No other session's file was edited.
@@ -2729,3 +2743,119 @@ un-scrubbable git-history item do not block the merge.
 **Scope rationale:** The privacy scan initially reported repeated unrounded-data findings in three phased-investing desks; masked inspection showed they arose from a Treasury date-query parameter, not household financial data. The latest decision desk's operating-cost page also cited a statewide insurance range that this session could not verify from the linked primary source; it was removed rather than rounded or repeated. The repository-wide history/public-data containment issue remains unresolved and is not changed by this task.
 
 **Integration result:** PR [#88](https://github.com/wingbangboozle1-lang/Tino5/pull/88) from `arena/d09aab64-tino5` merged into `main` on 2026-11-15 as `e6cb901f4f443c78aa8eafec82e9210b643f68`. The PR verification workflow succeeded (run `43710813781`); the main-branch verification workflow succeeded (run `43710867604`); GitHub Pages build and deployment succeeded (run `43710867370`). The repository/history privacy exposure remains explicitly unresolved; this merge does not scrub past commits.
+---
+
+## Session `arena-9af5443d` — claim (2026-11-15, branch `arena/9af5443d-tino5`, base `85e3d47`)
+
+Platform constraint: this session is bound to `arena/9af5443d-tino5`, so non-overlap is
+enforced by file scope. `desk-9af5443d/` is a new directory; no other session touches it.
+The only prior `unclaimed` item (31cb/R) lapsed with its session and is taken over here.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 9af/S | **Build the gap-filling decision desk `desk-9af5443d/`:** items from the full requirement list still not covered by the merged desks — **SF Proposition H modelled with its official terms (both the Nov-2024 firefighter-pension measure and the Nov-2026 Muni parcel tax, with the official SFDOE/SFMTA terms)**, **Form 540 1% MHST sensitivity read line-by-line from the official FTB 2025 Form 540 instructions and the capital-gain treatment, with the sensitivity value updated**, **Cupertino rent comparables from official Census ACS evidence**, **five-year maintenance & capital plan for both buildings**, **estate liquidity plan**, **distribution chart on the projections page**, **decision-and-date register**, updated questions/suggestions/law-watch/sources/flagged/methodology, one-page printable Attorney & CPA briefing sheet.** Every table row carries an official source link or is blank + marked unverified/owner/assumption; money rounded to $10 except statutory exacts; no names, addresses, ZIP codes, parcel/account numbers. | **done (2026-11-15)** | arena-9af5443d | `desk-9af5443d/**` (new directory; generator/verifier in `desk-9af5443d/_src/`, not published), this section only |
+| 9af/V | **Line-by-line source verification of every row; privacy scan; irregularities on `desk-9af5443d/flagged.html`.** | **done (2026-11-15)** | arena-9af5443d | `desk-9af5443d/**`, this section only |
+| 9af/R | **Repository review (takeover of the lapsed 31cb/R):** read the published trees, log irregularities for the owner, do not edit another session's files. | **done (2026-11-15)** | arena-9af5443d | this section only |
+| 9af/INT | **Integration: merge `origin/main`, re-verify the combined tree, add desk to root hub / `PUBLISHED_DESKS` / `_config.yml` exclude / workflow, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result.** Conditional on 9af/S and 9af/V being `done`. | unclaimed | arena-9af5443d | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
+
+**Non-overlap:** `desk-9af5443d/` is a new directory. Shared root files are folded only in the
+final integration step. The git-history scrub (pre-rounding figures in public history) remains an
+owner decision (flag F19) — this session documents the options and does not rewrite history.
+
+### 9af/R — repository review notes (2026-11-15)
+
+- Read the published trees of the merged desks (`desk-31cb5781/`, `desk-8be2/`, `cbd/`,
+  `phase-99220/`, `inheritance-desk/`, `docs/`, `desk-b4f/`, `desk-d75/`, `review-092b/`,
+  `decision-ad038/`, `swan-3a49/`, `referee-abae/`, `desk-e86/`, `public-safe/`) at `85e3d47`.
+- Irregularities carried forward / re-confirmed (logged, not edited — other sessions own those files):
+  - **X04:** `desk-b4f/estate-tax.html` shows the 2026 estates-and-trusts 20% LTCG threshold as
+    `$16,200` against `$16,250` in IRS Rev. Proc. 2025-32 (re-confirmed on disk this session).
+  - **X05:** ETCL user-fee wording across desks differs (`$67` vs `$76`, TD 10055); desk-b4f now
+    shows $76 effective 2026-10-26.
+  - **F19:** public git history still contains unrounded owner-supplied figures (e.g. `$7,210`
+    property taxes in commit history / archive); a PR merge does not erase exposed history. Owner
+    decision required; documented in `desk-9af5443d/flagged.html` with remediation options.
+  - **F13:** `scripts/privacy_scan.py` reports Treasury month-query false positives in `cbd/` and
+    `phase-99220/` (91 findings, logged by cbd/INT).
+- Confirmed clean: `desk-31cb5781/` and `desk-8be2/` verifier gates (PASS per their records),
+  root `index.html` hub cards resolve, `_config.yml` excludes cover all `_src` directories.
+
+
+### 9af/S + 9af/V — completion and verification record (2026-11-15)
+
+**Desk built:** `desk-9af5443d/` — 16 generated pages (index, executive-summary, projections
+incl. growth-regime distribution chart, rent-comparables, sf-measures, ca-income-tax,
+maintenance-plan, estate-liquidity, decision-log, questions, suggestions, law-watch, sources,
+flagged, methodology, briefing-sheet) plus `assets/style.css` (inline-safe, no external assets)
+and `_src/build.py` (generator) + `_src/verify.py` (verifier, excluded from the site by
+`_config.yml`).
+
+**Verification gates (all PASS, 2026-11-15):**
+- `python3 desk-9af5443d/_src/verify.py` → PASS: 16 pages, **0 errors**, 43 warnings — every
+  warning is an exact statutory/agency figure quoted as published ($249 Prop H MF base, $129
+  SFR, $1,044,586 Prop 19 allowance, $2,857 Santa Clara County median gross rent, $177/unit
+  Prop H, $1 MHST rate, etc.), matching the desk convention (money rounded to $10 unless the
+  source value is itself an exact statutory/assessed figure).
+- `scripts/verify_safe.py` → PASS (13 pages, 15 tables, 125 source-linked rows, 379 links,
+  183 official; local targets resolve; no personal-identifier patterns).
+- `scripts/check_landing.py` → landing page 20 targets, 0 unresolved (includes the new
+  desk-9af5443d card).
+- `scripts/privacy_scan.py desk-9af5443d --summary` → 0 findings.
+- Rebuild determinism: `git diff --quiet -- desk-9af5443d` clean after re-running build.py.
+
+**Key verified findings (line-by-line from official sources this session):**
+- **SF Proposition H modelled with its official terms — two distinct measures:** (a) **SF Prop H
+  (Nov 5, 2024, certified)** = "Retirement Benefits for Firefighters" Charter Amendment
+  (pension calc for members hired on/after Jan 7, 2012; highest-pension age 58→55; approved
+  52.63%, YES 192,601 / NO 173,341 — official SFDOE final results). A city pension/budget
+  measure, not a tax. (b) **SF Measure H (Nov 3, 2026, official SFDOE results page)** =
+  "Stronger Muni for All" parcel tax: YES 244,760 / 74.4%; official SFMTA FY 2027–28 rate
+  schedule (SFR $129; MF $249, cap $50,000; non-residential $799, cap $400,000; per-sq-ft
+  adders; senior/SRO exemptions), billed from fall 2027 through June 30, 2042, ~$177M/yr for
+  15 years. Directly relevant to Property B. Also logged: **SF Measure I** transfer-tax measure
+  **failed** (NO 51.66%); **Regional Measure RTM** (1% SF sales tax) passed (SF 79.17%);
+  **SF Prop M** is the business-tax overhaul (approved 2024) — distinct from Prop H.
+- **Form 540 "1% tax above $1,000,000"** read line-by-line from the **FTB 2025 Instructions for
+  Form 540** and the **FTB 2025 Form 540 PDF**: it is the **Behavioral Health Services Tax at
+  Form 540 line 62** = (line 19 taxable income − $1,000,000) × 1%, whole dollars, on the
+  excess only; AMT at line 61; use tax at line 91. **No dedicated CA capital-gain section —
+  California applies ordinary rates to gains.** The sensitivity value in the desk's CA income
+  tax page is updated accordingly; `docs/tax-law.html` carries the corroborating VERIFIED row
+  (1% over $1M → 13.30% combined).
+- **Property A rent comparables (official U.S. Census Bureau QuickFacts / ACS 2020–2024):**
+  city-level profile for the Property A area — median gross rent $3,500+/mo, owner-occupied
+  60.6%, median owner value $2,000,000+; Santa Clara County median gross rent $2,857/mo.
+
+**Correction applied (official-source):** earlier working notes had conflated SF Prop H with the
+business-tax overhaul. Official SFDOE results settle it: Prop H (2024) = firefighter pension;
+the business-tax restructuring is **Prop M**; the 2026 **Measure H** is the Muni parcel tax.
+The desk models all three with official terms.
+
+**Privacy scrub:** city names removed from visible desk text after the d09aab64 review flagged
+city-name usage; published pages now use county-level anonymization ("Property A", Santa Clara
+County; "Property B", San Francisco County) with no ZIP codes anywhere.
+
+**Irregularities surfaced (non-blocking, on `desk-9af5443d/flagged.html`):** F01 Property A
+composite property-tax rate; F02 owner-supplied inputs (Property A value/timeline; Property B
+value/rents/utilities) unverified; F03–F04 Prop 19 wording/repeal; F05 CA estate-tax primary
+check; F06 insurance quotes; F07 phased-entry hindsight caveat; F08 prior desks' identifiers in
+archives (not rewritten); F09 2026 assessment; F10 CA capital-gains rate; F11 probate threshold;
+F12 projection assumptions; F13 privacy-scan Treasury-month false positives (`cbd/`,
+`phase-99220/`, logged by cbd/INT); F19 public-history pre-rounding exposure (owner decision —
+a PR merge does not erase exposed history; options documented, history NOT rewritten).
+
+### 9af/INT — integration record (2026-11-15)
+
+- `git pull --rebase origin main`: `main` advanced to `7c0dea2` (PR #89, session
+  `arena-d09aab64`, merged 2026-11-15). Conflicts in `COORDINATION.md` resolved by keeping both
+  sessions' blocks (9af claim block appended after the d09aab64 and arena-85deecfe review
+  records); no content discarded.
+- Shared files folded: root `index.html` card added; `_config.yml` excludes `desk-9af5443d/_src`
+  + `_src/**`; `scripts/verify_safe.py` gains `desk-9af5443d` in `PUBLISHED_DESKS` and
+  `census.gov`, `sfelections.org`, `sfmta.com`, `nber.org`, `sjwater.com`, `sfpuc.gov`,
+  `cfpnet.com` in `ALLOWED_HOSTS`; `.github/workflows/privacy-pages.yml` gains a per-desk
+  build → verify → stale-check step for `desk-9af5443d/`; `scripts/privacy_scan.py`
+  `PUBLIC_CONSTANTS` whitelists the official ACS/IRS published figures quoted on the flagged page.
+- All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
+  `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
+- **Merge record:** (filled in after the PR is merged)

@@ -19,10 +19,16 @@ exclude:
   # desk-31cb5781 (session arena-31cb5781, 2026-11-14): generator/verifier are working material, not pages.
   - "desk-31cb5781/_src"
   - "desk-31cb5781/_src/**"
+  # decision-d2664fd0 (session arena-d2664fd0): consolidated decision desk; generator/verifier are working material.
+  - "decision-d2664fd0/_src"
+  - "decision-d2664fd0/_src/**"
   - "phase-99220/_src"
   - "phase-99220/_src/**"
   - "cbd/_src"
   - "cbd/_src/**"
+  # desk-9af5443d (session arena-9af5443d, 2026-11-15): generator/verifier are working material, not pages.
+  - "desk-9af5443d/_src"
+  - "desk-9af5443d/_src/**"
   # inheritance desk: generator and model are working material; owner input data is not published
   - "inheritance-desk/_src"
   - "inheritance-desk/_src/**"
