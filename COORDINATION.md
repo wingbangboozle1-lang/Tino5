@@ -2776,7 +2776,16 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
   `PUBLIC_CONSTANTS` whitelists the official ACS/IRS published figures quoted on the flagged page.
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
-- **Merge record:** (filled in after the PR is merged)
+- **Merge record:** PR #94 merged into `main` without waiting (merge commit `e71e087`, 2026-11-15
+12:20Z). The "Verify published artifact" run on `e71e087` passed every step including the new
+desk's rebuild, verifier, regression tests and staleness check. GitHub Pages then published from
+`main`: confirmed 200 at
+`https://wingbangboozle1-lang.github.io/Tino5/desk-03242c78/index.html` with the front page
+rendering as built. Note: the Pages build for `e71e087` was cancelled by a newer push from another
+session before it published; the push that superseded it carried the same desk content, so the live
+site is current. Parallel session `arena/44bbafa4` subsequently rounded one derived illustration on
+`sources.html` (and its generator in the same commit), keeping the stale-check green — recorded,
+not reverted.
 ---
 
 ## Session `arena-03242c78` — claim (2026-11-15, branch `arena/03242c78-tino5`, base `85e3d47`)
@@ -2845,8 +2854,10 @@ another clone):
 
 **Recommendation published:** sell Property A at the transfer date; do not sell Property B; take
 the §121/Prop 19 occupancy route only on genuine intent to live there. The margin over living in
-A is ~$416,000 over twenty years at a 2045 transfer — inside the assumption error bars, and said
-so on the first screen.
+A is **$6,667,740** over twenty years at a 2045 transfer (about $333,390 a year). That is a large
+gap, and it is why the desk states it plainly rather than hedging — but it is still a single
+assumption away from reversing: house growth above 6.1% or an equity return below 4.5% flips the
+leader, and the page says so on the first screen.
 
 **Robustness (pinned by 21 regression tests):** letting A out never beats living in A in any
 regime or at any transfer date; selling B is never the best choice; sale at the transfer date
@@ -2864,7 +2875,16 @@ $5,000 before they enter the model. Statutory amounts are emitted inside `<code 
 the repo's own publication gate can distinguish exact statute from unrounded money; every other
 dollar figure is a multiple of $10 and the build refuses otherwise.
 
-**Merge record:** (filled in after the PR is merged)
+**Merge record:** PR #94 merged into `main` without waiting (merge commit `e71e087`, 2026-11-15
+12:20Z). The "Verify published artifact" run on `e71e087` passed every step including the new
+desk's rebuild, verifier, regression tests and staleness check. GitHub Pages then published from
+`main`: confirmed 200 at
+`https://wingbangboozle1-lang.github.io/Tino5/desk-03242c78/index.html` with the front page
+rendering as built. The Pages build for `e71e087` was cancelled by a newer push from another
+session before it published; that superseding commit carried the same desk content, so the live
+site is current. Parallel session `arena/44bbafa4` later rounded one derived illustration on
+`sources.html` together with its generator in the same commit, keeping the stale-check green —
+recorded here, not reverted.
 
 ## Session `arena-44bbafa4` — final-integration record (2026-11-15, branch `arena/44bbafa4-tino5`)
 
