@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Method and privacy — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Method, inputs and privacy</h1>
+<p class="lede">What the model does, what it assumes, how it is tested, and why publishing its
+dollars is safe. The last part is the one that matters most to the owner.</p>
+
+<h2>The question, in one sentence</h2>
+<p>When the inherited house arrives at some date between 2040 and 2050, should the heir live in it,
+let it out, or sell it and invest the proceeds — and does parking the proceeds before investing them
+change the answer?</p>
+
+<h2>How the model works</h2>
+<ul class="tight">
+<li><b>One engine.</b> Every comparison — the eight paths, the eight states, the phased test and the
+Monte Carlo — runs through the same function. There is no second model to disagree with the
+first.</li>
+<li><b>Money is cash.</b> Imputed rent is real but is not cash, so it is never invested in the model.
+It is accumulated separately and reported as its own present value.</li>
+<li><b>Housing is symmetric.</b> By assumption F15 the heir lives either in the inherited house or
+in the building's vacant unit. No path charges them market rent, and none is given free rent the
+others are denied.</li>
+<li><b>Debt is explicit.</b> A path whose carrying cost exceeds its income borrows at the Treasury
+rate plus 1.5 points; the first call for cash and the total shortfall are reported.</li>
+<li><b>Nothing is rounded until it is printed.</b> The model carries full precision; only published
+figures are rounded to $10.</li>
+<li><b>Deterministic.</b> The Monte Carlo uses a fixed seed and a fixed draw count, so two builds
+produce identical bytes.</li>
+</ul>
+
+<h2 id="ranges">The range register</h2>
+<p>Every household input, as a range. The status column is the whole point: an assumption is marked
+as one wherever it appears.</p>
+<div class="wrap"><table class=""><thead><tr><th>Input</th><th>Range</th><th>Status</th></tr></thead><tbody><tr><td>Gross rent as a share of the inherited house&#x27;s value</td><td>3.00% – 4.20%</td><td><span class="tag t-gap">unverified</span> F02</td></tr><tr><td>Homeowners insurance, inherited house, owner-occupied, share of value a year</td><td>0.06% – 0.14%</td><td><span class="tag t-gap">unverified</span> F03</td></tr><tr><td>Landlord policy, inherited house, share of value a year</td><td>0.08% – 0.18%</td><td><span class="tag t-gap">unverified</span> F03</td></tr><tr><td>Water, inherited house, share of value a year</td><td>0.05% – 0.10%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Power, inherited house, share of value a year, net of solar</td><td>-0.02% – 0.04%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Routine maintenance, inherited house, share of value a year</td><td>0.60% – 1.20%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Capital plan, inherited house, share of value a year</td><td>0.40% – 1.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Vacancy, share of gross rent</td><td>4.00% – 8.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Management, share of gross rent</td><td>6.00% – 10.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Gross scheduled rent, building, share of value a year</td><td>4.40% – 5.00%</td><td><span class="tag t-gap">unverified</span> F02</td></tr><tr><td>Landlord policy, building, share of value a year</td><td>0.17% – 0.30%</td><td><span class="tag t-gap">unverified</span> F03</td></tr><tr><td>Water, building, share of value a year</td><td>0.24% – 0.35%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Owner-paid power, building, share of value a year</td><td>0.03% – 0.08%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Routine maintenance, building, share of value a year</td><td>0.80% – 1.50%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Capital plan, building, share of value a year</td><td>0.30% – 0.80%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Vacancy, building, share of gross rent</td><td>3.00% – 7.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Management, building, share of gross rent</td><td>5.00% – 9.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Local parcel tax on the building, share of value a year, if enacted</td><td>0.00% – 0.20%</td><td><span class="tag t-gap">unverified</span> F04</td></tr><tr><td>The vacant unit&#x27;s rent as a share of the building&#x27;s gross rent</td><td>25.00% – 36.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Selling cost as a share of price</td><td>5.00% – 7.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Recording and filing fees, a sale, share of price</td><td>0.01% – 0.02%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>City documentary transfer tax, share of price</td><td>0.00% – 0.75%</td><td><span class="tag t-gap">unverified</span> F05</td></tr><tr><td>Combined marginal rate on rental income</td><td>30.00% – 42.00%</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>What living in the house is worth, share of value a year</td><td>3.00% – 4.20%</td><td><span class="tag t-ass">assumption</span></td></tr></tbody></table></div>
+<h2>Why no household figure appears on this site</h2>
+<p>The household's own records contain a market value, a monthly rent and a sequence of assessed
+values. None of them is published here, at any precision. The reason is arithmetic: a rounded series
+of yearly assessments still identifies one parcel against an open assessor roll, and a rounded market
+value plus a rounded rent reproduces the owner's own brief. Rounding to $10 does not contain that —
+the owner's values were already multiples of ten.</p>
+<p>Instead the model runs on declared <b>modelling bases</b> of $2,500,000 for the
+inherited house and $1,500,000 for the building. Both are round numbers that
+belong to no parcel.</p>
+
+<div class="ok"><h3>What is safe to publish, and what is not</h3>
+<p>The desk first claimed that its conclusions were invariant to the modelling base. A test
+disproved that, and the reason is a feature of the law, not a defect in the model: the
+intergenerational value cap is a <b>fixed number of dollars</b> (it is the one-million-dollar amount
+plus the transferor's base, indexed every two years). A more valuable house therefore gets
+proportionally less protection, pays proportionally more tax, and needs slightly faster price
+growth to be worth holding.</p>
+<p>What the tests <i>do</i> establish, and what this site publishes:</p>
+<ul class="tight">
+<li>The <b>ranking</b> of the paths does not change between a base of one million and ten million.</li>
+<li>The <b>break-even</b> moves by well under one percentage point across that tenfold range — it
+rises from about 10.41% at a one-million base to about 10.52% at ten
+million — and a test asserts the direction and the size.</li>
+<li>The <b>dollar gaps</b> scale with the household's size, which is why the site leads with rates
+and break-evens rather than with dollars.</li>
+</ul>
+<p>The consequence for the reader is stated plainly rather than hidden: a reader whose house is
+worth materially more than the modelling base should assume the break-even is a little higher than
+the figure below, and the flagged page records the range.</p></div>
+
+<h2>The tests</h2>
+<ul class="tight">
+<li>Base dependence: the ranking is identical between a one-million and a ten-million base; the
+break-even moves in the direction the fixed cap requires, by less than a percentage point.</li>
+<li>Determinism: two builds of the model produce byte-identical output.</li>
+<li>Monotonicity: a higher house-price growth rate never lowers the value of the holding path.</li>
+<li>Break-evens actually cross: at the computed growth rate the two paths tie to within $10.</li>
+<li>Exclusion mechanics: occupying lowers the assessment; not occupying resets to market; moving out
+re-enrols at market.</li>
+<li>Statutory arithmetic: the estate tax, the 1% tax and the transfer taxes are computed from the
+statute and checked against hand-worked examples.</li>
+<li>Privacy: every published page is scanned for names, streets, parcels, postcodes, cities,
+neighbourhoods, e-mail and phone shapes, and for any unrounded money.</li>
+<li>Sources: every external host is on the official allowlist; every data row links one or says why
+none exists.</li>
+</ul>
+
+<h2>Rebuilding after an input change</h2>
+<p>The owner's requirement — rebuild the model and the site after any input change and see whether
+the recommendation moved — is one command. The build regenerates every page from the model, and the
+break-even table is printed at the end of the run so a change is visible without reading the site.</p>
+<pre class="small">python3 desk-ops/_src/model.py    # writes model.json and prints the break-evens
+python3 desk-ops/_src/build.py    # rewrites every page
+python3 desk-ops/_src/verify.py   # the publication contract
+python3 -m unittest discover -s desk-ops/_src -p "test_*.py"</pre>
+
+<h2>What this is not</h2>
+<p>Not legal, tax or investment advice. Not a forecast. Not a valuation. The break-evens are the
+useful part, and they are only as good as the ranges above — which is why the ranges are published
+next to them.</p>
+
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

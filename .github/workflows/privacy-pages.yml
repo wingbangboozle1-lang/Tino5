@@ -15,108 +15,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Earlier release (public-safe/)
+
+      # 2026-11-15: this pipeline used to rebuild and verify eighteen separate desks, sixteen of
+      # which served household figures and city names. It now verifies the one published desk and
+      # the published surface gate, which scans every published directory rather than one curated
+      # one. A withdrawn desk is still in the repository as working material; it is not rebuilt
+      # here because it is not served.
+      - name: Published surface (fail-closed publication set, all published directories)
         run: python scripts/verify_safe.py
-      - name: Decision desk (review-092b/) — rebuild, then verify
+
+      - name: Operating desk — rebuild model, pages and privacy register
         run: |
-          python review-092b/_src/build.py
-          python review-092b/_src/verify.py
-      - name: Decision desk regression tests
-        run: python -m unittest discover -s review-092b/_src -p "test_*.py" -v
-      - name: Owner-brief desk (desk-d75/) — rebuild, then verify
+          python desk-ops/_src/model.py
+          python desk-ops/_src/build.py
+          python desk-ops/privacy/build.py
+
+      - name: Operating desk — generated pages are current
         run: |
-          python desk-d75/_src/build.py
-          python desk-d75/_src/verify.py
-      - name: Owner-brief desk regression tests
-        run: python -m unittest discover -s desk-d75/_src -p "test_*.py" -v
-      - name: Owner-brief desk generated pages are current
-        run: |
-          if ! git diff --quiet -- desk-d75; then
-            echo "::error::desk-d75/ is stale. Re-run desk-d75/_src/build.py and commit the result."
-            git --no-pager diff --stat -- desk-d75
+          if ! git diff --quiet -- desk-ops; then
+            echo "::error::desk-ops/ is stale. Re-run the model and the builders and commit the result."
+            git --no-pager diff --stat -- desk-ops
             exit 1
           fi
-      - name: Consolidated decision site (decision/) \u2014 rebuild, then verify
+
+      - name: Operating desk — model is deterministic
         run: |
-          python decision/_src/build.py
-          python decision/_src/verify.py
-      - name: Consolidated decision site \u2014 model regression tests
-        run: python -m unittest discover -s decision/_src -p "test_*.py" -v
-      - name: Owner-brief site (cbe/) — rebuild, then verify
-        run: |
-          python cbe/_src/build.py
-          python cbe/_src/verify.py
-      - name: Inheritance decision desk (inheritance-desk/) — rebuild, then verify
-        run: |
-          python inheritance-desk/_src/build.py
-          python inheritance-desk/_src/verify.py
-      - name: Owner-brief site (cbe/) — model regression tests
-        run: python -m unittest discover -s cbe/_src -p "test_*.py" -v
-      - name: Owner-brief site (cbe/) generated pages are current
-        run: |
-          if ! git diff --quiet -- cbe; then
-            echo "::error::cbe/ is stale. Re-run cbe/_src/build.py and commit the result."
-            git --no-pager diff --stat -- cbe
-            exit 1
-          fi
-      - name: Decision desk (desk-31cb5781/) — rebuild, then verify
-        run: |
-          python desk-31cb5781/_src/build.py
-          python desk-31cb5781/_src/verify.py
-      - name: Decision desk (desk-31cb5781/) generated pages are current
-        run: |
-          if ! git diff --quiet -- desk-31cb5781; then
-            echo "::error::desk-31cb5781/ is stale. Re-run desk-31cb5781/_src/build.py and commit the result."
-            git --no-pager diff --stat -- desk-31cb5781
-            exit 1
-          fi
-      - name: Phased-replay and attorney/CPA desk (phase-99220/) — rebuild, then verify
-        run: |
-          python phase-99220/_src/build.py
-          python phase-99220/_src/verify.py
-      - name: Phased-replay and attorney/CPA desk regression tests
-        run: python -m unittest discover -s phase-99220/_src -p "test_*.py" -v
-      - name: Phased-replay and attorney/CPA desk generated pages are current
-        run: |
-          if ! git diff --quiet -- phase-99220; then
-            echo "::error::phase-99220/ is stale. Re-run phase-99220/_src/build.py and commit the result."
-            git --no-pager diff --stat -- phase-99220
-            exit 1
-          fi
-      - name: Property decision desk (cbd/) — rebuild, then verify
-        run: |
-          python cbd/_src/build.py
-          python cbd/_src/verify.py
-      - name: Property decision desk (cbd/) — model regression tests
-        run: python -m unittest discover -s cbd/_src -p "test_*.py" -v
-      - name: Property decision desk (cbd/) generated pages are current
-        run: |
-          if ! git diff --quiet -- cbd; then
-            echo "::error::cbd/ is stale. Re-run cbd/_src/build.py and commit the result."
-            git --no-pager diff --stat -- cbd
-            exit 1
-          fi
-      - name: Independent decision desk (desk-8be2/) — rebuild, then verify
-        run: |
-          python desk-8be2/_src/build.py
-          python desk-8be2/_src/verify.py
-      - name: Independent decision desk (desk-8be2/) generated pages are current
-        run: |
-          if ! git diff --quiet -- desk-8be2; then
-            echo "::error::desk-8be2/ is stale. Re-run desk-8be2/_src/build.py and commit the result."
-            git --no-pager diff --stat -- desk-8be2
-            exit 1
-          fi
-      - name: Gap-filling decision desk (desk-9af5443d/) — rebuild, then verify
-        run: |
-          python desk-9af5443d/_src/build.py
-          python desk-9af5443d/_src/verify.py
-      - name: Gap-filling decision desk (desk-9af5443d/) generated pages are current
-        run: |
-          if ! git diff --quiet -- desk-9af5443d; then
-            echo "::error::desk-9af5443d/ is stale. Re-run desk-9af5443d/_src/build.py and commit the result."
-            git --no-pager diff --stat -- desk-9af5443d
-            exit 1
-          fi
+          cp desk-ops/_src/model.json .det-a.json
+          python desk-ops/_src/model.py
+          diff -q .det-a.json desk-ops/_src/model.json && rm -f .det-a.json
+
+      - name: Operating desk — publication contract
+        run: python desk-ops/_src/verify.py
+
+      - name: Operating desk — regression and base-dependence tests
+        run: python -m unittest discover -s desk-ops/_src -p "test_*.py" -v
+
       - name: Landing page links resolve
         run: python scripts/check_landing.py
+
+      - name: Privacy scan (repository-wide, reports only)
+        run: python scripts/privacy_scan.py --summary || true

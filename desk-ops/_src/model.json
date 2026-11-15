@@ -1,0 +1,4266 @@
+{
+ "start_year": 2026,
+ "base": {
+  "a": 2500000,
+  "b": 1500000
+ },
+ "transfer_years": [
+  2040,
+  2045,
+  2050
+ ],
+ "horizons": [
+  10,
+  20,
+  30
+ ],
+ "ranges": {
+  "a_rent_yield": [
+   0.03,
+   0.042
+  ],
+  "a_insurance_rate": [
+   0.0006,
+   0.0014
+  ],
+  "a_insurance_rental_rate": [
+   0.0008,
+   0.0018
+  ],
+  "a_water_rate": [
+   0.00048,
+   0.00104
+  ],
+  "a_electric_net_rate": [
+   -0.00016,
+   0.00036
+  ],
+  "a_maint_rate": [
+   0.006,
+   0.012
+  ],
+  "a_capital_rate": [
+   0.004,
+   0.01
+  ],
+  "a_vacancy": [
+   0.04,
+   0.08
+  ],
+  "a_management": [
+   0.06,
+   0.1
+  ],
+  "b_rent_yield": [
+   0.044,
+   0.05
+  ],
+  "b_insurance_rate": [
+   0.00167,
+   0.003
+  ],
+  "b_water_rate": [
+   0.0024,
+   0.00347
+  ],
+  "b_electric_rate": [
+   0.00027,
+   0.0008
+  ],
+  "b_maint_rate": [
+   0.008,
+   0.015
+  ],
+  "b_capital_rate": [
+   0.003,
+   0.008
+  ],
+  "b_vacancy": [
+   0.03,
+   0.07
+  ],
+  "b_management": [
+   0.05,
+   0.09
+  ],
+  "b_parcel_tax_rate": [
+   0.0,
+   0.002
+  ],
+  "vacant_unit_share": [
+   0.25,
+   0.36
+  ],
+  "sell_cost": [
+   0.05,
+   0.07
+  ],
+  "recording_rate": [
+   6e-05,
+   0.00024
+  ],
+  "city_doc_tax": [
+   0.0,
+   0.0075
+  ],
+  "rent_tax_rate": [
+   0.3,
+   0.42
+  ],
+  "imputed_rent_yield": [
+   0.03,
+   0.042
+  ]
+ },
+ "regimes": [
+  {
+   "id": "base",
+   "name": "Baseline",
+   "equity": 0.07,
+   "vol": 0.165,
+   "house": 0.04,
+   "inflation": 0.028,
+   "treasury": 0.04,
+   "anchor": "Scenario, not a forecast.",
+   "crash": null
+  },
+  {
+   "id": "growth",
+   "name": "Strong growth",
+   "equity": 0.1,
+   "vol": 0.16,
+   "house": 0.055,
+   "inflation": 0.035,
+   "treasury": 0.045,
+   "anchor": "Scenario at the top of the post-1945 US equity record.",
+   "crash": null
+  },
+  {
+   "id": "stagnation",
+   "name": "Stagnation (Japan-style)",
+   "equity": 0.03,
+   "vol": 0.18,
+   "house": 0.01,
+   "inflation": 0.008,
+   "treasury": 0.01,
+   "anchor": "Scenario modelled on the post-1990 Japanese record.",
+   "crash": null
+  },
+  {
+   "id": "stagflation",
+   "name": "Stagflation (1970s shape)",
+   "equity": 0.05,
+   "vol": 0.17,
+   "house": 0.05,
+   "inflation": 0.075,
+   "treasury": 0.07,
+   "anchor": "Scenario modelled on the 1973-1982 US record.",
+   "crash": null
+  },
+  {
+   "id": "crash1929",
+   "name": "1929 at the entry year",
+   "equity": 0.06,
+   "vol": 0.22,
+   "house": 0.02,
+   "inflation": 0.01,
+   "treasury": 0.03,
+   "anchor": "Anchored on fed_history_1929: Dow 381.17 on 3 Sep 1929 to 41.22 on 8 Jul 1932, 89% below the peak; the 1929 high was not regained until 23 Nov 1954.",
+   "crash": {
+    "equity": [
+     -0.31,
+     -0.23,
+     -0.09
+    ],
+    "house": [
+     -0.1,
+     -0.08,
+     -0.04
+    ]
+   }
+  },
+  {
+   "id": "crash2008",
+   "name": "2008 at the entry year",
+   "equity": 0.065,
+   "vol": 0.19,
+   "house": 0.03,
+   "inflation": 0.02,
+   "treasury": 0.02,
+   "anchor": "Anchored on fed_history_2008: S&P 500 -57% from the October 2007 peak to the March 2009 trough; house prices about -30% mid-2006 to mid-2009.",
+   "crash": {
+    "equity": [
+     -0.3,
+     -0.27
+    ],
+    "house": [
+     -0.14,
+     -0.12
+    ]
+   }
+  },
+  {
+   "id": "rate_shock",
+   "name": "Rate shock",
+   "equity": 0.04,
+   "vol": 0.18,
+   "house": 0.01,
+   "inflation": 0.05,
+   "treasury": 0.062,
+   "anchor": "Scenario: higher real rates compress both valuations.",
+   "crash": null
+  },
+  {
+   "id": "inflation",
+   "name": "Persistent 6% inflation",
+   "equity": 0.06,
+   "vol": 0.17,
+   "house": 0.05,
+   "inflation": 0.06,
+   "treasury": 0.055,
+   "anchor": "Scenario: inflation settles near 6% with a 5% house-price pass-through.",
+   "crash": null
+  }
+ ],
+ "paths": [
+  {
+   "id": "live",
+   "name": "Live in it",
+   "group": "pure",
+   "desc": "The heir occupies the house. It cannot be let. Their own housing is the return."
+  },
+  {
+   "id": "rent",
+   "name": "Let it out",
+   "group": "pure",
+   "desc": "Kept as a rental. No principal-residence exclusion is available on a later sale."
+  },
+  {
+   "id": "sell",
+   "name": "Sell at the transfer",
+   "group": "pure",
+   "desc": "Sold in the year of inheritance. The stepped-up basis means little or no gain."
+  },
+  {
+   "id": "live_then_sell",
+   "name": "Live in it, then sell",
+   "group": "mixed",
+   "desc": "Occupied for the first years (securing the exclusion and the 121 gain exclusion), then sold. This is the only holding path that gets both reliefs."
+  },
+  {
+   "id": "rent_then_sell",
+   "name": "Let it, then sell",
+   "group": "mixed",
+   "desc": "Let from the transfer, sold later. Rent now, exclusion lost."
+  },
+  {
+   "id": "sell_phased",
+   "name": "Sell, park in Treasuries, phase in",
+   "group": "mixed",
+   "desc": "Sold at the transfer; proceeds parked in 3-month to 2-year Treasuries for 24-36 months, then moved into equities in equal monthly tranches."
+  },
+  {
+   "id": "live_sell_phased",
+   "name": "Live, then sell, parked, phased in",
+   "group": "mixed",
+   "desc": "Occupied first, sold, then the 24-36 month Treasury park and phased entry."
+  },
+  {
+   "id": "rent_sell_phased",
+   "name": "Let, then sell, parked, phased in",
+   "group": "mixed",
+   "desc": "Let first, sold, then the Treasury park and phased entry."
+  }
+ ],
+ "gaps": {
+  "F01": "Property A's tax rate area, and therefore its published total ad valorem rate. The county's per-area table was not read because the area is unknown. The model uses the county's verified floor (its 1% maximum levy plus its 0.0388% retirement levy) to an assumed 1.40% ceiling.",
+  "F02": "No independent appraisal, no comparable sales, no rental comparables for either property. Rents here are a yield range applied to the modelling base, not a market rent.",
+  "F03": "No binding insurance quote for either property. Premiums are an assumed range.",
+  "F04": "The parcel tax on the three-unit building: the official ballot text and the certified result were not confirmed from an official source in this session. It is a parameter, and the page shows the size at which it would change the answer.",
+  "F05": "The city documentary transfer tax rate for the jurisdiction of property B: the city's published rate page returned 'Page Not Found' at the address tried. The rate is a range.",
+  "F06": "Article XIII A itself was not opened; its 1% levy and 2% cap are taken from the county's own compilation, which quotes both.",
+  "F07": "No official Treasury yield was retrieved this session. The Treasury rate is an assumed range.",
+  "F08": "The inflation record is the repository's earlier transcription of BLS CUUR0000SA0, not a fresh retrieval.",
+  "F09": "California's marginal schedule and its treatment of long-term gain were not confirmed from the Franchise Tax Board booklet. Only the statutory 1% above $1,000,000 is applied.",
+  "F10": "That California has no estate or inheritance tax was not confirmed from an official state page; no figure here depends on it, because the estate is modelled against the federal exclusion only.",
+  "F11": "The 27.5-year straight-line depreciation period and the 70% building share are assumptions.",
+  "F12": "Whether the trust or the heir is the transferor under RTC 63.2, and how the resident exemption applies to a trust, were not resolved from an official source.",
+  "F13": "Prior publication of household figures cannot be undone by editing this repository. See privacy/.",
+  "F15": "Housing symmetry is an assumption: the heir lives either in property A or in the vacant unit at property B, so no path charges the heir market rent. If the heir would live elsewhere and pay rent, add that cost to the live, let and sell paths alike.",
+  "F14": "Local rental rules for the three-unit building (rent-increase limits, just-cause, short-term-rental limits, the treatment of an owner-occupied unit) were not verified from the city's ordinance."
+ },
+ "constants": {
+  "fed_exclusion": {
+   "2025": 13990000,
+   "2026": 15000000,
+   "2027": 15480000
+  },
+  "fed_rate": 0.4,
+  "prop19_cap": 1044586,
+  "prop19_table": [
+   [
+    "2021-02-16",
+    "2023-02-15",
+    1000000
+   ],
+   [
+    "2023-02-16",
+    "2025-02-15",
+    1022600
+   ],
+   [
+    "2025-02-16",
+    "2027-02-15",
+    1044586
+   ]
+  ],
+  "ca1": {
+   "threshold": 1000000,
+   "rate": 0.01
+  },
+  "niit": {
+   "rate": 0.038,
+   "thresholds": {
+    "single": 200000,
+    "joint": 250000
+   }
+  },
+  "sec121": {
+   "single": 250000,
+   "joint": 500000
+  },
+  "county_doc": 0.0011,
+  "city_doc_max": 0.00055,
+  "prop13": {
+   "base": 0.01,
+   "retirement": 0.000388,
+   "cap": 0.02
+  }
+ },
+ "grid": [
+  {
+   "path": "live",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 5218520,
+    "with_housing": 7071430,
+    "housing_pv": 1852910,
+    "liquid": 0,
+    "debt": 511260,
+    "property": 6408260,
+    "embedded": 678480,
+    "first_call": 2040,
+    "shortfall": 404890,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 4503700,
+    "with_housing": 6700880,
+    "housing_pv": 2197180,
+    "liquid": 0,
+    "debt": 1159390,
+    "property": 6408260,
+    "embedded": 745170,
+    "first_call": 2040,
+    "shortfall": 914690,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 3768130,
+    "with_housing": 6301930,
+    "housing_pv": 2533800,
+    "liquid": 0,
+    "debt": 1828260,
+    "property": 6408260,
+    "embedded": 811870,
+    "first_call": 2040,
+    "shortfall": 1442160,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 6663160,
+    "with_housing": 6663160,
+    "housing_pv": 0,
+    "liquid": 995380,
+    "debt": 0,
+    "property": 6408260,
+    "embedded": 740480,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 6101720,
+    "with_housing": 6101720,
+    "housing_pv": 0,
+    "liquid": 500640,
+    "debt": 0,
+    "property": 6408260,
+    "embedded": 807170,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 5489030,
+    "with_housing": 5489030,
+    "housing_pv": 0,
+    "liquid": 0,
+    "debt": 45360,
+    "property": 6408260,
+    "embedded": 873870,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 8117820,
+    "with_housing": 7862810,
+    "housing_pv": -255000,
+    "liquid": 8117820,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 7848670,
+    "with_housing": 7516350,
+    "housing_pv": -332320,
+    "liquid": 7848670,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7557110,
+    "with_housing": 7139830,
+    "housing_pv": -417280,
+    "liquid": 7557110,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 5151530,
+    "with_housing": 6819590,
+    "housing_pv": 1668060,
+    "liquid": 5151530,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 355930,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 4489270,
+    "with_housing": 6464630,
+    "housing_pv": 1975350,
+    "liquid": 4489270,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 807850,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 3806260,
+    "with_housing": 6081260,
+    "housing_pv": 2275000,
+    "liquid": 3806260,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 1273980,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 6444260,
+    "with_housing": 6423110,
+    "housing_pv": -21160,
+    "liquid": 6444260,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 5913900,
+    "with_housing": 5886330,
+    "housing_pv": -27570,
+    "liquid": 5913900,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 5335240,
+    "with_housing": 5300620,
+    "housing_pv": -34620,
+    "liquid": 5335240,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 7904140,
+    "with_housing": 7649140,
+    "housing_pv": -255000,
+    "liquid": 7904140,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 7638670,
+    "with_housing": 7306350,
+    "housing_pv": -332320,
+    "liquid": 7638670,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7350800,
+    "with_housing": 6933520,
+    "housing_pv": -417280,
+    "liquid": 7350800,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 5151530,
+    "with_housing": 6819590,
+    "housing_pv": 1668060,
+    "liquid": 5151530,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 355930,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 4489270,
+    "with_housing": 6464630,
+    "housing_pv": 1975350,
+    "liquid": 4489270,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 807850,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 3806260,
+    "with_housing": 6081260,
+    "housing_pv": 2275000,
+    "liquid": 3806260,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 1273980,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2040,
+   "horizon": 10,
+   "low": {
+    "net": 6441140,
+    "with_housing": 6419990,
+    "housing_pv": -21160,
+    "liquid": 6441140,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 5912470,
+    "with_housing": 5884900,
+    "housing_pv": -27570,
+    "liquid": 5912470,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 5335240,
+    "with_housing": 5300620,
+    "housing_pv": -34620,
+    "liquid": 5335240,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 6263580,
+    "with_housing": 12692650,
+    "housing_pv": 6429070,
+    "liquid": 0,
+    "debt": 1662100,
+    "property": 9485790,
+    "embedded": 1560110,
+    "first_call": 2040,
+    "shortfall": 1029120,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 4176470,
+    "with_housing": 11804910,
+    "housing_pv": 7628440,
+    "liquid": 0,
+    "debt": 3650490,
+    "property": 9485790,
+    "embedded": 1658830,
+    "first_call": 2040,
+    "shortfall": 2233890,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 1995910,
+    "with_housing": 10798600,
+    "housing_pv": 8802690,
+    "liquid": 0,
+    "debt": 5732320,
+    "property": 9485790,
+    "embedded": 1757560,
+    "first_call": 2040,
+    "shortfall": 3501210,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 11332670,
+    "with_housing": 11332670,
+    "housing_pv": 0,
+    "liquid": 3468980,
+    "debt": 0,
+    "property": 9485790,
+    "embedded": 1622110,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 9627170,
+    "with_housing": 9627170,
+    "housing_pv": 0,
+    "liquid": 1862210,
+    "debt": 0,
+    "property": 9485790,
+    "embedded": 1720830,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7713670,
+    "with_housing": 7713670,
+    "housing_pv": 0,
+    "liquid": 47430,
+    "debt": 0,
+    "property": 9485790,
+    "embedded": 1819560,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 16664950,
+    "with_housing": 15827210,
+    "housing_pv": -837740,
+    "liquid": 16664950,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 15967750,
+    "with_housing": 14876020,
+    "housing_pv": -1091730,
+    "liquid": 15967750,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 15163290,
+    "with_housing": 13792440,
+    "housing_pv": -1370850,
+    "liquid": 15163290,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 10470610,
+    "with_housing": 13779450,
+    "housing_pv": 3308840,
+    "liquid": 10470610,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 404890,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 8981110,
+    "with_housing": 12865280,
+    "housing_pv": 3884170,
+    "liquid": 8981110,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 914690,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7389080,
+    "with_housing": 11823450,
+    "housing_pv": 4434370,
+    "liquid": 7389080,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 1442160,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 13074010,
+    "with_housing": 12737900,
+    "housing_pv": -336110,
+    "liquid": 13074010,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 11810430,
+    "with_housing": 11372420,
+    "housing_pv": -438010,
+    "liquid": 11810430,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 10384070,
+    "with_housing": 9834080,
+    "housing_pv": -550000,
+    "liquid": 10384070,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 16244620,
+    "with_housing": 15406870,
+    "housing_pv": -837740,
+    "liquid": 16244620,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 15554650,
+    "with_housing": 14462910,
+    "housing_pv": -1091730,
+    "liquid": 15554650,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 14757450,
+    "with_housing": 13386600,
+    "housing_pv": -1370850,
+    "liquid": 14757450,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 10470610,
+    "with_housing": 13779450,
+    "housing_pv": 3308840,
+    "liquid": 10470610,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 404890,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 8981110,
+    "with_housing": 12865280,
+    "housing_pv": 3884170,
+    "liquid": 8981110,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 914690,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7389080,
+    "with_housing": 11823450,
+    "housing_pv": 4434370,
+    "liquid": 7389080,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 1442160,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2040,
+   "horizon": 20,
+   "low": {
+    "net": 13067870,
+    "with_housing": 12731760,
+    "housing_pv": -336110,
+    "liquid": 13067870,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 11807600,
+    "with_housing": 11369590,
+    "housing_pv": -438010,
+    "liquid": 11807600,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 10384070,
+    "with_housing": 9834080,
+    "housing_pv": -550000,
+    "liquid": 10384070,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 7136760,
+    "with_housing": 23959410,
+    "housing_pv": 16822650,
+    "liquid": 0,
+    "debt": 4039400,
+    "property": 14041290,
+    "embedded": 2865130,
+    "first_call": 2040,
+    "shortfall": 1978570,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 2329650,
+    "with_housing": 22301070,
+    "housing_pv": 19971430,
+    "liquid": 0,
+    "debt": 8700370,
+    "property": 14041290,
+    "embedded": 3011270,
+    "first_call": 2040,
+    "shortfall": 4181460,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": -2659540,
+    "with_housing": 20397940,
+    "housing_pv": 23057470,
+    "liquid": 0,
+    "debt": 13543420,
+    "property": 14041290,
+    "embedded": 3157410,
+    "first_call": 2040,
+    "shortfall": 6462600,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 20230080,
+    "with_housing": 20230080,
+    "housing_pv": 0,
+    "liquid": 9115920,
+    "debt": 0,
+    "property": 14041290,
+    "embedded": 2927130,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 16047070,
+    "with_housing": 16047070,
+    "housing_pv": 0,
+    "liquid": 5079050,
+    "debt": 0,
+    "property": 14041290,
+    "embedded": 3073270,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 11355060,
+    "with_housing": 11355060,
+    "housing_pv": 0,
+    "liquid": 533170,
+    "debt": 0,
+    "property": 14041290,
+    "embedded": 3219410,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 33649480,
+    "with_housing": 31558500,
+    "housing_pv": -2090970,
+    "liquid": 33649480,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 32053380,
+    "with_housing": 29328460,
+    "housing_pv": -2724920,
+    "liquid": 32053380,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 30220350,
+    "with_housing": 26798760,
+    "housing_pv": -3421590,
+    "liquid": 30220350,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 21770430,
+    "with_housing": 27836420,
+    "housing_pv": 6065990,
+    "liquid": 21770430,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 404890,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 18692130,
+    "with_housing": 25755570,
+    "housing_pv": 7063440,
+    "liquid": 18692130,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 914690,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 15387430,
+    "with_housing": 23385580,
+    "housing_pv": 7998150,
+    "liquid": 15387430,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 1442160,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 26585560,
+    "with_housing": 25481370,
+    "housing_pv": -1104180,
+    "liquid": 26585560,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 23875300,
+    "with_housing": 22436340,
+    "housing_pv": -1438950,
+    "liquid": 23875300,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 20818900,
+    "with_housing": 19012050,
+    "housing_pv": -1806850,
+    "liquid": 20818900,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 32822610,
+    "with_housing": 30731640,
+    "housing_pv": -2090970,
+    "liquid": 32822610,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 31240730,
+    "with_housing": 28515820,
+    "housing_pv": -2724920,
+    "liquid": 31240730,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 29421990,
+    "with_housing": 26000400,
+    "housing_pv": -3421590,
+    "liquid": 29421990,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 21770430,
+    "with_housing": 27836420,
+    "housing_pv": 6065990,
+    "liquid": 21770430,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 404890,
+    "assessed": 3284610,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 18692130,
+    "with_housing": 25755570,
+    "housing_pv": 7063440,
+    "liquid": 18692130,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 914690,
+    "assessed": 3284610,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 15387430,
+    "with_housing": 23385580,
+    "housing_pv": 7998150,
+    "liquid": 15387430,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 1442160,
+    "assessed": 3284610,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2040,
+   "horizon": 30,
+   "low": {
+    "net": 26573470,
+    "with_housing": 25469290,
+    "housing_pv": -1104180,
+    "liquid": 26573470,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 23869730,
+    "with_housing": 22430780,
+    "housing_pv": -1438950,
+    "liquid": 23869730,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 4329190,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 20818900,
+    "with_housing": 19012050,
+    "housing_pv": -1806850,
+    "liquid": 20818900,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2040,
+    "shortfall": 33160,
+    "assessed": 4329190,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 6147260,
+    "with_housing": 8456850,
+    "housing_pv": 2309590,
+    "liquid": 0,
+    "debt": 805770,
+    "property": 7796630,
+    "embedded": 843600,
+    "first_call": 2045,
+    "shortfall": 636680,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 5294940,
+    "with_housing": 8040150,
+    "housing_pv": 2745200,
+    "liquid": 0,
+    "debt": 1576940,
+    "property": 7796630,
+    "embedded": 924750,
+    "first_call": 2045,
+    "shortfall": 1243550,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 4421880,
+    "with_housing": 7595040,
+    "housing_pv": 3173160,
+    "liquid": 0,
+    "debt": 2368860,
+    "property": 7796630,
+    "embedded": 1005890,
+    "first_call": 2045,
+    "shortfall": 1868090,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 7979440,
+    "with_housing": 7979440,
+    "housing_pv": 0,
+    "liquid": 1088410,
+    "debt": 0,
+    "property": 7796630,
+    "embedded": 905600,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 7330810,
+    "with_housing": 7330810,
+    "housing_pv": 0,
+    "liquid": 520930,
+    "debt": 0,
+    "property": 7796630,
+    "embedded": 986750,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 6627860,
+    "with_housing": 6627860,
+    "housing_pv": 0,
+    "liquid": 0,
+    "debt": 100870,
+    "property": 7796630,
+    "embedded": 1067890,
+    "first_call": 2045,
+    "shortfall": 73480,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 9753950,
+    "with_housing": 9498950,
+    "housing_pv": -255000,
+    "liquid": 9753950,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 9460940,
+    "with_housing": 9128620,
+    "housing_pv": -332320,
+    "liquid": 9460940,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 9145520,
+    "with_housing": 8728230,
+    "housing_pv": -417280,
+    "liquid": 9145520,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 6068630,
+    "with_housing": 8153320,
+    "housing_pv": 2084690,
+    "liquid": 6068630,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 561270,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 5280760,
+    "with_housing": 7756080,
+    "housing_pv": 2475320,
+    "liquid": 5280760,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1098920,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 4472140,
+    "with_housing": 7330430,
+    "housing_pv": 2858290,
+    "liquid": 4472140,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1650800,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 7713120,
+    "with_housing": 7691960,
+    "housing_pv": -21160,
+    "liquid": 7713120,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 7102300,
+    "with_housing": 7074730,
+    "housing_pv": -27570,
+    "liquid": 7102300,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 6440760,
+    "with_housing": 6406140,
+    "housing_pv": -34620,
+    "liquid": 6440760,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 71570,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 9494400,
+    "with_housing": 9239400,
+    "housing_pv": -255000,
+    "liquid": 9494400,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 9205730,
+    "with_housing": 8873410,
+    "housing_pv": -332320,
+    "liquid": 9205730,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 8894670,
+    "with_housing": 8477390,
+    "housing_pv": -417280,
+    "liquid": 8894670,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 6068630,
+    "with_housing": 8153320,
+    "housing_pv": 2084690,
+    "liquid": 6068630,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 561270,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 5280760,
+    "with_housing": 7756080,
+    "housing_pv": 2475320,
+    "liquid": 5280760,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1098920,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 4472140,
+    "with_housing": 7330430,
+    "housing_pv": 2858290,
+    "liquid": 4472140,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1650800,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2045,
+   "horizon": 10,
+   "low": {
+    "net": 7709740,
+    "with_housing": 7688590,
+    "housing_pv": -21160,
+    "liquid": 7709740,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 7100850,
+    "with_housing": 7073280,
+    "housing_pv": -27570,
+    "liquid": 7100850,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 6440760,
+    "with_housing": 6406140,
+    "housing_pv": -34620,
+    "liquid": 6440760,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 71570,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 7059870,
+    "with_housing": 15063310,
+    "housing_pv": 8003450,
+    "liquid": 0,
+    "debt": 2564810,
+    "property": 11540910,
+    "embedded": 1916240,
+    "first_call": 2045,
+    "shortfall": 1575580,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 4565360,
+    "with_housing": 14083050,
+    "housing_pv": 9517700,
+    "liquid": 0,
+    "debt": 4939210,
+    "property": 11540910,
+    "embedded": 2036350,
+    "first_call": 2045,
+    "shortfall": 3016170,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 1977410,
+    "with_housing": 12984220,
+    "housing_pv": 11006810,
+    "liquid": 0,
+    "debt": 7407040,
+    "property": 11540910,
+    "embedded": 2156460,
+    "first_call": 2045,
+    "shortfall": 4519300,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 13391230,
+    "with_housing": 13391230,
+    "housing_pv": 0,
+    "liquid": 3828560,
+    "debt": 0,
+    "property": 11540910,
+    "embedded": 1978240,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 11420340,
+    "with_housing": 11420340,
+    "housing_pv": 0,
+    "liquid": 1977780,
+    "debt": 0,
+    "property": 11540910,
+    "embedded": 2098350,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 9241240,
+    "with_housing": 9241240,
+    "housing_pv": 0,
+    "liquid": 0,
+    "debt": 81210,
+    "property": 11540910,
+    "embedded": 2218460,
+    "first_call": 2045,
+    "shortfall": 73890,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 19883470,
+    "with_housing": 19045730,
+    "housing_pv": -837740,
+    "liquid": 19883470,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 19139330,
+    "with_housing": 18047600,
+    "housing_pv": -1091730,
+    "liquid": 19139330,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 18287920,
+    "with_housing": 16917070,
+    "housing_pv": -1370850,
+    "liquid": 18287920,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 12148280,
+    "with_housing": 16355490,
+    "housing_pv": 4207210,
+    "liquid": 12148280,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 636680,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 10393560,
+    "with_housing": 15355780,
+    "housing_pv": 4962220,
+    "liquid": 10393560,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1243550,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 8536320,
+    "with_housing": 14228400,
+    "housing_pv": 5692090,
+    "liquid": 8536320,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1868090,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 15505910,
+    "with_housing": 15169800,
+    "housing_pv": -336110,
+    "liquid": 15505910,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 14072680,
+    "with_housing": 13634660,
+    "housing_pv": -438010,
+    "liquid": 14072680,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 12472160,
+    "with_housing": 11922160,
+    "housing_pv": -550000,
+    "liquid": 12472160,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 73480,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 19372900,
+    "with_housing": 18535150,
+    "housing_pv": -837740,
+    "liquid": 19372900,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 18637300,
+    "with_housing": 17545560,
+    "housing_pv": -1091730,
+    "liquid": 18637300,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 17794470,
+    "with_housing": 16423620,
+    "housing_pv": -1370850,
+    "liquid": 17794470,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 12148280,
+    "with_housing": 16355490,
+    "housing_pv": 4207210,
+    "liquid": 12148280,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 636680,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 10393560,
+    "with_housing": 15355780,
+    "housing_pv": 4962220,
+    "liquid": 10393560,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1243550,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 8536320,
+    "with_housing": 14228400,
+    "housing_pv": 5692090,
+    "liquid": 8536320,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1868090,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2045,
+   "horizon": 20,
+   "low": {
+    "net": 15499270,
+    "with_housing": 15163160,
+    "housing_pv": -336110,
+    "liquid": 15499270,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 14069810,
+    "with_housing": 13631800,
+    "housing_pv": -438010,
+    "liquid": 14069810,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 12472160,
+    "with_housing": 11922160,
+    "housing_pv": -550000,
+    "liquid": 12472160,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 73480,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 7450660,
+    "with_housing": 28371000,
+    "housing_pv": 20920340,
+    "liquid": 0,
+    "debt": 6128710,
+    "property": 17083370,
+    "embedded": 3504000,
+    "first_call": 2045,
+    "shortfall": 2956170,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 1699960,
+    "with_housing": 26588610,
+    "housing_pv": 24888650,
+    "liquid": 0,
+    "debt": 11701620,
+    "property": 17083370,
+    "embedded": 3681800,
+    "first_call": 2045,
+    "shortfall": 5594230,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": -4232810,
+    "with_housing": 24561430,
+    "housing_pv": 28794240,
+    "liquid": 0,
+    "debt": 17456590,
+    "property": 17083370,
+    "embedded": 3859590,
+    "first_call": 2045,
+    "shortfall": 8310530,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 23649340,
+    "with_housing": 23649340,
+    "housing_pv": 0,
+    "liquid": 10131970,
+    "debt": 0,
+    "property": 17083370,
+    "embedded": 3566000,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 18813530,
+    "with_housing": 18813530,
+    "housing_pv": 0,
+    "liquid": 5473950,
+    "debt": 0,
+    "property": 17083370,
+    "embedded": 3743800,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 13457840,
+    "with_housing": 13457840,
+    "housing_pv": 0,
+    "liquid": 296060,
+    "debt": 0,
+    "property": 17083370,
+    "embedded": 3921590,
+    "first_call": 2045,
+    "shortfall": 73890,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 39980790,
+    "with_housing": 37889820,
+    "housing_pv": -2090970,
+    "liquid": 39980790,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 38292340,
+    "with_housing": 35567430,
+    "housing_pv": -2724920,
+    "liquid": 38292340,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 36366960,
+    "with_housing": 32945370,
+    "housing_pv": -3421590,
+    "liquid": 36366960,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 25070670,
+    "with_housing": 32903890,
+    "housing_pv": 7833220,
+    "liquid": 25070670,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 636680,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 21470640,
+    "with_housing": 30654750,
+    "housing_pv": 9184110,
+    "liquid": 21470640,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1243550,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 17644210,
+    "with_housing": 28116490,
+    "housing_pv": 10472270,
+    "liquid": 17644210,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1868090,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 31369470,
+    "with_housing": 30265290,
+    "housing_pv": -1104180,
+    "liquid": 31369470,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 28325480,
+    "with_housing": 26886520,
+    "housing_pv": -1438950,
+    "liquid": 28325480,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 24926480,
+    "with_housing": 23119640,
+    "housing_pv": -1806850,
+    "liquid": 24926480,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 73480,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 38976410,
+    "with_housing": 36885440,
+    "housing_pv": -2090970,
+    "liquid": 38976410,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 37304770,
+    "with_housing": 34579860,
+    "housing_pv": -2724920,
+    "liquid": 37304770,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 35396270,
+    "with_housing": 31974680,
+    "housing_pv": -3421590,
+    "liquid": 35396270,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 25070670,
+    "with_housing": 32903890,
+    "housing_pv": 7833220,
+    "liquid": 25070670,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 636680,
+    "assessed": 4222540,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 21470640,
+    "with_housing": 30654750,
+    "housing_pv": 9184110,
+    "liquid": 21470640,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1243550,
+    "assessed": 4222540,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 17644210,
+    "with_housing": 28116490,
+    "housing_pv": 10472270,
+    "liquid": 17644210,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 1868090,
+    "assessed": 4222540,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2045,
+   "horizon": 30,
+   "low": {
+    "net": 31356400,
+    "with_housing": 30252210,
+    "housing_pv": -1104180,
+    "liquid": 31356400,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 28319840,
+    "with_housing": 26880890,
+    "housing_pv": -1438950,
+    "liquid": 28319840,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 5267120,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 24926480,
+    "with_housing": 23119640,
+    "housing_pv": -1806850,
+    "liquid": 24926480,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2045,
+    "shortfall": 73480,
+    "assessed": 5267120,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 7277210,
+    "with_housing": 10142440,
+    "housing_pv": 2865220,
+    "liquid": 0,
+    "debt": 1164080,
+    "property": 9485790,
+    "embedded": 1044500,
+    "first_call": 2050,
+    "shortfall": 918690,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 6257620,
+    "with_housing": 9669570,
+    "housing_pv": 3411950,
+    "liquid": 0,
+    "debt": 2084950,
+    "property": 9485790,
+    "embedded": 1143220,
+    "first_call": 2050,
+    "shortfall": 1643650,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 5217270,
+    "with_housing": 9168310,
+    "housing_pv": 3951040,
+    "liquid": 0,
+    "debt": 3026570,
+    "property": 9485790,
+    "embedded": 1241950,
+    "first_call": 2050,
+    "shortfall": 2386300,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 9580890,
+    "with_housing": 9580890,
+    "housing_pv": 0,
+    "liquid": 1201600,
+    "debt": 0,
+    "property": 9485790,
+    "embedded": 1106500,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 8826190,
+    "with_housing": 8826190,
+    "housing_pv": 0,
+    "liquid": 545620,
+    "debt": 0,
+    "property": 9485790,
+    "embedded": 1205220,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 8013430,
+    "with_housing": 8013430,
+    "housing_pv": 0,
+    "liquid": 0,
+    "debt": 168410,
+    "property": 9485790,
+    "embedded": 1303950,
+    "first_call": 2050,
+    "shortfall": 125320,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 11744560,
+    "with_housing": 11489550,
+    "housing_pv": -255000,
+    "liquid": 11744560,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 11422500,
+    "with_housing": 11090190,
+    "housing_pv": -332320,
+    "liquid": 11422500,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 11078050,
+    "with_housing": 10660770,
+    "housing_pv": -417280,
+    "liquid": 11078050,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 7184410,
+    "with_housing": 9776010,
+    "housing_pv": 2591590,
+    "liquid": 7184410,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 811090,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 6243720,
+    "with_housing": 9327320,
+    "housing_pv": 3083600,
+    "liquid": 6243720,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 1453060,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 5282280,
+    "with_housing": 8850240,
+    "housing_pv": 3567960,
+    "liquid": 5282280,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 2109250,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 9256880,
+    "with_housing": 9235720,
+    "housing_pv": -21160,
+    "liquid": 9256880,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 8548170,
+    "with_housing": 8520600,
+    "housing_pv": -27570,
+    "liquid": 8548170,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7785790,
+    "with_housing": 7751170,
+    "housing_pv": -34620,
+    "liquid": 7785790,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 118940,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 11429190,
+    "with_housing": 11174190,
+    "housing_pv": -255000,
+    "liquid": 11429190,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 11112300,
+    "with_housing": 10779980,
+    "housing_pv": -332320,
+    "liquid": 11112300,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 10773020,
+    "with_housing": 10355740,
+    "housing_pv": -417280,
+    "liquid": 10773020,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 7184410,
+    "with_housing": 9776010,
+    "housing_pv": 2591590,
+    "liquid": 7184410,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 811090,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 6243720,
+    "with_housing": 9327320,
+    "housing_pv": 3083600,
+    "liquid": 6243720,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 1453060,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 5282280,
+    "with_housing": 8850240,
+    "housing_pv": 3567960,
+    "liquid": 5282280,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 2109250,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2050,
+   "horizon": 10,
+   "low": {
+    "net": 9253190,
+    "with_housing": 9232030,
+    "housing_pv": -21160,
+    "liquid": 9253190,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 8546690,
+    "with_housing": 8519130,
+    "housing_pv": -27570,
+    "liquid": 8546690,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 7785790,
+    "with_housing": 7751170,
+    "housing_pv": -34620,
+    "liquid": 7785790,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 118940,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 8028670,
+    "with_housing": 17947580,
+    "housing_pv": 9918920,
+    "liquid": 0,
+    "debt": 3663100,
+    "property": 14041290,
+    "embedded": 2349520,
+    "first_call": 2050,
+    "shortfall": 2240440,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 5038500,
+    "with_housing": 16854760,
+    "housing_pv": 11816260,
+    "liquid": 0,
+    "debt": 6507130,
+    "property": 14041290,
+    "embedded": 2495660,
+    "first_call": 2050,
+    "shortfall": 3967920,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 1954890,
+    "with_housing": 15643360,
+    "housing_pv": 13688470,
+    "liquid": 0,
+    "debt": 9444600,
+    "property": 14041290,
+    "embedded": 2641800,
+    "first_call": 2050,
+    "shortfall": 5757960,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 15895800,
+    "with_housing": 15895800,
+    "housing_pv": 0,
+    "liquid": 4266030,
+    "debt": 0,
+    "property": 14041290,
+    "embedded": 2411520,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 13602010,
+    "with_housing": 13602010,
+    "housing_pv": 0,
+    "liquid": 2118380,
+    "debt": 0,
+    "property": 14041290,
+    "embedded": 2557660,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 11100430,
+    "with_housing": 11100430,
+    "housing_pv": 0,
+    "liquid": 0,
+    "debt": 237060,
+    "property": 14041290,
+    "embedded": 2703800,
+    "first_call": 2050,
+    "shortfall": 133760,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 23799290,
+    "with_housing": 22961550,
+    "housing_pv": -837740,
+    "liquid": 23799290,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 22998030,
+    "with_housing": 21906300,
+    "housing_pv": -1091730,
+    "liquid": 22998030,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 22089500,
+    "with_housing": 20718650,
+    "housing_pv": -1370850,
+    "liquid": 22089500,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 14189420,
+    "with_housing": 19489640,
+    "housing_pv": 5300220,
+    "liquid": 14189420,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 918690,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 12112030,
+    "with_housing": 18385850,
+    "housing_pv": 6273820,
+    "liquid": 12112030,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 1643650,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 9932100,
+    "with_housing": 17154400,
+    "housing_pv": 7222290,
+    "liquid": 9932100,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 2386300,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 18464690,
+    "with_housing": 18128580,
+    "housing_pv": -336110,
+    "liquid": 18464690,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 16825040,
+    "with_housing": 16387030,
+    "housing_pv": -438010,
+    "liquid": 16825040,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 15012630,
+    "with_housing": 14462640,
+    "housing_pv": -550000,
+    "liquid": 15012630,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 125320,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 23178930,
+    "with_housing": 22341180,
+    "housing_pv": -837740,
+    "liquid": 23178930,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 22387810,
+    "with_housing": 21296080,
+    "housing_pv": -1091730,
+    "liquid": 22387810,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 21489470,
+    "with_housing": 20118620,
+    "housing_pv": -1370850,
+    "liquid": 21489470,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 14189420,
+    "with_housing": 19489640,
+    "housing_pv": 5300220,
+    "liquid": 14189420,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 918690,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 12112030,
+    "with_housing": 18385850,
+    "housing_pv": 6273820,
+    "liquid": 12112030,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 1643650,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 9932100,
+    "with_housing": 17154400,
+    "housing_pv": 7222290,
+    "liquid": 9932100,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 2386300,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2050,
+   "horizon": 20,
+   "low": {
+    "net": 18457430,
+    "with_housing": 18121330,
+    "housing_pv": -336110,
+    "liquid": 18457430,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 16822140,
+    "with_housing": 16384130,
+    "housing_pv": -438010,
+    "liquid": 16822140,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 15012630,
+    "with_housing": 14462640,
+    "housing_pv": -550000,
+    "liquid": 15012630,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 125320,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 7832570,
+    "with_housing": 33738370,
+    "housing_pv": 25905800,
+    "liquid": 0,
+    "debt": 8670690,
+    "property": 20784540,
+    "embedded": 4281280,
+    "first_call": 2050,
+    "shortfall": 4145580,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 933850,
+    "with_housing": 31805060,
+    "housing_pv": 30871210,
+    "liquid": 0,
+    "debt": 15353090,
+    "property": 20784540,
+    "embedded": 4497590,
+    "first_call": 2050,
+    "shortfall": 7313080,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": -6146950,
+    "with_housing": 29626950,
+    "housing_pv": 35773900,
+    "liquid": 0,
+    "debt": 22217570,
+    "property": 20784540,
+    "embedded": 4713910,
+    "first_call": 2050,
+    "shortfall": 10558820,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 27809400,
+    "with_housing": 27809400,
+    "housing_pv": 0,
+    "liquid": 11368140,
+    "debt": 0,
+    "property": 20784540,
+    "embedded": 4343280,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 22179340,
+    "with_housing": 22179340,
+    "housing_pv": 0,
+    "liquid": 5954400,
+    "debt": 0,
+    "property": 20784540,
+    "embedded": 4559590,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 16040830,
+    "with_housing": 16040830,
+    "housing_pv": 0,
+    "liquid": 32210,
+    "debt": 0,
+    "property": 20784540,
+    "embedded": 4775910,
+    "first_call": 2050,
+    "shortfall": 133760,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 47683800,
+    "with_housing": 45592830,
+    "housing_pv": -2090970,
+    "liquid": 47683800,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 45883000,
+    "with_housing": 43158080,
+    "housing_pv": -2724920,
+    "liquid": 45883000,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 43845260,
+    "with_housing": 40423660,
+    "housing_pv": -3421590,
+    "liquid": 43845260,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_then_sell",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 29085910,
+    "with_housing": 39069230,
+    "housing_pv": 9983320,
+    "liquid": 29085910,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 918690,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 24851130,
+    "with_housing": 36615360,
+    "housing_pv": 11764240,
+    "liquid": 24851130,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 1643650,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 20389940,
+    "with_housing": 33872360,
+    "housing_pv": 13482420,
+    "liquid": 20389940,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 2386300,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_then_sell",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 37189830,
+    "with_housing": 36085650,
+    "housing_pv": -1104180,
+    "liquid": 37189830,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 33739800,
+    "with_housing": 32300850,
+    "housing_pv": -1438950,
+    "liquid": 33739800,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 29923980,
+    "with_housing": 28117140,
+    "housing_pv": -1806850,
+    "liquid": 29923980,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 125320,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "sell_phased",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 46463450,
+    "with_housing": 44372480,
+    "housing_pv": -2090970,
+    "liquid": 46463450,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 44682600,
+    "with_housing": 41957690,
+    "housing_pv": -2724920,
+    "liquid": 44682600,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 42664900,
+    "with_housing": 39243300,
+    "housing_pv": -3421590,
+    "liquid": 42664900,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "live_sell_phased",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 29085910,
+    "with_housing": 39069230,
+    "housing_pv": 9983320,
+    "liquid": 29085910,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 918690,
+    "assessed": 5363670,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 24851130,
+    "with_housing": 36615360,
+    "housing_pv": 11764240,
+    "liquid": 24851130,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 1643650,
+    "assessed": 5363670,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 20389940,
+    "with_housing": 33872360,
+    "housing_pv": 13482420,
+    "liquid": 20389940,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 2386300,
+    "assessed": 5363670,
+    "rate": 0.014
+   }
+  },
+  {
+   "path": "rent_sell_phased",
+   "transfer_year": 2050,
+   "horizon": 30,
+   "low": {
+    "net": 37175560,
+    "with_housing": 36071370,
+    "housing_pv": -1104180,
+    "liquid": 37175560,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.010388
+   },
+   "mid": {
+    "net": 33734080,
+    "with_housing": 32295130,
+    "housing_pv": -1438950,
+    "liquid": 33734080,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": null,
+    "shortfall": 0,
+    "assessed": 6408260,
+    "rate": 0.012194
+   },
+   "high": {
+    "net": 29923980,
+    "with_housing": 28117140,
+    "housing_pv": -1806850,
+    "liquid": 29923980,
+    "debt": 0,
+    "property": 0,
+    "embedded": 0,
+    "first_call": 2050,
+    "shortfall": 125320,
+    "assessed": 6408260,
+    "rate": 0.014
+   }
+  }
+ ],
+ "break_evens": {
+  "house_growth_live": 0.10485342929830332,
+  "house_growth_rent": 0.07129590827749166,
+  "house_growth_live_then_sell": 0.11809137972390904,
+  "rent_yield": 0.06838352574161716,
+  "imputed_yield": 0.049580557857705904,
+  "equity_return": 0.04834086886612787,
+  "b_headroom": 14087.045454545447,
+  "by_transfer_year": {
+   "2040": 0.10431475635355769,
+   "2045": 0.10485342929830332,
+   "2050": 0.10517592848602442
+  },
+  "by_horizon": {
+   "10": 0.10944690250085476,
+   "20": 0.10485342929830332,
+   "30": 0.10031484135853164
+  },
+  "by_case": {
+   "low": 0.09583545702487817,
+   "mid": 0.10485342929830332,
+   "high": 0.1141511706026267
+  },
+  "by_regime": {
+   "base": 0.10485342929830332,
+   "growth": 0.12998091242356635,
+   "stagnation": 0.06491813052749673,
+   "stagflation": 0.09736046569058299,
+   "crash1929": 0.07385582448573691,
+   "crash2008": 0.08013520748999825,
+   "rate_shock": 0.08800428108592018,
+   "inflation": 0.10040655804371135
+  },
+  "base_dependence": {
+   "low": 0.104114395956446,
+   "high": 0.10521230432157058,
+   "movement": 0.001097908365124578
+  }
+ },
+ "regime_grid": [
+  {
+   "regime": "base",
+   "path": "sell",
+   "net": 19139330,
+   "liquid": 19139330,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "base",
+   "path": "sell_phased",
+   "net": 18637300,
+   "liquid": 18637300,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "base",
+   "path": "live",
+   "net": 4565360,
+   "liquid": 0,
+   "debt": 4939210,
+   "first_call": 2045
+  },
+  {
+   "regime": "base",
+   "path": "rent",
+   "net": 11420340,
+   "liquid": 1977780,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "base",
+   "path": "live_then_sell",
+   "net": 10393560,
+   "liquid": 10393560,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "growth",
+   "path": "sell",
+   "net": 41431620,
+   "liquid": 41431620,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "growth",
+   "path": "sell_phased",
+   "net": 39446690,
+   "liquid": 39446690,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "growth",
+   "path": "live",
+   "net": 7647900,
+   "liquid": 0,
+   "debt": 8335010,
+   "first_call": 2045
+  },
+  {
+   "regime": "growth",
+   "path": "rent",
+   "net": 19673100,
+   "liquid": 3752190,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "growth",
+   "path": "live_then_sell",
+   "net": 18666650,
+   "liquid": 18666650,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "stagnation",
+   "path": "sell",
+   "net": 5709900,
+   "liquid": 5709900,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "stagnation",
+   "path": "sell_phased",
+   "net": 5612850,
+   "liquid": 5612850,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "stagnation",
+   "path": "live",
+   "net": 2354620,
+   "liquid": 0,
+   "debt": 1058150,
+   "first_call": 2045
+  },
+  {
+   "regime": "stagnation",
+   "path": "rent",
+   "net": 4180570,
+   "liquid": 821900,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "stagnation",
+   "path": "live_then_sell",
+   "net": 4000290,
+   "liquid": 4000290,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "stagflation",
+   "path": "sell",
+   "net": 16422910,
+   "liquid": 16422910,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "stagflation",
+   "path": "sell_phased",
+   "net": 16708490,
+   "liquid": 16708490,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "stagflation",
+   "path": "live",
+   "net": 5145830,
+   "liquid": 0,
+   "debt": 8290160,
+   "first_call": 2045
+  },
+  {
+   "regime": "stagflation",
+   "path": "rent",
+   "net": 15900080,
+   "liquid": 2526090,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "stagflation",
+   "path": "live_then_sell",
+   "net": 11212950,
+   "liquid": 11212950,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "crash1929",
+   "path": "sell",
+   "net": 7430900,
+   "liquid": 7430900,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "crash1929",
+   "path": "sell_phased",
+   "net": 9617220,
+   "liquid": 9617220,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "crash1929",
+   "path": "live",
+   "net": 2214520,
+   "liquid": 0,
+   "debt": 1575660,
+   "first_call": 2045
+  },
+  {
+   "regime": "crash1929",
+   "path": "rent",
+   "net": 4547010,
+   "liquid": 784690,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "crash1929",
+   "path": "live_then_sell",
+   "net": 4840760,
+   "liquid": 4840760,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "crash2008",
+   "path": "sell",
+   "net": 10460460,
+   "liquid": 10460460,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "crash2008",
+   "path": "sell_phased",
+   "net": 14176940,
+   "liquid": 14176940,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "crash2008",
+   "path": "live",
+   "net": 2995940,
+   "liquid": 0,
+   "debt": 2145130,
+   "first_call": 2045
+  },
+  {
+   "regime": "crash2008",
+   "path": "rent",
+   "net": 5813690,
+   "liquid": 733590,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "crash2008",
+   "path": "live_then_sell",
+   "net": 6189090,
+   "liquid": 6189090,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "rate_shock",
+   "path": "sell",
+   "net": 7100340,
+   "liquid": 7100340,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "rate_shock",
+   "path": "sell_phased",
+   "net": 7227370,
+   "liquid": 7227370,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "rate_shock",
+   "path": "live",
+   "net": 2148450,
+   "liquid": 0,
+   "debt": 1264320,
+   "first_call": 2045
+  },
+  {
+   "regime": "rate_shock",
+   "path": "rent",
+   "net": 4436020,
+   "liquid": 1077360,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "rate_shock",
+   "path": "live_then_sell",
+   "net": 4630680,
+   "liquid": 4630680,
+   "debt": 0,
+   "first_call": 2045
+  },
+  {
+   "regime": "inflation",
+   "path": "sell",
+   "net": 19351560,
+   "liquid": 19351560,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "inflation",
+   "path": "sell_phased",
+   "net": 19266890,
+   "liquid": 19266890,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "inflation",
+   "path": "live",
+   "net": 6018020,
+   "liquid": 0,
+   "debt": 7417980,
+   "first_call": 2045
+  },
+  {
+   "regime": "inflation",
+   "path": "rent",
+   "net": 15951520,
+   "liquid": 2577530,
+   "debt": 0,
+   "first_call": null
+  },
+  {
+   "regime": "inflation",
+   "path": "live_then_sell",
+   "net": 12196370,
+   "liquid": 12196370,
+   "debt": 0,
+   "first_call": 2045
+  }
+ ],
+ "phased": [
+  {
+   "regime": "crash1929",
+   "months": 24,
+   "immediate": 7430900,
+   "phased": 9617220,
+   "difference": 2186330,
+   "per_million": 874530
+  },
+  {
+   "regime": "crash1929",
+   "months": 36,
+   "immediate": 7430900,
+   "phased": 10767950,
+   "difference": 3337060,
+   "per_million": 1334820
+  },
+  {
+   "regime": "crash2008",
+   "months": 24,
+   "immediate": 10460460,
+   "phased": 14176940,
+   "difference": 3716470,
+   "per_million": 1486590
+  },
+  {
+   "regime": "crash2008",
+   "months": 36,
+   "immediate": 10460460,
+   "phased": 13621090,
+   "difference": 3160620,
+   "per_million": 1264250
+  },
+  {
+   "regime": "base",
+   "months": 24,
+   "immediate": 19139330,
+   "phased": 18637300,
+   "difference": -502030,
+   "per_million": -200810
+  },
+  {
+   "regime": "base",
+   "months": 36,
+   "immediate": 19139330,
+   "phased": 18146770,
+   "difference": -992550,
+   "per_million": -397020
+  },
+  {
+   "regime": "growth",
+   "months": 24,
+   "immediate": 41431620,
+   "phased": 39446690,
+   "difference": -1984930,
+   "per_million": -793970
+  },
+  {
+   "regime": "growth",
+   "months": 36,
+   "immediate": 41431620,
+   "phased": 37553430,
+   "difference": -3878190,
+   "per_million": -1551270
+  },
+  {
+   "regime": "stagnation",
+   "months": 24,
+   "immediate": 5709900,
+   "phased": 5612850,
+   "difference": -97050,
+   "per_million": -38820
+  },
+  {
+   "regime": "stagnation",
+   "months": 36,
+   "immediate": 5709900,
+   "phased": 5516810,
+   "difference": -193090,
+   "per_million": -77240
+  }
+ ],
+ "same_year": [
+  {
+   "transfer_year": 2040,
+   "price": 4329190,
+   "gain": -281400,
+   "excluded": 0,
+   "taxable": 0,
+   "fed": 0,
+   "niit": 0,
+   "ca1": 0,
+   "county": 4760,
+   "city": 16230,
+   "recording": 650,
+   "sell_cost": 259750,
+   "proceeds": 4047790
+  },
+  {
+   "transfer_year": 2045,
+   "price": 5267120,
+   "gain": -342360,
+   "excluded": 0,
+   "taxable": 0,
+   "fed": 0,
+   "niit": 0,
+   "ca1": 0,
+   "county": 5790,
+   "city": 19750,
+   "recording": 790,
+   "sell_cost": 316030,
+   "proceeds": 4924760
+  },
+  {
+   "transfer_year": 2050,
+   "price": 6408260,
+   "gain": -416540,
+   "excluded": 0,
+   "taxable": 0,
+   "fed": 0,
+   "niit": 0,
+   "ca1": 0,
+   "county": 7050,
+   "city": 24030,
+   "recording": 960,
+   "sell_cost": 384500,
+   "proceeds": 5991720
+  }
+ ],
+ "exposure": [
+  {
+   "case": "Qualifying transfer, heir occupies",
+   "assessed": 4222540,
+   "excess": 2642400,
+   "cap": 1044586,
+   "cap_note": "carried forward: the 2027 adjustment is not published",
+   "basis": "factored base year value plus the excess over the cap",
+   "tax_low": 43860,
+   "tax_high": 59120,
+   "difference_vs_first": 0
+  },
+  {
+   "case": "Qualifying transfer, heir does not occupy",
+   "assessed": 5267120,
+   "excess": 0,
+   "cap": 1044586,
+   "cap_note": "carried forward: the 2027 adjustment is not published",
+   "basis": "full market value: the one-year occupancy test failed, so no exclusion",
+   "tax_low": 54710,
+   "tax_high": 73740,
+   "difference_vs_first": 14620
+  },
+  {
+   "case": "Non-qualifying transfer",
+   "assessed": 5267120,
+   "excess": 0,
+   "cap": 1044586,
+   "cap_note": "carried forward: the 2027 adjustment is not published",
+   "basis": "full market value: the transfer does not qualify, or no claim was filed",
+   "tax_low": 54710,
+   "tax_high": 73740,
+   "difference_vs_first": 14620
+  }
+ ],
+ "exposure_gap_year": 0,
+ "capital_plan": [
+  {
+   "property": "Property A (inherited house)",
+   "year": 2026,
+   "maintenance": 22500,
+   "capital": 17500,
+   "fixed_other": 4650,
+   "total": 44650
+  },
+  {
+   "property": "Property A (inherited house)",
+   "year": 2027,
+   "maintenance": 23180,
+   "capital": 18020,
+   "fixed_other": 4790,
+   "total": 45990
+  },
+  {
+   "property": "Property A (inherited house)",
+   "year": 2028,
+   "maintenance": 23850,
+   "capital": 18550,
+   "fixed_other": 4930,
+   "total": 47330
+  },
+  {
+   "property": "Property A (inherited house)",
+   "year": 2029,
+   "maintenance": 24530,
+   "capital": 19080,
+   "fixed_other": 5070,
+   "total": 48670
+  },
+  {
+   "property": "Property A (inherited house)",
+   "year": 2030,
+   "maintenance": 25200,
+   "capital": 19600,
+   "fixed_other": 5210,
+   "total": 50010
+  },
+  {
+   "property": "Property B (three-unit building)",
+   "year": 2026,
+   "maintenance": 17250,
+   "capital": 8250,
+   "fixed_other": 8710,
+   "total": 34210
+  },
+  {
+   "property": "Property B (three-unit building)",
+   "year": 2027,
+   "maintenance": 17770,
+   "capital": 8500,
+   "fixed_other": 8970,
+   "total": 35230
+  },
+  {
+   "property": "Property B (three-unit building)",
+   "year": 2028,
+   "maintenance": 18280,
+   "capital": 8740,
+   "fixed_other": 9230,
+   "total": 36260
+  },
+  {
+   "property": "Property B (three-unit building)",
+   "year": 2029,
+   "maintenance": 18800,
+   "capital": 8990,
+   "fixed_other": 9490,
+   "total": 37290
+  },
+  {
+   "property": "Property B (three-unit building)",
+   "year": 2030,
+   "maintenance": 19320,
+   "capital": 9240,
+   "fixed_other": 9750,
+   "total": 38310
+  }
+ ],
+ "timeline": [
+  {
+   "when": "At the date of death",
+   "deadline": false,
+   "what": "Title moves to the heir (or the trust continues to hold it). The date fixes the value for the federal estate and the new basis.",
+   "rule": "RTC 63.2 treats a transfer by death as a transfer, whether or not it is in a trust.",
+   "source": "boe_lta_2026_026"
+  },
+  {
+   "when": "Before the first anniversary",
+   "deadline": true,
+   "what": "The heir must occupy, and file the homeowners' or disabled veterans' exemption.",
+   "rule": "RTC 63.2(a)(1)(A) and (B): both limbs are conditions of the exclusion.",
+   "source": "rtc_63_2"
+  },
+  {
+   "when": "Within three years",
+   "deadline": true,
+   "what": "File the intergenerational transfer exclusion claim with the county assessor, sooner if the house is sold.",
+   "rule": "RTC 63.2(b): no exclusion unless a claim is filed; the claim itself is not a public document (RTC 63.2(c)).",
+   "source": "rtc_63_2"
+  },
+  {
+   "when": "Within six months of a supplemental or escape notice",
+   "deadline": true,
+   "what": "A late claim is still timely if filed in this window.",
+   "rule": "BOE LTA 2026/026.",
+   "source": "boe_lta_2026_026"
+  },
+  {
+   "when": "Nine months after death",
+   "deadline": true,
+   "what": "File Form 706 above the filing threshold, or to elect portability.",
+   "rule": "IRS: nine months, with an automatic six-month extension on Form 4768.",
+   "source": "irs_estate_faq"
+  },
+  {
+   "when": "Every second 16 February",
+   "deadline": false,
+   "what": "The intergenerational value cap is adjusted for the FHFA California house price index.",
+   "rule": "BOE LTA 2025/009: next adjustment February 2027.",
+   "source": "boe_lta_2025_009"
+  },
+  {
+   "when": "While the house is owned",
+   "deadline": true,
+   "what": "If the heir stops occupying, the exclusion ends and the base year value is re-enrolled at the next lien date.",
+   "rule": "RTC 63.2(a)(1)(B) and (C).",
+   "source": "rtc_63_2"
+  },
+  {
+   "when": "10 December and 10 April",
+   "deadline": true,
+   "what": "First and second secured property-tax instalments become delinquent.",
+   "rule": "County compilation: a 10% penalty, then 1.5% a month from 1 July.",
+   "source": "scc_tax_rate_book"
+  },
+  {
+   "when": "Annually, from now",
+   "deadline": false,
+   "what": "Re-read the federal exclusion, the cap adjustment, the local rate area and the two policy questions (parcel tax, city transfer tax).",
+   "rule": "This desk carries each one forward and marks it.",
+   "source": "irs_ir2026_133"
+  }
+ ],
+ "distribution": {
+  "n": 1200,
+  "seed": 20261115,
+  "mean": -12179110.5043684,
+  "p05": -52907167.36630927,
+  "p25": -18643423.657104574,
+  "p50": -6221011.70466277,
+  "p75": 745225.178389959,
+  "p95": 8165036.402174156,
+  "share_hold_wins": 0.2841666666666667,
+  "bins": [
+   1,
+   0,
+   0,
+   0,
+   1,
+   0,
+   3,
+   6,
+   4,
+   7,
+   30,
+   39,
+   110,
+   261,
+   597,
+   141
+  ],
+  "bin_low": -224630839.88271332,
+  "bin_high": 20004417.895277344
+ },
+ "what_if": [
+  {
+   "label": "Live: insurance doubles",
+   "applies_to": "live",
+   "delta": -255150
+  },
+  {
+   "label": "Live: maintenance at the top of its range",
+   "applies_to": "live",
+   "delta": -1098830
+  },
+  {
+   "label": "Live: the heir stops occupying in year five (exclusion lost)",
+   "applies_to": "live",
+   "delta": -10067890
+  },
+  {
+   "label": "Let: vacancy doubles",
+   "applies_to": "rent",
+   "delta": -636570
+  },
+  {
+   "label": "Let: rent at the bottom of its range",
+   "applies_to": "rent",
+   "delta": 1970890
+  },
+  {
+   "label": "Let: rent at the top of its range",
+   "applies_to": "rent",
+   "delta": -2179100
+  },
+  {
+   "label": "Sell: transfer in 2050 instead of 2045",
+   "applies_to": "sell",
+   "delta": 3858700
+  },
+  {
+   "label": "Sell: hold the portfolio 30 years instead of 20",
+   "applies_to": "sell",
+   "delta": 19153020
+  },
+  {
+   "label": "Sell: phase in over 36 months rather than 24",
+   "applies_to": "sell_phased",
+   "delta": -490520
+  },
+  {
+   "label": "Sell: the poor-policy cost of an extra 1% in selling costs",
+   "applies_to": "sell",
+   "delta": -190490
+  }
+ ]
+}

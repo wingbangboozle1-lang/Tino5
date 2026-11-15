@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Questions and gaps — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Questions, information and answers</h1>
+<p class="lede">20 questions stand between the household and a decision that can be defended.
+Each carries what is known now, what is missing, who can supply it, and — the column that matters —
+which decision it blocks. The owner asked for suggestions on how to discover missing information;
+that is the fourth column.</p>
+
+<div class="answer"><h3>The five that block everything else</h3>
+<ol>
+
+</ol></div>
+
+<h2>The register</h2>
+<div class="wrap"><table class=""><thead><tr><th>Ref</th><th>Question</th><th>What is known</th><th>Why it matters</th><th>Who can answer</th><th>How to discover it</th><th>The decision it blocks</th><th>Basis</th></tr></thead><tbody><tr><td><b>Q01</b></td><td><span id="q01">What is the inherited house actually worth at the date of death?</span></td><td>Nothing measured. A round modelling base is used instead.</td><td>Every break-even is expressed against value, and the estate-tax question depends on it.</td><td>A licensed appraiser in the county where the property sits.</td><td>Commission a date-of-death appraisal; keep it with the estate records.</td><td>Whether the estate is anywhere near the federal threshold, and therefore whether portability matters at all.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q02</b></td><td><span id="q02">What rent would the inherited house fetch?</span></td><td>Nothing measured. A yield range is applied to the modelling base.</td><td>The letting path is ranked on this input; without it the path is ranked on an assumption.</td><td>A local letting agent, with three written comparables.</td><td>Obtain three comparables in writing, at the same specification and date window.</td><td>Whether letting can compete with selling at all.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q03</b></td><td><span id="q03">Does the transfer qualify for the intergenerational exclusion?</span></td><td>The rule is known and quoted; the facts that trigger it are not.</td><td>It is worth roughly a quarter of the property tax bill every year the heir occupies.</td><td>The county assessor, and the attorney who reads the trust.</td><td>Ask the assessor which claim the county requires and what evidence of occupancy it accepts.</td><td>Whether living in the house is financially different from letting it.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q04</b></td><td><span id="q04">What is the property&#x27;s tax rate area, and its published total rate?</span></td><td>Unknown. The county publishes 816 rate areas; the county-wide floor is the 1% maximum levy plus the 0.0388% retirement levy.</td><td>It sets every property-tax line in the model, and the range between floor and ceiling is 30%.</td><td>The county assessor or the tax collector, from the parcel number.</td><td>One request in writing for the rate area and the current roll value.</td><td>The size of the property-tax line and therefore the exposure of losing the exclusion.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q05</b></td><td><span id="q05">Will the heir actually occupy the house, and for how long?</span></td><td>Unknown. This is a preference, not a fact.</td><td>It is the input that switches the exclusion, the section 121 relief, and the housing benefit.</td><td>The heir.</td><td>Write the answer down with a date, before the figures are final.</td><td>Which of the four holding paths is even available.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q06</b></td><td><span id="q06">Does the trust or the heir count as the transferor under the exclusion?</span></td><td>Not resolved from an official source (F12).</td><td>If the answer is wrong, the exclusion may never have been available.</td><td>An attorney who reads the trust instrument.</td><td>Ask specifically about the trust&#x27;s occupancy and distribution terms.</td><td>The entire property-tax basis of every path.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q07</b></td><td><span id="q07">Is the property the transferor&#x27;s principal residence at the date of death?</span></td><td>Assumed yes, not verified.</td><td>The exclusion requires it; a rental does not qualify.</td><td>The trust&#x27;s records, the homeowner&#x27;s exemption history, and the assessor.</td><td>Obtain the exemption history from the county.</td><td>Whether the exclusion exists at all.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q08</b></td><td><span id="q08">What are the binding insurance premiums for both buildings?</span></td><td>Nothing measured. Two assumed ranges (F03).</td><td>Insurance is the second-largest controllable line on the inherited house and a large line on the building.</td><td>Two or three admitted carriers, and the state insurance department for the market comparison.</td><td>Request two quotes for each building, with the same deductibles and limits.</td><td>The carrying-cost comparison, and whether the building&#x27;s cash flow is positive.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q09</b></td><td><span id="q09">What are the actual water, power and sewer tariffs?</span></td><td>Assumed ranges.</td><td>Together with insurance and maintenance they decide whether the building pays for itself.</td><td>The water and power utilities serving each property.</td><td>Pull twelve months of bills from the trust&#x27;s records; that is better than any tariff schedule.</td><td>The building&#x27;s net cash flow.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q10</b></td><td><span id="q10">Is there a local parcel tax on the building, and on what terms?</span></td><td>Unknown; a parameter with an assumed range (F04).</td><td>A $1,000–$3,000 annual charge is small against the rent but not against the margin.</td><td>The city&#x27;s elections office, with the official ballot text and the certified result.</td><td>Read the official voter pamphlet and the certified statement of vote.</td><td>The building&#x27;s margin, marginally.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q11</b></td><td><span id="q11">Has the estate made prior taxable gifts, and is portability wanted?</span></td><td>Unknown.</td><td>Portability doubles the shelter for a married couple, but only on a timely filed return.</td><td>The CPA, and the decedent&#x27;s gift-tax returns.</td><td>Ask for the Form 709 history and decide on the election before the nine-month date.</td><td>The federal estate-tax line, and the value of filing at all.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q12</b></td><td><span id="q12">Is a like-kind exchange wanted for any property sold?</span></td><td>Unknown. No view is expressed here.</td><td>A section 1031 exchange changes the tax on a sale and constrains the reinvestment.</td><td>An attorney and a qualified intermediary.</td><td>Decide before any sale contract is signed; it cannot be elected afterwards.</td><td>Whether the sale path can be combined with a purchase.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q13</b></td><td><span id="q13">What local rental rules apply to the three-unit building?</span></td><td>Not verified from the city&#x27;s ordinance (F14).</td><td>Rent limits, just-cause rules and owner-move-in rules decide whether the vacant unit can be let or must stay empty.</td><td>The city&#x27;s rent board or equivalent.</td><td>Request the ordinance and any current controls in writing.</td><td>The building&#x27;s income, and the value of the vacant unit.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q14</b></td><td><span id="q14">What is the loan-to-value and rate if a path needs to borrow?</span></td><td>Not modelled as a real facility; a spread over Treasuries is assumed.</td><td>A path that cannot fund its own carrying cost is only viable if it can borrow cheaply.</td><td>Two lenders, and the trust&#x27;s bank.</td><td>Ask for an indicative facility against the building, not the house.</td><td>Whether a holding path is financeable at all.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q15</b></td><td><span id="q15">What does the household actually want from the house?</span></td><td>Unknown, and not the model&#x27;s business to assume.</td><td>No arithmetic can price a preference; it can only show what the preference costs.</td><td>The household.</td><td>Write it down before the figures arrive — the owner asked for exactly this, and it is right.</td><td>Everything, because it sets the objective the rest is measured against.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q16</b></td><td><span id="q16">What would the household do with the money if it sold?</span></td><td>Assumed: a diversified equity portfolio at the state&#x27;s own return.</td><td>The sale is only as good as its reinvestment; an uninvested sale is a losing path.</td><td>The household, with an investment adviser.</td><td>Write an investment policy statement before the money arrives.</td><td>Whether the sale path&#x27;s advantage is real or notional.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q17</b></td><td><span id="q17">How would the household behave in a 50% drawdown?</span></td><td>Unknown.</td><td>A sale followed by panic-selling is worse than never selling.</td><td>The household, honestly.</td><td>Write the rule in advance, including what would be sold and when.</td><td>Whether phased entry is worth its cost for this household.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q18</b></td><td><span id="q18">Is the current assessed value on the roll what the records suggest?</span></td><td>The owner&#x27;s own records are not published; the roll has not been pulled.</td><td>The exclusion computes from the factored base year value, which is on the roll.</td><td>The county assessor.</td><td>Request the current roll entry for the parcel.</td><td>The exact assessed value every projection starts from.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q19</b></td><td><span id="q19">When, within 2040–2050, is the transfer most likely?</span></td><td>Unknown; three dates are modelled (2040, 2045, 2050).</td><td>The break-even falls as the transfer gets later, so the answer is mildly date-sensitive.</td><td>The household and the trustee.</td><td>Note the actuarial and health picture, and revise yearly.</td><td>Which projection column to read.</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td><b>Q20</b></td><td><span id="q20">What capital work is already scheduled on either building?</span></td><td>Averaged as a percentage of value.</td><td>A roof or a sewer line is a lumpy cost that a percentage understates in the year it lands.</td><td>The trust&#x27;s maintenance records and a contractor&#x27;s survey.</td><td>Commission a condition survey on both buildings.</td><td>The five-year cash plan, and the year the first cash call falls.</td><td><span class="tag t-gap">unverified</span></td></tr></tbody></table></div>
+<h2>How to run the discovery, in order</h2>
+<ol>
+<li><b>Buy the two measurements first.</b> An appraisal and three rental comparables for the
+inherited house are the only purchases on this list that change the model's inputs rather than its
+caveats. Everything else can wait for them.</li>
+<li><b>Then ask the county.</b> One call to the assessor establishes the tax rate area, the
+factored base year value on the current roll, and the exact claim forms the county wants. Ask for
+the answer in writing.</li>
+<li><b>Then the advisers, with the briefing sheet.</b> The <a href="brief-sheet.html">one-page
+sheet</a> exists so that the attorney and the CPA answer the same questions rather than two
+different ones.</li>
+<li><b>Then the trust.</b> Whether the trust or the heir is the transferor, and what the trust says
+about occupancy, decides whether any of the above is even available.</li>
+<li><b>Only then the market assumption.</b> House-price growth and equity returns are the two inputs
+nobody can measure in advance. They come last because they are the ones the household must
+<em>choose</em>, and the choice should be written down with a date.</li>
+</ol>
+<div class="stop"><b>The honest summary.</b> With what is known today, the decision cannot be made
+defensibly. It can be <em>framed</em> — the break-evens, the exposures and the deadlines are all
+established — but the four measurements that would turn the frame into a decision do not exist yet.
+That is not a failure of the analysis; it is the finding.</div>
+
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

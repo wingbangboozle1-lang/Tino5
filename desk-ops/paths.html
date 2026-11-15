@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>All eight paths — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>All eight paths, described before they are scored</h1>
+<p class="lede">The owner asked for mixed paths, not only the three pure choices. Three pure
+choices, five mixed ones. Each is stated as a rule the heir could actually execute, because a path
+that cannot be written down as a rule cannot be chosen.</p>
+<h2>The three pure choices</h2>
+<div class="card" style="margin:14px 0">
+<h3>Live in it</h3>
+<p>The heir occupies the house. It cannot be let. Their own housing is the return.</p>
+<p class="small">Cash at 2045 / 20 years — low $7,059,870,
+middle $4,565,360, high $1,977,410.
+With housing: $14,083,050.</p>
+</div>
+<div class="card" style="margin:14px 0">
+<h3>Let it out</h3>
+<p>Kept as a rental. No principal-residence exclusion is available on a later sale.</p>
+<p class="small">Cash at 2045 / 20 years — low $13,391,230,
+middle $11,420,340, high $9,241,240.
+With housing: $11,420,340.</p>
+</div>
+<div class="card" style="margin:14px 0">
+<h3>Sell at the transfer</h3>
+<p>Sold in the year of inheritance. The stepped-up basis means little or no gain.</p>
+<p class="small">Cash at 2045 / 20 years — low $19,883,470,
+middle $19,139,330, high $18,287,920.
+With housing: $18,047,600.</p>
+</div><h2>Five mixed paths</h2>
+<div class="card" style="margin:14px 0">
+<h3>Live in it, then sell</h3>
+<p>Occupied for the first years (securing the exclusion and the 121 gain exclusion), then sold. This is the only holding path that gets both reliefs.</p>
+<p class="small">Cash at 2045 / 20 years — low $12,148,280,
+middle $10,393,560, high $8,536,320.
+With housing: $15,355,780.</p>
+</div>
+<div class="card" style="margin:14px 0">
+<h3>Let it, then sell</h3>
+<p>Let from the transfer, sold later. Rent now, exclusion lost.</p>
+<p class="small">Cash at 2045 / 20 years — low $15,505,910,
+middle $14,072,680, high $12,472,160.
+With housing: $13,634,660.</p>
+</div>
+<div class="card" style="margin:14px 0">
+<h3>Sell, park in Treasuries, phase in</h3>
+<p>Sold at the transfer; proceeds parked in 3-month to 2-year Treasuries for 24-36 months, then moved into equities in equal monthly tranches.</p>
+<p class="small">Cash at 2045 / 20 years — low $19,372,900,
+middle $18,637,300, high $17,794,470.
+With housing: $17,545,560.</p>
+</div>
+<div class="card" style="margin:14px 0">
+<h3>Live, then sell, parked, phased in</h3>
+<p>Occupied first, sold, then the 24-36 month Treasury park and phased entry.</p>
+<p class="small">Cash at 2045 / 20 years — low $12,148,280,
+middle $10,393,560, high $8,536,320.
+With housing: $15,355,780.</p>
+</div>
+<div class="card" style="margin:14px 0">
+<h3>Let, then sell, parked, phased in</h3>
+<p>Let first, sold, then the Treasury park and phased entry.</p>
+<p class="small">Cash at 2045 / 20 years — low $15,499,270,
+middle $14,069,810, high $12,472,160.
+With housing: $13,631,800.</p>
+</div>
+<h2>What each path requires, and what it gives up</h2>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th>What must be done</th><th>What it collects</th><th>What it gives up</th><th>Basis</th></tr></thead><tbody><tr><td>Live in it</td><td>The heir occupies within one year and files the exemption</td><td>A later sale loses the intergenerational exclusion</td><td>The whole value is in one illiquid asset</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Let it out</td><td>Nothing beyond ordinary landlord duties</td><td>No intergenerational exclusion; no section 121 on a later sale</td><td>Rent is taxable and the house is illiquid</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Sell at the transfer</td><td>An appraisal at the date of death</td><td>No further exposure to the local housing market</td><td>The price is whatever the market pays that month</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Live in it, then sell</td><td>Occupy within a year, file the claim, sell after two years</td><td>The exclusion, then the section 121 cap</td><td>A forced sale date in an unknown market</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Let it, then sell</td><td>Landlord duties, then a sale</td><td>Nothing: both reliefs fail</td><td>Capital-gains exposure on the full gain</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Sell, park, phase in</td><td>Discipline for 24–36 months; a written policy before the money arrives</td><td>Crash protection at the entry</td><td>The expected cost of being out of the market</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Live, sell, park, phase in</td><td>Both sequences in order</td><td>Both reliefs and the crash protection</td><td>Two timing risks instead of one</td><td><span class="tag t-stat">statutory</span></td></tr><tr><td>Let, sell, park, phase in</td><td>Landlord duties, then the sequence</td><td>The crash protection only</td><td>The taxable gain on the sale</td><td><span class="tag t-stat">statutory</span></td></tr></tbody></table></div>
+<h2>The state in which each path wins</h2>
+<p>A path is not "best" in the abstract. Each one leads under a describable state, and the state is
+what the household should write down before the figures arrive.</p>
+<div class="wrap"><table class=""><thead><tr><th>Economic state</th><th>Path with the most cash</th><th class="num">Its cash, middle case</th><th class="num">Break-even house growth in that state</th><th>Basis</th></tr></thead><tbody><tr><td><b>Baseline</b> <a href="swans.html#base">detail</a></td><td>Sell at the transfer</td><td class="num">$19,139,330</td><td class="num">10.49%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>Strong growth</b> <a href="swans.html#growth">detail</a></td><td>Sell at the transfer</td><td class="num">$41,431,620</td><td class="num">13.00%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>Stagnation (Japan-style)</b> <a href="swans.html#stagnation">detail</a></td><td>Sell at the transfer</td><td class="num">$5,709,900</td><td class="num">6.49%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>Stagflation (1970s shape)</b> <a href="swans.html#stagflation">detail</a></td><td>Sell, park in Treasuries, phase in</td><td class="num">$16,708,490</td><td class="num">9.74%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>1929 at the entry year</b> <a href="swans.html#crash1929">detail</a></td><td>Sell, park in Treasuries, phase in</td><td class="num">$9,617,220</td><td class="num">7.39%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>2008 at the entry year</b> <a href="swans.html#crash2008">detail</a></td><td>Sell, park in Treasuries, phase in</td><td class="num">$14,176,940</td><td class="num">8.01%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>Rate shock</b> <a href="swans.html#rate_shock">detail</a></td><td>Sell, park in Treasuries, phase in</td><td class="num">$7,227,370</td><td class="num">8.80%</td><td><span class="tag t-own">model output</span></td></tr><tr><td><b>Persistent 6% inflation</b> <a href="swans.html#inflation">detail</a></td><td>Sell at the transfer</td><td class="num">$19,351,560</td><td class="num">10.04%</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<p class="small"><span class="tag t-ass">assumption</span> Each state is a declared scenario, not a forecast; the two crash states
+are anchored on the published drawdowns. The listing is mechanical: for each state, the path with
+the highest cash result.</p>
+<div class="stop"><b>The trap in that table.</b> The winner changes with the state, so choosing the
+path that wins the baseline is choosing a forecast, whether or not it is labelled one. The reason
+to prefer a mixed path is not that it wins anywhere; it is that it loses least across states. That
+is a different question, asked on <a href="swans.html">Uneven economy</a>.</div>
+
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

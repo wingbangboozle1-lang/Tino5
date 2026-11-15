@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Uneven economy — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Uneven economy</h1>
+<p class="lede">Growth and inflation are not consistent over fifty years, so a projection that
+assumes they are is not a projection — it is a wish with decimals. This page runs the same paths
+across eight states, two of them anchored on the published record of real crashes.</p>
+
+<h2 id="base">Baseline</h2>
+<p class="small">Equities 7.0% · house prices 4.0% · inflation
+2.8% · Treasury 4.0%. Scenario, not a forecast.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$19,139,330</td><td class="num">$19,139,330</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$18,637,300</td><td class="num">$18,637,300</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$4,565,360</td><td class="num">$0</td><td class="num">$4,939,210</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$11,420,340</td><td class="num">$1,977,780</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$10,393,560</td><td class="num">$10,393,560</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="growth">Strong growth</h2>
+<p class="small">Equities 10.0% · house prices 5.5% · inflation
+3.5% · Treasury 4.5%. Scenario at the top of the post-1945 US equity record.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$41,431,620</td><td class="num">$41,431,620</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$39,446,690</td><td class="num">$39,446,690</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$7,647,900</td><td class="num">$0</td><td class="num">$8,335,010</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$19,673,100</td><td class="num">$3,752,190</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$18,666,650</td><td class="num">$18,666,650</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="stagnation">Stagnation (Japan-style)</h2>
+<p class="small">Equities 3.0% · house prices 1.0% · inflation
+0.8% · Treasury 1.0%. Scenario modelled on the post-1990 Japanese record.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$5,709,900</td><td class="num">$5,709,900</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$5,612,850</td><td class="num">$5,612,850</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$2,354,620</td><td class="num">$0</td><td class="num">$1,058,150</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$4,180,570</td><td class="num">$821,900</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$4,000,290</td><td class="num">$4,000,290</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="stagflation">Stagflation (1970s shape)</h2>
+<p class="small">Equities 5.0% · house prices 5.0% · inflation
+7.5% · Treasury 7.0%. Scenario modelled on the 1973-1982 US record.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$16,422,910</td><td class="num">$16,422,910</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$16,708,490</td><td class="num">$16,708,490</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$5,145,830</td><td class="num">$0</td><td class="num">$8,290,160</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$15,900,080</td><td class="num">$2,526,090</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$11,212,950</td><td class="num">$11,212,950</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="crash1929">1929 at the entry year</h2>
+<p class="small">Equities 6.0% · house prices 2.0% · inflation
+1.0% · Treasury 3.0%. Anchored on fed_history_1929: Dow 381.17 on 3 Sep 1929 to 41.22 on 8 Jul 1932, 89% below the peak; the 1929 high was not regained until 23 Nov 1954.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$7,430,900</td><td class="num">$7,430,900</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$9,617,220</td><td class="num">$9,617,220</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$2,214,520</td><td class="num">$0</td><td class="num">$1,575,660</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$4,547,010</td><td class="num">$784,690</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$4,840,760</td><td class="num">$4,840,760</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="crash2008">2008 at the entry year</h2>
+<p class="small">Equities 6.5% · house prices 3.0% · inflation
+2.0% · Treasury 2.0%. Anchored on fed_history_2008: S&amp;P 500 -57% from the October 2007 peak to the March 2009 trough; house prices about -30% mid-2006 to mid-2009.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$10,460,460</td><td class="num">$10,460,460</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$14,176,940</td><td class="num">$14,176,940</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$2,995,940</td><td class="num">$0</td><td class="num">$2,145,130</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$5,813,690</td><td class="num">$733,590</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$6,189,090</td><td class="num">$6,189,090</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="rate_shock">Rate shock</h2>
+<p class="small">Equities 4.0% · house prices 1.0% · inflation
+5.0% · Treasury 6.2%. Scenario: higher real rates compress both valuations.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$7,100,340</td><td class="num">$7,100,340</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$7,227,370</td><td class="num">$7,227,370</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$2,148,450</td><td class="num">$0</td><td class="num">$1,264,320</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$4,436,020</td><td class="num">$1,077,360</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$4,630,680</td><td class="num">$4,630,680</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2 id="inflation">Persistent 6% inflation</h2>
+<p class="small">Equities 6.0% · house prices 5.0% · inflation
+6.0% · Treasury 5.5%. Scenario: inflation settles near 6% with a 5% house-price pass-through.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Cash</th><th class="num">Liquid at horizon</th><th class="num">Debt</th><th class="num">First cash call</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$19,351,560</td><td class="num">$19,351,560</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$19,266,890</td><td class="num">$19,266,890</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$6,018,020</td><td class="num">$0</td><td class="num">$7,417,980</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$15,951,520</td><td class="num">$2,577,530</td><td class="num">none</td><td class="num">never</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$12,196,370</td><td class="num">$12,196,370</td><td class="num">none</td><td class="num">2045</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<h2>Across all eight states, which path loses least?</h2>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Worst state</th><th class="num">Best state</th><th class="num">Mean across states</th><th class="num">Spread</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$5,709,900</td><td class="num">$41,431,620</td><td class="num">$15,880,880</td><td class="num">$35,721,720</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Sell, park in Treasuries, phase in</td><td class="num">$5,612,850</td><td class="num">$39,446,690</td><td class="num">$16,336,720</td><td class="num">$33,833,840</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$2,148,450</td><td class="num">$7,647,900</td><td class="num">$4,136,330</td><td class="num">$5,499,450</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$4,180,570</td><td class="num">$19,673,100</td><td class="num">$10,240,290</td><td class="num">$15,492,530</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it, then sell</td><td class="num">$4,000,290</td><td class="num">$18,666,650</td><td class="num">$9,016,290</td><td class="num">$14,666,360</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<div class="answer"><h3>Reading the spread</h3>
+<p>The sale path has the widest spread of any path — $35,721,720
+— because it puts the entire estate into the market on one day. The living path has the narrowest
+among the hold options, because the house is a slower-moving asset than equities. A household that
+cannot tolerate the first number should not choose the path that produces it merely because its mean
+is highest.</p></div>
+
+<h2>What is modelled, and what is not</h2>
+<div class="wrap"><table class=""><thead><tr><th>Input</th><th>How it is treated</th><th>Status</th></tr></thead><tbody><tr><td>Equity return</td><td>A constant annual rate per state, or the published drawdown profile in the two crash states</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>House-price growth</td><td>A constant annual rate per state; the crash states apply a house-price fall too</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Inflation</td><td>A constant rate per state; it drives operating-cost growth and the assessment cap</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Stagflation</td><td>Equities 5%, house prices 5%, inflation 7.5%: the real return on both assets is negative</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Treasury yields</td><td>A constant rate per state; no yield curve and no roll-down</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Borrowing</td><td>1.5 percentage points over the Treasury rate when a path cannot fund itself</td><td><span class="tag t-ass">assumption</span></td></tr><tr><td>Correlation</td><td>Not modelled inside a state. The Monte Carlo resamples both series but does not impose a correlation between them</td><td><span class="tag t-gap">unverified</span></td></tr><tr><td>Sequence risk</td><td>Only in the crash states, where the drawdown falls at the entry year</td><td><span class="tag t-ass">assumption</span></td></tr></tbody></table></div>
+<div class="flag"><b>Why no fifty-year path is drawn through these states.</b> A fifty-year
+projection of a crashing economy is not a forecast, it is theatre: the errors compound faster than
+the signal. The states here are run at the same horizon as every other comparison, so their results
+can be put beside the baseline rather than on a separate page where they look like prophecy.</div>
+
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

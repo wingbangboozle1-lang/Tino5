@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Projections — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Projections, 2026 to 2076</h1>
+<p class="lede">Three views of the same model: the value and assessment of the inherited house, the
+carrying cost of holding it, and what each path is worth at the horizon. Everything is nominal
+dollars on a round modelling base, rounded to $10.</p>
+
+<h2>The inherited house: value, assessment and tax</h2>
+<p>The assessment is the load-bearing line. Under the intergenerational exclusion the assessed
+value is the factored base year value plus whatever the market value exceeds the cap by, and it then
+grows by the lesser of 2% or inflation each year. If the heir does not occupy, the assessment resets
+to full market value at the transfer and the yearly tax roughly doubles.</p>
+<div class="wrap"><table class=""><thead><tr><th>Year</th><th class="num">Market value, base case</th><th class="num">Assessed value if the heir occupies</th><th class="num">Annual tax at the rate floor</th><th class="num">Annual tax at the rate ceiling</th><th>Basis</th></tr></thead><tbody><tr><td>2040</td><td class="num">$4,447,210</td><td class="num">$4,222,540</td><td class="num">$43,860</td><td class="num">$59,120</td><td><span class="tag t-own">model output</span></td></tr><tr><td>2045</td><td class="num">$5,462,940</td><td class="num">$4,222,540</td><td class="num">$43,860</td><td class="num">$59,120</td><td><span class="tag t-own">model output</span></td></tr><tr><td>2050</td><td class="num">$6,710,660</td><td class="num">$4,222,540</td><td class="num">$43,860</td><td class="num">$59,120</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<p class="small">Only the transfer year is shown: after that the assessed value compounds at the
+lesser of 2% or inflation, which is 2.00% in most states here. The rate floor is the county's
+own published figures (the county's 1% maximum levy plus its 0.0388% retirement levy); the ceiling is an
+assumed 1.40% to cover voter-approved debt. <span class="tag t-gap">unverified</span> The actual rate depends on the property's
+tax rate area, which is unknown (F01).</p>
+
+<h2>Carrying cost by year, first twenty years after a 2045 transfer</h2>
+<div class="wrap"><table class=""><thead><tr><th>Year</th><th class="num">Routine maintenance</th><th class="num">Capital plan (averaged)</th><th class="num">Insurance, water, power (net of solar)</th><th class="num">Total</th><th>Basis</th></tr></thead><tbody><tr><td>2026</td><td class="num">$22,500</td><td class="num">$17,500</td><td class="num">$4,650</td><td class="num">$44,650</td><td><span class="tag t-own">model output</span></td></tr><tr><td>2027</td><td class="num">$23,180</td><td class="num">$18,020</td><td class="num">$4,790</td><td class="num">$45,990</td><td><span class="tag t-own">model output</span></td></tr><tr><td>2028</td><td class="num">$23,850</td><td class="num">$18,550</td><td class="num">$4,930</td><td class="num">$47,330</td><td><span class="tag t-own">model output</span></td></tr><tr><td>2029</td><td class="num">$24,530</td><td class="num">$19,080</td><td class="num">$5,070</td><td class="num">$48,670</td><td><span class="tag t-own">model output</span></td></tr><tr><td>2030</td><td class="num">$25,200</td><td class="num">$19,600</td><td class="num">$5,210</td><td class="num">$50,010</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<p class="small"><span class="tag t-ass">assumption</span> Rates applied to the modelling base and inflated at the state's own
+inflation rate; the solar credit can make the power line negative, which is why the total can fall
+below the sum of its neighbours. The five-year detail for both buildings is on
+<a href="costs.html">Carrying costs</a>.</p>
+
+<h2>What each path is worth at the horizon</h2>
+<div class="wrap"><table class=""><thead><tr><th>Horizon at a 2045 transfer</th><th class="num">Live</th><th class="num">Let</th><th class="num">Sell</th><th class="num">Live then sell</th><th>Basis</th></tr></thead><tbody><tr><td>10 years</td><td class="num">$5,294,940</td><td class="num">$7,330,810</td><td class="num">$9,460,940</td><td class="num">$5,280,760</td><td><span class="tag t-own">model output</span></td></tr><tr><td>20 years</td><td class="num">$4,565,360</td><td class="num">$11,420,340</td><td class="num">$19,139,330</td><td class="num">$10,393,560</td><td><span class="tag t-own">model output</span></td></tr><tr><td>30 years</td><td class="num">$1,699,960</td><td class="num">$18,813,530</td><td class="num">$38,292,340</td><td class="num">$21,470,640</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<div class="flag"><b>The projection is not the argument.</b> These numbers move by millions when one
+input moves by one percentage point — the break-even is
+10.49% against a baseline assumption of 4.0%,
+a gap of 648.5% of a percentage point. Any
+projection presented without that gap invites a decision it cannot support.</div>
+
+<h2>Ranges, not points</h2>
+<p>The owner asked for ranges or real figures instead of round-number assumptions. Every input is a
+range; the projections above show the middle case. The table below shows the full spread at the same
+transfer year and horizon.</p>
+<div class="wrap"><table class=""><thead><tr><th>Path</th><th class="num">Low</th><th class="num">Middle</th><th class="num">High</th><th class="num">Spread</th><th>Basis</th></tr></thead><tbody><tr><td>Sell at the transfer</td><td class="num">$19,883,470</td><td class="num">$19,139,330</td><td class="num">$18,287,920</td><td class="num">$-1,595,550</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Live in it</td><td class="num">$7,059,870</td><td class="num">$4,565,360</td><td class="num">$1,977,410</td><td class="num">$-5,082,460</td><td><span class="tag t-own">model output</span></td></tr><tr><td>Let it out</td><td class="num">$13,391,230</td><td class="num">$11,420,340</td><td class="num">$9,241,240</td><td class="num">$-4,149,990</td><td><span class="tag t-own">model output</span></td></tr></tbody></table></div>
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

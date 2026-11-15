@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Law watch — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Law watch: enacted, proposed, and not confirmed</h1>
+<p class="lede">The owner asked for the three to be kept apart. Only the first is used as an input;
+published guidance is used where the statute leaves an operational gap; proposals are listed so they
+are not mistaken for rules, and are never in the model.</p>
+<div class="ok"><b>The rule this page follows.</b> A proposal is displayed with its status and is
+<i>never</i> an input to the model. If a proposal were enacted, the input would change and a rebuild
+would show whether the recommendation moved — which is exactly what the build is for.</div>
+<h2>Enacted law</h2><div class="wrap"><table class=""><thead><tr><th>Rule</th><th>What it says</th><th>Effect on the decision</th><th>Source</th></tr></thead><tbody><tr><td><b>Federal basic exclusion</b> <span class="tag t-ver">enacted</span></td><td>$15,000,000 for a 2026 death and $15,480,000 for 2027, indexed from 2026 and made permanent by Public Law 119-21.</td><td>Sets whether the transfer tax is zero. Carried forward after 2027 without assuming indexation.</td><td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Form 706 timing</b> <span class="tag t-ver">enacted</span></td><td>Due nine months after death; an automatic six-month extension is available on Form 4768, including for a portability-only filing.</td><td>Fixes the first administrative deadline in the timeline.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Intergenerational exclusion</b> <span class="tag t-ver">enacted</span></td><td>A parent-child transfer of a principal residence is excluded from change in ownership if the heir occupies within one year and files the exemption; the exclusion is removed when the heir stops occupying.</td><td>The largest property-tax lever in the decision, and reversible.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>The intergenerational value cap</b> <span class="tag t-ver">enacted</span></td><td>Factored base year value plus $1,044,586 for transfers from 16 February 2025 to 15 February 2027; the $1,000,000 is adjusted every second 16 February.</td><td>Applied as carried forward after 2027 rather than extrapolated.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>The 1% tax above one million</b> <span class="tag t-ver">enacted</span></td><td>1% of California taxable income above $1,000,000, in addition to all other taxes, with credits and the joint-return rule switched off.</td><td>Applied to the sale year; it is not a rate on the sale price.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Documentary transfer tax</b> <span class="tag t-ver">enacted</span></td><td>A county may levy 55 cents per $500; a city inside it may add up to half again.</td><td>Priced into every sale as separate county and city lines.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=11911" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Section 121 home-sale exclusion</b> <span class="tag t-ver">enacted</span></td><td>Up to $250,000 of gain excluded, $500,000 on a joint return, after two of the last five years of ownership and use.</td><td>The second relief, available only to the live-then-sell path.</td><td><a href="https://www.irs.gov/taxtopics/tc701" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Net investment income tax</b> <span class="tag t-ver">enacted</span></td><td>3.8% on net investment income above $200,000 single or $250,000 joint, not indexed.</td><td>Applied to the taxable part of a sale gain.</td><td><a href="https://www.irs.gov/newsroom/questions-and-answers-on-the-net-investment-income-tax" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Prop 13 assessment limit</b> <span class="tag t-ver">enacted</span></td><td>1% of assessed value, rising by the lesser of 2% or inflation, reset at a change in ownership.</td><td>Quoted from the county&#x27;s own compilation, which restates it.</td><td><a href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr></tbody></table></div><h2>Published official guidance</h2><div class="wrap"><table class=""><thead><tr><th>Rule</th><th>What it says</th><th>Effect on the decision</th><th>Source</th></tr></thead><tbody><tr><td><b>Claim timing and the late-filing window</b> <span class="tag t-stat">guidance</span></td><td>The claim must be filed within three years of the transfer or before a transfer to a third party, whichever is earlier, or within six months of a supplemental or escape assessment notice.</td><td>Turns the claim deadline into an operational date; also makes selling before filing fatal.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Continual-use requirement</b> <span class="tag t-stat">guidance</span></td><td>The exclusion is maintained only while the property is continually used as the family home, and is removed if the heir becomes ineligible for the exemption.</td><td>Quantified as the lost-exclusion exposure on the taxes page.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Secured tax due dates and penalties</b> <span class="tag t-stat">guidance</span></td><td>First instalment due 1 November, delinquent 10 December; second due 1 February, delinquent 10 April; 10% penalty then 1.5% a month from 1 July.</td><td>The only certain deadline before the transfer.</td><td><a href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr></tbody></table></div><h2>Proposed or pending — not in the model</h2><div class="wrap"><table class=""><thead><tr><th>Rule</th><th>What it says</th><th>Effect on the decision</th><th>Source</th></tr></thead><tbody><tr><td><b>A local parcel tax on the building</b> <span class="tag t-gap">proposed</span></td><td>A per-parcel charge on residential and commercial buildings, with a pass-through to tenants in some versions. OFFICIAL TERMS AND THE CERTIFIED RESULT NOT CONFIRMED (F04).</td><td>Held as a parameter with an assumed range; not modelled as law.</td><td><a href="https://sftreasurer.org/" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>A higher city transfer tax at the top of the price scale</b> <span class="tag t-gap">proposed</span></td><td>Tiers above a high threshold. Not confirmed from the city&#x27;s own schedule (F05).</td><td>Held as a rate range in every sale; never as an enacted rate.</td><td><a href="https://sftreasurer.org/" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Federal exclusion after 2027</b> <span class="tag t-gap">proposed</span></td><td>The statute indexes the amount; no post-2027 figure is published. Any future change is a proposal.</td><td>Not extrapolated. The 2027 figure is carried forward and marked.</td><td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr></tbody></table></div><h2>Could not be confirmed this session</h2><div class="wrap"><table class=""><thead><tr><th>Rule</th><th>What it says</th><th>Effect on the decision</th><th>Source</th></tr></thead><tbody><tr><td><b>No California estate or inheritance tax</b> <span class="tag t-no">unconfirmed</span></td><td>Widely reported; not confirmed from an official state page in this session (F10).</td><td>No figure depends on it: the estate is modelled against the federal exclusion only.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>California&#x27;s schedule for long-term gain</b> <span class="tag t-no">unconfirmed</span></td><td>Not confirmed from the Franchise Tax Board booklet (F09).</td><td>Only the statutory 1% is applied. The omission understates the tax on the sale paths, so their advantage is overstated.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Treasury yields</b> <span class="tag t-no">unconfirmed</span></td><td>The official daily par-yield page did not render in this session (F07).</td><td>An assumed range is used for the parking return.</td><td><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr></tbody></table></div>
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

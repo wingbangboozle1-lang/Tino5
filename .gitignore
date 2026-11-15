@@ -6,3 +6,7 @@ node_modules/
 dist/
 build/
 work/
+
+# operating desk build scratch
+.det-a.json
+desk-ops/_src/__pycache__/
