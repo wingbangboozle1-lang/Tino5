@@ -1,11 +1,11 @@
 title: Estate decision desk
 plugins: []
-# Publication boundary: scripts/verify_safe.py PUBLISHED_DESKS records the directories
-# approved for Pages alongside public-safe/ (owner brief, 7b/INT: clear numbers and
-# projections rounded to $10 must be reported in the decision analysis). Everything
-# excluded below is working material or a desk with a known correction pending.
-# Excluding a path hides it from the built site; it does not remove it from the
-# repository, so anything that must not be public has to be deleted, not merely excluded.
+# Publication boundary: scripts/verify_safe.py PUBLISHED_DESKS is the allowlist alongside
+# public-safe/. The only detailed live desk is cbe/; phase-99220/ is its stress-test and
+# what-if supplement. Superseded desk generations are deliberately not served, to avoid
+# competing numbers and previously flagged location identifiers on Pages.
+# Excluding a path hides it from the built site only. It does not remove files from Git,
+# existing clones, or repository history; this is not a history scrub.
 exclude:
   - "_src"
   # a desk's generator is working material, not a page: it names the index series and the
@@ -55,3 +55,18 @@ exclude:
   - "tools-22a32b17"
   - "verify-552"
   - "verification-report.json"
+  # Superseded/independent desk generations retained for audit, not served on Pages.
+  - "desk"
+  - "review-092b"
+  - "decision-ad038"
+  - "swan-3a49"
+  - "referee-abae"
+  - "desk-e86"
+  - "tino5-3f269806"
+  - "verify-476"
+  - "decision"
+  - "desk-d75"
+  - "cbd"
+  - "inheritance-desk"
+  - "desk-8be2"
+  - "desk-31cb5781"

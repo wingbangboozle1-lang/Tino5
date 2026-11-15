@@ -5,104 +5,94 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
-<title>Inheritance decision — site index</title>
+<meta name="theme-color" content="#12233f">
+<title>Estate decision desk</title>
 <style>
-body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1d2330;background:#f7f8fa}
-header{background:#fff;border-bottom:1px solid #dfe3ea;padding:18px 24px}
-header h1{margin:0;font-size:22px;color:#1f4e79}
-main{max-width:1000px;margin:auto;padding:20px 24px 56px}
-h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#5b6474;margin:26px 0 10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.card{background:#fff;border:1px solid #dfe3ea;border-radius:8px;padding:14px;color:#1d2330;text-decoration:none;display:flex;flex-direction:column;gap:4px}
-.card:hover{border-color:#1f4e79}
-.card b{color:#1f4e79}
-.card span{font-size:13px;color:#5b6474}
-.note{color:#5b6474;font-size:13px;margin-top:18px}
-table.data{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;background:#fff}
-table.data th{background:#eef3f7;text-align:left;padding:7px 9px;border-bottom:2px solid #dfe3ea}
-table.data td{padding:7px 9px;border-bottom:1px solid #dfe3ea;vertical-align:top}
-code{background:#eef3f7;padding:1px 4px;border-radius:4px}
+:root{color-scheme:light;--ink:#18263b;--muted:#53647a;--line:#d9e2ec;--paper:#fff;--wash:#f3f6fa;--navy:#12233f;--blue:#176b87;--blue-soft:#eaf5f8;--gold:#986112;--gold-soft:#fff6e7;--red:#8f3c30;--red-soft:#fff0ed;--green:#236a51;--green-soft:#edf7f2;--radius:18px;--shadow:0 12px 34px rgba(19,37,63,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wash);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}a{color:#0f617f;text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:#0a4058}a:focus-visible{outline:3px solid #e1a432;outline-offset:3px;border-radius:4px}.shell{max-width:1120px;margin:0 auto;padding:24px}header{background:linear-gradient(135deg,#12233f 0%,#1b4663 100%);color:#fff;padding:34px 0 42px}.hero{max-width:1120px;margin:0 auto;padding:0 24px}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#c7e7ef}.hero h1{max-width:800px;margin:.55rem 0;font-size:clamp(2rem,4vw,3.25rem);line-height:1.1;letter-spacing:-.035em}.hero .intro{max-width:800px;margin:.9rem 0 1.5rem;color:#e1ebf3;font-size:1.08rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 26px}.button{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:10px;font-weight:750;text-decoration:none;border:1px solid transparent}.button.primary{background:#fff;color:var(--navy)}.button.secondary{border-color:#98b8cd;color:#fff;background:rgba(255,255,255,.06)}.button:hover{transform:translateY(-1px)}.answer-panel{background:#fff;color:var(--ink);border-radius:var(--radius);padding:22px 24px;max-width:910px;box-shadow:var(--shadow)}.answer-panel h2{margin:0 0 10px;font-size:1.25rem}.answer-panel p{margin:.4rem 0;color:var(--muted)}.answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 26px;margin:12px 0 0;padding-left:1.2rem}.answer-grid li{padding-left:3px}.answer-grid li::marker{color:var(--blue)}main{padding:28px 0 54px}.notice{display:grid;grid-template-columns:auto 1fr;gap:14px;background:var(--gold-soft);border:1px solid #eed8a9;border-radius:14px;padding:17px 19px;margin:0 0 26px}.notice .icon{font-size:1.35rem}.notice h2{font-size:1.05rem;margin:0 0 4px;color:#69420b}.notice p{margin:0;color:#5c4d35}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:34px 0 14px}.section-head h2{margin:0;font-size:1.35rem;letter-spacing:-.02em}.section-head p{margin:0;color:var(--muted);font-size:.92rem}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;min-height:178px;padding:19px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}.card:hover{transform:translateY(-2px);border-color:#81b7c8;color:var(--ink)}.card .tag{align-self:flex-start;display:inline-flex;margin-bottom:12px;padding:3px 9px;border-radius:999px;background:var(--blue-soft);color:#145a72;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}.card h3{margin:0 0 6px;color:var(--navy);font-size:1.07rem;line-height:1.35}.card p{margin:0;color:var(--muted);font-size:.92rem}.card .go{margin-top:auto;padding-top:15px;font-weight:750;color:#0f617f;font-size:.9rem}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}.panel h2{margin:0 0 8px;font-size:1.12rem}.panel p{margin:.35rem 0;color:var(--muted)}.panel ul{padding-left:1.15rem;margin:.65rem 0 0}.panel li{margin:.35rem 0}.privacy{background:#eef2f7;border:1px solid #d8e0ea;border-radius:14px;padding:18px 20px;margin-top:26px}.privacy h2{font-size:1.04rem;margin:0 0 5px}.privacy p{margin:0 0 8px;color:#46566b;font-size:.9rem}.privacy a{font-weight:700}.status{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:.72rem;font-weight:800}footer{border-top:1px solid var(--line);padding:18px 24px 30px;color:var(--muted);font-size:.84rem}.footer-inner{max-width:1120px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}.footer-inner p{margin:0}
+@media(max-width:820px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.answer-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:4px}}@media(max-width:560px){.shell,.hero{padding-left:16px;padding-right:16px}.cards,.twocol{grid-template-columns:1fr}.card{min-height:unset}.hero{padding-top:8px}.answer-panel{padding:18px}.actions{display:grid}.button{width:100%}}
+@media print{body{background:#fff}.hero{background:#fff;color:#111;padding:0}.eyebrow,.actions,.cards,.privacy,footer{display:none}.hero .intro{color:#333}.answer-panel,.notice,.panel{box-shadow:none;break-inside:avoid}.shell{padding:0}.section-head{margin-top:16px}}
 </style>
 </head>
 <body>
-<header><h1>Inheritance decision — site index</h1></header>
-<main>
-<p>Hub for the published pages. Property A is the future trust inheritance; Property B is
-already owned. Every desk states its own sources and flags; figures across desks have not been
-reconciled with each other — see each desk's Flagged page and the independent referee.
-Money on the numeric desks is rounded to the nearest $10 (statutory amounts are quoted exactly
-as published); no desk carries names, addresses, parcel identifiers or ZIP codes.</p>
+<header>
+  <div class="hero">
+    <div class="eyebrow">Source-linked · anonymized · decision-first</div>
+    <h1>One inheritance decision. Two properties. Evidence before a path.</h1>
+    <p class="intro">Compare what to do with <b>Property A</b>, a future trust inheritance, while keeping <b>Property B</b>, already owned, in its proper role as an existing household and rental option. The model compares choices at the same transfer dates and horizons; it is a decision aid, not a verdict.</p>
+    <div class="actions">
+      <a class="button primary" href="cbe/index.html">Open the main decision desk <span aria-hidden="true">&nbsp;→</span></a>
+      <a class="button secondary" href="phase-99220/index.html">Stress-test crash entry and mixed paths <span aria-hidden="true">&nbsp;→</span></a>
+    </div>
+    <section class="answer-panel" aria-labelledby="change-answer">
+      <h2 id="change-answer">What would change the answer?</h2>
+      <p>These questions come before choosing a path; several are unresolved and can move both the tax outcome and the keep-versus-sell ranking.</p>
+      <ul class="answer-grid">
+        <li>Will the heir genuinely use Property A as a long-term primary residence, and will the transfer meet the then-current Proposition 19 requirements?</li>
+        <li>What are the date-of-death value, tax basis, debts, sale costs, local tax-rate area and actual property operating costs?</li>
+        <li>What rent is supportable for Property A, and what are Property B’s actual net rent, lease terms, unit legality and occupancy trade-offs?</li>
+        <li>What is the whole taxable estate after prior taxable gifts and any portability election, not just the value of one home?</li>
+        <li>What investment policy, time horizon and loss tolerance will govern proceeds, including the possibility of a market decline during Treasury parking?</li>
+      </ul>
+    </section>
+  </div>
+</header>
+<main class="shell">
+  <section class="notice" aria-labelledby="conditional-title">
+    <div class="icon" aria-hidden="true">!</div>
+    <div>
+      <h2 id="conditional-title">The recommendation is conditional, not final</h2>
+      <p>Independent valuations, rent opinions, written insurance quotes, inspection-based capital budgets, the trust instrument, tax basis, debt and estate-wide information are not yet verified. Use the dashboard to see what is known, what is assumed, what is blank, and exactly how to close each gap. Do not treat a point projection as a 50-year forecast.</p>
+    </div>
+  </section>
 
-<h2>Start here</h2>
-<div class="grid">
-<a class="card" href="desk-d75/index.html"><b>Owner brief, item by item (desk-d75)</b><span>The 26 requirements of the November 2026 brief as a register, each with a status and the page that answers it: executive summary, the four ways to hold or release Property A with break-evens and a sensitivity grid, year-by-year projections to 2076, carrying costs at $10 rounding, the assessed-to-market divergence, the trust-inheritance steps, estate and transfer tax with the 2027 figures, law watch after the 2026 election, eight uneven-economy regimes, an 18-item suggestions board awaiting your decision, 28 questions with how to find each answer, the information gaps, and the source register with a link for every claim.</span></a>
-<a class="card" href="desk/index.html"><b>Numeric decision desk (2026–2076)</b><span>The full analysis: executive summary, occupy / rent / sell comparison with break-evens, year-by-year projections at $10 rounding, carrying costs, inheritance tax, trust process, black swans, law watch, suggestions, open questions, flagged, sources, methodology and repo review.</span></a>
-<a class="card" href="public-safe/index.html"><b>Curated dashboard — privacy-first</b><span>Rules-and-verification dashboard: decision framework, projections worksheet, properties, costs, black swans, inheritance &amp; tax, step-by-step process, law watch, suggestions, questions &amp; answers, flagged for review and the official source register. No household figures.</span></a>
-<a class="card" href="tino5-3f269806/index.html"><b>Independent decision site (row-by-row verified)</b><span>Thirteen pages checked line by line against official sources: executive summary, property facts, tax and inheritance thresholds, year-by-year projections, live/rent/sell scenarios, black-swan economics, trust inheritance steps, questions and gaps, suggestions awaiting your choice, law watch, source register and flagged for review.</span></a>
-<a class="card" href="desk-31cb5781/index.html"><b>Decision desk (2026–2050), arena-31cb5781</b><span>Latest desk: executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance) and Property B (already owned) analysed separately, phased-investing path (Treasuries 24–36 months), mixed paths, reinvestment risk, what-if controls, one-page printable Attorney &amp; CPA Briefing Sheet, deadlines timeline, suggestions board and questions &amp; gaps. Every table row cites an official source or is marked unverified; money rounded to $10; no personal identifiers.</span></a>
-<a class="card" href="decision-d2664fd0/index.html"><b>Consolidated decision desk (arena/d2664fd0)</b><span>Consolidated desk: what-would-change-the-answer up front, grouped menu + glossary, Property A (future trust inheritance) and Property B (already owned) analysed separately, phased-investing path (Treasuries 24–36 months), mixed paths, reinvestment risk beside the headline, what-if controls, one-page printable Attorney &amp; CPA Briefing Sheet, deadlines timeline, suggestions board, questions &amp; gaps with discovery actions, law watch, source register, flagged for review. Every table row cites an official source or is marked unverified; money rounded to $10; no personal identifiers.</span></a>
-<a class="card" href="desk-9af5443d/index.html"><b>Gap-filling desk (arena-9af5443d)</b><span>Closes the remaining requirement gaps: SF Proposition H modelled with its official terms (Nov-2024 firefighter pension and Nov-2026 Muni parcel tax, plus Prop M, Measure I and RTM), the Form 540 1% Behavioral Health Services Tax and capital-gain treatment read line-by-line from the official FTB instructions with the sensitivity value updated, Cupertino rent comparables from official Census ACS evidence, a five-year maintenance and capital plan, an estate liquidity plan, a growth-regime distribution chart and a decision-and-date log. Every table row cites an official source or is marked unverified; money rounded to $10; no personal identifiers.</span></a>
-</div>
+  <div class="section-head">
+    <h2>Start with the decision</h2>
+    <p>One primary model, focused evidence supplements, and a clear review path.</p>
+  </div>
+  <section class="cards" aria-label="Decision desk pages">
+    <a class="card" href="cbe/index.html"><span class="tag">Start here</span><h3>Executive overview &amp; model</h3><p>Conditional result, what can change it, verified versus owner-supplied inputs, the decision menu and grouped navigation.</p><span class="go">Open main desk →</span></a>
+    <a class="card" href="desk-9af5443d/index.html"><span class="tag">Tax &amp; evidence supplement</span><h3>Local measures, Form 540 and missing evidence</h3><p>Official terms for local measures, the California 1% tax sensitivity, rent evidence, estate liquidity, a five-year capital plan and decision log.</p><span class="go">Review the evidence supplement →</span></a>
+    <a class="card" href="cbe/options.html"><span class="tag">Compare paths</span><h3>Live, rent, sell and mixed choices</h3><p>Compare the same transfer years and horizons, including housing choices that retain Property B and staged reinvestment.</p><span class="go">Compare scenarios →</span></a>
+    <a class="card" href="cbe/projections.html"><span class="tag">By year</span><h3>Value, tax and carrying-cost projections</h3><p>Annual projections show the assumptions and distinguish an assessment from market value and income-tax basis.</p><span class="go">View projections →</span></a>
+    <a class="card" href="cbe/property-tax.html"><span class="tag">Property &amp; tax</span><h3>Property tax, inheritance and basis</h3><p>Separate transfer reassessment, estate tax, income-tax basis and the primary-residence questions; future law is not assumed settled.</p><span class="go">Review tax pages →</span></a>
+    <a class="card" href="cbe/running-costs.html"><span class="tag">Household costs</span><h3>Insurance, utilities, rent and maintenance</h3><p>See which costs are verified, estimated, or still blank; get an action for each missing number instead of a fabricated quote.</p><span class="go">Review costs →</span></a>
+    <a class="card" href="phase-99220/index.html"><span class="tag">Black swans</span><h3>1929 / 2008 entry risk &amp; Treasuries</h3><p>Test parking sale proceeds in short Treasuries for 24–36 months before phasing into stocks, beside reinvestment and opportunity risk.</p><span class="go">Run stress tests →</span></a>
+  </section>
 
-<h2>Consolidated decision site (16 pages, one model, one source register)</h2>
-<div class="grid">
-<a class="card" href="decision/index.html"><b>Inheritance decision desk — consolidated</b><span>Two properties, one decision. Property A is the trust inheritance expected 2040–2050; Property B is already owned, with two of three units let. Sixteen pages: executive summary, properties, property tax, inheritance &amp; estate tax, running costs, year-by-year projections to 2076, occupy / rent / sell compared with break-even rates, eight black-swan regimes anchored on the real BLS record, the step-by-step trust transfer, the question register, a suggestions board awaiting approval, law watch, the official source register, flagged items and method &amp; privacy. Every table row cites an official source or says in the row that none exists; every dollar is rounded to $10; statutory amounts are quoted exactly as published.</span></a>
-</div>
+  <div class="section-head">
+    <h2>Prepare, verify, then decide</h2>
+    <p>Proposals stay proposals until a person explicitly chooses them.</p>
+  </div>
+  <section class="twocol" aria-label="Decision preparation and review">
+    <div class="panel">
+      <h2>Before the figures arrive</h2>
+      <p>Use the questions register to collect decision-critical information without reverse-engineering a choice from one projection.</p>
+      <ul>
+        <li><a href="cbe/questions.html">Questions, current answers and discovery actions</a></li>
+        <li><a href="cbe/process.html">Trust-transfer steps and the deadlines timeline</a></li>
+        <li><a href="cbe/brief.html">One-page printable Attorney &amp; CPA briefing sheet</a></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Review and record the decision</h2>
+      <p>Review the open risks and proposals; write the selected path, decision date, reason and the fact that would trigger a re-review.</p>
+      <ul>
+        <li><a href="cbe/suggestions.html">Suggestions board — accept, modify or reject before implementation</a></li>
+        <li><a href="cbe/flagged.html">Flagged for Review — unverified inputs and irregularities</a></li>
+        <li><a href="cbe/law-watch.html">Official-law watch — enacted rules versus proposals</a></li>
+        <li><a href="cbe/sources.html">Official source register</a> · <a href="cbe/glossary.html">Glossary</a></li>
+        <li><a href="public-safe/index.html">Rules-only reference without household figures</a></li>
+      </ul>
+    </div>
+  </section>
 
-<h2>Owner brief, rebuilt end to end (17 pages, verified from scratch)</h2>
-<div class="grid">
-<a class="card" href="cbd/index.html"><b>Property decision desk (cbd)</b><span>Sell, let or live in the house, and how to phase the money in. Eleven pages, one model: a first-screen summary with what would change the answer and reinvestment risk beside the headline; seven mixed paths across transfer years 2040, 2045 and 2050 under equity crashes modelled on 1929 and 2008; a phased-entry break-even test; a static what-if table; a timeline of the trust-transfer deadlines; a printable Attorney and CPA sheet; a glossary, a questions register, suggestions awaiting owner approval, sources and flagged items. Money is rounded to $10 and every table row links an official source or says why none exists. Placeholders only; no names, addresses, parcel or account numbers.</span></a>
-<a class="card" href="cbe/index.html"><b>Property decision desk (cbe)</b><span>A single model, one source register, and the strictest verifier in this repository. Every table row links an official document or says in the row that none exists; every dollar is rounded to $10; statutory amounts are quoted exactly as published; no name, street, parcel, account, postcode or city appears. What it adds beyond the other desks: the <b>full 1914–2026 CPI-U record</b> published year by year and used to drive the black-swan work, <b>block-resampled inflation paths</b> that carry a growth regime with each five-year block so the correlation between inflation and returns survives, and an honest statement of the result — the median gap between keeping and selling narrows to about $327,960 across 1,200 resampled histories and keeping wins in roughly 36% of them, so the decision rests on the break-even rent and growth rate rather than on a headline projection. Seventeen pages: overview, executive summary, the two properties, property tax, inheritance &amp; estate tax, running costs, year-by-year projections to 2076, the three options with break-evens, black swans, the step-by-step transfer, the question register, a suggestions board on which nothing has been implemented, law watch, a repository review with the irregularities found in earlier desks, the source register, flagged items and method &amp; privacy.</span></a>
-<a class="card" href="phase-99220/index.html"><b>Decision desk: live, rent or sell (phase-99220)</b><span>Built on the cbe model, read-only. Opens on <b>what would change the answer</b>, with reinvestment risk beside the headline: in this model, selling leads living in while house-price growth is below 5.58% a year (break-even, computed by the desk model; not a forecast). Treasury yields on 13 Nov 2026 were 4.32% (3-month) and 4.88% (2-year). Adds <b>what-if controls</b> (transfer year, return, price growth), <b>mixed paths</b> (live then sell, rent then sell, park 24 or 36 months then phase in), a <b>1929 and 2008 crash-entry replay</b> from the official drawdowns (−89% and −57%), a <b>deadline timeline</b>, a one-page <b>attorney and CPA brief</b> to print, a glossary, questions and gaps, suggestions (none implemented) and flagged items. Every row links an official source or is flagged.</span></a>
-</div>
-
-<h2>Inheritance decision desk (privacy-first)</h2>
-<div class="grid">
-<a class="card" href="inheritance-desk/index.html"><b>Inheritance decision desk</b><span>Live-in, rent and sell-and-reinvest options for the inherited house, with black-swan regimes and phased entry, 2026–2050 projections, federal and California rules with official links, a trust process and deadline timeline, a printable attorney and CPA briefing, and a Flagged for Review page. Figures are model outputs, rounded to $10; owner inputs are labelled unverified.</span></a>
-</div>
-
-<h2>Independent decision desk (desk-8be2)</h2>
-<div class="grid">
-<a class="card" href="desk-8be2/index.html"><b>Independent decision desk (desk-8be2)</b><span>Fresh decision desk for the trust inheritance (Property A) and the already-owned home (Property B). Leads with “what would change the answer?” on the first screen, grouped menu and glossary, executive summary, anonymised property facts, property tax and inheritance/estate thresholds, running costs at $10 rounding, projections to 2076, live / rent / sell plus mixed paths, reinvestment risk beside the headline, a black-swan section with a phased-investing path (3-month–2-year Treasuries for 24–36 months, then into stocks) tested against 1929/2008 crash entry, what-if controls, a deadlines timeline, a one-page printable Attorney &amp; CPA briefing sheet, a suggestions board (accept / modify / reject), a question register with discovery actions, law watch, sources, flagged items and method &amp; privacy.</span></a>
-</div>
-
-<h2>Questions, suggestions and gaps</h2>
-<div class="grid">
-<a class="card" href="desk-e86/index.html"><b>Decision-readiness desk (46 questions)</b><span>Executive summary, a 46-item question register (answered / owner input / derived / unknown with a discovery action per row), a 17-item suggestions board, repository review and flagged for review.</span></a>
-<a class="card" href="review-092b/index.html"><b>Decision hub (questions &amp; suggestions)</b><span>13-item open-question register with the decision each gap blocks, an 11-item suggestions board (accept / modify / reject), projections with both break-evens, a ten-step trust process, repo review and a 43-document source register.</span></a>
-<a class="card" href="desk/questions.html"><b>What is known vs what is missing (desk)</b><span>Statutory figures quoted exactly, plus the gap table with a named method for closing each gap and an ordered action list.</span></a>
-</div>
-
-<h2>Projections, law and assumptions</h2>
-<div class="grid">
-<a class="card" href="decision-ad038/index.html"><b>Indexed decision desk</b><span>Projections as indices (2026 = 100) so no absolute household dollar figure appears; official Prop 19 allowance amounts, law page, assumptions page and black-swan regimes.</span></a>
-</div>
-
-<h2>Uneven-economy (black swan) replays</h2>
-<div class="grid">
-<a class="card" href="swan-3a49/index.html"><b>Historical replay engine</b><span>Year-by-year replay of real historical growth and inflation orderings across the next half century — growth and inflation are never constant over 50 years.</span></a>
-<a class="card" href="public-safe/black-swans.html"><b>Black-swan scenarios (curated)</b><span>Discrete stress regimes with official historical anchors, inside the curated dashboard.</span></a>
-</div>
-
-<h2>Independent verification</h2>
-<div class="grid">
-<a class="card" href="verify-476/index.html"><b>Line-by-line verification register (2026-11-13)</b><span>Every decision-critical constant re-checked against the official document named in its source link, with verdicts, corrections applied this session, insurance research summary, Japan inheritance-tax verification, and the open items list. Links for manual review throughout.</span></a>
-<a class="card" href="referee-abae/index.html"><b>Referee cross-check</b><span>Independent re-derivation of both desks' numbers, statutory-constant checks against the official documents, and the discrepancy register X01–X15 with links for manual review.</span></a>
-</div>
-
-<h2>Working trees not served on Pages</h2>
-<table class="data">
-<thead><tr><th>Directory</th><th>What it is</th><th>Why it is not live</th></tr></thead>
-<tbody>
-<tr><td><code>desk-22a32b17/</code></td><td>Earlier numeric desk (absolute $10 model figures).</td><td>Known Proposition 19 correction pending: the family-home exclusion protects assessed value only up to the $1,044,586 cap, not the whole assessed-to-market gap, so its savings figures are overstated; it also carries the X13 dual property-tax figures. Correct before publishing.</td></tr>
-<tr><td><code>desk-b4f/</code></td><td>Legacy decision tree.</td><td>Referee X04 (capital-gain ceiling $16,200 vs $16,250) and X05 (closing-letter fee) uncorrected.</td></tr>
-<tr><td><code>docs/</code>, <code>archive/</code>, <code>audited-v4/</code>, <code>mine/</code>, <code>pages/</code>, <code>session-*/</code>, <code>src/</code>, <code>data/</code>, <code>research/</code>, <code>analysis/</code>, <code>model/</code>, <code>scripts/</code>, <code>tools-22a32b17/</code>, <code>verify-552/</code></td><td>Legacy research generations, generators and audit artifacts retained in the repository for citation.</td><td>Excluded from Pages by the fail-closed rule in <code>scripts/verify_safe.py</code>; several contain owner-derived figures from earlier generations and must not be redeployed.</td></tr>
-</tbody>
-</table>
-
-<p class="note">Not tax, legal or investment advice. Rules and thresholds may change before a
-future transfer; re-check the then-current law. Owner-action items (public git history holding
-earlier full-precision figures; repository visibility) are recorded on the Flagged pages.</p>
+  <section class="privacy" aria-labelledby="privacy-title">
+    <h2 id="privacy-title">Privacy boundary and remaining exposure</h2>
+    <p>The live Pages product uses Property A / Property B labels and is checked for known name, street, postal, parcel, email, phone, and property-specific city/neighbourhood patterns; broad county-level jurisdiction references remain where needed for legal context, and an official source title may name its jurisdiction. The site does not identify either property by city or neighbourhood, postal code, street, parcel or account identifier. The root and main desk ask search engines not to index their pages, and robots.txt asks crawlers not to fetch the site; these are crawler requests, not access controls. The GitHub repository is public. Earlier commits and excluded working trees still contain previously exposed household/location material: excluding files from Pages does <b>not</b> erase Git history or remove those files from GitHub. A shared-history rewrite was not performed in this branch, so this repository must not be described as scrubbed. The public-repository history issue remains prominently flagged for a repository-wide, coordinated remediation.</p>
+    <a href="cbe/repo-review.html">Read the repository and privacy audit</a>
+  </section>
 </main>
+<footer><div class="footer-inner"><p><span class="status">Decision support only</span> Not tax, legal or investment advice. Verify current law with the relevant professional before acting.</p><p>All displayed personal-property inputs are labelled by evidence status; projections are assumptions, not forecasts.</p></div></footer>
 </body>
 </html>
