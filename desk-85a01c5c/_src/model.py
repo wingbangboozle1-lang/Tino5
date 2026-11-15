@@ -69,7 +69,7 @@ STATUTORY = {
     "scc_sb2_fee":           75,
     "scc_ab1466_fee":        2,
     "scc_pcor_fee":          20,
-    # San Francisco transfer tax, tier $1,000,000-$4,999,999
+    # San Francisco transfer tax, tier $1,000,000 to under $5,000,000
     # (Assessor-Recorder factsheet 2025: $3.75 per $500 of full value)
     "sf_transfer_per_500_1m_5m": 3.75,
     # San Francisco Prop H parcel tax (SFMTA FAQ, FY2027-28 rates)

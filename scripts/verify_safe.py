@@ -66,7 +66,7 @@ DEPLOYMENT_EXCLUSIONS = {
 PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
                   "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
                   "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0",
-                  "desk-9af5443d", "desk-03242c78"}
+                  "desk-9af5443d", "desk-03242c78", "desk-85a01c5c"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
