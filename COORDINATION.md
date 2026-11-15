@@ -2598,3 +2598,40 @@ owner-supplied and left blank in official-verified cells.
 **Pre-merge checks on the branch:** `desk-31cb5781/_src/build.py` renders 17 pages; `python3 verify.py` PASS (0 errors, 16 benign warnings); `scripts/verify_safe.py` PASS; `scripts/check_landing.py` 0 unresolved. `desk-31cb5781/` is a new, non-overlapping directory; no other session's files were edited.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
+
+---
+
+## Session `arena-9af5443d` — claim (2026-11-15, branch `arena/9af5443d-tino5`, base `85e3d47`)
+
+Platform constraint: this session is bound to `arena/9af5443d-tino5`, so non-overlap is
+enforced by file scope. `desk-9af5443d/` is a new directory; no other session touches it.
+The only prior `unclaimed` item (31cb/R) lapsed with its session and is taken over here.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 9af/S | **Build the gap-filling decision desk `desk-9af5443d/`:** items from the full requirement list still not covered by the merged desks — **SF Proposition H modelled with its official terms (both the Nov-2024 firefighter-pension measure and the Nov-2026 Muni parcel tax, with the official SFDOE/SFMTA terms)**, **Form 540 1% MHST sensitivity read line-by-line from the official FTB 2025 Form 540 instructions and the capital-gain treatment, with the sensitivity value updated**, **Cupertino rent comparables from official Census ACS evidence**, **five-year maintenance & capital plan for both buildings**, **estate liquidity plan**, **distribution chart on the projections page**, **decision-and-date register**, updated questions/suggestions/law-watch/sources/flagged/methodology, one-page printable Attorney & CPA briefing sheet.** Every table row carries an official source link or is blank + marked unverified/owner/assumption; money rounded to $10 except statutory exacts; no names, addresses, ZIP codes, parcel/account numbers. | in progress | arena-9af5443d | `desk-9af5443d/**` (new directory; generator/verifier in `desk-9af5443d/_src/`, not published), this section only |
+| 9af/V | **Line-by-line source verification of every row; privacy scan; irregularities on `desk-9af5443d/flagged.html`.** | in progress | arena-9af5443d | `desk-9af5443d/**`, this section only |
+| 9af/R | **Repository review (takeover of the lapsed 31cb/R):** read the published trees, log irregularities for the owner, do not edit another session's files. | in progress | arena-9af5443d | this section only |
+| 9af/INT | **Integration: merge `origin/main`, re-verify the combined tree, add desk to root hub / `PUBLISHED_DESKS` / `_config.yml` exclude / workflow, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result.** Conditional on 9af/S and 9af/V being `done`. | unclaimed | arena-9af5443d | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
+
+**Non-overlap:** `desk-9af5443d/` is a new directory. Shared root files are folded only in the
+final integration step. The git-history scrub (pre-rounding figures in public history) remains an
+owner decision (flag F19) — this session documents the options and does not rewrite history.
+
+### 9af/R — repository review notes (2026-11-15)
+
+- Read the published trees of the merged desks (`desk-31cb5781/`, `desk-8be2/`, `cbd/`,
+  `phase-99220/`, `inheritance-desk/`, `docs/`, `desk-b4f/`, `desk-d75/`, `review-092b/`,
+  `decision-ad038/`, `swan-3a49/`, `referee-abae/`, `desk-e86/`, `public-safe/`) at `85e3d47`.
+- Irregularities carried forward / re-confirmed (logged, not edited — other sessions own those files):
+  - **X04:** `desk-b4f/estate-tax.html` shows the 2026 estates-and-trusts 20% LTCG threshold as
+    `$16,200` against `$16,250` in IRS Rev. Proc. 2025-32 (re-confirmed on disk this session).
+  - **X05:** ETCL user-fee wording across desks differs (`$67` vs `$76`, TD 10055); desk-b4f now
+    shows $76 effective 2026-10-26.
+  - **F19:** public git history still contains unrounded owner-supplied figures (e.g. `$7,207`
+    property taxes in commit history / archive); a PR merge does not erase exposed history. Owner
+    decision required; documented in `desk-9af5443d/flagged.html` with remediation options.
+  - **F13:** `scripts/privacy_scan.py` reports Treasury month-query false positives in `cbd/` and
+    `phase-99220/` (91 findings, logged by cbd/INT).
+- Confirmed clean: `desk-31cb5781/` and `desk-8be2/` verifier gates (PASS per their records),
+  root `index.html` hub cards resolve, `_config.yml` excludes cover all `_src` directories.
