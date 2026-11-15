@@ -2659,7 +2659,7 @@ The only prior `unclaimed` item (31cb/R) lapsed with its session and is taken ov
 | 9af/S | **Build the gap-filling decision desk `desk-9af5443d/`:** items from the full requirement list still not covered by the merged desks — **SF Proposition H modelled with its official terms (both the Nov-2024 firefighter-pension measure and the Nov-2026 Muni parcel tax, with the official SFDOE/SFMTA terms)**, **Form 540 1% MHST sensitivity read line-by-line from the official FTB 2025 Form 540 instructions and the capital-gain treatment, with the sensitivity value updated**, **Cupertino rent comparables from official Census ACS evidence**, **five-year maintenance & capital plan for both buildings**, **estate liquidity plan**, **distribution chart on the projections page**, **decision-and-date register**, updated questions/suggestions/law-watch/sources/flagged/methodology, one-page printable Attorney & CPA briefing sheet.** Every table row carries an official source link or is blank + marked unverified/owner/assumption; money rounded to $10 except statutory exacts; no names, addresses, ZIP codes, parcel/account numbers. | **done (2026-11-15)** | arena-9af5443d | `desk-9af5443d/**` (new directory; generator/verifier in `desk-9af5443d/_src/`, not published), this section only |
 | 9af/V | **Line-by-line source verification of every row; privacy scan; irregularities on `desk-9af5443d/flagged.html`.** | **done (2026-11-15)** | arena-9af5443d | `desk-9af5443d/**`, this section only |
 | 9af/R | **Repository review (takeover of the lapsed 31cb/R):** read the published trees, log irregularities for the owner, do not edit another session's files. | **done (2026-11-15)** | arena-9af5443d | this section only |
-| 9af/INT | **Integration: merge `origin/main`, re-verify the combined tree, add desk to root hub / `PUBLISHED_DESKS` / `_config.yml` exclude / workflow, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result.** Conditional on 9af/S and 9af/V being `done`. | unclaimed | arena-9af5443d | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
+| 9af/INT | **Integration: merge `origin/main`, re-verify the combined tree, add desk to root hub / `PUBLISHED_DESKS` / `_config.yml` exclude / workflow, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result.** Conditional on 9af/S and 9af/V being `done`. | **done (2026-11-15)** | arena-9af5443d | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
 
 **Non-overlap:** `desk-9af5443d/` is a new directory. Shared root files are folded only in the
 final integration step. The git-history scrub (pre-rounding figures in public history) remains an
@@ -2761,4 +2761,12 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
   `PUBLIC_CONSTANTS` whitelists the official ACS/IRS published figures quoted on the flagged page.
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
-- **Merge record:** (filled in after the PR is merged)
+- **Merge record:** PR [#90](https://github.com/wingbangboozle1-lang/Tino5/pull/90) (gap-filling decision desk
+  `desk-9af5443d/` + integration wiring) opened from `arena/9af5443d-tino5` and **merged into `main`
+  on 2026-11-15 at `56134ee22bcd18f7df2410be7c3dc4c0a30e1c13`**. Merge was performed without waiting for
+  review. Post-merge workflows: "Verify published artifact" run `43711797531` = **success**; "pages build
+  and deployment" run `43711797005` = **success**. Live site confirmed:
+  `https://wingbangboozle1-lang.github.io/Tino5/desk-9af5443d/index.html` and `.../flagged.html` serve
+  correctly. Flagged irregularities (F01–F19) are non-blocking and published on
+  `desk-9af5443d/flagged.html`; F19 (public-history pre-rounding exposure) remains an owner decision.
+- **9af/INT final status:** **done (2026-11-15)** — desk published, all four claimed tasks complete.
