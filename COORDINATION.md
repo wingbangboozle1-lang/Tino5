@@ -2598,3 +2598,29 @@ owner-supplied and left blank in official-verified cells.
 **Pre-merge checks on the branch:** `desk-31cb5781/_src/build.py` renders 17 pages; `python3 verify.py` PASS (0 errors, 16 benign warnings); `scripts/verify_safe.py` PASS; `scripts/check_landing.py` 0 unresolved. `desk-31cb5781/` is a new, non-overlapping directory; no other session's files were edited.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
+
+## Session `arena-85deecfe` — claim & repo-review record (2026-11-15, branch `arena/85deecfe-tino5`, base `85e3d47` = `main`)
+
+**Claim:** task **31cb/R** (repository review), which was still `unclaimed` on the 31cb board. File scope: this section only. No other session's file was edited.
+
+**Checks run (this session):**
+- `desk-31cb5781/_src/build.py` rebuilds cleanly; `verify.py` → PASS (0 errors; warnings are non-$10 amounts $3, $24, $171, $189 on `sources.html`, which are quoted published/statutory figures).
+- `scripts/verify_safe.py` → PASS (13 pages, 125 rows, 379 links, no ZIP or identifier pattern in the published artifact).
+- Live page fetched: `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/running-costs.html` matches the repo; no ZIP code on the page.
+- Local clone was shallow (depth 1). Full history fetched (`git fetch --unshallow`): 356 commits across 150 remote refs.
+
+**Privacy finding — history (NOT changed; owner decision needed).**
+- The repository is **public** (`gh repo view`: `isPrivate: false`).
+- ZIP codes for the owner's two properties appear in **26 commits** (first 2026-11-10, `cb9b5e6`) and in **55 files** of `origin/main` (including this file). Most are in unpublished directories (`archive/`, `docs/`, `audited-v4/`, `session-2f7b1b3f/`, `research/`, `data/`, `scripts/`, `desk-d75/_src/`); they are not on the Pages site.
+- No APN / parcel-number text was found in history. No e-mail or phone pattern was found in the published artifact.
+- A history rewrite (e.g. `git filter-repo` over all refs) would require a **force-push over `main` and ~150 remote session branches**, which would break open PRs and other sessions' work. It was **not** done. Owner must choose: (a) rewrite history and force-push, (b) make the repo private, or (c) accept the exposure and only remove the files from the tree.
+
+**Irregularities logged for owner review (`desk-31cb5781/**` is owned by 31cb; not edited here):**
+- **I1 — placeholder values.** `running-costs.html`: maintenance & repair "$150–$300/yr placeholder" (Property A) and "$300–$600/yr placeholder" (Property B) have no source. Rule 2 requires blank + unverified.
+- **I2 — insurance range not traceable.** `running-costs.html` cites "CA statewide avg $1,324–$2,211/yr" to the CDI homepage. Secondary sources cite CDI figures of $1,571 (CDI Homeowners Insurance Market Snapshot, updated Feb 2026) and $2,339.99 (CDI 2025 data call). The cited range does not match either. The CDI page guessed for the snapshot returned 404; the primary document was not read. Range should be blank until checked.
+- **I3 — insurance inconsistency.** Property A "~$120/mo" vs "~$1,500/yr" (12 × $120 = $1,440). Both are owner estimates; no policy quote exists.
+- **I4 — city names on public pages.** "Cupertino" (flagged, glossary, questions, running-costs, sources) and "San Francisco" (glossary, methodology, properties, running-costs) appear on the Pages site. The 31cb claim says "county level only". Owner to decide whether to keep.
+- **I5 — provider assumption.** "San Jose Water serves Cupertino" is applied to Property A. The provider depends on the parcel and is unverified for that property.
+- **I6 — index-series research.** The owner's requested Form 540 / Prop H / Prop 19 items are covered by other desks; this session did not re-verify those rows.
+
+**Status:** 31cb/R → **done (log only).** I1–I5 need an owner decision or a 31cb follow-up. The history question is open and blocks any "scrubbed" claim.
