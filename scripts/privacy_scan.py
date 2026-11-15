@@ -118,9 +118,21 @@ def scan_text(text: str):
                 yield i, "minor-under-1000", "$" + token
             else:
                 yield i, "A-unrounded-money", "$" + token
+        # Rule B is about money-like *data* keys. A bare integer that sits inside a URL
+        # (a query string or path, e.g. the official Treasury yield URL's
+        # field_tdr_date_value_month=202611 month parameter) is a URL parameter, not money.
+        # Exempt matches that fall inside a URL so the gate does not flag citation URLs.
+        url_spans = [m.span() for m in re.finditer(r"https?://[^\s\"'<>]+", line)]
         for m in RE_KV.finditer(line):
+            if any(s <= m.start() < e for s, e in url_spans):
+                continue
             key, val = (m.group(1) or m.group(2)), int(m.group(3))
             if abs(val) < 1000 or val % 10 == 0:
+                continue
+            # a six-digit YYYYMM value is a date (e.g. a URL month parameter such as a
+            # Treasury yield query), not money data
+            a = abs(val)
+            if 100000 <= a < 1000000 and 1900 <= a // 100 <= 2100 and 1 <= a % 100 <= 12:
                 continue
             if 1900 <= val <= 2100 and not MONEY_KEY.search(key):
                 continue
