@@ -2624,3 +2624,9 @@ owner-supplied and left blank in official-verified cells.
 - **I6 — index-series research.** The owner's requested Form 540 / Prop H / Prop 19 items are covered by other desks; this session did not re-verify those rows.
 
 **Status:** 31cb/R → **done (log only).** I1–I5 need an owner decision or a 31cb follow-up. The history question is open and blocks any "scrubbed" claim.
+
+### arena-85deecfe — follow-up: failed "Verify published artifact" on merge commit `a0f12e8` (PR #85)
+
+- **Cause:** the `desk-8be2/_src/build.py` footer writes `Built <today's date>` into all 20 pages. The committed pages said `2026-11-14`; the freshness step ran on `2026-11-15` and failed. No content changed. The Pages deploy for `a0f12e8` succeeded; only the artifact-verify check failed.
+- **Fix:** regenerated `desk-8be2/**` with its own build script (the workflow's stated remedy). Verified: 0 changed lines other than the `Built` date; `verify.py` PASS (20 pages, 157 rows, 538 links). The other five build scripts in the workflow rebuilt with no diff.
+- **Irregularity I7 (open):** the date stamp makes this freshness check fail on any day after the last commit. Recommended fix: pin the build date to a value in source, or drop the date from the footer. Owner: session `arena-8be27405` (8be2 scope). Not changed here.
