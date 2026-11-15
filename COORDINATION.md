@@ -2917,3 +2917,20 @@ row carries an official source link or an explicit no-source marker; money round
 keep every session's record; this branch's code fixes were resolved to **main's merged versions**. The final PR
 merged to `main`; the PR link and deploy result are recorded in the PR body and below. Flagged irregularities and
 the un-scrubbable git-history item do not block the merge.
+
+### 44b/INT — completion: PR #84 merged to `main`
+
+- **PR**: [#84](https://github.com/wingbangboozle1-lang/Tino5/pull/84) — "Final integration: verification battery +
+  $10-rounding fix + privacy-scan false-positive fix".
+- **Merge**: `gh pr merge 84 --merge` → **merged** as merge commit `550c6b1d4113120f0b18752150e09b3117ffbfae`
+  (`550c6b1`) on `main`. Branch `arena/44bbafa4-tino5` tip `cd0957a`; all of `origin/main` in scope.
+- **Verification battery on the merged tree**: green (see 44b/V). Additional final-integration fix: `desk-03242c78`
+  derived assessment illustration rounded to the nearest $10 (`$11,490` / `$80` / `$11,410`), `sources.py` +
+  regenerated `sources.html`; desk verifier PASS; `privacy_scan` **0 findings**.
+- **GitHub Pages**: live site confirmed serving correct content (hub fetched successfully at
+  `https://wingbangboozle1-lang.github.io/Tino5/`). A Pages rebuild for the merged commit (`550c6b1d`, started
+  `2026-11-15T12:32:55Z`) was **in progress** at the time of recording — a transient GitHub Pages build backlog
+  (the prior build for `e71e0874` errored with duration 0, also transient). The site is **not broken**; it serves
+  the last successfully built tree. Flagged as irregularity for re-check. This does not block the merge.
+- **Standing owner-action items (cannot be closed by commits)**: public Git history retains earlier full-precision
+  figures (scrub = owner decision `F19`/`R01`); 3 Nov 2026 ballot results uncertified until 11 Dec 2026.
