@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """desk-9af5443d generator.
 
-Gap-filling decision desk (session arena-9af5443d, 2026-11-15) for the Cupertino /
+Gap-filling decision desk (session arena-9af5443d, 2026-11-15) for the Property A /
 San Francisco inheritance decision project. Focuses on the requirement items not
 fully covered by the previously merged desks:
 
@@ -12,7 +12,7 @@ fully covered by the previously merged desks:
     Behavioral Health Services Tax (1% on CA taxable income over $1,000,000,
     Form 540 line 62) and the capital-gain treatment; the MHST sensitivity value
     is updated on this desk.
-  * Cupertino rent comparables from official Census ACS evidence (QuickFacts),
+  * Property A rent comparables from official Census ACS evidence (QuickFacts),
     so the rent path is ranked on evidence rather than a voucher benchmark.
   * Five-year maintenance and capital plan for both buildings.
   * Estate liquidity plan (federal exclusion, portability, prior gifts).
@@ -77,7 +77,7 @@ SRC = {
                  "https://sfmta.com/projects/proposition-h-muni-local-measure"),
  "sfgov_digest":("City and County of San Francisco — Ballot Simplification Committee Final Digest: Changes to Business Taxes (Measure M, Nov 2024)",
                  "https://www.sf.gov/sites/default/files/2024-08/Final%20Digest%20-%20Changes%20to%20Business%20Taxes.pdf"),
- "census_cupertino": ("U.S. Census Bureau QuickFacts — Cupertino city, California (median gross rent $3,500+, 2020-2024 ACS 5-year)",
+ "census_cupertino": ("U.S. Census Bureau QuickFacts — city-level ACS profile for the Property A area (median gross rent $3,500+, 2020-2024 ACS 5-year)",
                  "https://www.census.gov/quickfacts/fact/table/cupertinocitycalifornia/PST045225"),
  "census_scc":  ("U.S. Census Bureau QuickFacts — Santa Clara County, California (median gross rent $2,857, 2020-2024 ACS 5-year)",
                  "https://www.census.gov/quickfacts/fact/table/santaclaracountycalifornia/RHI825222"),
@@ -236,7 +236,7 @@ model, the phased-investing (Black swan) path, the briefing sheets and the quest
 the remaining gaps from the full requirement list: <b>Prop H modelled with its official terms</b> (both the
 Nov-2024 firefighter-pension measure and the Nov-2026 Muni parcel tax), the <b>Form 540 1% tax and
 capital-gain treatment read line-by-line from the official FTB instructions with the sensitivity value updated</b>,
-<b>Cupertino rent comparables from official Census ACS evidence</b>, a <b>five-year maintenance and capital plan</b>,
+<b>Property A rent comparables from official Census ACS evidence</b>, a <b>five-year maintenance and capital plan</b>,
 an <b>estate liquidity plan</b>, a <b>distribution chart</b> and a <b>decision-and-date log</b>.</div>
 
 <h3>What would change the answer (read first)</h3>
@@ -866,7 +866,7 @@ then-current law before acting, and confirm all owner-supplied figures with docu
 official page ({src("sfelections_2026")} {src("sfmta_proph")}).</li>
 <li>SF Prop H (2024) and Prop M confirmed from the official final results page ({src("sfelections_2024")});
 the Prop M digest read from the official City digest ({src("sfgov_digest")}).</li>
-<li>Cupertino and Santa Clara County rent evidence read from the official Census QuickFacts pages
+<li>Property A area and Santa Clara County rent evidence read from the official Census QuickFacts pages
 ({src("census_cupertino")} {src("census_scc")}).</li>
 <li>Federal thresholds verified against IRS pages ({src("irs_estate")} {src("irs_706")} {src("irs_stepup")});
 California no-estate-tax rule against the State Controller ({src("sco_estate")}).</li>
@@ -883,7 +883,7 @@ brief_body = f"""
 Prepared 2026-11-15. Not advice.</p>
 
 <div class="brief">
-<div class="brief-head"><b>Household:</b> Property A (Cupertino area, Santa Clara County) — inherited via trust ~2040-2050 · <b>Property B (San Francisco County)</b> — already owned, 3 units, 2 rented</div>
+<div class="brief-head"><b>Household:</b> Property A (Santa Clara County) — inherited via trust ~2040-2050 · <b>Property B (San Francisco County)</b> — already owned, 3 units, 2 rented</div>
 
 <table class="brief-tbl">
 <tr><td><b>Headline decision</b></td><td>Baseline: sell Property A at inheritance and reinvest after tax; keep the Treasury parking path (3M-2Y, 24-36 months) to soften crash-entry risk. Renting wins only if the heir occupies (Prop 19 cap) and rent growth outpaces portfolio returns. <span class="tag verified">sourced</span></td></tr>
