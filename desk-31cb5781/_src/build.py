@@ -287,7 +287,7 @@ rc_body = f"""
 <tbody>
 <tr><td>Water</td><td>{m0(100)}–{m0(150)}</td><td>{m0(1200)}–{m0(1800)}</td><td>Owner estimate; San Jose Water serves Cupertino</td><td>{tag('owner')} {src('sjwater')}</td></tr>
 <tr><td>Electricity</td><td>~$0 (solar credit {m0(10)}–{m0(20)}/mo profit)</td><td>~$0 (+{m0(120)}–{m0(240)}/yr credit)</td><td>Solar + NEM; owner estimate</td><td>{tag('owner')}</td></tr>
-<tr><td>Home insurance (primary residence)</td><td>~{m0(125)}/mo</td><td>~{m0(1500)}/yr</td><td>Owner estimate; CA statewide avg $1,320–$2,210/yr; Bay Area typically higher</td><td>{tag('owner')} {src('doi')}</td></tr>
+<tr><td>Home insurance (primary residence)</td><td>~{m0(125)}/mo</td><td>~{m0(1500)}/yr</td><td>Owner estimate; no property-specific premium verified. Obtain written quotes from licensed insurers and check the California Department of Insurance resources.</td><td>{tag('owner')} {src('doi')}</td></tr>
 <tr><td>Maintenance &amp; repair</td><td>—</td><td>{m0(150)}–{m0(300)}/yr placeholder</td><td>Owner: less than San Francisco house</td><td>{tag('owner')}</td></tr>
 </tbody>
 </table>
