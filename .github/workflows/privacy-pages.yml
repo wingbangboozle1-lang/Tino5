@@ -133,5 +133,17 @@ jobs:
             git --no-pager diff --stat -- desk-03242c78
             exit 1
           fi
+      - name: Black-swan phased-investing desk (desk-85a01c5c/) — tests, rebuild, then verify
+        run: |
+          python -m unittest discover -s desk-85a01c5c/_src -p "test_*.py" -v
+          python desk-85a01c5c/_src/build.py
+          python desk-85a01c5c/_src/verify.py
+      - name: Black-swan phased-investing desk (desk-85a01c5c/) generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-85a01c5c; then
+            echo "::error::desk-85a01c5c/ is stale. Re-run desk-85a01c5c/_src/build.py and commit the result."
+            git --no-pager diff --stat -- desk-85a01c5c
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py
