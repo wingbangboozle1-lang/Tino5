@@ -1,14 +1,14 @@
-"""Structural, privacy and rounding checks for the published artifact.
+"""Structural, privacy and rounding checks for the live Pages surfaces.
 
 This is not an automatic fact checker. It proves that:
-  * only expected file types are published,
+  * only the curated desks are configured for publication,
   * every internal link resolves,
-  * every table body row in a data table carries at least one official source link,
-  * every external host is on the allowlist of official publishers,
-  * every dollar amount is a multiple of $10 (statutory figures are marked as published),
-  * no personal-identifier pattern appears, including ZIP codes, e-mail, phone and APN shapes.
-Semantic truth of each cited page was checked by reading the page; see public-safe/sources.html.
-
+  * every public-safe table row carries an official source link,
+  * external hosts in the public-safe reference are on the official allowlist,
+  * money in the public-safe reference rounds to $10 unless marked as published, and
+  * the root hub and every selected live desk contain no known personal-identifier pattern.
+The cbe/ and phase-99220/ semantic, sourcing, rounding and link checks run in their own
+verifiers; this gate additionally scans their entire published trees for privacy patterns.
 Run: python3 scripts/verify_safe.py
 """
 from datetime import date
@@ -21,51 +21,25 @@ import re
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
 DEPLOYMENT_EXCLUSIONS = {
-    # Excluded from Pages. Adding a directory here excludes it; it does not publish it.
-    # desk-22a32b17 stays excluded until its Proposition 19 cap error is corrected (the
-    # exclusion protects assessed value only up to $1,044,586, not the whole gap — see the
-    # delivery record of arena-12dfd47a and referee X13); desk-b4f stays excluded until
-    # X04/X05 are corrected.
+    # Excluded from Pages. Exclusion is not deletion and does not scrub Git history.
+    # Older independent desks are retained for audit but are not served: the live site uses
+    # one reconciled model (cbe/) plus its historical phased-entry supplement (phase-99220/).
     "verify-552", "session-595f0109", "desk-22a32b17", "tools-22a32b17",
     "desk-b4f", "docs", "archive", "audited-v4",
     "data", "analysis", "assets", "model", "pages", "research", "scripts",
     "session-2f7b1b3f", "mine", "src",
+    "desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae",
+    "desk-e86", "tino5-3f269806", "verify-476", "decision", "desk-d75",
+    "cbd", "inheritance-desk", "desk-8be2", "desk-31cb5781",
 }
-# Approved for publication alongside public-safe/. Recorded here by the 7b/INT integration
-# run under the owner's brief ("clear numbers and projections ... rounded to the nearest $10").
-# Removing an entry from this set unpublishes the directory (it must then also return to
-# DEPLOYMENT_EXCLUSIONS and to the Jekyll exclude list in _config.yml).
-# desk-d75 approved by the d75/INT run (owner brief, item by item; recorded 13 Nov 2026).
-# verify-476 added by the 476/INT integration run (2026-11-13): the independent
-# line-by-line verification register (arena-47685795). decision added by the 1ec/INT
-# integration run (2026-11-13): the consolidated 16-page decision site (arena-1ec4b5b0).
-# The d75/INT merge of origin/main kept all three additions in one set: a second assignment
-# here would silently replace the first, and the directory it dropped would fail the
-# fail-closed rule below.
-# cbd added by the cbd/S run (session arena-cbd1473c, 2026-11-14): the 11-page property
-# decision desk with mixed paths, phased-entry test, what-if table and one-page adviser sheet.
-# Folded into the same set above.
-# cbe added by the cbe/S run (session arena-cbe837cb, 2026-11-14): the 17-page property
-# decision desk, rebuilt end to end from one model and one source register, with its own
-# build.py / verify.py / test_model.py and the strictest verifier in this repository.
-# Folded into the same single set — a second assignment here would silently replace the
-# first, and every directory it dropped would then fail the fail-closed rule below.
-# desk-8be2 added by the 8be2/S run (session arena-8be27405, 2026-11-14): the independent
-# decision desk with the phased-investing black-swan path, what-if controls, one-page
-# printable Attorney & CPA briefing sheet and the full source-linked question/suggestion
-# register. Folded into the same single set.
-# desk-31cb5781 added by the 31cb/S run (session arena-31cb5781, 2026-11-14): the independent
-# decision desk with the phased-investing black-swan path, what-if controls, one-page
-# printable Attorney & CPA briefing sheet and the full source-linked question/suggestion
-# register. Folded into the same single set.
-# desk-9af5443d added by the 9af/INT integration run (session arena-9af5443d, 2026-11-15):
-# the gap-filling desk — Prop H with official terms (2024 and 2026), the Form 540 MHST
-# sensitivity read from the official FTB instructions, Census ACS rent comparables, the
-# five-year maintenance plan, the estate liquidity plan, a distribution chart and the
-# decision-and-date log. Folded into the same single set.
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
-                  "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-9af5443d"}
+# The curated live set alongside public-safe/. To unpublish a directory, move it into
+# DEPLOYMENT_EXCLUSIONS and _config.yml's exclude list in the same integration change.
+# cbe/ is the primary decision model; phase-99220/ provides the historical 1929/2008
+# crash-entry replay; desk-9af5443d/ adds the official tax, local-measure and evidence gaps
+# specifically requested in the owner brief. The other completed desks remain in Git for
+# audit but are not served as competing versions.
+PUBLISHED_DESKS = {"cbe", "phase-99220", "desk-9af5443d"}
+PUBLISHED_SITE_DIRS = {"public-safe"} | PUBLISHED_DESKS
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -91,13 +65,26 @@ PII = [
     (r"[\w.+-]+@[\w-]+\.[a-z]{2,}", "e-mail address"),
     (r"\b\d{3}-\d{2}-\d{4}\b", "SSN shape"),
     (r"\b\(?\d{3}\)?[-. ]\d{3}[-.]\d{4}\b", "phone shape"),
-    (r"\b\d{5}(?:-\d{4})?\b", "ZIP / postal code shape"),
+    (r"\b\d{5}(?:-\d{4})?(?!\d)(?!\.\d)", "ZIP / postal code shape"),
     (r"\b\d{1,4}\s+(?:[A-Z][a-z]+\s){1,3}(?:Ave|Avenue|St|Street|Rd|Road|Blvd|Boulevard|Dr|Drive|Ct|Court|Ln|Lane|Way|Pl|Place|Ter|Terrace)\b",
      "street address"),
-    (r"\bAPN\b|\bparcel\s+number\b", "parcel number"),
+    (r"\b(?:APN|parcel\s+number)\s*[:#]?\s*(?:\d[\w-]{4,}|[A-Z0-9][A-Z0-9-]{5,})\b", "parcel identifier"),
     (r"\bCupertino\b|\bSunnyvale\b|\bSan Jose\b|\bPalo Alto\b|\bSaratoga\b|\bLos Altos\b|\bOuter Sunset\b",
      "city or neighbourhood identifier"),
 ]
+
+
+def has_identifier_pattern(text, pattern, label):
+    """Avoid treating visible statutory section citations as postal codes."""
+    for match in re.finditer(pattern, text, re.I):
+        if label == "ZIP / postal code shape":
+            prefix = text[max(0, match.start() - 72):match.start()]
+            if re.search(r"(?:§\s*|(?:section|code|R&TC)\s*)$", prefix, re.I):
+                continue
+        return True
+    return False
+
+
 MONEY = re.compile(r"\$(\d{1,3}(?:,\d{3})+|\d+)(?![\d.,])")
 errors = []
 stats = {"rows": 0, "links": 0, "tables": 0, "external": 0}
@@ -189,14 +176,6 @@ for p in OUT.rglob("*"):
         errors.append(f"symlink in artifact {p}")
     text = p.read_text()
 
-    # Scan visible prose only. Link labels are citations (statute and form numbers) and attribute values
-    # are URLs, so both are removed before the identifier patterns are applied.
-    visible = re.sub(r"<a\b.*?</a>", "", text, flags=re.S)
-    visible = re.sub(r'(?:href|src)="[^"]*"', "", visible)
-    for pattern, label in PII:
-        if re.search(pattern, visible, re.I):
-            errors.append(f"{p}: {label} pattern")
-
     # Statutory amounts are published exactly as written and marked; everything else must round to $10.
     stripped = re.sub(r'<span class="stat">.*?</span>', "", text, flags=re.S)
     stripped = re.sub(r'<code>.*?</code>', "", stripped, flags=re.S)
@@ -208,20 +187,66 @@ for p in OUT.rglob("*"):
     if p.suffix == ".html":
         Check(p).feed(text)
 
+# Scan the complete Pages surface, including visible link labels and the root landing page.
+# Jekyll does not publish underscore-prefixed working directories (including _src/).
+robots_path = Path("robots.txt")
+if not robots_path.is_file():
+    errors.append("robots.txt: missing crawler restriction")
+else:
+    robots_text = robots_path.read_text(encoding="utf-8")
+    if not re.search(r"(?m)^User-agent:\s*\*\s*$", robots_text):
+        errors.append("robots.txt: missing wildcard User-agent")
+    if not re.search(r"(?m)^Disallow:\s*/\s*$", robots_text):
+        errors.append("robots.txt: missing site-wide Disallow")
+privacy_scanned_files = 0
+privacy_roots = [Path("index.html")] + [Path(d) for d in sorted(PUBLISHED_SITE_DIRS)]
+for root in privacy_roots:
+    if not root.exists():
+        errors.append(f"missing published surface: {root}")
+        continue
+    files = [root] if root.is_file() else sorted(root.rglob("*"))
+    for p in files:
+        if p.is_dir():
+            continue
+        if p.is_symlink():
+            errors.append(f"symlink in published surface: {p}")
+            continue
+        if root.is_dir() and any(part.startswith("_") for part in p.relative_to(root).parts):
+            continue
+        if p.suffix.lower() not in {".html", ".css", ".js"}:
+            errors.append(f"unexpected published artifact: {p}")
+            continue
+        text = p.read_text(encoding="utf-8")
+        # Scan rendered prose, including anchor labels; skip non-visible inline CSS/JS and
+        # color literals so a six-digit stylesheet color cannot look like a postal code.
+        if p.suffix.lower() == ".html":
+            prose = re.sub(r"<(style|script)\b[^>]*>.*?</\1>", " ", text, flags=re.I | re.S)
+            visible = re.sub(r"<[^>]*>", " ", prose)
+        else:
+            visible = text
+        visible = re.sub(r"#[0-9a-fA-F]{3,8}\b", " ", visible)
+        for pattern, label in PII:
+            if has_identifier_pattern(visible, pattern, label):
+                errors.append(f"{p}: {label} pattern")
+        privacy_scanned_files += 1
+
 if errors:
     raise SystemExit("\n".join(sorted(set(errors))))
 summary = (
-    f"PASS: {len(pages)} pages; {stats['tables']} tables; {stats['rows']} source-linked rows; "
-    f"{stats['links']} links ({stats['external']} official); local targets resolve; "
-    "money rounds to $10; no personal-identifier patterns. Structural checks only."
+    f"PASS: {len(pages)} public-safe pages; {stats['tables']} public-safe tables; "
+    f"{stats['rows']} source-linked rows; {stats['links']} links ({stats['external']} official); "
+    f"{privacy_scanned_files} live files privacy-scanned; local targets resolve; "
+    "robots.txt requests no crawling (not access control); public-safe money rounds to $10; "
+    "no known personal-identifier patterns. Structural checks only."
 )
 print(summary)
 
 if "--json" in __import__("sys").argv:
     report = {
         "generated": date.today().isoformat(),
-        "artifact": "public-safe/",
+        "artifact": "GitHub Pages root + public-safe/, cbe/, phase-99220/",
         "pages": pages,
+        "privacy_scanned_files": privacy_scanned_files,
         "counts": stats,
         "checks": {
             "page_set_exact": True,
@@ -230,11 +255,13 @@ if "--json" in __import__("sys").argv:
             "external_hosts_allowlisted": True,
             "money_rounds_to_10_except_marked_statutory": True,
             "no_personal_identifier_patterns": True,
+            "robots_disallows_crawling": True,
             "no_scripts_forms_or_external_assets": True,
             "nonprimary_site_artifacts_excluded": True,
         },
-        "scope_note": "Structural and privacy checks only. Semantic accuracy of each cited page was "
-                      "established by reading the page; see public-safe/sources.html.",
+        "scope_note": "Structural/privacy checks plus the cbe/ and phase-99220/ page-specific verifiers. "
+                      "Official sources and what each supports are linked from cbe/sources.html and "
+                      "phase-99220/sources.html; no automatic verifier proves legal interpretation.",
         "official_urls": sorted(official_urls),
     }
     Path("verification-report.json").write_text(json.dumps(report, indent=2) + "\n")

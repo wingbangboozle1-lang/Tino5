@@ -1,80 +1,38 @@
 # Estate decision desk
 
-A source-linked decision desk for a future trust inheritance (**Property A**) and a separate
-property already owned outright (**Property B**). The two are analysed separately, because one is
-inherited and the other is not.
+A source-linked decision aid for comparing what to do with **Property A**, a future trust inheritance, while taking account of **Property B**, which is already owned. Property B is not treated as part of the inheritance. No path is a recommendation until the missing values and legal facts are verified.
 
-**Site map:** the root [`index.html`](index.html) is the hub. It links the published desks:
-[`desk/`](desk/index.html) (the numeric decision desk, 2026–2076, $10 rounding),
-[`public-safe/`](public-safe/index.html) (the privacy-first curated dashboard, no household
-figures), [`desk-e86/`](desk-e86/index.html) (46-question decision-readiness register),
-[`desk-d75/`](desk-d75/index.html) (the owner brief as a 26-item requirement register, with the pages that answer it),
-[`review-092b/`](review-092b/index.html) (question/suggestion hub), [`decision-ad038/`](decision-ad038/index.html)
-(indexed projections and law), [`swan-3a49/`](swan-3a49/index.html) (uneven-economy replay),
-[`referee-abae/`](referee-abae/index.html) (independent cross-check),
-[`tino5-3f269806/`](tino5-3f269806/index.html) (independent decision site — every row checked
-line by line against official sources) and [`verify-476/`](verify-476/index.html)
-(the 2026-11-13 line-by-line verification register: every decision-critical constant re-checked
-against its official source, with verdicts and corrections applied). The publication set is
-recorded in `PUBLISHED_DESKS` in [`scripts/verify_safe.py`](scripts/verify_safe.py); every other
-top-level directory is excluded from Pages by the fail-closed gate and by `_config.yml`.
-`desk-22a32b17/` stays excluded until its Proposition 19 cap error is corrected and `desk-b4f/`
-until referee X04/X05 are corrected.
+## Live site
 
-**Live site:** https://wingbangboozle1-lang.github.io/Tino5/ → root hub → the desks above.
+**Start:** [Estate decision desk](https://wingbangboozle1-lang.github.io/Tino5/)
 
-A working decision aid, not advice. It asks one question — when the house passes to the heir
-somewhere between 2040 and 2050, should the heir move in, rent it out, or sell it and reinvest? —
-and answers it three ways: with arithmetic that can be re-run, with sourced law, and with stress
-cases that break the arithmetic.
+The Pages publication is intentionally small and has one primary decision model:
 
-| Page (lead desk `desk/`) | What it answers |
-| --- | --- |
-| [Overview](desk/index.html) | The question, the headline figures, and where to start |
-| [Executive summary](desk/executive-summary.html) | The whole picture on one page |
-| [The decision](desk/decision.html) | Move in, rent out, or sell, compared after tax |
-| [Open questions](desk/questions.html) | Known, unknown, and how to find out |
-| [Projections 2026–2076](desk/projections.html) | Value, tax, and every carrying cost by year |
-| [Carrying costs](desk/costs.html) | What each house costs to hold, line by line |
-| [Inheritance tax](desk/estate-tax.html) | Federal estate tax, reassessment, income tax |
-| [Trust process](desk/process.html) | Death to recorded title, with the deadlines |
-| [Black swans](desk/black-swans.html) | Six sourced stress paths |
-| [Law watch](desk/law-watch.html) | The rules the plan depends on |
-| [Suggestions](desk/suggestions.html) | Options ranked by robustness |
-| [Flagged for review](desk/flagged.html) | Every unverified claim, with what would close it |
-| [Sources](desk/sources.html) | Every citation, and what it supports |
-| [Methodology](desk/methodology.html) | Every input and assumption |
-| [Repo review](desk/repo-review.html) | Legacy material and privacy risks |
+- [`cbe/`](cbe/index.html) — the main desk: executive summary, property facts, property tax, inheritance and estate tax, carrying costs, year-by-year projections, pure and mixed paths, black-swan regimes, trust process, questions, suggestions, law watch, sources, flags and glossary.
+- [`phase-99220/`](phase-99220/index.html) — what-if controls, mixed paths and a separate historical 1929/2008 crash-entry replay for Treasury parking and phased stock investment; includes a deadline timeline and printable attorney/CPA brief.
+- [`public-safe/`](public-safe/index.html) — a rules-and-source reference without household figures.
 
-## Privacy
+The other decision-desk generations remain in the repository for audit, but are excluded from GitHub Pages so a visitor is not asked to choose between duplicate or inconsistent dashboards. The root page leads with what would change the answer and where the evidence is missing.
 
-Every dollar amount is rounded to the nearest $10 so that no figure can be traced back to a
-specific bill. Statutory amounts, rates, and thresholds are the exception: they are quoted exactly
-and marked as exact, because rounding a legal threshold would misstate it. No desk carries names,
-addresses, parcel identifiers or ZIP codes; year-by-year assessment or tax-bill histories are not
-published at any precision (a rounded series still matches one parcel against open assessor rolls).
+## Privacy — an important limitation
 
-`desk-22a32b17/` and the legacy trees still contain owner-derived figures from earlier
-generations; they are excluded from Pages and flagged. Excluding a directory from the built site
-hides it; it does not remove it from the repository — anything that must not be public has to be
-deleted, and repository history is an owner decision.
+The published Pages surface uses generic Property A / Property B labels, has no city or neighbourhood names, street, postal, parcel or account identifiers, and is checked for common name, address and contact patterns. Broad county-level jurisdiction references may remain where needed for legal context. The root and main desk use `noindex`; `robots.txt` asks crawlers not to fetch the site. These are crawler directives, not access controls. The **GitHub repository itself is public**. Earlier commits and excluded working trees still retain previously exposed household/location material. Removing or excluding a directory from Pages does not erase it from GitHub or from repository history. A shared-history rewrite was not performed in this branch; therefore the repository is **not scrubbed** and this must remain a flagged issue until a coordinated repository-wide remediation is completed. Do not treat the website’s privacy scan as proof that the public Git history is private.
 
-## Reproducing it
+## Evidence and limits
+
+Official-source links accompany the decision tables, and each desk distinguishes verified rules from owner-supplied inputs, assumptions, derived values and unknowns. Unknown values are left blank or expressed as a break-even threshold. Dollar model figures are rounded to the nearest $10; statutory amounts are quoted as published where rounding would change a legal threshold. Rounded figures are not a guarantee of anonymity. The model is not tax, legal or investment advice and cannot forecast 2040–2050 law, rent, insurance prices, house prices, inflation or market returns.
+
+## Rebuild and verify
 
 ```bash
-python3 scripts/model_v5.py                                   # writes desk/data/model-v5.json
-python3 -m unittest discover -s scripts -p 'test_model_v5.py'  # 20 regression tests
-python3 scripts/build_desk_v5.py                              # writes desk/*.html
-python3 scripts/verify_desk_v5.py --json                      # the desk contract
-python3 scripts/build_desk.py                                 # writes public-safe/*.html
-python3 scripts/verify_safe.py                                # published-surface gate
-python3 scripts/check_landing.py                              # hub links resolve
-python3 scripts/privacy_scan.py --summary                     # identifier scan
-python3 review-092b/_src/verify.py                            # decision hub contract
-python3 desk-e86/verify.py                                    # readiness desk contract
-python3 desk-d75/_src/build.py                                # regenerate the owner-brief desk
-python3 desk-d75/_src/verify.py                               # its contract: privacy, links, rounding, coverage
-python3 -m unittest discover -s desk-d75/_src -p "test_*.py"  # its engine and privacy tests
-python3 decision-ad038/_src/verify_site.py                    # indexed desk contract
-python3 referee-abae/_src/crosscheck.py                       # independent cross-check
+python3 scripts/verify_safe.py
+python3 scripts/check_landing.py
+python3 cbe/_src/build.py
+python3 cbe/_src/verify.py
+python3 -m unittest discover -s cbe/_src -p 'test_*.py' -v
+python3 phase-99220/_src/build.py
+python3 phase-99220/_src/verify.py
+python3 -m unittest discover -s phase-99220/_src -p 'test_*.py' -v
 ```
+
+GitHub Actions repeats the source, link, privacy, rounding and regression checks for the live desks. A clean structural check does not establish the legal meaning of a fact pattern; confirm the current rules with the relevant professional before acting.
