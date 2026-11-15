@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method, rounding and reproducibility · Tino5 estate desk</title>
+<meta name="description" content="A source-verified, privacy-first comparison of living in, renting out, selling, and mixed paths for two California homes.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+<header class="masthead">
+  <div class="wrap">
+    <div class="site"><a href="../index.html">Tino5</a> · estate decision desk</div>
+    <div class="tag">Anonymised · no personal data · every figure sourced</div>
+    <div class="stamp">Built 15 November 2026</div>
+  </div>
+</header>
+<nav class="groups" aria-label="Desk sections">
+<div class="wrap">
+<div class="grp"><span>Start here</span></div>
+<ul>
+<li><a href="index.html">The decision</a></li>
+<li><a href="what-would-change.html">What would change the answer</a></li>
+<li><a href="charts.html">Projection charts</a></li>
+</ul>
+<div class="grp"><span>The two properties</span></div>
+<ul>
+<li><a href="property-a.html">Property A — inherited</a></li>
+<li><a href="property-b.html">Property B — already owned</a></li>
+<li><a href="own-vs-inherit.html">Why they are not comparable</a></li>
+</ul>
+<div class="grp"><span>Choices compared</span></div>
+<ul>
+<li><a href="choices.html">All choices, same dates</a></li>
+<li><a href="live-path.html">Live in A</a></li>
+<li><a href="rent-path.html">Rent A out</a></li>
+<li><a href="sell-path.html">Sell and reinvest</a></li>
+<li><a href="mixed-paths.html">Mixed paths</a></li>
+<li><a href="phased.html">Phased investing</a></li>
+<li><a href="workbook.html">Workbook: what-if</a></li>
+</ul>
+<div class="grp"><span>Taxes</span></div>
+<ul>
+<li><a href="estate-tax.html">Estate tax and liquidity</a></li>
+<li><a href="income-basis.html">Income tax and basis</a></li>
+<li><a href="property-tax.html">Property tax and assessment</a></li>
+<li><a href="prop19.html">Proposition 19</a></li>
+<li><a href="sec121.html">Section 121 exclusion</a></li>
+<li><a href="depreciation.html">Depreciation and recapture</a></li>
+<li><a href="propH.html">Measure H parcel tax</a></li>
+</ul>
+<div class="grp"><span>Local rules and market</span></div>
+<ul>
+<li><a href="rents.html">Rents and the rent floor</a></li>
+<li><a href="local-rules.html">Local rules that bind</a></li>
+<li><a href="swan.html">Black swans and extreme paths</a></li>
+<li><a href="market-outlook.html">What the long record shows</a></li>
+</ul>
+<div class="grp"><span>Plan and paperwork</span></div>
+<ul>
+<li><a href="timeline.html">Deadline timeline</a></li>
+<li><a href="maintenance.html">Five-year building plan</a></li>
+<li><a href="valuation.html">Date-of-death valuation</a></li>
+<li><a href="like-kind.html">Like-kind exchange decision</a></li>
+<li><a href="investment-policy.html">Policy for the proceeds</a></li>
+<li><a href="annual-rerun.html">Annual re-run</a></li>
+</ul>
+<div class="grp"><span>Review and registers</span></div>
+<ul>
+<li><a href="briefing-cpa.html">Briefing sheet: CPA</a></li>
+<li><a href="briefing-attorney.html">Briefing sheet: attorney</a></li>
+<li><a href="questions.html">Questions and gaps</a></li>
+<li><a href="suggestions.html">Suggestions for review</a></li>
+<li><a href="flagged.html">Flagged for review</a></li>
+<li><a href="sources.html">Source register</a></li>
+<li><a href="methodology.html" aria-current="page">Method and rounding</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+<li><a href="privacy.html">Privacy statement</a></li>
+</ul>
+</div></nav>
+<main>
+  <div class="wrap">
+<h1>Method, rounding and reproducibility</h1><p class="lede">The desk is a deterministic model plus a static site generator. Both are in the repository. Given the same inputs, it produces the same pages, and anyone can check the arithmetic rather than take it on trust.</p>
+<h2>How the model works</h2>
+<ol><li><b>One household, one dwelling.</b> Every path houses the household in exactly one place. Shelter is valued at market rent and reported separately, so no path receives free housing.</li><li><b>Monthly steps.</b> Cash flow is annual but portfolio growth is monthly, because the parking paths switch assets mid-year and a monthly step needs no day-count convention.</li><li><b>Same dates, same horizon.</b> Every path is measured from the same transfer date to the same end date. Nothing is annualised differently between paths.</li><li><b>Taxes computed per path.</b> Each path applies the rules that actually apply to it: step-up in basis, section 121 only where the use test is met, depreciation and recapture only where the property is let, Proposition 19 only where the household occupies.</li><li><b>Regimes, then a grid.</b> Five named regimes anchored on published records, plus a five-by-five grid of house growth and equity return for the distribution.</li><li><b>Crossovers, not just outcomes.</b> Where the ranking turns on an assumption, the desk solves for the value at which it turns, and publishes that instead of a point estimate.</li></ol>
+<h2>Rounding</h2>
+<div class="tw"><table class="">
+<caption>The rounding rules, and why they exist.</caption>
+<thead><tr>
+<th>Rule</th>
+<th>What it means</th>
+<th>Why</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td>Money to the nearest $10</td>
+<td>Every dollar figure on every page, except the statutory literals listed below.</td>
+<td>Privacy. A figure precise to the dollar can be matched to a public record. This is the household's own instruction and it is applied without exception.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+<tr>
+<td>Statutory amounts quoted exactly</td>
+<td>Thresholds, ceilings, rates and published tables are printed as published and marked <span class="tag-exact">exact</span>.</td>
+<td>Rounding a legal threshold misstates it: <code class="stat">$1,044,586</code> rounded to $1,044,590 is a different number.</td>
+</tr>
+<tr>
+<td>Percentages to one or two decimals</td>
+<td>Rates are shown to enough precision to be checkable, not to imply precision.</td>
+<td>A rate of 1.34% is a rate; 1.3400% claims four digits of accuracy that do not exist.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+<tr>
+<td>Years as whole numbers</td>
+<td>No fractional years anywhere.</td>
+<td>The underlying events happen on dates, not on fractions.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+</tbody></table></div>
+<p>The statutory literals exempt from rounding are: .195, .42, .55, 0, 0.195, 0.42, 0.55, 1, 1,000,000, 1,022,600, 1,044,586, 1,460,000, 1,940,000, 1.18162182, 1.99, 10, 10.00, 11, 11.25, 129, 13,990,000, 14, 14.00, 15,000,000, 15,480,000, 15,650, 166,250, 19,000, 2, 2.50, 20, 20,000, 20.00, 21, 225, 225.00, 249, 250, 250,000, 27, 27.50, 3, 3.00, 3.40, 3.75, 30, 30.00, 400,000, 5,945,800, 50,000, 500, 500,000, 661,375, 7,000, 75, 75.00, 793,650, 799, 8. Each is registered against the document that states it, and the build fails if one appears without a registration.</p>
+<h2>Privacy rules applied at build time</h2>
+<div class="tw"><table class="">
+<caption>Every rule the build enforces, and how.</caption>
+<thead><tr>
+<th>Rule</th>
+<th>Enforcement</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td>No personal names, addresses, parcel numbers or ZIP codes</td>
+<td>The build checks the generated HTML against a pattern list before writing it.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+<tr>
+<td>No city or neighbourhood names beyond three county-level identifiers</td>
+<td>Only 'California', 'Santa Clara County' and 'San Francisco County' appear; the build rejects a longer locality list.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+<tr>
+<td>No figures precise enough to match a public record</td>
+<td>Assessed values are rounded to $10,000 and $5,000 before they enter the model; money is formatted through a single rounding function.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+<tr>
+<td>No external requests</td>
+<td>No JavaScript, no webfonts, no images, no analytics, no third-party stylesheets. The pages are static HTML and one local CSS file.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+<tr>
+<td>No owner figures in the repository's history</td>
+<td>Owner figures are rounded before they are stored; the household's year-by-year tax history is deliberately not in the repository at all, only the rate band it implies.</td>
+<td><span class="tag-drv">derived</span></td>
+</tr>
+</tbody></table></div>
+<h2>How to reproduce it</h2>
+<p class="small mono">python3 desk-03242c78/_src/model.py<br>python3 desk-03242c78/_src/build.py<br>python3 desk-03242c78/_src/verify.py</p>
+<p>The first writes the model output, the second writes the pages from it, and the third checks every table row for a source link or a status tag, every internal link, and every rounding rule. The build fails rather than publishing a page that breaks a rule.</p>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p><strong>This is a planning document, not advice.</strong> It is prepared for review by a
+    licensed California attorney and a CPA before any step is taken. No legal, tax or
+    investment advice is given or implied. Statutory amounts are quoted exactly and marked;
+    every other figure is an assumption, an owner-supplied anchor, or arithmetic on those.</p>
+    <p>Nothing here identifies a person, a street address, an assessor's parcel number, or a
+    ZIP code. Owner-supplied figures are approximate and unverified. Money is rounded to the
+    nearest $10 except where a statute or official table states an exact amount.</p>
+    <p><a href="sources.html">Source register</a> · <a href="methodology.html">Method and
+    rounding</a> · <a href="privacy.html">Privacy statement</a> ·
+    <a href="flagged.html">Flagged for review</a> · <a href="glossary.html">Glossary</a> ·
+    <a href="../index.html">All desks</a></p>
+  </div>
+</footer>
+</body>
+</html>

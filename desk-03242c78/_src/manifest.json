@@ -1,0 +1,262 @@
+{
+ "desk": "desk-03242c78",
+ "built": "15 November 2026",
+ "pages": [
+  {
+   "href": "index.html",
+   "title": "The decision"
+  },
+  {
+   "href": "what-would-change.html",
+   "title": "What would change the answer"
+  },
+  {
+   "href": "charts.html",
+   "title": "Projection charts"
+  },
+  {
+   "href": "property-a.html",
+   "title": "Property A \u2014 inherited"
+  },
+  {
+   "href": "property-b.html",
+   "title": "Property B \u2014 already owned"
+  },
+  {
+   "href": "own-vs-inherit.html",
+   "title": "Why they are not comparable"
+  },
+  {
+   "href": "choices.html",
+   "title": "All choices, same dates"
+  },
+  {
+   "href": "live-path.html",
+   "title": "Live in A"
+  },
+  {
+   "href": "rent-path.html",
+   "title": "Rent A out"
+  },
+  {
+   "href": "sell-path.html",
+   "title": "Sell and reinvest"
+  },
+  {
+   "href": "mixed-paths.html",
+   "title": "Mixed paths"
+  },
+  {
+   "href": "phased.html",
+   "title": "Phased investing"
+  },
+  {
+   "href": "workbook.html",
+   "title": "Workbook: what-if"
+  },
+  {
+   "href": "estate-tax.html",
+   "title": "Estate tax and liquidity"
+  },
+  {
+   "href": "income-basis.html",
+   "title": "Income tax and basis"
+  },
+  {
+   "href": "property-tax.html",
+   "title": "Property tax and assessment"
+  },
+  {
+   "href": "prop19.html",
+   "title": "Proposition 19"
+  },
+  {
+   "href": "sec121.html",
+   "title": "Section 121 exclusion"
+  },
+  {
+   "href": "depreciation.html",
+   "title": "Depreciation and recapture"
+  },
+  {
+   "href": "propH.html",
+   "title": "Measure H parcel tax"
+  },
+  {
+   "href": "rents.html",
+   "title": "Rents and the rent floor"
+  },
+  {
+   "href": "local-rules.html",
+   "title": "Local rules that bind"
+  },
+  {
+   "href": "swan.html",
+   "title": "Black swans and extreme paths"
+  },
+  {
+   "href": "market-outlook.html",
+   "title": "What the long record shows"
+  },
+  {
+   "href": "timeline.html",
+   "title": "Deadline timeline"
+  },
+  {
+   "href": "maintenance.html",
+   "title": "Five-year building plan"
+  },
+  {
+   "href": "valuation.html",
+   "title": "Date-of-death valuation"
+  },
+  {
+   "href": "like-kind.html",
+   "title": "Like-kind exchange decision"
+  },
+  {
+   "href": "investment-policy.html",
+   "title": "Policy for the proceeds"
+  },
+  {
+   "href": "annual-rerun.html",
+   "title": "Annual re-run"
+  },
+  {
+   "href": "briefing-cpa.html",
+   "title": "Briefing sheet: CPA"
+  },
+  {
+   "href": "briefing-attorney.html",
+   "title": "Briefing sheet: attorney"
+  },
+  {
+   "href": "questions.html",
+   "title": "Questions and gaps"
+  },
+  {
+   "href": "suggestions.html",
+   "title": "Suggestions for review"
+  },
+  {
+   "href": "flagged.html",
+   "title": "Flagged for review"
+  },
+  {
+   "href": "sources.html",
+   "title": "Source register"
+  },
+  {
+   "href": "methodology.html",
+   "title": "Method and rounding"
+  },
+  {
+   "href": "glossary.html",
+   "title": "Glossary"
+  },
+  {
+   "href": "privacy.html",
+   "title": "Privacy statement"
+  }
+ ],
+ "sources": [
+  "irs_estate",
+  "irs_ir2026_133",
+  "irs_i706",
+  "irs_p559",
+  "irs_p551",
+  "irs_p523",
+  "irs_p527",
+  "irs_t409",
+  "irs_t559",
+  "ftb_540_booklet",
+  "ftb_540",
+  "ftb_capgains",
+  "rtc_17043",
+  "rtc_63_2",
+  "boe_prop19",
+  "boe_lta25009",
+  "boe_nr25_02",
+  "scc_assessor_booklet",
+  "scc_assessor",
+  "sftreasurer_secured",
+  "sf_transfer_tax",
+  "sf_recording_fees",
+  "rtc_11911",
+  "sf_qualified_measures",
+  "sf_propH_text",
+  "sfelections_results",
+  "prob_13100",
+  "courts_probate",
+  "treasury_yields",
+  "bls_cpi",
+  "nber_faq",
+  "fed_1929",
+  "fed_great_recession",
+  "fhfa_hpi",
+  "bls_home",
+  "hud_fmr",
+  "sos_ca"
+ ],
+ "statutory_literals": [
+  ".195",
+  ".42",
+  ".55",
+  "0",
+  "0.195",
+  "0.42",
+  "0.55",
+  "1",
+  "1,000,000",
+  "1,022,600",
+  "1,044,586",
+  "1,460,000",
+  "1,940,000",
+  "1.18162182",
+  "1.99",
+  "10",
+  "10.00",
+  "11",
+  "11.25",
+  "129",
+  "13,990,000",
+  "14",
+  "14.00",
+  "15,000,000",
+  "15,480,000",
+  "15,650",
+  "166,250",
+  "19,000",
+  "2",
+  "2.50",
+  "20",
+  "20,000",
+  "20.00",
+  "21",
+  "225",
+  "225.00",
+  "249",
+  "250",
+  "250,000",
+  "27",
+  "27.50",
+  "3",
+  "3.00",
+  "3.40",
+  "3.75",
+  "30",
+  "30.00",
+  "400,000",
+  "5,945,800",
+  "50,000",
+  "500",
+  "500,000",
+  "661,375",
+  "7,000",
+  "75",
+  "75.00",
+  "793,650",
+  "799",
+  "8"
+ ]
+}

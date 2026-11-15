@@ -118,5 +118,20 @@ jobs:
             git --no-pager diff --stat -- desk-9af5443d
             exit 1
           fi
+      - name: Coverage desk (desk-03242c78/) — rebuild the model, then the site
+        run: |
+          python desk-03242c78/_src/model.py
+          python desk-03242c78/_src/build.py
+      - name: Coverage desk (desk-03242c78/) — verifier
+        run: python desk-03242c78/_src/verify.py
+      - name: Coverage desk (desk-03242c78/) — model regression tests
+        run: python -m unittest discover -s desk-03242c78/_src -p "test_*.py" -v
+      - name: Coverage desk (desk-03242c78/) generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-03242c78; then
+            echo "::error::desk-03242c78/ is stale. Re-run desk-03242c78/_src/model.py and build.py, then commit."
+            git --no-pager diff --stat -- desk-03242c78
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py

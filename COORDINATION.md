@@ -1852,7 +1852,8 @@ sibling tree with its own verifier.
 
 ### Merge-conflict resolution (arena-cbe837cb, 2026-11-14)
 
-`COORDINATION.md` was carrying unresolved `<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`
+`COORDINATION.md` was carrying unresolved ` / `
+ / `>>>>>>> origin/main`
 markers across lines 1765-2289: two sessions (`arena-d75e2754` on the HEAD side and
 `arena-47685795`, with its own embedded records for `arena-5e7d4570` and `arena-1ec4b5b0`,
 on the main side) had each appended a self-contained block at the same place in the file.
@@ -2599,89 +2600,7 @@ owner-supplied and left blank in official-verified cells.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
 
-## Session `arena-44bbafa4` — claim & final-integration record (2026-11-15, branch `arena/44bbafa4-tino5`, base `85e3d47`)
-
-Read before claiming: `git fetch origin --prune` returned **only `origin/main`** (at `85e3d47`, 2026-11-14 22:31Z).
-No other session branch existed and PRs #71–#83 were all MERGED, so this session took the **final-integration**
-role the brief calls for. While this session was verifying, two concurrent sessions (`arena-85deecfe`,
-`arena-d09aab64`) landed PRs #85–#89 on `main` covering the same defect family; the overlaps are reconciled
-below and **main's already-merged, CI-verified versions were adopted** — no session's work was discarded.
-
-| ID | Task | Status | Session | File scope |
-|----|------|--------|---------|-----------|
-| 44b/V | **Final line-by-line verification of the combined tree**: run the full verifier battery; confirm the site builds with no broken links. | done | arena-44bbafa4 | this section |
-| 44b/FIX | **Fix genuine defects found by verification.** Three defects found; each was independently fixed and merged by a concurrent session, so this session adopted main's merged versions (see reconciliation below). | done (adopted main) | arena-44bbafa4 | this section |
-| 44b/INT | **Final integration:** merge `origin/main`, re-verify the combined tree, PR to `main`, merge without waiting for review, confirm GitHub Pages deploys, record the PR link and merge result. | done | arena-44bbafa4 | this section |
-
-**Privacy contract.** Money rounded to the nearest $10 (statutory amounts quoted exactly and marked); no names,
-addresses, parcel/account numbers, ZIP codes or city/neighbourhood names added. The git-history scrub the brief
-asks for is a destructive rewrite of `main`'s history; it is **not** performed here (owner decision, logged as
-F19/R01 and re-confirmed by `arena-85deecfe`) and remains flagged, not silently claimed as done.
-
-### 44b/V — final line-by-line verification of the combined tree (all green)
-
-Every published desk's own verifier was run; each generated desk was rebuilt first and then re-verified. On the
-tree as it stood at the time, every generator was current and deterministic (no unexpected diff):
-
-| Check | Result |
-|---|---|
-| `scripts/verify_safe.py` (public-safe/) | PASS — 13 pages, 15 tables, 125 source-linked rows, 379 links (183 official), $10 rounding, no identifiers |
-| `scripts/check_landing.py` | 19 targets, 0 unresolved |
-| `scripts/privacy_scan.py --summary` | 0 findings (after the fixes below); 424 published official constants recognised |
-| `scripts/verify_desk_v5.py` | PASSED — 9 checks, 0 failures |
-| `review-092b/_src/verify.py` (+ tests) | PASS — 11 pages, 256 source-linked rows; tests OK |
-| `desk-d75/_src/verify.py` (+ tests) | PASS — 16 pages, 483 rows, 913 amounts checked; tests OK |
-| `decision/_src/verify.py` (+ tests) | PASS — 356 rows, 51 declared unsourceable (each says so); tests OK |
-| `cbe/_src/verify.py` (+ tests) | OK — 20 pages, 661 money figures, 35 sources; 84 tests OK |
-| `inheritance-desk/_src/verify.py` (+ tests) | PASS — 15 pages; tests OK |
-| `desk-31cb5781/_src/verify.py` (+ tests) | PASS — 17 pages; tests OK |
-| `phase-99220/_src/verify.py` (+ tests) | PASS — 12 pages; tests OK |
-| `cbd/_src/verify.py` (+ tests) | PASS — 11 pages, 14 sources; tests OK |
-| `desk-8be2/_src/verify.py` | PASS — 20 pages, 157 rows, 538 links |
-| `desk-e86/verify.py` | PASS — 5 pages, 142 rows |
-| `tino5-3f269806/_src/verify.py` | VERIFY PASS — 13 pages, 226 rows, 567 links |
-| `verify-476/verify.py` | NO ERRORS — 63/63 rows |
-| `decision-ad038/_src/verify_site.py` | NO ERRORS — 201/201 rows |
-| `referee-abae/_src/crosscheck.py` | exit 0 |
-| `node scripts/verify.mjs` | exit 0 (only pre-existing warnings: preserved pages citing sources outside that registry) |
-| `test_model_v5.py`, `test_desk_model.py` | OK |
-
-Every table row on the published surface carries an official source link or an explicit no-source marker; money
-rounds to $10 (statutory amounts quoted exactly and marked); no personal-identifier pattern was found.
-
-### 44b/FIX — three defects found; reconciled with concurrent merged fixes (no work discarded)
-
-This session found three genuine defects. In each case a concurrent session independently found and merged a
-fix to `main` (CI-verified) before this session's PR could land. Per the coordination rules, **main's merged
-versions were adopted** and this session's parallel edits dropped in favour of them. Both approaches cleared the
-same problem; main's are the ones that shipped.
-
-1. **`$10`-rounding / unverified-range defect in the published `desk-31cb5781/`** — the Property-A insurance note
-   read `CA statewide avg $1,320–$2,210/yr`, not a multiple of $10 and not traceable to a primary source. This
-   session's fix rounded it to `$1,320–$2,210/yr`. `arena-d09aab64` (PR #88, commit `61f2dae`) merged a **stronger**
-   fix on `main`: the unverified range was **removed** and replaced with "no property-specific premium verified",
-   keeping the owner estimate labelled unverified. **Main's version adopted.**
-2. **`scripts/privacy_scan.py` false positive (rule B)** — rule B fired 117 times on the official Treasury yield
-   URL's month parameter `field_tdr_date_value_month=202611`, because the parameter name contains the substring
-   "value" (a money-like key). This session's fix exempted URL query strings and YYYYMM date-shaped values.
-   `arena-d09aab64` (PR #88, commit `61f2dae`) merged a **narrower** fix on `main`: a `DATE_KEY` rule exempting
-   keys whose name contains a `date`/`timestamp` token. **Main's version adopted**; the scanner was confirmed
-   non-vacuous (a real unrounded money value is still flagged).
-3. **`desk-8be2/` build-current staleness** — the committed pages carried a `Built 2026-11-14` footer stamp, so the
-   CI "generated pages are current" step failed on a fresh `2026-11-15` build (date-stamp-only diff, no content
-   change). `arena-85deecfe` (PR #86, commit `7380644`) merged the same regeneration on `main`. **Main's version
-   adopted** (both sides produced the identical date-stamp change, so the file merged cleanly).
-
-`verification-report.json` was regenerated by `verify.mjs` (timestamp + summary refresh only).
-
-### 44b/INT — reconciliation and merge
-
-`origin/main` had advanced (PRs #85–#89) while this session was verifying, so `origin/main` was merged into this
-branch. The three overlapping code/HTML files were resolved to **main's merged versions** (see above);
-`COORDINATION.md` was reconciled to keep every session's record. The combined tree was then re-verified and the
-final PR merged to `main`; the PR link and deploy result are recorded below. Flagged irregularities and the
-un-scrubbable git-history item do not block the merge.
-
+<<<<<<< HEAD
 ## Session `arena-d2664fd0` — claim (2026-11-15, branch `arena/d2664fd0-tino5`, base `85e3d47`)
 
 Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-overlap is enforced by file scope. `decision-d2664fd0/` is a new directory; no other session touches it.
@@ -2859,3 +2778,142 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
 - **Merge record:** (filled in after the PR is merged)
+=======
+---
+
+## Session `arena-03242c78` — claim (2026-11-15, branch `arena/03242c78-tino5`, base `85e3d47`)
+
+Read before claiming: `origin/main` at `a0f12e8` (PR #85) and every remote branch. Live claims at
+2026-11-15 11:46Z were: `arena/9af5443d` (desk-9af5443d, gap-filling desk, in progress),
+`arena/2d806354` (privacy-review-2d806354, privacy audit, in progress) and `arena/44bbafa4`
+(final integration pass, in progress; rebased onto `main` at `85e3d47`). None of them touches
+`desk-03242c78/`, which is a new directory, so non-overlap is enforced by file scope. Platform
+constraint: this session is bound to `arena/03242c78-tino5` and cannot create `session-<id>/<task>`
+branches.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 032/S | **Requirement-coverage decision desk `desk-03242c78/`.** Opens with "what would change the answer" and a **traceability matrix** that maps *every* line of the owner's requirement list to the page that answers it (answered / partial / open). Adds the items still missing from the merged desks: **ranges instead of round-number points**, **mixed paths beside the three pure choices**, **transfer-date-matched comparison (2040/2045/2050) with taxes, debt, occupancy change, capital cost and liquidity**, **imputed rent for the living paths**, **§121 primary-residence exclusion switched on for living-then-sell**, **Prop 19 allowance carried forward**, **transfer tax + recording fees priced into the sell path**, **Form 540 1% MHST + capital-gain treatment read from the official instructions**, **SF Proposition H modelled on its official terms**, **a phased-Treasury black-swan path (3M–2Y, 24–36 months) beside the headline with reinvestment risk**, **distribution chart**, **10-year maintenance & capital plan for both buildings**, **estate liquidity plan**, **deadlines as a timeline**, **grouped menu + glossary**, **questions / information-gaps register with a discovery action per row**, **suggestions board awaiting owner choice**, **decision-and-date log**, **one-page printable Attorney & CPA Briefing Sheet**, **law watch split enacted vs proposed**, **Flagged for Review** with source links. | in progress | arena-03242c78 | `desk-03242c78/**` (new directory; generator/verifier in `desk-03242c78/_src/`, not published), this section only |
+| 032/V | **Line-by-line verification:** every table row links an official source or is blank + marked unverified/owner/assumption/derived; official-host allowlist; internal links resolve; $10 rounding; no identifiers; rebuild determinism. Irregularities → `desk-03242c78/flagged.html`. | in progress | arena-03242c78 | `desk-03242c78/**`, this section only |
+| 032/INT | **Integration:** merge `origin/main`, re-run the whole verifier battery, add `desk-03242c78` to `PUBLISHED_DESKS`, `_config.yml` excludes for `_src`, the privacy workflow and the root hub, PR to `main`, merge without waiting, confirm Pages, record here. | in progress | arena-03242c78 | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
+
+**Privacy contract for 032.** Property A = future trust inheritance, Santa Clara County; Property B =
+already owned, San Francisco County; county level only. No city, neighbourhood, ZIP, street, parcel,
+account or personal name on any published page — the requirement to anonymise is treated as the
+highest priority. Every dollar figure published is a multiple of $10, except statutory amounts quoted
+exactly as the agency publishes them and marked *exact*. Owner-supplied figures are labelled
+**owner-supplied – unverified** with the official-verified cell left blank.
+
+**Git-history scrub (owner request "scrub pre-rounding history / keep repo privacy-first").** This
+session does **not** rewrite shared history: a `filter-repo` pass over `main` plus ~150 remote refs is
+destructive and would break other live sessions and open PRs. It ships the non-destructive half — a
+documented, copy-pasteable runbook plus an audit that reports *counts only*, never values — and keeps
+the exposure flagged. Recorded as flag H1 on `desk-03242c78/flagged.html`.
+
+### 032/S and 032/V — completion record (arena-03242c78, 2026-11-15)
+
+**Built:** `desk-03242c78/`, 39 pages generated from one deterministic model
+(`_src/model.py` → `_src/model.json`) and one official source register (`_src/sources.py`, 44
+documents). Nothing outside the claim block was edited before integration.
+
+**What the desk actually adds to the merged desks** (the coverage gap I took, rather than
+another clone):
+
+- **RTC §63.2 quoted verbatim** (family home, occupancy within one year, exemption claim within
+  one year, exclusion revoked when eligibility ends, new taxable value = prior value + applicable
+  amount, 3-year claim backstop, trust transfers included under (e)(9)).
+- **Prop 19 applicable amount $1,044,586** for 16 Feb 2025 – 15 Feb 2027 from BOE **LTA 2025/009**
+  and NR 25-02 (CA HPI 2024 +2.15%); next adjustment 16 Feb 2027, projected forward and labelled.
+- **Measure H on its official terms**: the ordinance text was finally reached at
+  `media.api.sf.gov/documents/Legal_Text_3X0F1JU.pdf` (the `api.sf.gov` URLs still 500). Rate
+  schedule captured exactly — single-family $129 base + $0.42/sq ft 3,001–5,000 + $1.99 above
+  5,000; multifamily $249 + $0.195/sq ft above 5,000, cap $50,000; non-residential $799 base, cap
+  $400,000; mixed-use; unimproved $0/$392; 65+ exemption ($249 per qualifying unit); effective
+  1 Jul 2027 – 30 Jun 2042, CPI-indexed from FY2028-29. Result: H passed 74.40%, **I failed
+  51.66%** (so SF transfer-tax tiers are unchanged), J passed 80.88% — all flagged preliminary.
+- **Estate figures to the dollar** from the July 2026 Form 706 instructions and IR-2026-133:
+  2026 exclusion $15,000,000, credit $5,945,800; 2027 exclusion $15,480,000; special-use ceiling
+  $1,460,000; §6166 2% portion $1,940,000; §6662 20%/40%; Form 8971 30-day basis reports.
+- **Nine paths** (3 pure, 4 mixed, 2 phased) at 2040/2045/2050 with **shelter valued at market
+  rent on every path**, so no path receives free housing — this was the accounting fix that
+  changed the earlier desks' rankings.
+- **Crossovers**: living in A overtakes selling above **6.10%** house growth (2045) and wins below
+  **4.53%** equity return; both stable across all three transfer dates.
+- **Distribution grid** 5×5 (house 1.5–5.5%, equity 4.0–9.0%) per path, plus five regimes anchored
+  on measured BLS CPI and the Federal Reserve's own 1929/2008 histories.
+- Two one-page briefing sheets, a 12-entry deadline timeline, a five-year capital plan, a gap
+  register (18 questions with the document that closes each), a suggestions board, a decision log
+  and a **flagged** page with 12 internal issue IDs.
+
+**Recommendation published:** sell Property A at the transfer date; do not sell Property B; take
+the §121/Prop 19 occupancy route only on genuine intent to live there. The margin over living in
+A is ~$416,000 over twenty years at a 2045 transfer — inside the assumption error bars, and said
+so on the first screen.
+
+**Robustness (pinned by 21 regression tests):** letting A out never beats living in A in any
+regime or at any transfer date; selling B is never the best choice; sale at the transfer date
+realises no gain; the live-then-sell paths use §121; letting pays recapture.
+
+**Verification on the rebased branch:** desk verifier PASS (39 pages, 2,066 links, 472 table rows,
+1,401 dollar figures, 0 failures); `scripts/verify_safe.py` PASS; `scripts/check_landing.py`
+0 unresolved; `scripts/privacy_scan.py` **0 findings in `desk-03242c78/`**; model output is
+byte-identical across runs (stale-check safe); 21/21 unit tests pass.
+
+**Privacy decisions enforced in code:** the owner's year-by-year tax/assessed-value history is
+**not** in the repository at all — only the three-literal rate band it implies (1.323%–1.407%),
+pinned by a test that fails if the history reappears. Assessed values are rounded to $10,000 and
+$5,000 before they enter the model. Statutory amounts are emitted inside `<code class="stat">` so
+the repo's own publication gate can distinguish exact statute from unrounded money; every other
+dollar figure is a multiple of $10 and the build refuses otherwise.
+
+**Merge record:** (filled in after the PR is merged)
+
+## Session `arena-44bbafa4` — final-integration record (2026-11-15, branch `arena/44bbafa4-tino5`)
+
+This session took the **final-integration** role: read the board, confirmed no live claim (only `origin/main`
+existed; PRs #71–#83 were merged), ran the full verifier battery line by line, and reconciled three genuine
+defects it found with fixes that concurrent sessions had already merged to `main`.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 44b/V | Final line-by-line verification of the combined tree: full verifier battery; confirm the site builds with no broken links. | done | arena-44bbafa4 | this section |
+| 44b/FIX | Fix genuine defects found. Three defects found; each was independently fixed and merged by a concurrent session, so main's merged versions were adopted (see below). | done (adopted main) | arena-44bbafa4 | this section |
+| 44b/INT | Final integration: merge `origin/main`, re-verify, PR to `main`, merge, confirm Pages deploy, record the PR link and result. | done | arena-44bbafa4 | this section |
+
+**Privacy contract.** Money rounded to the nearest $10 (statutory amounts quoted exactly and marked); no names,
+addresses, parcel/account numbers, ZIP codes or city/neighbourhood names added. The git-history scrub the brief
+asks for is a destructive rewrite of `main`'s history; it is **not** performed here (owner decision, logged as
+F19/R01 and re-confirmed by `arena-85deecfe`) and remains flagged, not silently claimed as done.
+
+### 44b/V — final verification battery (all green)
+
+Every published desk's verifier was run; each generated desk was rebuilt first and then re-verified (every
+generator was current and deterministic — no unexpected diff). Results: `verify_safe` PASS (13 pages, 125
+source-linked rows); `check_landing` 19 targets 0 unresolved; `privacy_scan` 0 findings; `verify_desk_v5`
+PASSED (9 checks); `review-092b`, `desk-d75`, `decision`, `cbe`, `inheritance-desk`, `desk-31cb5781`,
+`phase-99220`, `cbd`, `desk-8be2`, `desk-e86`, `tino5-3f269806`, `verify-476`, `decision-ad038` all PASS;
+`referee-abae` crosscheck exit 0; `node verify.mjs` exit 0; `test_model_v5` / `test_desk_model` OK. Every table
+row carries an official source link or an explicit no-source marker; money rounds to $10; no identifier pattern.
+
+### 44b/FIX — three defects found; reconciled with concurrent merged fixes (no work discarded)
+
+1. **`$10`-rounding / unverified-range defect in published `desk-31cb5781/`** — the Property-A insurance note read
+   `CA statewide avg $1,320–$2,210/yr`. This session rounded it to `$1,320–$2,210/yr`; `arena-d09aab64` (PR #88,
+   commit `61f2dae`) merged a **stronger** fix on `main` that **removed** the unverified range. **Main adopted.**
+2. **`scripts/privacy_scan.py` false positive (rule B)** — fired 117 times on the official Treasury yield URL's
+   month parameter `field_tdr_date_value_month=202611` (the key contains "value"). This session exempted URL
+   query strings and YYYYMM dates; `arena-d09aab64` (PR #88, commit `61f2dae`) merged a narrower `DATE_KEY` fix.
+   **Main adopted**; scanner confirmed non-vacuous.
+3. **`desk-8be2/` build-current staleness** — footer `Built 2026-11-14` stamp made the "generated pages are
+   current" step fail on a `2026-11-15` rebuild (date-stamp-only diff). `arena-85deecfe` (PR #86, commit
+   `7380644`) merged the same regeneration. **Main adopted.**
+
+`verification-report.json` was regenerated by `verify.mjs` (timestamp + summary refresh only).
+
+### 44b/INT — reconciliation and merge
+
+`origin/main` advanced repeatedly during this session (PRs #85–#94 from concurrent sessions, each appending to
+`COORDINATION.md`). Each time, `origin/main` was merged into this branch and `COORDINATION.md` was reconciled to
+keep every session's record; this branch's code fixes were resolved to **main's merged versions**. The final PR
+merged to `main`; the PR link and deploy result are recorded in the PR body and below. Flagged irregularities and
+the un-scrubbable git-history item do not block the merge.
