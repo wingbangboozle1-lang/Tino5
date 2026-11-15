@@ -57,6 +57,11 @@ PUBLIC_CONSTANTS = {
 }
 
 MONEY_KEY = re.compile(r"(tax|assess|value|rent|price|premium|cost|bill|income|av\b|fmv)", re.I)
+# Date / timestamp tokens can occur alongside generic terms such as "value" in
+# official data-provider query keys (e.g. field_tdr_date_value_month). Do not treat
+# those query parameters as money. Keep this narrow: a field named "tax_monthly"
+# can still represent an actual monetary amount and must remain scannable.
+DATE_KEY = re.compile(r"(?:^|[_-])(date|timestamp)(?:$|[_-])", re.I)
 # keys that hold statutory or official figures rather than owner data
 OFFICIAL_KEY = re.compile(r"(exclusion|exemption|threshold|limit|cap|bracket|allowance|statut|fmr|official)", re.I)
 
@@ -121,6 +126,8 @@ def scan_text(text: str):
         for m in RE_KV.finditer(line):
             key, val = (m.group(1) or m.group(2)), int(m.group(3))
             if abs(val) < 1000 or val % 10 == 0:
+                continue
+            if DATE_KEY.search(key):
                 continue
             if 1900 <= val <= 2100 and not MONEY_KEY.search(key):
                 continue
