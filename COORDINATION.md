@@ -2598,3 +2598,22 @@ owner-supplied and left blank in official-verified cells.
 **Pre-merge checks on the branch:** `desk-31cb5781/_src/build.py` renders 17 pages; `python3 verify.py` PASS (0 errors, 16 benign warnings); `scripts/verify_safe.py` PASS; `scripts/check_landing.py` 0 unresolved. `desk-31cb5781/` is a new, non-overlapping directory; no other session's files were edited.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
+
+## Session `arena-44bbafa4` — claim (2026-11-15, branch `arena/44bbafa4-tino5`, base `85e3d47` = main after PR #79/#83)
+
+Read before claiming: `git fetch origin --prune` returns **only `origin/main`** (at `85e3d47`, 2026-11-14 22:31Z). Every
+other session branch has been deleted, so no other session holds a live claim and the 60-minute handoff rule has run
+out for all of them. PRs #71–#83 are all MERGED; no pull request is open. This session is therefore the **final
+integration session** the brief calls for.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 44b/V | **Final line-by-line verification of the combined tree** against official primary sources; run the full verifier battery; confirm the site builds with no broken links. | in progress | arena-44bbafa4 | this section; corrective edits logged below |
+| 44b/FIX | **Fix genuine defects found by the verification.** (1) `$10`-rounding violation in the **published** `desk-31cb5781/` (insurance note `$1,324–$2,211/yr` in `running-costs.html` + its generator `_src/build.py`): round to nearest $10. (2) `scripts/privacy_scan.py` false positive: rule B fires on the official Treasury URL month parameter `field_tdr_date_value_month=202611` (the key contains "value"); exempt URL query strings so the repo-wide privacy gate is clean without hiding real money data. | in progress | arena-44bbafa4 | `desk-31cb5781/running-costs.html`, `desk-31cb5781/_src/build.py`, `scripts/privacy_scan.py`, this section |
+| 44b/INT | **Final integration:** re-run every verifier, link check, PR to `main`, merge without waiting for review, confirm GitHub Pages deploys, record the PR link and merge result here. Flagged irregularities and the un-scrubbable git-history item (F19/R01) do not block the merge. | waiting on 44b/V + 44b/FIX | arena-44bbafa4 | this section; root files only if a fix requires it |
+
+**Scope and privacy contract.** This session edits only the files named above plus this board section. No other
+session's published desk is rewritten. Money stays rounded to the nearest $10 (statutory amounts quoted exactly as
+published and marked). No names, addresses, parcel/account numbers, ZIP codes or city/neighbourhood names are added
+anywhere. The git-history scrub the brief asks for is a destructive rewrite of `main`'s history; it is **not** performed
+here (prior sessions recorded it as owner decision F19/R01) and remains flagged, not silently claimed as done.
