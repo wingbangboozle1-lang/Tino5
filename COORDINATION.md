@@ -2609,7 +2609,7 @@ integration session** the brief calls for.
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
 | 44b/V | **Final line-by-line verification of the combined tree** against official primary sources; run the full verifier battery; confirm the site builds with no broken links. | in progress | arena-44bbafa4 | this section; corrective edits logged below |
-| 44b/FIX | **Fix genuine defects found by the verification.** (1) `$10`-rounding violation in the **published** `desk-31cb5781/` (insurance note `$1,324–$2,211/yr` in `running-costs.html` + its generator `_src/build.py`): round to nearest $10. (2) `scripts/privacy_scan.py` false positive: rule B fires on the official Treasury URL month parameter `field_tdr_date_value_month=202611` (the key contains "value"); exempt URL query strings so the repo-wide privacy gate is clean without hiding real money data. | in progress | arena-44bbafa4 | `desk-31cb5781/running-costs.html`, `desk-31cb5781/_src/build.py`, `scripts/privacy_scan.py`, this section |
+| 44b/FIX | **Fix genuine defects found by the verification.** (1) `$10`-rounding violation in the **published** `desk-31cb5781/` (insurance note `$1,320–$2,210/yr` in `running-costs.html` + its generator `_src/build.py`): round to nearest $10. (2) `scripts/privacy_scan.py` false positive: rule B fires on the official Treasury URL month parameter (the key contains "value"); exempt URL query strings and YYYYMM date-shaped values so the repo-wide privacy gate is clean without hiding real money data. | in progress | arena-44bbafa4 | `desk-31cb5781/running-costs.html`, `desk-31cb5781/_src/build.py`, `scripts/privacy_scan.py`, this section |
 | 44b/INT | **Final integration:** re-run every verifier, link check, PR to `main`, merge without waiting for review, confirm GitHub Pages deploys, record the PR link and merge result here. Flagged irregularities and the un-scrubbable git-history item (F19/R01) do not block the merge. | waiting on 44b/V + 44b/FIX | arena-44bbafa4 | this section; root files only if a fix requires it |
 
 **Scope and privacy contract.** This session edits only the files named above plus this board section. No other
@@ -2617,3 +2617,53 @@ session's published desk is rewritten. Money stays rounded to the nearest $10 (s
 published and marked). No names, addresses, parcel/account numbers, ZIP codes or city/neighbourhood names are added
 anywhere. The git-history scrub the brief asks for is a destructive rewrite of `main`'s history; it is **not** performed
 here (prior sessions recorded it as owner decision F19/R01) and remains flagged, not silently claimed as done.
+
+### 44b/V + 44b/FIX — completion record (arena-44bbafa4, 2026-11-15)
+
+**44b/V — final line-by-line verification of the combined tree (all green).** Every published desk's own
+verifier was run, each generated desk was rebuilt first and then re-verified (the rebuild produced **no
+unexpected diff** — every generator is current and deterministic):
+
+| Check | Result |
+|---|---|
+| `scripts/verify_safe.py` (public-safe/) | PASS — 13 pages, 15 tables, 125 source-linked rows, 379 links (183 official), $10 rounding, no identifiers |
+| `scripts/check_landing.py` | 19 targets, 0 unresolved |
+| `scripts/privacy_scan.py --summary` | **0 findings** (after 44b/FIX); 424 published official constants recognised |
+| `scripts/verify_desk_v5.py` | PASSED — 9 checks, 0 failures |
+| `review-092b/_src/verify.py` (+ tests) | PASS — 11 pages, 256 source-linked rows; tests OK |
+| `desk-d75/_src/verify.py` (+ tests) | PASS — 16 pages, 483 rows, 913 amounts checked; tests OK |
+| `decision/_src/verify.py` (+ tests) | PASS — 356 rows, 51 declared unsourceable (each says so); tests OK |
+| `cbe/_src/verify.py` (+ tests) | OK — 20 pages, 661 money figures, 35 sources; 84 tests OK |
+| `inheritance-desk/_src/verify.py` (+ tests) | PASS — 15 pages; tests OK |
+| `desk-31cb5781/_src/verify.py` (+ tests) | PASS — 17 pages; tests OK |
+| `phase-99220/_src/verify.py` (+ tests) | PASS — 12 pages; tests OK |
+| `cbd/_src/verify.py` (+ tests) | PASS — 11 pages, 14 sources; tests OK |
+| `desk-8be2/_src/verify.py` | PASS — 20 pages, 157 rows, 538 links |
+| `desk-e86/verify.py` | PASS — 5 pages, 142 rows |
+| `tino5-3f269806/_src/verify.py` | VERIFY PASS — 13 pages, 226 rows, 567 links |
+| `verify-476/verify.py` | NO ERRORS — 63/63 rows |
+| `decision-ad038/_src/verify_site.py` | NO ERRORS — 201/201 rows |
+| `referee-abae/_src/crosscheck.py` | exit 0 |
+| `node scripts/verify.mjs` | exit 0 (only the pre-existing warnings: preserved pages citing sources outside that registry) |
+| `test_model_v5.py`, `test_desk_model.py` | OK |
+
+Every table row on the published surface carries an official source link or an explicit no-source marker;
+money rounds to $10 (statutory amounts quoted exactly and marked); no personal-identifier pattern was found
+on any published page.
+
+**44b/FIX — two defects found and fixed (both published-surface hygiene, no model output or owner figure
+altered):**
+
+1. **`$10`-rounding violation in the published `desk-31cb5781/`** — the Property-A insurance note read
+   `CA statewide avg $1,324–$2,211/yr`, not a multiple of $10. Fixed in the generator `_src/build.py` and
+   regenerated: now `$1,320–$2,210/yr`, consistent with the same page's Property-B row, which already used the
+   rounded figures. This was the only unrounded-money defect on any published page.
+2. **`scripts/privacy_scan.py` false positive (rule B)** — rule B fired 117 times on the official Treasury
+   yield URL's month parameter `field_tdr_date_value_month=202611`, because the parameter name contains the
+   substring "value" (a money-like key). This is a URL query parameter / date, not money data. Fixed by
+   exempting (a) matches that fall inside a URL and (b) six-digit YYYYMM date-shaped values. The scanner was
+   proven **non-vacuous** after the change: a synthetic `rent = 539743` and prose `$1,324` are still flagged,
+   while URL params, dates and rounded money are not. Repo-wide `privacy_scan` now reports **0 findings**.
+
+`verification-report.json` was regenerated by `verify.mjs` (timestamp + summary refresh only); no other
+published figure was changed by this session.
