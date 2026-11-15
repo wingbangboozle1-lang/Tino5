@@ -23,6 +23,9 @@ exclude:
   - "phase-99220/_src/**"
   - "cbd/_src"
   - "cbd/_src/**"
+  # desk-9af5443d (session arena-9af5443d, 2026-11-15): generator/verifier are working material, not pages.
+  - "desk-9af5443d/_src"
+  - "desk-9af5443d/_src/**"
   # inheritance desk: generator and model are working material; owner input data is not published
   - "inheritance-desk/_src"
   - "inheritance-desk/_src/**"

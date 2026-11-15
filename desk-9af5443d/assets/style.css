@@ -1,0 +1,66 @@
+/* desk-9af5443d — clean dashboard style. Privacy-first: no external fonts, no trackers, no JS. */
+:root{--ink:#1d2330;--muted:#5b6474;--line:#dfe3ea;--blue:#1f4e79;--bg:#f4f6f9;--ok:#0d6b4f;--warn:#9a5b00;--flag:#a3261c}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.bar{padding:14px 20px 8px;max-width:1080px;margin:0 auto}
+.bar h1{margin:0;font-size:20px;color:var(--blue)}
+.bar .sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+nav{max-width:1080px;margin:0 auto;padding:6px 20px 12px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;font-size:13px}
+nav .grp{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-right:2px}
+nav a{padding:2px 6px;border-radius:6px}
+nav a:hover{background:#eef2f7;text-decoration:none}
+main{max-width:1080px;margin:0 auto;padding:20px}
+.page-header h2{margin:0 0 4px}
+.dek{color:var(--muted);margin:0 0 14px}
+h3{margin:26px 0 8px;font-size:16px}
+p{margin:8px 0}
+.small{font-size:12.5px;color:var(--muted)}
+.note{font-size:12.5px;color:var(--muted)}
+.callout{border:1px solid var(--line);border-left:4px solid var(--blue);background:#fff;padding:10px 14px;border-radius:6px;margin:12px 0}
+.callout.ok{border-left-color:var(--ok)}
+.callout.warn{border-left-color:var(--warn)}
+ul{margin:8px 0;padding-left:22px}
+li{margin:5px 0}
+.kpi{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.kpi .t{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:170px;flex:1}
+.kpi .v{font-size:20px;font-weight:700;color:var(--blue)}
+.kpi .l{font-size:12px;color:var(--muted);margin-top:2px}
+table.data{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);margin:10px 0;font-size:13.5px}
+table.data th{background:#eef2f7;text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);font-size:12.5px}
+table.data td{padding:7px 10px;border-bottom:1px solid #eef1f5;vertical-align:top}
+table.data tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;border:1px solid;white-space:nowrap}
+.tag.verified{color:var(--ok);border-color:#b8dcc9;background:#eef8f3}
+.tag.assumption{color:var(--warn);border-color:#ecd9ac;background:#fdf6e8}
+.tag.unverified{color:var(--flag);border-color:#e8c2bf;background:#fdeef0}
+.tag.owner{color:#4a5a6a;border-color:#cfd6de;background:#eef1f4}
+.tag.exact{color:var(--blue);border-color:#bcd0e6;background:#eef3fa}
+.chart{display:flex;flex-wrap:wrap;gap:26px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;margin:12px 0}
+.dist-group{display:flex;flex-direction:column;gap:6px;min-width:210px}
+.dist-label{font-weight:700;font-size:13px}
+.dist-bars{display:flex;align-items:flex-end;gap:8px;height:110px;border-bottom:2px solid var(--line);padding-bottom:4px}
+.dist-bar{width:52px;border-radius:4px 4px 0 0;display:flex;justify-content:center;position:relative;min-height:8px}
+.dist-val{position:absolute;top:-20px;font-size:11px;white-space:nowrap;color:var(--muted)}
+.dist-legend{width:100%;display:flex;gap:18px;font-size:12px;color:var(--muted);margin-top:8px}
+.dist-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.brief{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.brief-head{font-size:13.5px;margin-bottom:10px}
+.brief-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.brief-tbl td{padding:6px 8px;border-bottom:1px solid #eef1f5;vertical-align:top}
+.brief-tbl td:first-child{width:130px;font-weight:700;color:var(--blue)}
+.brief-foot{font-size:11px;color:var(--muted);margin-top:10px}
+.foot{margin-top:28px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:720px){
+ .kpi .t{min-width:100%}
+ table.data{font-size:12.5px}
+}
+@media print{
+ body{background:#fff}
+ header nav,.foot,.no-print{display:none !important}
+ main{max-width:none;padding:0}
+ table.data,.callout,.chart,.brief{border-color:#999}
+ .print-page .foot{display:none}
+}
