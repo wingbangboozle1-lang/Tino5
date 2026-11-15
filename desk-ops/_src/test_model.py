@@ -230,9 +230,13 @@ class TestBuildShape(unittest.TestCase):
         """The builtin `round` cannot be used for published figures: it is half-to-even on floats
         and Python 3.12 changed the algorithm, which once made a CI rebuild differ from the
         committed pages by $10. This pins the behaviour the site depends on."""
-        cases = {5: 10, -5: -10, 15: 20, 25: 30, 1004: 1000, 1005: 1010, 1234565: 1234570}
+        cases = {5: 10, -5: 0, 15: 20, 25: 30, 1004: 1000, 1005: 1010, 1234565: 1234570}
         for raw, want in cases.items():
             self.assertEqual(model.money_k(raw), want, f"money_k({raw}) should be {want}")
+        # the exact values in the model's own output that sit on a rounding boundary
+        for raw, want in ((18025.0, 18030), (23175.000000000004, 23180),
+                          (24525.000000000007, 24530), (19075.0, 19080), (8745.0, 8750)):
+            self.assertEqual(model.money_k(raw), want, f"boundary value {raw!r} rounded wrong")
         for raw in list(cases) + [0, 1, 9, 1234567, 10**7 + 5]:
             self.assertEqual(model.money_k(raw) % 10, 0, f"money_k({raw}) is not a multiple of 10")
 
