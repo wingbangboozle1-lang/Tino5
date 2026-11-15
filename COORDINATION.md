@@ -2813,4 +2813,23 @@ Read before claiming: `git fetch origin --prune` returns only `origin/main`; no 
 
 **Verification.** 28 unit tests pass; `desk-ops/_src/verify.py` PASS (18 pages, 48 tables, 402 data rows all sourced or labelled, 72 official links); `scripts/verify_safe.py` PASS; `scripts/check_landing.py` 0 unresolved; model deterministic across rebuilds.
 
+**The build gate earned its place.** The first push failed CI three times in a row, each time on
+a genuine defect that no amount of local testing on Python 3.11 could have found, because the runner
+uses Python 3.12 and three separate standard-library behaviours that reach published figures changed
+in that release: `round` became correctly rounded (and was already half-to-even on floats), and
+`sum` became Neumaier-compensated. Six of the model's own outputs land exactly on a half-dollar
+boundary, and one of them is stored a hair *below* .5 in binary, so a one-ulp difference was enough
+to move a published figure by $10. Rounding is now half-up on a Decimal with a cent of headroom,
+summation is an explicit left-to-right `fsum`, and two tests pin it: the six real boundary values
+from the model's output, and a prohibition on the builtin `round` in any module that produces a
+published figure. This is recorded as irregularity R12 on `desk-ops/flagged.html` because the failure
+mode — published money that differs by $10 depending on which interpreter built the page — is exactly
+the kind of thing a reader could never detect.
+
+**Also withdrawn, found during integration.** `origin/main` gained two more desks on 2026-11-15
+(`decision-d2664fd0` and `desk-9af5443d`, PRs #92 and the 9af integration). Both carry a city name and
+both household sales values — `desk-9af5443d` on eleven pages, `decision-d2664fd0` on seven. They are
+added to the withdrawal. That the leak recurred in two desks merged *after* the audit began is the
+clearest evidence that the fix has to be a gate, not an instruction.
+
 **Residual exposure that no agent can close.** The pre-rounding figures remain in this repository's **history** and in the copies already fetched by Pages, caches and search indexes. They are excluded from the built site, not from the object database. `desk-ops/privacy/index.html` states this plainly and lists the four owner-only actions with their real costs: make the repository private (one setting, recommended first), disable Pages, rewrite history and force-push, and request removal from search engines and archives. The privacy register also records that a rounded yearly assessed-value series still identifies a parcel against open assessor rolls, so no such series is republished in any rounded form.
