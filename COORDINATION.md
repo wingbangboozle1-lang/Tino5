@@ -2600,7 +2600,6 @@ owner-supplied and left blank in official-verified cells.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
 
-<<<<<<< HEAD
 ## Session `arena-d2664fd0` — claim (2026-11-15, branch `arena/d2664fd0-tino5`, base `85e3d47`)
 
 Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-overlap is enforced by file scope. `decision-d2664fd0/` is a new directory; no other session touches it.
@@ -2778,7 +2777,6 @@ a PR merge does not erase exposed history; options documented, history NOT rewri
 - All gates re-run on the combined tree: desk verifier PASS (0 errors), `verify_safe.py` PASS,
   `check_landing.py` 0 unresolved, scoped privacy scan 0 findings, generated pages current.
 - **Merge record:** (filled in after the PR is merged)
-=======
 ---
 
 ## Session `arena-03242c78` — claim (2026-11-15, branch `arena/03242c78-tino5`, base `85e3d47`)
@@ -2917,3 +2915,16 @@ row carries an official source link or an explicit no-source marker; money round
 keep every session's record; this branch's code fixes were resolved to **main's merged versions**. The final PR
 merged to `main`; the PR link and deploy result are recorded in the PR body and below. Flagged irregularities and
 the un-scrubbable git-history item do not block the merge.
+
+
+## Session `arena-85a01c5c` — claim (2026-11-15, branch `arena/85a01c5c-tino5`, base `a0f12e8` = `main`)
+
+Platform constraint: this session is bound to `arena/85a01c5c-tino5`, so non-overlap is enforced by file scope. `desk-85a01c5c/` is a new directory; no other session touches it. Read before claiming: this board on `main` at `a0f12e8` (PR #85). Only `origin/main` exists remotely; no other live claim is held.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 85a/S | **Decision desk `desk-85a01c5c/`** with the full brief feature set, led by the **black-swan phased-investing path**: sale proceeds parked in 3-month–2-year Treasuries for 24 and 36 months after inheritance, then phased into equities, tested with a month-by-month quantitative replay of the official 1929 and 2008 drawdowns (endpoints from Federal Reserve History; parking yields from the official Treasury/FRED short-rate record) so the crash-entry softening is quantified, with reinvestment risk shown beside the headline. Also: landing page with "what would change the answer" on the first screen; executive summary; grouped menu + glossary; Property A (future trust inheritance, Santa Clara County) and Property B (already owned, San Francisco County, 2 of 3 units let) at county level only; property tax incl. the Tax Rate Area lookup under Prop 13/Prop 19; inheritance & estate thresholds; running costs (water, solar credit, insurance, maintenance); year-by-year projections 2026–2050; live / rent / sell compared with mixed paths at identical transfer dates (2040/2045/2050) and horizons, with taxes, occupancy changes and liquidity; what-if controls; deadlines timeline; one-page printable Attorney & CPA Briefing Sheet; suggestions board (PROPOSED only); questions & information gaps with discovery actions; law watch; sources; flagged for review; methodology & privacy. Money rounded to $10 except statutory figures quoted exactly; every table row carries an official source link or is blank + marked unverified; no names, addresses, ZIP codes, city names, parcel or account numbers. | in progress | arena-85a01c5c | `desk-85a01c5c/**` (new directory; generator/verifier in `desk-85a01c5c/_src/`, not published), this section only |
+| 85a/V | Line-by-line verification: row sourcing, official-host allowlist, internal link resolution, $10 rounding, PII/identifier scan, model unit tests, privacy_scan, verify_safe, check_landing. Irregularities logged on `desk-85a01c5c/flagged.html`. | not started | arena-85a01c5c | `desk-85a01c5c/**`, this section only |
+| 85a/INT | Integration (conditional on 85a/S + 85a/V done): merge `origin/main`, re-verify the combined tree, add `desk-85a01c5c` to `PUBLISHED_DESKS` (folded assignment), Jekyll excludes for `desk-85a01c5c/_src`, workflow steps, one hub card on root `index.html`; PR to `main`, merge without waiting, confirm GitHub Pages deploy, record PR link and result here. | not started | arena-85a01c5c | `scripts/verify_safe.py` (PUBLISHED_DESKS), `.github/workflows/privacy-pages.yml`, `_config.yml`, `index.html` (one card), `README.md` (only if needed), `COORDINATION.md`, this section only |
+
+Requests to other sessions: none. Notes from the 85deecfe review applied to this desk's design: no city names or ZIPs on any published page (avoids I4); provider rows stay blank until the parcel's water provider is confirmed (avoids I5); maintenance and insurance rows are blank + unverified rather than placeholders (avoids I1/I3).
