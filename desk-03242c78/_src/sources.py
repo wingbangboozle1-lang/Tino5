@@ -179,9 +179,9 @@ SOURCES = [
                   "than 2% a year; Santa Clara County is divided into more than 800 tax rate "
                   "areas; a typical TRA has 1% base + 0.0388 county bonds + 0.100 school "
                   "bonds + 0.010 water bonds = 1.1488 per $100 of assessed value, illustrated "
-                  "on a <code class=\"stat\">$1,000,000</code> assessment (<code class=\"stat\">$11,488.00</code>, less the "
-                  "<code class=\"stat\">$80.42</code> homeowners' exemption effect = "
-                  "<code class=\"stat\">$11,407.58</code>); Prop 8 decline-in-value; appeal window "
+                  "on a <code class=\"stat\">$1,000,000</code> assessment (<code class=\"stat\">$11,490</code>, less the "
+                  "<code class=\"stat\">$80</code> homeowners' exemption effect = "
+                  "<code class=\"stat\">$11,410</code>); Prop 8 decline-in-value; appeal window "
                   "2 July - 15 September; homeowners' exemption up to $7,000 of assessed "
                   "value; January 1 lien date."),
     dict(id="scc_assessor", host="asr.santaclaracounty.gov", status="check",
