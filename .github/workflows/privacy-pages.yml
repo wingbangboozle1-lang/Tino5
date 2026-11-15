@@ -37,6 +37,10 @@ jobs:
           if ! git diff --quiet -- desk-ops; then
             echo "::error::desk-ops/ is stale. Re-run the model and the builders and commit the result."
             git --no-pager diff --stat -- desk-ops
+            echo "--- first 60 lines of the diff ---"
+            git --no-pager diff -- desk-ops | head -60
+            echo "--- untracked ---"
+            git status --porcelain -- desk-ops
             exit 1
           fi
 
