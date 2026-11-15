@@ -619,7 +619,7 @@ to full market value at the transfer and the yearly tax roughly doubles.</p>
                 value *= 1.042
             fbyv = value
             assessed_occ = rate["assessed"] if offset == 0 else None
-            rows.append([str(year), money(round(value, -1)), money(rate["assessed"]) if offset == 0 else "—",
+            rows.append([str(year), money(model.money_k(value)), money(rate["assessed"]) if offset == 0 else "—",
                          money(rate["tax_low"]) if offset == 0 else "—",
                          money(rate["tax_high"]) if offset == 0 else "—"])
     body += table(["Year", "Market value, base case", "Assessed value if the heir occupies",
@@ -727,7 +727,7 @@ building is the expensive one, and it is the one that pays for itself.</p>
         if abs(hi) < 1:
             shown = f"{pct(lo,2)} – {pct(hi,2)} of value a year"
         else:
-            shown = f"{money(round(lo,-1))} – {money(round(hi,-1))} a year"
+            shown = f"{money(model.money_k(lo))} – {money(model.money_k(hi))} a year"
         rows.append([esc(label), esc(shown), f'{esc(basis)} {tag("ass") if "Assumed" in basis else tag("gap")}'])
     body += table(["Line", "Range used", "Basis"], rows, numeric_from=0)
     body += f"""
@@ -1709,7 +1709,7 @@ as one wherever it appears.</p>
     rows = []
     for k in labels:
         lo, hi = R[k]
-        shown = f"{pct(lo,2)} – {pct(hi,2)}" if abs(hi) < 1 else f"{money(round(lo,-1))} – {money(round(hi,-1))}"
+        shown = f"{pct(lo,2)} – {pct(hi,2)}" if abs(hi) < 1 else f"{money(model.money_k(lo))} – {money(model.money_k(hi))}"
         status = tag("gap") + f" {gap_for[k]}" if k in gap_for else tag("ass")
         rows.append([esc(labels[k]), esc(shown), status])
     body += table(["Input", "Range", "Status"], rows, numeric_from=0)

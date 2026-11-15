@@ -236,6 +236,15 @@ class TestBuildShape(unittest.TestCase):
         for raw in list(cases) + [0, 1, 9, 1234567, 10**7 + 5]:
             self.assertEqual(model.money_k(raw) % 10, 0, f"money_k({raw}) is not a multiple of 10")
 
+    def test_no_builder_calls_the_builtin_round(self):
+        """The builtin `round` is version-dependent on floats and once made a CI rebuild differ
+        from the committed pages. Nothing that produces a published figure may call it."""
+        import re, pathlib
+        for name in ("build.py", "shell.py"):
+            src = (pathlib.Path(__file__).resolve().parent / name).read_text()
+            hits = [m.start() for m in re.finditer(r"(?<![.\w])round\s*\(", src)]
+            self.assertEqual(hits, [], f"{name} calls the builtin round; use model.money_k")
+
     def test_model_json_is_byte_identical_when_regenerated(self):
         """The committed model.json must be exactly what the model produces now, so that the CI
         staleness gate is meaningful rather than permanently red."""
