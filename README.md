@@ -6,17 +6,18 @@ A source-linked decision aid for comparing what to do with **Property A**, a fut
 
 **Start:** [Estate decision desk](https://wingbangboozle1-lang.github.io/Tino5/)
 
-The Pages publication is intentionally small and has one primary decision model:
+The Pages publication is intentionally small: one primary decision model, its historical stress-test supplement, one gap-filling evidence supplement, and a rules-only reference:
 
 - [`cbe/`](cbe/index.html) — the main desk: executive summary, property facts, property tax, inheritance and estate tax, carrying costs, year-by-year projections, pure and mixed paths, black-swan regimes, trust process, questions, suggestions, law watch, sources, flags and glossary.
 - [`phase-99220/`](phase-99220/index.html) — what-if controls, mixed paths and a separate historical 1929/2008 crash-entry replay for Treasury parking and phased stock investment; includes a deadline timeline and printable attorney/CPA brief.
+- [`desk-9af5443d/`](desk-9af5443d/index.html) — the privacy-corrected evidence supplement: county-level ACS rent context, neutral local-measure references, Form 540 sensitivity, estate liquidity, maintenance planning and open questions. Its model calculations are unchanged; local applicability remains conditional where the parcel jurisdiction is not confirmed.
 - [`public-safe/`](public-safe/index.html) — a rules-and-source reference without household figures.
 
-The other decision-desk generations remain in the repository for audit, but are excluded from GitHub Pages so a visitor is not asked to choose between duplicate or inconsistent dashboards. The root page leads with what would change the answer and where the evidence is missing.
+Other decision-desk generations remain in the repository for audit but are excluded from GitHub Pages to avoid competing dashboards. This includes the duplicate [`decision-d2664fd0/`](decision-d2664fd0/) desk, which is excluded as a whole without editing its source. The root page leads with what would change the answer and where the evidence is missing.
 
 ## Privacy — an important limitation
 
-The published Pages surface uses generic Property A / Property B labels and does not identify either property by city or neighbourhood, street, postal, parcel or account identifier. It is checked for common name, address, contact and property-specific local-place patterns. Broad county-level jurisdiction references may remain for legal context, and an official source title may name its jurisdiction. The root and main desk use `noindex`; `robots.txt` asks crawlers not to fetch the site. These are crawler directives, not access controls. The **GitHub repository itself is public**. Earlier commits and excluded working trees still retain previously exposed household/location material. Removing or excluding a directory from Pages does not erase it from GitHub or from repository history. A shared-history rewrite was not performed in this branch; therefore the repository is **not scrubbed** and this must remain a flagged issue until a coordinated repository-wide remediation is completed. Do not treat the website’s privacy scan as proof that the public Git history is private.
+The published Pages surface uses generic Property A / Property B labels and does not identify either property by city or neighbourhood, street, postal, parcel or account identifier. It is checked for common name, address, contact and property-specific local-place patterns. Broad county-level context is retained where needed; official local source links can reveal the issuing jurisdiction. Every published HTML page requests `noindex,nofollow`, and `robots.txt` asks crawlers not to fetch the site. These are crawler directives, not access controls. The **GitHub repository itself is public**. Earlier commits and excluded working trees still retain previously exposed household/location material. Removing or excluding a directory from Pages does not erase it from GitHub or from repository history. A shared-history rewrite was not performed in this branch; therefore the repository is **not scrubbed** and this must remain a flagged issue until a coordinated repository-wide remediation is completed. Do not treat the website’s privacy scan as proof that the public Git history is private.
 
 ## Evidence and limits
 
@@ -25,14 +26,16 @@ Official-source links accompany the decision tables, and each desk distinguishes
 ## Rebuild and verify
 
 ```bash
-python3 scripts/verify_safe.py
-python3 scripts/check_landing.py
 python3 cbe/_src/build.py
 python3 cbe/_src/verify.py
 python3 -m unittest discover -s cbe/_src -p 'test_*.py' -v
 python3 phase-99220/_src/build.py
 python3 phase-99220/_src/verify.py
 python3 -m unittest discover -s phase-99220/_src -p 'test_*.py' -v
+python3 desk-9af5443d/_src/build.py
+python3 desk-9af5443d/_src/verify.py
+python3 scripts/verify_safe.py
+python3 scripts/check_landing.py
 ```
 
 GitHub Actions repeats the source, link, privacy, rounding and regression checks for the live desks. A clean structural check does not establish the legal meaning of a fact pattern; confirm the current rules with the relevant professional before acting.

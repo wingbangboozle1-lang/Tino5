@@ -15,7 +15,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(__file__))  # desk-9af5443d
 EXPECTED_PAGES = [
     "index.html", "executive-summary.html", "projections.html", "rent-comparables.html",
-    "sf-measures.html", "maintenance-plan.html", "ca-income-tax.html", "estate-liquidity.html",
+    "local-measures.html", "maintenance-plan.html", "ca-income-tax.html", "estate-liquidity.html",
     "decision-log.html", "questions.html", "suggestions.html", "law-watch.html",
     "sources.html", "flagged.html", "methodology.html", "briefing-sheet.html",
 ]
@@ -23,7 +23,7 @@ OFFICIAL_HOSTS = [
     "irs.gov", "ftb.ca.gov", "boe.ca.gov", "santaclaracounty.gov", "files.santaclaracounty.gov",
     "sfelections.org", "sfmta.com", "sf.gov", "census.gov", "home.treasury.gov", "nber.org",
     "federalreservehistory.org", "insurance.ca.gov", "cfpnet.com", "leginfo.legislature.ca.gov",
-    "sjwater.com", "sfpuc.gov", "cpuc.ca.gov", "sco.ca.gov",
+    "sfpuc.gov", "cpuc.ca.gov", "sco.ca.gov",
 ]
 ERRORS = []
 WARN = []

@@ -92,6 +92,7 @@ def shell(active, title, body, extra_head="", extra_script=""):
     return """<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>%(title)s | Property A decision desk</title>
 <link rel="stylesheet" href="assets/style.css">%(extra_head)s
 </head><body>

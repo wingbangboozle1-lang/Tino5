@@ -5,10 +5,11 @@ This is not an automatic fact checker. It proves that:
   * every internal link resolves,
   * every public-safe table row carries an official source link,
   * external hosts in the public-safe reference are on the official allowlist,
-  * money in the public-safe reference rounds to $10 unless marked as published, and
+  * money in the public-safe reference rounds to $10 unless marked as published,
+  * every live HTML page requests noindex, and
   * the root hub and every selected live desk contain no known personal-identifier pattern.
-The cbe/ and phase-99220/ semantic, sourcing, rounding and link checks run in their own
-verifiers; this gate additionally scans their entire published trees for privacy patterns.
+The cbe/, phase-99220/ and desk-9af5443d/ semantic, sourcing, rounding and link checks run in
+their own verifiers; this gate additionally scans their entire published trees for privacy patterns.
 Run: python3 scripts/verify_safe.py
 """
 from datetime import date
@@ -31,6 +32,7 @@ DEPLOYMENT_EXCLUSIONS = {
     "desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae",
     "desk-e86", "tino5-3f269806", "verify-476", "decision", "desk-d75",
     "cbd", "inheritance-desk", "desk-8be2", "desk-31cb5781",
+    "decision-d2664fd0",
 }
 # The curated live set alongside public-safe/. To unpublish a directory, move it into
 # DEPLOYMENT_EXCLUSIONS and _config.yml's exclude list in the same integration change.
@@ -219,6 +221,12 @@ for root in privacy_roots:
             errors.append(f"unexpected published artifact: {p}")
             continue
         text = p.read_text(encoding="utf-8")
+        if p.suffix.lower() == ".html" and not re.search(
+            r"<meta\b(?=[^>]*\bname\s*=\s*['\"]robots['\"])(?=[^>]*\bcontent\s*=\s*['\"][^'\"]*\bnoindex\b[^'\"]*['\"])[^>]*>",
+            text,
+            flags=re.I,
+        ):
+            errors.append(f"{p}: missing robots noindex request")
         # Scan rendered prose, including anchor labels; skip non-visible inline CSS/JS and
         # color literals so a six-digit stylesheet color cannot look like a postal code.
         if p.suffix.lower() == ".html":
@@ -238,15 +246,15 @@ summary = (
     f"PASS: {len(pages)} public-safe pages; {stats['tables']} public-safe tables; "
     f"{stats['rows']} source-linked rows; {stats['links']} links ({stats['external']} official); "
     f"{privacy_scanned_files} live files privacy-scanned; local targets resolve; "
-    "robots.txt requests no crawling (not access control); public-safe money rounds to $10; "
-    "no known personal-identifier patterns. Structural checks only."
+    "robots.txt requests no crawling and every live HTML page requests noindex (not access control); "
+    "public-safe money rounds to $10; no known personal-identifier patterns. Structural checks only."
 )
 print(summary)
 
 if "--json" in __import__("sys").argv:
     report = {
         "generated": date.today().isoformat(),
-        "artifact": "GitHub Pages root + public-safe/, cbe/, phase-99220/",
+        "artifact": "GitHub Pages root + public-safe/, cbe/, phase-99220/, desk-9af5443d/",
         "pages": pages,
         "privacy_scanned_files": privacy_scanned_files,
         "counts": stats,
@@ -258,12 +266,12 @@ if "--json" in __import__("sys").argv:
             "money_rounds_to_10_except_marked_statutory": True,
             "no_personal_identifier_patterns": True,
             "robots_disallows_crawling": True,
+            "all_live_html_noindex": True,
             "no_scripts_forms_or_external_assets": True,
             "nonprimary_site_artifacts_excluded": True,
         },
-        "scope_note": "Structural/privacy checks plus the cbe/ and phase-99220/ page-specific verifiers. "
-                      "Official sources and what each supports are linked from cbe/sources.html and "
-                      "phase-99220/sources.html; no automatic verifier proves legal interpretation.",
+        "scope_note": "Structural/privacy checks plus the cbe/, phase-99220/ and desk-9af5443d/ page-specific verifiers. "
+                      "Official sources and what each supports are linked from their Sources pages; no automatic verifier proves legal interpretation.",
         "official_urls": sorted(official_urls),
     }
     Path("verification-report.json").write_text(json.dumps(report, indent=2) + "\n")

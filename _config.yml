@@ -1,9 +1,10 @@
 title: Estate decision desk
 plugins: []
 # Publication boundary: scripts/verify_safe.py PUBLISHED_DESKS is the allowlist alongside
-# public-safe/. The only detailed live desk is cbe/; phase-99220/ is its stress-test and
-# what-if supplement. Superseded desk generations are deliberately not served, to avoid
-# competing numbers and previously flagged location identifiers on Pages.
+# public-safe/. cbe/ is the primary decision model; phase-99220/ is its historical stress-test
+# and what-if supplement; desk-9af5443d/ is the privacy-corrected tax/evidence supplement.
+# Other desk generations are deliberately not served, to avoid competing dashboards and
+# previously flagged location identifiers on Pages.
 # Excluding a path hides it from the built site only. It does not remove files from Git,
 # existing clones, or repository history; this is not a history scrub.
 exclude:
@@ -19,9 +20,8 @@ exclude:
   # desk-31cb5781 (session arena-31cb5781, 2026-11-14): generator/verifier are working material, not pages.
   - "desk-31cb5781/_src"
   - "desk-31cb5781/_src/**"
-  # decision-d2664fd0 (session arena-d2664fd0): consolidated decision desk; generator/verifier are working material.
-  - "decision-d2664fd0/_src"
-  - "decision-d2664fd0/_src/**"
+  # decision-d2664fd0 (session arena-d2664fd0): duplicate desk is excluded from Pages as a whole; source remains untouched.
+  - "decision-d2664fd0"
   - "phase-99220/_src"
   - "phase-99220/_src/**"
   - "cbd/_src"
