@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>Methodology &amp; privacy — Inheritance decision desk</title><link rel="stylesheet" href="assets/style.css"></head><body>
+<header><div class="bar"><h1>Inheritance decision desk</h1><div class="sub">Property A (future trust inheritance) · Property B (already owned) · County level · No personal identifiers</div></div></header>
+<nav><span class="grp">Start</span><a href="index.html">Start here</a><a href="executive-summary.html">Executive summary</a><span class="grp">Property A — to be inherited</span><a href="properties.html">Property facts</a><a href="property-tax.html">Property tax &amp; assessment</a><a href="process.html">Step-by-step trust process</a><span class="grp">Property B — already owned</span><a href="running-costs.html">Running costs</a><span class="grp">Taxes &amp; inheritance</span><a href="inheritance-tax.html">Inheritance &amp; estate tax</a><a href="law-watch.html">Law watch</a><span class="grp">Decision model</span><a href="scenarios.html">Scenarios: live / rent / sell</a><a href="mixed-paths.html">Mixed paths</a><a href="black-swans.html">Black swan &amp; phased investing</a><a href="what-if.html">What-if controls</a><span class="grp">Timing &amp; deadlines</span><a href="timeline.html">Deadlines timeline</a><span class="grp">Questions &amp; gaps</span><a href="questions.html">Questions &amp; information gaps</a><span class="grp">Owner input</span><a href="suggestions.html">Suggestions board</a><a href="glossary.html">Glossary</a><span class="grp">For advisers</span><a href="briefing-sheet.html">Attorney &amp; CPA Briefing Sheet</a><span class="grp">Record</span><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="methodology.html" aria-current="page">Methodology &amp; privacy</a></nav>
+<main>
+<div class="page-header"><h2>Methodology &amp; privacy</h2><p class="dek">How the model works, what is verified and what is not, and the privacy rules this desk follows.</p></div>
+
+<h3>Model method</h3>
+<ul>
+<li><b>Projections are derived, not predicted.</b> Every figure is computed from labelled inputs (growth, return, carrying cost, tax rate). None is a forecast.</li>
+<li><b>Model runs on points for display; ranges are recommended.</b> Baseline ranges: house-price growth 3%–6%/yr, portfolio return 4%–8%/yr, inflation 2%–4%/yr. Run the model on ranges (suggestion S16).</li>
+<li><b>Money is rounded to the nearest $10.</b> Statutory amounts, rates, and thresholds are quoted exactly as published and marked exact; rounding a legal threshold would misstate it.</li>
+<li><b>Every table row carries a source link or is blank and marked unverified / owner-supplied / derived.</b> No inferred or invented values.</li>
+<li><b>After any input change, rebuild the model and check whether the recommendation moved.</b> Re-run annually with updated inputs <a href="questions.html">[question Q26]</a>.</li>
+<li><b>Extreme scenarios reviewed annually.</b> Black-swan regimes (1929 −89%, 2008 −57%) and phased-investing path (Treasuries 24–36 months) stress-test the sell option.</li>
+</ul>
+
+<h3>Tag meanings</h3>
+<table class="data"><thead><tr><th>Tag</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><span class="tag exact">exact</span></td><td>Quoted exactly as published by the issuing agency; not rounded</td></tr>
+<tr><td><span class="tag derived">derived</span></td><td>Model output computed from labelled inputs; not a verified figure</td></tr>
+<tr><td><span class="tag owner">owner-supplied · unverified</span></td><td>Owner-provided figure with no official confirmation; shown for transparency only</td></tr>
+<tr><td><span class="tag unverified">unverified</span></td><td>No official source confirms the value; left blank or shown as a placeholder</td></tr>
+</tbody></table>
+
+<h3>Privacy rules</h3>
+<ul>
+<li>No names, street addresses, parcel numbers, ZIP codes, city names, neighbourhood names, phone numbers, e-mail addresses, or account figures appear on this desk.</li>
+<li>Properties are "Property A" (future trust inheritance, Santa Clara County) and "Property B" (already owned, San Francisco County) at county level only.</li>
+<li>Owner-supplied values (market value, rent, insurance, utilities, assessed value) are labelled owner-supplied and unverified, and are not traced to any official record.</li>
+<li>No assessment or tax-bill history series is published at any precision — a rounded series can still match one parcel against open assessor rolls.</li>
+<li>Personal information collected during research is for internal use only and must not appear on this desk.</li>
+</ul>
+
+<h3>Pre-rounding exposure (flag F16)</h3><div class="callout warn"><b>Earlier public-data exposure.</b> Earlier generations of this repository may retain unrounded owner-provided tax and property values in public Git history. A normal PR cannot remove those commits. This is a limitation, not a claim that history is clean. The repository maintainer must decide on a coordinated history rewrite and/or repository-visibility response. <a href="flagged.html">[flag F16]</a></div>
+
+<h3>Model inputs (labelled)</h3>
+<table class="data"><thead><tr><th>Input</th><th>Value</th><th>Status</th><th>Source</th></tr></thead><tbody>
+<tr><td>Transfer year (base case)</td><td>2045</td><td><span class="tag derived">derived</span> midpoint of 2040–2050</td><td>This desk</td></tr>
+<tr><td>Portfolio return (gross)</td><td>7.00% / yr</td><td><span class="tag unverified">unverified</span> assumption</td><td>This desk; <a href="what-if.html">What-if controls</a></td></tr>
+<tr><td>Tax drag</td><td>0.60% / yr</td><td><span class="tag unverified">unverified</span> assumption</td><td>This desk</td></tr>
+<tr><td>House-price growth</td><td>3.00% / yr (base)</td><td><span class="tag unverified">unverified</span> assumption</td><td>This desk</td></tr>
+<tr><td>Avoided-rent yield</td><td>2.50% of value / yr (placeholder)</td><td><span class="tag unverified">unverified</span> no market rent obtained</td><td>This desk; <a href="questions.html">[question Q25]</a></td></tr>
+<tr><td>Treasury 3-month bill</td><td>4.32% (13 Nov 2026)</td><td><span class="tag exact">exact</span> (published)</td><td><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611" rel="noopener">U.S. Treasury</a></td></tr>
+<tr><td>Treasury 2-year note</td><td>4.88% (13 Nov 2026)</td><td><span class="tag exact">exact</span> (published)</td><td><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611" rel="noopener">U.S. Treasury</a></td></tr>
+<tr><td>Break-even: portfolio return</td><td>~5.20% / yr</td><td><span class="tag derived">derived</span> model break-even</td><td>This desk</td></tr>
+<tr><td>Break-even: house-price growth</td><td>~5.58% / yr</td><td><span class="tag derived">derived</span> model break-even</td><td>This desk</td></tr>
+<tr><td>Break-even: avoided-rent yield</td><td>~4.68% of value / yr</td><td><span class="tag derived">derived</span> model break-even</td><td>This desk</td></tr>
+</tbody></table>
+
+<div class="foot no-print"><b>Not tax, legal or investment advice.</b> Re-check the then-current law before acting. <a href="sources.html">Sources</a> · <a href="flagged.html">Flagged for review</a> · <a href="questions.html">Questions &amp; information gaps</a></div>
+</main>
+</body></html>
