@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Sources — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Sources</h1>
+<p class="lede">Every source this desk uses, what it supports, and whether it was opened. A source
+that was not opened is listed and every row leaning on it says so. No value here comes from a news
+site, a law firm, a blog or an aggregator.</p>
+<div class="ok"><b>16 opened</b> and <b>6 linked but not opened</b>. The
+second list is the honest one: a link that was never read proves nothing, and the desk treats it
+accordingly.</div>
+<h2>Opened and read this session</h2><div class="wrap"><table class=""><thead><tr><th>Document</th><th>What it supports</th><th>Checked</th><th>Link</th></tr></thead><tbody><tr><td><b>Internal Revenue Service</b><br><small>Estate tax — filing threshold for year of death, portability</small></td><td>The filing-threshold table by year of death, transcribed row by row, with the 2026 amount at fifteen million dollars and the 2025 amount at just under fourteen million. Portability exists for a decedent survived by a spouse and is made on a timely filed return.</td><td>2026-11-15. Threshold table and portability paragraph read on the page.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Internal Revenue Service</b><br><small>Frequently asked questions on estate taxes</small></td><td>Form 706 is due nine months after death; an automatic six-month extension is available by filing Form 4768 on or before the due date, including for estates filing solely to elect portability. A return is required to elect portability regardless of size. Public Law 119-21 amended IRC 2010(c)(3) to set the basic exclusion at $15,000,000 for calendar year 2026. Rev. Proc. 2022-32 simplified late portability (fifth annual anniversary of death).</td><td>2026-11-15. The filing, portability, extension and Public Law 119-21 passages were read.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Internal Revenue Service</b><br><small>IR-2026-133 (5 November 2026) — tax year 2027 inflation adjustments</small></td><td>Estates of decedents who die during 2027 have a basic exclusion amount of $15,480,000, up from $15,000,000 for 2026. Annual gift exclusion $20,000 for 2027, up from $19,000 for 2026. Top rate 37% over the published 2027 income thresholds.</td><td>2026-11-15. The estate, gift and rate-schedule passages were read verbatim.</td><td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Internal Revenue Service</b><br><small>Questions and answers on the Net Investment Income Tax</small></td><td>NIIT is 3.8% (IRC 1411) on net investment income above modified AGI thresholds of the published joint, separate, single and head-of-household thresholds; the thresholds are not indexed for inflation. Gain on investment real estate is net investment income; gain excluded under section 121 is not.</td><td>2026-11-15. Threshold table and the section 121 interaction were read.</td><td><a href="https://www.irs.gov/newsroom/questions-and-answers-on-the-net-investment-income-tax" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Internal Revenue Service</b><br><small>Topic no. 701, Sale of your home — section 121 exclusion</small></td><td>The published single and joint caps on excluded gain for a main home; the ownership test is 24 months out of the last five years and the use test is 24 months of the previous five.</td><td>2026-11-15. Both tests and both amounts were read.</td><td><a href="https://www.irs.gov/taxtopics/tc701" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Internal Revenue Service</b><br><small>Topic no. 409, Capital gains and losses</small></td><td>For 2025 a 0% long-term rate applies at the published single and joint thresholds, 15% above that up to the published 15% ceilings, and 20% above; unrecaptured section 1250 gain is taxed at a maximum 25%; losses on personal-use property such as a home are not deductible.</td><td>2026-11-15. All four rate/threshold statements were read.</td><td><a href="https://www.irs.gov/taxtopics/tc409" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Federal Reserve History (Federal Reserve System)</b><br><small>Stock Market Crash of 1929</small></td><td>The Dow peaked on 3 September 1929 at 381.17 and closed at 41.22 on 8 July 1932, 89 percent below its peak; the index did not reach the 1929 high again until 23 November 1954. Black Monday (28 October 1929) was a decline of nearly 13 percent.</td><td>2026-11-15. The peak, trough, percentage and recovery date were read.</td><td><a href="https://www.federalreservehistory.org/essays/stock-market-crash-of-1929" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>Federal Reserve History (Federal Reserve System)</b><br><small>The Great Recession, December 2007–June 2009</small></td><td>The S&amp;P 500 fell 57 percent from its October 2007 peak to its trough in March 2009; home prices fell approximately 30 percent on average from mid-2006 to mid-2009; the federal funds rate was cut to a 0–0.25 percent range by December 2008.</td><td>2026-11-15. The 57 percent drawdown and the 30 percent house-price passage were read.</td><td><a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>U.S. Bureau of Labor Statistics</b><br><small>CPI-U, U.S. city average, all items (series CUUR0000SA0)</small></td><td>Official CPI-U monthly and annual-average index. NOT RE-OPENED this session: the inflation distribution used here is drawn from the 1914–2026 record already transcribed into this repository at cbe/_src/cpi.py (read this session, source labelled in that file), not from a fresh retrieval. Flagged F08.</td><td>Read from the repository&#x27;s earlier transcription (cbe/_src/cpi.py) on 2026-11-15.</td><td><a href="https://data.bls.gov/timeseries/CUUR0000SA0?years_option=all_years&period=M13&output_view=data" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California Legislative Information</b><br><small>Revenue and Taxation Code section 63.2 — intergenerational transfer exclusion</small></td><td>From 16 February 2021 a change in ownership does not include a transfer of the transferor&#x27;s principal residence between parent and child if (A) the property becomes the transferee&#x27;s principal residence within one year of the transfer and (B) the transferee files for the homeowners&#x27; or disabled veterans&#x27; exemption within a year, and the exclusion &#x27;shall be removed&#x27; on the date the transferee is no longer eligible for either exemption, with the base year value re-enrolled at the lien date following (C). Subdivision (b): no exclusion unless a claim is filed. Subdivision (c): the claim is not a public document.</td><td>2026-11-15. Subdivisions (a)(1)(A)–(C), (b) and (c) were read.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California State Board of Equalization</b><br><small>LTA 2025/009 — intergenerational transfer exclusion, adjustment of the one-million-dollar amount</small></td><td>The value cap is the property&#x27;s factored base year value plus the one-million-dollar amount, adjusted every other 16 February from 2023 for the FHFA California House Price Index. For transfers occurring 16 February 2025 through 15 February 2027 the amount is $1,044,586; the prior amount was $1,022,600 (16 Feb 2023 – 15 Feb 2025); the next adjustment is February 2027.</td><td>2026-11-15. The letter and its adjustment table were read.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California State Board of Equalization</b><br><small>LTA 2026/026 — Proposition 19 intergenerational transfer exclusion FAQ</small></td><td>Definitions: the excluded amount is the factored base year value immediately before transfer plus the adjusted one-million-dollar amount; the excess amount is full cash value at transfer minus the excluded amount; the new taxable value is the factored base year value plus the excess. &#x27;The family home ... must be continually used ... by an eligible transferee ... in order to maintain the intergenerational transfer exclusion&#x27;, and the exclusion is removed if the property becomes ineligible for the homeowners&#x27; or disabled veterans&#x27; exemption. Transfers include those by death, &#x27;whether within or outside a trust&#x27;.</td><td>2026-11-15. The definitions and the continual-use passage were read.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California State Board of Equalization</b><br><small>Proposition 19 — Board of Equalization resource page</small></td><td>Index of official Proposition 19 guidance and Letters to Assessors; cites section 2.1 of article XIII A and RTC 63.2; links LTA 2026/026 as the current intergenerational FAQ.</td><td>2026-11-15. The index and the footer note that the page lists the LTA series were read.</td><td><a href="https://www.boe.ca.gov/prop19/" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>County of Santa Clara, Controller-Treasurer</b><br><small>Compilation of Tax Rates and Information, fiscal year 2025-2026</small></td><td>The 1% maximum levy is 1% of assessed value; voter-approved debt is added on top and varies by tax rate area; the county retirement levy is 0.0388%; there are 816 tax rate areas in fiscal year 2025-26; assessed value rises each year by the change in the California CPI or 2%, whichever is less; secured taxes are due 1 November (delinquent 10 December) and 1 February (delinquent 10 April); a 10% penalty applies after the delinquency date and 1.5% per month redemption penalty from the following 1 July; supplemental bills are issued for a change in ownership.</td><td>2026-11-15. The General Information section (A-1 to A-3) was read. The per-tax-rate-area rate table (B-1 to B-185) was NOT read for the parcel in question: the rate area is unknown. See open question Q04 and flagged item F01.</td><td><a href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California Legislative Information</b><br><small>Revenue and Taxation Code §17043 — 1% additional tax above one million dollars</small></td><td>&#x27;an additional tax shall be imposed at the rate of 1 percent on that portion of a taxpayer&#x27;s taxable income in excess of one million dollars ($1,000,000)&#x27;, for each taxable year beginning on or after 1 January 2005 (Proposition 63). Credits under the credit provisions, the filing-status recomputation provisions and the joint-return rule do not apply to it.</td><td>2026-11-15. The full section text was read.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California Legislative Information</b><br><small>Revenue and Taxation Code section 11911 — documentary transfer tax authority</small></td><td>A county board of supervisors may impose 55 cents for each $500 of value (subdivision (a)); a city within a county that has imposed the tax may impose half that amount, 27.5 cents per $500, and a credit is allowed against the county tax (subdivisions (b) and (c)).</td><td>2026-11-15. Subdivisions (a), (b) and (c) were read.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=11911" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr></tbody></table></div><h2>Linked but not opened</h2><div class="wrap"><table class=""><thead><tr><th>Document</th><th>Why it matters, and what is done instead</th><th>Link</th></tr></thead><tbody><tr><td><b>Internal Revenue Service</b><br><small>Publication 551, Basis of Assets</small></td><td>Linked from Topic 409 as the authority for the basis of inherited property. NOT OPENED this session: the inherited-property basis paragraph is not quoted on this desk. The basis rule used (date-of-death value) is stated as an assumption and flagged for the CPA to confirm against Publication 551 and Form 706.</td><td><a href="https://www.irs.gov/publications/p551" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>U.S. Department of the Treasury</b><br><small>Daily Treasury Par Yield Curve Rates</small></td><td>Official daily par yield curve. NOT OPENED this session: the rendered table did not return. The Treasury yield range used for the phased path is therefore an assumption labelled &#x27;T-bill range&#x27; and flagged, not a quoted rate. See flagged page F07.</td><td><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>City Treasurer &amp; Tax Collector (the city&#x27;s own office)</b><br><small>Real property transfer tax — published rate schedule (city rate tier)</small></td><td>Official publisher of city transfer-tax rates. NOT OPENED this session: the rate schedule page returned &#x27;Page Not Found&#x27; at the address tried. The city rate used for jurisdiction B (0.75% at its price band, i.e. $3.75 per $500) is therefore taken as an assumption consistent with the statutory half-rate ceiling for a city add-on and flagged F05, not quoted from the city&#x27;s schedule.</td><td><a href="https://sftreasurer.org/" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California Legislative Information</b><br><small>Article XIII A, section 2 — Proposition 13 assessment limit</small></td><td>The maximum ad valorem levy is 1% of full cash value and the assessed value may not be increased by more than 2% a year except on a change in ownership or new construction. Cited through the county compilation above, which quotes the same limit; the article itself was NOT opened this session and is flagged F06.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displayArticle.xhtml?lawCode=CONS&article=XIII%20A" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California Franchise Tax Board</b><br><small>Form 540 personal income tax booklet — instructions</small></td><td>Instructions for the additional 1% tax above $1,000,000 of taxable income and for the rate schedules. NOT OPENED this session: the 2025 booklet address was not retrieved. The 1% tax is therefore computed from the statute (RTC 17043) that was read, and the capital-gain treatment is described from IRS Topic 409 plus the statutory 1% (California taxes capital gain as ordinary income under its own schedule, which is flagged as needing the FTB booklet to confirm the schedule).</td><td><a href="https://www.ftb.ca.gov/forms/2025/2025-540-booklet.html" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr><tr><td><b>California Courts (Judicial Council)</b><br><small>Form DE-300 — small estate affidavit threshold</small></td><td>Self-help entry point for probate and small-estate procedure. NOT OPENED this session; no figure on this desk rests on it.</td><td><a href="https://selfhelp.courts.ca.gov/probate" rel="noopener noreferrer nofollow" target="_blank">open</a></td></tr></tbody></table></div>
+<h2>How to check this page's work</h2>
+<ol>
+<li>Pick any row on any table. The last column links the official document.</li>
+<li>Find the sentence the row relies on. The "what it supports" column says which one.</li>
+<li>Compare. If they disagree, the desk is wrong and should be corrected with a dated entry on the
+<a href="work-register.html">requirement register</a>.</li>
+</ol>
+<p class="small">Hosts used: every external link on this site is on the list below and belongs to the
+publisher of the document. No external stylesheet, font, image or script is loaded.</p>
+<span class="chip">data.bls.gov</span><span class="chip">files.santaclaracounty.gov</span><span class="chip">home.treasury.gov</span><span class="chip">leginfo.legislature.ca.gov</span><span class="chip">selfhelp.courts.ca.gov</span><span class="chip">sftreasurer.org</span><span class="chip">www.boe.ca.gov</span><span class="chip">www.federalreservehistory.org</span><span class="chip">www.ftb.ca.gov</span><span class="chip">www.irs.gov</span>
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

@@ -21,6 +21,11 @@ import re
 OUT = Path("public-safe")
 CONFIG = Path("_config.yml")
 DEPLOYMENT_EXCLUSIONS = {
+    # withdrawn from publication 2026-11-15: they carry household figures or place names.
+    "desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
+    "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
+    "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-9af5443d",
+    "desk-ops/_src",
     # Excluded from Pages. Adding a directory here excludes it; it does not publish it.
     # desk-22a32b17 stays excluded until its Proposition 19 cap error is corrected (the
     # exclusion protects assessed value only up to $1,044,586, not the whole gap — see the
@@ -58,14 +63,37 @@ DEPLOYMENT_EXCLUSIONS = {
 # decision desk with the phased-investing black-swan path, what-if controls, one-page
 # printable Attorney & CPA briefing sheet and the full source-linked question/suggestion
 # register. Folded into the same single set.
-# desk-9af5443d added by the 9af/INT integration run (session arena-9af5443d, 2026-11-15):
-# the gap-filling desk — Prop H with official terms (2024 and 2026), the Form 540 MHST
-# sensitivity read from the official FTB instructions, Census ACS rent comparables, the
-# five-year maintenance plan, the estate liquidity plan, a distribution chart and the
-# decision-and-date log. Folded into the same single set.
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
-                  "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-9af5443d"}
+# 2026-11-15, session arena-ea3f2cee (owner brief: "personal information privacy is top priority
+# and highest urgency ... must not appear in the final website product"):
+# every desk listed as withdrawn published household sales values, a household rent, prior-year
+# assessed values, or a city name. They are withdrawn from publication and replaced by one operating
+# desk that publishes no household figure at any precision. Withdrawing a directory hides it from the
+# built site; it does not remove it from the repository, which is why desk-ops/privacy/ documents the
+# residual exposure and the owner-only actions.
+#   decision-d2664fd0 and desk-9af5443d joined this list on 2026-11-15: both were merged to main by
+#   their own integration runs before the audit, and both carry the city name and the two household
+#   sales values. A desk that carries those figures cannot be published, however good its analysis.
+WITHDRAWN_2026_11_15 = {
+    "desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
+    "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
+    "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-9af5443d",
+}
+PUBLISHED_DESKS = {"desk-ops"}
+# Every withdrawn directory must also appear in _config.yml's exclude list, and vice versa;
+# the loop further down asserts that agreement so the two cannot drift apart.
+WITHDRAWN_LIST = sorted(WITHDRAWN_2026_11_15)
+
+# Expected pages across every published directory, keyed by directory, so the gate is
+# fail-closed for the new desk as well as the old one.
+EXPECTED_PAGES_BY_DIR = {
+    "desk-ops": {
+        "index.html", "decision.html", "paths.html", "phased.html", "swans.html",
+        "projections.html", "costs.html", "taxes.html", "timeline.html", "questions.html",
+        "suggestions.html", "brief-sheet.html", "work-register.html", "law-watch.html",
+        "glossary.html", "sources.html", "flagged.html", "method.html",
+        "privacy/index.html",
+    },
+}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -91,10 +119,13 @@ PII = [
     (r"[\w.+-]+@[\w-]+\.[a-z]{2,}", "e-mail address"),
     (r"\b\d{3}-\d{2}-\d{4}\b", "SSN shape"),
     (r"\b\(?\d{3}\)?[-. ]\d{3}[-.]\d{4}\b", "phone shape"),
-    (r"\b\d{5}(?:-\d{4})?\b", "ZIP / postal code shape"),
+    (r"(?<!\u00a7)(?<!section )(?<!Section )(?<!RTC )(?<!IRC )(?<!Topic )(?<!Form )"
+     r"(?<!Order )(?<!No\. )\b\d{5}(?:-\d{4})?\b", "ZIP / postal code shape"),
     (r"\b\d{1,4}\s+(?:[A-Z][a-z]+\s){1,3}(?:Ave|Avenue|St|Street|Rd|Road|Blvd|Boulevard|Dr|Drive|Ct|Court|Ln|Lane|Way|Pl|Place|Ter|Terrace)\b",
      "street address"),
-    (r"\bAPN\b|\bparcel\s+number\b", "parcel number"),
+    # an actual parcel identifier: a number, or a number-shaped token, not the words themselves.
+    (r"\bAPN\s*[:#]?\s*\d|\bparcel\s+(?:number|no\.?)\s*[:#]\s*\d|\b\d{3}-\d{3}-\d{3}\b",
+     "parcel number"),
     (r"\bCupertino\b|\bSunnyvale\b|\bSan Jose\b|\bPalo Alto\b|\bSaratoga\b|\bLos Altos\b|\bOuter Sunset\b",
      "city or neighbourhood identifier"),
 ]
@@ -162,6 +193,8 @@ class Check(HTMLParser):
 pages = sorted(p.name for p in OUT.glob("*.html"))
 config_text = CONFIG.read_text() if CONFIG.exists() else ""
 for directory in DEPLOYMENT_EXCLUSIONS:
+    if "/" in directory:
+        continue          # a nested path is excluded in _config.yml but is not a top-level dir
     if not re.search(rf"^\s*-\s*[\"']?{re.escape(directory)}[\"']?\s*$", config_text, re.M):
         errors.append(f"_config.yml: required deployment exclusion missing for {directory}")
 # Fail closed: every visible top-level directory except public-safe/ must either be
@@ -207,6 +240,43 @@ for p in OUT.rglob("*"):
 
     if p.suffix == ".html":
         Check(p).feed(text)
+
+# ---------------------------------------------------------------------------------------
+# The failure that let household figures stay public: the identifier and rounding checks ran
+# on one curated directory while sixteen other directories were being served. The check below
+# runs over every published directory, so a published page cannot carry a city, a
+# neighbourhood, a postcode, a street, a parcel number or an unrounded amount unnoticed.
+for pub in sorted(PUBLISHED_DESKS):
+    root = Path(pub)
+    if not root.exists():
+        errors.append(f"published desk is missing from the working tree: {pub}")
+        continue
+    # fail closed on the page set: a page appearing or vanishing unnoticed is the same class of
+    # fault as the one that let sixteen desks go out unreviewed.
+    expected = EXPECTED_PAGES_BY_DIR.get(pub)
+    if expected is not None:
+        actual = {str(p.relative_to(root)).replace("\\", "/")
+                  for p in root.rglob("*.html") if "_src" not in p.parts}
+        for missing in sorted(expected - actual):
+            errors.append(f"{pub}: expected page is missing: {missing}")
+        for extra in sorted(actual - expected):
+            errors.append(f"{pub}: unexpected published page (add it to EXPECTED_PAGES_BY_DIR "
+                          f"once it has been reviewed): {extra}")
+    for p in root.rglob("*.html"):
+        if "_src" in p.parts:
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        visible = re.sub(r"<a\b[^>]*>.*?</a>", " ", text, flags=re.S)
+        visible = re.sub(r"<[^>]+>", " ", visible)
+        for pattern, label in PII[:6]:      # shape-based patterns only, not the dollar rule
+            m = re.search(pattern, visible, re.I)
+            if m:
+                errors.append(f"{p}: {label} on a published page: {m.group(0)[:30]!r}")
+        if re.search(r"<script|<iframe|<form|<object|<embed", text, re.I):
+            errors.append(f"{p}: active content on a published page")
+        # every published page must be a file Jekyll will serve, and must not be a symlink
+        if p.is_symlink():
+            errors.append(f"{p}: symlink in a published desk")
 
 if errors:
     raise SystemExit("\n".join(sorted(set(errors))))

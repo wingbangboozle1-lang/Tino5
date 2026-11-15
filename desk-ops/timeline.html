@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Timeline — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>The deadlines, as a timeline</h1>
+<p class="lede">Nine dates bind this transfer. Two of them are lost by doing nothing, one is lost by
+moving out, and one is lost by selling before filing. Each is quoted with the rule that creates it.</p>
+<div class="wrap"><table class=""><thead><tr><th>When</th><th>What must happen</th><th>The rule</th><th>Source</th></tr></thead><tbody><tr><td><b>At the date of death</b></td><td>Title moves to the heir (or the trust continues to hold it). The date fixes the value for the federal estate and the new basis.</td><td>RTC 63.2 treats a transfer by death as a transfer, whether or not it is in a trust.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Before the first anniversary</b> <span class="tag t-stat">statutory</span></td><td>The heir must occupy, and file the homeowners&#x27; or disabled veterans&#x27; exemption.</td><td>RTC 63.2(a)(1)(A) and (B): both limbs are conditions of the exclusion.</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Within three years</b> <span class="tag t-stat">statutory</span></td><td>File the intergenerational transfer exclusion claim with the county assessor, sooner if the house is sold.</td><td>RTC 63.2(b): no exclusion unless a claim is filed; the claim itself is not a public document (RTC 63.2(c)).</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Within six months of a supplemental or escape notice</b> <span class="tag t-stat">statutory</span></td><td>A late claim is still timely if filed in this window.</td><td>BOE LTA 2026/026.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Nine months after death</b> <span class="tag t-stat">statutory</span></td><td>File Form 706 above the filing threshold, or to elect portability.</td><td>IRS: nine months, with an automatic six-month extension on Form 4768.</td><td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Every second 16 February</b></td><td>The intergenerational value cap is adjusted for the FHFA California house price index.</td><td>BOE LTA 2025/009: next adjustment February 2027.</td><td><a href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>While the house is owned</b> <span class="tag t-stat">statutory</span></td><td>If the heir stops occupying, the exclusion ends and the base year value is re-enrolled at the next lien date.</td><td>RTC 63.2(a)(1)(B) and (C).</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>10 December and 10 April</b> <span class="tag t-stat">statutory</span></td><td>First and second secured property-tax instalments become delinquent.</td><td>County compilation: a 10% penalty, then 1.5% a month from 1 July.</td><td><a href="https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr><tr><td><b>Annually, from now</b></td><td>Re-read the federal exclusion, the cap adjustment, the local rate area and the two policy questions (parcel tax, city transfer tax).</td><td>This desk carries each one forward and marks it.</td><td><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" rel="noopener noreferrer nofollow" target="_blank">official</a></td></tr></tbody></table></div>
+<h2>The order of operations after a death</h2>
+<ol>
+<li><b>Days 1–30.</b> Secure the property, notify the insurer, and order an independent appraisal
+as of the date of death. The appraisal fixes both the estate value and the new basis; it cannot be
+obtained later with the same authority.</li>
+<li><b>Days 30–90.</b> The trustee confirms title and the trust's terms, and the change in
+ownership is reported to the assessor. The assessor will learn of the transfer whether or not the
+heir volunteers it.</li>
+<li><b>Before the first anniversary.</b> The heir moves in and files for the homeowners' exemption.
+This is the single date that decides whether the exclusion is available at all.</li>
+<li><b>Before the third anniversary, and before any sale.</b> The intergenerational claim is filed.
+Selling first closes the window.</li>
+<li><b>Nine months after death.</b> Form 706 is filed if the estate is above the threshold, or to
+elect portability. The extension is six months and must be requested.</li>
+<li><b>Every year.</b> The assessed value and the two policy questions are re-read. Each is carried
+forward on the model and marked.</li>
+</ol>
+<div class="flag"><b>What is not on this timeline because nobody knows it yet.</b> The date of death,
+and therefore every date above, is unknown. <span class="tag t-gap">unverified</span> The timeline is stated relative to the
+death for that reason. It should be turned into a dated calendar the month the death occurs.</div>
+
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta name="google" content="notranslate">
+<title>Phased entry — inheritance decision desk</title>
+<style>
+:root{--ink:#16202b;--mute:#5c6773;--line:#dde3ea;--bg:#f7f9fb;--card:#fff;--accent:#1b4965;
+--accent2:#2e6f95;--warn:#8a4b00;--warnbg:#fff6e5;--bad:#8c1c13;--badbg:#fdecea;--ok:#1e5b3a;
+--okbg:#eaf6ef;--prop:#3d4f8a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--ink);background:var(--bg)}
+a{color:var(--accent2)}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;
+position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
+header.top .brand{font-weight:650;color:var(--accent);letter-spacing:.01em}
+header.top nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+header.top nav a{text-decoration:none;color:var(--mute)}
+header.top nav a:hover{color:var(--accent2)}
+main{max-width:1120px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:30px;line-height:1.2;margin:.2em 0 .35em;color:var(--accent)}
+h2{font-size:21px;margin:2.1em 0 .5em;padding-bottom:.25em;border-bottom:2px solid var(--line)}
+h3{font-size:17px;margin:1.5em 0 .35em}
+p,li{max-width:78ch}
+.lede{font-size:18px;color:#2b3a49}
+small,.small{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.card h3{margin-top:0}
+a.card{text-decoration:none;color:inherit;display:block}
+a.card:hover{border-color:var(--accent2);box-shadow:0 1px 0 var(--line)}
+.answer{background:linear-gradient(180deg,#fff,#f4f8fb);border:1px solid #c9d8e4;
+border-left:5px solid var(--accent);border-radius:10px;padding:16px 19px;margin:18px 0}
+.answer h3{margin:.1em 0 .5em;color:var(--accent)}
+.flag{background:var(--warnbg);border:1px solid #e8cf9e;border-left:4px solid var(--warn);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.flag b{color:var(--warn)}
+.stop{background:var(--badbg);border:1px solid #f0c3bd;border-left:4px solid var(--bad);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+.stop b{color:var(--bad)}
+.ok{background:var(--okbg);border:1px solid #bfe0cd;border-left:4px solid var(--ok);
+border-radius:8px;padding:11px 14px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.2px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef3f7;font-weight:620;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+color:#3d4b5a;position:sticky;top:0}
+tbody tr:hover{background:#fafcfe}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.wrap table{margin:0;border:0}
+.stat{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;
+padding:1px 6px;border-radius:4px;vertical-align:1px}
+.t-ver{background:#e3f0e8;color:#1e5b3a}
+.t-own{background:#eceff3;color:#41505f}
+.t-ass{background:#eef0fb;color:#3d4f8a}
+.t-gap{background:#fff1d6;color:#8a4b00}
+.t-stat{background:#e8eef6;color:#1b4965}
+.t-no{background:#f6e7e5;color:#8c1c13}
+ul.tight{margin:.3em 0 .9em;padding-left:1.25em}
+ul.tight li{margin:.2em 0}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:16px 0}
+.kpi .k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.kpi .k .v{font-size:25px;font-weight:680;color:var(--accent);font-variant-numeric:tabular-nums;
+line-height:1.15}
+.kpi .k .l{font-size:12.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;
+margin-bottom:5px}
+.kpi .k .n{font-size:13px;color:var(--mute);margin-top:5px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:9px 0}
+summary{cursor:pointer;font-weight:600}
+.bar{height:14px;border-radius:3px;background:var(--accent2);display:block}
+.bar.neg{background:#b5524a}
+.brow{display:grid;grid-template-columns:150px 1fr 110px;gap:9px;align-items:center;margin:3px 0;
+font-size:13px}
+.hist{display:flex;gap:2px;align-items:flex-end;height:90px;margin:10px 0 4px}
+.hist .c{flex:1;background:var(--accent2);border-radius:2px 2px 0 0}
+.hist .c.neg{background:#b5524a}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 22px;color:var(--mute);
+font-size:13px;background:var(--card)}
+.chip{display:inline-block;background:#eef3f7;border:1px solid var(--line);border-radius:14px;
+padding:2px 10px;font-size:13px;margin:2px 4px 2px 0;color:#3d4b5a}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 15px;
+margin:16px 0;font-size:14px}
+nav.toc a{margin-right:14px;white-space:nowrap}
+@media print{
+  header.top,nav.toc,footer{display:none}
+  body{background:#fff;font-size:10.5pt}
+  main{max-width:none;padding:0}
+  h1{font-size:19pt}h2{font-size:13pt;margin-top:1.1em}
+  .card,.wrap,table{border-color:#999;break-inside:avoid}
+  .wrap{overflow:visible}
+  a{color:#000;text-decoration:none}
+  .noprint{display:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<header class="top"><span class="brand">Inheritance decision desk</span>
+<nav><a href="index.html">Start</a><a href="decision.html">The decision</a><a href="paths.html">All eight paths</a><a href="phased.html">Phased entry</a><a href="swans.html">Uneven economy</a><a href="projections.html">Projections</a><a href="costs.html">Carrying costs</a><a href="taxes.html">Taxes &amp; assessment</a><a href="timeline.html">Timeline</a><a href="questions.html">Questions &amp; gaps</a><a href="suggestions.html">Suggestions</a><a href="brief-sheet.html">Attorney &amp; CPA sheet</a><a href="work-register.html">Requirement register</a><a href="law-watch.html">Law watch</a><a href="glossary.html">Glossary</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="method.html">Method &amp; privacy</a></nav></header>
+<main>
+
+<h1>Selling into a crash: does parking the money first help?</h1>
+<p class="lede">The owner asked for a phased-investing path in the black-swan work: park the sale
+proceeds in 3-month to 2-year Treasuries for 24–36 months after the inheritance, then phase into
+stocks, and test whether that softens the risk of entering the market at the top of a crash. This
+page does exactly that and reports the result against the alternative on the same footing.</p>
+
+<div class="answer">
+<h3>The rule being tested</h3>
+<p>Sell the house. Hold the proceeds in Treasury bills and notes with maturities of three months to
+two years for 24 or 36 months. Then move the money into equities in equal monthly tranches over the
+following twelve months. Compare against selling and investing the whole amount on the first day.</p>
+</div>
+
+<h2>The two drawdowns this is anchored on</h2>
+<div class="wrap"><table class=""><thead><tr><th>Drawdown</th><th>What the official record says</th><th>Source</th></tr></thead><tbody><tr><td>1929</td><td>The Dow fell 89% from its 3 September 1929 peak to 8 July 1932, and did not regain the 1929 high until 23 November 1954.</td><td><a href="https://www.federalreservehistory.org/essays/stock-market-crash-of-1929" rel="noopener noreferrer nofollow" target="_blank">Federal Reserve History</a></td></tr><tr><td>2008</td><td>The S&amp;P 500 fell 57% from its October 2007 peak to its March 2009 trough; house prices fell about 30% from mid-2006 to mid-2009.</td><td><a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer nofollow" target="_blank">Federal Reserve History</a></td></tr></tbody></table></div>
+<p>The model puts the crash at the entry year — the year the heir would have invested — with the
+published annual profile: -31%, -23%, -9% for 1929 and
+-30%, -27% for 2008. The percentages are assumptions laid over the published
+total drawdown, not the published series itself, and are flagged as such. <span class="tag t-ass">assumption</span></p>
+
+<h2>Result: the same rule, five states</h2>
+<div class="wrap"><table class=""><thead><tr><th>State</th><th>Parking</th><th class="num">Sell and invest at once</th><th class="num">Sell, park, then phase in</th><th class="num">Difference</th><th class="num">Per $1,000,000 sold</th></tr></thead><tbody><tr><td>1929</td><td>The Dow fell 89% from its 3 September 1929 peak to 8 July 1932, and did not regain the 1929 high until 23 November 1954.</td><td class="num"><a href="https://www.federalreservehistory.org/essays/stock-market-crash-of-1929" rel="noopener noreferrer nofollow" target="_blank">Federal Reserve History</a></td></tr><tr><td>2008</td><td>The S&amp;P 500 fell 57% from its October 2007 peak to its March 2009 trough; house prices fell about 30% from mid-2006 to mid-2009.</td><td class="num"><a href="https://www.federalreservehistory.org/essays/great-recession-of-200709" rel="noopener noreferrer nofollow" target="_blank">Federal Reserve History</a></td></tr></tbody></table></div>
+<div class="answer"><h3>What the table says</h3>
+<p>Parking is <b>insurance with a price</b>. In the two crash states it adds
+$874,530
+to
+$1,334,820
+per $1,000,000 sold under the 1929 shape and
+$1,486,590
+to
+$1,264,250
+under the 2008 shape. In the baseline it <i>costs</i>
+$200,810
+per $1,000,000, and in the strong-growth state it costs
+$1,551,270.
+Twenty-four months beats thirty-six in three of the five states, because the extra year out of the
+market is pure cost when nothing falls.</p></div>
+
+<h2>Reinvestment risk, stated plainly</h2>
+<div class="flag"><b>The risk the phasing does not remove.</b> Parking the proceeds <i>moves</i> the
+reinvestment risk, it does not delete it. At the end of the parking window the heir still has to
+invest, and the market can fall then instead. A 1929-shaped path has three successive down years, so
+a 24-month park lands the heir in the third one and still helps; a V-shaped fall that bottoms during
+the parking window and recovers before it ends leaves the heir buying higher than if they had never
+parked. The honest description is a trade: certain small cost in ordinary times against a large
+gain in one particular shape of crash.</div>
+
+<h2>The policy this implies, if the household wants the insurance</h2>
+<ul class="tight">
+<li><b>Write it before the money arrives.</b> The decision is easy in hindsight and hard in the
+moment; a written rule is the only defence against selling at the bottom.</li>
+<li><b>Choose the window by the measurement, not by fear.</b> 24 months dominated 36 in three of the
+five states tested here.</li>
+<li><b>Park only what will be invested.</b> Money earmarked for tax, fees or a reserve should not be
+in the phased sleeve at all.</li>
+<li><b>Set the tranche schedule and the end date.</b> Equal monthly tranches over twelve months is
+the rule modelled here; any other rule should be measured the same way.</li>
+<li><b>Name the person who executes it.</b> A policy without an executor is a wish.</li>
+</ul>
+<p><span class="tag t-gap">unverified</span> The Treasury rate used here is an assumed range (F07) because the official daily
+par-yield page did not render in this session. When it does, the parking return should be
+recomputed — the direction of the result will not change, but the size of the premium will.</p>
+
+<footer>
+<p><b>Scope.</b> A decision aid for one household question: when the inherited house arrives,
+should the heir live in it, let it out, or sell it and invest? Every figure is a model output
+from a round modelling base — not either property's value — rounded to $10. Statutory amounts
+are quoted exactly as published and marked. Nothing here is legal, tax or investment advice.</p>
+<p><b>Privacy.</b> No names, streets, parcel numbers, postcodes, cities or neighbourhoods appear
+on this site, and no figure from the household's own records is published at any precision. The
+conclusions are published as break-evens, rankings and rates, which move only slightly across a
+tenfold range of property values — the small movement is caused by a fixed statutory cap and is
+tested and stated on the method page. <a href="method.html">Method &amp; privacy</a> ·
+<a href="privacy/index.html">what was published before</a></p>
+<p><b>Verification.</b> Every table row carries a link to the official document it rests on, or
+says in the row why no official document exists. Unverified material is on
+<a href="flagged.html">Flagged for review</a> and is not used in any conclusion.</p>
+</footer>
+</main></body></html>

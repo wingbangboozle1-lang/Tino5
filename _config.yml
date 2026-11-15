@@ -55,3 +55,31 @@ exclude:
   - "tools-22a32b17"
   - "verify-552"
   - "verification-report.json"
+  # ---------------------------------------------------------------------------------------
+  # Withdrawn from publication 2026-11-15 (session arena-ea3f2cee). Each of these served
+  # household sales values, a household rent, prior-year assessed values, or a city name.
+  # They are kept in the repository as working material and are no longer served.
+  # Excluding a path hides it from the built site; it does NOT remove it from the repository
+  # or from its history. See desk-ops/privacy/index.html for the exposure and the owner-only
+  # actions that remain.
+  - "desk"
+  - "review-092b"
+  - "decision-ad038"
+  - "swan-3a49"
+  - "referee-abae"
+  - "desk-e86"
+  - "tino5-3f269806"
+  - "verify-476"
+  - "decision"
+  - "desk-d75"
+  - "cbe"
+  - "phase-99220"
+  - "cbd"
+  - "inheritance-desk"
+  - "desk-8be2"
+  - "desk-31cb5781"
+  - "decision-d2664fd0"
+  - "desk-9af5443d"
+  # the operating desk's generator is working material, not a page
+  - "desk-ops/_src"
+  - "desk-ops/_src/**"
