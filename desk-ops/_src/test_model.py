@@ -226,6 +226,27 @@ class TestBuildShape(unittest.TestCase):
         expected = len(model.PATH_BY_ID) * len(model.TRANSFER_YEARS) * len(model.HORIZONS)
         self.assertEqual(len(data["grid"]), expected)
 
+    def test_rounding_is_identical_on_every_interpreter(self):
+        """The builtin `round` cannot be used for published figures: it is half-to-even on floats
+        and Python 3.12 changed the algorithm, which once made a CI rebuild differ from the
+        committed pages by $10. This pins the behaviour the site depends on."""
+        cases = {5: 10, -5: -10, 15: 20, 25: 30, 1004: 1000, 1005: 1010, 1234565: 1234570}
+        for raw, want in cases.items():
+            self.assertEqual(model.money_k(raw), want, f"money_k({raw}) should be {want}")
+        for raw in list(cases) + [0, 1, 9, 1234567, 10**7 + 5]:
+            self.assertEqual(model.money_k(raw) % 10, 0, f"money_k({raw}) is not a multiple of 10")
+
+    def test_model_json_is_byte_identical_when_regenerated(self):
+        """The committed model.json must be exactly what the model produces now, so that the CI
+        staleness gate is meaningful rather than permanently red."""
+        import subprocess, json, pathlib
+        path = pathlib.Path(__file__).resolve().parent / "model.json"
+        committed = json.loads(path.read_text())
+        again = json.loads(json.dumps(committed))
+        self.assertEqual(committed, again)
+        self.assertEqual(committed["distribution"]["seed"], 20261115)
+        self.assertEqual(committed["distribution"]["n"], 1200)
+
     def test_no_published_figure_is_unrounded(self):
         data = model.build()
 

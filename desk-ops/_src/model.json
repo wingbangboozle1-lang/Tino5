@@ -4046,7 +4046,7 @@
    "property": "Property A (inherited house)",
    "year": 2027,
    "maintenance": 23180,
-   "capital": 18020,
+   "capital": 18030,
    "fixed_other": 4790,
    "total": 45990
   },
@@ -4093,8 +4093,8 @@
   {
    "property": "Property B (three-unit building)",
    "year": 2028,
-   "maintenance": 18280,
-   "capital": 8740,
+   "maintenance": 18290,
+   "capital": 8750,
    "fixed_other": 9230,
    "total": 36260
   },

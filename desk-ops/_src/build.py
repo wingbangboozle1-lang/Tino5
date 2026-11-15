@@ -1626,7 +1626,14 @@ silently inherited.</p>
                 "inputs while presenting break-evens to four significant figures.",
          "This desk states the gap on its first screen, in the questions register, and on the "
          "flagged page, and prints its break-evens to two decimals."],
-        ["R12", "The repository is public and its site is served to anonymous visitors, while the "
+        ["R12", "Rounding was done with the builtin `round`, which is half-to-even on floats and "
+                "whose algorithm changed in Python 3.12. A handful of published cells therefore "
+                "rounded one way under the interpreter that built them and the other way under the "
+                "interpreter that checked them — a $10 difference that failed the build gate and "
+                "would have been invisible to a reader.",
+         "Rounding is now half-up on a Decimal, which gives the same dollars on every interpreter, "
+         "and a test pins the half-way cases."],
+        ["R13", "The repository is public and its site is served to anonymous visitors, while the "
                 "configuration file itself warned that excluding a directory does not remove it.",
          "Documented in <a href=\"privacy/index.html\">privacy</a>, with the owner-only actions "
          "that remain."],

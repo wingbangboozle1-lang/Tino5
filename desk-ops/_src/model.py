@@ -208,8 +208,18 @@ def mid(key):
 
 
 def money_k(x):
-    """Round model output to the nearest $10. Statutory amounts never pass through here."""
-    return int(round(x / 10.0) * 10)
+    """Round model output to the nearest $10. Statutory amounts never pass through here.
+
+    Deliberately not the builtin `round`. `round` is half-to-even on floats and Python 3.12
+    replaced the underlying algorithm with a correctly rounded one, so a value landing exactly on
+    a half-dollar could round differently under 3.11 and 3.12. That made the committed pages
+    differ from a CI rebuild by $10 in a few cells and failed the staleness gate — and a figure
+    that changes with the interpreter patch level is not auditable. Half-up on a Decimal, so the
+    same input gives the same dollars on any interpreter.
+    """
+    import decimal
+    scaled = decimal.Decimal(str(float(x))) / 10
+    return int(scaled.to_integral_value(rounding=decimal.ROUND_HALF_UP)) * 10
 
 
 def prop19_cap(year):
