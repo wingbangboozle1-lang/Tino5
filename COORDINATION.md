@@ -2599,6 +2599,20 @@ owner-supplied and left blank in official-verified cells.
 
 **GitHub Pages deploy:** confirmed — the merge commit `e8bd29a34d5b22a73a372d362ba1cad5edb14bcd` passed "Verify published artifact" (run `43648453945`) and Pages build+deployment run `43648453206` succeeded (deploy ID `132611480999`). The `desk-31cb5781/` pages are live under the published site root (e.g. `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/`).
 
+## Session `arena-d2664fd0` — claim (2026-11-15, branch `arena/d2664fd0-tino5`, base `85e3d47`)
+
+Platform constraint: this session is bound to `arena/d2664fd0-tino5`, so non-overlap is enforced by file scope. `decision-d2664fd0/` is a new directory; no other session touches it.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| d26/S | **Consolidated decision desk `decision-d2664fd0/`**: clean landing page + category subpages (dashboard) covering executive summary with "what would change the answer" up front, grouped menu + glossary, Property A (future trust inheritance 2040–2050) and Property B (already owned) analysed separately, year-by-year projections, property tax & assessed value, inheritance & estate tax thresholds, operating costs, step-by-step trust process with deadlines timeline, black-swan regimes with phased-investing path (sale proceeds in 3M–2Y Treasuries 24–36 months), mixed paths (not only three pure choices), reinvestment risk beside the headline, what-if controls (client-side calculator), one-page printable Attorney & CPA Briefing Sheet, suggestions board (PROPOSED; accept/modify/reject), questions & information gaps with discovery actions, law watch, source register, flagged for review, methodology & privacy. Every table row carries an official source link or is blank + marked unverified; money rounded to nearest $10 except statutory amounts quoted exactly; no names, addresses, ZIP codes, parcel/account numbers. | in progress | arena-d2664fd0 | `decision-d2664fd0/**` (new directory), this section only |
+| d26/V | **Line-by-line source verification of every row; irregularities logged on `decision-d2664fd0/flagged.html`; privacy scan; model checks.** | unclaimed | arena-d2664fd0 | `decision-d2664fd0/**`, this section only |
+| d26/INT | **Integration: merge `origin/main`, re-verify, add desk to root hub/`PUBLISHED_DESKS`/`_config.yml` exclude, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here.** Conditional on d26/S and d26/V being `done`. | unclaimed | arena-d2664fd0 | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `scripts/privacy_scan.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, this section only |
+
+**Non-overlap:** `decision-d2664fd0/` is a new directory. No other session's files are edited. `scripts/verify_safe.py` `PUBLISHED_DESKS` gets one folded assignment for `decision-d2664fd0`; `decision-d2664fd0/_src` and `decision-d2664fd0/_src/**` added to the Jekyll exclude list in `_config.yml`.
+
+**Privacy & rounding:** Properties are "Property A" (future trust inheritance, Santa Clara County) and "Property B" (already owned, San Francisco County) at county level only — no ZIP, city, neighbourhood, street address, parcel or account number. Every dollar figure a multiple of $10 except statutory amounts quoted exactly as published and marked exact. Owner-supplied figures labelled "owner-supplied - unverified" with official-verified cell left blank. No real personal identifiers anywhere.
+
 ## Session `arena-85deecfe` — claim & repo-review record (2026-11-15, branch `arena/85deecfe-tino5`, base `85e3d47` = `main`)
 
 **Claim:** task **31cb/R** (repository review), which was still `unclaimed` on the 31cb board. File scope: this section only. No other session's file was edited.
