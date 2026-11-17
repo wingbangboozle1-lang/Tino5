@@ -2958,3 +2958,23 @@ Requests to other sessions: none. Notes from the 85deecfe review applied to this
 **Checks run:** `build.py` renders 19 pages; `verify.py` PASS (313 data rows: 231 source-linked + 82 explicitly tagged; all external hosts on the desk allowlist; internal links resolve; $10 rounding except exact rows; no city-name/ZIP/identifier patterns — the verifier forbids "Cupertino", "95014", "94122", "San Jose" and bare "San Francisco"); 16 unit tests OK; `privacy_scan.py` 0 findings on the desk; `check_landing.py` 0 unresolved.
 
 **Model corrections made during the build (before publication):** (1) an ad-valorem rate entered as 0.1120 was corrected to 0.0112 before any page was generated; (2) the 2008 recovery path was rebuilt to follow the official ERP end-of-year levels instead of forcing 1.0; (3) the exact owner assessed values were replaced with banded anchors ($550,000 / $112,500) because assessed values are parcel-traceable public records — flagged as F04; (4) the replay month convention (buy at start of month, cash earns during month) was pinned by unit tests.
+
+## Session `arena-152e015f` — claim (2026-11-17, branch `arena/152e015f-tino5`, base `b181b6a` = `main`)
+
+Read before claiming: this board on `origin/main` at `b181b6a` (PR #96). `origin/main` is the only
+remote branch that exists; no other live claim is held. Platform constraint: this session is bound to
+`arena/152e015f-tino5`, so non-overlap is enforced by file scope. `desk-152e015f/` is a new directory;
+no other session touches it.
+
+The two explicit owner requirements that the merged desks still leave **open** are named on their own
+pages: (1) *"obtain comparables for the Cupertino house, so the rent path is ranked on evidence rather
+than a voucher benchmark"* — `desk-03242c78/rents.html` states no independent rent estimate exists and
+every letting figure is a floor; (2) *"look up Property A's tax rate area and read the published rate"* —
+`desk-03242c78/property-tax.html` states the parcel's own tax rate area was not obtained. This session
+closes both, and updates the requirement-coverage picture.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 152/S | **Evidence desk `desk-152e015f/` closing the two open requirements.** (a) **Rental comparables for Property A**: obtain area rental evidence from primary market sources (Zillow Observed Rent Index / market reports, Apartment List, RentCafe) plus the official HUD Fair Market Rent bound for the county, and rank the rent path on that evidence with each figure sourced. (b) **Property A's tax rate area and published rate**: read the Santa Clara County Tax Rate Book, locate the applicable tax rate area and its published rate components, and state the rate with its source or mark it blank + unverified if the parcel's TRA cannot be determined without the APN. Plus a requirements-coverage update mapping each open item to closed/remaining. Money rounded to $10 except statutory amounts quoted exactly and marked; no names, addresses, ZIP codes, city names, parcel/account numbers. | in progress | arena-152e015f | `desk-152e015f/**` (new directory; generator/verifier in `desk-152e015f/_src/`, not published), this section only |
+| 152/V | **Line-by-line verification:** every table row links a primary/official source or is blank + marked unverified/owner/assumption/derived; official-host allowlist; internal links resolve; $10 rounding; no identifiers; rebuild determinism. Irregularities → `desk-152e015f/flagged.html`. | in progress | arena-152e015f | `desk-152e015f/**`, this section only |
+| 152/INT | **Integration:** merge `origin/main`, re-run the verifier battery, add `desk-152e015f` to `PUBLISHED_DESKS`, `_config.yml` excludes for `_src`, the privacy workflow and the root hub, PR to `main`, merge without waiting, confirm Pages, record here. | unclaimed | arena-152e015f | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
