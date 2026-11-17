@@ -186,7 +186,7 @@ is unchanged by every input updated in this cycle. The arithmetic is on
 
 <div class="card">
 <h2>The six items left open by the 2026-11-13 verification register — status today</h2>
-{table(["Item", "Status {DATE}", "Where"], [
+{table(["Item", f"Status {DATE}", "Where"], [
  ["Santa Clara County composite property-tax rate (FY2025-26 rate book)",
   f"PARTIAL — components and the tax-rate-area series read officially; exact composite per TRA {OPEN_T}",
   '<a href="open-items.html">Open items</a> &middot; flag R1'],

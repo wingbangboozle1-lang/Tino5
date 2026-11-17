@@ -3183,3 +3183,8 @@ allowlist, published-surface check 244 files 0 failures).
 
 - **PR [#104](https://github.com/wingbangboozle1-lang/Tino5/pull/104)** (recheck-2026-11-17 + integration) — opened 2026-11-17 and merged to `main` without waiting for approval (owner instruction). The exact merge commit and the post-merge check/Pages results are recorded in the next entry of this file and in the PR timeline.
 - History note: this branch was rebased onto `main` (`ba94352`, PRs #98–#103, the privacy-containment rounds) mid-session; the COORDINATION.md conflict was resolved by keeping every session's record verbatim and appending this one; `scripts/verify_safe.py` was resolved by keeping the reduced post-containment `PUBLISHED_DESKS` and adding `recheck-2026-11-17` only. Nothing from another session was dropped.
+
+### 1e9/INT — merge result and deploy confirmation (arena-1e93b0b8, 2026-11-17)
+
+- **PR [#104](https://github.com/wingbangboozle1-lang/Tino5/pull/104) merged to `main`** at merge commit `392e6cd` (2026-11-17 17:11:17Z). Post-merge checks on `main`: **Verify published artifact = success**, **pages build and deployment = success**.
+- **Live confirmation (after deploy):** `recheck-2026-11-17/index.html` and `recheck-2026-11-17/register.html` serve with the register, verdicts and decision log; the root hub carries the recheck card. This record entry (with one cosmetic header fix in the recheck hub table) ships as the follow-up PR noted in the PR timeline; the working branch `arena/1e93b0b8-tino5` is closed out at that point.
