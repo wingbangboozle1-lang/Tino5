@@ -20,7 +20,10 @@ if HERE not in sys.path:
     sys.path.insert(0, HERE)
 import sources as src  # noqa: E402
 
-TODAY = date.today().isoformat()
+# Pinned to the date of the last content build (2026-11-15). It was date.today(), which made the
+# generated pages change on every new day and failed the workflow's "generated pages are current"
+# check (arena-c4161fb6, 2026-11-17). Update this constant when the content is rebuilt.
+TODAY = "2026-11-15"
 SITE_TITLE = "Estate decision desk — Property A (inherited) & Property B (already owned)"
 
 # ----------------------------------------------------------------------------- site shell
