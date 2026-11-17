@@ -38,7 +38,7 @@ SRC = {
                  "https://www.boe.ca.gov/proptaxes/proposition19.htm"),
  "ftb":         ("California Franchise Tax Board — California has no state estate tax and no inheritance tax; inherited property not taxable income to recipient",
                  "https://www.ftb.ca.gov/"),
- "sjwater":     ("San Jose Water Company — serves Cupertino; approved residential tiered quantity rates and monthly service charge (Advice Letter 599)",
+ "sjwater":     ("Water utility tariff, Advice Letter 599 (tariff reference only; the parcel's water provider is not confirmed); approved residential tiered quantity rates and monthly service charge",
                  "https://www.sjwater.com/media/kccm45hy/san-jose-water-company-al-599-approved_0.pdf"),
  "sfpuc":       ("SFPUC — Water & Sewer Rates, Proposition 218 notice (FYE 2026–2028; rates effective 7/1/2026); average single-family combined bill ~$171–$189/mo",
                  "https://www.sfpuc.gov/accounts-services/water-power-sewer-rates/proposed-water-sewer-rates-2026/proposition-218-notice"),
@@ -285,7 +285,7 @@ rc_body = f"""
 <table>
 <thead><tr><th>Cost</th><th>Monthly</th><th>Annual</th><th>Notes</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td>Water</td><td>{m0(100)}–{m0(150)}</td><td>{m0(1200)}–{m0(1800)}</td><td>Owner estimate; San Jose Water serves Cupertino</td><td>{tag('owner')} {src('sjwater')}</td></tr>
+<tr><td>Water</td><td>{m0(100)}–{m0(150)}</td><td>{m0(1200)}–{m0(1800)}</td><td>Owner estimate; parcel's water provider not yet confirmed</td><td>{tag('owner')} {src('sjwater')}</td></tr>
 <tr><td>Electricity</td><td>~$0 (solar credit {m0(10)}–{m0(20)}/mo profit)</td><td>~$0 (+{m0(120)}–{m0(240)}/yr credit)</td><td>Solar + NEM; owner estimate</td><td>{tag('owner')}</td></tr>
 <tr><td>Home insurance (primary residence)</td><td>~{m0(125)}/mo</td><td>~{m0(1500)}/yr</td><td>Owner estimate; no property-specific premium verified. Obtain written quotes from licensed insurers and check the California Department of Insurance resources.</td><td>{tag('owner')} {src('doi')}</td></tr>
 <tr><td>Maintenance &amp; repair</td><td>—</td><td>{m0(150)}–{m0(300)}/yr placeholder</td><td>Owner: less than San Francisco house</td><td>{tag('owner')}</td></tr>
@@ -307,7 +307,7 @@ rc_body = f"""
 <table>
 <thead><tr><th>Utility</th><th>Published reference</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td>Water — Cupertino area</td><td>San Jose Water tiered quantity rates + monthly service charge (5/8" meter ~{m0(53)}/mo)</td><td>{src('sjwater')}</td></tr>
+<tr><td>Water — tariff reference</td><td>Tariff reference: tiered quantity rates + monthly service charge (5/8" meter ~{m0(53)}/mo)</td><td>{src('sjwater')}</td></tr>
 <tr><td>Water + sewer — San Francisco</td><td>SFPUC FYE 2026–28; average single-family combined bill ~{m0(171)}–{m0(189)}/mo before July 2026 increase</td><td>{src('sfpuc')}</td></tr>
 <tr><td>Electricity — PG&E (both counties)</td><td>Residential average ~33.7¢/kWh (June 2026) + Base Services Charge ~{m0(24)}/mo</td><td>{src('pge')}</td></tr>
 <tr><td>Insurance — California</td><td>Homeowners statewide avg ~{m0(1320)}–{m0(2210)}/yr; landlord DP-3 ~{m0(1200)}–{m0(2500)}/yr; FAIR Plan ~{m0(3000)}/yr + DIC wrap</td><td>{src('doi')} {src('fairplan')}</td></tr>
@@ -463,8 +463,8 @@ q_body = f"""
 <tr><td>2</td><td>Property A current market value at transfer (future, ~2040–2050)</td><td>Unknown; Nov 2026 anchor {m0(3100000)} (owner input)</td><td>owner</td><td>Professional appraisal at time of transfer</td></tr>
 <tr><td>3</td><td>Will the heir occupy Property A within 1 year of transfer?</td><td>Not yet decided</td><td>unverified</td><td>Heir's stated intent; this drives Prop 19 eligibility</td></tr>
 <tr><td>4</td><td>Total estate size vs. $15,000,000 federal exclusion (2026)</td><td>"Considerable amount of money" may push estate near/above threshold</td><td>unverified</td><td>Estate inventory; CPA/estate attorney; Form 706 analysis</td></tr>
-<tr><td>5</td><td>Homeowners insurance premium for Property A (Cupertino)</td><td>~{m0(1500)}/yr (owner estimate; unverified)</td><td>unverified</td><td>Quotes from admitted carriers; CA Dept. of Insurance rate tools</td></tr>
-<tr><td>6</td><td>Water/sewer and electricity cost for Property A after inheritance</td><td>Owner estimates (see Running Costs)</td><td>unverified</td><td>San Jose Water / PG&E service-estimate requests at the address</td></tr>
+<tr><td>5</td><td>Homeowners insurance premium for Property A</td><td>~{m0(1500)}/yr (owner estimate; unverified)</td><td>unverified</td><td>Quotes from admitted carriers; CA Dept. of Insurance rate tools</td></tr>
+<tr><td>6</td><td>Water/sewer and electricity cost for Property A after inheritance</td><td>Owner estimates (see Running Costs)</td><td>unverified</td><td>water and electric service-estimate requests at the address</td></tr>
 <tr><td>7</td><td>Property B landlord insurance (DP-3) cost</td><td>~{m0(1500)}/yr (owner estimate; unverified)</td><td>unverified</td><td>Landlord-insurance quotes; FAIR Plan if in fire zone</td></tr>
 <tr><td>8</td><td>Rent roll &amp; vacancy for Property B (2 of 3 units rented)</td><td>{m0(7150)}/mo (owner input)</td><td>owner</td><td>Lease agreements; property-management statement</td></tr>
 <tr><td>9</td><td>Pending law changes (Prop 13/19 amendments, federal exclusion changes, §121)</td><td>Tracked on Law Watch page</td><td>unverified</td><td>CA Legislature, BOE, IRS, Congress bill tracking</td></tr>
@@ -559,7 +559,7 @@ glos_body = """
 <table>
 <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
 <tbody>
-<tr><td>Property A</td><td>The Cupertino-area house to be inherited through a trust (~2040–2050). Published at county level only.</td></tr>
+<tr><td>Property A</td><td>The Santa Clara County house to be inherited through a trust (~2040–2050). Published at county level only.</td></tr>
 <tr><td>Property B</td><td>The San Francisco house already owned outright (3 units, 2 rented). Published at county level only.</td></tr>
 <tr><td>Step-up in basis (IRC §1014)</td><td>Inherited asset's tax basis reset to fair market value at date of death.</td></tr>
 <tr><td>Prop 13</td><td>CA rule: 1% general property tax; assessed value rises ≤2%/yr absent change in ownership/new construction.</td></tr>
@@ -592,7 +592,7 @@ pages["sources.html"]=dict(title="Source register", dek="Every citation used on 
 flag_rows=[
  ["F01","Property A & B market values, rents, utilities, insurance","Owner-supplied; no official confirmation","owner","Obtain appraisals and insurance quotes; county assessor for assessed values"],
  ["F02","Property A current assessed (factored base year) value","Not published (private)","unverified","Santa Clara County Assessor / latest tax bill"],
- ["F03","Insurance premium for Property A (Cupertino)","~$1,500/yr owner estimate","unverified","Binding quote from admitted carrier / CA Dept. of Insurance"],
+ ["F03","Insurance premium for Property A","~$1,500/yr owner estimate","unverified","Binding quote from admitted carrier / CA Dept. of Insurance"],
  ["F04","Future federal estate exclusion & Prop 19 allowance","Change over time; 2026 values shown","unverified","Re-check IRS / BOE before 2040–2050 transfer"],
  ["F05","Projection growth rates (3%–6%)","Assumption, not a forecast","assumption","Sensitivity table on Projections page"],
  ["F06","Prior sessions' full-precision figures remain in public git history","Privacy risk","flag","Owner decision: repository visibility or history rewrite"],
