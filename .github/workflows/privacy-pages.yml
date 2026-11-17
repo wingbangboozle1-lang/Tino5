@@ -20,6 +20,8 @@ jobs:
 
       - name: Earlier release (public-safe/)
         run: python scripts/verify_safe.py
+      - name: Owner-figure gate (no raw bill or roll figures on the published surface)
+        run: python3 scripts/owner_figures_gate.py
       - name: Decision desk (review-092b/) — rebuild, then verify
         run: |
           python review-092b/_src/build.py

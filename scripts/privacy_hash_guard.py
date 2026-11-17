@@ -42,6 +42,7 @@ GUARD_CODE_ALLOWLIST = {
     "desk-e86/verify.py", "inheritance-desk/_src/verify.py", "phase-99220/_src/verify.py",
     "referee-abae/_src/test_build.py", "review-092b/_src/test_review_092b.py",
     "review-092b/_src/verify.py", "scripts/test_model_v5.py", "scripts/verify_safe.py",
+    "scripts/verify_desk_v5.py",
     "swan-3a49/build.py", "tino5-3f269806/_src/verify.py", "verify-552/verify.py",
 }
 

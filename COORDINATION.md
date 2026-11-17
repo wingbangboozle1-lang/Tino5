@@ -2959,6 +2959,64 @@ Requests to other sessions: none. Notes from the 85deecfe review applied to this
 
 **Model corrections made during the build (before publication):** (1) an ad-valorem rate entered as 0.1120 was corrected to 0.0112 before any page was generated; (2) the 2008 recovery path was rebuilt to follow the official ERP end-of-year levels instead of forcing 1.0; (3) the exact owner assessed values were replaced with banded anchors ($550,000 / $112,500) because assessed values are parcel-traceable public records — flagged as F04; (4) the replay month convention (buy at start of month, cash earns during month) was pinned by unit tests.
 
+## Session `arena-c4161fb6` — claim (2026-11-17, branch `arena/c4161fb6-tino5`, base `b181b6a` = `main` after PR #96)
+
+Read before claiming: this board, the 85a/032/992 records, open PRs #91 and #93 (other sessions' unmerged branches; not touched here), and `main` at `b181b6a`. Local clone is shallow (1 commit); the public remote history has roughly 3,500 commits.
+
+Audit finding on the **live** Pages surface (not caught by `verify_safe.py` or `privacy_scan.py`):
+1. `review-092b/questions.html` (published) prints the owner's exact 2025 tax bill and roll value (`[exact bill] / [exact roll]`) and an exact derived rate (`[exact rate]`). A 4-decimal rate derived from exact figures is a fingerprint.
+2. `desk-31cb5781/` (published) names the city on its pages (`Property A`, "San Jose Water serves Property A", "Property A (Property A)") although its own generator header forbids neighbourhood and city names.
+3. The public git history contains the owner's pre-rounding figures (see R01–R08 / F19 in earlier records). Rewriting `main` would invalidate open PRs and every session branch, and cannot recall copies already cloned. **Not performed in this session; needs an explicit owner decision** (see the record below).
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| c41/P1 | Contain the live leaks in `review-092b/` (remove exact bill/roll values and the exact derived rate; publish the rounded rate only) and in `desk-31cb5781/` (remove city and neighbourhood names from published text; regenerate). | in progress | arena-c4161fb6 | `review-092b/_src/engine.py`, `review-092b/_src/build.py`, `review-092b/*.html`, `desk-31cb5781/_src/build.py`, `desk-31cb5781/*.html`, this section only |
+| c41/P2 | Add a regression gate that fails if the owner's exact bill / roll figures appear on any published page (salted-hash denylist, so no plaintext figures are added to the tree). | in progress | arena-c4161fb6 | `scripts/owner_figures_gate.py`, `.github/workflows/privacy-pages.yml` (one step), this section only |
+| c41/INT | Integration: run all gates, PR to `main`, merge without waiting, confirm Pages, record here. | pending | arena-c4161fb6 | `COORDINATION.md`, `PUBLISHED_DESKS`/hub only if needed |
+
+### c41/P1 + c41/P2 — completion record (arena-c4161fb6, 2026-11-17)
+
+**Changes (published surface only; no other session's file was edited):**
+
+1. `review-092b/` — the exact 2025 bill (`[exact bill]`) and roll value (`[exact roll]`) are no longer published, and the exact derived rate `[exact rate]` is replaced by the rounded `1.34` in the engine (`_src/engine.py`) and every page (`_src/build.py`). The derivation text now says the inputs are withheld. Rebuilt 11 pages and `summary.json`. Effect on the model: annual property tax for Property A moves by $20–$30 a year (for example first-year tax 63,370 → 63,590 at the 2045 transfer). The recommendation did not change: the Base row still labels sale at the transfer date as the winner, and the winning-path label in every stress regime is unchanged (S4 still reads "rent"; the others "sell"). Only the dollar figures and reinvestment thresholds moved, by under 0.01 percentage points; the diff lists them.
+2. `desk-31cb5781/` — the generator (`_src/build.py`) names no city and no neighbourhood on any published page now (the earlier pages said "Property A" five times and named the water provider as serving the city). The water utility's tariff remains a labelled tariff reference, and the parcel's provider is shown as not confirmed. Rebuilt; verifier PASS.
+3. `scripts/owner_figures_gate.py` (new, P2) — fails the build if a raw (not a multiple of $10) comma-formatted owner bill or roll figure appears on the published surface (root `index.html` plus every `PUBLISHED_DESKS` directory and `public-safe/`). The denylist holds **salted SHA-256 digests only** (40 raw values), so no owner figure is added in plaintext. Self-test: a planted `[exact bill]` and `[exact roll]` made it FAIL (exit 1); removing the planted file made it PASS. Wired into `.github/workflows/privacy-pages.yml` as one step.
+
+**Why the gate was needed:** `verify_safe.py` and `privacy_scan.py` both passed on the leaking tree, because they check rounding and identifier shapes, not the owner's specific values.
+
+**Verification run on the final tree:**
+
+| Check | Result |
+|---|---|
+| `scripts/owner_figures_gate.py` | PASS — 334 published text files, 0 raw owner figures |
+| `scripts/verify_safe.py` | PASS — 13 pages, 125 source-linked rows, local targets resolve |
+| `scripts/check_landing.py` | 23 targets, 0 unresolved |
+| `scripts/privacy_scan.py --summary` | 0 findings |
+| `review-092b/_src/verify.py` | PASS — 11 pages, 256 rows all source-linked, every amount a multiple of $10 |
+| `review-092b/_src/test_review_092b.py` | 25 tests OK |
+| `desk-31cb5781/_src/verify.py` | PASS (the existing $3–$189 non-$10 warnings are statutory/fee amounts already tagged) |
+
+**Irregularities and owner decisions (logged for review; nothing here was changed):**
+
+- **I-1 Public git history (owner decision required).** The remote is public with about 3,500 commits (the clone here is shallow). Pre-rounding owner figures are in those commits (R01–R08 / F19). A history scrub is a force-push to `main`; it would invalidate open PRs #91 and #93 and every session branch, and it cannot recall copies that were already cloned or cached. **Not performed.** If you want it, the plan is a `git filter-repo` run on a mirror clone, a force-push with `--force-with-lease`, and a notice to the open branches. Reply with an explicit yes and it can be run.
+- **I-2 Rounded history series is published on `cbe/properties.html`.** It shows the owner's 2014–2025 tax and assessed-value history rounded to $10. Your brief asked for $10-rounded tax and assessment tables, but the repository README says year-by-year histories are not published at any precision (a rounded series can still be matched against open assessor rolls). This is a direct conflict between your instruction and the repository's stated policy. **Recommendation: withdraw the series** (or keep only the current-year figure). Left unchanged here pending your decision.
+- **I-3 Open PRs from other sessions.** PR #91 (`arena/9436c01c-tino5`) and PR #93 (`arena/ea3f2cee-tino5`) are open and unmerged. Not touched by this session. #93 edits `.github/workflows/privacy-pages.yml`, `scripts/verify_safe.py` and `COORDINATION.md`, which this session also edits (one workflow step added), so whichever merges second will need a rebase. Not resolved here, because the merge order is the owner's call.
+- **I-4 Gate limits.** The gate checks comma-formatted numbers only (`[exact bill]`), not unformatted `7207`; a rounded $10 value is permitted by the owner's policy and is not checked; it does not scan images or PDFs.
+- **I-5 Water tariff reference.** The water utility's name remains as a tariff reference (`desk-31cb5781`, the Advice Letter 599 link). The parcel's water provider is not confirmed.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| c41/P1 | Containment of the live leaks in `review-092b/` and `desk-31cb5781/` | done (see record above) | arena-c4161fb6 | `review-092b/**`, `desk-31cb5781/**`, this section |
+| c41/P2 | Owner-figure regression gate | done (self-tested; wired into the privacy workflow) | arena-c4161fb6 | `scripts/owner_figures_gate.py`, `.github/workflows/privacy-pages.yml` |
+| c41/INT | Integration: PR to `main`, merge without waiting, confirm Pages, record here | in progress | arena-c4161fb6 | `COORDINATION.md` |
+
+### c41/INT — follow-up record (arena-c4161fb6, 2026-11-17): failed check on `main` after PR #98
+
+- PR #98 merged as `273acad`. The **Verify published artifact** workflow then **failed** on that commit (the run log could not be downloaded). Replaying every `run:` step of `privacy-pages.yml` locally reproduced it: the **desk-8be2 "generated pages are current"** check. Cause: `desk-8be2/_src/build.py` used `date.today()` in its footer, so the pages changed on every new day (built 15 Nov; check run 17 Nov). It was the only generator in the repository with a run-date dependence (grep of all `_src` builders).
+- Fix (PR #99): the footer date is pinned to `2026-11-15`, the date of the last content build, so the published text is unchanged and the output is reproducible. Full replay of all steps after the fix: exit 0.
+- **Note for the owner:** the failure was not caused by the privacy changes in PR #98; it is a latent date dependence that existed on `main` from the 15 Nov build and would have failed on any later day.
+- Open items unchanged: I-1 (history scrub, owner decision), I-2 (rounded history series on `cbe/properties.html`, owner decision), I-3 (PRs #91 and #93 open).
+
 ## Session `arena-c9f0d60a` — privacy containment claim (2026-11-17, branch `arena/c9f0d60a-tino5`, base `b181b6a` = `main`)
 
 Read before claiming: this board on `main` at `b181b6a` and the remote branch list (`git fetch origin`). No claim on the
@@ -2985,3 +3043,11 @@ verify commands are re-run after the scrub, and the results are recorded below.
 - **Repairs made while scrubbing (required for the checks to pass):** guard and verifier word lists were kept as detection logic and not rewritten into placeholders (which would have made the checks forbid the placeholders). Two Python identifiers were fixed (`PROPERTY_A_HISTORY`); a quoted official CDI listing title was re-quoted with `[CITY A]`; desk-9af5443d builder key renamed to match. **Fix on a published page:** `desk-31cb5781` navigation linked to `executive-summary.html`, a page the desk never generates (broken on `main`); the entry now points to the desk index. No figure, row or source link was changed.
 - **Irregularities flagged (see `privacy/index.html`):** (1) `main` history still contains the un-scrubbed text in earlier commits, and clones/forks keep it; rewriting `main` needs an owner decision and coordination (GitHub Docs: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository). (2) The city name still appears in official source web addresses (city utility pages and Census QuickFacts), kept as public city-level sources. (3) Owner-supplied figures remain unverified where no official source confirms them.
 - **Not done in this session (already covered by earlier desks, not duplicated):** a new decision desk, the Form 540 and SF Prop H checks, and the Treasury phased replay. Their current pages are on `main` (desk-03242c78, desk-85a01c5c, desk-9af5443d, phase-99220). Their open items remain on their own flagged pages.
+
+### c9f — merge with `origin/main` (arena-c9f0d60a, 2026-11-17)
+
+- `main` advanced to `41b8f96` (PR #99) while this branch was open. Merged `origin/main` into `arena/c9f0d60a-tino5`. Conflicts were in `COORDINATION.md` and six `desk-31cb5781/` files. Resolution: `main`'s text kept verbatim, this session's section appended, and the containment scrub re-applied on top. Nothing from `main` was dropped.
+- **Exact owner figures found on `main` and replaced with placeholders in the board text** (rounding rule): the 2025 tax bill and roll value (exact, not rounded), and the exact derived rate. Also a self-test example in `scripts/owner_figures_gate.py`. The owner-figure gate on `main` still passes (335 published text files).
+- `scripts/verify_safe.py`: `privacy` added to `PUBLISHED_DESKS` (the new public record page). `scripts/verify_desk_v5.py` added to the guard allow-list (a verifier).
+- Detector files restored to their pre-session text where the second scrub pass had broken their checks (`desk-d75/_src/test_desk_d75.py`, `desk-d75/_src/verify.py`, `scripts/verify_desk_v5.py`, `scripts/verify_safe.py`, `desk-03242c78/_src/verify.py`). These files produce no output.
+- **Final checks on the merged tree:** the 40 workflow build and test commands pass, and so do the 31 Python commands extracted from both workflow files (`privacy-pages.yml`, `desk-verify.yml`). `scripts/privacy_hash_guard.py`: 0 hits in 608 files. `scripts/privacy_scan.py`: 0 findings. `scripts/owner_figures_gate.py`: PASS. `scripts/check_landing.py`: 0 unresolved. Relative-link check: 9,369 references, 1 unresolved (in `src/`, excluded from Pages, already on `main`).

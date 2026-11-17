@@ -63,7 +63,7 @@ DEPLOYMENT_EXCLUSIONS = {
 # sensitivity read from the official FTB instructions, Census ACS rent comparables, the
 # five-year maintenance plan, the estate liquidity plan, a distribution chart and the
 # decision-and-date log. Folded into the same single set.
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
+PUBLISHED_DESKS = {"desk", "privacy", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
                   "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
                   "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0",
                   "desk-9af5443d", "desk-03242c78", "desk-85a01c5c"}

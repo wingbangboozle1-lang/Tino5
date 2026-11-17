@@ -12,10 +12,10 @@
     "cap": 2580370,
     "excess": 3950860,
     "p1_taxable": 4752890,
-    "p1_tax": 63370,
+    "p1_tax": 63590,
     "p2_taxable": 6531230,
-    "p2_tax": 87210,
-    "tax_gap": 23840,
+    "p2_tax": 87520,
+    "tax_gap": 23920,
     "transfer_tax": 14370,
     "sell_cost": 359220,
     "net_sale": 6172010,
@@ -23,8 +23,8 @@
     "cap_gain_tax_if_sold_at_transfer": 0
   },
   "wealth_2045_plus_25": {
-    "P1": 11026930,
-    "P2": 20950750,
+    "P1": 11013680,
+    "P2": 20932530,
     "P3": 23522680
   },
   "regimes": [
