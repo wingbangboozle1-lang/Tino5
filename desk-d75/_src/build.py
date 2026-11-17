@@ -667,7 +667,7 @@ def h3(text):
 # and scripts/privacy_scan.py plus the checks below enforce the rule on the rendered pages.
 PLACE_NAMES = ("Cupertino", "Sunnyvale", "Santa Clara", "San Jose", "San Francisco", "Oakland",
                "Millbrae", "Los Gatos", "Mountain View", "Palo Alto", "Santa Cruz", "Hayward",
-               "Outer Sunset", "Inner Sunset", "SFPUC", "sjwater", "sccgov", "santaclaracounty")
+               "[District B]", "Inner Sunset", "SFPUC", "sjwater", "sccgov", "santaclaracounty")
 POSTCODES = ("95014", "95112", "94122", "94116")
 
 

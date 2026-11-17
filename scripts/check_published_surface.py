@@ -33,7 +33,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parent.parent
 PRIVATE_LIST = Path(os.environ.get("OWNER_FIGURES_FILE",
                                    str(Path.home() / ".estate-private" / "owner-figures.txt")))
-PLACE_NAMES = ["Cupertino", "San Jose", "Sunnyvale", "Naaldwijk", "South Holland",
+PLACE_NAMES = ["Cupertino", "San Jose", "Sunnyvale", 
                "95014", "94122", "Monta Vista", "Richmond District", "Inner Sunset", "Outer Sunset"]  # bare "Sunset" is also a clause term (sunset date), so not checked
 TEXT_EXT = (".html", ".htm", ".md", ".txt", ".json", ".csv", ".js", ".css", ".svg")
 

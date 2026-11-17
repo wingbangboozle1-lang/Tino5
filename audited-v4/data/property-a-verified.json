@@ -1,5 +1,5 @@
 {
-  "property_id": "Property A — Cupertino (ZIP 95014)",
+  "property_id": "Property A — Property A ([ZIP A])",
   "anonymized": true,
   "user_baseline": {
     "estimated_value_nov_2026": 3100000,
@@ -26,21 +26,21 @@
   },
   "official_verified": [
     {
-      "category": "Ad Valorem Property Tax Rate (Cupertino 95014 Districts)",
-      "verified_value": "1.00% Prop 13 base + 0.0388% Co. Retirement + 0.0108% Co. Housing/VMC + 0.0335% Cupertino Elem + 0.0417% Fremont Union High + 0.0311% Foothill-De Anza + 0.0014% Midpen Open Space + 0.0039% SCVWD = ~1.1612% (1.1632% incl. El Camino Hosp); exact parcel TRA unverified without APN",
+      "category": "Ad Valorem Property Tax Rate (Property A [ZIP A] Districts)",
+      "verified_value": "1.00% Prop 13 base + 0.0388% Co. Retirement + 0.0108% Co. Housing/VMC + 0.0335% Property A Elem + 0.0417% Fremont Union High + 0.0311% Foothill-De Anza + 0.0014% Midpen Open Space + 0.0039% SCVWD = ~1.1612% (1.1632% incl. El Camino Hosp); exact parcel TRA unverified without APN",
       "source_label": "Santa Clara County FY 2025-26 Tax Rate Book",
       "source_url": "https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf"
     },
     {
       "category": "County Documentary Transfer Tax & City Conveyance Tax",
-      "verified_value": "$0.55 per $500 ($1.10 per $1,000 = 0.11%) County DTT; City of Cupertino has NO city conveyance tax (unlike San Jose, Palo Alto, Mountain View). Inheritance/trust transfers exempt.",
+      "verified_value": "$0.55 per $500 ($1.10 per $1,000 = 0.11%) County DTT; City of Property A has NO city conveyance tax (unlike San Jose, Palo Alto, Mountain View). Inheritance/trust transfers exempt.",
       "source_label": "Santa Clara County Clerk-Recorder Real Estate Recording",
       "source_url": "https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate"
     },
     {
-      "category": "Water Provider & Regulated Tariffs (Cupertino 95014)",
+      "category": "Water Provider & Regulated Tariffs (Property A [ZIP A])",
       "verified_value": "Split service area: Cal Water Los Altos District (2026 avg 9 CCF bill ~$87.53/mo + A.24-07-003/D.26-04-045 increases) OR San Jose Water (2026 avg 10 CCF ~$125.44/mo + surcharges; 2027 ~$131.12/mo). Exact parcel retailer unverified without street address.",
-      "source_label": "City of Cupertino Utilities & CPUC Cal Water / SJWC Filings",
+      "source_label": "City of Property A Utilities & CPUC Cal Water / SJWC Filings",
       "source_url": "https://www.cupertino.gov/Residents/Utilities"
     },
     {

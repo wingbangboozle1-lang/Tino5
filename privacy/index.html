@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Privacy containment record — inheritance decision site</title>
+<style>
+body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1d2330;background:#f7f8fa}
+header{background:#fff;border-bottom:1px solid #dfe3ea;padding:18px 24px}
+header h1{margin:0;font-size:22px;color:#1f4e79}
+main{max-width:920px;margin:auto;padding:20px 24px 56px}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:#5b6474;margin:26px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
+th{background:#eef3f7;text-align:left;padding:7px 9px;border-bottom:2px solid #dfe3ea}
+td{padding:7px 9px;border-bottom:1px solid #dfe3ea;vertical-align:top}
+.tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:10px;background:#e8f1e8;color:#2c5f2d}
+.tag.open{background:#fdf1dc;color:#7a4a00}
+a{color:#1f4e79}
+</style>
+</head>
+<body>
+<header><h1>Privacy containment record</h1></header>
+<main>
+<p>This page records what was done to keep the owner's personal location details off the published site, and what is still open. It contains no personal details itself. Both properties are referred to as <b>Property A</b> (to be inherited through a trust) and <b>Property B</b> (already owned). Money figures are rounded to the nearest $10 as the brief requires.</p>
+
+<h2>Done</h2>
+<table>
+<thead><tr><th>Item</th><th>Result</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>ZIP codes of the two properties</td><td>Replaced with <code>[ZIP A]</code> and <code>[ZIP B]</code> in every tracked text, data and page file (URLs excluded).</td><td><span class="tag">done</span></td></tr>
+<tr><td>City name of Property A and the neighbourhood name of Property B</td><td>Replaced with <code>Property A</code> and <code>[District B]</code>. Files whose names carried the city name were renamed to <code>property-a</code>. County-level geography (Santa Clara County, San Francisco County) is kept, as before.</td><td><span class="tag">done</span></td></tr>
+<tr><td>Guard against re-introduction</td><td><code>scripts/privacy_hash_guard.py</code> checks every tracked text file against SHA-256 digests of the forbidden words, so the words themselves are not stored. It runs in the privacy workflow.</td><td><span class="tag">done</span></td></tr>
+<tr><td>Build and verification</td><td>All 40 build, verify and unit-test commands from the repository workflows were re-run after the change and pass. No published page lost a row, a source link or a value.</td><td><span class="tag">done</span></td></tr>
+<tr><td>Two Python detector files</td><td>Excluded from the published site (they name the forbidden words in their own detection patterns). Their content is not a page.</td><td><span class="tag">done</span></td></tr>
+</tbody>
+</table>
+
+<h2>Still open (owner decision needed)</h2>
+<table>
+<thead><tr><th>Item</th><th>Why it stays open</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Git history on <code>main</code></td><td>Earlier commits still contain the un-scrubbed text, and so do any clones and forks. GitHub's own guidance says history can only be rewritten with coordination, and that rewriting does not reach existing clones or forks: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository" rel="noopener">GitHub Docs — Removing sensitive data from a repository</a>. Rewriting <code>main</code> was outside this session's branch rules.</td><td><span class="tag open">open — owner decision</span></td></tr>
+<tr><td>Official city and Census links</td><td>Source links to the city's own utility pages and to the Census QuickFacts page for the city are kept. They are public, city-level sources, not personal details, but the city name appears in their web addresses.</td><td><span class="tag open">kept by design</span></td></tr>
+<tr><td>Detector code in verifier and test files</td><td>19 Python files name the forbidden words in their own patterns. They are listed in <code>GUARD_CODE_ALLOWLIST</code> in the guard script. They are not owner data and not published pages.</td><td><span class="tag open">kept by design</span></td></tr>
+<tr><td>Broken link in an excluded folder</td><td><code>src/pages/executive-summary.html</code> links to a page that does not exist. That folder is excluded from the published site, so the public site has no broken links.</td><td><span class="tag open">noted</span></td></tr>
+<tr><td>Owner-supplied figures</td><td>The market values, rent, water, insurance and solar figures on the desks are owner-supplied. They are labelled as unverified wherever no official source confirms them.</td><td><span class="tag open">unverified</span></td></tr>
+</tbody>
+</table>
+</main>
+</body>
+</html>

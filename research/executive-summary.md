@@ -4,8 +4,8 @@ No personal information appears on this site. All identities, street addresses, 
 
 ## The decision
 
-Property A (Cupertino, ZIP 95014) is expected to pass via trust between 2040 and 2050. The
-beneficiary has a residence at Property B (San Francisco, ZIP 94122), a three-unit property with
+Property A (Property A, [ZIP A]) is expected to pass via trust between 2040 and 2050. The
+beneficiary has a residence at Property B (San Francisco, [ZIP B]), a three-unit property with
 two rented units. Options: live in Property A, rent it, or sell and reinvest after tax.
 
 **Base case (2045 transfer, 4% appreciation, 5% portfolio return):**

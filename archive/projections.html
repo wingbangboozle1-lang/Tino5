@@ -15,14 +15,14 @@ ARCHIVED — earlier session's published version, retained intact for comparison
 
 <a class="skip" href="#main">Skip to main content</a>
 <header class="topbar">
-  <div class="brand">Inheritance Decision Dashboard<small>Cupertino 95014 · San Francisco 94122 · Trust inheritance 2040–2050</small></div>
+  <div class="brand">Inheritance Decision Dashboard<small>Property A [ZIP A] · San Francisco [ZIP B] · Trust inheritance 2040–2050</small></div>
   <nav aria-label="Site">
     <a href="index.html">Dashboard</a>
     <a href="executive-summary.html">Executive Summary</a>
     <a href="inheritance-process.html">Inheritance Process</a>
     <a href="tax-law.html">Tax Law</a>
-    <a href="cupertino.html">Cupertino 95014</a>
-    <a href="san-francisco.html">San Francisco 94122</a>
+    <a href="property-a.html">Property A [ZIP A]</a>
+    <a href="san-francisco.html">San Francisco [ZIP B]</a>
     <a href="decision-analysis.html">Decision Analysis</a>
     <a href="projections.html" class="active">Projections</a>
     <a href="costs.html">Costs &amp; Utilities</a>
@@ -38,18 +38,18 @@ ARCHIVED — earlier session's published version, retained intact for comparison
     <h2>Charts (modelled)</h2>
     <h3>Market value — 3% scenario</h3>
     <canvas class="chart" id="chart-market" aria-label="Market value chart"></canvas>
-    <div class="legend"><span style="color:#0e7c7b">Cupertino 95014</span><span style="color:#0f2a44">San Francisco 94122</span></div>
+    <div class="legend"><span style="color:#0e7c7b">Property A [ZIP A]</span><span style="color:#0f2a44">San Francisco [ZIP B]</span></div>
     <h3>Assessed value — 2%/yr (Prop 13 cap)</h3>
     <canvas class="chart" id="chart-assessed" aria-label="Assessed value chart"></canvas>
-    <div class="legend"><span style="color:#0e7c7b">Cupertino assessed</span><span style="color:#0f2a44">SF assessed</span></div>
+    <div class="legend"><span style="color:#0e7c7b">Property A assessed</span><span style="color:#0f2a44">SF assessed</span></div>
     <p class="small">Charts plot the same rounded values as the tables below. Source for 2% cap: <a href="https://www.boe.ca.gov/pdf/pub801.pdf" target="_blank" rel="noopener">BOE Pub. 801</a>. Market scenarios are modelled — see Methodology.</p>
   </section>
 
   <section class="section">
     <h2>Assessed value &amp; property tax — year by year (modelled, current base)</h2>
-    <p class="small">Cupertino tax at implied 1.335% (F-03). SF tax at official 1.18162182% (SF Treasurer). “Current base” means no reassessment — i.e., the bill if nothing changes. After a transfer, the base resets (see next table).</p>
+    <p class="small">Property A tax at implied 1.335% (F-03). SF tax at official 1.18162182% (SF Treasurer). “Current base” means no reassessment — i.e., the bill if nothing changes. After a transfer, the base resets (see next table).</p>
     <table>
-      <thead><tr><th>Year</th><th class="num">Cupertino assessed</th><th class="num">Cupertino tax</th><th class="num">SF assessed</th><th class="num">SF tax (official rate)</th><th>Label &amp; source</th></tr></thead>
+      <thead><tr><th>Year</th><th class="num">Property A assessed</th><th class="num">Property A tax</th><th class="num">SF assessed</th><th class="num">SF tax (official rate)</th><th>Label &amp; source</th></tr></thead>
       <tbody>
         <tr><td>2026</td><td class="num">$550,540</td><td class="num">$7,350</td><td class="num">$114,250</td><td class="num">$1,350</td><td><span class="pill modelled">Modelled</span> 2%/yr from user bases. Rates: F-03 / <a href="https://sftreasurer.org/property/secured-property-taxes" target="_blank" rel="noopener">SF Treasurer</a></td></tr>
         <tr><td>2030</td><td class="num">$595,920</td><td class="num">$7,960</td><td class="num">$123,670</td><td class="num">$1,460</td><td><span class="pill modelled">Modelled</span></td></tr>
@@ -60,13 +60,13 @@ ARCHIVED — earlier session's published version, retained intact for comparison
         <tr><td>2055</td><td class="num">$977,670</td><td class="num">$13,050</td><td class="num">$202,890</td><td class="num">$2,400</td><td><span class="pill modelled">Modelled</span></td></tr>
       </tbody>
     </table>
-    <p class="small">Full annual series 2026–2055 (same formulas) is available in the site data — every year follows assessed<sub>t</sub> = assessed<sub>2026</sub> × 1.02<sup>(t−2026)</sup>, tax = assessed × rate, rounded to $10. Intermediate years interpolate at 2%/yr (e.g., 2041 Cupertino assessed $740,950, tax $9,890; 2042 $755,770 / $10,090; 2043 $770,880 / $10,290; 2044 $786,300 / $10,500 — modelled, same source).</p>
+    <p class="small">Full annual series 2026–2055 (same formulas) is available in the site data — every year follows assessed<sub>t</sub> = assessed<sub>2026</sub> × 1.02<sup>(t−2026)</sup>, tax = assessed × rate, rounded to $10. Intermediate years interpolate at 2%/yr (e.g., 2041 Property A assessed $740,950, tax $9,890; 2042 $755,770 / $10,090; 2043 $770,880 / $10,290; 2044 $786,300 / $10,500 — modelled, same source).</p>
   </section>
 
   <section class="section">
     <h2>Market-value scenarios (modelled — not forecasts)</h2>
     <table>
-      <thead><tr><th>Year</th><th class="num">Cupertino 2%</th><th class="num">Cupertino 3%</th><th class="num">Cupertino 4%</th><th class="num">SF 2%</th><th class="num">SF 3%</th><th class="num">SF 4%</th></tr></thead>
+      <thead><tr><th>Year</th><th class="num">Property A 2%</th><th class="num">Property A 3%</th><th class="num">Property A 4%</th><th class="num">SF 2%</th><th class="num">SF 3%</th><th class="num">SF 4%</th></tr></thead>
       <tbody>
         <tr><td>2026</td><td class="num">$3,100,000</td><td class="num">$3,100,000</td><td class="num">$3,100,000</td><td class="num">$1,800,000</td><td class="num">$1,800,000</td><td class="num">$1,800,000</td></tr>
         <tr><td>2030</td><td class="num">$3,355,540</td><td class="num">$3,489,080</td><td class="num">$3,626,560</td><td class="num">$1,948,380</td><td class="num">$2,025,920</td><td class="num">$2,105,750</td></tr>
@@ -82,7 +82,7 @@ ARCHIVED — earlier session's published version, retained intact for comparison
 
   <section class="section">
     <h2>Post-transfer tax (the jump) — transfer-year snapshots (modelled)</h2>
-    <p class="small">Assumes transfer at start of year, market at 3% scenario, cap frozen at $1,044,590 (F-04 — real cap will differ), Cupertino rate 1.335%. Shows why the transfer year matters more than the growth rate.</p>
+    <p class="small">Assumes transfer at start of year, market at 3% scenario, cap frozen at $1,044,590 (F-04 — real cap will differ), Property A rate 1.335%. Shows why the transfer year matters more than the growth rate.</p>
     <table>
       <thead><tr><th>Transfer year</th><th class="num">Market (3%)</th><th class="num">Prop 19 base</th><th class="num">Tax with Prop 19</th><th class="num">Tax without (rent)</th><th class="num">Saving</th></tr></thead>
       <tbody>

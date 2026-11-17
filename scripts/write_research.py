@@ -107,7 +107,7 @@ the bill also carries direct charges and special assessments. See {link('SCC_RAT
 ## Irregularities
 
 The client-supplied tax/assessment pairs imply effective rates of about
-{SUM['effective_rate_a']} (Cupertino) and {SUM['effective_rate_b']} (San Francisco), above the
+{SUM['effective_rate_a']} (Property A) and {SUM['effective_rate_b']} (San Francisco), above the
 official ad-valorem rates. Direct charges / special assessments are a plausible explanation but
 are unconfirmed. See FLAG-003 on the site's Flagged for Review page.
 """
@@ -123,13 +123,13 @@ maintenance figures are **unverified** and appear with blank official-value cell
 
 | Cost | Official source | What it confirms | What remains unverified |
 | --- | --- | --- | --- |
-| Primary-residence insurance, 95014 | {link('CDI_TOOL')} | CDI publishes sample annual premiums effective May 1, 2026 for "SANTA CLARA CUPERTINO"; explicitly not a quote | The property-specific premium |
+| Primary-residence insurance, [ZIP A] | {link('CDI_TOOL')} | CDI publishes sample annual premiums effective May 1, 2026 for "SANTA CLARA [CITY A]"; explicitly not a quote | The property-specific premium |
 | Statewide homeowner premium | {link('CDI_AVG')} | California average {SUM['ca_avg_insurance']}/yr (rounded); page updated Oct 27, 2026 | ZIP-specific premium; landlord policy |
-| Rental / landlord insurance, 94122 | {link('CDI_REPORT')} | ZIP-level earned premiums by policy form (dwelling-fire, homeowners, renters, condo) | The property-specific premium |
-| Water, 95014 | {link('CPUC_WATER')} | CPUC tariff lists "portions of Cupertino" in a regulated water service territory; usage-based rates | A fixed monthly bill |
-| Water / power, 94122 | {link('SFPUC_RATES')} | Official 2026-27 water, sewer and power rate schedules | A fixed monthly bill for 3 units |
+| Rental / landlord insurance, [ZIP B] | {link('CDI_REPORT')} | ZIP-level earned premiums by policy form (dwelling-fire, homeowners, renters, condo) | The property-specific premium |
+| Water, [ZIP A] | {link('CPUC_WATER')} | CPUC tariff lists "portions of Property A" in a regulated water service territory; usage-based rates | A fixed monthly bill |
+| Water / power, [ZIP B] | {link('SFPUC_RATES')} | Official 2026-27 water, sewer and power rate schedules | A fixed monthly bill for 3 units |
 | Solar export credit | {link('CPUC_SB695')} | NEM 1.0/2.0 20-year legacy periods remain in effect when a solar property changes hands; new systems since April 2023 use the Net Billing Tariff | Interconnection date and monthly credit |
-| Rent benchmark, 95014 | {link('HUD_FMR')} | FY2026 4-BR FMR {SUM['hud_fmr']}/mo for the San Jose HMFA (official program benchmark) | Property-specific market rent |
+| Rent benchmark, [ZIP A] | {link('HUD_FMR')} | FY2026 4-BR FMR {SUM['hud_fmr']}/mo for the San Jose HMFA (official program benchmark) | Property-specific market rent |
 | SF rent increase | {link('SF_RENT')} | 1.6% allowable increase for covered units, 3/1/2026-2/28/2027 | Whether the two let units are covered |
 | Repairs and maintenance | {link('IRS_P527')} | Repairs are deductible rental expenses; improvements are capitalised | Any cost benchmark for these properties |
 
@@ -162,8 +162,8 @@ ex = f"""# Executive Summary (anonymized)
 
 ## The decision
 
-Property A (Cupertino, ZIP 95014) is expected to pass via trust between 2040 and 2050. The
-beneficiary has a residence at Property B (San Francisco, ZIP 94122), a three-unit property with
+Property A (Property A, [ZIP A]) is expected to pass via trust between 2040 and 2050. The
+beneficiary has a residence at Property B (San Francisco, [ZIP B]), a three-unit property with
 two rented units. Options: live in Property A, rent it, or sell and reinvest after tax.
 
 **Base case (2045 transfer, 4% appreciation, 5% portfolio return):**

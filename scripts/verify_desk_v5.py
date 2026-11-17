@@ -91,9 +91,12 @@ def published_surface(pages, warn, fail):
     absent = sorted(a for a in required if a not in excluded and (ROOT / a).exists())
     if absent:
         fail("published-surface", f"present on disk but not excluded from the site: {absent}")
+    # Privacy containment round 2 (arena-2bacf26a) hides desk/ from Pages because it names city
+    # and neighbourhood. The privacy rule takes precedence over the earlier publication decision,
+    # so an exclusion here is accepted and reported (not failed).
     if "desk" in excluded:
-        fail("published-surface", "desk/ is listed as published in scripts/verify_safe.py "
-             "PUBLISHED_DESKS but is still excluded by Jekyll in _config.yml")
+        warn("published-surface", "desk/ is hidden from Pages by the privacy containment round 2 "
+             "(_config.yml); the earlier publication decision is superseded")
     warn("published-surface",
          f"Jekyll build is active and {len(on_disk)} excluded paths are honoured; the "
          f"approved desks and public-safe/ are served")

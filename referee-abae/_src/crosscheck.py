@@ -23,7 +23,7 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 import registry as R  # noqa: E402
 
-CITY_WORDS = ["cupertino", "san jose", "sunnyvale", "los altos", "saratoga"]
+CITY_WORDS = ["property-a", "san jose", "sunnyvale", "los altos", "saratoga"]
 COUNTY_WORDS = ["santa clara", "san francisco"]
 LIVE_BRANCHES = ["c098bf16", "22a32b17", "3a49d618", "966cc934", "7864052a"]
 

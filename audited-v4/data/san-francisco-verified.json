@@ -1,5 +1,5 @@
 {
-  "property_id": "Property B — San Francisco Outer Sunset (ZIP 94122)",
+  "property_id": "Property B — San Francisco [District B] ([ZIP B])",
   "anonymized": true,
   "user_baseline": {
     "estimated_value_nov_2026": 1800000,
@@ -11,7 +11,7 @@
     "electricity_monthly_range_usd": [30, 70],
     "estimated_insurance_annual_usd": 1500,
     "insurance_note": "User noted '~$1,500 a year, probably need more research as it's a rental property' — flagged for review",
-    "maintenance_note": "Higher maintenance than Cupertino (older multi-unit Outer Sunset coastal structure)",
+    "maintenance_note": "Higher maintenance than Property A (older multi-unit [District B] coastal structure)",
     "historical_tax_assessment": [
       {"year": 2026, "tax_usd": null, "tax_yoy": null, "assessed_value_usd": null, "av_yoy": null, "boe_ccpi_factor": "2%", "audit_status": "Flagged: 2026 SF tax and AV missing from baseline input"},
       {"year": 2025, "tax_usd": 2440, "tax_yoy": "+5.3%", "assessed_value_usd": 114250, "av_yoy": "+2%", "boe_ccpi_factor": "2%", "audit_status": "Verified AV growth (+2.00%); implied 2.135% effective rate reflects 1.18268% ad valorem (~$1,350) + ~$1,090 fixed parcel taxes"},

@@ -318,7 +318,7 @@
      "sources": [
       "hud-fmr"
      ],
-     "note": "$3.1M × 3.8% ≈ $9,820/month for Property A in 2026. A value-linked yield was used instead of a rent index because no reliable official Cupertino rent series exists — the HUD FMR page could not be parsed."
+     "note": "$3.1M × 3.8% ≈ $9,820/month for Property A in 2026. A value-linked yield was used instead of a rent index because no reliable official Property A rent series exists — the HUD FMR page could not be parsed."
     },
     {
      "item": "A29 Electricity after the solar legacy term",

@@ -4871,7 +4871,7 @@
       "strategies": [
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 360010,
@@ -4881,7 +4881,7 @@
           "horizon_end_after_tax_wealth": 13308370,
           "cum_10yr_housing_value_enjoyed": 595010,
           "housing_adjusted_10yr_wealth": 13903380,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_e",
@@ -4899,7 +4899,7 @@
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 41990,
@@ -4909,12 +4909,12 @@
           "horizon_end_after_tax_wealth": 11978080,
           "cum_10yr_housing_value_enjoyed": 595010,
           "housing_adjusted_10yr_wealth": 12573090,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 105900,
           "yr1_property_cash_flow_only": -74770,
@@ -4923,12 +4923,12 @@
           "horizon_end_after_tax_wealth": 11598070,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 12864020,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 2960,
           "yr1_property_cash_flow_only": 2960,
@@ -4937,12 +4937,12 @@
           "horizon_end_after_tax_wealth": 11589020,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 12854970,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -46800,
           "yr1_property_cash_flow_only": -46800,
@@ -4951,7 +4951,7 @@
           "horizon_end_after_tax_wealth": 10889900,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 12155850,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5024,7 +5024,7 @@
         },
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 441750,
@@ -5034,11 +5034,11 @@
           "horizon_end_after_tax_wealth": 16298710,
           "cum_10yr_housing_value_enjoyed": 656980,
           "housing_adjusted_10yr_wealth": 16955690,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 34460,
@@ -5048,12 +5048,12 @@
           "horizon_end_after_tax_wealth": 14488090,
           "cum_10yr_housing_value_enjoyed": 656980,
           "housing_adjusted_10yr_wealth": 15145080,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 130010,
           "yr1_property_cash_flow_only": -89810,
@@ -5062,12 +5062,12 @@
           "horizon_end_after_tax_wealth": 14339480,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 15757830,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -5830,
           "yr1_property_cash_flow_only": -5830,
@@ -5076,12 +5076,12 @@
           "horizon_end_after_tax_wealth": 14117230,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 15535580,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -65240,
           "yr1_property_cash_flow_only": -65240,
@@ -5090,7 +5090,7 @@
           "horizon_end_after_tax_wealth": 13282670,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 14701010,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5163,7 +5163,7 @@
         },
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 539900,
@@ -5173,12 +5173,12 @@
           "horizon_end_after_tax_wealth": 20028370,
           "cum_10yr_housing_value_enjoyed": 725420,
           "housing_adjusted_10yr_wealth": 20753790,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 156740,
           "yr1_property_cash_flow_only": -110700,
@@ -5187,11 +5187,11 @@
           "horizon_end_after_tax_wealth": 17695180,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 19284360,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 20050,
@@ -5201,12 +5201,12 @@
           "horizon_end_after_tax_wealth": 17600990,
           "cum_10yr_housing_value_enjoyed": 725420,
           "housing_adjusted_10yr_wealth": 18326410,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -24920,
           "yr1_property_cash_flow_only": -24920,
@@ -5215,12 +5215,12 @@
           "horizon_end_after_tax_wealth": 17213930,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 18803110,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -91170,
           "yr1_property_cash_flow_only": -91170,
@@ -5229,7 +5229,7 @@
           "horizon_end_after_tax_wealth": 16260320,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 17849500,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5288,7 +5288,7 @@
       "strategies": [
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 183870,
@@ -5298,11 +5298,11 @@
           "horizon_end_after_tax_wealth": 9190020,
           "cum_10yr_housing_value_enjoyed": 552950,
           "housing_adjusted_10yr_wealth": 9742970,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 52910,
@@ -5312,7 +5312,7 @@
           "horizon_end_after_tax_wealth": 8935320,
           "cum_10yr_housing_value_enjoyed": 552950,
           "housing_adjusted_10yr_wealth": 9488280,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_e",
@@ -5330,8 +5330,8 @@
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 9850,
           "yr1_property_cash_flow_only": 9850,
@@ -5340,12 +5340,12 @@
           "horizon_end_after_tax_wealth": 8525100,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 9791060,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 23740,
           "yr1_property_cash_flow_only": -62550,
@@ -5354,12 +5354,12 @@
           "horizon_end_after_tax_wealth": 8150210,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 9416160,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -33620,
           "yr1_property_cash_flow_only": -33620,
@@ -5368,7 +5368,7 @@
           "horizon_end_after_tax_wealth": 7980880,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 9246830,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5427,7 +5427,7 @@
       "strategies": [
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 208310,
@@ -5437,11 +5437,11 @@
           "horizon_end_after_tax_wealth": 10513640,
           "cum_10yr_housing_value_enjoyed": 598650,
           "housing_adjusted_10yr_wealth": 11112290,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 52790,
@@ -5451,7 +5451,7 @@
           "horizon_end_after_tax_wealth": 10170940,
           "cum_10yr_housing_value_enjoyed": 598650,
           "housing_adjusted_10yr_wealth": 10769590,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_e",
@@ -5469,8 +5469,8 @@
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 6280,
           "yr1_property_cash_flow_only": 6280,
@@ -5479,12 +5479,12 @@
           "horizon_end_after_tax_wealth": 9731160,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 11149510,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 27780,
           "yr1_property_cash_flow_only": -69850,
@@ -5493,12 +5493,12 @@
           "horizon_end_after_tax_wealth": 9379460,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 10797800,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -43110,
           "yr1_property_cash_flow_only": -43110,
@@ -5507,7 +5507,7 @@
           "horizon_end_after_tax_wealth": 9111180,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 10529530,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5566,7 +5566,7 @@
       "strategies": [
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 236230,
@@ -5576,11 +5576,11 @@
           "horizon_end_after_tax_wealth": 12032440,
           "cum_10yr_housing_value_enjoyed": 648110,
           "housing_adjusted_10yr_wealth": 12680550,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 51760,
@@ -5590,7 +5590,7 @@
           "horizon_end_after_tax_wealth": 11581660,
           "cum_10yr_housing_value_enjoyed": 648110,
           "housing_adjusted_10yr_wealth": 12229760,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_e",
@@ -5608,8 +5608,8 @@
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -540,
           "yr1_property_cash_flow_only": -540,
@@ -5618,12 +5618,12 @@
           "horizon_end_after_tax_wealth": 11084280,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 12673460,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 30120,
           "yr1_property_cash_flow_only": -80340,
@@ -5632,12 +5632,12 @@
           "horizon_end_after_tax_wealth": 10766900,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 12356080,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -56690,
           "yr1_property_cash_flow_only": -56690,
@@ -5646,7 +5646,7 @@
           "horizon_end_after_tax_wealth": 10378170,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 11967350,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5719,7 +5719,7 @@
         },
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 503240,
@@ -5729,12 +5729,12 @@
           "horizon_end_after_tax_wealth": 16343790,
           "cum_10yr_housing_value_enjoyed": 640240,
           "housing_adjusted_10yr_wealth": 16984030,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 175250,
           "yr1_property_cash_flow_only": -81300,
@@ -5743,11 +5743,11 @@
           "horizon_end_after_tax_wealth": 13941130,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 15207080,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 38190,
@@ -5757,12 +5757,12 @@
           "horizon_end_after_tax_wealth": 13733760,
           "cum_10yr_housing_value_enjoyed": 640240,
           "housing_adjusted_10yr_wealth": 14374000,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 2350,
           "yr1_property_cash_flow_only": 2350,
@@ -5771,12 +5771,12 @@
           "horizon_end_after_tax_wealth": 13380150,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 14646100,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -50840,
           "yr1_property_cash_flow_only": -50840,
@@ -5785,7 +5785,7 @@
           "horizon_end_after_tax_wealth": 12569330,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 13835280,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5858,7 +5858,7 @@
         },
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 640530,
@@ -5868,12 +5868,12 @@
           "horizon_end_after_tax_wealth": 20791200,
           "cum_10yr_housing_value_enjoyed": 720760,
           "housing_adjusted_10yr_wealth": 21511960,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 221740,
           "yr1_property_cash_flow_only": -101050,
@@ -5882,11 +5882,11 @@
           "horizon_end_after_tax_wealth": 17811880,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 19230230,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 26800,
@@ -5896,12 +5896,12 @@
           "horizon_end_after_tax_wealth": 17212680,
           "cum_10yr_housing_value_enjoyed": 720760,
           "housing_adjusted_10yr_wealth": 17933440,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -8670,
           "yr1_property_cash_flow_only": -8670,
@@ -5910,12 +5910,12 @@
           "horizon_end_after_tax_wealth": 16911750,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 18330090,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -73300,
           "yr1_property_cash_flow_only": -73300,
@@ -5924,7 +5924,7 @@
           "horizon_end_after_tax_wealth": 15919910,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 17338260,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -5997,7 +5997,7 @@
         },
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 812590,
@@ -6007,12 +6007,12 @@
           "horizon_end_after_tax_wealth": 26438760,
           "cum_10yr_housing_value_enjoyed": 811540,
           "housing_adjusted_10yr_wealth": 27250300,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 270960,
           "yr1_property_cash_flow_only": -128690,
@@ -6021,11 +6021,11 @@
           "horizon_end_after_tax_wealth": 22563460,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 24152640,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 5580,
@@ -6035,12 +6035,12 @@
           "horizon_end_after_tax_wealth": 21586900,
           "cum_10yr_housing_value_enjoyed": 811540,
           "housing_adjusted_10yr_wealth": 22398440,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -32870,
           "yr1_property_cash_flow_only": -32870,
@@ -6049,12 +6049,12 @@
           "horizon_end_after_tax_wealth": 21305250,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 22894430,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -105640,
           "yr1_property_cash_flow_only": -105640,
@@ -6063,7 +6063,7 @@
           "horizon_end_after_tax_wealth": 20149710,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 21738890,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -6122,7 +6122,7 @@
       "strategies": [
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 364390,
@@ -6132,7 +6132,7 @@
           "horizon_end_after_tax_wealth": 13373340,
           "cum_10yr_housing_value_enjoyed": 595010,
           "housing_adjusted_10yr_wealth": 13968350,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_e",
@@ -6150,7 +6150,7 @@
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 50780,
@@ -6160,12 +6160,12 @@
           "horizon_end_after_tax_wealth": 12107880,
           "cum_10yr_housing_value_enjoyed": 595010,
           "housing_adjusted_10yr_wealth": 12702890,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 13550,
           "yr1_property_cash_flow_only": 13550,
@@ -6174,12 +6174,12 @@
           "horizon_end_after_tax_wealth": 11745070,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 13011020,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 112710,
           "yr1_property_cash_flow_only": -67960,
@@ -6188,12 +6188,12 @@
           "horizon_end_after_tax_wealth": 11697950,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 12963910,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -34430,
           "yr1_property_cash_flow_only": -34430,
@@ -6202,7 +6202,7 @@
           "horizon_end_after_tax_wealth": 11080370,
           "cum_10yr_housing_value_enjoyed": 1265950,
           "housing_adjusted_10yr_wealth": 12346320,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -6261,7 +6261,7 @@
       "strategies": [
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 447020,
@@ -6271,7 +6271,7 @@
           "horizon_end_after_tax_wealth": 16377000,
           "cum_10yr_housing_value_enjoyed": 656980,
           "housing_adjusted_10yr_wealth": 17033980,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_e",
@@ -6289,7 +6289,7 @@
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 44980,
@@ -6299,12 +6299,12 @@
           "horizon_end_after_tax_wealth": 14643390,
           "cum_10yr_housing_value_enjoyed": 656980,
           "housing_adjusted_10yr_wealth": 15300370,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 138080,
           "yr1_property_cash_flow_only": -81740,
@@ -6313,12 +6313,12 @@
           "horizon_end_after_tax_wealth": 14457850,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 15876200,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 6800,
           "yr1_property_cash_flow_only": 6800,
@@ -6327,12 +6327,12 @@
           "horizon_end_after_tax_wealth": 14308590,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 15726940,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -50470,
           "yr1_property_cash_flow_only": -50470,
@@ -6341,7 +6341,7 @@
           "horizon_end_after_tax_wealth": 13510100,
           "cum_10yr_housing_value_enjoyed": 1418350,
           "housing_adjusted_10yr_wealth": 14928450,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     },
@@ -6414,7 +6414,7 @@
         },
         {
           "id": "strategy_c",
-          "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+          "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 547980,
@@ -6424,12 +6424,12 @@
           "horizon_end_after_tax_wealth": 20143880,
           "cum_10yr_housing_value_enjoyed": 725420,
           "housing_adjusted_10yr_wealth": 20869300,
-          "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+          "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
           "id": "strategy_d",
-          "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-          "housing": "Cupertino Single-Family Home",
+          "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": 166300,
           "yr1_property_cash_flow_only": -101140,
@@ -6438,11 +6438,11 @@
           "horizon_end_after_tax_wealth": 17835400,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 19424580,
-          "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+          "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
           "id": "strategy_b",
-          "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+          "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
           "housing": "SF Unit 3 (2 units rented)",
           "prop19_shield_captured": false,
           "yr1_net_cash_flow": 34370,
@@ -6452,12 +6452,12 @@
           "horizon_end_after_tax_wealth": 17808020,
           "cum_10yr_housing_value_enjoyed": 725420,
           "housing_adjusted_10yr_wealth": 18533440,
-          "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+          "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
           "id": "strategy_a2",
-          "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -7280,
           "yr1_property_cash_flow_only": -7280,
@@ -6466,12 +6466,12 @@
           "horizon_end_after_tax_wealth": 17478860,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 19068040,
-          "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+          "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
           "id": "strategy_a1",
-          "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-          "housing": "Cupertino Single-Family Home",
+          "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+          "housing": "Property A Single-Family Home",
           "prop19_shield_captured": true,
           "yr1_net_cash_flow": -73530,
           "yr1_property_cash_flow_only": -73530,
@@ -6480,7 +6480,7 @@
           "horizon_end_after_tax_wealth": 16531960,
           "cum_10yr_housing_value_enjoyed": 1589180,
           "housing_adjusted_10yr_wealth": 18121140,
-          "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+          "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
       ]
     }
@@ -7021,7 +7021,7 @@
       }
     },
     "cu": {
-      "property_id": "Property A \u2014 Cupertino (ZIP 95014)",
+      "property_id": "Property A \u2014 Property A ([ZIP A])",
       "anonymized": true,
       "user_baseline": {
         "estimated_value_nov_2026": 3100000,
@@ -7158,21 +7158,21 @@
       },
       "official_verified": [
         {
-          "category": "Ad Valorem Property Tax Rate (Cupertino 95014 Districts)",
-          "verified_value": "1.00% Prop 13 base + 0.0388% Co. Retirement + 0.0108% Co. Housing/VMC + 0.0335% Cupertino Elem + 0.0417% Fremont Union High + 0.0311% Foothill-De Anza + 0.0014% Midpen Open Space + 0.0039% SCVWD = ~1.1612% (1.1632% incl. El Camino Hosp); exact parcel TRA unverified without APN",
+          "category": "Ad Valorem Property Tax Rate (Property A [ZIP A] Districts)",
+          "verified_value": "1.00% Prop 13 base + 0.0388% Co. Retirement + 0.0108% Co. Housing/VMC + 0.0335% Property A Elem + 0.0417% Fremont Union High + 0.0311% Foothill-De Anza + 0.0014% Midpen Open Space + 0.0039% SCVWD = ~1.1612% (1.1632% incl. El Camino Hosp); exact parcel TRA unverified without APN",
           "source_label": "Santa Clara County FY 2025-26 Tax Rate Book",
           "source_url": "https://files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf"
         },
         {
           "category": "County Documentary Transfer Tax & City Conveyance Tax",
-          "verified_value": "$0.55 per $500 ($1.10 per $1,000 = 0.11%) County DTT; City of Cupertino has NO city conveyance tax (unlike San Jose, Palo Alto, Mountain View). Inheritance/trust transfers exempt.",
+          "verified_value": "$0.55 per $500 ($1.10 per $1,000 = 0.11%) County DTT; City of Property A has NO city conveyance tax (unlike San Jose, Palo Alto, Mountain View). Inheritance/trust transfers exempt.",
           "source_label": "Santa Clara County Clerk-Recorder Real Estate Recording",
           "source_url": "https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate"
         },
         {
-          "category": "Water Provider & Regulated Tariffs (Cupertino 95014)",
+          "category": "Water Provider & Regulated Tariffs (Property A [ZIP A])",
           "verified_value": "Split service area: Cal Water Los Altos District (2026 avg 9 CCF bill ~$87.53/mo + A.24-07-003/D.26-04-045 increases) OR San Jose Water (2026 avg 10 CCF ~$125.44/mo + surcharges; 2027 ~$131.12/mo). Exact parcel retailer unverified without street address.",
-          "source_label": "City of Cupertino Utilities & CPUC Cal Water / SJWC Filings",
+          "source_label": "City of Property A Utilities & CPUC Cal Water / SJWC Filings",
           "source_url": "https://www.cupertino.gov/Residents/Utilities"
         },
         {
@@ -7190,7 +7190,7 @@
       ]
     },
     "sf": {
-      "property_id": "Property B \u2014 San Francisco Outer Sunset (ZIP 94122)",
+      "property_id": "Property B \u2014 San Francisco [District B] ([ZIP B])",
       "anonymized": true,
       "user_baseline": {
         "estimated_value_nov_2026": 1800000,
@@ -7208,7 +7208,7 @@
         ],
         "estimated_insurance_annual_usd": 1500,
         "insurance_note": "User noted '~$1,500 a year, probably need more research as it's a rental property' \u2014 flagged for review",
-        "maintenance_note": "Higher maintenance than Cupertino (older multi-unit Outer Sunset coastal structure)",
+        "maintenance_note": "Higher maintenance than Property A (older multi-unit [District B] coastal structure)",
         "historical_tax_assessment": [
           {
             "year": 2026,

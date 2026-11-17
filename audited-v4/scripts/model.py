@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Audited 2026-2050 Inheritance & Carrying-Cost Financial Model
-Cupertino (ZIP 95014) & San Francisco Outer Sunset 3-Unit (ZIP 94122)
+Property A ([ZIP A]) & San Francisco [District B] 3-Unit ([ZIP B])
 
 Rules:
 - All decision analysis and projection dollar metrics are rounded to the nearest $10.
@@ -24,7 +24,7 @@ def load_verified() -> Dict[str, Any]:
     root = Path(__file__).resolve().parent.parent
     with open(root / "data" / "laws-verified.json") as f:
         laws = json.load(f)
-    with open(root / "data" / "cupertino-verified.json") as f:
+    with open(root / "data" / "property-a-verified.json") as f:
         cu = json.load(f)
     with open(root / "data" / "san-francisco-verified.json") as f:
         sf = json.load(f)
@@ -36,7 +36,7 @@ PARAMS = {
     "end_year": 2050,
     "inheritance_years_examined": [2040, 2045, 2050],
     "primary_inheritance_year": 2045,
-    # Property A: Cupertino (95014)
+    # Property A: Property A ([ZIP A])
     "cu_value_2026": 3100000,
     "cu_av_2026": 550540,
     "cu_ad_valorem_rate": 0.011612,        # Verified FY25-26 Santa Clara Tax Rate Book bond components
@@ -56,7 +56,7 @@ PARAMS = {
     "cu_imputed_rent_2026": 86400,         # Model assumption (Flagged): $7,200/mo (~2.79% gross yield on $3.1M)
     "cu_selling_cost_rate": 0.0511,        # ~5.0% brokerage/closing + 0.11% Santa Clara DTT (no city tax)
 
-    # Property B: San Francisco (94122) 3-Unit
+    # Property B: San Francisco ([ZIP B]) 3-Unit
     "sf_value_2026": 1800000,
     "sf_av_2025": 114250,                  # 2026 missing in user input; 2026 = 114250 * 1.02 = 116530
     "sf_ad_valorem_rate": 0.0118162182,    # Verified FY 2026-27 SF Secured Rate (sftreasurer.org)
@@ -469,7 +469,7 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
     strategies = [
         {
             "id": "strategy_c",
-            "name": "C. Live in SF Unit 3 + Sell Cupertino & Reinvest",
+            "name": "C. Live in SF Unit 3 + Sell Property A & Reinvest",
             "housing": "SF Unit 3 (2 units rented)",
             "prop19_shield_captured": False,
             "yr1_net_cash_flow": r10(c_sf["yr1_cf"] + c_port["yr1_portfolio_income_net"]),
@@ -479,12 +479,12 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
             "horizon_end_after_tax_wealth": r10(c_sf["end_net_liquidation_value"] + c_port["end_net_liquidation_value"]),
             "cum_10yr_housing_value_enjoyed": r10(c_sf["cum_imputed_housing"]),
             "housing_adjusted_10yr_wealth": r10(c_sf["end_net_liquidation_value"] + c_port["end_net_liquidation_value"] + c_sf["cum_imputed_housing"]),
-            "notes": "Unlocks ~95% of Cupertino equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
+            "notes": "Unlocks ~95% of Property A equity tax-free via Sec. 1014, lives in SF Unit 3 while keeping 2-unit rent, diversifies single-city concentration."
         },
         {
             "id": "strategy_d",
-            "name": "D. Live in Cupertino (Prop 19) + Sell SF & Reinvest",
-            "housing": "Cupertino Single-Family Home",
+            "name": "D. Live in Property A (Prop 19) + Sell SF & Reinvest",
+            "housing": "Property A Single-Family Home",
             "prop19_shield_captured": True,
             "yr1_net_cash_flow": r10(d_cu["yr1_cf"] + d_port["yr1_portfolio_income_net"]),
             "yr1_property_cash_flow_only": r10(d_cu["yr1_cf"]),
@@ -493,7 +493,7 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
             "horizon_end_after_tax_wealth": r10(d_cu["end_net_liquidation_value"] + d_port["end_net_liquidation_value"]),
             "cum_10yr_housing_value_enjoyed": r10(d_cu["cum_imputed_housing"]),
             "housing_adjusted_10yr_wealth": r10(d_cu["end_net_liquidation_value"] + d_port["end_net_liquidation_value"] + d_cu["cum_imputed_housing"]),
-            "notes": "Captures Cupertino Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
+            "notes": "Captures Property A Prop 19 cap, avoids SF 2.25% transfer-tax cliff & full SF reassessment, turns SF equity into liquid compounding assets."
         },
         {
             "id": "strategy_e",
@@ -511,8 +511,8 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
         },
         {
             "id": "strategy_a2",
-            "name": "A2. Live in Cupertino (Prop 19) + Keep & Rent All 3 SF Units",
-            "housing": "Cupertino Single-Family Home",
+            "name": "A2. Live in Property A (Prop 19) + Keep & Rent All 3 SF Units",
+            "housing": "Property A Single-Family Home",
             "prop19_shield_captured": True,
             "yr1_net_cash_flow": r10(a3_cfs[0]),
             "yr1_property_cash_flow_only": r10(a3_cfs[0]),
@@ -521,11 +521,11 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
             "horizon_end_after_tax_wealth": r10(a_cu["end_net_liquidation_value"] + a3_sf["end_net_liquidation_value"] + a3_port["end_net_liquidation_value"]),
             "cum_10yr_housing_value_enjoyed": r10(a_cu["cum_imputed_housing"]),
             "housing_adjusted_10yr_wealth": r10(a_cu["end_net_liquidation_value"] + a3_sf["end_net_liquidation_value"] + a3_port["end_net_liquidation_value"] + a_cu["cum_imputed_housing"]),
-            "notes": "Keeps both homes in family, preserves Cupertino Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
+            "notes": "Keeps both homes in family, preserves Property A Prop 19, rents Unit 3 to absorb SF reassessment + SFPUC hikes."
         },
         {
             "id": "strategy_b",
-            "name": "B. Live in SF Unit 3 + Rent Out Cupertino (Forfeits Prop 19)",
+            "name": "B. Live in SF Unit 3 + Rent Out Property A (Forfeits Prop 19)",
             "housing": "SF Unit 3 (2 units rented)",
             "prop19_shield_captured": False,
             "yr1_net_cash_flow": r10(b_cfs[0]),
@@ -535,12 +535,12 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
             "horizon_end_after_tax_wealth": r10(b_cu["end_net_liquidation_value"] + b_sf["end_net_liquidation_value"] + b_port["end_net_liquidation_value"]),
             "cum_10yr_housing_value_enjoyed": r10(b_sf["cum_imputed_housing"]),
             "housing_adjusted_10yr_wealth": r10(b_cu["end_net_liquidation_value"] + b_sf["end_net_liquidation_value"] + b_port["end_net_liquidation_value"] + b_sf["cum_imputed_housing"]),
-            "notes": "Forfeits Cupertino Prop 19 exclusion, causing full ~$85k/yr Cupertino property tax + ordinary tax on high rent."
+            "notes": "Forfeits Property A Prop 19 exclusion, causing full ~$85k/yr Property A property tax + ordinary tax on high rent."
         },
         {
             "id": "strategy_a1",
-            "name": "A1. Live in Cupertino (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
-            "housing": "Cupertino Single-Family Home",
+            "name": "A1. Live in Property A (Prop 19) + Keep SF (2 Rented, 1 Vacant)",
+            "housing": "Property A Single-Family Home",
             "prop19_shield_captured": True,
             "yr1_net_cash_flow": r10(a_cfs[0]),
             "yr1_property_cash_flow_only": r10(a_cfs[0]),
@@ -549,7 +549,7 @@ def evaluate_strategies(scenario_key: str, inherit_year: int = 2045, horizon_yea
             "horizon_end_after_tax_wealth": r10(a_cu["end_net_liquidation_value"] + a_sf["end_net_liquidation_value"] + a_port["end_net_liquidation_value"]),
             "cum_10yr_housing_value_enjoyed": r10(a_cu["cum_imputed_housing"]),
             "housing_adjusted_10yr_wealth": r10(a_cu["end_net_liquidation_value"] + a_sf["end_net_liquidation_value"] + a_port["end_net_liquidation_value"] + a_cu["cum_imputed_housing"]),
-            "notes": "Keeping SF Unit 3 empty while paying Cupertino taxes + reassessed SF taxes creates severe annual cash-flow drag."
+            "notes": "Keeping SF Unit 3 empty while paying Property A taxes + reassessed SF taxes creates severe annual cash-flow drag."
         }
     ]
 

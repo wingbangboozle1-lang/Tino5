@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Property Inheritance Decision Support",
-    "subtitle": "Cupertino (ZIP 95014) and San Francisco (ZIP 94122) · anonymized",
+    "subtitle": "Property A ([ZIP A]) and San Francisco ([ZIP B]) · anonymized",
     "generated": "2026-11-10",
     "privacy": "No personal information appears on this site. All identities, street addresses, trust names and account numbers are replaced with placeholders; only city and ZIP-code-level geography is used.",
     "rounding": "All dollar amounts are rounded to the nearest $10.",
@@ -306,7 +306,7 @@
       "title": "2026 Homeowners Insurance premium comparison tool",
       "agency": "California Department of Insurance",
       "url": "https://interactive.web.insurance.ca.gov/apex_extprd/f?p=111:21:::NO:::",
-      "note": "Annual premiums effective May 1, 2026; lists 'SANTA CLARA CUPERTINO' and 'SAN FRANCISCO SAN FRANCISCO-Sunset District'; explicitly not a quote."
+      "note": "Annual premiums effective May 1, 2026; lists 'SANTA CLARA [CITY A]' and 'SAN FRANCISCO SAN FRANCISCO-[District B]'; explicitly not a quote."
     },
     "CPUC_SB695": {
       "title": "2025 Senate Bill 695 Report (net energy metering)",
@@ -321,10 +321,10 @@
       "note": "Decision D.22-12-056 adopted the net billing tariff; NEM 2.0 sunset April 14, 2023; legacy period rules."
     },
     "CPUC_WATER": {
-      "title": "San Jose Water Company tariff (Cupertino service territory)",
+      "title": "San Jose Water Company tariff (Property A service territory)",
       "agency": "California Public Utilities Commission",
       "url": "https://docs.cpuc.ca.gov/PublishedDocs/Efile/G000/M359/K001/359001611.PDF",
-      "note": "CPUC tariff schedules list 'portions of Cupertino' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."
+      "note": "CPUC tariff schedules list 'portions of Property A' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."
     },
     "SFPUC_RATES": {
       "title": "Rates Schedules and Fees (2026-27 water, sewer, power)",
@@ -357,8 +357,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Estimated market value, Nov 2026",
             "—",
             "$3,100,000 (client estimate)"
@@ -370,8 +370,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Taxable assessed value, 2026",
             "—",
             "$550,540 (client)"
@@ -383,8 +383,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Property tax bill, 2025",
             "—",
             "$7,210 (client)"
@@ -396,8 +396,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Water, monthly range",
             "—",
             "$100-$150 (client)"
@@ -409,8 +409,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Electricity / solar net result, monthly",
             "—",
             "+$10-$20 credit (client)"
@@ -422,8 +422,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Primary-residence home insurance, annual",
             "—",
             "~$1,500 (client guess)"
@@ -435,8 +435,8 @@
         {
           "cells": [
             "Property A",
-            "Cupertino",
-            "95014",
+            "Property A",
+            "[ZIP A]",
             "Regular maintenance and repairs",
             "—",
             "Qualitative only ('less than Property B')"
@@ -449,7 +449,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Estimated market value, Nov 2026",
             "—",
             "$1,800,000 (client)"
@@ -462,7 +462,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Taxable assessed value, 2025",
             "—",
             "$114,250 (client)"
@@ -475,7 +475,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Property tax bill, 2025",
             "—",
             "$2,440 (client)"
@@ -488,7 +488,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Rental income, 2 of 3 units, monthly",
             "—",
             "$7,150 (client)"
@@ -501,7 +501,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Water, all 3 units, monthly range",
             "—",
             "$330-$400 (client)"
@@ -514,7 +514,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Electricity, monthly range",
             "—",
             "$30-$70 (client)"
@@ -527,7 +527,7 @@
           "cells": [
             "Property B",
             "San Francisco",
-            "94122",
+            "[ZIP B]",
             "Rental-property insurance, annual",
             "—",
             "~$1,500 (client guess)"
@@ -580,7 +580,7 @@
       "rows": [
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2026",
             "—",
             "— (client)",
@@ -592,7 +592,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2025",
             "—",
             "$7,210 (client)",
@@ -604,7 +604,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2024",
             "—",
             "$7,000 (client)",
@@ -616,7 +616,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2023",
             "—",
             "$6,920 (client)",
@@ -628,7 +628,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2022",
             "—",
             "$6,760 (client)",
@@ -640,7 +640,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2021",
             "—",
             "$6,660 (client)",
@@ -652,7 +652,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2020",
             "—",
             "$6,570 (client)",
@@ -664,7 +664,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2019",
             "—",
             "$6,570 (client)",
@@ -676,7 +676,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2018",
             "—",
             "$6,380 (client)",
@@ -688,7 +688,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2017",
             "—",
             "$6,380 (client)",
@@ -700,7 +700,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2016",
             "—",
             "$6,410 (client)",
@@ -712,7 +712,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2015",
             "—",
             "$6,130 (client)",
@@ -724,7 +724,7 @@
         },
         {
           "cells": [
-            "Property A · 95014",
+            "Property A · [ZIP A]",
             "2014",
             "—",
             "$5,970 (client)",
@@ -736,7 +736,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2025",
             "—",
             "$2,440 (client)",
@@ -748,7 +748,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2024",
             "—",
             "$2,320 (client)",
@@ -760,7 +760,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2023",
             "—",
             "$2,180 (client)",
@@ -772,7 +772,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2022",
             "—",
             "$2,110 (client)",
@@ -784,7 +784,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2021",
             "—",
             "$2,070 (client)",
@@ -796,7 +796,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2020",
             "—",
             "$2,200 (client)",
@@ -808,7 +808,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2019",
             "—",
             "$2,130 (client)",
@@ -820,7 +820,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2018",
             "—",
             "$2,060 (client)",
@@ -832,7 +832,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2017",
             "—",
             "$1,740 (client)",
@@ -844,7 +844,7 @@
         },
         {
           "cells": [
-            "Property B · 94122",
+            "Property B · [ZIP B]",
             "2016",
             "—",
             "$1,680 (client)",
@@ -3748,7 +3748,7 @@
             "Insurance",
             "Property A primary-residence insurance premium unverified",
             "No ZIP-specific official premium was retrieved. CDI's tool publishes sample annual premiums effective May 1, 2026, and explicitly says it is not a quote. The model uses the official CDI statewide average of $1,570/yr.",
-            "Obtain quotes through the CDI comparison tool for SANTA CLARA / CUPERTINO at the correct coverage amount."
+            "Obtain quotes through the CDI comparison tool for SANTA CLARA / [CITY A] at the correct coverage amount."
           ],
           "source": "CDI_TOOL",
           "status": "FLAGGED — UNVERIFIED",
@@ -4505,7 +4505,7 @@
             "CDI_TOOL",
             "California Department of Insurance",
             "2026 Homeowners Insurance premium comparison tool",
-            "Annual premiums effective May 1, 2026; lists 'SANTA CLARA CUPERTINO' and 'SAN FRANCISCO SAN FRANCISCO-Sunset District'; explicitly not a quote."
+            "Annual premiums effective May 1, 2026; lists 'SANTA CLARA [CITY A]' and 'SAN FRANCISCO SAN FRANCISCO-[District B]'; explicitly not a quote."
           ],
           "source": "CDI_TOOL",
           "status": "VERIFIED",
@@ -4537,8 +4537,8 @@
           "cells": [
             "CPUC_WATER",
             "California Public Utilities Commission",
-            "San Jose Water Company tariff (Cupertino service territory)",
-            "CPUC tariff schedules list 'portions of Cupertino' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."
+            "San Jose Water Company tariff (Property A service territory)",
+            "CPUC tariff schedules list 'portions of Property A' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."
           ],
           "source": "CPUC_WATER",
           "status": "VERIFIED",
@@ -4603,7 +4603,7 @@
       "severity": "Insurance",
       "item": "Property A primary-residence insurance premium unverified",
       "detail": "No ZIP-specific official premium was retrieved. CDI's tool publishes sample annual premiums effective May 1, 2026, and explicitly says it is not a quote. The model uses the official CDI statewide average of $1,570/yr.",
-      "action": "Obtain quotes through the CDI comparison tool for SANTA CLARA / CUPERTINO at the correct coverage amount.",
+      "action": "Obtain quotes through the CDI comparison tool for SANTA CLARA / [CITY A] at the correct coverage amount.",
       "source": "CDI_TOOL",
       "status": "needs review"
     },

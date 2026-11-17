@@ -3,7 +3,7 @@
  "sections": [
   {
    "id": "a-costs",
-   "title": "1. Property A (95014) — carrying costs today",
+   "title": "1. Property A ([ZIP A]) — carrying costs today",
    "intro": "Owner-supplied amounts are marked 'owner'. Anything that could be checked against a published tariff is marked 'verified' or 'derived'.",
    "columns": ["item","value","status","sources","note"],
    "rows": [
@@ -12,12 +12,12 @@
     {"item":"Electricity (with rooftop solar)","value":"net credit of $10–$20/month","status":"owner","sources":["nolo-note"],"note":"Consistent with legacy net metering; see the solar section for why this may not survive to 2045+."},
     {"item":"Home insurance","value":"$1,500/yr (owner estimate)","status":"owner","sources":["nolo-note"],"note":"Owner states they do not know this figure. Not verifiable from a public source — flagged F-06. Model does not use this figure (see insurance section)."},
     {"item":"Maintenance and repairs","value":"≈ $1% of structure value/yr (model)","status":"assumption","value_display":"A9","sources":[],"note":"Owner says 'not as much as the San Francisco house'. Modelled at 1.0% of replacement cost (≈$17,050/yr in 2026) and flagged F-07."},
-    {"item":"Supplemental/one-off items","value":"","value_display":"","status":"unverified","sources":[],"note":"Roof, sewer lateral, HVAC, foundation, electrical panel condition unknown. A 1960s–1970s Cupertino house can require $50,000–$150,000 of deferred work. No data — left blank, flagged F-08."}
+    {"item":"Supplemental/one-off items","value":"","value_display":"","status":"unverified","sources":[],"note":"Roof, sewer lateral, HVAC, foundation, electrical panel condition unknown. A 1960s–1970s Property A house can require $50,000–$150,000 of deferred work. No data — left blank, flagged F-08."}
    ]
   },
   {
    "id": "b-costs",
-   "title": "2. Property B (94122) — carrying costs today",
+   "title": "2. Property B ([ZIP B]) — carrying costs today",
    "columns": ["item","value","status","sources","note"],
    "rows": [
     {"item":"Water and sewer (all 3 units)","value":"$365/month ($4,380/yr)","status":"owner","sources":["nolo-note"],"note":"Owner range $330–$400/month."},

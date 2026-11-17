@@ -83,6 +83,6 @@ the bill also carries direct charges and special assessments. See [SCC_RATEPDF](
 ## Irregularities
 
 The client-supplied tax/assessment pairs imply effective rates of about
-1.34% (Cupertino) and 2.13% (San Francisco), above the
+1.34% (Property A) and 2.13% (San Francisco), above the
 official ad-valorem rates. Direct charges / special assessments are a plausible explanation but
 are unconfirmed. See FLAG-003 on the site's Flagged for Review page.
