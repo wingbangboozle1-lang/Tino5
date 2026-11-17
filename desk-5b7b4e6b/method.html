@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Method and privacy — inheritance decision desk</title>
+<link rel="stylesheet" href="assets/desk.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Inheritance decision desk</a>
+  <span class="stamp">Property A and Property B · built 2026-11-17 · every row carries a source</span>
+</header>
+<div class="wrap">
+<nav class="side"><details><summary>Decide</summary><ul>
+<li><a href="index.html">Start here — what would change the answer</a></li>
+<li><a href="executive-summary.html">Executive summary</a></li>
+<li><a href="decision-triggers.html">Pre-committed triggers</a></li>
+<li><a href="paths.html">The ten paths, side by side</a></li>
+<li><a href="whatif.html">What-if controls</a></li>
+</ul></details>
+<details><summary>The two properties</summary><ul>
+<li><a href="properties.html">Property facts</a></li>
+<li><a href="property-tax.html">Property tax and assessment</a></li>
+<li><a href="costs.html">Running costs and capital plan</a></li>
+<li><a href="inheritance-tax.html">Estate tax, basis and assessment</a></li>
+<li><a href="projections.html">Year-by-year projections</a></li>
+</ul></details>
+<details><summary>Risk</summary><ul>
+<li><a href="black-swan.html">Black swan — real economies</a></li>
+<li><a href="law-watch.html">Law watch — enacted vs proposed</a></li>
+<li><a href="flagged.html">Flagged for review</a></li>
+</ul></details>
+<details><summary>Act</summary><ul>
+<li><a href="process.html">The transfer, step by step</a></li>
+<li><a href="briefing.html">Attorney &amp; CPA briefing sheet</a></li>
+<li><a href="questions.html">Questions and information gaps</a></li>
+<li><a href="suggestions.html">Suggestions awaiting approval</a></li>
+</ul></details>
+<details open><summary>Reference</summary><ul>
+<li><a href="glossary.html">Glossary</a></li>
+<li><a href="sources.html">Source register</a></li>
+<li><a class="here" href="method.html">Method and privacy</a></li>
+</ul></details></nav>
+<main class="main">
+  <h1>Method and privacy</h1>
+  
+
+<h2>How the numbers are produced</h2>
+<p>One model, one source register, one build script. The pages are generated, so a figure cannot
+drift between pages.</p>
+<h3>Resampling, not extrapolation</h3>
+<p>The 49 years from 1977 to 2025 are resampled in contiguous
+five-year blocks, with wraparound, 1,500 times. A block is drawn as a unit so that
+the inflation, house-price, equity and interest-rate behaviour of those years arrives together
+exactly as it happened. Any regime can follow any other. The result is reported as a median with
+10th and 90th percentiles, and as the share of futures in which each path leads.</p>
+<h3>Bands, not points</h3>
+<p>Every uncertain input is a low / base / high band. The bands are carried through the
+arithmetic, so a result arrives as a band too. Where a value is unknown the cell is left empty
+and the row is tagged, rather than filled with a plausible number.</p>
+<h3>What is measured and what is assumed</h3>
+<table class="data">
+<thead><tr><th>Input</th><th>Status</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Equity returns</td><td>Measured — published index and dividend-price ratio, added</td><td><a class="cite" href="sources.html#erp2026_b55" title="Economic Report of the President 2026 (U.S. Government Publishing Office) — Table B-55, Common stock prices and yields, 1975-1999 — Standard &amp; Poor&#x27;s composite index at end of year and dividend-price ratio">erp2026_b55</a> <a class="cite" href="sources.html#erp2026_b56" title="Economic Report of the President 2026 (U.S. Government Publishing Office) — Table B-56, Common stock prices and yields, 2000-2025 — Standard &amp; Poor&#x27;s composite index at end of year and dividend-price ratio">erp2026_b56</a></td></tr>
+<tr><td>House price growth</td><td>Measured — published index, Property A's and Property B's metro areas</td><td><a class="cite" href="sources.html#fhfa_fred" title="Federal Housing Finance Agency (series served by FRED) — All-transactions House Price Index — ATNHPIUS41940Q (Property A&#x27;s metropolitan area), ATNHPIUS41884Q (Property B&#x27;s metropolitan division), CASTHPI (California), fourth-quarter value of each year">fhfa_fred</a></td></tr>
+<tr><td>Local inflation and rent growth</td><td>Measured — published local price indexes</td><td><a class="cite" href="sources.html#bls_fred" title="U.S. Bureau of Labor Statistics (series served by the Federal Reserve Bank of St. Louis, FRED) — CPIAUCNS (U.S. city average, all items), CUURA422SA0 (San Francisco area, all items), CUURA422SEHA (San Francisco area, rent of primary residence), TB3MS (3-month Treasury bill), GS10 (10-year Treasury) — annual averages">bls_fred</a></td></tr>
+<tr><td>Short-term interest rates</td><td>Measured — published bill and bond yields</td><td><a class="cite" href="sources.html#bls_fred" title="U.S. Bureau of Labor Statistics (series served by the Federal Reserve Bank of St. Louis, FRED) — CPIAUCNS (U.S. city average, all items), CUURA422SA0 (San Francisco area, all items), CUURA422SEHA (San Francisco area, rent of primary residence), TB3MS (3-month Treasury bill), GS10 (10-year Treasury) — annual averages">bls_fred</a></td></tr>
+<tr><td>Property A's ad-valorem rate and fixed charges</td><td>Derived — least squares on the household's own bills</td><td><a class="cite" href="sources.html#boe_prop13" title="California State Board of Equalization — Proposition 13 — 1% maximum levy; assessed value increase capped at 2% a year absent a change in ownership or new construction">boe_prop13</a></td></tr>
+<tr><td>Property A's market rent</td><td>Assumed — a gross yield band, flagged F07</td><td><a class="cite" href="sources.html#census_acs" title="U.S. Census Bureau — QuickFacts — median gross rent and owner-occupied housing value (county level)">census_acs</a></td></tr>
+<tr><td>Insurance</td><td>The household's own estimate, unverified, flagged F06</td><td><a class="cite" href="sources.html#cdi" title="California Department of Insurance — Homeowners insurance consumer information (published under Insurance Code section 12959); the Department states its figures are sample premiums, not quotes">cdi</a></td></tr>
+<tr><td>Maintenance and capital spending</td><td>Assumed — a percentage of value, flagged</td><td><span class="tag t-none">no official source</span></td></tr>
+<tr><td>Combined marginal rate on rental income</td><td>Assumed — a band built from sourced components, flagged F13</td><td><a class="cite" href="sources.html#irs_niit" title="Internal Revenue Service — Net Investment Income Tax — 3.8% on net investment income above the statutory threshold amounts">irs_niit</a> <a class="cite" href="sources.html#ftb_rates_2026" title="California Franchise Tax Board — 2026 California Tax Rate Schedules (Form 540) — Schedules X, Y and Z; top marginal rate 12.30%">ftb_rates_2026</a></td></tr>
+<tr><td>Market values and the trust timeline</td><td>The household's own figures, unverified, flagged F02</td><td><span class="tag t-none">no official source</span></td></tr>
+</tbody></table>
+<h3>What the model leaves out</h3>
+<ul>
+<li>Mortgages. No debt on either property has been disclosed, so none is modelled.</li>
+<li>Property B's terminal sale value, because it is the same in every path and would cancel out
+(flagged F09).</li>
+<li>The federal deduction for state tax, beyond the cap described on the inheritance tax
+page.</li>
+<li>Any behavioural response: the model does not know whether the household would actually stay
+the course in a bad decade.</li>
+</ul>
+<h3>Privacy</h3>
+<p>No name, street address, parcel number, account number or postcode appears on any page, and
+no city or neighbourhood name is written into visible text. Properties are identified by county
+only. Money is rounded to the nearest $10; statutory amounts are quoted exactly as published and
+marked, because a statutory amount is public by nature.</p>
+<p>Assessed values are published banded rather than exactly. An assessed value is a matter of
+public record tied to one parcel, so rounding to the nearest $10 would not prevent it being
+traced back to the parcel. The exact figures are used inside the model, which is not published,
+and only banded anchors reach a page (flagged F03).</p>
+<p>Rounding protects figures published from now on. It does not change what is already in this
+repository's history, and rewriting that history is a destructive operation on shared history
+that only the repository owner should authorise (flagged F19). Earlier directories in this
+repository were built before the tighter rule and may contain city names and postcodes
+(flagged F18); this desk does not change them.</p>
+<h3>Reproducing this desk</h3>
+<p><code>python3 desk-5b7b4e6b/_src/build.py</code> regenerates every page.
+<code>python3 desk-5b7b4e6b/_src/verify.py</code> re-checks them, and
+<code>python3 -m unittest discover -s desk-5b7b4e6b/_src -p "test_*.py"</code> runs the model
+tests. The build is deterministic: a fixed seed is used, so re-running it changes nothing.</p>
+
+  <footer class="foot">
+    <p>Desk built 2026-11-17. Money is rounded to the nearest $10; statutory amounts are
+    quoted exactly as published and marked. Properties are identified by county only — no
+    name, street address, parcel number or postcode appears anywhere on this desk.</p>
+  </footer>
+</main>
+</div>
+</body>
+</html>
