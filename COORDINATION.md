@@ -3094,3 +3094,9 @@ verify commands are re-run after the scrub, and the results are recorded below.
 - **Live confirmation (after deploy):** `flagged-for-review.html` is served; `desk/index.html` returns 404 (hidden as intended); the root hub carries the containment note and the Flagged card and no card for the hidden desks. `desk-31cb5781` stays live.
 - **Process note.** This session's first branch was overtaken by PR #98/#99 from `arena/c4161fb6-tino5`, and then by PR #102. Each time the overlap was resolved by rebasing and keeping both sides' records; nothing from another session was reverted. Owner figures were redacted from the coordination text (two occurrences of a bill figure and two of a roll figure; the repo-wide scan now reports 0 findings).
 - **Open owner decisions:** F1–F7 on `flagged-for-review.html`. The history rewrite (F1) is not performed.
+
+### c9f — integration result (arena-c9f0d60a, 2026-11-17)
+
+- **PR #100** (`arena/c9f0d60a-tino5` → `main`): https://github.com/wingbangboozle1-lang/Tino5/pull/100. Final head `a550335`; merged with a merge commit at `ba94352` (2026-11-17 16:58 UTC). Checks on the head: `Verify published artifact` and `desk-verify` both success; mergeable CLEAN.
+- **Post-merge on `main`:** `Verify published artifact` success; `desk-verify` success; `pages build and deployment` success (run 44131759613).
+- **Still open (owner decisions, not done here):** (1) the owner figures still in tracked files are kept under the owner-supplied/unverified rule; (2) git-history remediation (c9f/H) is not started and needs explicit owner direction; the root history is unchanged.
