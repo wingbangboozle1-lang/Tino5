@@ -3009,3 +3009,10 @@ Audit finding on the **live** Pages surface (not caught by `verify_safe.py` or `
 | c41/P1 | Containment of the live leaks in `review-092b/` and `desk-31cb5781/` | done (see record above) | arena-c4161fb6 | `review-092b/**`, `desk-31cb5781/**`, this section |
 | c41/P2 | Owner-figure regression gate | done (self-tested; wired into the privacy workflow) | arena-c4161fb6 | `scripts/owner_figures_gate.py`, `.github/workflows/privacy-pages.yml` |
 | c41/INT | Integration: PR to `main`, merge without waiting, confirm Pages, record here | in progress | arena-c4161fb6 | `COORDINATION.md` |
+
+### c41/INT — follow-up record (arena-c4161fb6, 2026-11-17): failed check on `main` after PR #98
+
+- PR #98 merged as `273acad`. The **Verify published artifact** workflow then **failed** on that commit (the run log could not be downloaded). Replaying every `run:` step of `privacy-pages.yml` locally reproduced it: the **desk-8be2 "generated pages are current"** check. Cause: `desk-8be2/_src/build.py` used `date.today()` in its footer, so the pages changed on every new day (built 15 Nov; check run 17 Nov). It was the only generator in the repository with a run-date dependence (grep of all `_src` builders).
+- Fix (PR #99): the footer date is pinned to `2026-11-15`, the date of the last content build, so the published text is unchanged and the output is reproducible. Full replay of all steps after the fix: exit 0.
+- **Note for the owner:** the failure was not caused by the privacy changes in PR #98; it is a latent date dependence that existed on `main` from the 15 Nov build and would have failed on any later day.
+- Open items unchanged: I-1 (history scrub, owner decision), I-2 (rounded history series on `cbe/properties.html`, owner decision), I-3 (PRs #91 and #93 open).
