@@ -3169,6 +3169,12 @@ stale-check step added).
 **Privacy:** county-level anonymisation (Property A, Santa Clara County; Property B, San Francisco
 County); no city names, ZIP codes, street addresses, parcel or account numbers on any page; money
 rounded to $10 except agency-published exact figures marked EXACT; owner bands labelled
-owner-supplied. Git history scrub confirmed: single squashed commit, four refs, no tags —
-pre-rounding history unreachable (residual pre-squash public exposure, if any, is an owner decision,
-flagged on the repo-review page).
+owner-supplied. **Git history (corrected after the concurrent privacy-containment rounds landed on
+`main` during this session):** the working clone here is shallow (one squashed commit, four refs,
+no tags), but the public remote retains roughly 3,500 commits containing the owner's pre-rounding
+figures — a history rewrite (filter-repo + force-push) is an explicit owner decision (F1) and was
+NOT performed. The 2026-11-17 containment rounds removed the identifiers and exact figures from the
+live tree and hid the locality-naming desks from Pages; this recheck's own pages are built
+county-level from the start and pass every containment gate (owner-figure gate, hash-based
+location-token guard with `recheck-2026-11-17/_src/verify.py` added to the reviewed guard-code
+allowlist, published-surface check 244 files 0 failures).

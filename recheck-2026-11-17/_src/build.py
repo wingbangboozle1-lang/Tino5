@@ -433,7 +433,7 @@ are listed on the <a href="requirements.html">requirement index</a> with this re
 # --------------------------------------------------- page: requirements
 REQS = [
     ("Phased-investing path in the black-swan section (proceeds in 3-month–2-year Treasuries 24–36 months, then phase into stocks; test 1929/2008 crash entry)", "ANSWERED", 'desk-85a01c5c/black-swan.html (quantified replay), desk-03242c78/phased.html, cbe/phased-investing.html'),
-    ("Scrub pre-rounding git history / keep the repo privacy-first", "ANSWERED", 'repo-review.html (single-commit history; excluded trees; residual exposure flagged)'),
+    ("Scrub pre-rounding git history / keep the repo privacy-first", "PARTIAL", 'repo-review.html — live tree contained, rounded and identifier-free (2026-11-17 containment); the public remote still retains ~3,500 commits with pre-rounding figures; the filter-repo rewrite + force-push is owner decision F1 (not performed)'),
     ("One-page printable Attorney &amp; CPA Briefing Sheet export", "ANSWERED", 'desk-03242c78/briefing-attorney.html, briefing-cpa.html; desk-85a01c5c/briefing-sheet.html'),
     ("Replace round-number assumptions with ranges or real figures", "ANSWERED", 'desk-03242c78/workbook.html, what-would-change.html; what-if pages'),
     ("Put &ldquo;what would change the answer&rdquo; on the first screen", "ANSWERED", 'desk-03242c78/index.html + what-would-change.html; desk-85a01c5c/index.html'),
@@ -446,7 +446,7 @@ REQS = [
     ("Compare all choices at the same transfer dates and horizons, with taxes, debt, occupancy changes, capital costs and liquidity", "ANSWERED", 'desk-03242c78/choices.html + sell-path.html; desk-85a01c5c/scenarios.html (2040/2045/2050)'),
     ("Periodically recheck official authorities; distinguish enacted from proposals", "ANSWERED (cycle 2026-11-17)", 'this desk: register.html + law-watch.html'),
     ("Agree in writing what would make the household choose each path, before the figures arrive", "ANSWERED (awaiting owner signature)", 'desk-03242c78/what-would-change.html + suggestions.html; desk/decision.html'),
-    ("Contain the prior public-data exposure", "ANSWERED", 'repo-review.html; archive/** excluded from Pages'),
+    ("Contain the prior public-data exposure", "PARTIAL", 'repo-review.html — live surface contained by the 2026-11-17 privacy rounds (identifiers and exact figures removed; locality-naming trees hidden); remote history exposure remains owner decision F1'),
     ("Build a private estate inventory", "PARTIAL", 'template and liquidity plan on desk-9af5443d; the filled inventory must stay off-repo (owner action)'),
     ("Obtain independent property and rental estimates", "PARTIAL", 'comparables published (desk-9af5443d rents); independent appraisals are an offline owner action'),
     ("Validate Proposition 19 eligibility", "ANSWERED", 'desk-03242c78/prop19.html (conditions, occupancy test, filing)'),
@@ -494,7 +494,7 @@ REQS = [
     ("Project property tax, assessed value, and carrying costs by year", "ANSWERED", 'projections.html; property-tax.html; running-costs.html'),
     ("Research inheritance/estate allowances and future changes (money may exceed thresholds)", "ANSWERED", 'inheritance-tax/estate-tax pages; law-watch.html; register.html (2027 figures)'),
     ("No manual input: work autonomously, line by line, official sources only, links for review", "PROCEDURAL", 'COORDINATION.md; sources.html per desk'),
-    ("GitHub Pages site: clean dashboard, tables, analysis and findings", "ANSWERED", 'root hub index.html + 20 published desks'),
+    ("GitHub Pages site: clean dashboard, tables, analysis and findings", "ANSWERED", 'root hub index.html + the live desks (nine further trees are hidden from Pages by the 2026-11-17 privacy containment and remain in-repo)'),
     ("Every table row sourced officially or blank and flagged unverified; never infer", "ANSWERED", 'desk verifiers; verify-476 register; this desk'),
     ("Coordinate parallel sessions via COORDINATION.md", "PROCEDURAL", 'COORDINATION.md'),
     ("PR to main, merge, confirm Pages, record the result", "ANSWERED (this session)", 'COORDINATION.md 1e9/INT record'),
@@ -523,7 +523,8 @@ def page_requirements():
 mapped to the published page that answers it. Status: ANSWERED {answered} &middot; PARTIAL {partial}
 &middot; OPEN {openn} &middot; PROCEDURAL {proc}. A PARTIAL row always names the missing piece and
 the party who must supply it. This index is the &ldquo;collect, organise and analyse&rdquo; layer of
-the project.</p>
+the project. Paths named below stay in the repository; some are currently hidden from Pages by the
+2026-11-17 privacy containment (they name the locality) and are marked by that caveat where relevant.</p>
 {table(["Requirement (owner brief)", "Status", "Where it is answered"], rows)}
 </div>
 """
@@ -570,12 +571,12 @@ def page_repo():
 <div class="card">
 <h2>Repository review {DATE} (line by line, published surface)</h2>
 {table(["Check", "Finding", "Verdict"], [
- ["Git history", "The entire repository is one squashed commit with four refs (two local branches at the same commit, two remote). No tags. Pre-rounding history is unreachable from any ref.", CONF],
- ["Published surface", "Root hub plus 20 published desks plus the privacy-first dashboard; every other top-level directory is excluded from Pages by the deployment gate and the Jekyll exclude list.", CONF],
- ["Excluded trees", "Legacy trees holding pre-anonymisation or pre-rounding material stay excluded (they remain in the repository and in history-as-squashed). Deleting them is an owner decision recorded on the flagged pages.", OPEN_T],
- ["Verification battery", "Structure/privacy/rounding gate, landing-link check and repository privacy scan all pass on the combined tree at the time of this review.", CONF],
- ["Prior public exposure", "A merge does not erase what a public repository once served. If the pre-squash state was ever public, consider the exposure contained but not revoked.", OPEN_T],
- ["Duplicate desks", "Twenty published decision trees answer the same brief with different scopes. Suggestion S1 on the suggestions boards: consolidate to one lead desk after the owner chooses.", tag("SUGGESTION", "note")],
+ ["Git history", "The working clone here is shallow (one squashed commit, four refs, no tags) — but the <b>public remote retains roughly 3,500 commits containing the owner's pre-rounding figures</b>. A history rewrite (filter-repo + force-push) is an explicit owner decision (F1) and was NOT performed; it would invalidate open branches and cannot recall copies already cloned. Containment, not revocation.", OPEN_T],
+ ["Published surface", "Root hub, the privacy-first dashboard, the public privacy record page and the desks on the live surface (twelve, plus this recheck) — every other top-level directory is excluded from Pages by the deployment gate and the Jekyll exclude list. Nine decision trees that name the locality are currently <b>hidden from Pages by the 2026-11-17 privacy containment</b> while remaining in the repository.", CONF],
+ ["Excluded trees", "Legacy trees holding pre-anonymisation or pre-rounding material stay excluded (they remain in the repository). Deleting them is an owner decision recorded on the flagged pages.", OPEN_T],
+ ["Verification battery", "Structure/privacy/rounding gate, landing-link check, repository privacy scan, owner-figure gate (salted digests), hash-based location-token guard and the published-surface check all pass on the combined tree at the time of this review.", CONF],
+ ["Prior public exposure", "Confirmed, not hypothetical: the pre-squash history was public and is retained on the remote. The 2026-11-17 containment removed the identifiers and exact figures from the live tree; see F1 for the owner's history-rewrite decision.", OPEN_T],
+ ["Duplicate desks", "Twenty decision trees answer the same brief with different scopes; several are now hidden from Pages. Suggestion S1 on the suggestions boards: consolidate to one lead desk after the owner chooses.", tag("SUGGESTION", "note")],
 ])}
 </div>
 
@@ -609,7 +610,7 @@ this cycle's; F-items referenced here live on the desks' own flagged pages.</p>
  ["R5", "Treasury curve refresh (parking yields)", a("treasury", "Treasury daily curve"), "pull the curve feed at the next cycle"],
  ["R6", "Property B owner band vs derived tariff band", a("sfpuc", "SFPUC schedules"), "twelve-month bill breakdown"],
  ["R7", "Stale vintage of the city transfer-tax factsheet", a("asr", "Assessor-Recorder factsheet"), "request a current chart from the office"],
- ["F-history", "Pre-squash public history exposure (owner decision)", a("tra", "project convention page"), "owner decision: treat as contained, or re-scope the repository as private"],
+ ["F-history", "Pre-rounding figures in the public git history (owner decision)", a("tra", "project convention page"), "owner decision F1: run the filter-repo rewrite + force-push (invalidates open branches; cannot recall clones), or accept containment"],
 ])}
 </div>
 """
