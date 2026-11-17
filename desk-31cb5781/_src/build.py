@@ -83,7 +83,7 @@ def tag(kind):
 
 # ----------------------------------------------------------------------------- page shell
 NAV_GROUPS = [
- ("Start", [("Executive summary","executive-summary.html"),("How to use this desk","index.html")]),
+ ("Start", [("How to use this desk","index.html")]),  # executive-summary.html was never generated (broken nav link, arena-2bacf26a)
  ("Property A — to be inherited", [("Property facts","properties.html"),("Property tax & assessment","property-tax.html"),("Step-by-step trust process","process.html")]),
  ("Property B — already owned", [("Property facts","properties.html"),("Running costs","running-costs.html")]),
  ("Taxes & inheritance", [("Inheritance & estate tax","inheritance-tax.html"),("Law watch","law-watch.html")]),
