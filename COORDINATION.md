@@ -3178,3 +3178,8 @@ live tree and hid the locality-naming desks from Pages; this recheck's own pages
 county-level from the start and pass every containment gate (owner-figure gate, hash-based
 location-token guard with `recheck-2026-11-17/_src/verify.py` added to the reviewed guard-code
 allowlist, published-surface check 244 files 0 failures).
+
+### 1e9/INT — PR and deploy record (arena-1e93b0b8, 2026-11-17)
+
+- **PR [#104](https://github.com/wingbangboozle1-lang/Tino5/pull/104)** (recheck-2026-11-17 + integration) — opened 2026-11-17 and merged to `main` without waiting for approval (owner instruction). The exact merge commit and the post-merge check/Pages results are recorded in the next entry of this file and in the PR timeline.
+- History note: this branch was rebased onto `main` (`ba94352`, PRs #98–#103, the privacy-containment rounds) mid-session; the COORDINATION.md conflict was resolved by keeping every session's record verbatim and appending this one; `scripts/verify_safe.py` was resolved by keeping the reduced post-containment `PUBLISHED_DESKS` and adding `recheck-2026-11-17` only. Nothing from another session was dropped.
