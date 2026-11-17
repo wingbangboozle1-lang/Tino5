@@ -30,6 +30,8 @@ DEPLOYMENT_EXCLUSIONS = {
     "desk-b4f", "docs", "archive", "audited-v4",
     "data", "analysis", "assets", "model", "pages", "research", "scripts",
     "session-2f7b1b3f", "mine", "src",
+    # Privacy containment (session arena-2bacf26a, 2026-11-17): hidden from Pages, not deleted.
+    "desk", "desk-9af5443d", "swan-3a49", "tino5-3f269806", "desk-e86", "review-092b", "cbd", "phase-99220", "verify-476",
 }
 # Approved for publication alongside public-safe/. Recorded here by the 7b/INT integration
 # run under the owner's brief ("clear numbers and projections ... rounded to the nearest $10").
@@ -63,10 +65,7 @@ DEPLOYMENT_EXCLUSIONS = {
 # sensitivity read from the official FTB instructions, Census ACS rent comparables, the
 # five-year maintenance plan, the estate liquidity plan, a distribution chart and the
 # decision-and-date log. Folded into the same single set.
-PUBLISHED_DESKS = {"desk", "review-092b", "decision-ad038", "swan-3a49", "referee-abae", "desk-e86",
-                  "tino5-3f269806", "verify-476", "decision", "desk-d75", "cbe", "phase-99220", "cbd",
-                  "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0",
-                  "desk-9af5443d", "desk-03242c78", "desk-85a01c5c"}
+PUBLISHED_DESKS = {"decision-ad038", "referee-abae", "decision", "desk-d75", "cbe", "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-03242c78", "desk-85a01c5c"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",

@@ -23,6 +23,8 @@ until referee X04/X05 are corrected.
 
 **Live site:** https://wingbangboozle1-lang.github.io/Tino5/ → root hub → the desks above.
 
+**Privacy containment (2026-11-17, session arena-2bacf26a).** Eight desks and three link-only desks are hidden from Pages in `_config.yml` because they published city or neighbourhood names, or linked into unpublished trees. They are hidden, not deleted, and stay in Git history. The reasons, the repair for each, and the owner decisions still open (Git history, repository visibility, rounded history tables, owner anchors, money not rounded to $10) are on [`flagged-for-review.html`](flagged-for-review.html). Re-check after any change with `python3 scripts/check_published_surface.py`.
+
 A working decision aid, not advice. It asks one question — when the house passes to the heir
 somewhere between 2040 and 2050, should the heir move in, rent it out, or sell it and reinvest? —
 and answers it three ways: with arithmetic that can be re-run, with sourced law, and with stress
@@ -69,6 +71,7 @@ python3 scripts/verify_desk_v5.py --json                      # the desk contrac
 python3 scripts/build_desk.py                                 # writes public-safe/*.html
 python3 scripts/verify_safe.py                                # published-surface gate
 python3 scripts/check_landing.py                              # hub links resolve
+python3 scripts/check_published_surface.py                    # privacy and link check on the published set
 python3 scripts/privacy_scan.py --summary                     # identifier scan
 python3 review-092b/_src/verify.py                            # decision hub contract
 python3 desk-e86/verify.py                                    # readiness desk contract
