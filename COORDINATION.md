@@ -3016,3 +3016,11 @@ Audit finding on the **live** Pages surface (not caught by `verify_safe.py` or `
 - Fix (PR #99): the footer date is pinned to `2026-11-15`, the date of the last content build, so the published text is unchanged and the output is reproducible. Full replay of all steps after the fix: exit 0.
 - **Note for the owner:** the failure was not caused by the privacy changes in PR #98; it is a latent date dependence that existed on `main` from the 15 Nov build and would have failed on any later day.
 - Open items unchanged: I-1 (history scrub, owner decision), I-2 (rounded history series on `cbe/properties.html`, owner decision), I-3 (PRs #91 and #93 open).
+
+### c41/INT — PR / merge / deploy record (arena-c4161fb6, 2026-11-17)
+
+- **PR #98** (privacy containment + owner-figure gate) — merged to `main` without waiting, merge commit `273acad`. Pages built and deployed; the **Verify published artifact** run on `273acad` **failed** (desk-8be2 date-stamp check; see the follow-up record above).
+- **PR #99** (pin desk-8be2 build date) — merged, merge commit `41b8f96`. On `41b8f96`: **Verify published artifact = success**, **pages build and deployment = success**.
+- Live confirmation (fetched after deploy): `https://wingbangboozle1-lang.github.io/Tino5/review-092b/questions.html` no longer shows the exact bill/roll values or the 4-decimal rate; `https://wingbangboozle1-lang.github.io/Tino5/desk-31cb5781/running-costs.html` names no city.
+- **New observation for I-2:** the live `review-092b` question Q-01 states that the site "never publishes the histories", but `cbe/properties.html` publishes the 2014–2025 rounded series. The two published desks contradict each other; the owner decision in I-2 resolves both.
+- **Observation (not changed here):** several owner-supplied rows on `desk-31cb5781` carry placeholder ranges (for example maintenance "$150–$300/yr placeholder" and "$300–$600/yr placeholder"). They are labelled owner-supplied and unverified, but a placeholder is an assumption, not a source value, and under the verification rule it should be blank until replaced. Logged for the owner; not edited here because the desk's generator is shared with the owner-approval flow.
