@@ -36,6 +36,9 @@ exclude:
   # desk-85a01c5c (session arena-85a01c5c, 2026-11-15): generator/verifier are working material, not pages.
   - "desk-85a01c5c/_src"
   - "desk-85a01c5c/_src/**"
+  # desk-5b7b4e6b (session arena-5b7b4e6b, 2026-11-17): generator/verifier are working material, not pages.
+  - "desk-5b7b4e6b/_src"
+  - "desk-5b7b4e6b/_src/**"
   # inheritance desk: generator and model are working material; owner input data is not published
   - "inheritance-desk/_src"
   - "inheritance-desk/_src/**"

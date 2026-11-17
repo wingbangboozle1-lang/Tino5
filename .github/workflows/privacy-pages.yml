@@ -145,5 +145,17 @@ jobs:
             git --no-pager diff --stat -- desk-85a01c5c
             exit 1
           fi
+      - name: Ten-path inheritance desk (desk-5b7b4e6b/) — tests, rebuild, then verify
+        run: |
+          python -m unittest discover -s desk-5b7b4e6b/_src -p "test_*.py" -v
+          python desk-5b7b4e6b/_src/build.py
+          python desk-5b7b4e6b/_src/verify.py
+      - name: Ten-path inheritance desk (desk-5b7b4e6b/) generated pages are current
+        run: |
+          if ! git diff --quiet -- desk-5b7b4e6b; then
+            echo "::error::desk-5b7b4e6b/ is stale. Re-run desk-5b7b4e6b/_src/build.py and commit the result."
+            git --no-pager diff --stat -- desk-5b7b4e6b
+            exit 1
+          fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py
