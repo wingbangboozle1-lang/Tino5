@@ -60,7 +60,7 @@ PII_PATTERNS = [
 PLACE_ALLOWED_CONTEXTS = (
     "county", "city", "recorder", "treasurer", "assessor", "rate book", "Santa Clara",
     "San Francisco", "Pacific division", "San Jose", "Palo Alto", "Mountain View",
-    "Cupertino", "Sunset",
+    "Property A", "Sunset",
 )
 
 

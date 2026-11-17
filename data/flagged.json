@@ -32,7 +32,7 @@
      "note": "Examples: Property A 2017 (assessment +2%, bill −0.5%), Property A 2014 (assessment +0.5%), Property B 2018 (bill +18.4%), Property B 2021 (assessment up, bill down). These suggest a column mis-alignment, a mid-year supplemental bill, or a rate change. Resolve with the source bills."
     },
     {
-     "item": "F-03 — Cupertino tax rate area rate unknown",
+     "item": "F-03 — Property A tax rate area rate unknown",
      "value": "county average 1.193% used",
      "status": "unverified",
      "sources": [
@@ -179,7 +179,7 @@
      "sources": [
       "fhfa-hpi"
      ],
-     "note": "If Cupertino appreciates faster than ≈5.0%/yr, holding and renting overtakes selling and reinvesting. This single number decides the recommendation."
+     "note": "If Property A appreciates faster than ≈5.0%/yr, holding and renting overtakes selling and reinvesting. This single number decides the recommendation."
     },
     {
      "item": "A15 — investment return 6.0% nominal (5.0% after tax drag)",

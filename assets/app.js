@@ -69,7 +69,7 @@
       "California Secretary of State": "CA SOS",
       "California Department of Insurance": "CDI",
       "California Earthquake Authority": "CEA",
-      "City of Cupertino (Municipal Code)": "Cupertino code",
+      "City of Property A (Municipal Code)": "Property A code",
       "California Franchise Tax Board": "FTB",
       "Internal working note (this project)": "owner"
     };

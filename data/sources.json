@@ -307,9 +307,9 @@
    "checked": "pattern"
   },
   {
-   "id": "municode-cupertino",
-   "org": "City of Cupertino (Municipal Code)",
-   "title": "Cupertino Municipal Code Ch. 3.04 \u2014 real property transfer tax (city rate $0.55/$500, credited against county tax)",
+   "id": "municode-property-a",
+   "org": "City of Property A (Municipal Code)",
+   "title": "Property A Municipal Code Ch. 3.04 \u2014 real property transfer tax (city rate $0.55/$500, credited against county tax)",
    "url": "https://library.municode.com/ca/cupertino",
    "type": "official",
    "checked": "pattern"
@@ -357,7 +357,7 @@
   {
    "id": "scc-recorder-dtt",
    "org": "Santa Clara County Clerk-Recorder",
-   "title": "Real Estate Recording & Documentary Transfer Tax ($0.55/$500 county; Cupertino $0 city)",
+   "title": "Real Estate Recording & Documentary Transfer Tax ($0.55/$500 county; Property A $0 city)",
    "url": "https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate",
    "type": "official",
    "checked": "search"
@@ -387,8 +387,8 @@
    "checked": "search"
   },
   {
-   "id": "cupertino-utilities",
-   "org": "City of Cupertino",
+   "id": "property-a-utilities",
+   "org": "City of Property A",
    "title": "Residential Utilities Directory (Cal Water, San Jose Water, SVCE)",
    "url": "https://www.cupertino.gov/Residents/Utilities",
    "type": "official",

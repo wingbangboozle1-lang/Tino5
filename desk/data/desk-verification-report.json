@@ -1,10 +1,5 @@
 {
- "failures": [
-  {
-   "check": "hygiene",
-   "detail": "[('questions.html', 'external asset'), ('sources.html', 'external asset')]"
-  }
- ],
+ "failures": [],
  "warnings": [
   {
    "check": "page-set",
@@ -12,7 +7,7 @@
   },
   {
    "check": "published-surface",
-   "detail": "Jekyll build is active and 21 excluded paths are honoured; the approved desks and public-safe/ are served"
+   "detail": "Jekyll build is active and 35 excluded paths are honoured; the approved desks and public-safe/ are served"
   },
   {
    "check": "links",
@@ -44,6 +39,6 @@
   }
  ],
  "pages": 15,
- "failure_count": 1,
+ "failure_count": 0,
  "warning_count": 9
 }

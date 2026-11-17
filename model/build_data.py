@@ -223,7 +223,7 @@ SOURCES = {
     "CDI_TOOL": dict(
         title="2026 Homeowners Insurance premium comparison tool", agency="California Department of Insurance",
         url="https://interactive.web.insurance.ca.gov/apex_extprd/f?p=111:21:::NO:::",
-        note="Annual premiums effective May 1, 2026; lists 'SANTA CLARA CUPERTINO' and 'SAN FRANCISCO SAN FRANCISCO-Sunset District'; explicitly not a quote."),
+        note="Annual premiums effective May 1, 2026; lists 'SANTA CLARA [CITY A]' and 'SAN FRANCISCO SAN FRANCISCO-[District B]'; explicitly not a quote."),
     "CPUC_SB695": dict(
         title="2025 Senate Bill 695 Report (net energy metering)", agency="California Public Utilities Commission",
         url="https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf",
@@ -233,9 +233,9 @@ SOURCES = {
         url="https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation/virtual-net-metering",
         note="Decision D.22-12-056 adopted the net billing tariff; NEM 2.0 sunset April 14, 2023; legacy period rules."),
     "CPUC_WATER": dict(
-        title="San Jose Water Company tariff (Cupertino service territory)", agency="California Public Utilities Commission",
+        title="San Jose Water Company tariff (Property A service territory)", agency="California Public Utilities Commission",
         url="https://docs.cpuc.ca.gov/PublishedDocs/Efile/G000/M359/K001/359001611.PDF",
-        note="CPUC tariff schedules list 'portions of Cupertino' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."),
+        note="CPUC tariff schedules list 'portions of Property A' in the regulated water service territory; meter and quantity rates are tariff-based, not a fixed monthly bill."),
     "SFPUC_RATES": dict(
         title="Rates Schedules and Fees (2026-27 water, sewer, power)", agency="San Francisco Public Utilities Commission",
         url="https://sfpuc.org/accounts-services/water-power-and-sewer-rates",
@@ -455,20 +455,20 @@ def solve_break_even(func, lo, hi, steps=4000):
 # 4. CLIENT INPUT INVENTORY (value cells blank where unverifiable)
 # ----------------------------------------------------------------------------
 client_rows = [
-    row(["Property A", "Cupertino", "95014", "Estimated market value, Nov 2026", BLANK, "$3,100,000 (client estimate)"], "CDI_TOOL", CLIENT, "No official valuation was retrieved; an address-specific lookup would require personal information."),
-    row(["Property A", "Cupertino", "95014", "Taxable assessed value, 2026", BLANK, "$550,540 (client)"], "SCC_PROP13", CLIENT, "Official roll lookup would identify a parcel."),
-    row(["Property A", "Cupertino", "95014", "Property tax bill, 2025", BLANK, "$7,210 (client)"], "SCC_RATEBOOK", CLIENT, "2026 bill supplied as '--'."),
-    row(["Property A", "Cupertino", "95014", "Water, monthly range", BLANK, "$100-$150 (client)"], "CPUC_WATER", CLIENT, "Tariff based on metered usage."),
-    row(["Property A", "Cupertino", "95014", "Electricity / solar net result, monthly", BLANK, "+$10-$20 credit (client)"], "CPUC_SB695", CLIENT, "Legacy NEM status and interconnection date unknown."),
-    row(["Property A", "Cupertino", "95014", "Primary-residence home insurance, annual", BLANK, "~$1,500 (client guess)"], "CDI_TOOL", CLIENT, "CDI tool is the official quote-comparison source."),
-    row(["Property A", "Cupertino", "95014", "Regular maintenance and repairs", BLANK, "Qualitative only ('less than Property B')"], "IRS_P527", CLIENT, "No figure supplied."),
-    row(["Property B", "San Francisco", "94122", "Estimated market value, Nov 2026", BLANK, "$1,800,000 (client)"], "SF_ASSESSOR", CLIENT, ""),
-    row(["Property B", "San Francisco", "94122", "Taxable assessed value, 2025", BLANK, "$114,250 (client)"], "SF_ASSESSOR", CLIENT, ""),
-    row(["Property B", "San Francisco", "94122", "Property tax bill, 2025", BLANK, "$2,440 (client)"], "SF_TREASURER", CLIENT, ""),
-    row(["Property B", "San Francisco", "94122", "Rental income, 2 of 3 units, monthly", BLANK, "$7,150 (client)"], "SF_RENT", CLIENT, "Rent-control coverage of the units is not confirmed."),
-    row(["Property B", "San Francisco", "94122", "Water, all 3 units, monthly range", BLANK, "$330-$400 (client)"], "SFPUC_RATES", CLIENT, ""),
-    row(["Property B", "San Francisco", "94122", "Electricity, monthly range", BLANK, "$30-$70 (client)"], "SFPUC_RATES", CLIENT, ""),
-    row(["Property B", "San Francisco", "94122", "Rental-property insurance, annual", BLANK, "~$1,500 (client guess)"], "CDI_REPORT", CLIENT, "Landlord/dwelling-fire policy, not a homeowner policy."),
+    row(["Property A", "Property A", "[ZIP A]", "Estimated market value, Nov 2026", BLANK, "$3,100,000 (client estimate)"], "CDI_TOOL", CLIENT, "No official valuation was retrieved; an address-specific lookup would require personal information."),
+    row(["Property A", "Property A", "[ZIP A]", "Taxable assessed value, 2026", BLANK, "$550,540 (client)"], "SCC_PROP13", CLIENT, "Official roll lookup would identify a parcel."),
+    row(["Property A", "Property A", "[ZIP A]", "Property tax bill, 2025", BLANK, "$7,210 (client)"], "SCC_RATEBOOK", CLIENT, "2026 bill supplied as '--'."),
+    row(["Property A", "Property A", "[ZIP A]", "Water, monthly range", BLANK, "$100-$150 (client)"], "CPUC_WATER", CLIENT, "Tariff based on metered usage."),
+    row(["Property A", "Property A", "[ZIP A]", "Electricity / solar net result, monthly", BLANK, "+$10-$20 credit (client)"], "CPUC_SB695", CLIENT, "Legacy NEM status and interconnection date unknown."),
+    row(["Property A", "Property A", "[ZIP A]", "Primary-residence home insurance, annual", BLANK, "~$1,500 (client guess)"], "CDI_TOOL", CLIENT, "CDI tool is the official quote-comparison source."),
+    row(["Property A", "Property A", "[ZIP A]", "Regular maintenance and repairs", BLANK, "Qualitative only ('less than Property B')"], "IRS_P527", CLIENT, "No figure supplied."),
+    row(["Property B", "San Francisco", "[ZIP B]", "Estimated market value, Nov 2026", BLANK, "$1,800,000 (client)"], "SF_ASSESSOR", CLIENT, ""),
+    row(["Property B", "San Francisco", "[ZIP B]", "Taxable assessed value, 2025", BLANK, "$114,250 (client)"], "SF_ASSESSOR", CLIENT, ""),
+    row(["Property B", "San Francisco", "[ZIP B]", "Property tax bill, 2025", BLANK, "$2,440 (client)"], "SF_TREASURER", CLIENT, ""),
+    row(["Property B", "San Francisco", "[ZIP B]", "Rental income, 2 of 3 units, monthly", BLANK, "$7,150 (client)"], "SF_RENT", CLIENT, "Rent-control coverage of the units is not confirmed."),
+    row(["Property B", "San Francisco", "[ZIP B]", "Water, all 3 units, monthly range", BLANK, "$330-$400 (client)"], "SFPUC_RATES", CLIENT, ""),
+    row(["Property B", "San Francisco", "[ZIP B]", "Electricity, monthly range", BLANK, "$30-$70 (client)"], "SFPUC_RATES", CLIENT, ""),
+    row(["Property B", "San Francisco", "[ZIP B]", "Rental-property insurance, annual", BLANK, "~$1,500 (client guess)"], "CDI_REPORT", CLIENT, "Landlord/dwelling-fire policy, not a homeowner policy."),
     row(["Estate", "—", "—", "Cash / liquid assets in the estate", BLANK, "'considerable amount' (unquantified)"], "IRS_ESTATE", CLIENT, "No amount supplied; see Estate Tax Threshold page."),
     row(["Estate", "—", "—", "Planned transfer window", BLANK, "2040-2050 (client)"], "COURTS_TRUST", CLIENT, ""),
 ]
@@ -494,11 +494,11 @@ hist_b = [
 ]
 hist_rows = []
 for y, t, a in hist_a:
-    hist_rows.append(row(["Property A · 95014", y, BLANK,
+    hist_rows.append(row(["Property A · [ZIP A]", y, BLANK,
                            (money(float(t.replace(",", ""))) if t != "—" else t) + " (client)", money(float(a.replace(",", ""))) + " (client)"],
                           "SCC_RATEBOOK", CLIENT))
 for y, t, a in hist_b:
-    hist_rows.append(row(["Property B · 94122", y, BLANK, money(float(t.replace(",", ""))) + " (client)",
+    hist_rows.append(row(["Property B · [ZIP B]", y, BLANK, money(float(t.replace(",", ""))) + " (client)",
                            money(float(a.replace(",", ""))) + " (client)"], "SF_TREASURER", CLIENT))
 add_table(table("history", "Client-supplied tax and assessment history (unverified)",
                 ["Property", "Year", "Official tax / assessment record", "Client property tax", "Client tax assessment"],
@@ -929,7 +929,7 @@ FLAGS = [
          source="SF_TREASURER", status="needs review"),
     dict(id="FLAG-004", severity="Insurance", item="Property A primary-residence insurance premium unverified",
          detail="No ZIP-specific official premium was retrieved. CDI's tool publishes sample annual premiums effective May 1, 2026, and explicitly says it is not a quote. The model uses the official CDI statewide average of $1,570/yr.",
-         action="Obtain quotes through the CDI comparison tool for SANTA CLARA / CUPERTINO at the correct coverage amount.",
+         action="Obtain quotes through the CDI comparison tool for SANTA CLARA / [CITY A] at the correct coverage amount.",
          source="CDI_TOOL", status="needs review"),
     dict(id="FLAG-005", severity="Insurance", item="Property B landlord / rental dwelling insurance unverified",
          detail="A landlord or dwelling-fire policy is not the same as a homeowner policy, and no official ZIP-level premium was retrieved.",
@@ -1050,7 +1050,7 @@ summary = dict(
 payload = dict(
     meta=dict(
         title="Property Inheritance Decision Support",
-        subtitle="Cupertino (ZIP 95014) and San Francisco (ZIP 94122) · anonymized",
+        subtitle="Property A ([ZIP A]) and San Francisco ([ZIP B]) · anonymized",
         generated=summary["generated"],
         privacy="No personal information appears on this site. All identities, street addresses, trust names and account numbers are replaced with placeholders; only city and ZIP-code-level geography is used.",
         rounding="All dollar amounts are rounded to the nearest $10.",

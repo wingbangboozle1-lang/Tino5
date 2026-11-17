@@ -240,14 +240,14 @@ index_body = f'''
   <div class="tilegrid">{mini_nav}</div>
 </section>
 '''
-write("index.html", "Dashboard", "Cupertino (ZIP 95014) & San Francisco (ZIP 94122) · anonymized decision support",
+write("index.html", "Dashboard", "Property A ([ZIP A]) & San Francisco ([ZIP B]) · anonymized decision support",
       index_body, "Research date 2026-11-10 · all figures rounded to the nearest $10 · no personal information is published")
 
 # ===========================================================================
 # Executive summary
 # ===========================================================================
 exec_body = section("1. The decision in one paragraph", [
-    'Property A (Cupertino, ZIP 95014) is expected to pass through a trust between 2040 and 2050. The beneficiary already has a residence at Property B (San Francisco, ZIP 94122), a three-unit building with two rented units. Three choices exist: live in Property A, rent it, or sell it and reinvest after tax. Under the base-case model, <b>' + SUM["best_2045"] + '</b> is the highest-wealth option: ' + SUM["wealth_2045_sell"] + ' of ten-year wealth versus ' + SUM["wealth_2045_rent"] + ' (rent) and ' + SUM["wealth_2045_occupy"] + ' (occupy).',
+    'Property A (Property A, [ZIP A]) is expected to pass through a trust between 2040 and 2050. The beneficiary already has a residence at Property B (San Francisco, [ZIP B]), a three-unit building with two rented units. Three choices exist: live in Property A, rent it, or sell it and reinvest after tax. Under the base-case model, <b>' + SUM["best_2045"] + '</b> is the highest-wealth option: ' + SUM["wealth_2045_sell"] + ' of ten-year wealth versus ' + SUM["wealth_2045_rent"] + ' (rent) and ' + SUM["wealth_2045_occupy"] + ' (occupy).',
 ])
 exec_body += section("2. Important numbers", [
     'Estate tax: the 2026 federal exemption is <b>' + SUM["estate_exemption_2026"] + '</b> per person, or <b>' + SUM["estate_exemption_couple"] + '</b> for a married couple using portability, with a <b>' + SUM["estate_rate"] + '</b> top rate. California and local estate/inheritance tax are <b>$0</b> by statute (R&T Code §13301). The estate’s liquid-asset value was not supplied, so no estate-size-specific figure can be stated; a scenario matrix is on the Estate Tax Thresholds page.',
@@ -271,7 +271,7 @@ exec_body += section("4. Highest-urgency actions", [
     '2. <b>Confirm the decedent’s principal residence</b> before the transfer and decide whether a beneficiary will actually occupy Property A within one year.',
     '3. <b>Diarise the statutory clocks:</b> trustee notice within 60 days; BOE-502-D within 150 days; occupancy and homeowners’ exemption within 1 year; BOE-19-P within 3 years; Form 706 within 9 months if the estate exceeds the exemption.',
     '4. <b>Quantify the gross estate</b>, including lifetime taxable gifts and whether a portability (DSUE) election exists.',
-    '5. <b>Obtain ZIP-specific insurance quotes</b> for a primary-residence policy (95014) and a landlord/dwelling-fire policy (94122) through the CDI comparison tool.',
+    '5. <b>Obtain ZIP-specific insurance quotes</b> for a primary-residence policy ([ZIP A]) and a landlord/dwelling-fire policy ([ZIP B]) through the CDI comparison tool.',
     '6. <b>Reconcile the client tax/assessment figures</b> against actual tax bills: they imply effective rates of ' + SUM["effective_rate_a"] + ' and ' + SUM["effective_rate_b"] + ', above the official ad valorem rates.',
     '7. <b>Re-check official 2026 election results after certification on December 11, 2026</b> and re-run the model with the law then in force.',
 ])

@@ -77,7 +77,7 @@ SRC = {
                  "https://sfmta.com/projects/proposition-h-muni-local-measure"),
  "sfgov_digest":("City and County of San Francisco — Ballot Simplification Committee Final Digest: Changes to Business Taxes (Measure M, Nov 2024)",
                  "https://www.sf.gov/sites/default/files/2024-08/Final%20Digest%20-%20Changes%20to%20Business%20Taxes.pdf"),
- "census_cupertino": ("U.S. Census Bureau QuickFacts — city-level ACS profile for the Property A area (median gross rent $3,500+, 2020-2024 ACS 5-year)",
+ "census_property-a": ("U.S. Census Bureau QuickFacts — city-level ACS profile for the Property A area (median gross rent $3,500+, 2020-2024 ACS 5-year)",
                  "https://www.census.gov/quickfacts/fact/table/cupertinocitycalifornia/PST045225"),
  "census_scc":  ("U.S. Census Bureau QuickFacts — Santa Clara County, California (median gross rent $2,857, 2020-2024 ACS 5-year)",
                  "https://www.census.gov/quickfacts/fact/table/santaclaracountycalifornia/RHI825222"),
@@ -304,7 +304,7 @@ FY2027-28 tax bill.</div>
 {tbl(["Item", "Desk decision", "Date", "Basis"], [
  ([ "Model Prop H with official terms", "Modelled both SF Prop H measures with official terms; Property B cost = +$249/yr base parcel tax from FY2027-28 (size additions unverified)", "2026-11-15", src("sfelections_2026") + " " + src("sfmta_proph") ], "verified"),
  ([ "Update the 1% tax sensitivity", "Sensitivity updated from the official Form 540 instructions: 1% on taxable income over $1,000,000, Form 540 line 62; capital gains at ordinary CA rates", "2026-11-15", src("ftb_540") + " " + src("ftb_rates") ], "verified"),
- ([ "Rank the rent path on evidence", "Ranked on official Census ACS median gross rent ($3,500+/mo, 2020-2024); property-specific rent remains unverified — obtain a written rent opinion", "2026-11-15", src("census_cupertino") ], "verified"),
+ ([ "Rank the rent path on evidence", "Ranked on official Census ACS median gross rent ($3,500+/mo, 2020-2024); property-specific rent remains unverified — obtain a written rent opinion", "2026-11-15", src("census_property-a") ], "verified"),
  ([ "Five-year maintenance plan", "Built at $10 rounding from owner anchors and official rate references; capital items left blank until inspection", "2026-11-15", "Desk model (assumption)" ], "assumption"),
  ([ "Estate liquidity plan", "Thresholds verified; portability and prior-taxable-gift questions posed for the estate attorney", "2026-11-15", src("irs_706") + " " + src("irs_estate") ], "verified"),
  ([ "Scrub pre-rounding git history", "<b>Not performed</b> — rewriting public history is an owner decision; options documented on the Flagged page", "2026-11-15", "Owner decision (flagged)" ], "unverified"),
@@ -391,11 +391,11 @@ official source or are left blank and flagged.</div>
 
 <h3>Official area-level rent evidence</h3>
 {tbl(["Area", "Official measure", "Value", "Period", "Source"], [
- ([ "Property A area (city level)", "Median gross rent", m_exact(3500) + "+ / month", "2020-2024 ACS 5-year", src("census_cupertino") ], "verified"),
+ ([ "Property A area (city level)", "Median gross rent", m_exact(3500) + "+ / month", "2020-2024 ACS 5-year", src("census_property-a") ], "verified"),
  ([ "Santa Clara County", "Median gross rent", m_exact(2857) + " / month", "2020-2024 ACS 5-year", src("census_scc") ], "verified"),
- ([ "Property A area", "Owner-occupied housing rate", "60.6%", "2020-2024 ACS 5-year", src("census_cupertino") ], "verified"),
- ([ "Property A area", "Median value of owner-occupied units", m_exact(2000000) + "+", "2020-2024 ACS 5-year", src("census_cupertino") ], "verified"),
- ([ "Property A area", "Median household income", m_exact(234707), "2020-2024 ACS 5-year", src("census_cupertino") ], "verified"),
+ ([ "Property A area", "Owner-occupied housing rate", "60.6%", "2020-2024 ACS 5-year", src("census_property-a") ], "verified"),
+ ([ "Property A area", "Median value of owner-occupied units", m_exact(2000000) + "+", "2020-2024 ACS 5-year", src("census_property-a") ], "verified"),
+ ([ "Property A area", "Median household income", m_exact(234707), "2020-2024 ACS 5-year", src("census_property-a") ], "verified"),
 ])}
 <p class="note">The $3,500+ figure is the Census Bureau's published area median for all rental housing units in the
 city, not a rent opinion for Property A. Census ACS is an official source; it is area evidence, not a property
@@ -406,7 +406,7 @@ comparable.</p>
  ([ "Property A market rent (1-unit single-family home)",
     "",
     "No official source publishes a rent for a specific property; Census ACS area median is $3,500+/mo",
-    src("census_cupertino") ], "unverified"),
+    src("census_property-a") ], "unverified"),
  ([ "Written rental market analysis / rent opinion for Property A",
     "Not obtained",
     "Discovery action: commission a licensed broker's or appraiser's written rent opinion before ranking rent vs. sell",
@@ -421,7 +421,7 @@ comparable.</p>
 
 <h3>How the rent path is ranked on evidence</h3>
 {tbl(["Step", "Evidence used", "Source"], [
- ([ "1. Establish the area rent floor", "Official Census ACS median gross rent for the city ($3,500+/mo) and county ($2,857/mo)", src("census_cupertino") + " " + src("census_scc") ], "verified"),
+ ([ "1. Establish the area rent floor", "Official Census ACS median gross rent for the city ($3,500+/mo) and county ($2,857/mo)", src("census_property-a") + " " + src("census_scc") ], "verified"),
  ([ "2. Anchor the property", "Owner-supplied rent for Property B ($7,150/mo, 2 units) as a cross-check on area rents", "Owner input" ], "owner"),
  ([ "3. Obtain the property-specific number", "Written rent opinion / broker market analysis for Property A (not yet obtained)", "Owner action (flagged R08)" ], "unverified"),
  ([ "4. Compare net rent to carrying costs", "Net rent (gross rent − vacancy, taxes, insurance, water/electric, maintenance) vs. after-tax portfolio return; break-even computed on the merged desks' model", "Desk model (assumption)" ], "assumption"),
@@ -677,7 +677,7 @@ pages["estate-liquidity.html"] = dict(title="Estate tax &amp; liquidity plan", d
 decisions = [
  ("Model Prop H with official terms", "Modelled both SF Prop H measures (2024 firefighter pension; 2026 Muni parcel tax) with official terms from the SF Department of Elections and SFMTA. Property B gains a $249/yr base parcel tax from FY2027-28; Property A is unaffected.", "2026-11-15", "sfelections_2026; sfmta_proph"),
  ("Update the Form 540 1% tax sensitivity", "Sensitivity updated from the official 2025 Form 540 instructions: 1% of CA taxable income over $1,000,000, Form 540 line 62; capital gains taxed at ordinary CA rates and count toward the threshold.", "2026-11-15", "ftb_540; ftb_rates"),
- ("Rank the rent path on evidence", "Rent path ranked on official Census ACS area median gross rent ($3,500+/mo, 2020-2024) instead of a voucher benchmark; property-specific rent left unverified pending a written rent opinion.", "2026-11-15", "census_cupertino; census_scc"),
+ ("Rank the rent path on evidence", "Rent path ranked on official Census ACS area median gross rent ($3,500+/mo, 2020-2024) instead of a voucher benchmark; property-specific rent left unverified pending a written rent opinion.", "2026-11-15", "census_property-a; census_scc"),
  ("Build the five-year maintenance plan", "2027-2031 operating plan built at $10 rounding from owner anchors and official rate references; capital items left blank until a written inspection is obtained.", "2026-11-15", "Owner inputs; sjwater; sfpuc; cpuc; sfmta_proph"),
  ("Prepare the estate liquidity plan", "Verified thresholds and liquidity-source map prepared; portability and prior-taxable-gift questions posed for the estate attorney to answer before the figures arrive.", "2026-11-15", "irs_estate; irs_706; sco_estate"),
  ("Add the distribution chart to projections", "Growth-regime distribution chart (3%/5%/7%) added to the projections page so the decision is tested across a range, not one point.", "2026-11-15", "Desk model (assumption)"),
@@ -704,7 +704,7 @@ pages["decision-log.html"] = dict(title="Decision &amp; date log", dek="Each ite
 # ---------------------------------------------------------------- questions
 questions = [
  ("Q-01", "Will the heir occupy Property A as a primary residence within 1 year of transfer?", "Open — owner decision", "Decides the Prop 19 capped reassessment vs. full reassessment; the single largest lever on Property A's tax bill", "boe_prop19"),
- ("Q-02", "What is Property A's market rent?", "Open — no official source for a specific property", "Census ACS gives the area median ($3,500+/mo); obtain a written rent opinion (suggestion S-02)", "census_cupertino"),
+ ("Q-02", "What is Property A's market rent?", "Open — no official source for a specific property", "Census ACS gives the area median ($3,500+/mo); obtain a written rent opinion (suggestion S-02)", "census_property-a"),
  ("Q-03", "What is the total estate value and asset titling (trust vs. outside)?", "Open — owner input needed", "Decides whether Form 706, liquidity planning and the 40% rate matter", "irs_estate"),
  ("Q-04", "Was portability (DSUE) elected for any deceased spouse, and are there prior taxable gifts?", "Open — owner input needed", "Both change the available exclusion; must be settled before the figures arrive", "irs_706"),
  ("Q-05", "Is there a written valuation of Property A at the date of death?", "Open — not obtained", "Sets the step-up in basis and the estate's asset value (suggestion S-01)", "irs_stepup"),
@@ -735,7 +735,7 @@ pages["questions.html"] = dict(title="Questions &amp; gaps", dek="What must be a
 # ---------------------------------------------------------------- suggestions
 suggestions = [
  ("S-01", "Obtain a written valuation of Property A at the date of death", "PROPOSED", "Sets the step-up in basis and the estate value; without it the gain and estate-tax arithmetic is anchored to an estimate", "irs_stepup"),
- ("S-02", "Obtain a written rental market analysis / rent opinion for Property A", "PROPOSED", "Ranks the rent path on property-specific evidence instead of the area Census median", "census_cupertino"),
+ ("S-02", "Obtain a written rental market analysis / rent opinion for Property A", "PROPOSED", "Ranks the rent path on property-specific evidence instead of the area Census median", "census_property-a"),
  ("S-03", "Ask the estate attorney about portability (DSUE) and prior taxable gifts now", "PROPOSED", "Both change the available exclusion; must be known before the figures arrive", "irs_706"),
  ("S-04", "Ask the CPA to model the 1% MHST in the year of any large sale", "PROPOSED", "The updated sensitivity shows the surtax applies in any year CA taxable income exceeds $1,000,000; spreading gains may be worth modelling", "ftb_540"),
  ("S-05", "Obtain actual insurance quotes for both properties", "PROPOSED", "Owner estimates (~$1,500/yr) are unverified; official rate context is not a quote", "doi"),
@@ -814,7 +814,7 @@ flagged = [
  ("R05", "Property A tax-rate area combined rate", "The combined rate for Property A's tax-rate area is not published on this desk (privacy); the owner's tax bill shows it.", "Read from the owner's bill; the 1% general levy is capped but bonds/assessments add", "scc_ratebook"),
  ("R06", "SF Measure H certification pending", "Measure H results are preliminary (74.4% YES) and uncertified as of 2026-11-15; certification is due within the state deadline.", "Re-check the SF Department of Elections before relying on the cost", "sfelections_2026"),
  ("R07", "SF Measure H size-based rate unverified", "Property B's building area is not published, so the $0.195/sq ft multifamily addition is unverified; only the $249 base is used.", "Supply building area (question Q-07)", "sfmta_proph"),
- ("R08", "Property A specific rent unverified", "No official source publishes a rent for a specific property; the Census ACS area median ($3,500+/mo) is area evidence only.", "Obtain a written rent opinion (suggestion S-02)", "census_cupertino"),
+ ("R08", "Property A specific rent unverified", "No official source publishes a rent for a specific property; the Census ACS area median ($3,500+/mo) is area evidence only.", "Obtain a written rent opinion (suggestion S-02)", "census_property-a"),
  ("R09", "Capital items unverified", "The five-year capital plan is blank until a written inspection is obtained.", "Obtain written capital assessments (suggestion S-06)", "Owner action"),
  ("R10", "Owner-supplied inputs unverified", "Property values ($3,100,000 / $1,800,000), Property B rent ($7,150/mo), water/electric/insurance estimates and solar credit are owner-supplied and unconfirmed by any official source.", "Confirm with bills, appraisals and quotes before relying on them", "Owner inputs"),
  ("R11", "2024 Prop H detailed terms", "The official 2024 results page confirms the measure name and result; the detailed age-58-to-55 wording is from secondary reporting of the measure text.", "Confirm against the City's official measure text if needed", "sfelections_2024"),
@@ -867,7 +867,7 @@ official page ({src("sfelections_2026")} {src("sfmta_proph")}).</li>
 <li>SF Prop H (2024) and Prop M confirmed from the official final results page ({src("sfelections_2024")});
 the Prop M digest read from the official City digest ({src("sfgov_digest")}).</li>
 <li>Property A area and Santa Clara County rent evidence read from the official Census QuickFacts pages
-({src("census_cupertino")} {src("census_scc")}).</li>
+({src("census_property-a")} {src("census_scc")}).</li>
 <li>Federal thresholds verified against IRS pages ({src("irs_estate")} {src("irs_706")} {src("irs_stepup")});
 California no-estate-tax rule against the State Controller ({src("sco_estate")}).</li>
 <li>Desk generator and verifier run: page set, row-sourcing, host allowlist, link resolution, $10 rounding,

@@ -17,7 +17,7 @@
         <div class="brand-mark">EP</div>
         <div>
           <div class="brand-title">Estate &amp; Property Decision Dashboard</div>
-          <div class="brand-sub">Cupertino (95014) &amp; San Francisco Outer Sunset (94122) &middot; Horizon 2040–2050</div>
+          <div class="brand-sub">Property A ([ZIP A]) &amp; San Francisco [District B] ([ZIP B]) &middot; Horizon 2040–2050</div>
         </div>
       </a>
       <nav class="main-nav" aria-label="Primary Navigation">
@@ -37,8 +37,8 @@
       <div class="page-eyebrow">Decision Engine &middot; Live vs. Rent vs. Sell Portfolio Analysis</div>
       <h1>Interactive Inheritance Strategy Simulator (2040–2050)</h1>
       <p class="lead">
-        Compare all six combined portfolio strategies integrating <strong>[Cupertino Residence — ZIP 95014]</strong> and
-        <strong>[San Francisco 3-Unit Property — ZIP 94122]</strong>. Adjust appreciation, stock market returns, Cupertino rental yield,
+        Compare all six combined portfolio strategies integrating <strong>[Property A Residence — [ZIP A]]</strong> and
+        <strong>[San Francisco 3-Unit Property — [ZIP B]]</strong>. Adjust appreciation, stock market returns, Property A rental yield,
         parent primary residence, and insurance assumptions below. All outputs round to the nearest <strong>$10</strong>.
       </p>
     </section>
@@ -71,7 +71,7 @@
         </div>
 
         <div class="control-group">
-          <label for="sim-cup-app">Cupertino Apprec./yr <span id="lbl-cup-app">4.91%</span></label>
+          <label for="sim-cup-app">Property A Apprec./yr <span id="lbl-cup-app">4.91%</span></label>
           <input type="range" id="sim-cup-app" min="2.0" max="7.0" step="0.1" value="4.91" />
         </div>
 
@@ -86,14 +86,14 @@
         </div>
 
         <div class="control-group">
-          <label for="sim-cup-yield">Cupertino Rent Yield (Unverified) <span id="lbl-cup-yield">2.80%</span></label>
+          <label for="sim-cup-yield">Property A Rent Yield (Unverified) <span id="lbl-cup-yield">2.80%</span></label>
           <input type="range" id="sim-cup-yield" min="1.8" max="4.0" step="0.1" value="2.80" />
         </div>
 
         <div class="control-group">
           <label for="sim-parent-res">Transferor Principal Residence</label>
           <select id="sim-parent-res">
-            <option value="cup" selected>Cupertino (Standard Prop 19 on Cup)</option>
+            <option value="cup" selected>Property A (Standard Prop 19 on Cup)</option>
             <option value="sf">SF Unit 3 (Pre-Death Move Saves SF Tax)</option>
           </select>
         </div>
@@ -109,7 +109,7 @@
 
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-label">Cupertino Value at Inheritance</div>
+          <div class="kpi-label">Property A Value at Inheritance</div>
           <div class="kpi-value" id="sim-cup-fmv">$7,706,950</div>
           <div class="kpi-note">Stepped-up IRC &sect; 1014 basis on death</div>
         </div>
@@ -163,7 +163,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>Cupertino Nov 2026 Value &amp; Assessment</td>
+              <td>Property A Nov 2026 Value &amp; Assessment</td>
               <td>$3,100,000 FMV / $550,540 AV (nearest $10)</td>
               <td><span class="badge badge-user">User Baseline</span></td>
               <td><a class="source-link" href="verification-review.html">Audited in Review Log</a></td>
@@ -206,19 +206,19 @@
             </tr>
             <tr>
               <td>California Homeowners Average Premium Benchmark</td>
-              <td><strong>$1,570</strong> ($1,571 exact CA avg vs $1,512 US); 95014/94122 &gt;99.5% voluntary market</td>
+              <td><strong>$1,570</strong> ($1,571 exact CA avg vs $1,512 US); [ZIP A]/[ZIP B] &gt;99.5% voluntary market</td>
               <td><span class="badge badge-verified">Verified Official</span></td>
               <td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/180-climate-change/sustainable-insurance-strategy.cfm" target="_blank" rel="noopener">CA Dept. of Insurance</a></td>
             </tr>
             <tr>
-              <td>Cupertino Gross Rental Yield (If Rented)</td>
+              <td>Property A Gross Rental Yield (If Rented)</td>
               <td><span class="blank-cell">Blank in Official Table</span> — Modeled 1.8%–4.0% sensitivity (HUD 4-BR county floor $4,688/mo)</td>
               <td><span class="badge badge-flagged">Flagged for Review</span></td>
               <td><a class="source-link" href="https://www.huduser.gov/portal/datasets/fmr/fmr2027/FY2027_FMR_Schedule.pdf" target="_blank" rel="noopener">HUD FY27 FMR Schedule</a></td>
             </tr>
             <tr>
               <td>Selling Costs: Santa Clara vs. San Francisco</td>
-              <td>Cupertino: ~5% broker + <strong>0.11%</strong> County tax (no city tax); SF: ~5% + <strong>0.75%</strong> (&lt;$5M) / <strong>2.25%</strong> (&ge;$5M)</td>
+              <td>Property A: ~5% broker + <strong>0.11%</strong> County tax (no city tax); SF: ~5% + <strong>0.75%</strong> (&lt;$5M) / <strong>2.25%</strong> (&ge;$5M)</td>
               <td><span class="badge badge-verified">Verified Official</span></td>
               <td><a class="source-link" href="https://sfassessor.org/recorder-information/recording-document/transfer-tax" target="_blank" rel="noopener">SF Assessor</a> &amp; <a class="source-link" href="https://clerkrecorder.sccgov.org/real-estate-recording" target="_blank" rel="noopener">SCC Recorder</a></td>
             </tr>
@@ -231,9 +231,9 @@
       <h2>Deep-Dive Reasoning: Live vs. Rent vs. Sell</h2>
       <div class="grid-3">
         <div>
-          <h3>Why Live in SF Unit 3 + Sell Cupertino (Plan A) Wins</h3>
+          <h3>Why Live in SF Unit 3 + Sell Property A (Plan A) Wins</h3>
           <p>
-            Living in SF Unit 3 unlocks free Bay Area housing <em>without</em> sacrificing the <strong>$85,800/yr</strong> (2026$) income from Units 1 &amp; 2. Selling Cupertino immediately post-inheritance uses IRC &sect; 1014 to erase $2.5M+ of embedded capital gains tax, eliminates ~$73k–$117k/yr in non-owner-occupied Cupertino property taxes, and shifts concentrated real estate into liquid, compounding S&amp;P 500 equities.
+            Living in SF Unit 3 unlocks free Bay Area housing <em>without</em> sacrificing the <strong>$85,800/yr</strong> (2026$) income from Units 1 &amp; 2. Selling Property A immediately post-inheritance uses IRC &sect; 1014 to erase $2.5M+ of embedded capital gains tax, eliminates ~$73k–$117k/yr in non-owner-occupied Property A property taxes, and shifts concentrated real estate into liquid, compounding S&amp;P 500 equities.
           </p>
         </div>
         <div>
@@ -245,7 +245,7 @@
         <div>
           <h3>Why Pre-Death SF Move Boosts Plan A by ~$16,490/yr</h3>
           <p>
-            Try toggling <em>"Transferor Principal Residence &rarr; SF Unit 3"</em> in the simulator above! Under BOE LTA 2026/026 Q5/Q15, if a parent resides in SF Unit 3 before death and the heir occupies Unit 3 within 1 year, 1/3rd of SF avoids reassessment (~$16,490/yr tax saved in 2045) while Cupertino <em>still</em> receives full IRC &sect; 1014 step-up before sale!
+            Try toggling <em>"Transferor Principal Residence &rarr; SF Unit 3"</em> in the simulator above! Under BOE LTA 2026/026 Q5/Q15, if a parent resides in SF Unit 3 before death and the heir occupies Unit 3 within 1 year, 1/3rd of SF avoids reassessment (~$16,490/yr tax saved in 2045) while Property A <em>still</em> receives full IRC &sect; 1014 step-up before sale!
           </p>
         </div>
       </div>

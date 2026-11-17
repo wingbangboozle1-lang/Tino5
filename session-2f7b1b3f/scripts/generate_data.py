@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cupertino (95014) & San Francisco (94122) Trust Inheritance Financial Model (2026-2060)
+Property A ([ZIP A]) & San Francisco ([ZIP B]) Trust Inheritance Financial Model (2026-2060)
 Verified Statutory Parameters + $10-increment Decision Output Rounding
 All personal identifiers anonymized.
 """
@@ -33,7 +33,7 @@ BOE_CCPI_FACTORS = {
     2026: {"fy": "2026-27", "ccpi_pct": 3.307, "factor": 1.02000},
 }
 
-CUPERTINO_HISTORY = [
+PROPERTY_A_HISTORY = [
     {"year": 2014, "tax": 5970, "tax_pct_note": None, "assessed": 440310, "assessed_pct_note": 0.5},
     {"year": 2015, "tax": 6130, "tax_pct_note": 2.8, "assessed": 449100, "assessed_pct_note": 2.0},
     {"year": 2016, "tax": 6410, "tax_pct_note": 4.6, "assessed": 455950, "assessed_pct_note": 1.5},
@@ -578,7 +578,7 @@ def compare_strategies(
 
 
 def main():
-    cup_aud = audit_history(CUPERTINO_HISTORY)
+    cup_aud = audit_history(PROPERTY_A_HISTORY)
     sf_aud = audit_history(SF_HISTORY)
 
     proj_hist = run_yearly_projection()
@@ -606,7 +606,7 @@ def main():
             "anonymization": "All personal, trust, street address, and APN identifiers replaced with placeholders",
         },
         "history_audit": {
-            "cupertino": cup_aud,
+            "property-a": cup_aud,
             "san_francisco": sf_aud,
         },
         "projections": {

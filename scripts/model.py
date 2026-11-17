@@ -10,7 +10,7 @@ Every input is labelled:
 Output: data/model.json  (all money rounded to nearest $10 by r10()).
 
 Privacy: no names, addresses, APNs or account numbers are used. The subject
-properties are referred to only as "Property A" (95014) and "Property B" (94122).
+properties are referred to only as "Property A" ([ZIP A]) and "Property B" ([ZIP B]).
 """
 import json
 import os

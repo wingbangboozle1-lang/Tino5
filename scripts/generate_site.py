@@ -74,7 +74,7 @@ S = {
  "sfrb_rates": ("SF Rent Board — annual allowable increase: 1.4% (3/1/2025–2/28/2026); 1.6% (3/1/2026–2/28/2027); cap = 60% of Bay Area CPI, max 7%", "https://sfrb.org/topic-no-051-years-annual-allowable-increase"),
  "sfrb_ab1482": ("SF Rent Board — AB 1482 (CA Tenant Protection Act): annual increase cap 5% + CPI, max 10%; expires Jan 1, 2030", "https://sfrb.org/article/summary-ab-1482-california-tenant-protection-act-2019"),
  "cpuc_nbt": ("CPUC — Net Billing Tariff (NEM 3.0): solar exports compensated at avoided-cost-based rates, not retail rate", "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/distributed-energy-resources/net-energy-metering"),
- "cupertino_util": ("City of Cupertino — water service providers: San Jose Water and California Water Service; CPUC regulates rates", "https://www.cupertino.org/our-city/departments/public-works/utilities"),
+ "property-a_util": ("City of Property A — water service providers: San Jose Water and California Water Service; CPUC regulates rates", "https://www.cupertino.org/our-city/departments/public-works/utilities"),
  "sfpuc_rates": ("SFPUC — 2026-27 water and sewer rates schedules and fees", "https://sfpuc.org/accounts-services/water-power-and-sewer-rates"),
  "fhfa_hpi": ("FHFA — House Price Index report 2025Q4: California 1-yr change -0.83%, 5-yr +28.88%", "https://www.fhfa.gov/document/d/hpi/fhfa-house-price-index-report-2025q4"),
  "bls_cpi": ("BLS — CPI-U 12-month change, September 2026: +3.7% (all items)", "https://www.bls.gov/news.release/cpi.nr0.htm"),
@@ -102,7 +102,7 @@ def page(title, body, active=""):
 <title>{t} — Estate &amp; Property Decision Dashboard</title>
 <link rel="stylesheet" href="{p}assets/style.css"></head>
 <body><header><h1>Estate &amp; Property Decision Dashboard</h1>
-<p class="tagline">Cupertino (ZIP 95014) inheritance decision support · anonymized · figures rounded to nearest $10</p>
+<p class="tagline">Property A ([ZIP A]) inheritance decision support · anonymized · figures rounded to nearest $10</p>
 <nav><ul>{nav}</ul></nav></header><main>{b}</main>
 <footer><p>Anonymized planning dashboard. Not legal, tax, or financial advice. All personal information is internal-only; this site contains placeholders only.
 Verified rows link to official sources; unverified values are blank and listed on <a href="{p}pages/flagged-for-review.html">Flagged for Review</a>.</p></footer>
@@ -150,15 +150,15 @@ with open(os.path.join(ASSETS, "style.css"), "w") as f: f.write(CSS)
 # ---------------- index ----------------
 body = """
 <div class="grid">
-<div class="stat"><b>$3,100,000</b><span>Cupertino house est. value, Nov 2026 <span class="flag">(user-provided)</span></span></div>
-<div class="stat"><b>$1,800,000</b><span>SF Outer Sunset (94122) house est. value, Nov 2026 <span class="flag">(user-provided)</span></span></div>
+<div class="stat"><b>$3,100,000</b><span>Property A house est. value, Nov 2026 <span class="flag">(user-provided)</span></span></div>
+<div class="stat"><b>$1,800,000</b><span>SF [District B] ([ZIP B]) house est. value, Nov 2026 <span class="flag">(user-provided)</span></span></div>
 <div class="stat"><b>$15,000,000</b><span>Federal estate tax basic exclusion, 2026 deaths — IRS</span></div>
 <div class="stat"><b>2% / yr</b><span>Prop 13 cap on assessed-value growth — CA BOE</span></div>
 <div class="stat"><b>$0</b><span>California estate / inheritance tax (pick-up tax is zero) — FTB</span></div>
 <div class="stat"><b>1 yr</b><span>Deadline to occupy inherited home as primary residence for Prop 19 exclusion — SCC Assessor</span></div>
 </div>
 <div class="card"><h2>Welcome</h2>
-<p>This dashboard organizes the research, requirements, and analysis for the decision on the Cupertino house
+<p>This dashboard organizes the research, requirements, and analysis for the decision on the Property A house
 (inheritance expected via trust around 2040–2050): whether to <b>live in it</b>, <b>rent it out</b>, or <b>sell and reinvest</b> —
 taking into account the San Francisco rental property already owned, property taxes, insurance, utilities, maintenance,
 and federal/state inheritance and capital-gains taxes.</p>
@@ -187,11 +187,11 @@ write("index.html", "Dashboard", body, "index.html")
 body = """
 <div class="card"><h2>Important details</h2>
 <ul class="tight">
-<li><b>Two properties:</b> Cupertino house (ZIP 95014, est. $3,100,000 Nov 2026, to be inherited via trust ~2040–2050) and the already-owned San Francisco Outer Sunset triplex (ZIP 94122, est. $1,800,000, two units rented for about $7,150/month total, owner occupies the third). <span class="flag">(Values user-provided)</span></li>
-<li><b>The single biggest tax lever is Proposition 19.</b> If the heir does <b>not</b> occupy the Cupertino house as a primary residence within 1 year of transfer, it is fully reassessed to market value. At a 2045 projected market value of """ + usd(r10(FMV)) + """, that is a property tax of about <b>""" + usd(r10(RENT_TAX)) + """/yr</b>; if the heir <b>does</b> live there and files the claim, the taxable value is capped at roughly FBYV + inflation-adjusted $1M ≈ <b>""" + usd(r10(LIVE_TAXABLE)) + """</b>, i.e. about <b>""" + usd(r10(LIVE_TAX)) + """/yr</b> — a saving of about <b>""" + usd(r10(RENT_TAX - LIVE_TAX)) + """/yr</b> (projected 2045, assumption-based).</li>
+<li><b>Two properties:</b> Property A house ([ZIP A], est. $3,100,000 Nov 2026, to be inherited via trust ~2040–2050) and the already-owned San Francisco [District B] triplex ([ZIP B], est. $1,800,000, two units rented for about $7,150/month total, owner occupies the third). <span class="flag">(Values user-provided)</span></li>
+<li><b>The single biggest tax lever is Proposition 19.</b> If the heir does <b>not</b> occupy the Property A house as a primary residence within 1 year of transfer, it is fully reassessed to market value. At a 2045 projected market value of """ + usd(r10(FMV)) + """, that is a property tax of about <b>""" + usd(r10(RENT_TAX)) + """/yr</b>; if the heir <b>does</b> live there and files the claim, the taxable value is capped at roughly FBYV + inflation-adjusted $1M ≈ <b>""" + usd(r10(LIVE_TAXABLE)) + """</b>, i.e. about <b>""" + usd(r10(LIVE_TAX)) + """/yr</b> — a saving of about <b>""" + usd(r10(RENT_TAX - LIVE_TAX)) + """/yr</b> (projected 2045, assumption-based).</li>
 <li><b>Federal estate tax:</b> """ + sl("irs_obbb") + """ — $15,000,000 per person for 2026 deaths, permanent and inflation-indexed (projected ≈ """ + usd(r10(15000000 * 1.03 ** 19)) + """ by 2045 at a 3%/yr assumption); 40% above the exemption; portability allows a married couple ≈ $30,000,000. <b>California has no estate or inheritance tax</b> (""" + sl("ftb_estate") + """).</li>
 <li><b>Step-up in basis:</b> inherited property gets basis = fair market value at date of death (""" + sl("irs_pub559") + """), so selling soon after inheritance generally triggers little or no capital-gains tax. CA taxes capital gains as ordinary income up to 13.3% (""" + sl("ftb_capgain") + """); federal LTCG 0/15/20% + 3.8% NIIT (""" + sl("irs_topic409") + """).</li>
-<li><b>Recommendation (summary):</b> if the heir can occupy the Cupertino house as a primary residence within 1 year and file form BOE-19-P plus the homeowners' exemption, <b>keeping the house and living in it</b> preserves the largest tax advantage (≈ """ + usd(r10(RENT_TAX - LIVE_TAX)) + """/yr lower property tax vs. renting, projected 2045). <b>Selling and reinvesting</b> (≈ """ + usd(r10(NET_SALE)) + """ net of 6% selling costs, projected 2045) is the strongest wealth-maximizing option if the heir prefers to stay in San Francisco, because the stepped-up basis makes the sale nearly tax-free and the invested capital can compound. Renting the Cupertino house is the weakest option on taxes (full reassessment) unless market rent is high enough to cover the ≈ """ + usd(r10(RENT_TAX)) + """/yr tax (market rent unverified — flagged). See <a href="decision-analysis.html">Decision Analysis</a>.</li>
+<li><b>Recommendation (summary):</b> if the heir can occupy the Property A house as a primary residence within 1 year and file form BOE-19-P plus the homeowners' exemption, <b>keeping the house and living in it</b> preserves the largest tax advantage (≈ """ + usd(r10(RENT_TAX - LIVE_TAX)) + """/yr lower property tax vs. renting, projected 2045). <b>Selling and reinvesting</b> (≈ """ + usd(r10(NET_SALE)) + """ net of 6% selling costs, projected 2045) is the strongest wealth-maximizing option if the heir prefers to stay in San Francisco, because the stepped-up basis makes the sale nearly tax-free and the invested capital can compound. Renting the Property A house is the weakest option on taxes (full reassessment) unless market rent is high enough to cover the ≈ """ + usd(r10(RENT_TAX)) + """/yr tax (market rent unverified — flagged). See <a href="decision-analysis.html">Decision Analysis</a>.</li>
 </ul></div>
 <div class="card"><h2>Requirements checklist (collected &amp; organized)</h2>
 <table><thead><tr><th>#</th><th>Requirement</th><th>Where addressed</th></tr></thead><tbody>
@@ -225,13 +225,13 @@ body = """
 <tr><td>Prop 19 parent-child exclusion</td><td>Inherited family home keeps a protected taxable value only if the heir occupies it as primary residence within 1 year (homeowners'/disabled veterans' exemption claimed) AND the market value is within FBYV + inflation-adjusted $1M. Otherwise full reassessment to market value</td><td>""" + sl("boe_lta25015") + "<br>" + sl("boe_rule462") + "<br>" + sl("scc_parentchild") + """</td></tr>
 <tr><td>Prop 19 $1M adjustment</td><td>$1,000,000 adjusted to <b>$1,044,586</b> for transfers Feb 16, 2025 – Feb 15, 2027; adjusted every 2 years by the CA House Price Index (FHFA)</td><td>""" + sl("boe_lta25015") + "<br>" + sl("boe_rule462") + """</td></tr>
 <tr><td>Claim deadline</td><td>File BOE-19-P with the county assessor within 3 years of transfer (or within 6 months of a supplemental/escape assessment notice); move in within 1 year</td><td>""" + sl("scc_faq") + "<br>" + sl("scc_parentchild") + """</td></tr>
-<tr><td>Effective rates implied by the actual bills</td><td>Cupertino ≈ 1.335% of assessed value (2025 bill); SF ≈ 2.135% (2025 bill, includes SF special parcel taxes). <span class="flag">Derived from user-provided bills — not an official rate schedule</span></td><td>User-provided tax bills; base-rate context: """ + sl("scc_booklet") + """</td></tr>
+<tr><td>Effective rates implied by the actual bills</td><td>Property A ≈ 1.335% of assessed value (2025 bill); SF ≈ 2.135% (2025 bill, includes SF special parcel taxes). <span class="flag">Derived from user-provided bills — not an official rate schedule</span></td><td>User-provided tax bills; base-rate context: """ + sl("scc_booklet") + """</td></tr>
 </tbody></table></div>
-<div class="card"><h2>Cupertino house (ZIP 95014) — historical property tax &amp; assessment <span class="flag">(user-provided records)</span></h2>
+<div class="card"><h2>Property A house ([ZIP A]) — historical property tax &amp; assessment <span class="flag">(user-provided records)</span></h2>
 """ + table(["Year", "Property taxes", "Tax assessment", "Assessed change"], cup_rows,
             "Source: user-provided county tax records (not independently verified — see Flagged for Review). Rate context: " + S["boe_pub29"][0] + ".") + """
 </div>
-<div class="card"><h2>San Francisco house (ZIP 94122) — historical property tax &amp; assessment <span class="flag">(user-provided records)</span></h2>
+<div class="card"><h2>San Francisco house ([ZIP B]) — historical property tax &amp; assessment <span class="flag">(user-provided records)</span></h2>
 """ + table(["Year", "Property taxes", "Tax assessment", "Assessed change"], sf_rows,
             "Source: user-provided county tax records (not independently verified — see Flagged for Review).") + """
 </div>
@@ -244,7 +244,7 @@ sf_p = [(y, usd(a), usd(t), usd(m)) for y, a, t, m in sf_proj]
 excl_proj = [(y, usd(r10(15000000 * (1 + APPR) ** (y - 2026)))) for y in range(2026, 2051, 4)]
 scen = [
  ("Current law, no inheritance yet (assessed value keeps +2%/yr)", usd(r10(FBYV)), usd(r10(CUR_TAX_2045)), "Assessed value only grows 2%/yr while the owner is unchanged — " + S["boe_pub800"][0]),
- ("A — Heir lives in Cupertino as primary residence (Prop 19 exclusion)", usd(r10(LIVE_TAXABLE)), usd(r10(LIVE_TAX)), S["boe_lta25015"][0] + "; " + S["scc_parentchild"][0]),
+ ("A — Heir lives in Property A as primary residence (Prop 19 exclusion)", usd(r10(LIVE_TAXABLE)), usd(r10(LIVE_TAX)), S["boe_lta25015"][0] + "; " + S["scc_parentchild"][0]),
  ("B — Heir rents it out / does not occupy (full reassessment to market)", usd(r10(FMV)), usd(r10(RENT_TAX)), S["boe_rule462"][0]),
  ("C — Sell at inheritance (no property tax after sale; step-up basis)", "—", "$0 after sale", S["irs_pub559"][0]),
 ]
@@ -253,13 +253,13 @@ body = """
 <ul class="tight">
 <li>Assessed value grows at the Prop 13 maximum of <b>2%/yr</b> (""" + sl("boe_pub800") + """).</li>
 <li>Market value grows at <b>3%/yr</b> nominal (assumption; context: FHFA CA HPI 5-yr change +28.88%, 1-yr -0.83% at 2025Q4 — """ + sl("fhfa_hpi") + """; BLS CPI-U +3.7% for 12 months ending Sept 2026 — """ + sl("bls_cpi") + """).</li>
-<li>Effective property tax rates: Cupertino 1.335%, SF 2.135% (derived from user-provided 2025 bills; base 1% + bonds per """ + sl("boe_pub29") + """).</li>
+<li>Effective property tax rates: Property A 1.335%, SF 2.135% (derived from user-provided 2025 bills; base 1% + bonds per """ + sl("boe_pub29") + """).</li>
 <li>Prop 19 $1M adjustment grows at 3%/yr from $1,044,586 (official for Feb 2025–Feb 2027 — """ + sl("boe_lta25015") + """; adjusted by CA HPI every 2 years per """ + sl("boe_rule462") + """).</li>
 <li>All dollar figures rounded to the nearest $10.</li>
 </ul></div>
-<div class="card"><h2>Cupertino house — projection by year (2026–2050)</h2>
+<div class="card"><h2>Property A house — projection by year (2026–2050)</h2>
 """ + table(["Year", "Assessed value (FBYV +2%/yr)", "Property tax (eff. 1.335%)", "Projected market value (+3%/yr)"], cup_p) + """
-<p class="note">CSV: <a href="../data/data-cupertino-projection.csv">data-cupertino-projection.csv</a></p></div>
+<p class="note">CSV: <a href="../data/data-property-a-projection.csv">data-property-a-projection.csv</a></p></div>
 <div class="card"><h2>San Francisco house — projection by year (2026–2050)</h2>
 """ + table(["Year", "Assessed value (+2%/yr)", "Property tax (eff. 2.135%)", "Projected market value (+3%/yr)"], sf_p) + """
 <p class="note">CSV: <a href="../data/data-sf-projection.csv">data-sf-projection.csv</a></p></div>
@@ -286,7 +286,7 @@ body = """
 <tr><td>Local (Santa Clara County / SF)</td><td>No county or city estate or inheritance tax exists in California</td><td>""" + sl("ftb_estate") + """</td></tr>
 <tr><td>Inheritance itself as income</td><td>Inherited money/property is not income to the heir; later sale is taxed on gain over the stepped-up basis</td><td>""" + sl("irs_pub559") + """</td></tr>
 </tbody></table></div>
-<div class="card"><h2>If the Cupertino house is sold after inheritance</h2>
+<div class="card"><h2>If the Property A house is sold after inheritance</h2>
 <table><thead><tr><th>Rule</th><th>Effect</th><th>Source</th></tr></thead><tbody>
 <tr><td>Step-up in basis (IRC §1014)</td><td>Basis = fair market value at date of death (applies to trust assets included in the gross estate) → selling soon after inheritance usually means ~zero taxable gain</td><td>""" + sl("irs_pub559") + "<br>" + sl("irs_irm_firpta") + """</td></tr>
 <tr><td>§121 exclusion</td><td>Up to $250,000 ($500,000 joint) gain excludable if the home was owned and used as principal residence 2 of the last 5 years</td><td>""" + sl("irs_121") + """</td></tr>
@@ -296,7 +296,7 @@ body = """
 </tbody></table></div>
 <div class="card"><h2>Projection of the federal exemption to the 2040–2050 window <span class="flag">(3%/yr indexing assumption)</span></h2>
 """ + table(["Year of death", "Projected basic exclusion"], [(2040, usd(r10(15000000*1.03**14))), (2045, usd(r10(15000000*1.03**19))), (2050, usd(r10(15000000*1.03**24)))],
-            "2026 = $15,000,000 official (" + S["irs_obbb"][0] + "); growth is an assumption based on CPI context (" + S["bls_cpi"][0] + "). If the total estate (Cupertino house + SF house + money) stays below the exemption, no federal estate tax is due; the excess is taxed at 40%.") + """
+            "2026 = $15,000,000 official (" + S["irs_obbb"][0] + "); growth is an assumption based on CPI context (" + S["bls_cpi"][0] + "). If the total estate (Property A house + SF house + money) stays below the exemption, no federal estate tax is due; the excess is taxed at 40%.") + """
 <p class="note">The inheritance also includes a considerable amount of cash/investments (amount not disclosed — internal only). At 2045 projected values, the two houses alone would be ≈ """ + usd(r10(FMV + 1800000*1.03**19)) + """, below the projected ≈ """ + usd(r10(15000000*1.03**19)) + """ single-person exemption — but the cash portion must be added, and the projection is assumption-based. Flagged for review.</p></div>
 <div class="card"><h2>Law-change watch (verified status as of Nov 2026)</h2>
 <ul class="tight">
@@ -304,21 +304,21 @@ body = """
 <li>California: initiative 25-0017 to repeal the Prop 19 inheritance reassessment rules <b>failed to qualify for the 2026 ballot</b> — current Prop 19 rules remain in effect (""" + sl("sos_initiatives") + """). Future initiatives could change the parent-child rules again.</li>
 <li>AB 1482 (statewide rent cap 5% + CPI, max 10%) <b>expires January 1, 2030</b> unless extended (""" + sl("sfrb_ab1482") + """).</li>
 <li>SF Rent Ordinance allowable increase is reset every March 1 at 60% of Bay Area CPI (max 7%): 1.4% for 2025–26, 1.6% for 2026–27 (""" + sl("sfrb_rates") + """).</li>
-<li>CPUC Net Billing Tariff (NEM 3.0): solar export compensation is avoided-cost based, not retail — affects the Cupertino solar credit (""" + sl("cpuc_nbt") + """).</li>
+<li>CPUC Net Billing Tariff (NEM 3.0): solar export compensation is avoided-cost based, not retail — affects the Property A solar credit (""" + sl("cpuc_nbt") + """).</li>
 </ul></div>
 """
 write("pages/inheritance-estate-tax.html", "Inheritance & Estate Tax", body, "pages/inheritance-estate-tax.html")
 
 # ---------------- decision analysis ----------------
 scen_rows = [
- ("A — Live in Cupertino as primary residence",
+ ("A — Live in Property A as primary residence",
   "Property tax " + usd(r10(LIVE_TAX)) + "/yr (2045 proj.), +2%/yr after",
   "Insurance ≈ $1,500/yr <span class='flag'>(user estimate, unverified)</span>; water $100–150/mo <span class='flag'>(user-provided)</span>; electricity ≈ $0 net, solar credit $10–20/mo <span class='flag'>(user-provided)</span>; maintenance lower than SF <span class='flag'>(user-provided)</span>",
   "Keeps Prop 19 protection (" + usd(r10(RENT_TAX - LIVE_TAX)) + "/yr tax saving vs. renting); SF third unit can then be rented too (amount unverified); no capital-gains event"),
- ("B — Rent out Cupertino (do not occupy)",
+ ("B — Rent out Property A (do not occupy)",
   "Property tax " + usd(r10(RENT_TAX)) + "/yr (2045 proj., full reassessment to " + usd(r10(FMV)) + ")",
   "Same operating costs + landlord insurance <span class='flag'>(unverified)</span> + property management",
-  "Rental income needed to cover ≈ " + usd(r10(RENT_TAX)) + "/yr tax alone — Cupertino market rent <span class='flag'>unverified, left blank</span>; loses Prop 19 exclusion; depreciation/capital-gains rules apply on later sale"),
+  "Rental income needed to cover ≈ " + usd(r10(RENT_TAX)) + "/yr tax alone — Property A market rent <span class='flag'>unverified, left blank</span>; loses Prop 19 exclusion; depreciation/capital-gains rules apply on later sale"),
  ("C — Sell and reinvest",
   "$0 property tax after sale",
   "One-time selling costs ≈ 6% → net ≈ " + usd(r10(NET_SALE)) + " (2045 proj.)",
@@ -326,15 +326,15 @@ scen_rows = [
 ]
 body = """
 <div class="card"><h2>The decision, framed</h2>
-<p>The Cupertino house is expected to be inherited via trust around 2040–2050. The decision is <b>live in it</b>, <b>rent it out</b>, or <b>sell and reinvest</b> — while the San Francisco triplex (ZIP 94122) continues to generate rental income (about $7,150/month from two units, one unit owner-occupied <span class="flag">user-provided</span>).</p></div>
+<p>The Property A house is expected to be inherited via trust around 2040–2050. The decision is <b>live in it</b>, <b>rent it out</b>, or <b>sell and reinvest</b> — while the San Francisco triplex ([ZIP B]) continues to generate rental income (about $7,150/month from two units, one unit owner-occupied <span class="flag">user-provided</span>).</p></div>
 <div class="card"><h2>Scenario comparison at the 2045 inheritance year (all figures rounded to nearest $10; projections use labeled assumptions)</h2>
 """ + table(["Scenario", "Property tax", "Other key costs / proceeds", "Tax & strategic effects"], scen_rows) + """
 </div>
 <div class="card"><h2>10-year view, 2045 → 2055 (assumption-based projections)</h2>
 """ + table(["Scenario", "2045 starting point", "2055 projected position"], [
- ("A — Live in Cupertino", "Taxable value " + usd(r10(LIVE_TAXABLE)) + "; tax " + usd(r10(LIVE_TAX)) + "/yr growing 2%/yr",
+ ("A — Live in Property A", "Taxable value " + usd(r10(LIVE_TAXABLE)) + "; tax " + usd(r10(LIVE_TAX)) + "/yr growing 2%/yr",
   "Taxable " + usd(r10(LIVE_TAXABLE*1.02**10)) + "; tax ≈ " + usd(r10(LIVE_TAX*1.02**10)) + "/yr; house value ≈ " + usd(r10(FMV*1.03**10)) + " (market, +3%/yr assumption)"),
- ("B — Rent Cupertino", "Taxable value " + usd(r10(FMV)) + "; tax " + usd(r10(RENT_TAX)) + "/yr growing 2%/yr",
+ ("B — Rent Property A", "Taxable value " + usd(r10(FMV)) + "; tax " + usd(r10(RENT_TAX)) + "/yr growing 2%/yr",
   "Tax ≈ " + usd(r10(RENT_TAX*1.02**10)) + "/yr; house value ≈ " + usd(r10(FMV*1.03**10)) + "; rental income unverified — flagged"),
  ("C — Sell & reinvest", "Net proceeds ≈ " + usd(r10(NET_SALE)) + " invested at 6%/yr (assumption)",
   "Portfolio ≈ " + usd(r10(NET_SALE*1.06**10)) + "; ≈ " + usd(r10(NET_SALE*1.06**10*0.04)) + "/yr at 4% withdrawal assumption; no property tax, no maintenance"),
@@ -343,9 +343,9 @@ body = """
 """
 REC = ("<div class=\"card\"><h2>Recommendation and reasoning</h2><ol class=\"tight\">"
  + "<li><b>Decide the occupancy question first.</b> Under Prop 19, only an heir who occupies the inherited home as a primary residence within 1 year (and claims the homeowners' exemption, filing BOE-19-P within 3 years) keeps a protected taxable value (" + sl("scc_parentchild") + "). Renting it out triggers full reassessment to market value — projected " + usd(r10(RENT_TAX)) + "/yr tax in 2045 vs. " + usd(r10(LIVE_TAX)) + "/yr if lived in, a difference of about " + usd(r10(RENT_TAX-LIVE_TAX)) + "/yr.</li>"
- + "<li><b>If the heir can live in Cupertino:</b> keep the house and live in it (Scenario A). It preserves the Prop 19 tax base, avoids a taxable sale (step-up basis " + sl("irs_pub559") + "), and the SF triplex can be fully rented. This is the lowest-tax, lowest-friction path.</li>"
- + "<li><b>If the heir prefers to stay in San Francisco:</b> sell the Cupertino house (Scenario C). The stepped-up basis makes the sale nearly tax-free; about " + usd(r10(NET_SALE)) + " net (6% costs, 2045 projection) invested at a 6%/yr assumption grows to about " + usd(r10(INV_2050)) + " by 2050 — likely more wealth than the rental scenario can produce after the " + usd(r10(RENT_TAX)) + "/yr reassessed property tax, unless Cupertino market rent is exceptionally high (unverified — flagged).</li>"
- + "<li><b>Renting the Cupertino house (Scenario B) is tax-disadvantaged</b> (full Prop 19 reassessment) and should only be chosen if verified market rent comfortably exceeds the " + usd(r10(RENT_TAX)) + "/yr tax plus insurance, maintenance, vacancy, and management costs.</li>"
+ + "<li><b>If the heir can live in Property A:</b> keep the house and live in it (Scenario A). It preserves the Prop 19 tax base, avoids a taxable sale (step-up basis " + sl("irs_pub559") + "), and the SF triplex can be fully rented. This is the lowest-tax, lowest-friction path.</li>"
+ + "<li><b>If the heir prefers to stay in San Francisco:</b> sell the Property A house (Scenario C). The stepped-up basis makes the sale nearly tax-free; about " + usd(r10(NET_SALE)) + " net (6% costs, 2045 projection) invested at a 6%/yr assumption grows to about " + usd(r10(INV_2050)) + " by 2050 — likely more wealth than the rental scenario can produce after the " + usd(r10(RENT_TAX)) + "/yr reassessed property tax, unless Property A market rent is exceptionally high (unverified — flagged).</li>"
+ + "<li><b>Renting the Property A house (Scenario B) is tax-disadvantaged</b> (full Prop 19 reassessment) and should only be chosen if verified market rent comfortably exceeds the " + usd(r10(RENT_TAX)) + "/yr tax plus insurance, maintenance, vacancy, and management costs.</li>"
  + "<li><b>Estate tax:</b> with the projected 2045 federal exemption of about " + usd(r10(15000000*1.03**19)) + " (assumption) and no CA estate tax (" + sl("ftb_estate") + "), the estate is likely under the federal threshold unless the cash portion is very large — the cash amount is internal-only and flagged for review.</li>"
  + "</ol></div>")
 
@@ -360,12 +360,12 @@ steps = [
  ("5", "Get a federal EIN for the trust and retitle accounts", "Never use a personal SSN for trust income", sl("irs_pub559")),
  ("6", "Inventory and appraise all assets at date-of-death values", "Date-of-death fair market values drive the §1014 step-up in basis for the heir", sl("irs_pub559")),
  ("7", "Pay debts, final income taxes, and any estate tax", "File Form 706 within 9 months of death if the gross estate exceeds the exclusion ($15,000,000 for 2026 deaths) or to elect portability (DSUE) for a surviving spouse; 40% federal rate above the exclusion", sl("irs_706")),
- ("8", "Decide occupancy of the Cupertino house and file BOE-19-P", "Move in as primary residence within 1 year + claim homeowners' exemption to keep the Prop 19 exclusion; file the claim within 3 years of transfer (or 6 months after a supplemental notice). If not occupied → full reassessment to market value", sl("scc_parentchild") + "<br>" + sl("scc_faq") + "<br>" + sl("boe_lta25015")),
+ ("8", "Decide occupancy of the Property A house and file BOE-19-P", "Move in as primary residence within 1 year + claim homeowners' exemption to keep the Prop 19 exclusion; file the claim within 3 years of transfer (or 6 months after a supplemental notice). If not occupied → full reassessment to market value", sl("scc_parentchild") + "<br>" + sl("scc_faq") + "<br>" + sl("boe_lta25015")),
  ("9", "Distribute or sell assets per the trust terms", "Sale soon after death ≈ no capital gain due to step-up; if kept and used as residence 2 of 5 years, §121 exclusion ($250k/$500k) also available", sl("irs_irm_firpta") + "<br>" + sl("irs_121")),
  ("10", "Final accounting, termination, and record keeping", "Probate Code requires accountings to beneficiaries; keep records of all filings (BOE-502-A, BOE-19-P, Form 706, appraisals)", sl("leginfo_16061")),
 ]
 body = """
-<div class="card"><h2>Inheriting the Cupertino house through a trust — step by step</h2>
+<div class="card"><h2>Inheriting the Property A house through a trust — step by step</h2>
 <p>Because the house is held in a (revocable living) trust, it passes <b>outside probate</b> through trust administration. The tax-relevant steps are 4, 6, 7, and 8.</p>
 """ + table(["Step", "Action", "Why it matters / detail", "Source"], steps) + """
 </div>
@@ -381,15 +381,15 @@ write("pages/inheritance-process.html", "Inheritance Process Steps", body, "page
 
 # ---------------- operating costs ----------------
 body = """
-<div class="card"><h2>Cupertino house (ZIP 95014) — costs of ownership after inheritance</h2>
+<div class="card"><h2>Property A house ([ZIP A]) — costs of ownership after inheritance</h2>
 """ + table(["Cost item", "Amount", "Status / source"], [
  ("Property tax", "See Projections page (2026: " + usd(r10(CUP_AV_2026*CUP_RATE)) + "; grows with assessed value)", "Rate law: " + sl("boe_pub29") + "; bill: user-provided <span class='flag'>flagged</span>"),
- ("Water", "$100–$150 / month", "<span class='flag'>User-provided, unverified.</span> Providers: " + sl("cupertino_util")),
+ ("Water", "$100–$150 / month", "<span class='flag'>User-provided, unverified.</span> Providers: " + sl("property-a_util")),
  ("Electricity (solar installed)", "≈ $0 net; solar credit ≈ $10–$20 / month", "<span class='flag'>User-provided, unverified.</span> Solar exports paid at avoided-cost rates under the CPUC Net Billing Tariff: " + sl("cpuc_nbt")),
- ("Home insurance (primary residence)", "", "<span class='flag'>UNVERIFIED — left blank.</span> User estimate ≈ $1,500/yr. No official source gives a per-property premium. Context: CA DOI consumer info " + sl("insurance_ca") + "; FAIR Plan (insurer of last resort, dwelling cap $3,000,000 — note the Cupertino house is valued above this cap): " + sl("fairplan")),
+ ("Home insurance (primary residence)", "", "<span class='flag'>UNVERIFIED — left blank.</span> User estimate ≈ $1,500/yr. No official source gives a per-property premium. Context: CA DOI consumer info " + sl("insurance_ca") + "; FAIR Plan (insurer of last resort, dwelling cap $3,000,000 — note the Property A house is valued above this cap): " + sl("fairplan")),
  ("Maintenance & repairs", "", "<span class='flag'>UNVERIFIED — left blank.</span> User states lower than the SF house; no official source"),
 ]) + """</div>
-<div class="card"><h2>San Francisco house (ZIP 94122) — rental property economics</h2>
+<div class="card"><h2>San Francisco house ([ZIP B]) — rental property economics</h2>
 """ + table(["Item", "Amount", "Status / source"], [
  ("Rental income (2 units)", "≈ $7,150 / month", "<span class='flag'>User-provided, unverified</span>"),
  ("Units", "3 livable units; 2 rented, 1 owner-occupied (rent control still applies to rented units in a pre-1979 multi-unit building)", "SF Rent Ordinance coverage (pre-June 13, 1979 buildings): " + sl("sfrb_rates")),
@@ -401,7 +401,7 @@ body = """
 ]) + """</div>
 <div class="card"><h2>Notes</h2>
 <ul class="tight">
-<li>Utility costs are set by CPUC-regulated providers (San Jose Water / California Water Service in Cupertino; SFPUC in SF; PG&amp;E for electricity) — see provider links. Actual bills are user-provided and flagged.</li>
+<li>Utility costs are set by CPUC-regulated providers (San Jose Water / California Water Service in Property A; SFPUC in SF; PG&amp;E for electricity) — see provider links. Actual bills are user-provided and flagged.</li>
 <li>Insurance premiums cannot be confirmed from any official source for a specific property; cells are intentionally blank and flagged rather than inferred.</li>
 <li>For projections, operating costs are assumed to inflate at the 3%/yr assumption used elsewhere (BLS CPI context: +3.7% 12-month Sept 2026 — """ + sl("bls_cpi") + """).</li>
 </ul></div>
@@ -410,12 +410,12 @@ write("pages/operating-costs.html", "Operating Costs", body, "pages/operating-co
 
 # ---------------- flagged ----------------
 flags = [
- ("Cupertino & SF estimated market values ($3,100,000 / $1,800,000, Nov 2026)", "User-provided; no official source", "User statement"),
+ ("Property A & SF estimated market values ($3,100,000 / $1,800,000, Nov 2026)", "User-provided; no official source", "User statement"),
  ("All historical property tax / assessment figures for both houses", "User-provided county bill records; not independently verified", "User statement; rate law verified at " + S["boe_pub29"][1]),
- ("Effective tax rates (Cupertino 1.335%, SF 2.135%)", "Derived from user-provided 2025 bills; actual tax-rate-area schedules vary", S["scc_booklet"][1]),
- ("Cupertino home insurance ≈ $1,500/yr; SF landlord insurance ≈ $1,500/yr", "UNVERIFIED — no official per-property source; left blank in tables", S["insurance_ca"][1] + " ; " + S["fairplan"][1]),
- ("Cupertino water $100–150/mo; solar credit $10–20/mo; SF water $330–400/mo; SF electricity $30–70/mo; SF rent $7,150/mo", "User-provided operating figures; unverified", S["cupertino_util"][1] + " ; " + S["sfpuc_rates"][1] + " ; " + S["cpuc_nbt"][1]),
- ("Cupertino market rent (for the rent-out scenario)", "UNVERIFIED — left blank; decision guidance given as a threshold instead", "—"),
+ ("Effective tax rates (Property A 1.335%, SF 2.135%)", "Derived from user-provided 2025 bills; actual tax-rate-area schedules vary", S["scc_booklet"][1]),
+ ("Property A home insurance ≈ $1,500/yr; SF landlord insurance ≈ $1,500/yr", "UNVERIFIED — no official per-property source; left blank in tables", S["insurance_ca"][1] + " ; " + S["fairplan"][1]),
+ ("Property A water $100–150/mo; solar credit $10–20/mo; SF water $330–400/mo; SF electricity $30–70/mo; SF rent $7,150/mo", "User-provided operating figures; unverified", S["property-a_util"][1] + " ; " + S["sfpuc_rates"][1] + " ; " + S["cpuc_nbt"][1]),
+ ("Property A market rent (for the rent-out scenario)", "UNVERIFIED — left blank; decision guidance given as a threshold instead", "—"),
  ("Market appreciation 3%/yr; investment return 6%/yr; inflation 3%/yr; 4% withdrawal; 6% selling costs", "Projection assumptions, clearly labeled; not official values", S["fhfa_hpi"][1] + " ; " + S["bls_cpi"][1]),
  ("Prop 19 $1M adjustment growth (3%/yr from $1,044,586)", "Official only for Feb 16, 2025–Feb 15, 2027; later adjustments set every 2 years by CA HPI", S["boe_lta25015"][1] + " ; " + S["boe_rule462"][1]),
  ("Estate exemption projections to 2050", "2026 value official ($15,000,000); later years are 3%/yr indexing assumption", S["irs_rp2532"][1]),

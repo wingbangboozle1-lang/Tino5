@@ -6,7 +6,7 @@ window.INHERITANCE_MODEL_DATA = {
     "anonymization": "All personal, trust, street address, and APN identifiers replaced with placeholders"
   },
   "history_audit": {
-    "cupertino": [
+    "property-a": [
       {
         "year": 2014,
         "tax": 5970,

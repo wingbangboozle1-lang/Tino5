@@ -169,7 +169,7 @@
     const insCup0 = useSensIns ? base.cupInsSens : base.cupIns;
     const insSf0 = useSensIns ? base.sfInsSens : base.sfIns;
 
-    // A: Live SF Unit 3 + Sell Cupertino -> Equity or Treasury
+    // A: Live SF Unit 3 + Sell Property A -> Equity or Treasury
     function simA(reinvestRate, label, key) {
       const cupProc = base.cupFmv * (1 - sellCostCup);
       let port = cupProc;
@@ -219,7 +219,7 @@
       };
     }
 
-    // B: Live SF Unit 3 + Rent Cupertino
+    // B: Live SF Unit 3 + Rent Property A
     function simB() {
       let cupVal = base.cupFmv;
       let cupTaxable = base.cupFmv;
@@ -278,7 +278,7 @@
       const sfAfter = sfVal * (1 - (0.05 + sfTransRate(sfVal))) - Math.max(0, sfVal - base.sfFmv) * capGainTax - sfDepr * holdYears * 0.25;
       return {
         key: "B",
-        label: "B. Live in SF Unit 3 + Rent Out Cupertino",
+        label: "B. Live in SF Unit 3 + Rent Out Property A",
         yr1Cf: r10(yr1Cf),
         initCupTax: r10(initCupTax),
         initSfTax: r10(initSfTax),
@@ -289,7 +289,7 @@
       };
     }
 
-    // C: Live in Cupertino (Prop 19 if parent primary) + Rent 3 Units in SF
+    // C: Live in Property A (Prop 19 if parent primary) + Rent 3 Units in SF
     function simC() {
       let cupVal = base.cupFmv;
       let cupTaxable = parentPrimaryCup
@@ -348,7 +348,7 @@
       const sfAfter = sfVal * (1 - (0.05 + sfTransRate(sfVal))) - Math.max(0, sfVal - base.sfFmv) * capGainTax - sfDepr * holdYears * 0.25;
       return {
         key: "C",
-        label: "C. Live in Cupertino (Prop 19) + Rent All 3 SF Units",
+        label: "C. Live in Property A (Prop 19) + Rent All 3 SF Units",
         yr1Cf: r10(yr1Cf),
         initCupTax: r10(initCupTax),
         initSfTax: r10(initSfTax),
@@ -359,7 +359,7 @@
       };
     }
 
-    // D: Live in Cupertino + Sell SF -> Equities
+    // D: Live in Property A + Sell SF -> Equities
     function simD() {
       const sfProc = base.sfFmv * (1 - (0.05 + sfTransRate(base.sfFmv)));
       let port = sfProc;
@@ -394,7 +394,7 @@
       const portAfter = port - Math.max(0, port - sfProc) * capGainTax;
       return {
         key: "D",
-        label: "D. Live in Cupertino (Prop 19) + Sell SF -> Equities",
+        label: "D. Live in Property A (Prop 19) + Sell SF -> Equities",
         yr1Cf: r10(yr1Cf),
         initCupTax: r10(initCupTax),
         initSfTax: 0,
@@ -438,12 +438,12 @@
       sfFmv: r10(base.sfFmv),
       prop19Cap: r10(base.p19Cap),
       results: [
-        simA(eqAfterDiv, "A. Live in SF Unit 3 + Sell Cupertino -> S&P 500 Equities (Recommended)", "A"),
+        simA(eqAfterDiv, "A. Live in SF Unit 3 + Sell Property A -> S&P 500 Equities (Recommended)", "A"),
         simE(),
         simB(),
         simD(),
         simC(),
-        simA(treasAfterTax, "A2. Live in SF Unit 3 + Sell Cupertino -> 4.5% U.S. Treasuries", "A2"),
+        simA(treasAfterTax, "A2. Live in SF Unit 3 + Sell Property A -> 4.5% U.S. Treasuries", "A2"),
       ],
     };
   }
@@ -592,7 +592,7 @@
       const stratA = sim.results.find((r) => r.key === "A");
       const stratB = sim.results.find((r) => r.key === "B");
       document.getElementById("sim-winner-note").innerHTML =
-        `Top After-Tax Wealth Strategy: <strong>${best.label}</strong> (${fmt10(best.endAfterTax)} after-tax; Strategy A vs Renting Cupertino B advantage: <strong>${fmt10(stratA.endGross - stratB.endGross, true)}</strong> gross / <strong>${fmt10(stratA.endAfterTax - stratB.endAfterTax, true)}</strong> after-tax).`;
+        `Top After-Tax Wealth Strategy: <strong>${best.label}</strong> (${fmt10(best.endAfterTax)} after-tax; Strategy A vs Renting Property A B advantage: <strong>${fmt10(stratA.endGross - stratB.endGross, true)}</strong> gross / <strong>${fmt10(stratA.endAfterTax - stratB.endAfterTax, true)}</strong> after-tax).`;
 
       const tbody = document.querySelector("#sim-table tbody");
       tbody.innerHTML = "";
@@ -790,7 +790,7 @@
       });
     }
 
-    fillAudit(cupTbl, window.INHERITANCE_MODEL_DATA.history_audit.cupertino, "https://boe.ca.gov/proptaxes/pdf/lta26002.pdf");
+    fillAudit(cupTbl, window.INHERITANCE_MODEL_DATA.history_audit.property-a, "https://boe.ca.gov/proptaxes/pdf/lta26002.pdf");
     fillAudit(sfTbl, window.INHERITANCE_MODEL_DATA.history_audit.san_francisco, "https://boe.ca.gov/proptaxes/pdf/lta26002.pdf");
   }
 
