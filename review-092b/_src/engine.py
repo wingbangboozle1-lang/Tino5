@@ -171,9 +171,9 @@ ASSUMPTIONS = [
                "NOT published: a rounded series is still a fingerprint on open assessor rolls (Q-01).", "property"),
     Assumption("b_taxable_2026", "Property B taxable value, 2026", 114_250, 113_000, 116_000,
                "Owner-supplied roll figure rounded to the nearest $10; history not published.", "property"),
-    Assumption("a_effective_tax_rate", "Property A effective ad valorem rate, %", 1.3353, 1.1488, 1.4000,
-               "Derived from the owner's own 2025 bill over the 2025 roll value (7,207 / 539,743). The "
-               "county's stated 'typical' tax-rate-area rate is 1.1488% (scc-assessor-booklet); the two "
+    Assumption("a_effective_tax_rate", "Property A effective ad valorem rate, %", 1.34, 1.1488, 1.4000,
+               "Derived from the owner's own bill and roll value; the inputs are withheld (privacy) and only the "
+               "rounded rate is published. The county's stated 'typical' tax-rate-area rate is 1.1488% (scc-assessor-booklet); the two "
                "bracket the range.", "property"),
     Assumption("b_rent_mo", "Property B rent from the two leased units, $/month", 7_150, 6_800, 7_500,
                "Owner-supplied, rounded to $10. Not an official figure.", "property"),

@@ -620,7 +620,7 @@ choose.</p>
          cite("ca-rtc-51", "boe-lta-2026-002")],
         ["Property A — rate on assessed value", "Owner's effective rate derived from the actual bill "
          "and the actual roll value; county's stated typical rate shown for comparison",
-         "1.3353% derived; 1.1488% typical", badge("derived"), cite("scc-assessor-booklet")],
+         "1.34% derived (rounded); 1.1488% typical", badge("derived"), cite("scc-assessor-booklet")],
         ["Property B — rate on assessed value", "Secured property tax rate for fiscal year 2026-27",
          "1.18162182%", badge("verified"), cite("sfttc-secured")],
         ["Property A — homeowners' exemption (if occupied)", "Reduction in taxable value on the "
@@ -1086,8 +1086,8 @@ growth is an assumption. The row for 2026 is the only one built entirely on publ
     cite("boe-homeowners-exemption")],
    ["Assessor's 'typical' rate", "Base 1% plus county, school and water bonds in a typical tax-rate area",
     "1.1488%", cite("scc-assessor-booklet")],
-   ["Rate used for Property A here", "Derived from the actual bill and the actual roll value",
-    "1.3353%", f'{badge("derived")} · {cite("scc-assessor-booklet")}'],
+   ["Rate used for Property A here", "Derived from the actual bill and roll value (inputs withheld)",
+    "1.34%", f'{badge("derived")} · {cite("scc-assessor-booklet")}'],
    ["Rate used for Property B", "San Francisco secured rate, fiscal year 2026-27", "1.18162182%",
     cite("sfttc-secured")],
    ])}
@@ -1105,7 +1105,7 @@ growth is an assumption. The row for 2026 is the only one built entirely on publ
    ["Repairs and maintenance", "1.0% of market value a year", "1.0% of market value a year",
     "Assumption; the owner states A costs less, which is not modelled separately",
     f'{badge("assumption")} · {cite("scc-assessor-booklet")}'],
-   ["Property tax", "1.3353% of taxable value (derived)", "1.18162182% of taxable value",
+   ["Property tax", "1.34% of taxable value (derived)", "1.18162182% of taxable value",
     "See section 3", f'{badge("derived")} · {cite("sfttc-secured")}'],
    ])}
 
@@ -1248,7 +1248,7 @@ FLAGS = [
      "boe-lta-2026-034"),
     ("F-04", "Counties' PARCEL-level rates are unknown",
      "The county publishes a 'typical' tax-rate-area rate of 1.1488%. The actual rate for Property "
-     "A's area is unknown, and the owner's effective rate of 1.3353% is derived, not published.",
+     "A's area is unknown, and the owner's effective rate of 1.34% is derived, not published.",
      "Medium", "Read the actual tax bill's rate line at the time of transfer.",
      "scc-assessor-booklet"),
     ("F-05", "The trust's terms are not available",
