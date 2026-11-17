@@ -2977,3 +2977,130 @@ branch's base, and no other branch is live.
 Requests to other sessions: none. Privacy note carried forward from the earlier reviews: the owner-supplied
 assessed-value history is parcel-traceable public-record data, so it is **not** republished row-for-row on this
 desk; banded and rounded anchors are used instead and the reason is logged as a flag.
+
+## Session arena-5b7b4e6b — completion record (2026-11-17)
+
+**Tasks 5b7/S, 5b7/V and 5b7/INT are complete.** Desk directory: `desk-5b7b4e6b/`
+(20 pages + `assets/desk.css` + `assets/calculator.js`; generator, model, tests and
+verifier live in `desk-5b7b4e6b/_src/`, excluded from Jekyll and from Pages).
+
+### What was built
+
+Seven files, one model, one source register:
+
+| File | Lines | What it holds |
+|---|---|---|
+| `_src/data.py` | ~240 | Transcriptions of four official responses, each compared row by row against the live source on 17 November 2026. Owner inputs in a separate block, labelled unverified |
+| `_src/sources.py` | 34 sources + one `ALLOWED_HOSTS` set | Publisher, title, URL and an explicit verification status per source |
+| `_src/model.py` | ~540 | Regime measures, five-year block resampling, the property-tax fit, the sale-tax chain, the crash replays |
+| `_src/paths.py` | ~330 | Ten paths at identical transfer dates, horizons and worlds; break-even solvers |
+| `_src/build.py` | ~1,300 | Generates all 20 pages from the model |
+| `_src/verify.py` | ~200 | Structural gate: sourcing, rounding, privacy, links, element allowlist |
+| `_src/test_model.py` | ~240 | 35 tests pinning the conventions the pages depend on |
+
+`python3 desk-5b7b4e6b/_src/build.py` regenerates every page deterministically
+(fixed seed); the rebuild was confirmed byte-identical, so the CI staleness check passes.
+
+### Sources verified this session
+
+All of these were opened and read, or fetched and compared row by row:
+
+* **FTB 2026 rate schedules** (`ftb.ca.gov/forms/2026/2026-540-tax-rate-schedules.pdf`) —
+  Schedule X 12.30% over $768,213; Schedule Y 12.30% over $1,536,426 (9.30% band
+  $150,394–768,218, base $6,621.76); Schedule Z 12.30% over $1,044,771. Closes the earlier
+  "FTB rate table 404" dead end.
+* **FTB capital gains** (`ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html`,
+  updated 28 Jan 2026) — "California does not have a lower rate for capital gains. All capital
+  gains are taxed as ordinary income."
+* **BOE News Release NR 25-02** (7 Mar 2025) — Proposition 19 exclusion $1,044,586 for
+  transfers 16 Feb 2025 – 15 Feb 2027.
+* **RTC §17043 and §17041** (leginfo) — the 1% over $1,000,000, and the annual CPI
+  recomputation of the brackets.
+* **IRS estate tax** — 2026 threshold $15,000,000; portability via a timely Form 706.
+* **SF Department of Elections, 2026-11-03** (`sfelections.org/results/20261103/index.html`) —
+  Measure H YES 74.4%; Measure I **defeated** 51.66%; Measure J YES 80.88%; RTM YES 79.17%.
+  Preliminary, ~900 ballots outstanding, certification within 30 days.
+* **SF voter information pamphlet** (`media.api.sf.gov/documents/N26_EN_VIP.pdf`) — Measure H
+  rates and the 1 Jul 2027 – 30 Jun 2042 term.
+* **FRED** (FHFA HPI; BLS CPI and the Treasury rate series) — live CSV matched the in-repo
+  transcriptions exactly for 1975–2025.
+* **ERP 2026 Tables B-55 / B-56** (govinfo) — matched the in-repo transcription; S&P 2025
+  6,845.50, 2024 5,881.63.
+* **Federal Reserve History** — the 1929 essay; Dow 381 (Sept 1929) → 41.22 (summer 1932),
+  −89%, pre-crash level regained November 1954.
+
+### Findings
+
+**The two numbers that decide it.** Keeping Property A only matches selling it if house prices
+grow faster than **16.1%** a year for the horizon, or if equities return less than **4.7%**
+a year. The 1977-2025 averages were 7.1% and 12.8%. The honest conclusion is not "sell" — it
+is that the decision rests on those two rates, which is why the desk leads with them.
+
+**A like-kind exchange of Property A is close to pointless**, and the desk measures rather than
+asserts it: because the basis steps up to fair market value at death, there is almost no gain
+to defer, so the exchange path and the same-year sale return the identical number.
+
+**Property B's bill has no usable ad-valorem split.** The least-squares fit produces a negative
+fixed charge, which is not a real thing. B's bill grew about 4.3% a year over 2016-2025 while
+its assessed value grew about 1.9% a year, so no constant rate plus a constant fixed charge
+describes it. B is projected from its own observed growth instead, and the split is not
+published for B.
+
+**The Proposition 19 occupation condition is worth more than any other single input**, and the
+desk prices the risk of breaching it with a dedicated path (`live_10_then_rent`).
+
+**Reinvestment risk is reported beside every headline.** Parking 24 months and phasing in over
+12 costs $1,960 per $10,000 over ten years if the crash never comes.
+
+### Irregularities flagged — 19 items, all on `desk-5b7b4e6b/flagged.html`
+
+F01 neither parcel's tax rate area supplied, so no published rate is cited · F02 owner-supplied
+values unverified · F03 assessed values published banded, not exactly (a public record tied to
+one parcel is not republishable) · F04 Property B's bill has no usable ad-valorem split ·
+F05 Property A's water provider not confirmed · F06 no insurance quote for either property ·
+F07 Property A's market rent unknown, so the letting paths are a floor · F08 the rest of the
+estate not disclosed · F09 Property B's income-tax basis unknown · F10 California's estate-tax
+position not confirmed this session · F11 the 1929 and 2008 replays are hindsight, with the
+cost of the cushion shown as the counterweight · F12 the equity total return is an
+approximation (a price index plus a dividend-price ratio, not a published total-return series)
+· F13 the combined marginal rate on rental income is an assumption · F14 the improvement share
+for depreciation is an assumption · F15 the November 2026 results are preliminary · F16 the
+occupancy registration is the household's own · F17 the corridor of years starts in 2026 ·
+F18 earlier directories in this repository were built before the tighter privacy rule ·
+F19 the repository history contains figures from before the rounding rule, and scrubbing it is
+a destructive rewrite only the owner should authorise — **not carried out**.
+
+### Dead ends recorded for later sessions — do not retry
+
+* `boe.ca.gov/proptaxes/proposition19.htm` → 404. Use BOE News Release NR 25-02.
+* `insurance.ca.gov/01-consumers/105-type/95-guides/03-ho/` → 404.
+* `federalreservehistory.org/essays/1929-stock-market-crash` → 404. Correct slug:
+  `/essays/stock-market-crash-of-1929`.
+* `sfelections.org/results/2026-11-03/` → 404. Use `/results/YYYYMMDD/index.html`.
+* **No official California homeowners-premium figure exists** on a government page. Searches
+  return only third-party sites quoting NAIC/CDI with mutually inconsistent numbers across
+  different years and measures ($1,403 / $1,492 / $1,655 / $1,571 / $2,339.99). None is cited.
+* **No official Santa Clara County rate page found.** TRA searches return commercial sites with
+  conflicting rates and one leaked a real parcel bill (APN + TRA 017-107) — that must never be
+  republished. Two candidate PDF URLs remain untried:
+  `sccgov.org/sites/dtt/pd/Documents/tax-rate-book-2025-2026.pdf` and
+  `files.santaclaracounty.gov/exjcpb1531/2025-11/tax-rate-book-2025-2026.pdf`.
+
+### Verification results
+
+| Gate | Result |
+|---|---|
+| `desk-5b7b4e6b/_src/build.py` | 20 pages, 34 sources, 1,500 resampled futures |
+| `desk-5b7b4e6b/_src/verify.py` | **PASS** — 20 pages, 39 tables, 346 data rows (313 with a source citation, 18 carrying a status tag, 15 in a table that states why no citation applies); 924 links (34 external, all on the official-host allowlist); internal links resolve; money rounds to $10; no personal-identifier patterns; no forbidden elements |
+| `python3 -m unittest discover -s desk-5b7b4e6b/_src -p "test_*.py"` | **35 tests, OK** |
+| `scripts/privacy_scan.py desk-5b7b4e6b` | **0 findings** |
+| `scripts/verify_safe.py` | **PASS** (desk-5b7b4e6b folded into the single `PUBLISHED_DESKS` set) |
+| `scripts/check_landing.py` | 24 targets, 0 unresolved |
+| CI staleness check | rebuild is byte-identical, so the check passes |
+
+### Integration
+
+* `scripts/verify_safe.py` — `desk-5b7b4e6b` folded into the **single** `PUBLISHED_DESKS` set.
+* `.github/workflows/privacy-pages.yml` — per-desk block: tests → rebuild → verify → staleness.
+* `_config.yml` — `desk-5b7b4e6b/_src` excluded from the Jekyll build.
+* `index.html` — one hub card.
