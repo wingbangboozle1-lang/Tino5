@@ -66,3 +66,14 @@ exclude:
   - "tools-22a32b17"
   - "verify-552"
   - "verification-report.json"
+  # PRIVACY CONTAINMENT (session arena-2bacf26a, 2026-11-17). Hidden from Pages, not deleted.
+  # Reasons per desk: flagged-for-review.html. Found by scripts/check_published_surface.py.
+  - "desk"
+  - "desk-9af5443d"
+  - "swan-3a49"
+  - "tino5-3f269806"
+  - "desk-e86"
+  - "review-092b"
+  - "cbd"
+  - "phase-99220"
+  - "verify-476"

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Flagged for Review — privacy containment (2026-11-17)</title>
+<style>
+body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1d2330;background:#f7f8fa}
+header{background:#fff;border-bottom:1px solid #dfe3ea;padding:18px 24px}
+header h1{margin:0;font-size:22px;color:#8a1c1c}
+header a{color:#1f4e79;font-size:14px}
+main{max-width:1000px;margin:auto;padding:20px 24px 56px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#5b6474;margin:26px 0 10px}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;background:#fff}
+th{background:#eef3f7;text-align:left;padding:7px 9px;border-bottom:2px solid #dfe3ea}
+td{padding:7px 9px;border-bottom:1px solid #dfe3ea;vertical-align:top}
+code{background:#eef3f7;padding:1px 4px;border-radius:4px}
+.flag{display:inline-block;background:#fbe9e9;color:#8a1c1c;border-radius:4px;padding:1px 6px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>Flagged for Review</h1>
+<div><a href="index.html">← Site index</a> · Privacy containment, recorded 2026-11-17 (session arena-2bacf26a). Items below need an owner decision or a repair. Nothing here is verified beyond what is stated.</div>
+</header>
+<main>
+
+<h2>1. Hidden from Pages, and what restores each one</h2>
+<p>Each desk below is excluded in <code>_config.yml</code> and listed in <code>scripts/verify_safe.py</code>. Nothing is deleted: the files stay in the repository and its history. The rule applied is the repository's own: county-level place names only, and no link into a working tree that is not published.</p>
+<table>
+<thead><tr><th>Hidden desk</th><th>Why it is hidden</th><th>What restores it</th></tr></thead>
+<tbody>
+<tr><td><code>desk/</code></td><td>Names the city in published costs and sources pages.</td><td>Replace the city name in the generator (<code>scripts/build_desk_v5.py</code>, output <code>desk/</code>), rebuild, run <code>scripts/verify_desk_v5.py</code>.</td></tr>
+<tr><td><code>desk-9af5443d/</code></td><td>Names the city in the decision log, maintenance plan, questions and sources. Its hub card also carried the city name.</td><td>Replace the city name in <code>desk-9af5443d/_src</code>, rebuild, run its verifier.</td></tr>
+<tr><td><code>tino5-3f269806/</code></td><td>Names the city in flagged, questions and sources pages.</td><td>Replace the city name in its generator, rebuild, run its verifier.</td></tr>
+<tr><td><code>swan-3a49/</code></td><td>The published source file <code>build.py</code> and the data README name the city.</td><td>Remove the names from the published source and data README; rebuild the replay.</td></tr>
+<tr><td><code>desk-e86/</code></td><td>Its published verifier script lists place names, and its pages link into unpublished trees (<code>desk-22a32b17/</code>).</td><td>Remove the names from <code>verify.py</code>; repoint or remove the links to <code>desk-22a32b17/</code>.</td></tr>
+<tr><td><code>review-092b/</code></td><td>Its repository-review page links to <code>desk-22a32b17/</code>, <code>desk-b4f/</code>, <code>docs/</code>, <code>COORDINATION.md</code> and <code>scripts/</code>. None of those is published, so the links break. The owner-figure fixes made by session arena-c4161fb6 are kept.</td><td>In <code>review-092b/_src/build.py</code> (around the repository-review table), turn those links into plain text, rebuild, run its verifier.</td></tr>
+<tr><td><code>cbd/</code>, <code>phase-99220/</code>, <code>verify-476/</code></td><td>Each links into a hidden desk or an unpublished tree, so the links would break. Not identifying by themselves.</td><td>Repoint those links to published pages (or to plain text), rebuild, verify, then restore.</td></tr>
+</tbody>
+</table>
+
+<h2>2. Restored or kept live after a check</h2>
+<ul>
+<li><code>desk-31cb5781/</code> stays live. Its generator had a nav entry to an <code>executive-summary.html</code> page that was never generated, which broke the nav on every page. That entry is removed in <code>desk-31cb5781/_src/build.py</code>, the desk is rebuilt, and its verifier passes. The city-name fix was made by session arena-c4161fb6.</li>
+<li><code>desk-85a01c5c/</code> stays live. Its only earlier match was the word "Sunset" used as a clause term for an expiry date, not a place name. The check looks for city and neighbourhood names only.</li>
+</ul>
+
+<h2>3. Irregularities for owner decision</h2>
+<table>
+<thead><tr><th>#</th><th>Item</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>F1</td><td><b>Git history still holds the owner's exact figures.</b> Each parcel-history figure appears in about 10 to 15 commits in this clone. Hiding or deleting files does not remove them. Session arena-c4161fb6 counts about 3,500 commits on the public remote.</td><td><span class="flag">Owner decision</span> A history rewrite (for example <code>git filter-repo</code> plus a force-push to <code>main</code>) would invalidate open PRs and every session branch, and cannot recall copies that were already cloned. Not done.</td></tr>
+<tr><td>F2</td><td><b>Repository visibility.</b> <code>gh repo view</code> reports the repository as public. Whether GitHub Pages stays available if it were made private depends on the GitHub plan; not verified here.</td><td><span class="flag">Owner decision</span></td></tr>
+<tr><td>F3</td><td><b>Rounded owner history tables are live.</b> <code>cbe/properties.html</code> shows the 2014–2025 assessed-value and tax history rounded to $10. The brief asks for $10-rounded tax and assessment tables; the repository README says year-by-year histories are not published at any precision, because a rounded series can still be matched against open assessor rolls. Those two rules conflict. <code>desk-8be2/</code> also shows one value from the same history.</td><td><span class="flag">Owner decision</span> keep rounded, drop the history series, or keep it on a private page. (Session arena-c4161fb6 logged this as I-2.)</td></tr>
+<tr><td>F4</td><td><b>Owner anchors on live desks.</b> A property value and a monthly rent figure, both $10 multiples, appear on live pages. At $10 precision they still point to one household.</td><td><span class="flag">Owner decision</span> keep, round further, or remove.</td></tr>
+<tr><td>F5</td><td><b>Money not rounded to $10 on live pages.</b> 119 amounts of $1,000 or more are not multiples of $10: <code>desk-85a01c5c</code> 45, <code>decision</code> 14, <code>referee-abae</code> 14, <code>desk-03242c78</code> 8, <code>cbe</code> 7, <code>decision-d2664fd0</code> 7, <code>desk-8be2</code> 6, <code>desk-31cb5781</code> 5, <code>desk-d75</code> 5, <code>public-safe</code> 4, <code>inheritance-desk</code> 3, root index 1. Many are statutory amounts quoted exactly and marked as such (for example the Proposition 19 cap of $1,044,586); the rest need a row-by-row check.</td><td><span class="flag">Unverified</span> not fixed in this session.</td></tr>
+<tr><td>F6</td><td><b>Checker limits.</b> <code>scripts/check_published_surface.py</code> approximates the Jekyll publication rules. It reads the owner's figures from a private list outside the repository, so the owner-figure check reports "skipped" when that list is absent. It also does not inspect images or PDFs.</td><td>Run after every change.</td></tr>
+<tr><td>F7</td><td><b>Scope of this session.</b> This session did containment, the flagged page, the checker, and the desk-31cb5781 nav repair. The rest of the brief is not done here; see the coordination record in <code>COORDINATION.md</code>.</td><td>Next session.</td></tr>
+</tbody>
+</table>
+
+<p style="font-size:13px;color:#5b6474">Not tax, legal or investment advice. Verification here is limited to publication rules and the existing desk verifiers. Re-check rules and thresholds against the official source before any decision.</p>
+</main>
+</body>
+</html>

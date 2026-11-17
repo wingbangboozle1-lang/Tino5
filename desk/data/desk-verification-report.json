@@ -7,7 +7,11 @@
   },
   {
    "check": "published-surface",
-   "detail": "Jekyll build is active and 35 excluded paths are honoured; the approved desks and public-safe/ are served"
+   "detail": "desk/ is hidden from Pages by the privacy containment round 2 (_config.yml); the earlier publication decision is superseded"
+  },
+  {
+   "check": "published-surface",
+   "detail": "Jekyll build is active and 44 excluded paths are honoured; the approved desks and public-safe/ are served"
   },
   {
    "check": "links",
@@ -40,5 +44,5 @@
  ],
  "pages": 15,
  "failure_count": 0,
- "warning_count": 9
+ "warning_count": 10
 }

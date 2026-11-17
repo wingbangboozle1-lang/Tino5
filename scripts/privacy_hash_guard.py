@@ -25,6 +25,9 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 FORBIDDEN = {
+    # home-region words (digest only; session arena-c9f0d60a)
+    "ae16e3e7a45d4a88b998b2ee95a8b6f3fe1fc68b493dfaf2fab88f9a5f150f30",
+    "fc15d22c9db9957ba867cd618f5ef0cba3c58097295fe48ed2858e922586ac40",
     "13ec7cc438685651ee4e808146d43f73ce84994ae3f8c5fe6786c38f2a9d9a3a",
     "2478d903d7c875f05299efe5a271b802046c65fdbb33ab2d0a0085f5b73748ed",
     "43086d953bcc428c4a8bf097446b87d9f577a80d4bd010a4313d575484cc9f21",
@@ -42,7 +45,7 @@ GUARD_CODE_ALLOWLIST = {
     "desk-e86/verify.py", "inheritance-desk/_src/verify.py", "phase-99220/_src/verify.py",
     "referee-abae/_src/test_build.py", "review-092b/_src/test_review_092b.py",
     "review-092b/_src/verify.py", "scripts/test_model_v5.py", "scripts/verify_safe.py",
-    "scripts/verify_desk_v5.py",
+    "scripts/verify_desk_v5.py", "scripts/check_published_surface.py",
     "swan-3a49/build.py", "tino5-3f269806/_src/verify.py", "verify-552/verify.py",
 }
 

@@ -18,7 +18,7 @@ added to the tree by this file. The salt is public; the digests protect against 
 publication (they are not a secrecy mechanism — the figures already exist in the git history).
 
 Scope: root index.html plus every directory in PUBLISHED_DESKS (scripts/verify_safe.py) and
-public-safe/. Only comma-formatted numbers are checked (for example a comma-formatted amount whose last digits are not zeros), so bare 4-digit
+public-safe/. Only comma-formatted numbers are checked (for example $1,230 or 12,340), so bare 4-digit
 numbers such as years are not matched.
 
 Run: python3 scripts/owner_figures_gate.py
