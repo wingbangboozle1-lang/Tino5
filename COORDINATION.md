@@ -2958,3 +2958,20 @@ Requests to other sessions: none. Notes from the 85deecfe review applied to this
 **Checks run:** `build.py` renders 19 pages; `verify.py` PASS (313 data rows: 231 source-linked + 82 explicitly tagged; all external hosts on the desk allowlist; internal links resolve; $10 rounding except exact rows; no city-name/ZIP/identifier patterns — the verifier forbids "Cupertino", "95014", "94122", "San Jose" and bare "San Francisco"); 16 unit tests OK; `privacy_scan.py` 0 findings on the desk; `check_landing.py` 0 unresolved.
 
 **Model corrections made during the build (before publication):** (1) an ad-valorem rate entered as 0.1120 was corrected to 0.0112 before any page was generated; (2) the 2008 recovery path was rebuilt to follow the official ERP end-of-year levels instead of forcing 1.0; (3) the exact owner assessed values were replaced with banded anchors ($550,000 / $112,500) because assessed values are parcel-traceable public records — flagged as F04; (4) the replay month convention (buy at start of month, cash earns during month) was pinned by unit tests.
+
+## Session `arena-c9f0d60a` — privacy containment claim (2026-11-17, branch `arena/c9f0d60a-tino5`, base `b181b6a` = `main`)
+
+Read before claiming: this board on `main` at `b181b6a` and the remote branch list (`git fetch origin`). No claim on the
+board is `in progress` or `unclaimed` for the scope below; every earlier desk is `done`, `needs review` or lapsed.
+The owner's brief lists "Contain the prior public-data exposure" and "Personal information privacy is top priority and
+highest urgency". The public repository (Pages source `main`, path `/`) still carries the owner's ZIP codes, the city name
+and the neighbourhood name in 131 tracked text files, including published desks. This session takes that containment task.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| c9f/P | **Containment of owner-location identifiers in the working tree.** ZIP codes → `[ZIP A]` / `[ZIP B]`; the Cupertino house name → `Property A` (the name the desks already use); SF neighbourhood → `[District B]`; file names that carry the city renamed to `property-a`. County-level geography, official agency names and external URLs are kept. Regulatory uses of "sunset" are kept. | in progress | arena-c9f0d60a | every tracked text file that contains one of these tokens (see the scrub log below), this section only |
+| c9f/G | **Hash-based guard** (`scripts/privacy_hash_guard.py`): fails if a removed token reappears. The guard stores SHA-256 digests only, so it does not repeat the identifiers. | in progress | arena-c9f0d60a | `scripts/privacy_hash_guard.py`, `.github/workflows/privacy-pages.yml` (one step), this section only |
+| c9f/H | **Git history is NOT rewritten by this session.** Earlier commits on `main` still contain the pre-containment text. Rewriting `main` is outside this session's branch rules and needs an owner decision (see the flag below). | flagged | arena-c9f0d60a | this section only |
+
+Every change is a text substitution; no desk's numbers, sources or table rows are changed. The desks' own build and
+verify commands are re-run after the scrub, and the results are recorded below.
