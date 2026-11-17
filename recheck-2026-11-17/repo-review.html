@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repository review — Recheck 2026-11-17</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Repository review</h1>
+<p>Periodic official-source recheck — 2026-11-17 — Property A (future trust inheritance, Santa Clara County) &middot; Property B (already owned, San Francisco County)</p>
+</header>
+<nav><span class="grp">Recheck</span><a href="index.html">Hub</a><a href="register.html">Constants register</a><a href="open-items.html">Open items &amp; flags</a><a href="rebuild.html">Rebuild &amp; movement</a><a href="law-watch.html">Law watch</a><span class="grp">Reference</span><a href="requirements.html">Requirement index</a><a href="repo-review.html" class="active">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a></nav>
+<main>
+
+<div class="card">
+<h2>Repository review 2026-11-17 (line by line, published surface)</h2>
+<table><thead><tr><th>Check</th><th>Finding</th><th>Verdict</th></tr></thead><tbody><tr><td>Git history</td><td>The working clone here is shallow (one squashed commit, four refs, no tags) — but the <b>public remote retains roughly 3,500 commits containing the owner's pre-rounding figures</b>. A history rewrite (filter-repo + force-push) is an explicit owner decision (F1) and was NOT performed; it would invalidate open branches and cannot recall copies already cloned. Containment, not revocation.</td><td><span class="tag tag-open">OPEN</span></td></tr><tr><td>Published surface</td><td>Root hub, the privacy-first dashboard, the public privacy record page and the desks on the live surface (twelve, plus this recheck) — every other top-level directory is excluded from Pages by the deployment gate and the Jekyll exclude list. Nine decision trees that name the locality are currently <b>hidden from Pages by the 2026-11-17 privacy containment</b> while remaining in the repository.</td><td><span class="tag tag-verified">CONFIRMED</span></td></tr><tr><td>Excluded trees</td><td>Legacy trees holding pre-anonymisation or pre-rounding material stay excluded (they remain in the repository). Deleting them is an owner decision recorded on the flagged pages.</td><td><span class="tag tag-open">OPEN</span></td></tr><tr><td>Verification battery</td><td>Structure/privacy/rounding gate, landing-link check, repository privacy scan, owner-figure gate (salted digests), hash-based location-token guard and the published-surface check all pass on the combined tree at the time of this review.</td><td><span class="tag tag-verified">CONFIRMED</span></td></tr><tr><td>Prior public exposure</td><td>Confirmed, not hypothetical: the pre-squash history was public and is retained on the remote. The 2026-11-17 containment removed the identifiers and exact figures from the live tree; see F1 for the owner's history-rewrite decision.</td><td><span class="tag tag-open">OPEN</span></td></tr><tr><td>Duplicate desks</td><td>Twenty decision trees answer the same brief with different scopes; several are now hidden from Pages. Suggestion S1 on the suggestions boards: consolidate to one lead desk after the owner chooses.</td><td><span class="tag tag-note">SUGGESTION</span></td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h2>Irregularities carried for manual review (with links)</h2>
+<table><thead><tr><th>Item</th><th>Where</th><th>What is wrong</th><th>Status</th></tr></thead><tbody><tr><td>Estates-and-trusts capital-gain threshold printed as $16,200 against the official $16,250</td><td>excluded legacy tree (desk-b4f) <a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer">official figure</a></td><td>transcription error against the IRS revenue procedure</td><td>tree excluded from Pages; owner decision to correct or drop</td></tr><tr><td>Closing-letter fee shown rising $67→$76 against the official $56</td><td>excluded legacy tree (desk-b4f) <a class="src" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts" target="_blank" rel="noopener noreferrer">IRS fee schedule reference</a></td><td>unsourced fee series</td><td>tree excluded from Pages</td></tr><tr><td>Intergenerational-exclusion cap applied to the assessed value only up to the cap instead of to the whole gap</td><td>excluded legacy tree (desk-22a32b17) <a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" target="_blank" rel="noopener noreferrer">BOE mechanics</a></td><td>known modelling error, documented by the referee desk</td><td>tree excluded from Pages until corrected</td></tr><tr><td>2017-vintage transfer-tax chart published under a 2025 file name</td><td>city Assessor-Recorder factsheet (external) <a class="src" href="https://media.api.sf.gov/documents/ASR_Factsheet_PropertyTransfer_English_2025.pdf" target="_blank" rel="noopener noreferrer">factsheet</a></td><td>top tiers superseded by current law</td><td>flag R7; register uses the Controller digest for top tiers</td></tr><tr><td>Owner cost band below the derived tariff band for Property B</td><td>owner inputs vs adopted schedules <a class="src" href="https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf" target="_blank" rel="noopener noreferrer">adopted rates</a></td><td>scope difference suspected</td><td>flag R6; discovery action on the open-items page</td></tr></tbody></table>
+</div>
+
+</main>
+<footer>Built 2026-11-17 by session arena-1e93b0b8 from one generator (<code>_src/build.py</code>). Working decision aid, not advice. Figures rounded to the nearest $10 except agency-published exact figures marked EXACT. County-level anonymisation: no names, street addresses, ZIP codes, parcel or account numbers.</footer>
+</body>
+</html>

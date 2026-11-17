@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rebuild and recommendation movement — Recheck 2026-11-17</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Rebuild and recommendation movement</h1>
+<p>Periodic official-source recheck — 2026-11-17 — Property A (future trust inheritance, Santa Clara County) &middot; Property B (already owned, San Francisco County)</p>
+</header>
+<nav><span class="grp">Recheck</span><a href="index.html">Hub</a><a href="register.html">Constants register</a><a href="open-items.html">Open items &amp; flags</a><a href="rebuild.html" class="active">Rebuild &amp; movement</a><a href="law-watch.html">Law watch</a><span class="grp">Reference</span><a href="requirements.html">Requirement index</a><a href="repo-review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a></nav>
+<main>
+
+<div class="card">
+<h2>Inputs that changed this cycle</h2>
+<table><thead><tr><th>Input</th><th>Was (2026-11-15 build)</th><th>Now ({DATE})</th><th>Where it bites</th></tr></thead><tbody><tr><td>Federal basic exclusion, 2027</td><td>indexed from $15,000,000, amount unpublished</td><td>$15,480,000 <span class="tag tag-exact">EXACT</span></td><td>estate-tax headroom only</td></tr><tr><td>Annual gift exclusion, 2027</td><td>$19,000</td><td>$20,000 <span class="tag tag-exact">EXACT</span></td><td>gifting cadence only</td></tr><tr><td>Mortgage rate context</td><td>7.32% (22 Oct 2026)</td><td>7.11% (12 Nov 2026) <span class="tag tag-exact">EXACT</span></td><td>none — no debt in the model</td></tr><tr><td>Short Treasury yields</td><td>3-month 4.32% / 2-year 4.88% (13 Nov 2026)</td><td>unchanged on file; curve live through 16 Nov 2026 <a class="src" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026" target="_blank" rel="noopener noreferrer">Treasury curve</a></td><td>phased-entry parking yield</td></tr><tr><td>Property A / B utility rows</td><td>blank + flagged</td><td>adopted tariffs read and published <a class="src" href="https://www.sjwater.com/media/2zxdiui1/al621a_advice_letter_web-1.pdf" target="_blank" rel="noopener noreferrer">utility A</a> <a class="src" href="https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf" target="_blank" rel="noopener noreferrer">utility B</a></td><td>carrying costs on all hold paths, symmetrically</td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h2>Why the ranking holds (the arithmetic)</h2>
+<p>The three pure paths and the mixed paths are ranked by after-tax value at the same transfer dates and
+horizons. None of the changed inputs feeds those rankings:</p>
+<ul>
+<li><b>Estate-tax headroom</b> is not binding in any modelled year. Illustration (derived, ASSUMPTION
+growth 3.5% on the house value anchor, 2.5% indexation of the exclusion):</li>
+</ul>
+<table><thead><tr><th>Transfer year</th><th>House at transfer (derived)</th><th>Exclusion (indexed from $15,480,000)</th><th>Headroom before any other estate assets</th><th>Binding?</th></tr></thead><tbody><tr><td>2040</td><td>$5,017,950</td><td>$21,339,350</td><td>$16,321,400</td><td>no <span class="tag tag-derived">DERIVED</span> <a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer">exclusion basis</a></td></tr><tr><td>2045</td><td>$5,959,750</td><td>$24,143,520</td><td>$18,183,770</td><td>no <span class="tag tag-derived">DERIVED</span> <a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer">exclusion basis</a></td></tr><tr><td>2050</td><td>$7,078,320</td><td>$27,316,170</td><td>$20,237,850</td><td>no <span class="tag tag-derived">DERIVED</span> <a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer">exclusion basis</a></td></tr></tbody></table>
+<p class="small">Basis: derived illustration, not a forecast. The exclusion row assumes statutory
+indexation continues; the house row uses the desks' planning assumption. Both are labelled
+<span class="tag tag-derived">DERIVED</span>. The estate's other assets (owner-supplied, unverified) are what can make the exclusion
+binding — that is why the estate-liquidity plan and the portability question stay on the
+<a href="requirements.html">requirement index</a>. Since the exclusion is slack in every modelled
+year, the 2027 update moves headroom, not the ranking of live / rent / sell.</p>
+<ul>
+<li><b>Carrying costs</b> changed for both hold paths symmetrically: Property A's water is now
+sourced at the published tariff (derived $1,540–$1,900 per year), which matches the owner's
+$1,200–$1,800 band and therefore does not move the rent-vs-live margin. Property B's derived
+water-plus-wastewater band is <i>higher</i> than the owner band (flag R6) — this depresses both
+the rent path and the live path of Property B together and does not flip their order.</li>
+<li><b>The phased-investing path</b> parks proceeds in 3-month to 2-year Treasuries for 24–36
+months; its parking yield input is unchanged this cycle (flag R5).</li>
+<li><b>Capital-gains treatment</b> is unchanged: basis resets to market value at death
+(step-up), a same-year sale realises no meaningful gain, and California taxes any later gain as
+ordinary income including the 1% surcharge above $1,000,000 of taxable income (Form 540 line 62,
+confirmed).</li>
+</ul>
+<div class="callout"><b>Verdict 2026-11-17: the recommendation did not move.</b> Sell Property A in the
+transfer year; do not claim the intergenerational exclusion unless the household will occupy the
+home for years; write the investment policy before the money arrives; decide Property B's vacant
+unit first. <span class="tag tag-move">NO MOVE</span></div>
+</div>
+
+<div class="card">
+<h2>Rebuild performed</h2>
+<p class="small">The model engines and the site generators were re-run on 2026-11-17 with the updated
+register: the regression suites for the projection engines pass unchanged (their outputs do not
+depend on the 2027 exclusion within the slack range), and the published desks remain internally
+consistent. The desk that carries 2027 figures (<code>desk-03242c78</code>) already matches the
+official amounts read today; the desks anchored on 2026 figures remain correct <i>for 2026</i> and
+are listed on the <a href="requirements.html">requirement index</a> with this register as the
+2027+ authority.</p>
+</div>
+
+</main>
+<footer>Built 2026-11-17 by session arena-1e93b0b8 from one generator (<code>_src/build.py</code>). Working decision aid, not advice. Figures rounded to the nearest $10 except agency-published exact figures marked EXACT. County-level anonymisation: no names, street addresses, ZIP codes, parcel or account numbers.</footer>
+</body>
+</html>

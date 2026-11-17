@@ -15,7 +15,10 @@ figures), [`desk-e86/`](desk-e86/index.html) (46-question decision-readiness reg
 [`tino5-3f269806/`](tino5-3f269806/index.html) (independent decision site — every row checked
 line by line against official sources) and [`verify-476/`](verify-476/index.html)
 (the 2026-11-13 line-by-line verification register: every decision-critical constant re-checked
-against its official source, with verdicts and corrections applied). The publication set is
+against its official source, with verdicts and corrections applied). The periodic official-source
+recheck of 2026-11-17 ([`recheck-2026-11-17/`](recheck-2026-11-17/index.html)) closes the six items
+that register left open, publishes the requirement traceability index for the whole brief, and
+records the rebuild-and-movement check (verdict: the recommendation did not move). The publication set is
 recorded in `PUBLISHED_DESKS` in [`scripts/verify_safe.py`](scripts/verify_safe.py); every other
 top-level directory is excluded from Pages by the fail-closed gate and by `_config.yml`.
 `desk-22a32b17/` stays excluded until its Proposition 19 cap error is corrected and `desk-b4f/`
