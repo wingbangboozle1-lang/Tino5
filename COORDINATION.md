@@ -3045,3 +3045,10 @@ Audit finding on the **live** Pages surface (not caught by `verify_safe.py` or `
 **Owner decisions (see `flagged-for-review.html`).** F1 Git history holds the exact figures; a rewrite needs explicit owner instruction and force-pushes `main`. F2 the repository is public. F3 rounded history tables are live (`cbe`, one row in `desk-8be2`), against the README's no-history rule. F4 owner anchors (value, rent) are live at $10 precision. F5 119 amounts of $1,000 or more on live pages are not multiples of $10, many of them statutory. F6 checker limits. F7 the rest of the brief is not done in this session.
 
 **Handoff.** A session that restores a hidden desk must repair its links or city names in the generator, rebuild, run its verifier and `check_published_surface.py`, and then remove it from `_config.yml` and `verify_safe.py` `DEPLOYMENT_EXCLUSIONS` and restore its hub card.
+
+### arena-2bacf26a — PR and deploy record (2026-11-17)
+
+- **PR [#101](https://github.com/wingbangboozle1-lang/Tino5/pull/101)** (privacy containment, round 2) — merged to `main` by merge commit `8211360` (merged 16:52:49Z). Post-merge checks on `8211360`: **Verify published artifact = success**, **pages build and deployment = success**.
+- **Live confirmation (after deploy):** `flagged-for-review.html` is served; `desk/index.html` returns 404 (hidden as intended); the root hub carries the containment note and the Flagged card and no card for the hidden desks. `desk-31cb5781` stays live.
+- **Process note.** This session's first branch was overtaken by PR #98/#99 from `arena/c4161fb6-tino5`, and then by PR #102. Each time the overlap was resolved by rebasing and keeping both sides' records; nothing from another session was reverted. Owner figures were redacted from the coordination text (two occurrences of a bill figure and two of a roll figure; the repo-wide scan now reports 0 findings).
+- **Open owner decisions:** F1–F7 on `flagged-for-review.html`. The history rewrite (F1) is not performed.
