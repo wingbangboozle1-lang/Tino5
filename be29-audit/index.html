@@ -35,9 +35,9 @@ code{background:#eef3f7;padding:1px 4px;border-radius:4px}
 <h2>1. Checks run</h2>
 <table>
 <tr><th>Check</th><th>Result</th><th>What it covers</th></tr>
-<tr><td><code>scripts/check_published_surface.py</code></td><td><span class="pill ver">PASS</span> 244 published files, 0 failures</td><td>Privacy and link rules on the files Jekyll publishes. The parcel-history check was <strong>skipped</strong> because its private list is not present in this sandbox, so that check is not confirmed here.</td></tr>
-<tr><td><code>scripts/check_landing.py</code></td><td><span class="pill ver">PASS</span> 16 targets, 0 unresolved</td><td>Hub links resolve.</td></tr>
-<tr><td><code>scripts/verify_safe.py</code></td><td><span class="pill ver">PASS</span> 13 pages, 125 source-linked rows, 379 links (183 official)</td><td>Publication gate and money rounding ($10) for the published desks, plus identifier patterns. Structural checks only.</td></tr>
+<tr><td><code>scripts/check_published_surface.py</code></td><td><span class="pill ver">PASS</span> 257 published files, 0 failures</td><td>Privacy and link rules on the files Jekyll publishes. The parcel-history check was <strong>skipped</strong> because its private list is not present in this sandbox, so that check is not confirmed here.</td></tr>
+<tr><td><code>scripts/check_landing.py</code></td><td><span class="pill ver">PASS</span> 17 targets, 0 unresolved</td><td>Hub links resolve.</td></tr>
+<tr><td><code>scripts/verify_safe.py</code></td><td><span class="pill ver">PASS</span> 14 pages, 128 source-linked rows, 400 links (196 official)</td><td>Publication gate and money rounding ($10) for the published desks, plus identifier patterns. Structural checks only.</td></tr>
 <tr><td><code>scripts/privacy_scan.py --summary</code></td><td><span class="pill ver">0 findings</span></td><td>Money not rounded to $10, identifier-shaped tokens (e-mail, phone, parcel-shaped, street). Rounded owner figures pass this scan by design, so it does not show that they are safe to publish (see finding P1).</td></tr>
 </table>
 <p class="small"><strong>Dependency found:</strong> <code>check_published_surface.py</code> needs the <code>PyYAML</code> package. Without it the script stops with <code>ModuleNotFoundError: No module named 'yaml'</code>. It runs after <code>pip install pyyaml</code> in a virtual environment. This is not written down in the README (flag X1).</p>
