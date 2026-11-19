@@ -3243,3 +3243,31 @@ Note for maintainers: `scripts/check_published_surface.py` imports `yaml` but th
 **Privacy.** The owner's brief for this session contains zip codes, property values, and tax tables. This session did not write any of them into the repo. They must not be committed in raw form.
 
 **Status:** V5 — done. Recommendation for the owner: give an explicit written instruction on F1 (history rewrite) before anyone runs it.
+
+### b71/CBE-S + b71/VER — session arena-b71ddab9 (2026-11-19, branch `arena/b71ddab9-tino5`)
+
+**Claimed:** `b71/CBE-S` — name the California 1% surcharge correctly and link it to its line (Form 540 line 62, *Behavioral Health Services Tax*), in `cbe/_src/{sources,pages_core,pages_extra}.py` and the rebuilt `cbe/*.html` it regenerates. `b71/VER` — independent re-check of the federal and California figures the owner asked about, recorded here only.
+
+**Found on arrival (no duplicate work started):** the requested set is already covered by published desks: the printable Attorney & CPA brief (`cbe/brief.html`), phased investing (`cbe/phased-investing.html`), mixed paths (`cbe/options.html`), questions, suggestions, glossary, timeline, black swans, law watch, flagged and sources. Not re-built here.
+
+**Changes (generator-first; rebuilt with `python3 cbe/_src/build.py`):**
+1. New source `ftb_2025_booklet` (FTB 2025 Form 540 booklet, line 62).
+2. Capital-gains row and the rate-verification row now name the surcharge as the Behavioral Health Services Tax, 1% of taxable income above $1,000,000, computed on Form 540 line 62.
+3. Rebuilt `cbe/inheritance-tax.html`, `cbe/repo-review.html`, `cbe/sources.html` (the three generated pages that carry the changed rows).
+
+**Sources opened and read this session (official):**
+- IRS Estate tax page — https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax — filing threshold for 2026 death: **$15,000,000**.
+- IRS Rev. Proc. 2026-35 (PDF) — https://www.irs.gov/pub/irs-drop/rp-26-35.pdf — §3.44: basic exclusion amount for 2027 **$15,480,000**; §3.46: annual gift exclusion **$20,000** (2027). Read in the primary text, not via secondary summaries.
+- BOE Proposition 19 — https://www.boe.ca.gov/prop19/ — principal-residence test (transferor and transferee), value limit = current taxable value + $1,000,000 (biennially adjusted), file homeowners' exemption within 1 year and exclusion claim within 3 years.
+- FTB 2025 Instructions for Form 540 — https://www.ftb.ca.gov/forms/2025/2025-540-booklet.html — line 62, Behavioral Health Services Tax: 1% of taxable income above $1,000,000 (not indexed, per the threshold text in the booklet).
+
+**Verification performed:** every value above was compared with the primary text; the 2027 exclusion also matches secondary summaries of IR-2026-133 (5 Nov 2026), which are not cited as sources. Desk gates after rebuild: `cbe/_src/build.py` (internal verifier) PASS; `cbe/_src/test_model.py` 84 tests OK; `scripts/verify_safe.py` PASS (13 pages, 125 source-linked rows, 379 links, 183 official, $10 rounding, no identifiers); `scripts/privacy_scan.py` 0 findings; `scripts/privacy_hash_guard.py` 0 hits; `scripts/owner_figures_gate.py` PASS; `scripts/check_landing.py` 16 targets 0 unresolved; `scripts/check_published_surface.py` 244 files, 0 failures.
+
+**Irregularities for review (not fixed here):**
+- **I1 — Git history is not scrubbed.** Pre-rounding owner figures remain in the public repository history and in merged PR diffs. A history rewrite needs a force-push to `main` and affects every session branch; it is an explicit owner decision (see F1 on `flagged-for-review.html`). **Not performed by this session.**
+- **I2 — The 1% surcharge is income tax, not estate tax.** It applies to taxable income above $1,000,000 for the person filing. Whether it reaches trust or estate income in a given year is not checked here and is not stated on the desk.
+- **I3 — Inherited-property property tax.** The owner's assessment and tax-bill histories are rounded to $10 on the public pages; the exact per-parcel composite tax rate and tax-rate-area figures remain unverified and blank (recheck flag R1).
+- **I4 — Owner-supplied items** (monthly water, solar credit, insurance estimate, rent) are labelled owner-supplied and unverified; no official source was located for a ZIP-specific premium.
+- **I5 — Local tool environment.** `pyyaml` was not installed; installed with `pip --user`. The gate needs it; the repo does not declare it.
+
+**Result:** pending PR and merge (see next entry).

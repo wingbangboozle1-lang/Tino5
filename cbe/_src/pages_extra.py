@@ -1032,10 +1032,11 @@ def page_repo_review():
         (["R05", "A 1% California surcharge was reported as unconfirmed",
           "An earlier desk flagged that the 1% surcharge over $1,000,000 did not appear on the rate "
           "schedules. It does not: it is imposed by statute, not by the schedules, so looking for "
-          "it there was always going to fail. The 13.3% top rate is confirmed from two official "
-          "sources.",
+          "it there was always going to fail. It is now named the Behavioral Health Services Tax and is "
+          "computed on Form 540 line 62 (FTB 2025 booklet): 1% of taxable income above $1,000,000. The 13.3% "
+          "top rate is confirmed from two official sources.",
           "Close that flag. This desk treats the surcharge as resolved and uses 13.3%.",
-          pill("ver", "verified"), _src_cell(["leginfo_rtc17043", "ftb_2025_rates"])], "hi"),
+          pill("ver", "verified"), _src_cell(["leginfo_rtc17043", "ftb_2025_rates", "ftb_2025_booklet"])], "hi"),
         (["R06", "A Proposition 3 income threshold was reported from commentary",
           "An earlier desk recorded the Proposition 3 threshold as $361,000 and labelled the source "
           "secondary. The Secretary of State's own voter guide says over $371,000.",
