@@ -3407,3 +3407,29 @@ labels, without commercial location-specific links.
 1. Replace the FRED basis for the 3M/2Y points with the Treasury month view above, and cite the month URL.
 2. Correct S2 as described above.
 3. Keep R1 open until the 013-series total is read in a full PDF reader or from an owner's bill.
+
+
+
+## Session `arena-be29bf3c` — claim (2026-11-19, branch `arena/be29bf3c-tino5`, base `d514729` = `main`)
+
+Read before claiming: this board on `main` at `d514729` (PR #105). Live claims: none found with a commit inside the last 60 minutes on the other session branches that touch the paths below. Platform constraint: this session is bound to `arena/be29bf3c-tino5`, so non-overlap is enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| be2/AUD | Publication-gate repair (the privacy checker needs PyYAML and did not run), owner-figure exposure audit of the published surface, Form 540 premise check, and a one-page audit with an official link on every row. Owner-figure values are **not** written into this repo. | in progress | arena-be29bf3c | `be29-audit/**` (new), `scripts/verify_safe.py` (one line: add `be29-audit` to `PUBLISHED_DESKS`), this section only |
+
+Owner instructions applied in this session: personal information must not appear on the website; figures stay at $10 rounding; history must not be rewritten without an owner decision (see the audit page).
+
+### be2/AUD — completion record (arena-be29bf3c, 2026-11-19)
+
+- **Delivered:** `be29-audit/index.html` (one page: checks run, findings with official links, owner decisions, what was not done). Added `be29-audit` to `PUBLISHED_DESKS` in `scripts/verify_safe.py` (one line). No owner figure is written into this page or any other file.
+- **Checks run:** `scripts/verify_safe.py` PASS (14 pages, 16 tables, 128 source-linked rows, 400 links, 196 official); `scripts/check_landing.py` 16 targets, 0 unresolved; `scripts/check_published_surface.py` (run in a virtualenv with PyYAML) 245 published files, 0 failures, parcel-history check skipped (private list absent); `scripts/privacy_scan.py` 0 findings.
+- **Official sources opened:** FTB 2025 Form 540 booklet (renaming of the Mental Health Services Tax to the Behavioral Health Services Tax, line 62); IRS estate-tax page (2026 filing threshold $15,000,000); GitHub Docs on removing sensitive data; Santa Clara County Assessor home; SF Assessor-Recorder department page; State Controller home. The Controller's estate-tax page and the FTB line-62 instruction were **not** opened, so those rows are marked secondary.
+- **Irregularities (logged on the audit page, not fixed):** P1 owner-figure tables published at $10 rounding on about 40 pages (owner-requested; re-identification risk noted; owner decision); P2 history still holds pre-rounding figures (owner decision; no history rewrite was performed by this session); P3 repository visibility unverified; T1 Form 540 "1% tax above $1M" is an income-tax surcharge (now the Behavioral Health Services Tax), not an estate or capital-gain-specific tax; X1 PyYAML dependency undocumented; X2 overlap with arena-b78790bf's `public-safe/` changes.
+- **Not done:** no history rewrite, no removal of owner-requested tables, no edit to the root hub or `_config.yml`.
+
+### be2/AUD — CI and merge record (arena-be29bf3c, 2026-11-19)
+
+- **Finding:** on `main` at `5bc3c22`, the `Verify published artifact` workflow would fail at *Privacy hash guard* (9 hits: owner ZIP codes and a city-level link in the `decision-d2664fd0` S21 row, and the `21b/R` board line). The same S21 exposure was fixed on `main` in parallel by arena-f2e72bb7 (`028fafd`, PR #112); this branch takes that fix and does not repeat it.
+- **Rebase:** the branch was rebased on `main` at `701afc1` (PR #112); the COORDINATION.md conflicts were resolved by keeping every session's record. A duplicate-row commit made during the first resolution was dropped before push.
+- **Checks on the rebased tree:** the full `Verify published artifact` sequence run on a fresh clone of this branch: all steps pass; the generated-pages-current checks show no changes; `privacy_hash_guard` 0 hits; `verify_safe.py` PASS (14 pages); `check_landing.py` 0 unresolved.
