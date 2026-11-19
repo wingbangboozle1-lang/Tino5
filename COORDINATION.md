@@ -53,7 +53,7 @@ Read before claiming: this board on `main` at `d514729` (PR #105). Every live-lo
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
 | 21b/V | **Verify official sources line by line**: open S1–S20 from sources.html against official documents; confirm/contradict each cited value; log any mismatch; update sources.html "Opened / read" column | in progress | arena-21bbdaef | `decision-d2664fd0/sources.html`, `decision-d2664fd0/flagged.html`, `decision-d2664fd0/*.html` rows citing official sources |
-| 21b/R | **Research owner-specific costs not yet verified**: home insurance Cupertino 95014, water Cupertino 95014, SF rental insurance 94122; mark unverified where no official source found | in progress | arena-21bbdaef | `decision-d2664fd0/running-costs.html`, `decision-d2664fd0/flagged.html` |
+| 21b/R | **Research owner-specific costs not yet verified**: home insurance (Property A, county level), water (Property A, county level), rental insurance (Property B, county level); mark unverified where no official source found | in progress | arena-21bbdaef | `decision-d2664fd0/running-costs.html`, `decision-d2664fd0/flagged.html` |
 | 21b/S | **Build clean GitHub Pages site**: consolidate landing page, ensure all internal links resolve, confirm build passes privacy gate, deploy and verify live | in progress | arena-21bbdaef | `index.html`, `_config.yml`, `decision-d2664fd0/**`, `scripts/check_landing.py`, `scripts/check_published_surface.py` |
 | 21b/INT | **Integration: PR to main, merge, confirm Pages deploy, record result** | waiting | arena-21bbdaef | root `index.html`, `_config.yml`, `README.md` only if needed; PR # |
 
@@ -3278,3 +3278,12 @@ Note for maintainers: `scripts/check_published_surface.py` imports `yaml` but th
 - **GitHub Pages:** latest build status `built` for `37acbd0`. Live check: `cbe/inheritance-tax.html` serves the verified rows (2026 threshold $15,000,000; 2027 $15,480,000).
 - **Merge friction:** `main` moved three times during the session (other sessions merged PRs). Each time the branch merged `origin/main` cleanly; COORDINATION.md was resolved by keeping upstream and re-appending this session's section. No other session's record was dropped. Recorded here so the next session knows this happened.
 - **Status:** `b71/CBE-S` **done**; `b71/VER` **done** for the items listed above only. Every other item in the owner's list is either already published in the desks named above or is not within this session's verified scope; those remain as the existing flags (F1 Git history, R1 per-parcel tax rate, owner-supplied inputs).
+## Session `arena-f2e72bb7` — privacy containment on `main` (2026-11-19, branch `arena/f2e72bb7-tino5`, base `origin/main` 323f687)
+
+**Trigger.** On `main`, the `Verify published artifact` workflow failed at step *Privacy hash guard* for commit `323f687` (PR #109, branch `arena/21bbdaef-tino5`, commit `630ae18`). Local run of `scripts/privacy_hash_guard.py` reproduced 9 hits: `decision-d2664fd0/sources.html:29` (S21 row — owner city names and ZIP codes in the row text and in two commercial-site URLs) and `COORDINATION.md:56` (21b/R claim row, same tokens). Both are live on the public site or the public repository.
+
+**Fix (minimal, privacy-first).** (1) S21 row rewritten at county level, commercial quote links removed, tag set to **unverified**; the only link is the official CA Department of Insurance consumer page `https://www.insurance.ca.gov/` (a reference for where to look, not evidence of any cost). (2) The 21b/R claim row no longer names ZIP codes or cities. No other text was changed. Session 21bbdaef's S2, S8, S11 and S20 "verified" tags were **not** re-checked in this session and are left as that session wrote them.
+
+**Flags for the owner.** (a) The S21 row's cost research was never completed; insurance cost remains unverified. (b) S11 link label named a city-based water utility; the label was changed to a generic description (same official URL kept). `scripts/check_published_surface.py` had flagged it as a place name. (c) The 21bbdaef claim is still marked "in progress"; that session should note this containment before continuing.
+
+**Checks after fix:** `scripts/privacy_hash_guard.py` (to be re-run before PR), `scripts/verify_safe.py`, `scripts/check_published_surface.py`, `scripts/check_landing.py`.
