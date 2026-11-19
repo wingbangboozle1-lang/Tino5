@@ -20,7 +20,8 @@
 recommendation re-tested. The coverage-desk model was re-run this session
 (<code>desk-03242c78/_src/model.py</code>, 21 regression tests OK, desk verifier PASS). The only
 numeric inputs that moved this cycle are the short Treasury yields. The movement arithmetic below
-uses the model's own 2045-baseline ranking.</p>
+uses only that model's own 2045-baseline ranking. This result does not validate household-specific
+inputs or any unrelated desk.</p>
 <table><thead><tr><th>Path (2045 baseline, net worth incl. shelter)</th><th>Net worth</th><th>Gap to top path</th></tr></thead><tbody><tr><td>P3 — Sell A at the transfer date and invest at once <span class="tag tag-derived">DERIVED</span></td><td>$27,776,120</td><td>—</td></tr><tr><td>P6 — Sell A, park in Treasuries 24 months, then phase in <span class="tag tag-derived">DERIVED</span></td><td>$26,797,770</td><td>$978,350</td></tr><tr><td>P6b — Sell A, park in Treasuries 36 months, then phase in <span class="tag tag-derived">DERIVED</span></td><td>$26,486,170</td><td>$1,289,950</td></tr><tr><td>P4 — Live in A five years, then sell under section 121 <span class="tag tag-derived">DERIVED</span></td><td>$24,634,440</td><td>$3,141,680</td></tr><tr><td>P5 — Let A out ten years, then sell <span class="tag tag-derived">DERIVED</span></td><td>$20,497,510</td><td>$7,278,610</td></tr><tr><td>P7 — Sell A and B; own neither building <span class="tag tag-derived">DERIVED</span></td><td>$20,152,370</td><td>$7,623,750</td></tr><tr><td>P2 — Let A out; live in B's vacant unit <span class="tag tag-derived">DERIVED</span></td><td>$19,315,550</td><td>$8,460,570</td></tr><tr><td>P1 — Live in A; let all three units at B <span class="tag tag-derived">DERIVED</span></td><td>$19,071,710</td><td>$8,704,410</td></tr></tbody></table>
 <p class="small">Model output, 2045 baseline. All money rounded to the nearest $10 by the model build.</p>
 </div>

@@ -1,45 +1,34 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>Start here — Inheritance decision desk</title><link rel="stylesheet" href="assets/style.css"></head><body>
-<header><div class="bar"><h1>Inheritance decision desk</h1><div class="sub">Property A (future trust inheritance) · Property B (already owned) · County level · No personal identifiers</div></div></header>
-<nav><span class="grp">Start</span><a href="index.html" aria-current="page">Start here</a><a href="executive-summary.html">Executive summary</a><span class="grp">Property A — to be inherited</span><a href="properties.html">Property facts</a><a href="property-tax.html">Property tax &amp; assessment</a><a href="process.html">Step-by-step trust process</a><span class="grp">Property B — already owned</span><a href="running-costs.html">Running costs</a><span class="grp">Taxes &amp; inheritance</span><a href="inheritance-tax.html">Inheritance &amp; estate tax</a><a href="law-watch.html">Law watch</a><span class="grp">Decision model</span><a href="scenarios.html">Scenarios: live / rent / sell</a><a href="black-swans.html">Black swan &amp; phased investing</a><span class="grp">Timing &amp; deadlines</span><a href="process.html">Deadlines timeline</a><span class="grp">Questions &amp; gaps</span><a href="questions.html">Questions &amp; information gaps</a><span class="grp">Owner input</span><a href="suggestions.html">Suggestions board</a><a href="glossary.html">Glossary</a><span class="grp">For advisers</span><a href="briefing-sheet.html">Attorney &amp; CPA Briefing Sheet</a><span class="grp">Record</span><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="methodology.html">Methodology &amp; privacy</a></nav>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Independent research withdrawn</title>
+<style>
+:root{color-scheme:light;--ink:#18252d;--muted:#52636d;--line:#d7e0e5;--red:#8a2525;--blue:#174b70;--wash:#f4f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--wash);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:24px max(20px,calc((100% - 850px)/2));background:#142936;color:white;border-bottom:4px solid #8a2525}
+header h1{margin:0;font-size:clamp(26px,4vw,38px);line-height:1.2}
+main{max-width:850px;margin:auto;padding:24px 20px 56px}
+.notice{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:9px;padding:18px;margin:14px 0}
+.muted{color:var(--muted)}
+a{color:var(--blue);text-underline-offset:2px}
+</style>
+</head>
+<body>
+<header><h1>Independent numeric research withdrawn</h1></header>
 <main>
-<div class="page-header"><h2>Start here</h2><p class="dek">Clean dashboard for deciding what to do with an inherited house. Property A passes through a trust around 2040–2050; Property B is already owned outright. The two are analysed separately because one is inherited and the other is not. Every table row cites an official source or is marked unverified; money is rounded to the nearest $10.</p></div>
-
-<section class="answer" id="what-would-change"><h2>What would change the answer (read first)</h2><p>The decision is not determined by today's headline price. It flips on three break-evens:</p>
-<ul>
-<li><strong>Gross rental yield</strong> on Property A vs. the cost of carrying it (tax, insurance, maintenance, water/electric). If net rent after carrying costs exceeds the after-tax portfolio return, keeping wins.</li>
-<li><strong>Price growth</strong> vs. portfolio return. If the house appreciates faster than a diversified portfolio (after tax), keeping compounds better.</li>
-<li><strong>Whether the heir moves in within one year</strong> of transfer. That is the switch between Prop 19's capped reassessment (child occupies) and full market reassessment (child does not occupy). <a href="property-tax.html">[source]</a></li>
-</ul>
-<div class="callout warn"><b>These break-evens are shown on the Executive Summary and the Scenarios page, with what-if controls so you can test them yourself.</b></div>
+<section class="notice" aria-labelledby="withdrawal">
+<h2 id="withdrawal">Not a decision desk</h2>
+<p>The former independent desk's numeric pages, builder, and style assets have been removed from the current site and working tree. Only this withdrawal notice remains at the old path. The former material contained owner-derived property, unit, rental, and cost inputs that have not been independently verified; its estimates, scenarios, and conclusions are not available for use here.</p>
+<p>That research was not rebuilt or cross-reconciled with the primary desk. The 19 November 2026 official-source recheck concerns a separate reference model; it does not validate this withdrawn desk or any unrelated desk. Do not rely on earlier outputs or combine them with the primary analysis.</p>
+<p>Earlier copies may remain reachable in the public Git history. This withdrawal changes the current tree only; it does not scrub prior commits. Separate history remediation remains outstanding.</p>
 </section>
-
-<h2>Headline: present value by option, transfer in 2045</h2><p>Economic basis counts the rent the household avoids paying (for Live in and mixed live-then-sell paths). Cash basis counts money only. All figures are model outputs, rounded to the nearest $10, based on labelled assumptions — not predictions.</p>
-<div class="scroll"><table class="data"><thead><tr><th>Option</th><th>Present value, economic basis</th><th>Present value, cash basis</th><th>Basis</th></tr></thead><tbody>
-<tr><td>Live in (Property A)</td><td class="money">$7,193,900</td><td class="money">$2,834,850</td><td><span class="tag derived">derived</span> Model (assumptions: growth, return, carrying cost)</td></tr>
-<tr><td>Rent out (Property A)</td><td class="money">$7,112,830</td><td class="money">$5,373,030</td><td><span class="tag derived">derived</span> Model (rental income, expenses, tax)</td></tr>
-<tr><td>Sell and invest (7.00% gross, 0.60% drag)</td><td class="money">$10,996,260</td><td class="money">$9,256,470</td><td><span class="tag derived">derived</span> Treasury yield curve as anchor <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611" rel="noopener">S1 U.S. Treasury</a></td></tr>
-<tr><td>Mixed: live in, then sell</td><td class="money">—</td><td class="money">—</td><td><span class="tag unverified">unverified</span> Model output; see Scenarios and what-if controls</td></tr>
-<tr><td>Mixed: rent, then sell</td><td class="money">—</td><td class="money">—</td><td><span class="tag unverified">unverified</span> Model output; see Scenarios and what-if controls</td></tr>
-<tr><td>Mixed: park 24–36 months, then phase in</td><td class="money">—</td><td class="money">—</td><td><span class="tag unverified">unverified</span> Model output; see Black Swan &amp; phased investing</td></tr>
-</tbody></table></div>
-
-<h2>Reinvestment risk beside the headline</h2><p>The sell option is only as good as the return on the money it releases. These rows re-run the sell option with the proceeds earning a stated yield, against the Live in answer.</p>
-<div class="scroll"><table class="data"><thead><tr><th>Proceeds earn</th><th>Sell and invest, economic basis</th><th>Sell minus Live in</th><th>Source</th></tr></thead><tbody>
-<tr><td>2.50% (low case, assumption)</td><td class="money">$4,164,480</td><td class="money">−$3,029,420</td><td><span class="tag unverified">unverified</span> <a href="flagged.html">Flag F11: assumption, no official forecast</a></td></tr>
-<tr><td>4.32% (3-month Treasury bill, 13 Nov 2026)</td><td class="money">$5,937,320</td><td class="money">−$1,256,580</td><td><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611" rel="noopener">S1 U.S. Treasury</a></td></tr>
-<tr><td>4.88% (2-year Treasury note, 13 Nov 2026)</td><td class="money">$6,699,850</td><td class="money">−$494,040</td><td><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611" rel="noopener">S1 U.S. Treasury</a></td></tr>
-<tr><td>5.20% (model break-even, before the 0.6% drag)</td><td class="money">$7,193,900</td><td class="money">$0</td><td><span class="tag derived">derived</span> Break-even computed by the model <a href="methodology.html">Methodology</a></td></tr>
-</tbody></table></div>
-
-<h2>Menu</h2><div class="cards"><div class="card"><h3>Decide</h3><ul><li><a href="index.html">Start here</a> <span>Answer, what would change it, reinvestment risk</span></li><li><a href="executive-summary.html">Executive summary</a> <span>The whole picture on one page</span></li><li><a href="scenarios.html">Scenarios: live / rent / sell</a> <span>All choices at the same transfer dates and horizons</span></li><li><a href="mixed-paths.html">Mixed paths</a> <span>Live then sell, rent then sell, park then phase in</span></li><li><a href="black-swans.html">Black swan &amp; phased investing</a> <span>Phased entry against crash-entry risk</span></li><li><a href="what-if.html">What-if controls</a> <span>Change transfer year, return, price growth</span></li></ul></div><div class="card"><h3>Law and process</h3><ul><li><a href="timeline.html">Deadlines timeline</a> <span>What is due, and when, after a death</span></li><li><a href="briefing-sheet.html">Attorney and CPA brief</a> <span>One printable page</span></li><li><a href="property-tax.html">Property tax &amp; assessment</a> <span>Prop 13, Prop 19, assessed value</span></li><li><a href="inheritance-tax.html">Inheritance &amp; estate tax</a> <span>Federal estate, step-up basis, §121</span></li><li><a href="law-watch.html">Law watch</a> <span>Enacted vs proposed changes</span></li></ul></div><div class="card"><h3>Reference</h3><ul><li><a href="properties.html">Property facts</a> <span>Property A and Property B, anonymised</span></li><li><a href="running-costs.html">Running costs</a> <span>Insurance, water, electricity, maintenance</span></li><li><a href="projections.html">Projections</a> <span>Year by year, 2026–2050/2076</span></li><li><a href="glossary.html">Glossary</a> <span>Terms used on this desk</span></li><li><a href="sources.html">Sources</a> <span>Every official link, and what it supports</span></li><li><a href="methodology.html">Method &amp; inputs</a> <span>Every input, and whether it is verified</span></li></ul></div><div class="card"><h3>Review</h3><ul><li><a href="questions.html">Questions and gaps</a> <span>What must be known before deciding</span></li><li><a href="suggestions.html">Suggestions</a> <span>Proposed changes; none implemented</span></li><li><a href="flagged.html">Flagged for review</a> <span>Unverified items and irregularities</span></li></ul></div></div>
-
-<h2>Executive summary</h2><ul>
-<li>Property A's inheritance is a change in ownership at the date of death, not at distribution, for property held in a trust. <span class="src">[source: BOE Proposition 19]</span></li>
-<li>Property B is owned already and is not part of the inheritance; its rent and costs are shown only where they change the Property A comparison. Owner-supplied: two of its three units are let.</li>
-<li>Selling is the highest-value option at the model's return, but it is the option most exposed to how the proceeds are invested and to a market crash just after the sale. <a href="black-swans.html">See the crash-entry replay</a>.</li>
-<li>Every money figure is rounded to the nearest $10. Owner figures are marked owner-supplied and unverified; the verified cells stay blank.</li>
-</ul>
-<div class="foot no-print"><b>Not tax, legal or investment advice.</b> Figures are planning estimates based on the sources named in each row. Statutory amounts are quoted as published; all other money rounded to the nearest $10. Re-check the then-current law before acting. <a href="sources.html">Source register</a> · <a href="flagged.html">Flagged for review</a> · <a href="methodology.html">Methodology &amp; privacy</a></div>
+<p class="muted">No household-specific values or tax histories are reproduced on this notice.</p>
+<p><a href="../public-safe/index.html">Open the primary privacy-first decision desk</a> · <a href="../recheck-2026-11-19/index.html">Open the 19 November official-source recheck</a> · <a href="../flagged-for-review.html">Flagged for Review</a></p>
 </main>
-</body></html>
+</body>
+</html>

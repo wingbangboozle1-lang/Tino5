@@ -39,14 +39,36 @@ TEXT_EXT = (".html", ".htm", ".md", ".txt", ".json", ".csv", ".js", ".css", ".sv
 
 
 def load_config_excludes():
-    import yaml
-    cfg = yaml.safe_load((ROOT / "_config.yml").read_text()) or {}
+    """Read the repository's simple top-level YAML exclude list without dependencies.
+
+    _config.yml intentionally uses a block list of scalar paths. Fail closed if it
+    changes to another YAML shape instead of silently calculating the wrong surface.
+    """
+    lines = (ROOT / "_config.yml").read_text().splitlines()
+    declarations = [i for i, line in enumerate(lines) if line == "exclude:"]
+    if len(declarations) != 1:
+        raise ValueError("_config.yml must contain exactly one top-level 'exclude:' list")
+
     out = []
-    for e in cfg.get("exclude", []) or []:
-        e = str(e).rstrip("/")
-        if e.endswith("/**"):
-            e = e[:-3]
-        out.append(e)
+    for line in lines[declarations[0] + 1:]:
+        stripped = line.strip()
+        if not stripped or line.lstrip().startswith("#"):
+            continue
+        indent = len(line) - len(line.lstrip(" "))
+        if indent == 0:
+            break
+        match = re.fullmatch(
+            r"\s*-\s*(?:\"([^\"]*)\"|'([^']*)'|([^#\s][^#]*?))\s*(?:#.*)?",
+            line,
+        )
+        if not match:
+            raise ValueError(f"unsupported _config.yml exclude entry: {line!r}")
+        value = next(group for group in match.groups() if group is not None).rstrip("/")
+        if not value:
+            raise ValueError("empty path in _config.yml exclude list")
+        if value.endswith("/**"):
+            value = value[:-3]
+        out.append(value)
     return out
 
 
