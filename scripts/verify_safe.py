@@ -65,6 +65,7 @@ DEPLOYMENT_EXCLUSIONS = {
 # sensitivity read from the official FTB instructions, Census ACS rent comparables, the
 # five-year maintenance plan, the estate liquidity plan, a distribution chart and the
 # decision-and-date log. Folded into the same single set.
+# decision-d2664fd0 remains in this set only for a single withdrawal notice; the former numeric desk is removed.
 PUBLISHED_DESKS = {"privacy", "decision-ad038", "referee-abae", "decision", "desk-d75", "cbe", "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-03242c78", "desk-85a01c5c", "recheck-2026-11-17", "recheck-2026-11-19", "be29-audit"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",

@@ -23,9 +23,8 @@ exclude:
   # desk-31cb5781 (session arena-31cb5781, 2026-11-14): generator/verifier are working material, not pages.
   - "desk-31cb5781/_src"
   - "desk-31cb5781/_src/**"
-  # decision-d2664fd0 (session arena-d2664fd0 / arena-21bbdaef): consolidated decision desk; generator/verifier are working material, not pages.
-  - "decision-d2664fd0/_src"
-  - "decision-d2664fd0/_src/**"
+  # decision-d2664fd0 numeric desk withdrawn 2026-11-19. Only a sanitized withdrawal notice remains;
+  # pre-withdrawal pages are still present in public Git history and need separate remediation.
   # desk-03242c78 (session arena-03242c78, 2026-11-15): model, builder and verifier are
   # working material. They contain the owner-supplied anchors before rounding.
   - "desk-03242c78/_src"

@@ -167,11 +167,7 @@ official document named in its source link during this session. Rows marked
 <span class="tag tag-prior">PRIOR READ</span> were line-read by an earlier verification session and
 re-checked for consistency here; rows marked <span class="tag tag-updated">UPDATED</span> changed or
 first appeared since the 2026-11-17 recheck.</p>
-<div class="callout"><b>Headline verdict — the recommendation did not move.</b> The standing
-sequence (sell Property A in the transfer year, do not take the intergenerational exclusion unless
-the household will occupy the home for years, write the investment policy before the money arrives)
-is unchanged by every input updated in this cycle. The arithmetic is on
-<a href="rebuild.html">Rebuild &amp; movement</a>.</div>
+<div class="callout"><b>Reference-model movement only — no change.</b> In this recheck, the stated baseline ranking of the separate <code>desk-03242c78</code> reference model was unchanged under the inputs updated this cycle. This is not a verified household recommendation and does not validate household-specific inputs or any unrelated desk. The arithmetic is on <a href="rebuild.html">Rebuild &amp; movement</a>.</div>
 </div>
 
 <div class="card kpi">
@@ -179,7 +175,7 @@ is unchanged by every input updated in this cycle. The arithmetic is on
 <div class="box"><b>3</b>rows updated since 2026-11-17 (Treasury yields, Legistar status, recording-fee source)</div>
 <div class="box"><b>1 / 2</b>flags closed this cycle (R3) / still open (R1, R4)</div>
 <div class="box"><b>2</b>proposals resolved as FAILED (Prop 19 repeal, 60+ exemption)</div>
-<div class="box"><b>0</b>recommendation changes</div>
+<div class="box"><b>0</b>changes to the desk-03242c78 reference-model ranking</div>
 </div>
 
 <div class="card">
@@ -205,7 +201,7 @@ is unchanged by every input updated in this cycle. The arithmetic is on
 {table(["Item", "Decision", "Date"], [
  ["Recheck cycle", f"Executed; register re-read in full; one flag closed (R3), two carried open (R1, R4). {CONF}", "2026-11-19"],
  ["2027 federal figures", "Re-confirmed: $15,480,000 basic exclusion, $20,000 annual gift exclusion. No change from the 2026-11-17 adoption. " + CONF, "2026-11-19"],
- ["Recommendation", f"Rebuilt and reviewed against updated inputs; <b>unchanged</b>. {MOVE}", "2026-11-19"],
+ ["desk-03242c78 reference-model result", f"Baseline ranking rechecked under this cycle's stated inputs; <b>unchanged</b>. This does not validate household inputs or any unrelated desk. {MOVE}", "2026-11-19"],
  ["Property A tax-rate-area composite", "Left blank pending a parcel-level lookup; components published instead of an inferred total. " + OPEN_T, "2026-11-19"],
  ["SF transfer-tax proposal", "Recorded as PROPOSED (Legistar File 260178, reactivated 17 Nov 2026, in committee); models keep enacted rates. " + PROPOSED, "2026-11-19"],
  ["Prop 19 repeal", "Recorded as FAILED to qualify; current Prop 19 rules stand for all modelled transfer dates. " + FAILED, "2026-11-19"],
@@ -358,7 +354,8 @@ def page_rebuild():
 recommendation re-tested. The coverage-desk model was re-run this session
 (<code>desk-03242c78/_src/model.py</code>, 21 regression tests OK, desk verifier PASS). The only
 numeric inputs that moved this cycle are the short Treasury yields. The movement arithmetic below
-uses the model's own 2045-baseline ranking.</p>
+uses only that model's own 2045-baseline ranking. This result does not validate household-specific
+inputs or any unrelated desk.</p>
 {table(["Path (2045 baseline, net worth incl. shelter)", "Net worth", "Gap to top path"], [
  ["P3 — Sell A at the transfer date and invest at once " + DERIVED, "$27,776,120", "—"],
  ["P6 — Sell A, park in Treasuries 24 months, then phase in " + DERIVED, "$26,797,770", "$978,350"],
@@ -461,12 +458,12 @@ def page_requirements():
         ["One-page printable Attorney &amp; CPA Briefing Sheet export", "ANSWERED", "desk-03242c78/briefing-attorney.html, briefing-cpa.html; desk-85a01c5c/briefing-sheet.html"],
         ["Replace round-number assumptions with ranges or real figures", "ANSWERED", "desk-03242c78/workbook.html, what-would-change.html; what-if pages"],
         ["Put “what would change the answer” on the first screen", "ANSWERED", "desk-03242c78/index.html + what-would-change.html; desk-85a01c5c/index.html"],
-        ["Model mixed paths, not only the three pure choices", "ANSWERED", "desk-03242c78/mixed-paths.html; decision-d2664fd0/mixed-paths.html; cbe/options.html"],
+        ["Model mixed paths, not only the three pure choices", "ANSWERED", "desk-03242c78/mixed-paths.html; cbe/options.html"],
         ["Show reinvestment risk beside the headline", "ANSWERED", "desk-85a01c5c/black-swan.html (cost-of-cushion beside every headline)"],
-        ["Add what-if controls", "ANSWERED", "desk-85a01c5c/what-if.html; decision-d2664fd0/what-if.html; cbe/assets/what-if.js"],
+        ["Add what-if controls", "ANSWERED", "desk-85a01c5c/what-if.html; cbe/assets/what-if.js"],
         ["One-page brief for the attorney and the tax adviser", "ANSWERED", "see briefing-sheet row above"],
-        ["Show the deadlines as a timeline", "ANSWERED", "desk-03242c78/timeline.html; decision-d2664fd0/timeline.html; cbd/timeline.html"],
-        ["Group the menu and add a glossary", "ANSWERED", "grouped nav + glossary.html on desk-03242c78, desk-85a01c5c, decision-d2664fd0, cbd"],
+        ["Show the deadlines as a timeline", "ANSWERED", "desk-03242c78/timeline.html; cbd/timeline.html"],
+        ["Group the menu and add a glossary", "ANSWERED", "grouped nav + glossary.html on desk-03242c78, desk-85a01c5c, cbd"],
         ["Compare all choices at the same transfer dates and horizons, with taxes, debt, occupancy changes, capital costs and liquidity", "ANSWERED", "desk-03242c78/choices.html + sell-path.html; desk-85a01c5c/scenarios.html (2040/2045/2050)"],
         ["Periodically recheck official authorities; distinguish enacted from proposals", "ANSWERED (cycle 2026-11-19)", "this desk: register.html + law-watch.html"],
         ["Agree in writing what would make the household choose each path, before the figures arrive", "ANSWERED (awaiting owner signature)", "desk-03242c78/what-would-change.html + suggestions.html; desk/decision.html"],
@@ -481,7 +478,7 @@ def page_requirements():
         ["Review extreme scenarios annually", "ANSWERED (cycle)", "swan-3a49, desk-85a01c5c/black-swan.html; annual-rerun.html"],
         ["Track proposed legislation", "ANSWERED", "law-watch.html (this desk) + desk-85a01c5c/law-watch.html"],
         ["Improve dashboard explanations", "ANSWERED (iterative)", "suggestions boards across desks"],
-        ["Add an imputed-rent input for living paths", "ANSWERED", "desk-03242c78/live-path.html + choices.html; decision-d2664fd0/mixed-paths.html"],
+        ["Add an imputed-rent input for living paths", "ANSWERED", "desk-03242c78/live-path.html + choices.html"],
         ["Switch on the primary-residence exclusion for living-then-sell paths", "ANSWERED", "desk-03242c78/sec121.html"],
         ["Model Prop H with its official terms", "ANSWERED", "desk-03242c78/propH.html; desk-9af5443d (both measures modelled with official terms)"],
         ["Carry the Proposition 19 allowance forward", "ANSWERED", "desk-03242c78/prop19.html (carry-forward mechanics)"],
@@ -506,7 +503,7 @@ def page_requirements():
         ["Separate estate tax, income-tax basis and property-tax assessment", "ANSWERED", "desk-03242c78/estate-tax.html + income-basis.html + property-tax.html"],
         ["Compare mixed paths alongside pure choices", "ANSWERED", "see mixed-paths row"],
         ["Put reinvestment risk next to any staging headline", "ANSWERED", "see reinvestment-risk row"],
-        ["Create an executive summary outlining important details", "ANSWERED", "executive-summary.html on desk-03242c78, desk-85a01c5c, decision-d2664fd0, and others"],
+        ["Create an executive summary outlining important details", "ANSWERED", "executive-summary.html on desk-03242c78, desk-85a01c5c, and other current desks"],
         ["Suggestions section: review and choose the best path before implementing changes", "ANSWERED", "suggestions.html across desks; review-092b hub"],
         ["A clear list of questions, information and answers needed before any decision; discovery actions", "ANSWERED", "desk-03242c78/questions.html; desk-e86/questions.html (46-question register)"],
         ["Personal-information privacy first: anonymise, placeholders only, nothing personal on the site", "ANSWERED", "privacy contracts per desk; scripts/privacy_scan.py; repo-review.html (this desk)"],
@@ -526,9 +523,7 @@ def page_requirements():
     body = f"""
 <div class="card">
 <h2>Requirement traceability index — {DATE}</h2>
-<p class="small">Every line of the owner brief mapped to the desk and page that answers it.
-Statuses: ANSWERED / PARTIAL / OPEN / PROCEDURAL. Partials are owner actions or the history-rewrite
-decision; they do not block the site.</p>
+<p class="small">This is a requirement-traceability index, not an independent validation of every listed desk. The 19 November official-source and model-movement recheck applies to the <code>desk-03242c78</code> reference model only; listing another artifact does not establish that it was rebuilt, reconciled, source-rechecked, or safe to publish. Statuses: ANSWERED / PARTIAL / OPEN / PROCEDURAL. Partials include owner actions and the history-remediation decision.</p>
 {table(["Requirement (owner brief)", "Status", "Where it is answered"],
        [[r[0], tag(r[1], "verified" if r[1].startswith("ANSWERED") else ("open" if r[1].startswith(("PARTIAL", "OPEN")) else "note")), r[2]] for r in rows])}
 </div>
@@ -558,12 +553,15 @@ findings. This desk is built county-level from the start and passes the same gat
 </div>
 
 <div class="card">
-<h2>F5 closed: every non-$10 amount on the live pages is an official figure quoted exactly</h2>
+<h2>F5: rounding audit and current-tree update</h2>
 <p>The 2026-11-17 flagged page listed 119 amounts of $1,000 or more that are not multiples of $10.
-This cycle audited every one row by row. Each is an agency-published statutory or official figure
-quoted exactly — which the repository's own rounding rule explicitly exempts
-(“statutory amounts, rates, and thresholds are quoted exactly and marked as exact”). No fixable
-rounding violation remains.</p>
+The row-by-row audit found agency-published statutory or official figures quoted exactly, which the
+repository's rounding rule explicitly exempts. In the 19 November portal integration, the former
+<code>decision-d2664fd0</code> numeric desk and its seven listed amounts were withdrawn from the current
+tree because its owner-derived inputs were not independently verified. The current site therefore
+has 112 of the previously reviewed amounts; the removed desk is represented only by a withdrawal
+notice. Earlier copies remain in public Git history. This publication update is not a source or
+model validation of unrelated desks.</p>
 {table(["Amount", "What it is", "Official source"], [
  ["$1,044,586", "Prop 19 intergenerational cap (transfers 16 Feb 2025 – 15 Feb 2027)", a("lta25009", "BOE LTA 2025/009")],
  ["$661,375 / $793,650", "2027 federal top-rate thresholds (single / joint)", a("rp2635", "Rev. Proc. 2026-35")],
@@ -595,7 +593,7 @@ https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/r
  ["F2", "Repository visibility is public (GitHub Pages requires it on the current plan).", "Owner decision " + tag("OWNER DECISION", "owner")],
  ["F3", "Rounded owner history tables are live on cbe/properties.html (2014–2025 series at $10 rounding).", "Owner decision — keep rounded, drop the series, or move to a private page " + tag("OWNER DECISION", "owner")],
  ["F4", "Owner anchors (a property value and a monthly rent figure, both $10 multiples) appear on live pages.", "Owner decision — keep, round further, or remove " + tag("OWNER DECISION", "owner")],
- ["F5", "Money not rounded to $10 on live pages.", f"CLOSED {CONF} this cycle — every amount is an official figure quoted exactly (table above)"],
+ ["F5", "Money not rounded to $10 on live pages.", f"CLOSED for 112 remaining amounts {CONF}; seven former d2664 amounts are no longer served, but prior copies remain in Git history"],
  ["F6", "Checker limits (private owner-figure list absent; images/PDFs not inspected).", "Run after every change " + tag("NOTE", "note")],
  ["F7", "Scope of this session.", "Recheck + privacy hardening + integration (this desk) " + tag("NOTE", "note")],
 ])}
