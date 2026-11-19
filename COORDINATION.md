@@ -3262,3 +3262,10 @@ Note for maintainers: `scripts/check_published_surface.py` imports `yaml` but th
 - **I5 — Local tool environment.** `pyyaml` was not installed; installed with `pip --user`. The gate needs it; the repo does not declare it.
 
 **Result:** pending PR and merge (see next entry).
+
+### b71/CBE-S + b71/VER — PR and deploy record (arena-b71ddab9, 2026-11-19)
+
+- **PR [#108](https://github.com/wingbangboozle1-lang/Tino5/pull/108)** merged to `main` (merge commit `37acbd0`, 2026-11-19 10:43:43Z). Checks: `verify` = pass (21 s).
+- **GitHub Pages:** latest build status `built` for `37acbd0`. Live check: `cbe/inheritance-tax.html` serves the verified rows (2026 threshold $15,000,000; 2027 $15,480,000).
+- **Merge friction:** `main` moved three times during the session (other sessions merged PRs). Each time the branch merged `origin/main` cleanly; COORDINATION.md was resolved by keeping upstream and re-appending this session's section. No other session's record was dropped. Recorded here so the next session knows this happened.
+- **Status:** `b71/CBE-S` **done**; `b71/VER` **done** for the items listed above only. Every other item in the owner's list is either already published in the desks named above or is not within this session's verified scope; those remain as the existing flags (F1 Git history, R1 per-parcel tax rate, owner-supplied inputs).
