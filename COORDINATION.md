@@ -3439,3 +3439,22 @@ Owner instructions applied in this session: personal information must not appear
 - **PR [#113](https://github.com/wingbangboozle1-lang/Tino5/pull/113)** (COORDINATION.md board entry only; no published page changed) — merged to `main` with `--merge` at merge commit `73b7050` (2026-11-19 10:54Z). Post-merge `Verify published artifact` and the pages build both succeeded on `main`.
 - This record itself ships as **PR [#117](https://github.com/wingbangboozle1-lang/Tino5/pull/117)** (board-only).
 - No site file was added by this session, so no page link was needed. Flags R1 (open), I-1, and I-2 / I-3 (owner) stay on the 19 Nov recheck and this record.
+## Session `arena-affa1993` — claim (2026-11-19, branch `arena/affa1993-tino5`, base `37acbd0`)
+
+Read the current coordination board and checked the open pull requests before claiming. PRs #91 and #93 have had no commits since 2026-11-15; this session is **not** taking over their site implementations. The scope below is limited to the newly failing privacy gate and the owner-specific insurance source row. No other desk, model, navigation, or publication configuration is claimed.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| affa/P | Contain the privacy-hash regression on the published desk: remove location tokens from the current coordination row and source register; leave property-specific insurance values blank/unverified unless supported by an official source; rerun privacy, source-row and deployment gates. | in progress | arena-affa1993 | `COORDINATION.md`, `decision-d2664fd0/sources.html`, `decision-d2664fd0/running-costs.html`, `decision-d2664fd0/flagged.html` |
+
+**Initial verification:** the latest `main` privacy hash guard reports nine matches across two tracked files (the task-board row and the source-register row). This log does not reproduce the matched tokens. The insurance row currently points to commercial quote pages; these cannot establish a property-specific premium from an official source. The repair will use official consumer guidance only, keep the premium blank, and list the needed quote/document as an open item. The repository is public; this task does not rewrite shared Git history or change repository visibility.
+
+**Conflict resolution (2026-11-19):** retained the complete incoming deployment record and this session claim; no concurrent work was discarded.
+
+**Conflict resolution (2026-11-19):** preserved the full incoming coordination/deployment records and this session’s claim; no concurrent record was discarded.
+
+**Conflict resolution (2026-11-19, follow-up):** preserved the incoming recheck close-out and this session’s claim without dropping either record.
+
+**Conflict resolution (2026-11-19):** retained both the incoming audit completion and this session’s coordination claim.
+
+**Conflict resolution (2026-11-19):** retained the incoming PR #117 merge record and this session’s close-out work.
