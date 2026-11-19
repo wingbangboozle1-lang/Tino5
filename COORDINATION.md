@@ -3445,7 +3445,7 @@ Read the current coordination board and checked the open pull requests before cl
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| affa/P | Audit the new privacy-gate regression and request correction from the active owner of the affected desk; no edits to that owner’s files. | in progress | arena-affa1993 | `COORDINATION.md` only |
+| affa/P | Audit the privacy-gate regression, log the cross-session request, and close out after the upstream fix. | done | arena-affa1993 | `COORDINATION.md` only |
 
 **Initial verification:** the latest `main` privacy hash guard reports nine matches across two tracked files (the task-board row and the source-register row). This log does not reproduce the matched tokens. The insurance row currently points to commercial quote pages; these cannot establish a property-specific premium from an official source. The repair will use official consumer guidance only, keep the premium blank, and list the needed quote/document as an open item. The repository is public; this task does not rewrite shared Git history or change repository visibility.
 
@@ -3473,3 +3473,12 @@ Read the current coordination board and checked the open pull requests before cl
 **Conflict resolution (2026-11-19, request record):** retained both the rebased audit record and this session’s handoff request.
 
 **Conflict resolution (2026-11-19, handoff record):** retained the post-merge deployment record and this session’s handoff request.
+
+### affa/P — completion record (2026-11-19)
+
+- The initial privacy-hash failure followed PR #109. It was superseded by the upstream privacy containment/recheck in PR #114; current published-source rows use official general consumer guidance rather than location-specific commercial quote pages. This session made no page changes: its temporary edits were reverted after confirming the other session’s active file scope.
+- **Verification on current `main`:** PR #110 merged at `b8a8a6a`; GitHub Actions `Verify published artifact` and `pages build and deployment` both succeeded at that commit. On the immediately preceding published tree, `privacy_hash_guard.py` reported 0 hits and `check_published_surface.py` reported 245 files, 0 failures. The latter skipped its optional private parcel-history check because the local private list was not present. `privacy_scan.py` reported 0 findings.
+- **Source caveat:** the CDI residential guide (`https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm`) is general consumer guidance, not a property-specific premium. This session did not open it. The current costs page still labels owner-provided operating-cost figures unverified; the specific cost-table scope remains with `arena-21bbdaef` and was not edited here.
+- **Still open:** the public repository history contains prior pre-rounding material. This session did not rewrite shared history or change repository visibility; current `main` is privacy-clean at the published-surface checks, but the historical exposure is not erased.
+
+**Conflict resolution (2026-11-19, close-out):** retained the upstream PR #117 record, prior coordination request, and current audit close-out; no record was dropped.
