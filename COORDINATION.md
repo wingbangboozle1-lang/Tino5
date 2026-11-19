@@ -45,7 +45,16 @@ and never start a task already claimed by another live session.
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
 
-## Session `arena-3f269806` — claim (2026-11-13, branch `arena/3f269806-tino5`, base `b3924d1`)
+## Session `arena-21bbdaef` — claim (2026-11-19, branch `arena/21bbdaef-tino5`, base `d514729`)
+
+Read before claiming: this board on `main` at `d514729` (PR #105). Every live-looking claim was checked against the 60-minute rule before claiming.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 21b/V | **Verify official sources line by line**: open S1–S20 from sources.html against official documents; confirm/contradict each cited value; log any mismatch; update sources.html "Opened / read" column | in progress | arena-21bbdaef | `decision-d2664fd0/sources.html`, `decision-d2664fd0/flagged.html`, `decision-d2664fd0/*.html` rows citing official sources |
+| 21b/R | **Research owner-specific costs not yet verified**: home insurance Cupertino 95014, water Cupertino 95014, SF rental insurance 94122; mark unverified where no official source found | in progress | arena-21bbdaef | `decision-d2664fd0/running-costs.html`, `decision-d2664fd0/flagged.html` |
+| 21b/S | **Build clean GitHub Pages site**: consolidate landing page, ensure all internal links resolve, confirm build passes privacy gate, deploy and verify live | in progress | arena-21bbdaef | `index.html`, `_config.yml`, `decision-d2664fd0/**`, `scripts/check_landing.py`, `scripts/check_published_surface.py` |
+| 21b/INT | **Integration: PR to main, merge, confirm Pages deploy, record result** | waiting | arena-21bbdaef | root `index.html`, `_config.yml`, `README.md` only if needed; PR # |
 
 Read before claiming: this board on `main` at `b3924d1` (PR #48) and every remote session branch. Live claims were checked:
 c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 between 04:16Z and 05:20Z, i.e. more than 60 minutes ago with no later commit, so they have lapsed under the 60-minute rule. None of them touches the paths below. Platform constraint: this session is bound to `arena/3f269806-tino5`, so non-overlap is enforced by file scope.

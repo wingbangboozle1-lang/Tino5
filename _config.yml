@@ -23,7 +23,7 @@ exclude:
   # desk-31cb5781 (session arena-31cb5781, 2026-11-14): generator/verifier are working material, not pages.
   - "desk-31cb5781/_src"
   - "desk-31cb5781/_src/**"
-  # decision-d2664fd0 (session arena-d2664fd0): consolidated decision desk; generator/verifier are working material.
+  # decision-d2664fd0 (session arena-d2664fd0 / arena-21bbdaef): consolidated decision desk; generator/verifier are working material, not pages.
   - "decision-d2664fd0/_src"
   - "decision-d2664fd0/_src/**"
   # desk-03242c78 (session arena-03242c78, 2026-11-15): model, builder and verifier are
