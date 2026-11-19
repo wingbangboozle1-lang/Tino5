@@ -41,6 +41,7 @@ and never start a task already claimed by another live session.
 | T14 | Independent source-verified dashboard under `docs/**` (13 pages, 54 official sources, 326 rows, 20 flags) | done | arena-91a4a9f9 (`arena/91a4a9f9-tino5`) | `docs/**`, `data/site_data.json`, `model/build_data.py`, `scripts/build_dashboard.py`, `scripts/verify.py`, `scripts/write_research.py`, `research/{federal,california,costs,executive-summary,verification-log}.md` |
 | T15 | Re-verification & integration audit 2026-11-11 (line-by-line source, link, PII, rounding re-check; Pages deploy confirm; PR + merge) | done | arena-e10f31dc (`arena/e10f31dc-tino5`) | `COORDINATION.md`, `verification-report.json` |
 | P1 | Privacy containment, round 2 (2026-11-17): hide desks that publish city / neighbourhood names or link into unpublished trees; fix the desk-31cb5781 nav; checker `scripts/check_published_surface.py`; `flagged-for-review.html` | done | arena-2bacf26a (`arena/2bacf26a-tino5`) | `_config.yml`, `scripts/verify_safe.py`, `scripts/check_published_surface.py`, `index.html`, `README.md`, `flagged-for-review.html`, `desk-31cb5781/_src/build.py` + its rebuilt pages, this section |
+| V5 | Gate re-run and live-state check on `main` d514729 (six publication/privacy gates, Pages status, history count); history rewrite NOT performed (owner decision F1) | done | arena-f2e72bb7 (`arena/f2e72bb7-tino5`) | `COORDINATION.md` only |
 
 Status values: `unclaimed` · `in progress` · `needs review` · `done`.
 `needs review` = published on the Flagged for Review page; does **not** block merge.
@@ -3202,6 +3203,37 @@ allowlist, published-surface check 244 files 0 failures).
 **Verification:** `scripts/verify_safe.py` PASS (14 pages, 16 tables, 128 source-linked rows; local targets resolve; $10 rounding and identifier-pattern checks pass); `scripts/check_published_surface.py` PASS (245 published files, zero failures; private parcel-history check skipped because the external private list is not present); `scripts/check_landing.py` PASS (16 targets); privacy scan PASS (0 findings); `git diff --check` PASS. No build/deploy result claimed from this local verification.
 
 **Open:** the repository's history scrub remains the previously documented owner decision (F1); no force-push/history rewrite was performed. The phased historical replay remains uncomputed pending sourced monthly total-return data, transparent assumptions, and independent review.
+## Session `arena-f2e72bb7` — claim and verification record (2026-11-19, branch `arena/f2e72bb7-tino5`, base `d514729` = `main` after PR #105)
+
+**Claim (V5).** Scope: `COORDINATION.md` only. No table data, pages, or site files were changed.
+
+**What this session found.** The brief in this session's request (decision desks, black-swan phased path, attorney/CPA sheet, rounding, deadlines timeline, glossary, what-would-change-the-answer, reinvestment risk, mixed paths, suggestions, flagged review) is already implemented on `main` by earlier sessions. Re-building it would duplicate work and collide with other claims, so this session only re-ran the gates.
+
+**Gates run on `main` tree d514729 (2026-11-19):**
+
+| Gate | Result |
+|---|---|
+| `scripts/privacy_hash_guard.py` | 0 hits in 621 tracked text files |
+| `scripts/verify_safe.py` | PASS: 13 pages, 15 tables, 125 source-linked rows, 379 links (183 official), money rounds to $10 |
+| `scripts/owner_figures_gate.py` | PASS across 244 published text files |
+| `scripts/check_published_surface.py` (run in a venv with PyYAML) | 244 files, 0 failures. The parcel-history check was skipped because the private list is not in this sandbox, so it is **not** confirmed here |
+| `scripts/privacy_scan.py` | 0 findings |
+| `scripts/check_landing.py` | 16 targets, 0 unresolved |
+
+Note for maintainers: `scripts/check_published_surface.py` imports `yaml` but the repo has no requirements file. On a system Python without PyYAML it fails with `ModuleNotFoundError`. This is an irregularity to fix in a later session that owns `scripts/`.
+
+**Live state.** GitHub API: repository is public. Pages status `built`, source URL `https://wingbangboozle1-lang.github.io/Tino5/`. This sandbox cannot fetch `github.io` directly, so the page-by-page HTTP check was not done from here. Open PRs on the remote at the time of check: #91 (`arena/9436c01c-tino5`) and #93 (`arena/ea3f2cee-tino5`). Neither was touched by this session.
+
+**Git history (owner decision F1 — NOT performed).** The working clone is shallow (1 commit). The GitHub API reports about **382** commits on `main`, not the roughly 3,500 cited in the 2026-11-17 record. The remote has more branches than that, which may be the source of the larger count. The earlier figure was not verified here. A history rewrite (filter-repo plus force-push) affects every `arena/*` and `session-*` branch and open PRs #91 and #93. It needs an explicit written owner instruction, which this session does not have. Not performed.
+
+**Irregularities for review (added to the flagged list):**
+1. Shallow-clone history count mismatch (382 on `main` per API vs ~3,500 in the 2026-11-17 record). Unverified.
+2. `scripts/check_published_surface.py` needs PyYAML, which is not declared anywhere in the repo.
+3. The parcel-history check in `check_published_surface.py` depends on a private file outside the repo; the check is skipped in any environment that lacks it.
+
+**Privacy.** The owner's brief for this session contains zip codes, property values, and tax tables. This session did not write any of them into the repo. They must not be committed in raw form.
+
+**Status:** V5 — done. Recommendation for the owner: give an explicit written instruction on F1 (history rewrite) before anyone runs it.
 
 ### b71/CBE-S + b71/VER — session arena-b71ddab9 (2026-11-19, branch `arena/b71ddab9-tino5`)
 
