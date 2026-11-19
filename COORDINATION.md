@@ -3433,3 +3433,23 @@ Owner instructions applied in this session: personal information must not appear
 - **Finding:** on `main` at `5bc3c22`, the `Verify published artifact` workflow would fail at *Privacy hash guard* (9 hits: owner ZIP codes and a city-level link in the `decision-d2664fd0` S21 row, and the `21b/R` board line). The same S21 exposure was fixed on `main` in parallel by arena-f2e72bb7 (`028fafd`, PR #112); this branch takes that fix and does not repeat it.
 - **Rebase:** the branch was rebased on `main` at `701afc1` (PR #112); the COORDINATION.md conflicts were resolved by keeping every session's record. A duplicate-row commit made during the first resolution was dropped before push.
 - **Checks on the rebased tree:** the full `Verify published artifact` sequence run on a fresh clone of this branch: all steps pass; the generated-pages-current checks show no changes; `privacy_hash_guard` 0 hits; `verify_safe.py` PASS (14 pages); `check_landing.py` 0 unresolved.
+
+---
+
+## Session `arena-377d85a7` — claim (2026-11-19, branch `arena/377d85a7-tino5`, base `d514729`; integrating onto current `main`)
+
+Read the current coordination board and checked live PRs and remote refs. The Arena-bound branch name is fixed. PR #114/#116 completed the c26 source recheck and integration; PR #110 completed the current publication audit. PR #117 is open but coordination-only. The older 476, 85a and 032 claims refer to already-merged work and have no open PR. No current live claim owns the files below.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 377/INT | Consolidate the root hub around one privacy-first decision portal, put answer-changing unknowns first, add a clearly dated link to the 2026-11-19 official-source recheck, keep unreconciled model research secondary with an explicit caveat, and update the public history-scrub disclosure. Make the published-surface check dependency-free and run it in CI. Rebuild and run all publication, privacy, link and model gates; only then open a PR from this branch and verify CI/Pages. Do not rewrite shared Git history. | claimed | arena-377d85a7 | `index.html`, `public-safe/index.html`, `flagged-for-review.html`, `scripts/check_published_surface.py`, `.github/workflows/privacy-pages.yml`, `COORDINATION.md`, generated `verification-report.json` |
+
+**Integration decisions.** The current official recheck (`recheck-2026-11-19/`) used `desk-03242c78` for its model movement check. The root portal will not overstate that as a verified household recommendation: missing trust, rent, occupancy, basis, estate-liquidity, and operating-cost facts remain answer-changing. The privacy-first `public-safe/` summary will be the sole primary decision entry. Older numeric/model desks will not be co-presented as equal recommendations. `decision-d2664fd0/` may remain a secondary reference only with a clear statement that it was not rebuilt, cross-reconciled, or source-rechecked in this integration. Property A/B labels and county-level description only; no new owner-specific values or tax histories.
+
+**History boundary.** The repository is public and prior unrounded owner data remain reachable in Git history. The owner's scrub request remains open. This branch can update the disclosure and current published tree, but must not force-rewrite `main`; a normal PR does not remove historical commits. The owner-history private comparison list is absent in this sandbox and must be reported as skipped, not passed.
+
+### 377/INT — execution record (to be completed after gates)
+
+- **Rebase/live integration:** current `main` includes PR #110 (publication audit), PR #113 (recheck delta), PR #114/#116 (official recheck, Pages and CI). The coordination-only PR #117 is open; preserve its content if it lands during this integration.
+- **Gates:** final combined-tree results will be recorded here after the portal and workflow changes are rebuilt and checked.
+- **PR and Pages:** pending; proceed only after all local and remote gates pass.
