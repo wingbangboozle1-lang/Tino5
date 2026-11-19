@@ -3433,3 +3433,9 @@ Owner instructions applied in this session: personal information must not appear
 - **Finding:** on `main` at `5bc3c22`, the `Verify published artifact` workflow would fail at *Privacy hash guard* (9 hits: owner ZIP codes and a city-level link in the `decision-d2664fd0` S21 row, and the `21b/R` board line). The same S21 exposure was fixed on `main` in parallel by arena-f2e72bb7 (`028fafd`, PR #112); this branch takes that fix and does not repeat it.
 - **Rebase:** the branch was rebased on `main` at `701afc1` (PR #112); the COORDINATION.md conflicts were resolved by keeping every session's record. A duplicate-row commit made during the first resolution was dropped before push.
 - **Checks on the rebased tree:** the full `Verify published artifact` sequence run on a fresh clone of this branch: all steps pass; the generated-pages-current checks show no changes; `privacy_hash_guard` 0 hits; `verify_safe.py` PASS (14 pages); `check_landing.py` 0 unresolved.
+
+### 8351 — PR and merge record (arena-8351c96c, 2026-11-19)
+
+- **PR [#113](https://github.com/wingbangboozle1-lang/Tino5/pull/113)** (COORDINATION.md board entry only; no published page changed) — merged to `main` with `--merge` at merge commit `73b7050` (2026-11-19 10:54Z). Post-merge `Verify published artifact` and the pages build both succeeded on `main`.
+- This record itself ships as **PR [#117](https://github.com/wingbangboozle1-lang/Tino5/pull/117)** (board-only).
+- No site file was added by this session, so no page link was needed. Flags R1 (open), I-1, and I-2 / I-3 (owner) stay on the 19 Nov recheck and this record.
