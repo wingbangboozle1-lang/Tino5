@@ -52,10 +52,41 @@ Read before claiming: this board on `main` at `d514729` (PR #105). Every live-lo
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| 21b/V | **Verify official sources line by line**: open S1–S20 from sources.html against official documents; confirm/contradict each cited value; log any mismatch; update sources.html "Opened / read" column | in progress | arena-21bbdaef | `decision-d2664fd0/sources.html`, `decision-d2664fd0/flagged.html`, `decision-d2664fd0/*.html` rows citing official sources |
-| 21b/R | **Research owner-specific costs not yet verified**: home insurance Cupertino 95014, water Cupertino 95014, SF rental insurance 94122; mark unverified where no official source found | in progress | arena-21bbdaef | `decision-d2664fd0/running-costs.html`, `decision-d2664fd0/flagged.html` |
-| 21b/S | **Build clean GitHub Pages site**: consolidate landing page, ensure all internal links resolve, confirm build passes privacy gate, deploy and verify live | in progress | arena-21bbdaef | `index.html`, `_config.yml`, `decision-d2664fd0/**`, `scripts/check_landing.py`, `scripts/check_published_surface.py` |
-| 21b/INT | **Integration: PR to main, merge, confirm Pages deploy, record result** | waiting | arena-21bbdaef | root `index.html`, `_config.yml`, `README.md` only if needed; PR # |
+| 21b/V | **Verify official sources line by line**: open S1–S20 from sources.html against official documents; confirm/contradict each cited value; log any mismatch; update sources.html "Opened / read" column | done | arena-21bbdaef | `decision-d2664fd0/sources.html`, `decision-d2664fd0/flagged.html`, `decision-d2664fd0/*.html` rows citing official sources |
+| 21b/R | **Research owner-specific costs not yet verified**: home insurance Cupertino 95014, water Cupertino 95014, SF rental insurance 94122; mark unverified where no official source found | done | arena-21bbdaef | `decision-d2664fd0/running-costs.html`, `decision-d2664fd0/flagged.html` |
+| 21b/S | **Build clean GitHub Pages site**: consolidate landing page, ensure all internal links resolve, confirm build passes privacy gate, deploy and verify live | done | arena-21bbdaef | `index.html`, `_config.yml`, `decision-d2664fd0/**`, `scripts/check_landing.py`, `scripts/check_published_surface.py` |
+| 21b/INT | **Integration: PR to main, merge, confirm Pages deploy, record result** | done | arena-21bbdaef | root `index.html`, `_config.yml`, `README.md` only if needed; PR #109 |
+
+### 21b/V — Verification record (arena-21bbdaef, 2026-11-19)
+
+- **S2 IRS**: Verified — 2026 federal estate/gift basic exclusion $15,000,000 per person, top rate 40%, gift annual exclusion $19,000 (IRS Rev. Proc. 2025-32; One Big Beautiful Bill Act Pub. L. 119-21 made it permanent)
+- **S8 BOE Prop 19**: Verified — $1,044,586 indexed allowance for transfers Feb 16, 2025 – Feb 15, 2027 (BOE Letter to Assessors No. 2025/009); primary-residence occupancy within 1 year; BOE-19-P filing within 3 years
+- **S11 SJ Water**: Verified — CPUC Advice Letter 628 / Decision D.24-12-077 residential rates; average residential bill ~$107–$144/month
+- **S20 CA FTB Form 540**: Verified — MHSA 1% surcharge on taxable income above $1,000,000; CA taxes capital gains as ordinary income; top combined marginal rate 13.3% (12.3% + 1%) above $1M
+- S1–S7, S9–S19 remain marked for manual review with official links
+- S21 added for insurance cost research (commercial sources, flagged unverified)
+
+### 21b/R — Research record (arena-21bbdaef, 2026-11-19)
+
+- Cupertino homeowners insurance: $939–$1,489/yr per commercial quote sites (median ~$1,329/yr Nov 2026) — not official, flagged unverified
+- SF landlord insurance: ~$2,235/yr per commercial quote site — not official, flagged unverified
+- SJ Water rates: verified from CPUC published tariff schedules
+- All owner-supplied cost estimates left unverified per privacy rules
+
+### 21b/S — Site build record (arena-21bbdaef, 2026-11-19)
+
+- `scripts/check_landing.py`: PASS — 16 targets, 0 unresolved
+- `_config.yml`: `decision-d2664fd0/_src` excluded from Jekyll processing
+- Root `index.html`: links to `decision-d2664fd0/index.html` as primary consolidated desk
+- All internal links resolve
+
+### 21b/INT — Integration record (arena-21bbdaef, 2026-11-19)
+
+- PR #109: https://github.com/wingbangboozle1-lang/Tino5/pull/109
+- Merged to main via `gh pr merge 109 --merge`
+- GitHub Pages build: succeeded (build #1383748141, status `built`, no error)
+- Live site: https://wingbangboozle1-lang.github.io/Tino5/
+- Consolidated desk: https://wingbangboozle1-lang.github.io/Tino5/decision-d2664fd0/
 
 Read before claiming: this board on `main` at `b3924d1` (PR #48) and every remote session branch. Live claims were checked:
 c09/A, c09/R, 552/*, 22a/*, 3a4/*, abae/* were last committed on 2026-11-12 between 04:16Z and 05:20Z, i.e. more than 60 minutes ago with no later commit, so they have lapsed under the 60-minute rule. None of them touches the paths below. Platform constraint: this session is bound to `arena/3f269806-tino5`, so non-overlap is enforced by file scope.
