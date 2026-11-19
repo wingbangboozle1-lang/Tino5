@@ -3377,3 +3377,33 @@ labels, without commercial location-specific links.
 - **PR [#114](https://github.com/wingbangboozle1-lang/Tino5/pull/114)** merged to `main` without waiting on 2026-11-19 at 10:50:33Z; merge commit `99c39fbded57ae12b04ed1a9c3a53902f0b71271`.
 - **Post-merge checks:** Verify published artifact run `44509382116` passed; GitHub Pages build/deployment run `44509380677` passed. Pages API reports `built`, source `main:/`, at `https://wingbangboozle1-lang.github.io/Tino5/`.
 - **Rebase history:** after PR #112 landed, the rebase conflict in `COORDINATION.md` was resolved by retaining both `arena-f2e72bb7`'s privacy-containment record and this session's task record. A later overlapping privacy edit was resolved in favor of the already-merged upstream privacy wording/resource links. No session record was discarded.
+
+## Session `arena-8351c96c` — claim, supersession and delta record (2026-11-19, branch `arena/8351c96c-tino5`, rebased onto `main` = `99c39fb` after PR #114)
+
+**Supersession.** This session claimed R1, R3 and R5 of the 17 Nov recheck and drafted an addendum page. Session `arena-c267f0b0` merged `recheck-2026-11-19/` to `main` the same day (PR #114). That desk already transcribes Schedule D (the same three FY2026-27 and FY2027-28 tiers), confirms the R1 limit in the same words, and records the Treasury 3M/2Y values from FRED. The addendum page was therefore **not published**; this session records only what is new, so nothing is duplicated on the site.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| 8351/R5 | Treasury primary-source check for the 3M and 2Y points (replaces the FRED-only basis) | **done (delta recorded)** | arena-8351c96c | this section only |
+| 8351/R3 | Independent second read of Schedule D | **done — confirmed, duplicate of `recheck-2026-11-19`** | arena-8351c96c | this section only |
+| 8351/R1 | Attempt to close flag R1 from the county rate book | **OPEN — attempt repeated, no new result** | arena-8351c96c | this section only |
+
+**What was read this session (official sources, read directly):**
+- U.S. Treasury, Daily Treasury Par Yield Curve Rates, **month view for November 2026** (`…/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611`). The table shows all twelve trading rows from 2 Nov to 18 Nov 2026 ("Showing 1 to 12 of 12 entries"). 3-month: 4.21, 4.21, 4.21, 4.17, 4.19, 4.24, 4.30, 4.32, 4.32, 4.34, 4.33, 4.34. 2-year: 4.59, 4.61, 4.58, 4.46, 4.51, 4.56, 4.73, 4.86, 4.88, 4.83, 4.80, 4.80. **18 Nov 2026: 3-month 4.34, 2-year 4.80.** 17 Nov (3-month 4.33, 2-year 4.80) matches the FRED figure already on the 19 Nov register.
+- SFPUC, Rate Schedules & Fees for Water and Sewer Service, effective 1 Jul 2026 / 1 Jul 2027, Schedule D (p. 15): <https://www.sfpuc.gov/sites/default/files/accounts-and-services/Rates_Schedule_Water_Sewer_2026-7.pdf>. Tiers: $12.63 / $19.66 / $29.55 (FY2026-27); $18.08 / $28.13 / $42.29 (FY2027-28). **Identical to the 19 Nov desk.**
+- County of Santa Clara Tax Rate Book FY2025-26 (R1), reader limit as before: the text runs to the 005-022 area and stops before the 013 series. The second official host from the earlier register failed to load. The Controller page lists the same file only.
+
+**Correction to the 19 Nov open-items page (flag S2).** S2 says the Treasury page paginates and its latest rows cannot be reached. That is true of the **year** view, but the **month** view above shows every November row through 18 Nov. The S2 discovery action should read: use the month view (`field_tdr_date_value_month=YYYYMM`) and take the latest row, which is the primary source.
+
+**New irregularity (I-1, for review):** the rate book's text layer, as the reader returns it, contains transcription artefacts: "Mid-Periplis Open Space 2014" where the same text elsewhere reads "Mid Peninsula Open Space 2014"; a stray heading "BOND TIMES HAPPY EYES" inside the 005-series table; and a "Patterson Unified School District" heading whose rows are labelled "Patterson Joint Unified". No total may be taken from the reader's text until it is checked against the PDF page.
+
+**Still open for the owner, unchanged:** I-2 which Schedule D tier applies (parcel net area, owner-private); I-3 the public site's utility-host and rate-book links reveal the city of Property B (the 19 Nov desk already contains them; owner decision whether to keep).
+
+**Verification:** the figures above were read from the source pages in this session, not from search snippets. No file on the site was changed. Nothing in this section is marked verified beyond what the 19 Nov desk already states.
+
+**Movement check:** none needed for this record; no projection changed.
+
+**Requests to the next recheck (logged, not acted on):**
+1. Replace the FRED basis for the 3M/2Y points with the Treasury month view above, and cite the month URL.
+2. Correct S2 as described above.
+3. Keep R1 open until the 013-series total is read in a full PDF reader or from an owner's bill.
