@@ -44,6 +44,10 @@ exclude:
   # generator/verifier are working material, not pages.
   - "recheck-2026-11-17/_src"
   - "recheck-2026-11-17/_src/**"
+  # recheck-2026-11-19 (session arena-c267f0b0, 2026-11-19): periodic official-source recheck;
+  # generator/verifier are working material, not pages.
+  - "recheck-2026-11-19/_src"
+  - "recheck-2026-11-19/_src/**"
   # inheritance desk: generator and model are working material; owner input data is not published
   - "inheritance-desk/_src"
   - "inheritance-desk/_src/**"

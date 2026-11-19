@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repo review — Recheck 2026-11-19</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Repo review</h1>
+<p>Periodic official-source recheck — 2026-11-19 — Property A (future trust inheritance, Santa Clara County) &middot; Property B (already owned, San Francisco County)</p>
+</header>
+<nav><span class="grp">Recheck</span><a href="index.html">Hub</a><a href="register.html">Constants register</a><a href="open-items.html">Open items &amp; flags</a><a href="rebuild.html">Rebuild &amp; movement</a><a href="law-watch.html">Law watch</a><span class="grp">Reference</span><a href="requirements.html">Requirement index</a><a href="repo-review.html" class="active">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a></nav>
+<main>
+
+<div class="card">
+<h2>Repository review — 2026-11-19</h2>
+<p>The published surface was re-verified this cycle: the privacy battery
+(<code>scripts/privacy_scan.py</code>, <code>scripts/verify_safe.py</code>,
+<code>scripts/check_published_surface.py</code>, <code>scripts/owner_figures_gate.py</code>,
+<code>scripts/privacy_hash_guard.py</code>, <code>scripts/check_landing.py</code>) passes with zero
+findings. This desk is built county-level from the start and passes the same gates.</p>
+<table><thead><tr><th>Check</th><th>Result</th><th>Source</th></tr></thead><tbody><tr><td>Published-surface privacy scan <span class="tag tag-verified">CONFIRMED</span></td><td>0 findings; 531 published official constants; amounts under $1,000 not counted</td><td>scripts/privacy_scan.py</td></tr><tr><td>Publication gate (public-safe) <span class="tag tag-verified">CONFIRMED</span></td><td>PASS — 13 pages, 125 source-linked rows, money rounds to $10</td><td>scripts/verify_safe.py</td></tr><tr><td>Published-surface check (244 files) <span class="tag tag-verified">CONFIRMED</span></td><td>0 failures (parcel-history check skipped: private list absent)</td><td>scripts/check_published_surface.py</td></tr><tr><td>Owner-figure gate (244 published text files) <span class="tag tag-verified">CONFIRMED</span></td><td>PASS — 40 denylisted digests, comma-formatted figures only</td><td>scripts/owner_figures_gate.py</td></tr><tr><td>Hash-based location-token guard (621 tracked text files) <span class="tag tag-verified">CONFIRMED</span></td><td>0 hits</td><td>scripts/privacy_hash_guard.py</td></tr><tr><td>Landing-page links <span class="tag tag-verified">CONFIRMED</span></td><td>16 targets, 0 unresolved</td><td>scripts/check_landing.py</td></tr><tr><td>Coverage-desk model + verifier (re-run this cycle) <span class="tag tag-verified">CONFIRMED</span></td><td>21 tests OK; verify PASS (39 pages, 472 table rows)</td><td>desk-03242c78/_src/</td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h2>F5 closed: every non-$10 amount on the live pages is an official figure quoted exactly</h2>
+<p>The 2026-11-17 flagged page listed 119 amounts of $1,000 or more that are not multiples of $10.
+This cycle audited every one row by row. Each is an agency-published statutory or official figure
+quoted exactly — which the repository's own rounding rule explicitly exempts
+(“statutory amounts, rates, and thresholds are quoted exactly and marked as exact”). No fixable
+rounding violation remains.</p>
+<table><thead><tr><th>Amount</th><th>What it is</th><th>Official source</th></tr></thead><tbody><tr><td>$1,044,586</td><td>Prop 19 intergenerational cap (transfers 16 Feb 2025 – 15 Feb 2027)</td><td><a class="src" href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf" target="_blank" rel="noopener noreferrer">BOE LTA 2025/009</a></td></tr><tr><td>$661,375 / $793,650</td><td>2027 federal top-rate thresholds (single / joint)</td><td><a class="src" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf" target="_blank" rel="noopener noreferrer">Rev. Proc. 2026-35</a></td></tr><tr><td>$742,953 / $1,485,906 / $1,010,417</td><td>FTB 2025 Schedule X / Y / Z 12.3% thresholds</td><td><a class="src" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html" target="_blank" rel="noopener noreferrer">FTB 2025 Form 540 instructions</a></td></tr><tr><td>$768,213 / $1,536,426</td><td>FTB 2026 12.3% thresholds (single / joint)</td><td>FTB published 2026 schedules (via referee-abae constants) <span class="tag tag-exact">EXACT</span></td></tr><tr><td>$1,571 / $1,512 / $2,339.99 / $1,701.60</td><td>CDI published average premiums (statewide / national)</td><td>California Department of Insurance (via referee-abae constants) <span class="tag tag-exact">EXACT</span></td></tr><tr><td>$69,625</td><td>Judicial Council small-value real-property threshold</td><td>courts.ca.gov DE-300 (via public-safe qa) <span class="tag tag-exact">EXACT</span></td></tr><tr><td>Election vote counts (e.g. 84,209; 155,384; 260,241)</td><td>Official preliminary election results, quoted exactly</td><td>the city elections department (name on the linked source; via desk-03242c78 sources) <span class="tag tag-exact">EXACT</span></td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h2>Git history — the one step that needs an explicit owner decision</h2>
+<p>The live tree is contained, rounded and identifier-free. The public remote still retains the
+pre-rounding commits (about 3,500 commits on <code>main</code> history). This session's clone is
+shallow (one squashed commit), so the rewrite cannot be performed from here. The procedure, when the
+owner authorises it, is: clone the full repository, run <code>git filter-repo</code> to replace the
+pre-rounding figures and identifiers in every commit, force-push <code>main</code>, and re-clone every
+session branch. That invalidates open PRs and every session branch, and cannot recall copies already
+cloned. It is recorded here as the procedure, not executed.</p>
+<p class="small">Reference: GitHub Docs, removing sensitive data from a repository —
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository</p>
+</div>
+
+<div class="card">
+<h2>Irregularities for review</h2>
+<table><thead><tr><th>#</th><th>Item</th><th>Status</th></tr></thead><tbody><tr><td>F1</td><td>Git history still holds the owner's exact figures (see above).</td><td>Owner decision — procedure documented, not executed <span class="tag tag-owner">OWNER DECISION</span></td></tr><tr><td>F2</td><td>Repository visibility is public (GitHub Pages requires it on the current plan).</td><td>Owner decision <span class="tag tag-owner">OWNER DECISION</span></td></tr><tr><td>F3</td><td>Rounded owner history tables are live on cbe/properties.html (2014–2025 series at $10 rounding).</td><td>Owner decision — keep rounded, drop the series, or move to a private page <span class="tag tag-owner">OWNER DECISION</span></td></tr><tr><td>F4</td><td>Owner anchors (a property value and a monthly rent figure, both $10 multiples) appear on live pages.</td><td>Owner decision — keep, round further, or remove <span class="tag tag-owner">OWNER DECISION</span></td></tr><tr><td>F5</td><td>Money not rounded to $10 on live pages.</td><td>CLOSED <span class="tag tag-verified">CONFIRMED</span> this cycle — every amount is an official figure quoted exactly (table above)</td></tr><tr><td>F6</td><td>Checker limits (private owner-figure list absent; images/PDFs not inspected).</td><td>Run after every change <span class="tag tag-note">NOTE</span></td></tr><tr><td>F7</td><td>Scope of this session.</td><td>Recheck + privacy hardening + integration (this desk) <span class="tag tag-note">NOTE</span></td></tr></tbody></table>
+</div>
+
+</main>
+<footer>Built 2026-11-19 by session arena-c267f0b0 from one generator (<code>_src/build.py</code>). Working decision aid, not advice. Figures rounded to the nearest $10 except agency-published exact figures marked EXACT. County-level anonymisation: no names, street addresses, ZIP codes, parcel or account numbers.</footer>
+</body>
+</html>
