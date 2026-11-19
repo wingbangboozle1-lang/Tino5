@@ -3188,3 +3188,27 @@ allowlist, published-surface check 244 files 0 failures).
 
 - **PR [#104](https://github.com/wingbangboozle1-lang/Tino5/pull/104) merged to `main`** at merge commit `392e6cd` (2026-11-17 17:11:17Z). Post-merge checks on `main`: **Verify published artifact = success**, **pages build and deployment = success**.
 - **Live confirmation (after deploy):** `recheck-2026-11-17/index.html` and `recheck-2026-11-17/register.html` serve with the register, verdicts and decision log; the root hub carries the recheck card. This record entry (with one cosmetic header fix in the recheck hub table) ships as the follow-up PR noted in the PR timeline; the working branch `arena/1e93b0b8-tino5` is closed out at that point.
+
+## Session `arena-1c97272b` — privacy-surface audit and official-source checks (2026-11-19, branch `arena/1c97272b-tino5`, base `d514729`)
+
+**Scope actually completed in this session (partial; the brief is not finished).** This session is bound to the single branch above, so the `session-<id>/<task>` branch convention cannot be used; file scope is enforced by this record. No published page was edited. Owner decisions F1–F5 on `flagged-for-review.html` are still open and were not decided by this session.
+
+**1. Published-surface privacy audit (1c9/P).** `scripts/check_published_surface.py` needs PyYAML, which was missing in the sandbox (installed in a venv outside the repo). Result: 244 published files, 0 failures. The check was then extended with a grep of the same 244 files for owner anchors and place names. Findings:
+- **54 published files** contain owner anchor figures exactly as supplied ($3,100,000 Property A value; $1,800,000 Property B value; $7,150 monthly two-unit rent). Hits are concentrated in `cbe/`, `decision/`, `decision-d2664fd0/`, `desk-03242c78/`, `desk-31cb5781/` (also `assets/app.js`), `desk-85a01c5c/`, `desk-8be2/`, `desk-d75/`, `inheritance-desk/`. This is the open decision **F4**. Not changed here, because the owner's brief asks for these figures to be used and each is already a multiple of $10.
+- `desk-85a01c5c/property-tax.html` contains the word "Foothill" and `desk-85a01c5c/inheritance-tax.html` the word "Sunset". Not confirmed as place identifiers; logged for review.
+- No ZIP code, street address, parcel or account number was found in the published set by this grep. Cupertino and the other city names were not found in any published page by this grep.
+- The repository is public (F2), and the exact figures remain in Git history (F1). **A history rewrite was NOT performed** (owner decision; it force-pushes `main` and invalidates every open session branch).
+
+**2. Official-source checks (1c9/V).** Each row lists the source and what it supports. Rows marked "secondary" were confirmed only from third-party text and still need a primary check.
+| Claim | Official source checked | Result |
+|---|---|---|
+| California 1% surcharge on taxable income over $1,000,000, now "Behavioral Health Services Tax" (formerly Mental Health Services Tax) | FTB, 2026 Instructions for Form 540-ES, https://www.ftb.ca.gov/forms/2026/2026-540-es-instructions.pdf (section D worksheet: taxable income, less $1,000,000, times 1%) | **Verified (primary).** The FTB text does not say how capital gains are treated; that point is **not verified** and is open. |
+| Federal basic exclusion amount for 2026 = $15,000,000 per person (Rev. Proc. 2025-32; P.L. 119-21 §70106) | Not reached on irs.gov in this session (the newsroom URL tried returned 404). Searched sources cite IRS Rev. Proc. 2025-32. | **Secondary only — not verified against a primary IRS page.** Open. |
+| Prop 19 parent-child cap of $1,044,586 for transfers 2025-02-16 to 2027-02-15 | Not reached on boe.ca.gov (URL tried returned 404). Multiple secondary sources cite the BOE adjustment. | **Secondary only — not verified against a primary BOE page.** Open. Any transfer after 2027-02-15 uses a figure not yet published in this session's sources. |
+| Form 540 "1% above $1M" capital-gain treatment | Not yet read in the 2025 Form 540 booklet. | **Not verified.** Open. |
+
+**3. Corrections.** None applied to published pages in this session. The sensitivity item asked for in the brief ("update the sensitivity value" from Form 540) is confirmed in amount (1% above $1,000,000) but its capital-gain treatment is still open.
+
+**4. Not done in this session (remaining brief items, unchanged):** the one-page briefing sheet, the what-if controls, the phased-treasury extension, the reinvestment-risk headline, the combined-table rounding re-check (119 amounts ≥ $1,000 not multiples of $10 per F5), the deadline timeline, the glossary, and the integration PR/merge. The integration gate in this file requires every other task to be done first, so no PR was opened or merged in this session.
+
+**Recommended next owner decisions (one line each):** F1 keep history as is vs. rewrite (destructive); F2 repository visibility; F3 drop the owner's assessed-value/tax history series from the public pages; F4 keep, round to a band, or remove the two owner anchors and the monthly rent figure; F5 round the remaining amounts to $10 except statutory amounts quoted exactly.
