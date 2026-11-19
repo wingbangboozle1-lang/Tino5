@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publication and privacy audit (be29, 2026-11-19)</title>
+<style>
+body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1d2330;background:#f7f8fa}
+header{background:#fff;border-bottom:1px solid #dfe3ea;padding:18px 24px}
+header h1{margin:0;font-size:22px;color:#1f4e79}
+header a{color:#1f4e79;font-size:14px}
+main{max-width:1100px;margin:auto;padding:20px 24px 56px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#5b6474;margin:26px 0 10px}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;background:#fff}
+th{background:#eef3f7;text-align:left;padding:7px 9px;border-bottom:2px solid #dfe3ea}
+td{padding:7px 9px;border-bottom:1px solid #dfe3ea;vertical-align:top}
+.pill{display:inline-block;border-radius:4px;padding:1px 6px;font-size:12px;white-space:nowrap}
+.ver{background:#e4f4e8;color:#1d6b33}.sec{background:#fff4d6;color:#7a5a00}.unv{background:#fbe9e9;color:#8a1c1c}
+.note{background:#fff;border-left:4px solid #1f4e79;padding:10px 14px;margin:12px 0}
+code{background:#eef3f7;padding:1px 4px;border-radius:4px}
+@media print{header a{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<header>
+<h1>Publication and privacy audit</h1>
+<a href="../index.html">&larr; Site hub</a> &middot; <a href="../flagged-for-review.html">Flagged for review</a> &middot; Session arena-be29bf3c, recorded 2026-11-19
+</header>
+<main>
+
+<div class="note">
+<strong>What this page is.</strong> A record of the checks run on the published site on 2026-11-19, what passed, what did not, and which decisions belong to the owner. It is not tax, legal or investment advice. Owner-supplied figures are <em>not</em> repeated here; the owner's values live only in the owner's private notes.
+</div>
+
+<h2>1. Checks run</h2>
+<table>
+<tr><th>Check</th><th>Result</th><th>What it covers</th></tr>
+<tr><td><code>scripts/check_published_surface.py</code></td><td><span class="pill ver">PASS</span> 244 published files, 0 failures</td><td>Privacy and link rules on the files Jekyll publishes. The parcel-history check was <strong>skipped</strong> because its private list is not present in this sandbox, so that check is not confirmed here.</td></tr>
+<tr><td><code>scripts/check_landing.py</code></td><td><span class="pill ver">PASS</span> 16 targets, 0 unresolved</td><td>Hub links resolve.</td></tr>
+<tr><td><code>scripts/verify_safe.py</code></td><td><span class="pill ver">PASS</span> 13 pages, 125 source-linked rows, 379 links (183 official)</td><td>Publication gate and money rounding ($10) for the published desks, plus identifier patterns. Structural checks only.</td></tr>
+<tr><td><code>scripts/privacy_scan.py --summary</code></td><td><span class="pill ver">0 findings</span></td><td>Money not rounded to $10, identifier-shaped tokens (e-mail, phone, parcel-shaped, street). Rounded owner figures pass this scan by design, so it does not show that they are safe to publish (see finding P1).</td></tr>
+</table>
+<p class="small"><strong>Dependency found:</strong> <code>check_published_surface.py</code> needs the <code>PyYAML</code> package. Without it the script stops with <code>ModuleNotFoundError: No module named 'yaml'</code>. It runs after <code>pip install pyyaml</code> in a virtual environment. This is not written down in the README (flag X1).</p>
+
+<h2>2. Findings and decisions</h2>
+<table>
+<tr><th>#</th><th>Finding</th><th>Status</th><th>Source</th><th>Decision or next step</th></tr>
+<tr>
+<td>P1</td>
+<td>Owner-supplied money figures, rounded to $10, appear on about 40 published pages, including a 12-year assessed-value and tax-bill series for the property to be inherited (<code>cbe/properties.html</code>). The site's own README states that year-by-year histories are not published at any precision, which conflicts with the owner's request for $10-rounded tables.</td>
+<td><span class="pill sec">owner decision</span></td>
+<td><a href="https://asr.santaclaracounty.gov/home">Santa Clara County Assessor, home page (opened 2026-11-19)</a>, <a href="https://www.sf.gov/departments--assessor-recorder">SF Assessor-Recorder, department page (opened 2026-11-19)</a></td>
+<td>Left as is: the owner asked for $10-rounded tax and assessment tables. A rounded series can still be matched against public assessment rolls. Owner to choose: keep, drop the history series, or move it to a private page.</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>The public remote's history still holds the owner's earlier, unrounded figures (an earlier session counted about 3,500 commits). Hiding or deleting files does not remove them.</td>
+<td><span class="pill unv">not done; owner decision</span></td>
+<td><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository">GitHub Docs: Removing sensitive data from a repository</a> (opened)</td>
+<td>GitHub's guidance: a history rewrite with <code>git-filter-repo</code> and a force-push changes every commit hash, breaks open pull requests and every other session's branch, and <em>cannot</em> remove copies in existing clones or forks. This session works only on its own branch and does not rewrite <code>main</code>. The owner must decide and run that step; the commit count above is the earlier session's and is not re-checked here.</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Repository visibility (public). Whether GitHub Pages stays available if the repository were made private depends on the plan.</td>
+<td><span class="pill unv">unverified</span></td>
+<td>Not checked in this session.</td>
+<td>Owner decision.</td>
+</tr>
+<tr>
+<td>T1</td>
+<td>The "1% tax above one million dollars" in the owner's brief is a California <strong>income-tax</strong> surcharge on California taxable income above $1,000,000. The official 2025 booklet renamed the Mental Health Services Tax to the <strong>Behavioral Health Services Tax</strong> and points to Form 540 line 62. It is not an estate, inheritance or property tax, and it does not add a separate rate for capital gains.</td>
+<td><span class="pill ver">name and line verified</span>; <span class="pill sec">rate and threshold: from secondary guides</span></td>
+<td><a href="https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf">FTB 2025 Form 540 booklet</a> (opened; the renaming and line 62 are in the "What's New" section). The 1% rate and $1,000,000 threshold were read from secondary guides only; the line 62 instruction was not opened.</td>
+<td>Open the line 62 instruction and confirm the rate and threshold. Until then the sensitivity should carry it as a surcharge on income above the threshold, not as an estate-tax item. Capital gains are taxed as ordinary income in California (secondary guides; FTB capital-gains page not opened).</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>California has no state estate tax and no inheritance tax. The last state estate-tax return requirement ended with deaths on or after 2005.</td>
+<td><span class="pill sec">secondary</span></td>
+<td><a href="https://www.sco.ca.gov/">California State Controller's Office, home page (opened 2026-11-19; the estate-tax page was not opened)</a>. Secondary guides cite the Controller, e.g. <a href="https://probatelend.com/inheritance-tax-for-california-a-comprehensive-guide/">a probate-lending guide</a>.</td>
+<td>Confirm on the Controller's estate-tax page before relying on it.</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Federal estate-tax filing threshold for a death in 2026: $15,000,000 per person. This is the basic exclusion amount.</td>
+<td><span class="pill ver">verified</span></td>
+<td><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax">IRS, Estate tax: filing threshold table, 2026 row</a> (opened)</td>
+<td>Use $15,000,000 for 2026 deaths. Later years and any change in law need a new check (the law-watch page tracks this).</td>
+</tr>
+<tr>
+<td>X1</td>
+<td>The privacy checker is not runnable with a default Python install (missing <code>PyYAML</code>), and the dependency is not documented.</td>
+<td><span class="pill unv">open</span></td>
+<td>Repository: <code>scripts/check_published_surface.py</code>.</td>
+<td>Add a requirements note in the README, or vendor the three-line YAML read. Not changed here: the README is a shared file.</td>
+</tr>
+<tr>
+<td>X2</td>
+<td>Another session (arena-b78790bf) changed <code>public-safe/</code> on 2026-11-19 for an Attorney and CPA checklist and the phased Treasury path. This overlaps the owner's requests but is outside this session's scope.</td>
+<td><span class="pill unv">logged</span></td>
+<td>Repository: <code>COORDINATION.md</code>, merged PR #106.</td>
+<td>The integration session should check that the two desks do not contradict each other.</td>
+</tr>
+</table>
+
+<h2>3. Not done in this session, and why</h2>
+<ul>
+<li><strong>Git history was not rewritten.</strong> That needs an explicit owner decision (P2), and it would affect every open branch.</li>
+<li><strong>Owner figures were not removed or changed.</strong> The owner asked for $10-rounded tables; removing them is an owner decision (P1).</li>
+<li><strong>Unopened sources.</strong> Where a row cites a home page, the specific page was not opened; the row says so.</li>
+<li><strong>No new owner data was written into the repository.</strong> The owner's figures from the brief were not copied into any file here.</li>
+</ul>
+
+<p class="small">Verification statement: every row above carries an official link or is marked secondary or unverified. Nothing in this page is verified beyond what its row states. Re-check the law before relying on it.</p>
+</main>
+</body>
+</html>
