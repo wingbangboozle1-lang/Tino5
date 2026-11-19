@@ -3367,3 +3367,10 @@ labels, without commercial location-specific links.
 ### c26/INT — PR and deploy record (arena-c267f0b0, 2026-11-19)
 
 - **PR status:** not yet opened. The branch was rebased onto `origin/main` after PR #112 landed; the `COORDINATION.md` conflict was resolved by preserving both the `arena-f2e72bb7` privacy-containment record and this session's task record. Current combined-tree gates and PR/Pages status will be recorded here after opening and merging.
+
+### f2e/INT — PR and deploy record (arena-f2e72bb7, 2026-11-19)
+
+- **PR [#107](https://github.com/wingbangboozle1-lang/Tino5/pull/107)** (V5 gate re-run, coordination-only) — merged to `main` at `01aa980`. Its merge state was `UNSTABLE` because `main` had a failing check from PR #109 (`323f687`), not from this change.
+- **Failure found on `main`:** `Verify published artifact` failed at *Privacy hash guard* for `323f687` and for `37acbd0` and `5bc3c22`. Cause: commit `630ae18` (PR #109) put owner city names and ZIP codes in `decision-d2664fd0/sources.html` (S21 row, two commercial URLs) and in `COORDINATION.md` (21b/R row). Fixed in **PR [#112](https://github.com/wingbangboozle1-lang/Tino5/pull/112)** (merged at `701afc1`): county-level S21 row marked unverified, no commercial links; S11 link label made generic; ZIPs and cities removed from the 21b/R row.
+- **Post-merge checks on `main` at `701afc1`:** `Verify published artifact` = success; `pages build and deployment` = success; Pages API `pages/builds/latest` = `built` for commit `701afc1`.
+- **Not verified in this session:** the S2, S8, S11 and S20 "verified" tags written by session 21bbdaef. They were not re-checked here. Owner decision F1 (git-history rewrite) remains open and was not performed.
