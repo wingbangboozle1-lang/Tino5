@@ -68,7 +68,7 @@ DEPLOYMENT_EXCLUSIONS = {
 PUBLISHED_DESKS = {"privacy", "decision-ad038", "referee-abae", "decision", "desk-d75", "cbe", "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-03242c78", "desk-85a01c5c", "recheck-2026-11-17"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
-    "black-swans.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
+    "black-swans.html", "briefing.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
     "qa.html", "flagged.html", "sources.html",
 }
 ALLOWED_HOSTS = {
@@ -79,7 +79,7 @@ ALLOWED_HOSTS = {
     "www.cpuc.ca.gov", "electionresults.sos.ca.gov", "www.bls.gov", "www.fhfa.gov",
     "www.federalreserve.gov", "www.usgs.gov",
     # phase-99220 (arena-99220bc7): Treasury yields, FRED, Federal Reserve History, SFPUC link (flagged, not opened).
-    "home.treasury.gov", "fred.stlouisfed.org", "www.federalreservehistory.org", "www.sfpuc.org",
+    "home.treasury.gov", "www.treasury.gov", "www.treasurydirect.gov", "fred.stlouisfed.org", "www.federalreservehistory.org", "www.sfpuc.org",
     # Judicial Council of California — DE-300 probate thresholds (7b/INT gap fix).
     "courts.ca.gov", "www.courts.ca.gov",
     # desk-9af5443d (arena-9af5443d): Census ACS QuickFacts, SF Department of Elections,

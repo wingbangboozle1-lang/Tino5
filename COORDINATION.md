@@ -3188,3 +3188,17 @@ allowlist, published-surface check 244 files 0 failures).
 
 - **PR [#104](https://github.com/wingbangboozle1-lang/Tino5/pull/104) merged to `main`** at merge commit `392e6cd` (2026-11-17 17:11:17Z). Post-merge checks on `main`: **Verify published artifact = success**, **pages build and deployment = success**.
 - **Live confirmation (after deploy):** `recheck-2026-11-17/index.html` and `recheck-2026-11-17/register.html` serve with the register, verdicts and decision log; the root hub carries the recheck card. This record entry (with one cosmetic header fix in the recheck hub table) ships as the follow-up PR noted in the PR timeline; the working branch `arena/1e93b0b8-tino5` is closed out at that point.
+
+---
+
+## Session `arena-b78790bf` — phased-entry and adviser brief (2026-11-19)
+
+**Claim / scope:** add a privacy-safe, printable Attorney & CPA checklist and clarify the phased Treasury-to-equity crash-entry test. Scope is limited to `public-safe/briefing.html`, `public-safe/index.html`, `public-safe/black-swans.html`, `scripts/verify_safe.py`, and this record. No personal data or owner-specific values are published.
+
+**Delivery:** added a one-page-print stylesheet and decision checklist, linked from the public-safe dashboard. Added a 3-month-to-2-year Treasury ladder followed by a precommitted 24–36 month equity-phasing candidate beside immediate investment and cash/Treasury hold paths. Reinvestment, inflation, opportunity, and timing risks are stated explicitly. The page specifies a common-date historical replay protocol for the 1929 and 2007–08 stress windows but deliberately reports no backtest result because no qualifying reproducible total-return dataset/model was verified in this change.
+
+**Primary references opened:** Federal Reserve History, “Stock Market Crash of 1929” https://www.federalreservehistory.org/essays/stock-market-crash-of-1929 ; U.S. TreasuryDirect bills https://www.treasurydirect.gov/marketable-securities/treasury-bills/ and notes https://www.treasurydirect.gov/marketable-securities/treasury-notes/ ; Treasury yield curve https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield ; IRS estate tax https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax and Publications 551 / 527; California BOE Proposition 19 https://www.boe.ca.gov/prop19/ . The historical source describes the crash, not investment portfolio returns; no performance claim is inferred from it.
+
+**Verification:** `scripts/verify_safe.py` PASS (14 pages, 16 tables, 128 source-linked rows; local targets resolve; $10 rounding and identifier-pattern checks pass); `scripts/check_published_surface.py` PASS (245 published files, zero failures; private parcel-history check skipped because the external private list is not present); `scripts/check_landing.py` PASS (16 targets); privacy scan PASS (0 findings); `git diff --check` PASS. No build/deploy result claimed from this local verification.
+
+**Open:** the repository's history scrub remains the previously documented owner decision (F1); no force-push/history rewrite was performed. The phased historical replay remains uncomputed pending sourced monthly total-return data, transparent assumptions, and independent review.
