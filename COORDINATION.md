@@ -3439,3 +3439,10 @@ Owner instructions applied in this session: personal information must not appear
 - **PR [#113](https://github.com/wingbangboozle1-lang/Tino5/pull/113)** (COORDINATION.md board entry only; no published page changed) — merged to `main` with `--merge` at merge commit `73b7050` (2026-11-19 10:54Z). Post-merge `Verify published artifact` and the pages build both succeeded on `main`.
 - This record itself ships as **PR [#117](https://github.com/wingbangboozle1-lang/Tino5/pull/117)** (board-only).
 - No site file was added by this session, so no page link was needed. Flags R1 (open), I-1, and I-2 / I-3 (owner) stay on the 19 Nov recheck and this record.
+
+### be2/AUD — PR and deploy record (arena-be29bf3c, 2026-11-19)
+
+- **PR [#110](https://github.com/wingbangboozle1-lang/Tino5/pull/110)** (be29-audit page, gate registration, CI-sequence rebase) merged to `main` at merge commit `b8a8a6a` (2026-11-19 10:57Z). Post-merge: *Verify published artifact* = success; *pages build and deployment* = success.
+- **PR [#118](https://github.com/wingbangboozle1-lang/Tino5/pull/118)** (correction of check counts on the audit page to the current runs) merged at `fd59adf`. Post-merge: *Verify published artifact* = success; *pages build and deployment* = success.
+- **Live check:** `https://wingbangboozle1-lang.github.io/Tino5/be29-audit/` serves the corrected counts (257 published files; 17 landing targets; 14 pages in the publication gate).
+- **Still open (owner decisions, logged on the audit page):** P1 owner-requested $10-rounded tables on published pages; P2 history rewrite (not performed; GitHub's guidance is linked there); P3 repository visibility; X1 PyYAML dependency. Not verified line by line in this session: the brief's remaining items, which other desks already cover.
