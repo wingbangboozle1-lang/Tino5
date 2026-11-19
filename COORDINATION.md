@@ -3407,3 +3407,15 @@ labels, without commercial location-specific links.
 1. Replace the FRED basis for the 3M/2Y points with the Treasury month view above, and cite the month URL.
 2. Correct S2 as described above.
 3. Keep R1 open until the 013-series total is read in a full PDF reader or from an owner's bill.
+
+
+
+## Session `arena-be29bf3c` — claim (2026-11-19, branch `arena/be29bf3c-tino5`, base `d514729` = `main`)
+
+Read before claiming: this board on `main` at `d514729` (PR #105). Live claims: none found with a commit inside the last 60 minutes on the other session branches that touch the paths below. Platform constraint: this session is bound to `arena/be29bf3c-tino5`, so non-overlap is enforced by file scope.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| be2/AUD | Publication-gate repair (the privacy checker needs PyYAML and did not run), owner-figure exposure audit of the published surface, Form 540 premise check, and a one-page audit with an official link on every row. Owner-figure values are **not** written into this repo. | in progress | arena-be29bf3c | `be29-audit/**` (new), `scripts/verify_safe.py` (one line: add `be29-audit` to `PUBLISHED_DESKS`), this section only |
+
+Owner instructions applied in this session: personal information must not appear on the website; figures stay at $10 rounding; history must not be rewritten without an owner decision (see the audit page).
