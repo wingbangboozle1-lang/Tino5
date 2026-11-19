@@ -3482,3 +3482,13 @@ Read the current coordination board and checked the open pull requests before cl
 - **Still open:** the public repository history contains prior pre-rounding material. This session did not rewrite shared history or change repository visibility; current `main` is privacy-clean at the published-surface checks, but the historical exposure is not erased.
 
 **Conflict resolution (2026-11-19, close-out):** retained the upstream PR #117 record, prior coordination request, and current audit close-out; no record was dropped.
+
+## Session `arena-affa1993` — final integration claim (2026-11-19, branch `arena/affa1993-tino5`, base `869486c`)
+
+The coordination board and open pull requests were checked before claiming. PR #93 (one operating desk) and PR #91 (an alternate decision hub) have had no commits since 2026-11-15 and are eligible for handoff under the 60-minute rule. This session takes over **PR #93's consolidated-desk implementation only** because it covers the broader requirements and privacy containment; PR #91 is not integrated. Recent recheck/audit PRs #110, #114, and #117 are already merged; current `main` is at `869486c`. PR #118 only adjusts the separate audit page and does not overlap the site-shell scope below.
+
+| ID | Task | Status | Session | File scope |
+|----|------|--------|---------|-----------|
+| affa/INT | Take over the stale one-operating-desk integration, preserve the newest official recheck/audit pages, re-verify the combined sources and model, and integrate a single privacy-first Pages entry point. Do not edit another session’s desk data; leave unknown values blank and flagged. | in progress | arena-affa1993 | `desk-ops/**`, `.github/workflows/privacy-pages.yml`, `.gitignore`, `COORDINATION.md`, `_config.yml`, `index.html`, `scripts/verify_safe.py`, `README.md` |
+
+**Handoff note:** PR #93 last changed 2026-11-15; this session will record the takeover and any conflict resolution. The pre-rounding Git history remains a separate owner/admin action and will not be force-rewritten from this branch.
