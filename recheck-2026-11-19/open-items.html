@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open items & flags — Recheck 2026-11-19</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Open items & flags</h1>
+<p>Periodic official-source recheck — 2026-11-19 — Property A (future trust inheritance, Santa Clara County) &middot; Property B (already owned, San Francisco County)</p>
+</header>
+<nav><span class="grp">Recheck</span><a href="index.html">Hub</a><a href="register.html">Constants register</a><a href="open-items.html" class="active">Open items &amp; flags</a><a href="rebuild.html">Rebuild &amp; movement</a><a href="law-watch.html">Law watch</a><span class="grp">Reference</span><a href="requirements.html">Requirement index</a><a href="repo-review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a></nav>
+<main>
+
+<div class="card">
+<h2>Flags carried from 2026-11-17 — status 2026-11-19</h2>
+<p class="small">The six items left open by the 2026-11-13 verification register map to the flags below:
+composite property-tax rate (R1), water utility tariff (R2), water and sewer schedule (R3, closed),
+transfer tax brackets (R7), mortgage rate (closed 2026-11-17, re-confirmed this cycle),
+house-price series (R4).</p>
+<table><thead><tr><th>Flag</th><th>What it is</th><th>Status this cycle</th><th>Discovery action</th></tr></thead><tbody><tr><td>R1</td><td>Exact FY2025-26 composite property-tax rate for the property's taxing area (rate book, 013 series)</td><td>STILL OPEN <span class="tag tag-open">OPEN</span> — this session re-read the rate book from the cover through the 005 series; the 013-series pages sit beyond the automated parse window, same limit as last cycle</td><td>Open the linked county rate book, section III, pages for the 013 series, or read the parcel's tax bill; record the total and this flag closes. Do not infer a total from components.</td></tr><tr><td>R2</td><td>Provider of record for Property A's water (tariff territory)</td><td>STILL OPEN <span class="tag tag-open">OPEN</span> — the confirmed utility's Schedule No. 1 territory covers portions of the property's city; a second provider serves other parts of the same jurisdiction</td><td>Check the tax bill or the county assessor record for the service district; one line closes this.</td></tr><tr><td>R3</td><td>Residential stormwater tiers for Property B (Schedule D)</td><td>CLOSED <span class="tag tag-verified">CONFIRMED</span> — Schedule D transcribed in full this session: Tier 1 $12.63, Tier 2 $19.66, Tier 3 $29.55 per month (FY2026-27); Schedule C standard rates also transcribed</td><td>Residual: which tier applies needs the parcel's net area (owner action). The structure is now confirmed.</td></tr><tr><td>R4</td><td>California 2026 annual FHFA HPI change (statutory input to the Feb 2027 Prop 19 cap adjustment)</td><td>STILL OPEN <span class="tag tag-open">OPEN</span> — the quarterly release carrying the 2026 annual change is scheduled for 24 Nov 2026 and has not published</td><td>Re-read the FHFA quarterly release on or after 24 Nov 2026; BOE publishes the adjusted cap in February 2027.</td></tr><tr><td>R5</td><td>Property B water-band discrepancy (owner band vs derived tariff band)</td><td>STILL OPEN <span class="tag tag-open">OPEN</span> — unchanged this cycle</td><td>Twelve-month bill breakdown by component (water, wastewater, stormwater) before the rent paths are re-ranked.</td></tr><tr><td>R6</td><td>Property B utility discrepancy (see R5)</td><td>STILL OPEN <span class="tag tag-open">OPEN</span> — unchanged this cycle</td><td>Same as R5.</td></tr><tr><td>R7</td><td>City transfer-tax factsheet vintage (May 2017 chart carrying a 2025 file name)</td><td>STILL OPEN <span class="tag tag-open">OPEN</span> — re-read this session; low tiers unchanged, top tiers ($13.75 / $15.00 per $500) match the enacted 5.5% / 6% rates</td><td>Confirm against the current Business and Tax Regulations Code text before any sale in the $10M+ tiers.</td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h2>New flags this cycle</h2>
+<table><thead><tr><th>Flag</th><th>What it is</th><th>Why it is not resolved here</th><th>Discovery action</th></tr></thead><tbody><tr><td>S1</td><td>Recording-fee PDF link now returns 404</td><td>The county fee-schedule PDF cited by the 2026-11-17 recheck is no longer served; the live Clerk-Recorder fees page carries the same figures</td><td>Source updated to the live page this cycle <span class="tag tag-updated">UPDATED</span>. No figure changed.</td></tr><tr><td>S2</td><td>Treasury daily-yield page paginates; latest rows not reachable in the automated read</td><td>The Treasury TextView table shows only the first page of 2026 rows; the CSV download returned an error in this session</td><td>Latest yields taken from the Federal Reserve Bank of St. Louis daily series (sourced from Treasury) <span class="tag tag-updated">UPDATED</span>. Re-check the Treasury page directly if a dated curve is needed.</td></tr><tr><td>S3</td><td>Prop 19 repeal initiative failed to qualify</td><td>The Secretary of State failure memo confirms the petition fell short; the exact signature total is not published</td><td>Recorded on the law-watch page as FAILED <span class="tag tag-proposed">FAILED</span>. No discovery action — the proposal is dead for 2026.</td></tr></tbody></table>
+</div>
+
+</main>
+<footer>Built 2026-11-19 by session arena-c267f0b0 from one generator (<code>_src/build.py</code>). Working decision aid, not advice. Figures rounded to the nearest $10 except agency-published exact figures marked EXACT. County-level anonymisation: no names, street addresses, ZIP codes, parcel or account numbers.</footer>
+</body>
+</html>

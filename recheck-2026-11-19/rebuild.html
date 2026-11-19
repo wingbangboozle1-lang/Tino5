@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rebuild & movement — Recheck 2026-11-19</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Rebuild & movement</h1>
+<p>Periodic official-source recheck — 2026-11-19 — Property A (future trust inheritance, Santa Clara County) &middot; Property B (already owned, San Francisco County)</p>
+</header>
+<nav><span class="grp">Recheck</span><a href="index.html">Hub</a><a href="register.html">Constants register</a><a href="open-items.html">Open items &amp; flags</a><a href="rebuild.html" class="active">Rebuild &amp; movement</a><a href="law-watch.html">Law watch</a><span class="grp">Reference</span><a href="requirements.html">Requirement index</a><a href="repo-review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a></nav>
+<main>
+
+<div class="card">
+<h2>Rebuild and movement check — 2026-11-19</h2>
+<p>The owner brief requires that after any input change the model and the site be rebuilt and the
+recommendation re-tested. The coverage-desk model was re-run this session
+(<code>desk-03242c78/_src/model.py</code>, 21 regression tests OK, desk verifier PASS). The only
+numeric inputs that moved this cycle are the short Treasury yields. The movement arithmetic below
+uses the model's own 2045-baseline ranking.</p>
+<table><thead><tr><th>Path (2045 baseline, net worth incl. shelter)</th><th>Net worth</th><th>Gap to top path</th></tr></thead><tbody><tr><td>P3 — Sell A at the transfer date and invest at once <span class="tag tag-derived">DERIVED</span></td><td>$27,776,120</td><td>—</td></tr><tr><td>P6 — Sell A, park in Treasuries 24 months, then phase in <span class="tag tag-derived">DERIVED</span></td><td>$26,797,770</td><td>$978,350</td></tr><tr><td>P6b — Sell A, park in Treasuries 36 months, then phase in <span class="tag tag-derived">DERIVED</span></td><td>$26,486,170</td><td>$1,289,950</td></tr><tr><td>P4 — Live in A five years, then sell under section 121 <span class="tag tag-derived">DERIVED</span></td><td>$24,634,440</td><td>$3,141,680</td></tr><tr><td>P5 — Let A out ten years, then sell <span class="tag tag-derived">DERIVED</span></td><td>$20,497,510</td><td>$7,278,610</td></tr><tr><td>P7 — Sell A and B; own neither building <span class="tag tag-derived">DERIVED</span></td><td>$20,152,370</td><td>$7,623,750</td></tr><tr><td>P2 — Let A out; live in B's vacant unit <span class="tag tag-derived">DERIVED</span></td><td>$19,315,550</td><td>$8,460,570</td></tr><tr><td>P1 — Live in A; let all three units at B <span class="tag tag-derived">DERIVED</span></td><td>$19,071,710</td><td>$8,704,410</td></tr></tbody></table>
+<p class="small">Model output, 2045 baseline. All money rounded to the nearest $10 by the model build.</p>
+</div>
+
+<div class="card">
+<h2>Why the ranking holds</h2>
+<table><thead><tr><th>Changed input</th><th>Size of the change</th><th>Effect on the ranking</th></tr></thead><tbody><tr><td>2-year Treasury yield 4.88% → 4.80% (17 Nov 2026)</td><td>−0.08 percentage points on the parking leg. On the modelled proceeds (about $3,100,000) over 24 months: about $4,960.</td><td>0.5% of the $978,350 gap between P3 and P6. The phased paths keep their order; P3 keeps the lead. <span class="tag tag-move">NO MOVE</span></td></tr><tr><td>3-month Treasury yield 4.32% → 4.33%</td><td>+0.01 percentage points on the bill leg.</td><td>Immaterial. <span class="tag tag-move">NO MOVE</span></td></tr><tr><td>2027 federal basic exclusion $15,480,000 (unchanged)</td><td>Re-confirmed this session; no change from the 2026-11-17 adoption.</td><td>The exclusion stays slack at every modelled transfer date. No path flips. <span class="tag tag-move">NO MOVE</span></td></tr><tr><td>City transfer-tax proposal reactivated (still PROPOSED)</td><td>No enacted rate change.</td><td>Models keep enacted rates. No path flips. <span class="tag tag-move">NO MOVE</span></td></tr><tr><td>Prop 19 repeal failed to qualify</td><td>Removes a proposal that was never modelled.</td><td>If anything, removes a tail risk that would have changed the answer. Current-law ranking holds. <span class="tag tag-move">NO MOVE</span></td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h2>Phased-entry replay (unchanged this cycle)</h2>
+<p>On $1,000,000 at the transfer date with a 35% crash at month 12 (2045 baseline): buy at once
+$2,376,690; park 24 months then phase in $3,133,130. Break-even crash depth for the 24-month park:
+14.3% at months 0–12, 14.9% at month 24, 23.8% at month 36. The yield update above moves these
+figures by less than 1% and does not change the break-evens' order.</p>
+<p class="small">Reinvestment risk is shown beside the headline on the phased-investing desks; the cost of
+the cushion on a flat market is the price of the crash protection. See the phased pages on the
+coverage and black-swan desks.</p>
+</div>
+
+</main>
+<footer>Built 2026-11-19 by session arena-c267f0b0 from one generator (<code>_src/build.py</code>). Working decision aid, not advice. Figures rounded to the nearest $10 except agency-published exact figures marked EXACT. County-level anonymisation: no names, street addresses, ZIP codes, parcel or account numbers.</footer>
+</body>
+</html>

@@ -49,6 +49,8 @@ GUARD_CODE_ALLOWLIST = {
     "swan-3a49/build.py", "tino5-3f269806/_src/verify.py", "verify-552/verify.py",
     # recheck-2026-11-17 (arena-1e93b0b8): same detection-only purpose (verifier word list).
     "recheck-2026-11-17/_src/verify.py",
+    # recheck-2026-11-19 (arena-c267f0b0): same detection-only purpose (verifier word list).
+    "recheck-2026-11-19/_src/verify.py",
 }
 
 URL = re.compile(r'https?://[^\s"\'<>)\]\\]*')

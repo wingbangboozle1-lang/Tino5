@@ -65,7 +65,7 @@ DEPLOYMENT_EXCLUSIONS = {
 # sensitivity read from the official FTB instructions, Census ACS rent comparables, the
 # five-year maintenance plan, the estate liquidity plan, a distribution chart and the
 # decision-and-date log. Folded into the same single set.
-PUBLISHED_DESKS = {"privacy", "decision-ad038", "referee-abae", "decision", "desk-d75", "cbe", "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-03242c78", "desk-85a01c5c", "recheck-2026-11-17"}
+PUBLISHED_DESKS = {"privacy", "decision-ad038", "referee-abae", "decision", "desk-d75", "cbe", "inheritance-desk", "desk-8be2", "desk-31cb5781", "decision-d2664fd0", "desk-03242c78", "desk-85a01c5c", "recheck-2026-11-17", "recheck-2026-11-19"}
 EXPECTED_PAGES = {
     "index.html", "decision.html", "projections.html", "properties.html", "costs.html",
     "black-swans.html", "briefing.html", "tax.html", "process.html", "law-watch.html", "suggestions.html",
@@ -93,6 +93,9 @@ ALLOWED_HOSTS = {
     # tariff documents.
     "plandev.santaclaracounty.gov", "controller.santaclaracounty.gov", "sfgov.legistar.com",
     "www.freddiemac.com", "www.sfpuc.gov", "www.sjwater.com",
+    # recheck-2026-11-19 (session arena-c267f0b0): county Clerk-Recorder fees page,
+    # Secretary of State initiative pages, FRED daily series.
+    "clerkrecorder.santaclaracounty.gov", "www.sos.ca.gov", "elections.cdn.sos.ca.gov",
 }
 # Structural personal-data patterns only. No real identifier is stored in this file.
 PII = [
