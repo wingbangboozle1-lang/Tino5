@@ -3293,8 +3293,8 @@ Read before claiming: this board on `main` at `d514729` (PR #105) and every remo
 
 | ID | Task | Status | Session | File scope |
 |----|------|--------|---------|-----------|
-| c26/RECHECK | **Periodic official-source recheck 2026-11-19 (owner brief: "periodically recheck official federal, state and local authorities and distinguish enacted changes from proposals"; "re-run this model every year with updated inputs"; "after any input changes, rebuild the model and the site and see whether the recommendation moved").** Re-read every decision-critical constant live from its official document (IRS 2027 figures, BOE Prop 19 cap + adjustment rule, county rate book components, utility tariffs, city transfer-tax brackets + pending proposal status, Treasury yields, Freddie Mac PMMS, FHFA HPI), record confirmed / changed / unverified per row with the source link, run the rebuild-and-movement check, and publish the desk with the decision-and-date log. | in progress | arena-c267f0b0 | `recheck-2026-11-19/**` (new directory; generator/verifier in `recheck-2026-11-19/_src/`, not published), this section only |
-| c26/PRIVACY | **Privacy hardening of the published surface (owner brief: privacy top priority; "scrub pre-rounding git history / keep repo privacy-first").** Re-run the full privacy battery (`privacy_scan.py`, `verify_safe.py`, `check_published_surface.py`, `owner_figures_gate.py`, `privacy_hash_guard.py`, `check_landing.py`); audit the F5 non-$10 amounts on live pages row by row (statutory-exact vs fixable); attempt flag R1 (Property A TRA composite) from the official county rate book; update `flagged-for-review.html` with the current state. Git history rewrite is NOT performed here (shallow clone; rewrite + force-push of `main` needs an explicit owner decision — recorded as the procedure, not executed). | in progress | arena-c267f0b0 | `flagged-for-review.html`, `scripts/check_published_surface.py` (checker improvements only), `recheck-2026-11-19/**`, this section only |
+| c26/RECHECK | **Periodic official-source recheck 2026-11-19 (owner brief: "periodically recheck official federal, state and local authorities and distinguish enacted changes from proposals"; "re-run this model every year with updated inputs"; "after any input changes, rebuild the model and the site and see whether the recommendation moved").** Re-read every decision-critical constant live from its official document (IRS 2027 figures, BOE Prop 19 cap + adjustment rule, county rate book components, utility tariffs, city transfer-tax brackets + pending proposal status, Treasury yields, Freddie Mac PMMS, FHFA HPI), record confirmed / changed / unverified per row with the source link, run the rebuild-and-movement check, and publish the desk with the decision-and-date log. | done | arena-c267f0b0 | `recheck-2026-11-19/**` (new directory; generator/verifier in `recheck-2026-11-19/_src/`, not published), this section only |
+| c26/PRIVACY | **Privacy hardening of the published surface (owner brief: privacy top priority; "scrub pre-rounding git history / keep repo privacy-first").** Re-run the full privacy battery (`privacy_scan.py`, `verify_safe.py`, `check_published_surface.py`, `owner_figures_gate.py`, `privacy_hash_guard.py`, `check_landing.py`); audit the F5 non-$10 amounts on live pages row by row (statutory-exact vs fixable); attempt flag R1 (Property A TRA composite) from the official county rate book; update `flagged-for-review.html` with the current state. Git history rewrite is NOT performed here (shallow clone; rewrite + force-push of `main` needs an explicit owner decision — recorded as the procedure, not executed). | done | arena-c267f0b0 | `flagged-for-review.html`, `scripts/check_published_surface.py` (checker improvements only), `recheck-2026-11-19/**`, this section only |
 | c26/INT | **Integration:** merge `origin/main`, re-run the full verifier battery (all workflow build/verify/test commands), add `recheck-2026-11-19` to `PUBLISHED_DESKS` + `_config.yml` exclude for `_src` + workflow step + root hub card, PR to `main`, merge without waiting (owner instruction), confirm GitHub Pages deploy, record PR link and result here. | in progress | arena-c267f0b0 | root `index.html`, `_config.yml`, `scripts/verify_safe.py`, `.github/workflows/privacy-pages.yml`, `README.md` (only if needed), `COORDINATION.md`, this section only |
 
 **Privacy contract for c26.** Property A = future trust inheritance, Santa Clara County; Property B = already owned, San Francisco County; county level only. No city, neighbourhood, ZIP, street, parcel, account or personal name on any published page. Every dollar figure published is a multiple of $10, except statutory amounts quoted exactly as the agency publishes them and marked *exact*. Owner-supplied figures are labelled **owner-supplied – unverified**. No inferred values: a value that cannot be confirmed from an official source stays blank and is flagged.
@@ -3353,15 +3353,17 @@ clone is shallow (one squashed commit); the public remote retains the pre-roundi
 filter-repo + force-push procedure is documented on `recheck-2026-11-19/repo-review.html` as an
 explicit owner decision (F1) and was NOT executed.
 
-**Checks run (combined tree, 2026-11-19):** `recheck-2026-11-19/_src/verify.py` PASS (211 rows);
-all 37 workflow build/verify/test commands from `privacy-pages.yml` pass (including the new
-recheck steps and the stale checks); `scripts/verify_safe.py` PASS; `scripts/check_landing.py`
-17/0; `scripts/privacy_scan.py` 0 findings; `scripts/owner_figures_gate.py` PASS;
-`scripts/privacy_hash_guard.py` 0 hits; `scripts/check_published_surface.py` 255 files 0 failures;
-coverage-desk model 21 tests OK + verifier PASS.
+**Checks run (combined tree, 2026-11-19; re-run after rebase onto `origin/main` 701afc1):**
+`recheck-2026-11-19/_src/verify.py` PASS (211 rows); all 37 workflow build/verify/test commands
+from `privacy-pages.yml` pass, including recheck and staleness steps; `scripts/verify_safe.py`
+PASS; `scripts/check_landing.py` 17/0; `scripts/privacy_scan.py` 0 findings;
+`scripts/owner_figures_gate.py` PASS; `scripts/privacy_hash_guard.py` 0 hits;
+`scripts/check_published_surface.py` 256 files, 0 failures (private parcel-history check skipped,
+as designed, because the private list is absent); coverage-desk model 21 tests OK + verifier PASS;
+`git diff --check` clean. The later upstream privacy-containment record was kept during rebase; the
+shared source register now uses the official state insurance consumer resource and generic property
+labels, without commercial location-specific links.
 
 ### c26/INT — PR and deploy record (arena-c267f0b0, 2026-11-19)
 
-- **PR** (recheck-2026-11-19 + integration) — opened 2026-11-19 and merged to `main` without
-  waiting for approval (owner instruction). The exact merge commit and the post-merge check/Pages
-  results are recorded in the next entry of this file and in the PR timeline.
+- **PR status:** not yet opened. The branch was rebased onto `origin/main` after PR #112 landed; the `COORDINATION.md` conflict was resolved by preserving both the `arena-f2e72bb7` privacy-containment record and this session's task record. Current combined-tree gates and PR/Pages status will be recorded here after opening and merging.
