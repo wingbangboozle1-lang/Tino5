@@ -52,12 +52,18 @@ SOURCES = {
     "irs_2027": ("IRS · Rev. Proc. 2026-35 (2027 inflation adjustments)", "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"),
     "de300": ("California Courts · Form DE-300 (probate thresholds, deaths on or after 1 April 2025)", "https://www.courts.ca.gov/documents/de300.pdf"),
     "cpuc_sb695": ("CPUC · 2025 SB 695 report (net metering legacy periods)", "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/office-of-governmental-affairs-division/reports/2025/2025-sb-695-report_093025.pdf"),
+    "treasury_bills": ("U.S. Treasury · Treasury bills", "https://www.treasurydirect.gov/marketable-securities/treasury-bills/"),
+    "treasury_notes": ("U.S. Treasury · Treasury notes", "https://www.treasurydirect.gov/marketable-securities/treasury-notes/"),
+    "treasury_yields": ("U.S. Treasury · Daily Treasury yield curve", "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield"),
+    "fed_1929": ("Federal Reserve History · Stock market crash of 1929", "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929"),
+    "fed_recession": ("Federal Reserve History · Great Recession", "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath"),
 }
 
 NAV = [
     ("index.html", "Dashboard"), ("decision.html", "Decision"),
     ("projections.html", "Projections"), ("properties.html", "Properties"),
     ("costs.html", "Costs"), ("black-swans.html", "Black swans"),
+    ("briefing.html", "Attorney & CPA brief"),
     ("tax.html", "Inheritance & tax"), ("process.html", "Step by step"),
     ("law-watch.html", "Law watch"), ("suggestions.html", "Suggestions"),
     ("qa.html", "Questions & answers"), ("flagged.html", "Flagged for review"),
@@ -122,10 +128,11 @@ def table(caption, headers, rows):
     return (f'<div class="scroll"><table><caption>{escape(caption)}</caption><thead><tr>{head}</tr></thead>'
             f'<tbody>{"".join(body)}</tbody></table></div>')
 
-def page(slug, title, eyebrow, body, lead=""):
+def page(slug, title, eyebrow, body, lead="", header_status=None):
     nav = "".join(f'<a{" aria-current=page" if target == slug else ""} href="{target}">{escape(label)}</a>' for target, label in NAV)
+    status = header_status or f"Public · privacy-first · source checked {AS_OF}"
     doc = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>{escape(title)}</title><link rel="stylesheet" href="style.css"></head><body>
-<header><a href="index.html">Estate decision desk</a><span>Public · privacy-first · source checked {AS_OF}</span></header><div class="layout"><nav aria-label="Sections">{nav}</nav><main><div class="eyebrow">{escape(eyebrow)}</div><h1>{escape(title)}</h1>{f'<p class="lead">{lead}</p>' if lead else ''}{body}
+<header><a href="index.html">Estate decision desk</a><span>{escape(status)}</span></header><div class="layout"><nav aria-label="Sections">{nav}</nav><main><div class="eyebrow">{escape(eyebrow)}</div><h1>{escape(title)}</h1>{f'<p class="lead">{lead}</p>' if lead else ''}{body}
 <footer><p><strong>Scope.</strong> This public site contains no household names, addresses, ZIP codes, parcel identifiers, household bills, rents, property values, or account details. Property A is the future trust inheritance; Property B is already owned. Those roles are stated without publishing identifying financial inputs.</p><p><strong>Not advice.</strong> Rules and thresholds may change before a future transfer. Confirm the then-current law and obtain legal, tax, insurance, appraisal, and investment advice for the actual estate.</p></footer></main></div></body></html>'''
     (OUT / slug).write_text(doc, encoding="utf-8")
 
@@ -144,18 +151,29 @@ def build():
     (OUT / "style.css").write_text(CSS, encoding="utf-8")
 
     # ---------------------------------------------------------------- index
-    body = '''<div class="notice bad"><strong>Executive summary:</strong> No defensible financial winner can be named today from official public sources alone. Property A is expected to arrive through a trust around the 2040&ndash;2050 planning window; Property B is already owned and is <strong>not</strong> part of that inheritance. Treat them as separate tax, operating-cost, and housing decisions.</div>
-<div class="grid"><div class="card"><b>Property A &mdash; future inheritance</b>Expected to arrive through a trust around 2040&ndash;2050. Transfer date, trust terms, income-tax basis, current insurance quote, utilities, and rent are not publicly verified here.</div><div class="card"><b>Property B &mdash; already owned</b>Already owned by the future inheritor; it is a separate asset and is not inherited through the trust. Its basis, multi-unit legal status, operating costs, and rental economics require separate review.</div><div class="card"><b>Key distinction</b>Inherited property (A) generally receives a date-of-death stepped-up basis and may qualify for the Prop 19 family transfer; already-owned property (B) keeps its existing basis and receives no step-up from this inheritance.</div><div class="card"><b>Known current federal rule</b>For 2026 the federal basic estate-tax exclusion is <span class="stat">$15,000,000</span> per decedent. It is an estate-level calculation, not a per-heir income-tax-free cash allowance.</div></div>
-<h2>Recommended decision sequence</h2><ol>
-<li><strong>Before transfer</strong> &mdash; establish trust authority, title, estate inclusion, basis records, family eligibility, and current law.</li>
-<li><strong>At transfer</strong> &mdash; obtain a date-of-death valuation and determine Prop 19 eligibility, deadlines, and the property-tax outcome for A.</li>
-<li><strong>Compare options for A</strong> &mdash; occupying, renting, and selling, using actual quotes, the actual local tax bill, defensible rent, reserves, and after-tax investment alternatives.</li>
-<li><strong>Hold B separately</strong> &mdash; keep B's ownership, existing tenants, housing use, tax basis, and repair obligations in a separate ledger; do not treat A's inheritance as B being inherited.</li>
-<li><strong>Review suggestions first</strong> &mdash; use the Suggestions page to compare candidate actions and choose a path before implementing any change.</li>
+    body = '''<div class="notice bad"><strong>Decision status:</strong> No path is a verified household recommendation yet. The facts most likely to change the result remain open; start with these questions rather than treating any model ranking as a decision.</div>
+<h2>Answer-changing unknowns &mdash; read first</h2>
+<div class="grid">
+<div class="card"><b>1. Trust and transfer</b>Confirm the trust instrument, title, who has decision authority, and the actual transfer date. The expected planning window is not a verified transfer date.</div>
+<div class="card"><b>2. Estate-wide tax and liquidity</b>Establish the whole estate, prior taxable gifts, any portability election, filing obligations, and liquid assets for expenses or tax. Estate tax is separate from income-tax basis.</div>
+<div class="card"><b>3. Basis and timing of a sale</b>Obtain a defensible date-of-death valuation and the records needed to establish basis. Compare a sale in the transfer tax year with later sale timing; do not assume a tax result without the actual trust and tax facts.</div>
+<div class="card"><b>4. Property A use and Prop 19</b>Will an heir genuinely make A a principal residence, and for how long? Eligibility, occupancy and filing deadlines, reassessment, and the cost of leaving early can change the comparison.</div>
+<div class="card"><b>5. Rental and operating evidence</b>For A, establish market rent, vacancy, insurance, utilities, repairs, and maintenance from current records or written quotes. For already-owned B, separately verify existing rental income, leases, the vacant unit and possible owner occupancy, and its costs. Unknown figures stay blank.</div>
+<div class="card"><b>6. After-tax path and risk policy</b>Compare income tax, property-tax reassessment, and transfer costs separately. Ask advisers about section 121, depreciation and recapture, whether a like-kind exchange is available and suitable, estate liquidity, and the investment policy before any proceeds are invested.</div>
+</div>
+<div class="callout"><strong>Latest official-source recheck: 19 November 2026.</strong> The recheck record contains the dated official constants register, open items, enacted-versus-proposed law watch, and a rebuild-and-movement check. The reference model ranking was unchanged under its stated assumptions; that is not a confirmed household recommendation while the unknowns above remain open. <a href="../recheck-2026-11-19/index.html">Read the recheck</a> · <a href="../recheck-2026-11-19/register.html">Official constants register</a> · <a href="../recheck-2026-11-19/open-items.html">Open items</a> · <a href="../recheck-2026-11-19/rebuild.html">Model movement record</a>.</div>
+<div class="grid"><div class="card"><b>Property A &mdash; future trust inheritance</b>Transfer date, trust terms, income-tax basis, current insurance quote, utilities, market rent, and maintenance remain unverified unless specifically supported by an official source or current record.</div><div class="card"><b>Property B &mdash; already owned</b>B is separate from the inheritance. Keep its existing rental income and tenancy obligations distinct; confirm the vacant-unit/possible owner-occupancy plan and B's own basis and costs.</div><div class="card"><b>Key tax distinction</b>A future inheritance may receive a date-of-death basis adjustment under applicable law. B does not become inherited because A is transferred. Property-tax reassessment and transfer costs are separate questions.</div><div class="card"><b>Current-law scope</b>Rules and statutory thresholds on the detailed pages are time-bound. The latest recheck records 2027 federal figures and current proposal status; the rules must be checked again before any future transfer.</div></div>
+<h2>Decision sequence</h2><ol>
+<li><strong>Before transfer</strong> &mdash; establish trust authority, title, estate inclusion, basis records, prior gifts, portability, and current law.</li>
+<li><strong>At transfer</strong> &mdash; obtain a date-of-death valuation and determine Prop 19 eligibility, occupancy and filing deadlines, and the property-tax outcome for A.</li>
+<li><strong>Compare A's choices</strong> &mdash; occupy, rent, sell, or combine paths at the same dates and horizons, using verified costs, defensible rent, after-tax treatment, reserves, and liquidity.</li>
+<li><strong>Keep B separate</strong> &mdash; record its existing ownership, tenants and rental income, possible vacant-unit occupancy, tax basis, and repair obligations independently.</li>
+<li><strong>Write the decision down</strong> &mdash; agree on the evidence threshold, investment policy, adviser questions, decision, and date before an irreversible action.</li>
 </ol>
-<p>As a provisional strategy&mdash;not a numeric recommendation&mdash;avoid committing to A before verifying the trust and tax treatment. The verified rules below describe current law, not 2040&ndash;2050 law.</p>'''
+<p>This is a privacy-first decision framework, not a numeric forecast. Owner-specific values and tax histories are deliberately omitted; unresolved values remain blank in the detailed desk. The source-recheck register is evidence of what was re-read, not a substitute for facts about an individual trust or property.</p>'''
     page("index.html", "A disciplined inheritance decision", "Executive summary", body,
-         "Separate the future inherited home from the already-owned rental property; use official rules, protect private figures, and delay irreversible choices until verified transfer facts exist.")
+         "Separate the future trust inheritance from the already-owned property; put decision-reversing unknowns first, use current official sources, and delay irreversible choices until transfer facts are verified.",
+         header_status="Public · privacy-first · summary refreshed 19 November 2026 · latest official recheck linked")
 
     # ---------------------------------------------------------------- decision
     body = table("Decision framework &mdash; numeric cells are illustrative assumptions, not verified facts",
@@ -253,7 +271,7 @@ def build():
         ["Regime", "What to shock", "Why it matters", "Official historical / monitoring source"],
         [
             ("Historic inflation flare-up / stagflation", "BLS annual-average CPI inflation was 13.5% in 1980. Stress several years of high inflation with weak real growth; raise insurance, water, repairs and other costs separately.",
-             "A high-inflation episode is documented; do not assume all household costs or home values rise at the same rate.", link("blshist") + " &middot; " + link("fed")),
+             "A high-inflation episode is documented; do not assume all household costs or home values rise at the same rate. " + link("blshist"), link("blshist") + " &middot; " + link("fed")),
             ("Recent inflation and utility-cost shock", "BLS reported 12-month CPI inflation of 6.5% and electricity inflation of 14.3% through December 2022. Stress headline inflation and electricity separately.",
              "One smooth inflation rate can understate uneven costs; solar credits and tariffs are property-specific.", link("bls2022") + " &middot; " + link("cpuc")),
             ("Interest-rate and liquidity shock", "Test higher borrowing costs, lower bond/stock values and delayed sale timing.",
@@ -267,7 +285,15 @@ def build():
             ("Long low-return period", "Use a prolonged low real return and poor early sequence for a diversified portfolio.",
              "A fixed average return is not a safe proxy for the order of returns.", link("fed") + " &middot; " + link("bls")),
         ])
-    body += '''<h2>How to use the scenarios</h2>
+    body += '''<h2>Phased Treasury-to-equity path: crash-entry stress test</h2>
+<p>Candidate path for analysis, not a recommendation: after a sale, hold the proceeds in a Treasury ladder with maturities spanning three months to two years, then move a predetermined fraction into a diversified stock allocation on a written schedule over 24&ndash;36 months. Keep spending reserves and tax liabilities outside the ladder. Treasury securities still carry inflation, reinvestment, market-value (if sold before maturity), and timing risk; they do not guarantee a real return. Confirm current product terms and tax treatment before use. ''' + link("treasury_bills") + " &middot; " + link("treasury_notes") + " &middot; " + link("treasury_yields") + '''</p>
+<div class="scroll"><table><caption>Entry-risk comparison framework (no simulated result asserted)</caption><thead><tr><th scope="col">Path</th><th scope="col">Exposure at once</th><th scope="col">Crash-entry risk</th><th scope="col">Reinvestment / opportunity risk</th><th scope="col">What to compute before choosing</th></tr></thead><tbody>
+<tr><td>Immediate investment</td><td>Entire investable balance, immediately</td><td>Highest if a severe drawdown begins just after entry; diversified holdings can still fall sharply.</td><td>Low cash-reinvestment risk; high sequence and behavioral risk.</td><td>Same-date historical cohort outcomes, taxes, reserve and asset allocation. ''' + link("treasury_notes") + '''</td></tr>
+<tr><td>Phased 24&ndash;36 month entry from short Treasuries</td><td>Exposure rises according to a written schedule.</td><td>May reduce the amount exposed before a crash during staging; does not eliminate loss or guarantee a better outcome.</td><td>Cash may earn less than equities; maturities may reinvest at lower yields; staging can lag a rising market.</td><td>Monthly Treasury and broad-market total returns, exact staging rule, taxes, costs, and terminal values at identical horizons. ''' + link("treasury_yields") + '''</td></tr>
+<tr><td>Remain in Treasuries or cash</td><td>Little or no stock exposure.</td><td>Avoids stock drawdown while held but does not protect purchasing power in every inflation regime.</td><td>Inflation and reinvestment risk persist; long-term growth may be insufficient.</td><td>After-tax real yield, spending needs, inflation shocks, and a planned review/exit rule. ''' + link("treasury_bills") + '''</td></tr>
+</tbody></table></div>
+<p><strong>Historical replay specification.</strong> A quantitative replay should test entry dates before the 1929 peak and the 2007&ndash;08 crisis, plus rolling start dates, using the same starting balance, allocation, rebalancing, fees, tax assumptions and staging calendar for each path. Compare interim drawdown, recovery time and after-tax real wealth at common horizons. Do not state a result until the underlying monthly market and Treasury total-return series and the exact rule are sourced and reproducible. Federal Reserve historical accounts document those episodes; they do not by themselves provide a complete investment-return dataset. ''' + link("fed_1929") + " &middot; " + link("fed_recession") + '''</p>
+<h2>How to use the scenarios</h2>
 <p>Growth and inflation are never constant over 50 years. For each regime, vary one factor and then combine correlated shocks (for example, high inflation together with an insurance premium shock and a flat housing market). Keep nominal and inflation-adjusted results separate. Compare the same horizon and include taxes, transaction costs, vacancy, capital spending and the value of housing. No single black-swan scenario is assigned a probability or presented as a prediction.</p>
 <h3>Baseline projection convention (assumption &mdash; not a forecast)</h3>
 <p>Project market value forward from a verified transfer-year baseline using a named annual growth rate, and project taxable value under Proposition 13's 2% annual cap unless a change of ownership triggers reassessment. Run the same calculation under several growth paths (for example, lower-than-average, typical, higher-than-average) so the decision does not rest on one number. Property-specific cells are blank and must be filled from verified inputs at transfer time.</p>'''
@@ -408,6 +434,11 @@ def build():
         "courts": "California probate process overview.",
         "leginfo": "California statutes and legislative code database.",
         "sftreasurer": "San Francisco secured property-tax rate and reassessment practice.",
+        "treasury_bills": "U.S. Treasury description of marketable Treasury bills.",
+        "treasury_notes": "U.S. Treasury description of marketable Treasury notes.",
+        "treasury_yields": "Official Treasury yield-curve data for current market monitoring.",
+        "fed_1929": "Federal Reserve History account of the 1929 stock-market crash.",
+        "fed_recession": "Federal Reserve History account of the Great Recession.",
     }
     for key, description in descriptions.items():
         rows.append((link(key), escape(description), "Official primary source"))

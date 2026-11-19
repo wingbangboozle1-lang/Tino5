@@ -18,8 +18,17 @@ jobs:
       - name: Privacy hash guard (owner-location tokens)
         run: python3 scripts/privacy_hash_guard.py
 
-      - name: Earlier release (public-safe/)
-        run: python scripts/verify_safe.py
+      - name: Privacy-first decision desk (public-safe/) — rebuild, then verify
+        run: |
+          python scripts/build_desk.py
+          python scripts/verify_safe.py
+      - name: Privacy-first decision desk generated pages are current
+        run: |
+          if ! git diff --quiet -- public-safe; then
+            echo "::error::public-safe/ is stale. Re-run scripts/build_desk.py and commit the result."
+            git --no-pager diff --stat -- public-safe
+            exit 1
+          fi
       - name: Owner-figure gate (no raw bill or roll figures on the published surface)
         run: python3 scripts/owner_figures_gate.py
       - name: Decision desk (review-092b/) — rebuild, then verify
@@ -174,3 +183,5 @@ jobs:
           fi
       - name: Landing page links resolve
         run: python scripts/check_landing.py
+      - name: Published surface privacy and internal-link gate
+        run: python3 scripts/check_published_surface.py
