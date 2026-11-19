@@ -259,6 +259,17 @@ SOURCES = [
         checked="Retrieved and read 2026-11-14. All three schedules were transcribed row by row.",
     ),
     dict(
+        id="ftb_2025_booklet",
+        publisher="California Franchise Tax Board",
+        title="2025 Instructions for Form 540 Personal Income Tax Booklet, line 62",
+        url="https://www.ftb.ca.gov/forms/2025/2025-540-booklet.html",
+        evidences=(
+            "Line 62 is the Behavioral Health Services Tax: if taxable income (Form 540, line 19) is more "
+            "than $1,000,000, subtract $1,000,000 and multiply the remainder by 1%, in whole dollars."
+        ),
+        checked="Retrieved and read 2026-11-19 (chunk 11 of 27, the 'Other Taxes' section). Line 62 text transcribed.",
+    ),
+    dict(
         id="leginfo_rtc17043",
         publisher="California Legislative Information",
         title="Revenue and Taxation Code section 17043",

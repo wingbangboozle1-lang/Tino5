@@ -586,8 +586,8 @@ def page_inheritance_tax():
         (["Gain excluded under section 121", "Also excluded from the net investment income tax",
           pill("ver", "verified"), _src_cell(["irs_niit"])], None),
         (["California treatment of capital gains", "Taxed as ordinary income, 1% to 12.3%, plus a 1% "
-          "surcharge on taxable income over $1,000,000", pill("ver", "verified"),
-          _src_cell(["ftb_2025_rates", "leginfo_rtc17043"])], "hi"),
+          "Behavioral Health Services Tax (Form 540 line 62, formerly the mental health surcharge): 1% on taxable income over $1,000,000", pill("ver", "verified"),
+          _src_cell(["ftb_2025_rates", "ftb_2025_booklet", "leginfo_rtc17043"])], "hi"),
         (["Top California marginal rate", ("num", "13.3%"), pill("der", "derived"),
           _src_cell(["ftb_2025_rates", "leginfo_rtc17043"], "12.3% from the schedules plus the 1% "
                     "surcharge in Revenue and Taxation Code 17043")], None),
